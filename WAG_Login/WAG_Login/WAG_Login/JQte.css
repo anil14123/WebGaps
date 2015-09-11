@@ -1,0 +1,91 @@
+﻿
+.design-jqte_editor
+{
+    padding:5px;
+    /*outline: 1px dashed black;*/
+    padding-bottom:0;
+}
+
+
+#text_edtor_as_is {
+  position:relative;
+}
+
+.jqte_toolbar {
+  
+   border: 1px dotted rgba(0,0,0,1);
+   background:#ffffff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e9eb));
+   background: -webkit-linear-gradient(top,#ffffff,#ffffff);
+   background: -moz-linear-gradient(top, #ffffff, #e6e9eb);
+   background: -ms-linear-gradient(top,#ffffff, #e6e9eb);
+   background: -o-linear-gradient(top,#ffffff, #e6e9eb);
+  
+   z-index:9999999999;
+
+   padding:1px;
+   color: black;
+   font-size: 16px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+
+   }
+
+.jqte_toolbar:hover {
+  outline:2px solid #fcfcfc;
+   background:#83cf41;
+   color: #ccc;
+   }
+
+.jqte_toolbar
+{
+    position:absolute;
+  
+    border-radius:5px;
+    display:none;
+    overflow:visible;
+    
+
+}
+
+.jqte
+{
+    border:none;
+    text-shadow:none;
+    overflow:visible;
+    position:relative;
+    max-width : 100%;
+}
+
+.jqte div
+{
+    font-size:"";
+}
+
+.jqte *{
+    color:none;
+}
+
+.jqte_editor{
+    overflow:hidden;
+}
+
+.jq-text-block .jqte_editor 
+{
+ 
+   background-color:transparent;
+}
+
+page .jqte_editor {
+    min-height : 0;
+    min-width : 0;
+}
+
+.control-page{
+    overflow:visible;
+}
+
+.jqte_tool, .jqte_tool_icon, .jqte_tool_label{
+   border:none;
+}

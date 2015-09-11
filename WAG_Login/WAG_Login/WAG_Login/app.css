@@ -1,0 +1,232 @@
+﻿body {
+    margin: auto 5px;
+}
+
+.hide {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#firstTimeHelp {
+    position: fixed;
+    left: 40%;
+    top: 33%;
+    background-color: #b6c218;
+    padding: 20px;
+    color: black;
+    border: 1px solid #9fa82b;
+    z-index: 99999999999;
+}
+
+#xa {
+    display: none;
+}
+
+.preview-buttons {
+    position: fixed;
+    left: 20%;
+    z-index: 9999999;
+}
+
+.close-preview {
+    display: none;
+    z-index: 999999;
+}
+
+.show-preview {
+    z-index: 999999;
+}
+
+.clear {
+    clear: both;
+}
+
+rootx {
+    display: block;
+}
+
+
+.column {
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+}
+
+.design-column {
+    outline: 1px dotted blue; /* for debugging  outline: 2px dotted blue;*/
+    outline: 1px dashed #282424;
+}
+
+.design-row {
+    /*outline: 2px dotted lightblue; /* for debugging  outline: 2px dotted lightblue;*/
+    /*outline: 1px dashed #151313;*/
+}
+
+.design-empty-css {
+    margin-left: 10px;
+    margin-right: 10px;
+    outline: 3px dashed orange;
+    cursor: pointer;
+    min-width: 10px;
+    min-height: 30px;
+    max-width: 100%;
+    padding: 10px;
+}
+
+.design-empty-text-css {
+    outline: 1px dotted #4699e1;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.design-select-element {
+    outline: 5px dashed black;
+}
+
+.row {
+    margin: 0px;
+    padding: 15px; /* for debugging padding:15px;*/
+    padding: 0px;
+    clear: both;
+    max-width: 100%;
+}
+
+.page-static-element {
+    working great font-weight: bold;
+    width: 100px;
+    display: inline-block;
+    padding-left: 5px;
+    border-top: 1px solid #96d1f8;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 12px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+    display: block;
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+.design-text-block {
+    /*outline: 1px solid black;*/
+}
+
+
+.design-column-X .design-row-X {
+    outline: 2px dotted maroon;
+}
+
+.design-row-X .design-row-X {
+    outline: 2px dotted maroon;
+}
+
+.page_element-X {
+    outline: 2px dotted green;
+    padding: 5px;
+}
+
+.debug-row-css {
+    /*padding: 2px;*/
+    margin-left: 4px;
+    font-size: 4px;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    /* border-radius:5px;*/
+    color: #71AF13;
+    background-color: #71AF13;
+    color: #4699e1;
+    background-color: #4699e1;
+}
+
+.debug-column-css {
+    padding: 2px;
+    font-size: 4px;
+    width: 10px;
+    height: 10px;
+    float: left;
+    border-radius: 5px;
+    color: #71AF13;
+    background-color: #71AF13;
+    color: #4699e1;
+    background-color: #4699e1;
+    display: inline-block;
+}
+
+.debug-text-block-css {
+    padding: 1px;
+    display: block;
+    text-align: left;
+    color: transparent;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: xx-small;
+}
+
+.debug-text-block-container-css {
+    padding: 5px;
+    text-align: right;
+    color: white;
+    background-color: #1f364b;
+    display: block;
+    font-weight: bold;
+    font-size: x-small;
+    display: none;
+}
+
+
+.debug-image-block-css {
+    padding: 1px;
+    display: block;
+    text-align: left;
+    color: transparent;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: xx-small;
+}
+
+.debug-image-block-container-css {
+    padding: 5px;
+    text-align: right;
+    color: white;
+    background-color: #1f364b;
+    display: block;
+    font-weight: bold;
+    font-size: x-small;
+    ;
+    display: none;
+}
+
+
+/**/
+
+.image-selection {
+    border: 4px solid transparent;
+    -o-border-image: url('Content/border-image.png') 30 round;
+    -moz-border-image: url('Content/border-image.png') 30 round;
+    -webkit-border-image: url('Content/border-image.png') 30 round;
+    border-image: url('Content/border-image.png') 30 round;
+    /*border-style:ridge;
+     border-color:white;
+     border-width:1px;*/
+}
+

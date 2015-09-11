@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    time delay :
+
+   function chromeTimeDelay(){
+        if (navigator.userAgent.indexOf("Chrome") > 0)
+        {
+         var d =e = new Date();
+     
+            while(d.getTime()<(e.getTime()+1500))
+            {
+            d=new Date();
+            }
+        }
+   }
+
+   function dontdisplaycheckbox(){
+      for(var i=0;i<=10;i++){
+      chromeTimeDelay();
+      alert("abcdefgh");
+    }
+
+</body>
+</html>

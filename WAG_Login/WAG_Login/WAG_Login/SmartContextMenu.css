@@ -1,0 +1,50 @@
+﻿
+
+.smart-context-menu {
+    display: none;
+    position: absolute;
+    border: 1px solid grey;
+    width: 150px;
+    box-shadow: 2px 2px 1px grey;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 500;
+}
+
+
+.smart-context-menu-items {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    color: #333;
+    font-family: 'lucida sans unicode',sans-serif;
+}
+
+
+.smart-context-menu-items li {
+    position: relative;
+    cursor: default;
+    text-align: left;
+    border-bottom: solid 1px #ccc;
+}
+
+    .smart-context-menu-items li:first-child {
+        padding-top: 8px;
+    }
+
+    .smart-context-menu-items li:last-child {
+        padding-bottom: 10px;
+        border: none;
+    }
+
+    .smart-context-menu-items li:hover {
+        background: #EC6603;
+        color: #fff;
+    }
+
+
+.smart-context-menu-items .li {
+    z-index: 999999999;
+    padding: 8px;
+}

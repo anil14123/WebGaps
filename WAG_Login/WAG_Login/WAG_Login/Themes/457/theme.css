@@ -1,0 +1,228 @@
+﻿body {
+}
+
+padding-3{
+    padding:3px;
+}
+
+.root-elements.padding-root-elements {
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.root-elements-templates.padding-root-elements {
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.jq-Any {
+    display: none;
+}
+
+/********************************* Header **************************/
+
+.jq-Header {
+   
+    background-color: aliceblue;
+    outline: none;
+}
+
+.jq-back-Header {
+}
+
+.jq-additional-Header {
+}
+
+/**************************** Logo **************************/
+
+.jq-Logo {
+    background-color: brown;
+    min-height: 100px;
+}
+
+.jq-back-Logo {
+}
+
+.jq-additional-Logo {
+}
+
+/************************** Menu Bar *************************/
+
+.jq-MenuBar {
+   
+    background-color: lightblue;
+    outline: none;
+}
+
+.jq-back-MenuBar {
+}
+
+.jq-additional-MenuBar {
+}
+
+/****************************** Menu **************************/
+
+.jq-Menu {
+}
+
+.jq-back-Menu {
+}
+
+.jq-additional-Menu {
+}
+
+/****************************** Content **************************/
+
+.jq-Content {
+   
+    background-color: white;
+    outline: none;
+}
+
+.jq-back-Content {
+}
+
+.jq-additional-Content {
+}
+
+/**************************** Side Bar Left ************************/
+
+.jq-SideBarLeft {
+    /*min-height: 500px;*/
+}
+
+.jq-back-SideBarLeft {
+}
+
+.jq-additional-SideBarLeft {
+}
+
+/**************************** Middele Content ************************/
+
+.jq-MiddleContent {
+   
+}
+
+.jq-back-MiddleContent {
+}
+
+.jq-additional-MiddleContent {
+}
+
+/**************************** Side Bar Right ************************/
+
+.jq-SideBarRight {
+    /*min-height: 500px;*/
+}
+
+.jq-back-SideBarRight {
+}
+
+.jq-additional-SideBarRight {
+}
+
+/**************************** Side Bar Right ************************/
+
+.jq-Footer {
+   
+    background-color: grey;
+    outline: none;
+}
+
+.jq-back-Footer {
+}
+
+.jq-additional-Footer {
+}
+
+.jq-text-block {
+    /* padding:10px; */
+    display: block;
+}
+
+.jq-text-block-container {
+   
+   
+       z-index:100;
+}
+
+.jq-image-block {
+    /* padding:10px; */
+    display: block;
+    width:100%;
+    height:100%;
+}
+
+.jq-image-block-container {
+    /*display: inline-block;*/
+    z-index:100;
+    /* padding:4px;*/
+
+    width:100%;
+    height:100%;
+}
+
+.jq-image-block-image-wrapper
+{
+     width:100%;
+    height:100%;
+}
+
+.jq-image-block-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%!important;
+    max-height: 100%!important;
+}
+
+.action-link {
+    padding: 8px;
+}
+
+.normal-element {
+    
+   
+}
+
+.empty-container {
+    display: inline-block;
+   max-width:100%;   
+   float:left;
+}
+
+.empty-container-image {
+    display: inline-block;
+   max-width:100%;   
+   float:left;
+
+   width:200px;
+   height:200px;
+}
+
+.empty-container-text {
+    display: inline-block;
+   max-width:100%;   
+   float:left;
+
+   min-width:50px;
+
+}
+
+.empty-container-menu {
+    display: block;
+   max-width:100%;   
+   float:left;
+
+   min-width:50px;
+
+
+}
+
+.jq-padding-5px {
+ padding:5px;
+}
+
+.float-left {
+    float:left;
+}

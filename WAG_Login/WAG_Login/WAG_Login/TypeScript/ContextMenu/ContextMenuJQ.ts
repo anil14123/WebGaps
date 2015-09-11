@@ -1,0 +1,625 @@
+﻿/// <reference path="../../library/jquery.d.ts" />
+
+/////////////////////////// window adding property /////////////////////
+interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
+
+declare var window: MyWindow;
+
+////////////////////////////////////////////////////////////////////////
+
+import impWatch = require("../Watch/WatchMouseJQ");
+import impError = require("../Error/ErrorJQ");
+import impAddRowControl = require("../Controls/ControlsJQ");
+import impCopy = require("../Watch/CopyPasteJQ");
+import impInsertImage = require("../Controls/ImageJQ");
+import impBorder = require("../Controls/BorderJQ");
+import impColor = require("../Controls/ColorJQ");
+import impText = require("../Controls/TextJQ");
+import impHeightWidth = require("../SmartMenu/SmartMenuJQ");
+import impCommon = require("../Common/CommonMethodsJQ");
+import impJqueryUi = require("../Controls/JQueryUI");
+import impCommonSmart = require("../common/CommonEvents");
+import impMenuControl = require("../Controls/Menujq");
+import impBi = require("../Controls/BIjq");
+
+var G_isAttachedContextMenu = false;
+
+var CTX_MENU_DISABLED_CLASS = "ctx-menu-disabled";
+
+var ctxMenuIsReady = false;
+
+var isBreak = false;
+
+export module ContextMenu {
+
+
+    export class ContextMenuJQ {
+
+        isAttached: Boolean;
+
+        controlId = "#contextMenu";
+
+        constructor(extra?) {
+        }
+
+        public Init() {
+
+            this.MainEvents();
+        }
+
+        public static ContextMenuBinding() {
+            // context menu event ...
+            jQuery(document).bind("contextmenu", function (e) {
+
+                if (jQuery(e.target).closest(".control-page").length == 0) {
+                    impWatch.Watch.MouseJQ.ProcessClick(e);
+                    e.preventDefault();
+
+                    var contextMenu = new ContextMenuJQ();
+
+                    contextMenu.DetectContextMenu();
+
+                    // adjustment based on windows
+                    var pageY = e.pageY;
+
+                    if ((jQuery(window).scrollTop() + pageY) >= (jQuery(window).height() - 250)) {
+
+                        pageY = e.pageY - 250;
+                    }
+
+                    var pageX = e.pageX;
+                    if (e.pageX > ($(document).width() - 200)) {
+                        pageX = e.pageX - 150;
+                    }
+                    /////////////////
+
+                    jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
+                    jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
+                    jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
+                }                    // To prevent the default context menu.
+
+                e.cancelBubble = false;
+            });
+        }
+
+        public DetectContextMenu() {
+
+
+            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-height-width").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-border").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+
+            jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-paste").parent().addClass(CTX_MENU_DISABLED_CLASS);
+
+            jQuery(".ctx-menu-insert").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-text").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-image").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-youtube").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-html").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-css").parent().addClass(CTX_MENU_DISABLED_CLASS);
+
+            jQuery(".ctx-menu-delete-element").parent().addClass(CTX_MENU_DISABLED_CLASS);
+
+            if (selectedElement.hasClass("root-elements")) {
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+            if (selectedElement.hasClass("jqRootRow")) {
+                jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+            if (selectedElement.hasClass("column")) {
+
+                jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+            if (selectedElement.hasClass("empty-container")) {
+                jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+            if (
+                selectedElement.hasClass("jq-plus-container")
+                ||
+                selectedElement.hasClass("empty-container-text")
+                ||
+                selectedElement.hasClass("empty-container-image")
+                ) {
+                jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+        }
+
+        public static AttachDeleteElement() {
+
+            jQuery(".li.ctx-menu-delete-element").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.DeleteElement();
+
+            })
+        }
+
+        public static AttachInsertText() {
+
+            jQuery(".li.smart-menu-insert-text").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlInsertText();
+
+                impText.Text.TextJQ.ProcessSelectNotify();
+
+            });
+
+            jQuery(".li.ctx-menu-insert-text").on("click", function () {
+
+                window.smartObj = null;
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlInsertText();
+
+                impText.Text.TextJQ.ProcessSelectNotify();
+
+            });
+
+        }
+
+        public static AttachControlPageClose() {
+
+            jQuery(".control-templates").find(".close-button").click(function () {
+                jQuery(".control-page").removeClass("control-active");
+                ContextMenuJQ.ShowProperties();
+            });
+
+            jQuery(".control-page").find(".close-button").click(function () {
+                jQuery(".control-page").removeClass("control-active");
+                ContextMenuJQ.ShowProperties();
+            });
+        }
+
+        public static ShowProperties() {
+            if (!jQuery(".jq-properties-all").hasClass("forced-hide")) {
+                jQuery(".jq-properties-all").show();
+            }
+        }
+
+        public static ControlPageHide() {
+
+            jQuery(".control-page").hide();
+            jQuery(".control-page").attr("style", "");
+            jQuery(".control-page").css("display", "none");
+            jQuery(".control-page").removeClass("control-active");
+
+            if (jQuery(".jq-properties-all").css("display") == "block") {
+                jQuery(".jq-properties-all").addClass("normal-hide");
+                jQuery(".jq-properties-all").hide();
+            }
+            else {
+                if (!jQuery(".jq-properties-all").hasClass("forced-hide")) {
+                    jQuery(".jq-properties-all").show();
+                }
+            }
+        }
+
+        public static ShowControlInsertText() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-insert-text").addClass("control-active");
+
+            jQuery("#control-insert-text").show();
+            jQuery("#control-insert-text").trigger("cust_loaded");
+        }
+
+        public static ShowControlAddRow() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            var controlId = impAddRowControl.Page.AddRowJQ.pageId;
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery(controlId).addClass("control-active");
+
+
+            jQuery(controlId).show();
+            jQuery(controlId).trigger('cust_loaded');
+        }
+
+        public static ShowMenu() {
+
+            new impMenuControl.Menu.MenuJQ().Init();
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery(".control-menu").addClass("control-active");
+
+
+            jQuery(".control-menu").show();
+            impMenuControl.Menu.MenuJQ.ProcessShow();
+            //jQuery("control-menu").trigger('cust_loaded');
+        }
+
+        public static InsertImage() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            var controlId = impInsertImage.Image.SelfJQ.controlId;
+
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery(controlId).addClass("control-active");
+
+
+            jQuery(controlId).show();
+            jQuery(controlId).trigger('custom_loaded');
+        }
+
+
+        public static CopyElement() {
+
+            //var copyObj = new impCopy.CopyPaste.SelfJQ();
+
+            impCopy.CopyPaste.SelfJQ.Copy();
+        }
+
+        public static DeleteElement() {
+
+            //var copyObj = new impCopy.CopyPaste.SelfJQ();
+
+            impCopy.CopyPaste.SelfJQ.Delete();
+        }
+
+        public static CutElement() {
+
+            //var copyObj = new impCopy.CopyPaste.SelfJQ();
+
+            impCopy.CopyPaste.SelfJQ.Cut();
+        }
+
+        public static PasteElement() {
+
+            //var copyObj = new impCopy.CopyPaste.SelfJQ();
+
+            impCopy.CopyPaste.SelfJQ.Paste();
+        }
+
+
+
+        public static ShowControlHeightWidth() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-height-width").addClass("control-active");
+
+            jQuery("#control-height-width").show();
+        }
+
+        public static ShowBorderControl() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-border").addClass("control-active");
+
+
+            jQuery("#control-border").show();
+        }
+
+        public static ShowColor() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-color").addClass("control-active");
+
+
+            jQuery("#control-color").show();
+        }
+
+        public static ShowBackgroundImage() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-bi").addClass("control-active");
+
+            jQuery("#control-bi").show();
+        }
+
+
+        public static AttachAddRow() {
+            jQuery(".li.ctx-menu-add-row").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlAddRow();
+
+                impAddRowControl.Page.AddRowJQ.ProcessSelectNotify();
+
+            });
+        }
+
+
+
+        public static AttachHeightWidth() {
+
+            jQuery(".li.ctx-menu-height-width").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlHeightWidth();
+
+                impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachBorder() {
+
+            new impBorder.Border.BorderJQ().Init();
+
+            jQuery(".li.ctx-menu-border").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowBorderControl();
+
+                impBorder.Border.BorderJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachCopy() {
+            jQuery(".li.ctx-menu-copy").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.CopyElement();
+            });
+        }
+
+        public static AttachCut() {
+            jQuery(".li.ctx-menu-cut").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.CutElement();
+            });
+        }
+
+        public static AttachPaste() {
+            jQuery(".li.ctx-menu-paste").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.PasteElement();
+            });
+        }
+
+        public static AttachInsertImage() {
+
+            new impInsertImage.Image.SelfJQ().Init();
+
+            jQuery(".li.smart-menu-insert-image").on("click", function () {
+
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.InsertImage();
+
+                impInsertImage.Image.SelfJQ.ProcessSelectNotify();
+
+            });
+
+            jQuery(".li.ctx-menu-insert-image").on("click", function () {
+
+                window.smartObj = null;
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.InsertImage();
+
+                impInsertImage.Image.SelfJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachBackgroundImage() {
+
+            new impBi.BI.BIJQ().Init();
+
+            jQuery(".li.ctx-menu-background-image").on("click", function () {
+
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowBackgroundImage();
+
+                impBi.BI.BIJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachInsertMenu() {
+          
+            jQuery(".li.ctx-menu-insert-menu").on("click", function () {
+
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowMenu();
+
+                impMenuControl.Menu.MenuJQ.ProcessSelectNotify();
+
+            });
+        }
+
+
+        public static AttachColor() {
+
+            new impColor.Color.ColorJQ().Init();
+
+            jQuery(".li.ctx-menu-color").on("click", function () {
+
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowColor();
+
+                impColor.Color.ColorJQ.ProcessSelectNotify();
+
+            });
+        }
+
+      
+
+
+        public static ContextInnerMenuShowHide() {
+
+
+            jQuery("#contextMenuitems").find(".li").mouseenter(function (e) {
+
+                // adjustment based on window.
+                var left = 147;
+                if (e.pageX > ($(document).width() - 200)) {
+                    left = -150;
+                }
+
+                jQuery(this).parent().find(".innerListContainer").first().css("left", left + "px");
+                jQuery(this).parent().find(".innerListContainer").first().css("display", "block");
+
+
+            });
+
+            jQuery("#contextMenuitems").find("li").mouseleave(function (e) {
+
+
+                jQuery(this).find(".innerListContainer").first().css("display", "none");
+
+
+            });
+
+        }
+
+        public static LiClick() {
+            // selected item ...
+            jQuery("#contextMenuitems > li").click(function () {
+                // alert($(this).text());  // Performing the selected function.
+
+            });
+
+        }
+
+        MainEvents() {
+
+
+            jQuery(document).ready(function () {
+
+                if (ctxMenuIsReady == false) {
+                    ctxMenuIsReady = true;
+                    
+                    jQuery(document).on("click", function () {
+
+                        jQuery("#contextMenu").hide(500);              // To hide the context menu
+                        jQuery("#smInsertNextPrev").hide(500);
+                    });
+
+                    if (G_isAttachedContextMenu == false) {
+                        G_isAttachedContextMenu = true;
+
+                        
+                        ContextMenuJQ.ContextMenuBinding();
+                        ContextMenuJQ.LiClick();
+                        ContextMenuJQ.ContextInnerMenuShowHide();
+                        ContextMenuJQ.AttachInsertText();
+                        ContextMenuJQ.AttachAddRow();
+                        ContextMenuJQ.AttachDeleteElement();
+                        ContextMenuJQ.AttachHeightWidth();
+                        ContextMenuJQ.AttachCopy();
+                        ContextMenuJQ.AttachPaste();
+                        ContextMenuJQ.AttachCut();
+                        ContextMenuJQ.AttachInsertImage();
+                        ContextMenuJQ.AttachBorder();
+                        ContextMenuJQ.AttachColor();
+                        ContextMenuJQ.AttachInsertMenu();
+                        ContextMenuJQ.AttachBackgroundImage();
+
+                        ContextMenuJQ.AttachControlPageClose();
+                    }
+                }
+            });
+
+
+        }
+
+
+
+    }
+
+}

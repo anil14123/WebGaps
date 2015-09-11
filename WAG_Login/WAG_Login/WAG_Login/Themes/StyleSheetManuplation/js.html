@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    link : http://stackoverflow.com/questions/3164740/can-jquery-change-css-style-definition-not-individual-css-of-each-element
+
+    var sheet= document.styleSheets[0];
+    var rules= 'cssRules' in sheet? sheet.cssRules : sheet.rules; // IE compatibility
+    rules[0].style.padding= '0.32em 2em';
+
+    if ('insertRule' in sheet)
+    sheet.insertRule('td { padding: 0.32em 2em }', rules.length);
+    else // IE compatibility
+    sheet.addRule('td', 'padding: 0.32em 2em', rules.length);
+
+</body>
+</html>

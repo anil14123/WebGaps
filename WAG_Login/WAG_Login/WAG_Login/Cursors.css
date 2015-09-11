@@ -1,0 +1,99 @@
+﻿
+.percent-100 {
+    width: 100%;
+    height: 100%;
+}
+
+.jq-cursor {
+    height: 30px;
+    width: 30px;
+    cursor: none;
+    position: absolute;
+}
+
+.cursor-move {
+}
+
+.cursor-right {
+}
+
+.cursor-down {
+}
+
+
+
+/*<div class="jq-cursor cursor-move">
+        <img class="percent-100" src="Content/Cursor/move.png" />
+    </div>
+    <div class="jq-cursor cursor-right">
+        <img class="percent-100" src="Content/Cursor/right.png" />
+    </div>
+    <div class="jq-cursor cursor-down">
+        <img class="percent-100" src="Content/Cursor/down.png" />
+    </div>*/
+
+
+
+.ui-icon {
+    font-size: 4em;
+}
+
+/*.ui-resizable-e {
+    cursor: url(Content/Cursor/Large/Green/SizeRightLeft.cur), auto;
+}
+
+.ui-resizable-s {
+    cursor: url(Content/Cursor/Large/Green/SizeTopDown.cur), auto;
+}
+
+.ui-resizable-se {
+    cursor: url(Content/Cursor/Large/Green/SizeHW.cur), auto;
+}*/
+
+.ui-draggable-handle {
+    position: relative;
+    cursor: move; /*url('Content/Cursor/Black Move/Move.cur'), auto;*/
+   
+}
+
+.ui-resizable-handle {
+     overflow:visible;
+}
+
+.ui-resizable-e {
+}
+
+
+.ui-resizable-se {
+}
+
+
+.ui-resizable-s {
+}
+
+.jq-square {
+    width: 8px;
+    height: 8px;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    box-shadow: rgb(0, 0, 0) -1px -1px;
+}
+
+.jq-square-e {
+    left: -2px;
+    top: 50%;
+}
+
+.jq-square-se {
+    right: 1px;
+    bottom: 0;
+
+    right:-5px;
+    bottom:-5px;
+}
+
+.jq-square-s {
+    top: -1px;
+    left: 50%;
+}

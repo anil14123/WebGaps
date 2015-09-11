@@ -1,0 +1,11 @@
+﻿.jq-plus-container-text {
+    display: inline;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.jq-plus-container-text-not-used {
+    display: none;
+}

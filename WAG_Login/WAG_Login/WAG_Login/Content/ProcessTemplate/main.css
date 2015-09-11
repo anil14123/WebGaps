@@ -1,0 +1,25 @@
+﻿
+.search-box {
+    background-color: black;
+
+    padding:3px;
+}
+
+.search-lable {
+    color:white;
+    padding:2px;
+}
+
+.search {
+    border: 1px solid #808080;
+    width: 800px;
+    height: 20px;
+}
+
+.search-button{
+    background-color:black;
+    color:#ffffff;
+    border:1px solid white;
+
+    padding: 5px 10px;
+}

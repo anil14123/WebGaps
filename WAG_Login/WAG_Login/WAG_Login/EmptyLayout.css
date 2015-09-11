@@ -1,0 +1,31 @@
+﻿.empty-layout {
+    width: 160px;
+   height: 180px;
+}
+
+.empty-template-wrapper {
+    padding: 5px;
+    box-shadow: #4b5abd -8px -8px;
+    box-shadow:#86bfd1 -8px -8px;
+    border: 1px solid #000000;
+    margin: 8px;
+
+    float:left;
+}
+
+.empty-layout-select {
+    border: 6px solid #B77444;
+    border-radius: 5px;
+    padding:0;
+}
+
+.column-layout-border-yellow
+{
+    border:2px solid green;
+}
+
+.column-layout-border-brown
+{
+    
+    border:2px solid lightgreen
+}
