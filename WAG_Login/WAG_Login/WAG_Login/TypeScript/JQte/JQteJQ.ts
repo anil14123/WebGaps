@@ -1,6 +1,6 @@
 ﻿
 import impError = require("../Error/ErrorJQ");
-
+import impWatch = require("../Watch/WatchMouseJQ");
 
 import impUndoManager = require("../UndoManager/UndoManager");
 
@@ -166,6 +166,7 @@ export module JQte {
             jQuery("page").unbind("click");
             jQuery("page").on("click", function (e) {
 
+                impWatch.Watch.MouseJQ.ProcessClick(e);
 
                 /////// context menu hide //////
                 jQuery("#contextMenu").hide(500);              // To hide the context menu
