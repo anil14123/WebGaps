@@ -36,7 +36,10 @@
                             <div class="checkbox">
                                 <asp:CheckBox runat="server" ID="RememberMe" />
                                 <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="Forgot.aspx">Forgot Password</a>
                             </div>
+                           
                         </div>
                     </div>
                     <div class="form-group">

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAG_Login", "WAG_Login\WAG_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAG_Login.Tests", "WAG_Login.Tests\WAG_Login.Tests.csproj", "{8F722726-9EB2-4CD5-99B8-54326C2D57F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppGoLibrary", "..\..\WebAppGoTypeScript-X-Modulerization\WebAppGoLibrary\WebAppGoLibrary.csproj", "{EE26FF7C-0382-4E82-A4A3-335DABA5E721}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppGoLibrary", "..\..\..\WebAppGoTypeScript-X-Modulerization\WebAppGoLibrary\WebAppGoLibrary.csproj", "{EE26FF7C-0382-4E82-A4A3-335DABA5E721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

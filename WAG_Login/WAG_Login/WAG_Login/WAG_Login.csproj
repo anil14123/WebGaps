@@ -294,6 +294,7 @@
     <Content Include="Content\Save\save.png" />
     <Content Include="Content\Settings\settings.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Social\gpluslogin.png" />
     <Content Include="Content\ui-icons_222222_256x240.png" />
     <Content Include="Content\Undo\redo.png" />
     <Content Include="Content\Undo\undo.png" />
