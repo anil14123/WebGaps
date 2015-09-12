@@ -18,7 +18,7 @@ namespace WAG_Login
         {
             // Plug in your email service here to send an email.
             var email =
-           new MailMessage(new MailAddress("anil.kumar14123@gmail.com", "(do not reply)"),
+           new MailMessage(new MailAddress("anil.kumar14123@gmail.com", "WebGaps.com (do not reply)"),
            new MailAddress(message.Destination))
            {
                Subject = message.Subject,
