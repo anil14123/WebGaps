@@ -103,6 +103,9 @@ export module ContextMenu {
             jQuery(".ctx-menu-insert-youtube").parent().addClass(CTX_MENU_DISABLED_CLASS);
             jQuery(".ctx-menu-insert-html").parent().addClass(CTX_MENU_DISABLED_CLASS);
             jQuery(".ctx-menu-insert-css").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-menu").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-empty-space").parent().addClass(CTX_MENU_DISABLED_CLASS);
+
 
             jQuery(".ctx-menu-delete-element").parent().addClass(CTX_MENU_DISABLED_CLASS);
 
@@ -130,11 +133,13 @@ export module ContextMenu {
                 jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                 jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
             }
 
-            if (selectedElement.hasClass("empty-container")) {
+            if (selectedElement.hasClass("empty-container") && !selectedElement.hasClass("empty-container-spacer")) {
                 jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
@@ -154,11 +159,17 @@ export module ContextMenu {
                 selectedElement.hasClass("empty-container-text")
                 ||
                 selectedElement.hasClass("empty-container-image")
+                ||
+                selectedElement.hasClass("empty-container-spacer")
                 ) {
                 jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                 jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+            if (selectedElement.hasClass("empty-container-spacer")) {
+                jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
             }
 
         }
