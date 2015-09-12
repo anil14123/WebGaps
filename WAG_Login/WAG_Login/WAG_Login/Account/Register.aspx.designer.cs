@@ -13,6 +13,24 @@ namespace WAG_Login.Account {
     public partial class Register {
         
         /// <summary>
+        /// confirmation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl confirmation;
+        
+        /// <summary>
+        /// create control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl create;
+        
+        /// <summary>
         /// ErrorMessage control.
         /// </summary>
         /// <remarks>
