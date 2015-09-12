@@ -191,6 +191,8 @@ export module Image {
 
                     errorHandler.ActionSuccess("");
 
+                    jQuery(SelfJQ.controlId).hide();
+
                     impCommonCode.ControlCommon.Code.Execute();
                 }
                 else {

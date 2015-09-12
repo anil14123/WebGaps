@@ -232,6 +232,8 @@ export module Text {
 
                     jQuery(tbContainer).find(".debug-css").remove();
 
+                    jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
+
                     impCommonCode.ControlCommon.Code.Execute();
                 }
                 else {

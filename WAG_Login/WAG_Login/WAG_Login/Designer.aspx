@@ -72,7 +72,7 @@
 
 
     <div class="jq-plus-container jq-plus-container-not-used">
-        <div class="clear">
+      
             <div class="jq-plus-element">
 
                 <%--  <span class="jq-plus-prev jq-plus">
@@ -90,7 +90,7 @@
                 <span class="jq-plus-next jq-plus">+
                 </span>
             </div>
-        </div>
+        
     </div>
 
 
