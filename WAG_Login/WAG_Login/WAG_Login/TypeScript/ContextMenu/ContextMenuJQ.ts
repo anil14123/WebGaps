@@ -21,6 +21,7 @@ import impJqueryUi = require("../Controls/JQueryUI");
 import impCommonSmart = require("../common/CommonEvents");
 import impMenuControl = require("../Controls/Menujq");
 import impBi = require("../Controls/BIjq");
+import impSpacer = require("../Controls/SpacerJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -452,6 +453,20 @@ export module ContextMenu {
             });
         }
 
+        public static AttachSpacer() {
+
+            jQuery(".ctx-menu-insert-empty-space").on("click", function () {
+
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                impSpacer.Spacer.SpacerJQ.InsertSpacer();                                
+
+            });
+        }
+
         public static AttachInsertImage() {
 
             new impInsertImage.Image.SelfJQ().Init();
@@ -605,6 +620,7 @@ export module ContextMenu {
                         ContextMenuJQ.AttachPaste();
                         ContextMenuJQ.AttachCut();
                         ContextMenuJQ.AttachInsertImage();
+                        ContextMenuJQ.AttachSpacer();
                         ContextMenuJQ.AttachBorder();
                         ContextMenuJQ.AttachColor();
                         ContextMenuJQ.AttachInsertMenu();

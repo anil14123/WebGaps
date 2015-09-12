@@ -1,5 +1,5 @@
 /// <reference path="../../library/jquery.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer) {
     var G_isAttachedContextMenu = false;
     var CTX_MENU_DISABLED_CLASS = "ctx-menu-disabled";
     var ctxMenuIsReady = false;
@@ -275,6 +275,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     ContextMenuJQ.PasteElement();
                 });
             };
+            ContextMenuJQ.AttachSpacer = function () {
+                jQuery(".ctx-menu-insert-empty-space").on("click", function () {
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    impSpacer.Spacer.SpacerJQ.InsertSpacer();
+                });
+            };
             ContextMenuJQ.AttachInsertImage = function () {
                 new impInsertImage.Image.SelfJQ().Init();
                 jQuery(".li.smart-menu-insert-image").on("click", function () {
@@ -363,6 +371,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                             ContextMenuJQ.AttachPaste();
                             ContextMenuJQ.AttachCut();
                             ContextMenuJQ.AttachInsertImage();
+                            ContextMenuJQ.AttachSpacer();
                             ContextMenuJQ.AttachBorder();
                             ContextMenuJQ.AttachColor();
                             ContextMenuJQ.AttachInsertMenu();

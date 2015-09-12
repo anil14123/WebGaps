@@ -113,6 +113,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         ///// rearrange debug css completed...
                         jQuery(tbImageContainer).find(".debug-css").remove();
                         errorHandler.ActionSuccess("");
+                        jQuery(SelfJQ.controlId).hide();
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     else {

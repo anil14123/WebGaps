@@ -1095,6 +1095,9 @@
                             <div class="li ctx-menu-insert-image">Image</div>
                         </li>
                         <li>
+                            <div class="li ctx-menu-insert-empty-space">Spacer</div>
+                        </li>
+                        <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
                         </li>
                         <li>

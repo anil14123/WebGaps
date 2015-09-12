@@ -370,6 +370,70 @@
     <Content Include="SitesManager.aspx" />
     <Content Include="SmartContextMenu.css" />
     <Content Include="Text.css" />
+    <Content Include="Themes\457\img\1.jpg" />
+    <Content Include="Themes\457\img\10.jpg" />
+    <Content Include="Themes\457\img\11.png" />
+    <Content Include="Themes\457\img\12.png" />
+    <Content Include="Themes\457\img\13.png" />
+    <Content Include="Themes\457\img\14.jpg" />
+    <Content Include="Themes\457\img\15.jpg" />
+    <Content Include="Themes\457\img\16.jpg" />
+    <Content Include="Themes\457\img\17.jpg" />
+    <Content Include="Themes\457\img\18.jpg" />
+    <Content Include="Themes\457\img\19.jpg" />
+    <Content Include="Themes\457\img\2.jpg" />
+    <Content Include="Themes\457\img\20.jpg" />
+    <Content Include="Themes\457\img\21.jpg" />
+    <Content Include="Themes\457\img\22.jpg" />
+    <Content Include="Themes\457\img\23.jpg" />
+    <Content Include="Themes\457\img\24.jpg" />
+    <Content Include="Themes\457\img\25.jpg" />
+    <Content Include="Themes\457\img\26.jpg" />
+    <Content Include="Themes\457\img\28.jpg" />
+    <Content Include="Themes\457\img\29.jpg" />
+    <Content Include="Themes\457\img\3.jpg" />
+    <Content Include="Themes\457\img\4.jpg" />
+    <Content Include="Themes\457\img\5.jpg" />
+    <Content Include="Themes\457\img\6.jpg" />
+    <Content Include="Themes\457\img\7.jpg" />
+    <Content Include="Themes\457\img\8.jpg" />
+    <Content Include="Themes\457\img\9.jpg" />
+    <Content Include="Themes\457\img\blog-arrow.png" />
+    <Content Include="Themes\457\img\blog-divider.png" />
+    <Content Include="Themes\457\img\carousel-arrow-next.png" />
+    <Content Include="Themes\457\img\carousel-arrow-previous.png" />
+    <Content Include="Themes\457\img\feature-bg.jpg" />
+    <Content Include="Themes\457\img\header-img-2.jpg" />
+    <Content Include="Themes\457\img\header-img-3.jpg" />
+    <Content Include="Themes\457\img\header-img.jpg" />
+    <Content Include="Themes\457\img\header-lines.jpg" />
+    <Content Include="Themes\457\img\logo.png" />
+    <Content Include="Themes\457\img\nav-active.png" />
+    <Content Include="Themes\457\img\section-shadow.png" />
+    <Content Include="Themes\457\img\welcome-divider-lines.png" />
+    <Content Include="Themes\457\theme.css" />
+    <Content Include="Themes\abc\default.css" />
+    <Content Include="Themes\abc\images\banner-bg.png" />
+    <Content Include="Themes\abc\images\gradient-bg.png" />
+    <Content Include="Themes\abc\images\icon01.png" />
+    <Content Include="Themes\abc\images\icon02.png" />
+    <Content Include="Themes\abc\images\main-bg.png" />
+    <Content Include="Themes\abc\images\pic01.jpg" />
+    <Content Include="Themes\abc\images\pic02.jpg" />
+    <Content Include="Themes\abc\images\pic03.jpg" />
+    <Content Include="Themes\abc\images\pic04.jpg" />
+    <Content Include="Themes\abc\images\pic05.jpg" />
+    <Content Include="Themes\abc\images\social01.png" />
+    <Content Include="Themes\abc\images\social02.png" />
+    <Content Include="Themes\abc\images\social03.png" />
+    <Content Include="Themes\abc\images\social04.png" />
+    <Content Include="Themes\abc\index.aspx" />
+    <Content Include="Themes\abc\index.html" />
+    <Content Include="Themes\abc\jquery.slidertron-1.1.js" />
+    <Content Include="Themes\abc\license.txt" />
+    <Content Include="Themes\abc\preview.jpg" />
+    <Content Include="Themes\sample template\theme.css" />
+    <Content Include="Themes\StyleSheetManuplation\js.html" />
     <Content Include="TypeScript\app.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -585,6 +649,13 @@
       <DependentUpon>SitesManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Themes\abc\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Themes\abc\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -607,7 +678,6 @@
     <Folder Include="Secure\" />
     <Folder Include="Service References\" />
     <Folder Include="Snippet\" />
-    <Folder Include="Themes\" />
     <Folder Include="Third-Party\" />
     <Folder Include="TypeScript\Themes\All\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
@@ -634,6 +704,7 @@
     <TypeScriptCompile Include="TypeScript\Controls\ImageJQ.ts" />
     <TypeScriptCompile Include="TypeScript\Controls\JQueryUI.ts" />
     <TypeScriptCompile Include="TypeScript\Controls\MenuJQ.ts" />
+    <TypeScriptCompile Include="TypeScript\Controls\SpacerJQ.ts" />
     <TypeScriptCompile Include="TypeScript\Controls\TextJQ.ts" />
     <TypeScriptCompile Include="TypeScript\CssManager\CssManagerJQ.ts" />
     <TypeScriptCompile Include="TypeScript\Document\DocumentJQ.ts" />

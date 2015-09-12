@@ -14,7 +14,9 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../Jqte/JqteJQ"], f
                 impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-menu", "");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-spacer", "");
+                //impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
                 impJQueryUI.JQueryUI.CommonCode.Droppable(".column");
                 impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container");
                 jQuery(".ui-resizable-e").html("<div class='jq-square jq-square-e'></div>");

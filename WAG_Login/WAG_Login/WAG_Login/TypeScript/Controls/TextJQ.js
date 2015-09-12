@@ -141,6 +141,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                         jQuery(tbContainer).find(".jqte_editor").addClass("padding-5");
                         // jQuery(tbContent).find(".jqte").addClass("key normal-element design-css design-jqte_editor text-element");
                         jQuery(tbContainer).find(".debug-css").remove();
+                        jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     else {

@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impUndoManager) {
     var changed = false;
     var JQte;
     (function (JQte) {
@@ -111,8 +111,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../UndoManager/UndoManager"],
                     e.stopPropagation();
                 });
                 // draggable   ...
-                jQuery(document).unbind("click");
-                jQuery(document).on("click", function (e) {
+                jQuery("page").unbind("click");
+                jQuery("page").on("click", function (e) {
+                    impWatch.Watch.MouseJQ.ProcessClick(e);
                     /////// context menu hide //////
                     jQuery("#contextMenu").hide(500); // To hide the context menu
                     jQuery("#smInsertNextPrev").hide(500);

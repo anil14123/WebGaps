@@ -68,7 +68,7 @@ rootx {
 .design-empty-css {
     margin-left: 10px;
     margin-right: 10px;
-    outline: 3px dashed orange;
+    outline: 3px dashed #817f7d;
     cursor: pointer;
     min-width: 10px;
     min-height: 30px;

@@ -189,6 +189,14 @@ padding-3{
     display: inline-block;
    max-width:100%;   
    float:left;
+
+  width:100px;
+  height:100px;
+}
+
+.empty-spacer{
+     width:100%;
+   height:100%;
 }
 
 .empty-container-image {
