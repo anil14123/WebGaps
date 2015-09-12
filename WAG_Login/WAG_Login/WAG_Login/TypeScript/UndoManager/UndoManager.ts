@@ -76,17 +76,8 @@ export module Manager {
 
                 parent = jQuery(undoObj.parent);
 
-                if (parent.hasClass("root-elements")) {
-                    jQuery("div[unique-id='" + parent.attr("unique-id") + "']").html(undoObj.html);
-                }
-                else {
-                    if (parent.hasClass("page")) {
-
-                        jQuery("page[unique-id='" + undoObj.parent.attr("unique-id") + "']").html(undoObj.html);
-
-                    }
-                }
-
+                jQuery("page").html(undoObj.html);
+                 
                 impControlsCommon.ControlCommon.Code.Execute();
                 impControlsCommon.ControlCommon.Code.DestroyResizable();
                 impControlsCommon.ControlCommon.Code.Execute();
@@ -147,18 +138,8 @@ export module Manager {
 
                 if (undoObj != null) {
 
-                    if (jQuery(undoObj.parent).hasClass("column")) {
-                        jQuery("div[scopeid='" + undoObj.parent.attr("scopeid") + "']").html(undoObj.html);
-                    }
-                    else {
-                        if (undoObj.parent.attr("unique-id") == "0") {
-                            jQuery("page[unique-id='" + undoObj.parent.attr("unique-id") + "']").html(undoObj.html);
-                        }
-                        else {
-                            jQuery("div[unique-id='" + undoObj.parent.attr("unique-id") + "']").html(undoObj.html);
-                        }
-                    }
-
+                    jQuery("page").html(undoObj.html);
+                      
                     impControlsCommon.ControlCommon.Code.Execute();
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
@@ -230,22 +211,11 @@ export module Manager {
                 catch (ex) {
                 }
 
-
-                if (selectedParent == undefined) {
-                    selectedParent = jQuery("page");
-                }
+                selectedParent = jQuery("page");
 
                 var rootTemp: JQuery;
-                if (jQuery(selectedParent).hasClass("page")) {
-                    rootTemp = jQuery(selectedParent);
-                }
-                else
-                    if (jQuery(selectedParent).hasClass("root-elements")) {
-                        rootTemp = jQuery(selectedParent);
-                    }
-                    else {
-                        rootTemp = jQuery(selectedParent).closest(".root-elements");
-                    }
+
+                rootTemp = selectedParent;
 
                 var undo = new UndoJQ();
                 undo.parent = rootTemp;

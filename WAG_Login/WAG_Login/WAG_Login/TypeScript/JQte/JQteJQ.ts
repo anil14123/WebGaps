@@ -163,8 +163,8 @@ export module JQte {
 
             // draggable   ...
 
-            jQuery(document).unbind("click");
-            jQuery(document).on("click", function (e) {
+            jQuery("page").unbind("click");
+            jQuery("page").on("click", function (e) {
 
 
                 /////// context menu hide //////
