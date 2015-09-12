@@ -16,8 +16,8 @@ namespace WAG_Login
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            var email =
+           // Plug in your email service here to send an email.
+           var email =
            new MailMessage(
            new MailAddress("anil.kumar14123@gmail.com", "WebGaps.com (do not reply)"),
            new MailAddress(message.Destination)
