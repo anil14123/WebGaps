@@ -11,7 +11,7 @@ namespace WAG_Login.Account
 {
     public partial class Register : Page
     {
-        ApplicationUser user;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,13 +21,17 @@ namespace WAG_Login.Account
 
         protected void ReSendEMail_Click(object sender, EventArgs e)
         {
-            if(user!= null)
+            if(ViewState["UserId"] != null)
             {
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                string code = manager.GenerateEmailConfirmationToken(user.Id);
-                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                string userId= ViewState["UserId"].ToString();
 
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                string code = manager.GenerateEmailConfirmationToken(userId);
+                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, userId, Request);
+                manager.SendEmail(userId, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                confirmation.Visible = true;
+                create.Visible = false;
             }
         }
 
@@ -35,15 +39,17 @@ namespace WAG_Login.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-             user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text};
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text};
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
+                ViewState["UserId"] = user.Id;
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 string code = manager.GenerateEmailConfirmationToken(user.Id);
                 string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
+                
 
                 confirmation.Visible = true;
                 create.Visible = false;

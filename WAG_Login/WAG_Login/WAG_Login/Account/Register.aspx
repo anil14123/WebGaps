@@ -8,6 +8,12 @@
             Please check your email and confirm your email address.
         </p>
 
+        <br />
+
+        <p>
+              <asp:Button runat="server" OnClick="ReSendEMail_Click" Text="Re-Send Email Link" CssClass="btn btn-default" />
+        </p>
+
     </div>
 
     <div class="form-horizontal" id="create" runat="server">
