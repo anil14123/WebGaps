@@ -139,7 +139,7 @@
     <span id="noelement22"></span>
 
 
-    <div>
+    <div class="top-row-container">
         <div class="row designer-top-row">
 
             <div class="col-xs-3">

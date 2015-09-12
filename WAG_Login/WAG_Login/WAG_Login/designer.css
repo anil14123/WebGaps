@@ -1,14 +1,33 @@
 ﻿.designer-top-row {
     width: 100%;
     height: 35px;
-    padding: 3px;
+    padding: 7px;
     background: -webkit-gradient(linear, left top, left bottom, from(#1b1c1c), to(#4e5152));
     background: -webkit-linear-gradient(top, #1b1c1c, #4e5152);
     background: -moz-linear-gradient(top, #1b1c1c, #4e5152);
     background: -ms-linear-gradient(top, #1b1c1c, #4e5152);
     background: -o-linear-gradient(top, #1b1c1c, #4e5152);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: rgba(0,0,0,.2) 0 4px 16px;
+    -webkit-box-shadow: rgba(0,0,0,.2) 0 4px 16px;
+    box-shadow: rgba(0,0,0,.2) 0 4px 16px;
+      
+    
+   position:fixed;
+   top:0;
+   left:0;
+   width:100%;
+   z-index:999999999999999999999;
+}
 
+.top-row-container{
 
+}
+
+rootx{
+    top : 35px;
 }
 
 .close-preview, .show-preview, .choose-templates-button, .create-layout-show-button ,.jq-save {
