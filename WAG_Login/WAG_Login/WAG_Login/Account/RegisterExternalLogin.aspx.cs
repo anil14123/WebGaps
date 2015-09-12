@@ -93,7 +93,7 @@ namespace WAG_Login.Account
             }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = email.Text, Email = email.Text };
+            var user = new ApplicationUser() { UserName = email.Text, Email = email.Text , EmailConfirmed = true }; // I change EmailConfirmed = true;
             IdentityResult result = manager.Create(user);
             if (result.Succeeded)
             {
