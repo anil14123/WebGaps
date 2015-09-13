@@ -20,7 +20,7 @@ namespace WAG_Login.shiv
 
                 if (user != null)
                 {
-                    ViewState["UserDir"] = user.Id;
+                    ViewState["UD"] = user.Id;
                 }
             }
         }

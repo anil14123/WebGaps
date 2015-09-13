@@ -8,6 +8,8 @@ using System.Web.Services;
 using WebAppGoLibrary;
 using WebAppGoLibrary.Save;
 using WebAppGoLibrary.Site;
+using WebAppGoLibrary.Data;
+using WAG_Login_Page;
 
 namespace WebAppGoTypeScript_X_Modulerization.Services
 {
@@ -30,11 +32,9 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             return "Hello World";
         }
 
-        string UserDirectory;
-
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SavePage(Save Obj, string siteName, string pageName)
+        public Data SavePage(Save Obj, string siteName, string pageName)
         {
             try
             {
@@ -73,11 +73,16 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                     try
                                     {
                                         File.WriteAllText(filePath, pageText);
+                                        return new Data { Success = true };
                                     }
-                                    catch
+                                    catch(Exception ex)
                                     {
-                                        return false;
+                                        return new Data { Success = false, Exception = ex };
                                     }
+                                }
+                                else
+                                {
+                                    return new Data { Success = false, Error="Page Does Not Exist" };
                                 }
                             }
                         }
@@ -87,51 +92,204 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                 }
 
-                return false;
+                return new Data { Success = false };
             }
             catch (Exception ex)
             {
-                return false;
+                return new Data { Success = false, Error = "", Exception = ex };
             }
 
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool CreateSite(string siteName)
+        public List<Data> GetSites()
         {
-            string root = Server.MapPath(".");
+            List<Data> siteData = new List<Data>();
 
-            var entities = new WAG_Login_Page.WagPageEntities();
-
-            var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
-
-            if (user != null)
+            if (User.Identity.IsAuthenticated)
             {
-                var userFolder = Path.Combine(root, user.Id);
+                var entities = new WagPageEntities();
 
-                if (Directory.Exists(userFolder))
+                var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+ 
+                if( user!= null)
                 {
+                    var sites = entities.Sites.Where(i => i.UserId == user.Id);
 
-                    var siteFolder = Path.Combine(userFolder, siteName);
-
-                    if (!Directory.Exists(siteFolder))
+                    if( sites != null && sites.Count() > 0)
                     {
-                        try
+                        foreach(var site in sites)
                         {
-                            Directory.CreateDirectory(siteFolder);
-                            return true;
+                            siteData.Add(new Data { Name=site.SiteName });
                         }
-                        catch
+                    }
+
+                }
+
+            }
+
+            return siteData;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Data> GetPages(string siteName)
+        {
+            List<Data> pageData = new List<Data>();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var entities = new WagPageEntities();
+
+                var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+                var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
+
+
+                if (user != null)
+                {
+                    var pages = entities.Pages.Where(i => i.SiteId == site.Id);
+
+                    if (pages != null && pages.Count() > 0)
+                    {
+                        foreach (var page in pages)
                         {
-                            return false;
+                            pageData.Add(new Data { Name = page.PageName });
+                        }
+                    }
+
+                }
+
+            }
+
+            return pageData;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public Data CreateSite(string siteName)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string root = Server.MapPath(".");
+
+                var entities = new WAG_Login_Page.WagPageEntities();
+              
+                var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+                var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
+
+                if(site != null)
+                {
+                    return new Data { Error = "Site Name already exists.<br>Choose another Name." };
+                }
+
+                if (user != null)
+                {
+                    var userFolder = Path.Combine(root, user.Id);
+
+                    if (Directory.Exists(userFolder))
+                    {
+
+                        var siteFolder = Path.Combine(userFolder, siteName);
+
+                        if (!Directory.Exists(siteFolder))
+                        {
+                            try
+                            {
+                                Directory.CreateDirectory(siteFolder);
+
+                                var siteToCreate = new WAG_Login_Page.Site();
+
+                                siteToCreate.UserId = user.Id;
+                                siteToCreate.SiteName = siteName;
+
+                                entities.Sites.Add(siteToCreate);
+
+                                entities.SaveChanges();
+
+                                return new Data { Success = true };
+                            }
+                            catch(Exception ex)
+                            {
+                              
+                                return new Data { Success = false, Error="" , Exception = ex };
+                            }
                         }
                     }
                 }
+
             }
 
+            return new Data { Success = false };
+        }
 
-            return false;
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public Data CreatePage(string siteName, string pageName)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string root = Server.MapPath(".");
+
+                var entities = new WagPageEntities();
+
+                var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+                var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
+                var pageE = entities.Pages.Where(i => i.SiteId == site.Id && i.PageName == pageName);
+
+                if(site == null)
+                {
+                    return new Data { Error = "Please create [Site] first." };
+                }
+
+                if(pageE.Count()>0)
+                {
+                    return new Data { Error="Page Name already exists.<br>Choose another Name." };
+                }
+
+                if (user != null)
+                {
+                    var userFolder = Path.Combine(root, user.Id);
+
+                    if (Directory.Exists(userFolder))
+                    {
+
+                        var siteFolder = Path.Combine(userFolder, siteName);
+
+                        if (Directory.Exists(siteFolder))
+                        {
+                            try
+                            {
+                                var page = Path.Combine(userFolder, pageName);
+
+                                if (!File.Exists(page))
+                                {
+                                    File.Create(page);
+
+                                    var pageToCreate = new WAG_Login_Page.Page();
+
+                                    pageToCreate.SiteId = site.Id;
+                                    pageToCreate.PageName = pageName;
+
+                                    entities.Pages.Add(pageToCreate);
+
+                                    entities.SaveChanges();
+
+                                    return new Data { Success = true };
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                                return new Data { Success = false, Error = "", Exception = ex };
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            return new Data { Success = false };
         }
     }
 }
