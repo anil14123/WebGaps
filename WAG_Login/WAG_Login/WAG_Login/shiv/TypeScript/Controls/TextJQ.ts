@@ -1,4 +1,4 @@
-﻿/// <reference path="../../third-party/jte/uncompressed/jquery-te-1.4.0.d.ts" />
+﻿/// <reference path="../../../third-party/jte/uncompressed/jquery-te-1.4.0.d.ts" />
 
 
 /////////////////////////// window adding property /////////////////////

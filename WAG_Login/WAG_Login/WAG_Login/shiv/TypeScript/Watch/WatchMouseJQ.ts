@@ -1,6 +1,4 @@
-﻿/// <reference path="../../library/jquery.d.ts" />
-/// <reference path="../controls/controlsjq.ts" />
-/// <reference path="../smartmenu/smartmenujq.ts" />
+﻿/// <reference path="../../../library/jquery.d.ts" />
 
 import impCommon = require("../Common/CommonMethodsJQ");
 import impAddRow = require("../Controls/ControlsJQ");

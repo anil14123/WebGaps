@@ -1,4 +1,4 @@
-﻿/// <reference path="../../library/jquery.d.ts" />
+﻿/// <reference path="../../../library/jquery.d.ts" />
 
 
 /////////////////////////// window adding property /////////////////////

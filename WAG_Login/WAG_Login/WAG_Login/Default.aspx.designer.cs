@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAppGoTypeScript_X_Modulerization
-{
-
-
-    public partial class Default1
-    {
-
+namespace WAG_Login {
+    
+    
+    public partial class Default {
+        
         /// <summary>
         /// form1 control.
         /// </summary>

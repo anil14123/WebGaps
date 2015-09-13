@@ -1,4 +1,4 @@
-﻿/// <reference path="../../library/jqueryui.d.ts" />
+﻿/// <reference path="../../../library/jqueryui.d.ts" />
 
 import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");

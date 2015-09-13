@@ -301,7 +301,8 @@
     <Content Include="ContextMenu.css" />
     <Content Include="controls.css" />
     <Content Include="Cursors.css" />
-    <Content Include="Designer.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="shiv\Designer.aspx" />
     <Content Include="designer.css" />
     <Content Include="DesignerPaddings.css" />
     <Content Include="EmptyLayout.css" />
@@ -321,11 +322,9 @@
     <Content Include="Content\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="index.html" />
     <Content Include="JqPlus.css" />
     <Content Include="JQte.css" />
     <Content Include="Loading.css" />
-    <Content Include="Login.aspx" />
     <Content Include="MediaQueries.css" />
     <Content Include="ProcessTemplate.aspx" />
     <Content Include="sample_temp.js" />
@@ -359,12 +358,12 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Services\ImageService.asmx" />
     <Content Include="Services\jquery.asmx" />
     <Content Include="Services\PageService.asmx" />
+    <Content Include="shiv\Steps.aspx" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
     <Content Include="SitesManager.aspx" />
@@ -434,7 +433,7 @@
     <Content Include="Themes\abc\preview.jpg" />
     <Content Include="Themes\sample template\theme.css" />
     <Content Include="Themes\StyleSheetManuplation\js.html" />
-    <Content Include="TypeScript\app.js" />
+    <Content Include="shiv\TypeScript\app.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -589,22 +588,15 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Designer.aspx.cs">
+    <Compile Include="shiv\Designer.aspx.cs">
       <DependentUpon>Designer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Designer.aspx.designer.cs">
+    <Compile Include="shiv\Designer.aspx.designer.cs">
       <DependentUpon>Designer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ProcessTemplate.aspx.cs">
@@ -626,6 +618,13 @@
     <Compile Include="Services\PageService.asmx.cs">
       <DependentUpon>PageService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="shiv\Steps.aspx.cs">
+      <DependentUpon>Steps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\Steps.aspx.designer.cs">
+      <DependentUpon>Steps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -677,68 +676,68 @@
     <Folder Include="requirejs\" />
     <Folder Include="Secure\" />
     <Folder Include="Service References\" />
+    <Folder Include="shiv\TypeScript\Themes\All\" />
     <Folder Include="Snippet\" />
     <Folder Include="Third-Party\" />
-    <Folder Include="TypeScript\Themes\All\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
     <Folder Include="Very Very Important\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="TypeScript\.Temp\ExecutePageJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\AllMenus\AllMenuJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Common\CommonEvents.ts" />
-    <TypeScriptCompile Include="TypeScript\Common\CommonMethodsJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Common\On.ts" />
-    <TypeScriptCompile Include="TypeScript\Constants\ConstantsJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\ContextMenu\ContextMenuJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\ControlNames\PageControlNamesJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\BiJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\BorderJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\ColorJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\ControlCommonJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\ControlMoveJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\ControlsJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\FontJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\ImageJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\JQueryUI.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\MenuJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\SpacerJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Controls\TextJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\CssManager\CssManagerJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Document\DocumentJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Error\ErrorJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\JQte\JQteJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\MainJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Menu\MenuLinkJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Menu\MenuLinksJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Menu\MenuTemplateJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\PageElements\ElementJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\AfterMenuBarJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\AnyJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\BeforeFooterJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\ContentJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\Context\ContextJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\FooterJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\HeaderJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\MenuBarJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\PageElementBaseJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Page\PageJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Preview\Preview.ts" />
-    <TypeScriptCompile Include="TypeScript\SmartMenu\SmartMenuJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Template\TemplateJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Themes\EmptyLayout\EmptyLayoutJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Triggers\TriggersJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\UndoManager\UndoManager.ts" />
-    <TypeScriptCompile Include="TypeScript\Watch\CopyPasteJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\Watch\WatchMouseJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\Auth.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\CssClass.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\LoadingJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\LocationJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\SaveJQ.ts" />
-    <TypeScriptCompile Include="TypeScript\_Classes\UrlJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\.Temp\ExecutePageJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\AllMenus\AllMenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Common\CommonEvents.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Common\CommonMethodsJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Common\On.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Constants\ConstantsJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\ContextMenu\ContextMenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\ControlNames\PageControlNamesJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\BiJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\BorderJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\ColorJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlCommonJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlMoveJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlsJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\FontJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\ImageJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\JQueryUI.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\MenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\SpacerJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\TextJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\CssManager\CssManagerJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Document\DocumentJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Error\ErrorJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\JQte\JQteJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\MainJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuLinkJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuLinksJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuTemplateJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\PageElements\ElementJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\AfterMenuBarJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\AnyJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\BeforeFooterJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\ContentJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\Context\ContextJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\FooterJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\HeaderJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\MenuBarJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\PageElementBaseJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\PageJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Preview\Preview.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\SmartMenu\SmartMenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Template\TemplateJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Themes\EmptyLayout\EmptyLayoutJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Triggers\TriggersJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\UndoManager\UndoManager.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Watch\CopyPasteJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Watch\WatchMouseJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\Auth.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\CssClass.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\LoadingJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\LocationJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\SaveJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\_Classes\UrlJQ.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

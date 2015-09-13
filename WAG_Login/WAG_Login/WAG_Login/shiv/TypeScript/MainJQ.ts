@@ -1,4 +1,4 @@
-﻿/// <reference path="../library/jqueryui.d.ts" />
+﻿/// <reference path="../../library/jqueryui.d.ts" />
 /// <reference path="common/commonevents.ts" />
 import impPageCtx = require("./Page/Context/ContextJQ");
 import impControls = require("./Controls/ControlsJQ");

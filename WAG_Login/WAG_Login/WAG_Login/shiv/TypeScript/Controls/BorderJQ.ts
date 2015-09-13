@@ -1,4 +1,4 @@
-﻿/// <reference path="../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
+﻿/// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
 
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");

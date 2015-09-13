@@ -5,13 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebAppGoTypeScript_X_Modulerization
+namespace WAG_Login
 {
-    public partial class Default1 : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	public partial class Default : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+            if(Request.IsAuthenticated)
+            {
+                Response.Redirect("shiv/Steps.aspx");
+            }
+            else
+            {
+                Response.Redirect("Account/login.aspx");
+            }
+		}
+	}
 }

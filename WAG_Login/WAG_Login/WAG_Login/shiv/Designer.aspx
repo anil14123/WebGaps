@@ -15,7 +15,7 @@
 
     <link href="/Content/jquery-ui.min.css" rel="stylesheet" />
 
-    <link class="add-to-page" href="Content/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet" />
+    <link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet" />
     <%--  <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>--%>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
@@ -29,13 +29,13 @@
     <link href="/ColorPicker.css" rel="stylesheet" />
     <link href="/Cursors.css" rel="stylesheet" />
 
-    <link href="Content/Menus/2/blue/menu.css" rel="stylesheet" />
+    <link href="/Content/Menus/2/blue/menu.css" rel="stylesheet" />
 
-    <script src="Content/Menus/2/blue/Menu.js"></script>
+    <script src="/Content/Menus/2/blue/Menu.js"></script>
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-    <script data-main="../TypeScript/app.js" src="/Library/require.js"></script>
+    <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
 
     <script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
     <link href="/designer.css" rel="stylesheet" />
@@ -44,7 +44,7 @@
     <link href="/Text.css" rel="stylesheet" />
     <link href="/DesignerPaddings.css" rel="stylesheet" />
     <link href="/EmptyLayout.css" rel="stylesheet" />
-    <link href="Loading.css" rel="stylesheet" />
+    <link href="/Loading.css" rel="stylesheet" />
     <link href="/MediaQueries.css" rel="stylesheet" />
 
     <style>
@@ -72,25 +72,25 @@
 
 
     <div class="jq-plus-container jq-plus-container-not-used">
-      
-            <div class="jq-plus-element">
 
-                <%--  <span class="jq-plus-prev jq-plus">
+        <div class="jq-plus-element">
+
+            <%--  <span class="jq-plus-prev jq-plus">
              <br /> Swap sample
             </span>--%>
 
-                <span class="jq-plus-prev jq-plus">+
-                </span>
-            </div>
-            <div class="jq-plus-content jq-plus-element-content"></div>
-            <div class="jq-plus-element">
-                <%-- <span class="jq-plus-next jq-plus">
+            <span class="jq-plus-prev jq-plus">+
+            </span>
+        </div>
+        <div class="jq-plus-content jq-plus-element-content"></div>
+        <div class="jq-plus-element">
+            <%-- <span class="jq-plus-next jq-plus">
              <br /> Swap sample
             </span>--%>
-                <span class="jq-plus-next jq-plus">+
-                </span>
-            </div>
-        
+            <span class="jq-plus-next jq-plus">+
+            </span>
+        </div>
+
     </div>
 
 
@@ -174,19 +174,30 @@
             </div>
 
             <div class="col-xs-3">
-                <button class="page-propetries-button  btn btn-toolbar btn-xs jq-save-margin">
-                    <img alt="" class="settings-img" src="/content/settings/settings.png" />
-                    Page</button>
-                <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
-                    <img alt="" class="settings-img" src="/content/settings/settings.png" />
-                    Properties</button>
+
+                <div class="row">
+                    <div class="col-xs-8">
+                        <button class="page-propetries-button  btn btn-toolbar btn-xs jq-save-margin">
+                            <img alt="" class="settings-img" src="/content/settings/settings.png" />
+                            Page</button>
+                        <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
+                            <img alt="" class="settings-img" src="/content/settings/settings.png" />
+                            Properties</button>
+
+                    </div>
+                    <div class="col-xs-4">
+                        <form name="logout" runat="server">
+                            <asp:LoginStatus runat="server" CssClass="jq-logout" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        </form>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
 
-    <rootx  style="clear: both; position: relative;">
+    <rootx style="clear: both; position: relative;">
 
         <Page class="add-to-page" unique-id="0" class="page" >
             
