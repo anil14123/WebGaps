@@ -11,7 +11,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
     {
         private string GetUserImagesPath()
         {
-           return Server.MapPath(".") + "/../Content/Images/User_1/";
+           return Server.MapPath(".") + "/../../Content/Images/User_1/";
         }
 
         protected void Page_Load(object sender, EventArgs e)

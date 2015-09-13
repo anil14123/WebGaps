@@ -38,9 +38,9 @@ export module CssManager {
 
         }
 
-        cssPath = "Content/Menus/[MenuName]/[Color]/menu.css";
-        jsPath = "Content/Menus/[MenuName]/[Color]/menu.js";
-        htmlPath = "Content/Menus/[MenuName]/[Color]/index.html";
+        cssPath = "/Content/Menus/[MenuName]/[Color]/menu.css";
+        jsPath = "/Content/Menus/[MenuName]/[Color]/menu.js";
+        htmlPath = "/Content/Menus/[MenuName]/[Color]/index.html";
         public GetHtml(fileId) {
             try {
 
