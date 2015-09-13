@@ -31,6 +31,8 @@ export module Preview {
 
         public static ShowPreview() {
 
+            jQuery(".jq-row-plus-container").hide();
+
             jQuery("#notify").clearQueue();
             jQuery("#notify").fadeOut();
 
@@ -81,6 +83,8 @@ export module Preview {
         public static ClosePreview() {
             //jQuery("RootX").css("width", "60%");
             //jQuery("controls").show();
+
+            jQuery(".jq-row-plus-container").show();
 
             jQuery("page").find(".image-selection").removeClass("image-selection");
 

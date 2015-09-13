@@ -269,10 +269,16 @@
     <Content Include="Content\Images\User_1\21.jpg" />
     <Content Include="Content\Images\User_1\3.jpg" />
     <Content Include="Content\Images\User_1\6.jpg" />
+    <Content Include="Content\Images\User_1\abc.PNG" />
     <Content Include="Content\Images\User_1\about.html" />
+    <Content Include="Content\Images\User_1\asdf.PNG" />
+    <Content Include="Content\Images\User_1\Capture.PNG" />
+    <Content Include="Content\Images\User_1\Captureasdfasdf.PNG" />
     <Content Include="Content\Images\User_1\contact.html" />
     <Content Include="Content\Images\User_1\examples-logo.png" />
+    <Content Include="Content\Images\User_1\help.PNG" />
     <Content Include="Content\Images\User_1\Orange.gif" />
+    <Content Include="Content\Images\User_1\snapdeal.png" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\last border image\border-image.png" />
     <Content Include="Content\layout\layout.png" />
@@ -304,6 +310,7 @@
     <Content Include="controls.css" />
     <Content Include="Cursors.css" />
     <Content Include="Default.aspx" />
+    <Content Include="shiv\Dynamic\UploadToImageLibrary.aspx" />
     <Content Include="Help\padding.txt" />
     <Content Include="Library\jquery-1.11.2.min.js" />
     <Content Include="Library\jquery-ui.js" />
@@ -417,6 +424,7 @@
     <Content Include="Themes\457\img\logo.png" />
     <Content Include="Themes\457\img\nav-active.png" />
     <Content Include="Themes\457\img\section-shadow.png" />
+    <Content Include="Themes\457\img\snapdeal.png" />
     <Content Include="Themes\457\img\welcome-divider-lines.png" />
     <Content Include="Themes\457\theme.css" />
     <Content Include="Themes\abc\default.css" />
@@ -641,6 +649,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.cs">
+      <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.designer.cs">
+      <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EDC.cs" />
     <Compile Include="Page.cs">
       <DependentUpon>WAG_O.tt</DependentUpon>
@@ -743,7 +758,6 @@
     <Folder Include="Classes\" />
     <Folder Include="Controllers\" />
     <Folder Include="CSharpTestClass\" />
-    <Folder Include="Dynamic\" />
     <Folder Include="gsd\" />
     <Folder Include="ModuleTests\" />
     <Folder Include="requirejs\" />

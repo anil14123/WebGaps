@@ -10,9 +10,65 @@ export module Site {
 
         }
 
-        public GetSites() {
+        public CreateSite(siteName) {
+
+            var obj = { siteName: siteName };
+
+            var createData = JSON.stringify(obj);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "/services/pageService.asmx/createSite",
+                data: createData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: SiteJQ.OnCreateSiteSuccess,
+                error: SiteJQ.OnCreateSiteError
+            });
 
         }
+
+        public static OnCreateSiteSuccess(data, status) {
+            // alert("success");
+        }
+
+        public static OnCreateSiteError(request, status, error) {
+            // alert(error);
+        }
+
+
+        public GetSites() {
+            jQuery.ajax({
+                type: "POST",
+                url: "/services/pageService.asmx/getSites",
+                //data: saveData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: SiteJQ.OnGetSitesSuccess,
+                error: SiteJQ.OnGetSitesError
+            });
+        }
+
+        public static OnGetSitesSuccess(data, status) {
+
+            var result = data.d;
+
+            for (var i = 0; i < result.length; i++) {
+                var sitedata = jQuery(".site-data.hide").clone();
+
+                sitedata.removeClass("hide");
+
+                sitedata.find(".site-name").html(result[i].name);
+
+                jQuery(".site-manager-data").append(sitedata);
+            }
+        }
+
+        public static OnGetSitesError(request, status, error) {
+            // alert(error);
+        }
+
+
 
         public AttachOpenEvent() {
 

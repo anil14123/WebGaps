@@ -72,7 +72,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="PageName" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="PageId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageId" Type="uniqueidentifier" />
           <Property Name="SiteId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Site">
@@ -83,7 +83,7 @@
           <Property Name="SiteGuid" Type="uniqueidentifier" />
           <Property Name="SiteName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserDirectory" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserDirectory" Type="varchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -252,7 +252,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="PageName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PageId" Type="Guid" Nullable="false" />
+          <Property Name="PageId" Type="Guid" />
           <Property Name="SiteId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Site" Relationship="Self.FK_Page_Site" FromRole="Page" ToRole="Site" />
         </EntityType>
@@ -265,7 +265,7 @@
           <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Pages" Relationship="Self.FK_Page_Site" FromRole="Site" ToRole="Page" />
-          <Property Name="UserDirectory" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserDirectory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">

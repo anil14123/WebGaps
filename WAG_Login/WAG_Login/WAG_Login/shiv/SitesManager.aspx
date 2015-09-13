@@ -23,7 +23,7 @@
 
         <div class="site-data hide">
             <div class="col-xs-4 site-name">
-                abcd
+               
             </div>
             <div class="col-xs-4 site-controls">
             </div>

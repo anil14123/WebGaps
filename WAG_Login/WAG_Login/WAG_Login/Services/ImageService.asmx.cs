@@ -41,7 +41,7 @@ namespace WebAppGoTypeScript_X_Modulerization
             for (int i = 0; i < Images.Length; i++)
             {
                 ImageJQ image = new ImageJQ();
-                image.Path =  "/Content/Images/User_1/" + Images[i].Name;
+                image.Path = "/Content/Images/User_1/" + Convert.ToString(Images[i].Name).ToLower() ;
 
                 imagesList.Add(image);
             }

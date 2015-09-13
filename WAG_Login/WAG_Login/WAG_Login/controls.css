@@ -518,8 +518,8 @@ controls {
 }
 
 .image-library-image{
-    width:150px;
-    height:150px;
+    max-width:150px;
+    max-height:150px;
 
     border:2px;
 }
