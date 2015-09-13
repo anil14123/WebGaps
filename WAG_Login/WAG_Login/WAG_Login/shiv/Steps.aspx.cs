@@ -11,7 +11,7 @@ namespace WAG_Login.shiv
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("designer.aspx");
+            Response.Redirect("sitesmanager.aspx");
         }
     }
 }
