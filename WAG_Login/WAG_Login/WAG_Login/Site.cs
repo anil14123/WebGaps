@@ -21,9 +21,10 @@ namespace WAG_Login_Page
         }
     
         public int Id { get; set; }
-        public System.Guid SiteGuid { get; set; }
+        public Nullable<System.Guid> SiteGuid { get; set; }
         public string SiteName { get; set; }
         public string UserId { get; set; }
+        public string UserDirectory { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Page> Pages { get; set; }

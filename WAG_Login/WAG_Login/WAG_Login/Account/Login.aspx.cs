@@ -38,7 +38,11 @@ namespace WAG_Login.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+
+                       
+
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

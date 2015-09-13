@@ -1,8 +1,6 @@
 ﻿
 import impError = require("../../typescript/error/errorjq");
 
-
-
 export module Site {
 
     export class SiteJQ {
@@ -12,6 +10,21 @@ export module Site {
 
         }
 
+        public GetSites() {
 
+        }
+
+        public AttachOpenEvent() {
+
+        }
+
+        public AttachCreateEvent() {
+
+        }
+
+        public AttachEditEvent() {
+
+
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using WebAppGoLibrary;
 using WebAppGoLibrary.Save;
+using WebAppGoLibrary.Site;
 
 namespace WebAppGoTypeScript_X_Modulerization.Services
 {
@@ -28,50 +29,69 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             return "Hello World";
         }
 
+        string UserDirectory;
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SavePage(Save Obj, string site , string pageName)
+        public bool SavePage(Save Obj, string site, string pageName)
         {
             try
             {
-                string pageText = "";
-
-                pageText = Obj.scripts.ToString();
-                pageText += Obj.styles.ToString();
-                pageText += Obj.page.ToString();
-
-                string root = Server.MapPath(".");
-
-                var folder = System.IO.Path.Combine(root, site);
-
-                System.IO.Directory.CreateDirectory(folder);
-
-                pageName = pageName + ".html";
-
-                string filePath = System.IO.Path.Combine(folder, pageName);
-
-                if (!System.IO.File.Exists(filePath))
+                if (User.Identity.IsAuthenticated)
                 {
-                    using (System.IO.FileStream fs = System.IO.File.Create(filePath))
+                    string pageText = "";
+
+                    pageText = Obj.scripts.ToString();
+                    pageText += Obj.styles.ToString();
+                    pageText += Obj.page.ToString();
+
+                    string root = Server.MapPath(".");
+
+                    UserDirectory = User.Identity.Name;
+
+                    UserDirectory = new EDC2.EDC().Encrypt(UserDirectory);
+
+                    var folder = System.IO.Path.Combine(root, UserDirectory);
+
+                    System.IO.Directory.CreateDirectory(folder);
+
+                    pageName = pageName + ".html";
+
+                    string filePath = System.IO.Path.Combine(folder, pageName);
+
+                    if (!System.IO.File.Exists(filePath))
                     {
-                        fs.Close();
-                        fs.Dispose();
+                        using (System.IO.FileStream fs = System.IO.File.Create(filePath))
+                        {
+                            fs.Close();
+                            fs.Dispose();
+                        }
+
+                        System.IO.File.WriteAllText(filePath, pageText);
+                    }
+                    else
+                    {
+                        System.IO.File.WriteAllText(filePath, pageText);
                     }
 
-                    System.IO.File.WriteAllText(filePath, pageText);
-                }
-                else
-                {
-                    System.IO.File.WriteAllText(filePath, pageText);
+                    return true;
                 }
 
-
-                return true;
+                return false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
+        
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public Site CreateSite(Site Obj, string siteName)
+        {
+
+            return new Site();
         }
     }
 }

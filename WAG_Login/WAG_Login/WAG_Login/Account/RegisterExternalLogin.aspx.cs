@@ -78,8 +78,8 @@ namespace WAG_Login.Account
                     email.Text = loginInfo.Email;
                 }
             }
-        }        
-        
+        }
+
         protected void LogIn_Click(object sender, EventArgs e)
         {
             CreateAndLoginUser();
@@ -93,8 +93,32 @@ namespace WAG_Login.Account
             }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = email.Text, Email = email.Text , EmailConfirmed = true }; // I change EmailConfirmed = true;
+            var user = new ApplicationUser() { UserName = email.Text, Email = email.Text, EmailConfirmed = true }; // I change EmailConfirmed = true;
             IdentityResult result = manager.Create(user);
+
+            try
+            {
+                string UserDirectory = user.UserName;
+                UserDirectory = new EDC2.EDC().Encrypt(UserDirectory);
+
+                //var dec = new EDC2.EDC().Decrypt(UserDirectory);
+
+                string root = Server.MapPath(".");
+
+                root = System.IO.Path.Combine(root + "/../", "Services");
+
+                var ud = System.IO.Path.Combine(root, UserDirectory);
+                if (!System.IO.Directory.Exists(ud))
+                {
+                    System.IO.Directory.CreateDirectory(ud);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             if (result.Succeeded)
             {
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
@@ -106,7 +130,9 @@ namespace WAG_Login.Account
                 result = manager.AddLogin(user.Id, loginInfo.Login);
                 if (result.Succeeded)
                 {
+
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // var code = manager.GenerateEmailConfirmationToken(user.Id);
@@ -119,9 +145,9 @@ namespace WAG_Login.Account
             AddErrors(result);
         }
 
-        private void AddErrors(IdentityResult result) 
+        private void AddErrors(IdentityResult result)
         {
-            foreach (var error in result.Errors) 
+            foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error);
             }

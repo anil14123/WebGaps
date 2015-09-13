@@ -11,7 +11,7 @@ namespace WAG_Login.Account
 {
     public partial class Register : Page
     {
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,9 +21,9 @@ namespace WAG_Login.Account
 
         protected void ReSendEMail_Click(object sender, EventArgs e)
         {
-            if(ViewState["UserId"] != null)
+            if (ViewState["UserId"] != null)
             {
-                string userId= ViewState["UserId"].ToString();
+                string userId = ViewState["UserId"].ToString();
 
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 string code = manager.GenerateEmailConfirmationToken(userId);
@@ -39,8 +39,32 @@ namespace WAG_Login.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text};
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
             IdentityResult result = manager.Create(user, Password.Text);
+
+            try
+            {
+                string UserDirectory = user.UserName;
+                UserDirectory = new EDC2.EDC().Encrypt(UserDirectory);
+
+                //var dec = new EDC2.EDC().Decrypt(UserDirectory);
+
+                string root = Server.MapPath(".");
+
+                root = System.IO.Path.Combine(root + "/../", "Services");
+
+                var ud = System.IO.Path.Combine(root , UserDirectory);
+                if (!System.IO.Directory.Exists(ud))
+                {
+                    System.IO.Directory.CreateDirectory(ud);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             if (result.Succeeded)
             {
                 ViewState["UserId"] = user.Id;
@@ -49,18 +73,21 @@ namespace WAG_Login.Account
                 string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                
+
 
                 confirmation.Visible = true;
                 create.Visible = false;
+
+
+
                 //signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
                 //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
                 // IdentityHelper.RedirectToReturnUrl("/Account/ConfirmMessage", Response);
 
-                
+
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
 

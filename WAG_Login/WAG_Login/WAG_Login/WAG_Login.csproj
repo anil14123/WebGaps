@@ -308,6 +308,7 @@
     <Content Include="Library\jquery-1.11.2.min.js" />
     <Content Include="Library\jquery-ui.js" />
     <Content Include="Library\require.js" />
+    <Content Include="Services\site1\page1.html" />
     <Content Include="shiv\Designer.aspx" />
     <Content Include="designer.css" />
     <Content Include="DesignerPaddings.css" />
@@ -441,6 +442,15 @@
     <Content Include="Themes\sample template\theme.css" />
     <Content Include="Themes\StyleSheetManuplation\js.html" />
     <Content Include="shiv\TypeScript\app.js" />
+    <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\css\colpick.css" />
+    <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\js\colpick.js" />
+    <Content Include="Third-Party\jte\demo\demo.css" />
+    <Content Include="Third-Party\jte\demo\demo.html" />
+    <Content Include="Third-Party\jte\jquery-te-1.4.0.css" />
+    <Content Include="Third-Party\jte\jquery-te-1.4.0.min.js" />
+    <Content Include="Third-Party\jte\jquery-te.png" />
+    <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0 - Copy.js" />
+    <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="WAG_O.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -467,6 +477,9 @@
     <Content Include="WAG_O.edmx.diagram">
       <DependentUpon>WAG_O.edmx</DependentUpon>
     </Content>
+    <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\colpick.jquery.json" />
+    <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\LICENSE" />
+    <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -628,6 +641,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EDC.cs" />
     <Compile Include="Page.cs">
       <DependentUpon>WAG_O.tt</DependentUpon>
     </Compile>
@@ -737,7 +751,6 @@
     <Folder Include="Service References\" />
     <Folder Include="shiv\TypeScript\Themes\All\" />
     <Folder Include="Snippet\" />
-    <Folder Include="Third-Party\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
     <Folder Include="Very Very Important\" />
     <Folder Include="Views\Home\" />
@@ -802,6 +815,8 @@
     <TypeScriptCompile Include="shiv\TypeScript\_Classes\LocationJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\_Classes\SaveJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\_Classes\UrlJQ.ts" />
+    <TypeScriptCompile Include="Third-Party\colpick-jQuery-Color-Picker-master\js\colpick-jquery.d.ts" />
+    <TypeScriptCompile Include="Third-Party\jte\uncompressed\jquery-te-1.4.0.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
