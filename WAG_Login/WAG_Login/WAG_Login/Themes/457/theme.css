@@ -5,6 +5,12 @@
     color:white;
 }
 
+.jq-logout:hover{
+    color:white;
+    text-decoration:none;
+    font-size:large;
+}
+
 padding-3{
     padding:3px;
 }

@@ -363,10 +363,10 @@
     <Content Include="Services\ImageService.asmx" />
     <Content Include="Services\jquery.asmx" />
     <Content Include="Services\PageService.asmx" />
+    <Content Include="shiv\SitesManager.aspx" />
     <Content Include="shiv\Steps.aspx" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
-    <Content Include="shiv\SitesManager.aspx" />
     <Content Include="SmartContextMenu.css" />
     <Content Include="Text.css" />
     <Content Include="Themes\457\img\1.jpg" />
@@ -619,6 +619,13 @@
       <DependentUpon>PageService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="shiv\SitesManager.aspx.cs">
+      <DependentUpon>SitesManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\SitesManager.aspx.designer.cs">
+      <DependentUpon>SitesManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="shiv\Steps.aspx.cs">
       <DependentUpon>Steps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -639,13 +646,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="shiv\SitesManager.aspx.cs">
-      <DependentUpon>SitesManager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="shiv\SitesManager.aspx.designer.cs">
-      <DependentUpon>SitesManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Themes\abc\index.aspx.cs">

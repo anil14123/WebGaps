@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebAppGoTypeScript_X_Modulerization
+namespace WAG_Login.shiv
 {
     public partial class SitesManager : System.Web.UI.Page
     {
