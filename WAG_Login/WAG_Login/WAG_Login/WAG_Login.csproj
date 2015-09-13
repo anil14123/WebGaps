@@ -377,6 +377,8 @@
     <Content Include="Services\ImageService.asmx" />
     <Content Include="Services\jquery.asmx" />
     <Content Include="Services\PageService.asmx" />
+    <Content Include="shiv\PageManager.aspx" />
+    <Content Include="shiv\PageManager_TS\app.js" />
     <Content Include="shiv\SiteManager_TS\app.js" />
     <Content Include="shiv\SitesManager.aspx" />
     <Content Include="shiv\Steps.aspx" />
@@ -691,6 +693,13 @@
       <DependentUpon>PageService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="shiv\PageManager.aspx.cs">
+      <DependentUpon>PageManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\PageManager.aspx.designer.cs">
+      <DependentUpon>PageManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="shiv\SitesManager.aspx.cs">
       <DependentUpon>SitesManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -774,6 +783,7 @@
     <TypeScriptCompile Include="Library\angular.d.ts" />
     <TypeScriptCompile Include="Library\jquery.d.ts" />
     <TypeScriptCompile Include="Library\jqueryui.d.ts" />
+    <TypeScriptCompile Include="shiv\PageManager_TS\MainJQ.ts" />
     <TypeScriptCompile Include="shiv\SiteManager_TS\MainJQ.ts" />
     <TypeScriptCompile Include="shiv\SiteManager_TS\Site\SiteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\.Temp\ExecutePageJQ.ts" />

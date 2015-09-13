@@ -1,38 +1,6 @@
-﻿.row{
-    margin:0;
+﻿
+.site-name{
+    color:#1f1d1d;
+    font-size:larger;
 }
 
-.header{
-    
-    height:100px;
-    background-color:dodgerblue;
-}
-
-.logo{
-    height:100px;
-}
-
-.site-manager-header
-{
-    height:50px;
-    background-color:#0692e5;
-    color:white;
-    padding:8px;
-    font-weight:bold;
-    font-size:18px;
-}
-
-.create-site {
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.site-nam{
-    color:black;
-    font-size:large;
-}
-
-.site-controls{
-    background-color:lightyellow;
-}

@@ -27,7 +27,7 @@
             </div>
             <div class="col-xs-4 site-controls">
             </div>
-            <div class="col-xs-4 site-controlsr">
+            <div class="col-xs-4 site-controls">
                 <button class=" btn btn-primary open-site">Open</button>
             </div>
         </div>

@@ -37,6 +37,44 @@ export module Site {
         }
 
 
+        public GetPages(siteName: string) {
+
+            var data = { siteName: siteName }
+
+            var pageData = JSON.stringify(data);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "/services/pageService.asmx/getPages",
+                data: pageData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: SiteJQ.OnGetPagesSuccess,
+                error: SiteJQ.OnGetPagesError
+            });
+        }
+
+        public static OnGetPagesSuccess(data, status) {
+
+            var result = data.d;
+
+            for (var i = 0; i < result.length; i++) {
+                var sitedata = jQuery(".page-data.hide").clone();
+
+                sitedata.removeClass("hide");
+
+                sitedata.find(".page-name").html(result[i].name);
+
+                jQuery(".page-manager-data").append(sitedata);
+            }
+        }
+
+        public static OnGetPagesError(request, status, error) {
+            // alert(error);
+        }
+
+
+
         public GetSites() {
             jQuery.ajax({
                 type: "POST",
