@@ -82,7 +82,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SiteGuid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SiteName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -152,18 +152,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sites_User">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Site" Type="Self.Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="WebGapsModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -192,10 +180,6 @@
           <AssociationSet Name="FK_Page_Site" Association="Self.FK_Page_Site">
             <End Role="Site" EntitySet="Site" />
             <End Role="Page" EntitySet="Page" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sites_User" Association="Self.FK_Sites_User">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Site" EntitySet="Site" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -260,7 +244,6 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Sites" Relationship="Self.FK_Sites_User" FromRole="AspNetUsers" ToRole="Site" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Page">
@@ -280,8 +263,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SiteGuid" Type="Guid" Nullable="false" />
           <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Sites_User" FromRole="Site" ToRole="AspNetUsers" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Pages" Relationship="Self.FK_Page_Site" FromRole="Site" ToRole="Page" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -312,18 +294,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sites_User">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="Site" Type="Self.Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Page_Site">
           <End Role="Site" Type="Self.Site" Multiplicity="1" />
           <End Role="Page" Type="Self.Page" Multiplicity="*" />
@@ -340,7 +310,7 @@
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="WebGapsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WagPageEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
@@ -356,10 +326,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sites_User" Association="Self.FK_Sites_User">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Site" EntitySet="Sites" />
-          </AssociationSet>
           <AssociationSet Name="FK_Page_Site" Association="Self.FK_Page_Site">
             <End Role="Site" EntitySet="Sites" />
             <End Role="Page" EntitySet="Pages" />
@@ -374,7 +340,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebGapsModelStoreContainer" CdmEntityContainer="WebGapsEntities">
+        <EntityContainerMapping StorageEntityContainer="WebGapsModelStoreContainer" CdmEntityContainer="WagPageEntities">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="WebGapsModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">

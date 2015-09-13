@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WAG_Login
+namespace WAG_Login_Page
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebGapsEntities : DbContext
+    public partial class WagPageEntities : DbContext
     {
-        public WebGapsEntities()
-            : base("name=WebGapsEntities")
+        public WagPageEntities()
+            : base("name=WagPageEntities")
         {
         }
     

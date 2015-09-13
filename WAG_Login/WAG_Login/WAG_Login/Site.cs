@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WAG_Login
+namespace WAG_Login_Page
 {
     using System;
     using System.Collections.Generic;
@@ -25,7 +25,6 @@ namespace WAG_Login
         public string SiteName { get; set; }
         public string UserId { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Page> Pages { get; set; }
     }

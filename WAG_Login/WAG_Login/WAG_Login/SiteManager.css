@@ -27,3 +27,12 @@
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+
+.site-nam{
+    color:black;
+    font-size:large;
+}
+
+.site-controls{
+    background-color:lightyellow;
+}

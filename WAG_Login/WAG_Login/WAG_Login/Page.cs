@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WAG_Login
+namespace WAG_Login_Page
 {
     using System;
     using System.Collections.Generic;
