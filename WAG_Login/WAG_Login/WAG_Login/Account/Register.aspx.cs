@@ -44,11 +44,8 @@ namespace WAG_Login.Account
 
             try
             {
-                string UserDirectory = user.UserName;
-                UserDirectory = new EDC2.EDC().Encrypt(UserDirectory);
-
-                //var dec = new EDC2.EDC().Decrypt(UserDirectory);
-
+                string UserDirectory = user.Id;
+               
                 string root = Server.MapPath(".");
 
                 root = System.IO.Path.Combine(root + "/../", "Services");

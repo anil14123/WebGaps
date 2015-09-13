@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -33,7 +34,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public bool SavePage(Save Obj, string site, string pageName)
+        public bool SavePage(Save Obj, string siteName, string pageName)
         {
             try
             {
@@ -47,34 +48,43 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                     string root = Server.MapPath(".");
 
-                    UserDirectory = User.Identity.Name;
+                    var entities = new WAG_Login_Page.WagPageEntities();
 
-                    UserDirectory = new EDC2.EDC().Encrypt(UserDirectory);
+                    var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
-                    var folder = System.IO.Path.Combine(root, UserDirectory);
-
-                    System.IO.Directory.CreateDirectory(folder);
-
-                    pageName = pageName + ".html";
-
-                    string filePath = System.IO.Path.Combine(folder, pageName);
-
-                    if (!System.IO.File.Exists(filePath))
+                    if (user != null)
                     {
-                        using (System.IO.FileStream fs = System.IO.File.Create(filePath))
+                        var userFolder = Path.Combine(root, user.Id);
+
+                        if (Directory.Exists(userFolder))
                         {
-                            fs.Close();
-                            fs.Dispose();
+
+                            var siteFolder = Path.Combine(userFolder, siteName);
+
+                            if (Directory.Exists(siteFolder))
+                            {
+
+                                pageName = pageName + ".html";
+
+                                string filePath = Path.Combine(siteFolder, pageName);
+
+                                if (File.Exists(filePath))
+                                {
+                                    try
+                                    {
+                                        File.WriteAllText(filePath, pageText);
+                                    }
+                                    catch
+                                    {
+                                        return false;
+                                    }
+                                }
+                            }
                         }
 
-                        System.IO.File.WriteAllText(filePath, pageText);
-                    }
-                    else
-                    {
-                        System.IO.File.WriteAllText(filePath, pageText);
                     }
 
-                    return true;
+
                 }
 
                 return false;
@@ -83,15 +93,45 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 return false;
             }
-        
+
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public Site CreateSite(Site Obj, string siteName)
+        public bool CreateSite(string siteName)
         {
+            string root = Server.MapPath(".");
 
-            return new Site();
+            var entities = new WAG_Login_Page.WagPageEntities();
+
+            var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+
+            if (user != null)
+            {
+                var userFolder = Path.Combine(root, user.Id);
+
+                if (Directory.Exists(userFolder))
+                {
+
+                    var siteFolder = Path.Combine(userFolder, siteName);
+
+                    if (!Directory.Exists(siteFolder))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(siteFolder);
+                            return true;
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+
+            return false;
         }
     }
 }
