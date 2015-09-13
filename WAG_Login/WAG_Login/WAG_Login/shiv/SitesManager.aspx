@@ -4,7 +4,8 @@
     <br />
 
       <div class="site-manager row">
-            <div class="col-xs-4 site-manager-header">
+            
+          <div class="col-xs-4 site-manager-header">
                 Sites
             </div>
              <div class="col-xs-4 site-manager-header">
