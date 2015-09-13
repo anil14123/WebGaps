@@ -4,3 +4,31 @@
     font-size:larger;
 }
 
+.white-link{
+    color:white;
+}
+
+.white-link:hover{
+    color:white;
+}
+
+.site-name-header{
+    color:#4545d3;
+
+    font-size:large;
+}
+
+.page-name-header{
+    color:#4545d3;
+
+    font-size:large;
+}
+
+.site-name-primary{
+    
+    color:green;
+
+    font-size:large;
+
+    display:inline;
+}

@@ -4,20 +4,20 @@
 
       <br />
 
-    Site : <div class="site-name btn btn-default"><%: SiteName  %></div>
+    Site Name : <div class="site-name-primary"><%: SiteName  %></div>
    
     <br />
     <br />
 
     <div class="page-manager row">
 
-        <div class="col-xs-4 site-manager-header">
-            Pages
+        <div class="col-xs-4 page-manager-header">
+          <span class="page-name-header">Pages</span>
         </div>
-        <div class="col-xs-4 site-manager-header">
+        <div class="col-xs-4 page-manager-header">
             &nbsp;
         </div>
-        <div class="col-xs-4 site-manager-header">
+        <div class="col-xs-4 page-manager-header">
             <button class=" btn btn-primary create-site">Create New</button>
         </div>
 

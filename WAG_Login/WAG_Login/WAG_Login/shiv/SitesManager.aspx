@@ -8,7 +8,7 @@
     <div class="site-manager row">
 
         <div class="col-xs-4 site-manager-header">
-            Sites
+           <span class="site-name-header"> Sites</span> 
         </div>
         <div class="col-xs-4 site-manager-header">
             &nbsp;
@@ -19,6 +19,8 @@
 
     </div>
 
+    <hr />
+
     <div class="site-manager-data row">
 
         <div class="site-data hide">
@@ -28,14 +30,14 @@
             <div class="col-xs-4 site-controls">
             </div>
             <div class="col-xs-4 site-controls">
-                <button class=" btn btn-primary open-site">Open</button>
+                <button class=" btn btn-primary open-site"></button>
             </div>
         </div>
 
     </div>
 
 
-     <script data-main="SiteManager_TS/app.js" src="/Library/require.js"></script>
-
+    <script data-main="SiteManager_TS/app.js" src="/Library/require.js"></script>
+    <link href="../SiteManager.css" rel="stylesheet" />
 
 </asp:Content>

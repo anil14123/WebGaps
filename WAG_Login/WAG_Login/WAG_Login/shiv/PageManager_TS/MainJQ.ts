@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
 
         var site =new impSite.Site.SiteJQ();
 
-        site.GetPages(jQuery("site-name").text());
+        site.GetPages(jQuery("site-name-primary").text());
     }
 });
 

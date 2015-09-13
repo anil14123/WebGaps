@@ -96,9 +96,18 @@ export module Site {
 
                 sitedata.removeClass("hide");
 
-                sitedata.find(".site-name").html(result[i].name);
+                sitedata.find(".site-name").html(result[i].Name);
+
+                var a = jQuery(document.createElement("a"));
+
+                a.attr("href", "PageManager.aspx?SiteName=" + result[i].Name);
+                a.addClass("white-link");
+                a.append("Open");
+
+                sitedata.find(".open-site").append(a);
 
                 jQuery(".site-manager-data").append(sitedata);
+                
             }
         }
 
