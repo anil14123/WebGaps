@@ -92,6 +92,8 @@ export module Themes.Empty {
 
                 impPreview.Preview.PreviewJQ.ClosePreview();
 
+                jQuery(".jq-row-plus-container").hide();
+
                 impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide();
 
                 jQuery(".control-templates").show();
@@ -203,25 +205,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -233,25 +235,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -263,25 +265,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-6 col-xs-3"
+                cols: "col-xs-6 col-xs-12 col-xs-6"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -295,25 +297,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -325,25 +327,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -355,25 +357,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-6 col-xs-3"
+                cols: "col-xs-6 col-xs-12 col-xs-6"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -385,25 +387,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-5 col-xs-4"
+                cols: "col-xs-6 col-xs-10 col-xs-8"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -416,25 +418,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-5 col-xs-4"
+                cols: "col-xs-6 col-xs-10 col-xs-8"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-9"
+                cols: "col-xs-6 col-xs-18"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
@@ -446,25 +448,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-3 col-xs-5 col-xs-4"
+                cols: "col-xs-6 col-xs-10 col-xs-8"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-3 col-xs-6 col-xs-3"
+                cols: "col-xs-6 col-xs-12 col-xs-6"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-12"
+                cols: "col-xs-24"
             }
 
         };
