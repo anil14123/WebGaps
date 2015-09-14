@@ -373,7 +373,7 @@ export module Smart {
 
                 var onePercentPixels = Math.floor((1 * rowWidth) / 100);
 
-                var colXsOnePercentage = 8;
+                var colXsOnePercentage = 4;
 
                 var colXsOnePixels = colXsOnePercentage * onePercentPixels;
 
@@ -386,7 +386,7 @@ export module Smart {
                 commonMethods.RemoveStyle(selectedElement, "min-width");
                 commonMethods.RemoveStyle(selectedElement, "width");
 
-
+                var twoFour = 24;
 
                 if (width > originalWidth) { // Increasing width of columns...
 
@@ -394,6 +394,7 @@ export module Smart {
                     var emptyXsCount = 0;
                     var nextElements = jQuery(selectedElement).nextAll(".column");
 
+                    var twoFour = 24;
 
                     try {
                         var columns = selectedElement.parent().children(".column");
@@ -409,8 +410,8 @@ export module Smart {
                             }
                         }
 
-                        if (count < 12) {
-                            emptyXsCount = 12 - count;
+                        if (count < twoFour) {
+                            emptyXsCount = twoFour - count;
                         }
 
 
@@ -483,7 +484,7 @@ export module Smart {
 
                         var g = overallMinusCurrent + newXsSize;
 
-                        while (g > 12) {
+                        while (g > twoFour) {
                             newXsSize--;
                             g--;
                         }
@@ -546,6 +547,27 @@ export module Smart {
                                     var nextXsSize = Number(jQuery(nextElements[0]).attr("xs-column-size"));
 
                                     var newNextXsSize = nextXsSize + eachXsTemp;
+
+
+                                    /////////////// over all compresser
+                                  
+                                    var allXs = 0;
+                                    selectedElement.parent().children(".column").each(function () {
+
+                                        allXs += Number(jQuery(this).attr("xs-column-size"));
+                                    });
+
+                                    var overallMinusNext = allXs - Number(jQuery(nextElements[0]).attr("xs-column-size"));;
+
+                                    var g = overallMinusNext + newNextXsSize;
+
+                                    while (g > twoFour) {
+                                        newNextXsSize--;
+                                        g--;
+                                    }
+
+                                    //////////////////////////////////////
+
 
                                     jQuery(nextElements[0]).removeClass("col-xs-" + nextXsSize);
                                     jQuery(nextElements[0]).addClass("col-xs-" + newNextXsSize);
