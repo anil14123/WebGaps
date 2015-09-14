@@ -2,6 +2,18 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+.jqte-toolbar {
+    background-color: black;
+    display: inline-block;
+    height: 23px;
+    padding: 10px;
+    padding-bottom: 14px;
+
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
+}
+
 span {
     font-style: italic;
 }
@@ -15,3 +27,143 @@ span {
     width:200px;
     margin-left:100px;
 }
+
+.jqte-editor-tool
+{
+     display: block;
+     width: 20px;
+    height: 20px;
+    float:left;
+     background-repeat:no-repeat;
+     background-size:20px 20px;
+     margin:2px;
+     border:1px solid white;
+
+     padding:2px;
+}
+
+.bold-icon{
+    
+    background-image:url("/jqte/editor/bold.png");
+
+}
+
+.back-color-icon{
+    
+  
+    background-image:url("/jqte/editor/backcolor.png");
+  
+}
+
+.fore-color-icon{
+  
+    background-image:url("/jqte/editor/forecolor.png");
+
+   
+}
+
+.bullet-icon{
+  
+    background-image:url("/jqte/editor/bullet.png");
+
+   
+}
+
+.number-icon {
+   
+    background-image: url('/jqte/editor/numbers.png');
+
+}
+
+.center-icon {
+   
+    background-image: url('/jqte/editor/center.png');
+
+}
+
+.left-icon {
+   
+    background-image: url('/jqte/editor/left.png');
+
+}
+
+.right-icon {
+   
+    background-image: url('/jqte/editor/right.png');
+
+}
+
+.normal-icon {
+   
+    background-image: url('/jqte/editor/normal.png');
+
+}
+
+.clear-icon {
+   
+    background-image: url('/jqte/editor/clear.png');
+
+}
+
+.increase-icon {
+  
+    background-image: url('/jqte/editor/increase.png');
+
+}
+
+.decrease-icon {
+  
+    background-image: url('/jqte/editor/decrease.png');
+
+}
+
+
+.font-icon {
+  
+    background-image: url('/jqte/editor/font.png');
+
+}
+
+
+.html-icon {
+   
+    background-image: url('/jqte/editor/html.png');
+
+}
+
+.left-indent-icon {
+   
+    background-image: url('/jqte/editor/leftIndent.png');
+
+}
+
+.right-indent-icon {
+  
+    background-image: url('/jqte/editor/rightIndent.png');
+
+}
+
+.italic-icon {
+   
+    background-image: url('/jqte/editor/italic.png');
+
+}
+
+.underline-icon {
+   
+    background-image: url('/jqte/editor/underline.png');
+
+}
+
+.strike-icon {
+   
+    background-image: url('/jqte/editor/strike.png');
+
+}
+
+.link-icon {
+ 
+    background-image: url('/jqte/editor/link.png');
+
+}
+
