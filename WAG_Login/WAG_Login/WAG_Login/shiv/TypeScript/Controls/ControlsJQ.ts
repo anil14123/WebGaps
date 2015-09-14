@@ -254,7 +254,7 @@ export module Page {
 
                 }
 
-                var lastColClassNumber = 12 - colPrevNumber;
+                var lastColClassNumber = 24 - colPrevNumber;
 
                 // if two spaces are give : code is braking because of split with space.
                 if (lastColClassNumber > 0) {

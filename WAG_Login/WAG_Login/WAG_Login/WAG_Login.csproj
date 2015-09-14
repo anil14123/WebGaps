@@ -217,6 +217,7 @@
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap.customized.24.min.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap-3.3.5-dist\js\bootstrap.js" />
@@ -303,6 +304,7 @@
     <Content Include="Content\Settings\settings.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Social\gpluslogin.png" />
+    <Content Include="Content\bootstrap.customized.24.min.css" />
     <Content Include="Content\ui-icons_222222_256x240.png" />
     <Content Include="Content\Undo\redo.png" />
     <Content Include="Content\Undo\undo.png" />
