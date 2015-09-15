@@ -97,7 +97,7 @@ export module JQueryUI {
 
                     var onePercentPixels = Math.floor((1 * rowWidth) / 100);
 
-                    var colXsOnePercentage = 4;
+                    var colXsOnePercentage = 2;
 
                     var colXsOnePixels = colXsOnePercentage * onePercentPixels;
 
@@ -115,7 +115,7 @@ export module JQueryUI {
                     commonMethods.RemoveStyle(ui.helper, "width");
 
 
-                    var twoFour = 24;
+                    var twoFour = 48;
 
                     if (width > originalWidth) { // Increasing width of columns...
 

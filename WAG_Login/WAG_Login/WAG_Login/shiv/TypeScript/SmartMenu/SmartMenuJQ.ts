@@ -373,7 +373,7 @@ export module Smart {
 
                 var onePercentPixels = Math.floor((1 * rowWidth) / 100);
 
-                var colXsOnePercentage = 4;
+                var colXsOnePercentage = 2;
 
                 var colXsOnePixels = colXsOnePercentage * onePercentPixels;
 
@@ -386,15 +386,13 @@ export module Smart {
                 commonMethods.RemoveStyle(selectedElement, "min-width");
                 commonMethods.RemoveStyle(selectedElement, "width");
 
-                var twoFour = 24;
+                var twoFour = 48;
 
                 if (width > originalWidth) { // Increasing width of columns...
 
 
                     var emptyXsCount = 0;
                     var nextElements = jQuery(selectedElement).nextAll(".column");
-
-                    var twoFour = 24;
 
                     try {
                         var columns = selectedElement.parent().children(".column");
