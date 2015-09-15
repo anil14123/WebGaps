@@ -99,6 +99,8 @@ export module BI {
 
                         var src = jQuery(".image-library-bi-select").first().attr("src");
 
+                       
+
                         jQuery(".bi-selected-image").val(src).change();
 
                         jQuery(".image-library-image").removeClass("image-library-bi-select");
@@ -117,6 +119,20 @@ export module BI {
                             undo.BeforeOperation();
                         }
                     });
+
+                    jQuery(".control-bi-controls .internet-bi-image-url").change(function () {
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            selectedElement.css("background-image", "url(" + jQuery(this).val() + ")");
+
+                            var undo = new impUnodManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
+
 
                     jQuery(".control-bi-controls .ddn-bi-repeat").change(function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;

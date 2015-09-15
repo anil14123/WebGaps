@@ -248,6 +248,7 @@
     <Content Include="Content\Cursor\right.png" />
     <Content Include="Content\Drag\drag.jpg" />
     <Content Include="Content\Drag\drag.png" />
+    <Content Include="Content\Images\arrow.png" />
     <Content Include="Content\Images\colorImageBorder.png" />
     <Content Include="Content\Images\down.jpg" />
     <Content Include="Content\Images\downArrow - Copy.jpg" />

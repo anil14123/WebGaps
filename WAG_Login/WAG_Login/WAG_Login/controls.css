@@ -26,6 +26,20 @@ controls {
         text-align:center;
     }
 
+    .internet-image-url{
+        border:1px solid black;
+        float:left;
+        width:500px;
+        margin-left:10px;
+    }
+
+    .internet-bi-image-url{
+         border:1px solid black;
+        float:left;
+        width:200px;
+        margin-left:10px;
+    }
+
     .control-move-area img{
         height:15px;
         margin-top:2px;

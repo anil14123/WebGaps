@@ -517,11 +517,23 @@
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">images</div>
             
+              <fieldset class="clear">
+                
+                     <div class=" legend float-left">
+                             Paste Internet Url 
+                            </div>
+
+                <input type="text" class="input-sm  internet-image-url" />
+                
+                </fieldset>
+
+                                     <center><b>OR</b></center>
+
                         <fieldset class="clear">
 
-                           <%-- <div class="page-name legend ">
-                              
-                            </div>--%>
+                          <div class=" legend ">
+                              Library
+                            </div>
 
                             <div id="imageLibrary" class="image-library">
                                 
@@ -716,7 +728,9 @@
                       
                            <%-- <div class="page-name legend ">
                                
-                            </div>--%>
+                             </div>--%>
+              
+
                            
                             <fieldset class="clear ">
 
@@ -727,6 +741,15 @@
                                 <input class="bi-selected-image" type="text" />
 
                                 <button class="bi-browse" > Browse</button>
+                                     <center><b>OR</b></center>
+                                        <div class="float-left">
+                             Paste Internet Url 
+                            </div>
+
+                      <input type="text" class="input-sm  internet-bi-image-url" />
+
+                                   
+
                                       </div>
                             </fieldset>
 
@@ -1005,7 +1028,7 @@
          <div id="control-insert-clipboard" name="insert-clipborad" class="control-page" style="">
           
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area">Image Url/Text</div>
+            <div class="control-move-area">Image Url</div>
             <div class="row" style="border:none; outline:none;">
                 <div class="col-xs-24">
                     <fieldset class="clear">
@@ -1129,7 +1152,7 @@
                 <div class="li ctx-menu-add-row">Add Columns</div>
             </li>
             <li>
-                <div class="li ctx-menu-insert">Insert</div>
+                <div class="li ctx-menu-insert">Insert <div class="jq-menu-arrow"></div></div>
                 <div class="innerListContainer">
                     <ul>
                         <li>
@@ -1157,7 +1180,7 @@
                 </div>
             </li>
             <li>
-                <div class="li ctx-menu-properties">Properties</div>
+                <div class="li ctx-menu-properties">Properties <div class="jq-menu-arrow"></div></div>
                 <div class="innerListContainer">
                     <ul>
                         <li>
@@ -1182,18 +1205,7 @@
                 <div class="li ctx-menu-copy">Copy</div>
             </li>
             <li>
-                <div class="li ctx-menu-paste">Paste</div>
-                <div class="innerListContainer">
-                    <ul>
-                        <li>
-                            <div class="li ctx-menu-paste">Paste</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-paste-clipborad">Paste ClipBoard</div>
-                        </li>
-                    </ul>
-                </div>
-
+                <div class="li ctx-menu-paste">Paste</div> 
             </li>
             <li>
                 <div class="li ctx-menu-delete-element">Delete</div>

@@ -68,10 +68,44 @@ export module Image {
             });
         }
 
+        public static IsImageUrl(s: string) {
+            var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+            if (regexp.test(s) == true) {
+                if (s.length >= 5) {
+
+                    var lowerUrl = s.toLowerCase();
+
+                    var types = ["jpeg", "jpg", "png", "gif"]
+
+                    for (var i = 0; i < types.length; i++) {
+
+                        var _type = lowerUrl.substr(lowerUrl.length - 5, 5);
+
+                        var ts = _type.split(".");
+
+                        if (ts.length >= 2) {
+                            if (ts[1] == types[i]) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+
         AttachInsertImage() {
             jQuery(SelfJQ.controlId).find(".action-button-insert-image").click(function () {
 
-                SelfJQ.InsertImage(undefined);             
+                if (jQuery(".internet-image-url").val() != "" ) {
+                    SelfJQ.InsertImage(jQuery(".internet-image-url").val());
+                }
+                else {
+                    SelfJQ.InsertImage(undefined);
+                }
             });
         }
 
@@ -90,6 +124,8 @@ export module Image {
             var tbImageWrapper = document.createElement("div");
 
             var tbImg = document.createElement("img");
+
+         
 
             jQuery(tbImg).addClass("jq-image-block-image ");
 
@@ -168,6 +204,25 @@ export module Image {
                 jEc.addClass("empty-container-image image-text-other key");
                 jEc.append(plusContainer);
 
+                jQuery(tbImg).load(function () {
+
+                    var loadedImgContainer = jQuery(this).closest(".empty-container-image");
+
+                    if (this.naturalHeight > 200) {
+                    }
+                    else {
+                        loadedImgContainer.css("width", "auto");
+                    }
+
+                    if (this.naturalWidth > 200) {
+
+                    }
+                    else {
+                        loadedImgContainer.css("height", "auto");
+                    }
+
+                });
+
                 plusContainer.find(".jq-plus-content").append(tbImageContainer);
 
 
@@ -210,6 +265,7 @@ export module Image {
             }
 
             jQuery(".image-library-image").removeClass("image-library-select");
+            jQuery(".internet-image-url").val("");
         }
 
         AttachUserImages()
