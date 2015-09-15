@@ -23,6 +23,15 @@ namespace WAG_Login.Account
             }
         }
 
+        protected void DemoLogIn(object sender, EventArgs e)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+
+            var user = manager.FindByName("demo@gmail.com");
+            signInManager.SignIn(user, isPersistent: true, rememberBrowser: true);
+        }
+
         protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
@@ -31,6 +40,7 @@ namespace WAG_Login.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
+               
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);

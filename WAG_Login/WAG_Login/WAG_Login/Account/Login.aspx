@@ -46,11 +46,17 @@
                         <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
                         </div>
+
                     </div>
                 </div>
                 <p>
                     <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
                 </p>
+
+                        <br />
+                 <asp:Button runat="server"  ValidationGroup="demo" OnClick="DemoLogIn" Text="Demo" CssClass="btn btn-danger" />
+                        <br />
+
                 <p>
                     <%-- Enable this once you have account confirmation enabled for password reset functionality
                     <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
