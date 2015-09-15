@@ -15,7 +15,8 @@
 
     <link href="/Content/jquery-ui.min.css" rel="stylesheet" />
 
-    <link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />
+    <link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
+    <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
     <%--  <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>--%>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
@@ -142,13 +143,13 @@
     <div class="top-row-container">
         <div class="row designer-top-row">
 
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <button class=" create-layout-show-button jq-save-margin btn btn-toolbar btn-xs">
                     <img alt="" class="layout-img" src="/content/layout/layout.png" />
                     Layout</button>
             </div>
 
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <button class=" close-preview jq-save-margin  btn btn-toolbar btn-xs">
                     <img alt="" class="preview-img" src="/content/preview/preview.png" />
                     Close Preview</button>
@@ -158,7 +159,7 @@
 
 
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-12">
 
                 <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-toolbar btn-xs">
                     <img alt="" class="undo-img" src="/content/undo/undo.png" />
@@ -173,10 +174,10 @@
 
             </div>
 
-            <div class="col-xs-6">
+            <div class="col-xs-12">
 
                 <div class="row">
-                    <div class="col-xs-16">
+                    <div class="col-xs-32">
                         <button class="page-propetries-button  btn btn-toolbar btn-xs jq-save-margin">
                             <img alt="" class="settings-img" src="/content/settings/settings.png" />
                             Page</button>
@@ -185,7 +186,7 @@
                             Properties</button>
 
                     </div>
-                    <div class="col-xs-8">
+                    <div class="col-xs-16">
                         <form name="logout" runat="server">
                             <asp:LoginStatus runat="server" CssClass="jq-logout" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                         </form>
@@ -277,13 +278,13 @@
                            
                             <fieldset class="clear row">
 
-                                <div class="col-xs-8"> 
+                                <div class="col-xs-16"> 
                             <div class="legend ">
                                Height 
                             </div>
                                     </div>
                              
-                                <div class="col-xs-16 control-p">
+                                <div class="col-xs-32 control-p">
                                     <div class='smart-menu-height smart-menu-control'  style="background-color:black;"></div>
                                      <div class="height-px">0px</div>
                                </div>
@@ -291,13 +292,13 @@
 
                              <fieldset class="clear row">
 
-                                 <div class="col-xs-8">
+                                 <div class="col-xs-16">
                             <div class="legend ">
                                Width 
                             </div>
                                      </div>
                             
-                                 <div class="col-xs-16 control-p">
+                                 <div class="col-xs-32 control-p">
                                   <div class='smart-menu-width smart-menu-control'  style="background-color:black;"></div>
                         <div class="height-px">0px</div>
                         
@@ -323,26 +324,26 @@
                           
                             <fieldset class="clear row ">
 
-                                <div class="col-xs-8">
+                                <div class="col-xs-16">
                             <div class="legend ">
                                Foreground 
                             </div>
                                     </div>
 
-                                <div class="col-xs-16">
+                                <div class="col-xs-32">
                                    # <input type="text" value="000000" class="control-color-foreground-color fb-color-picker" />
                                     </div>
                             </fieldset>
 
                              <fieldset class="clear row">
 
-                                 <div class="col-xs-8">
+                                 <div class="col-xs-16">
                             <div class="legend ">
                                Background 
                             </div>
                                      </div>
 
-                                 <div class="col-xs-16">
+                                 <div class="col-xs-32">
                                    # <input type="text" value="90bd64" class="control-color-background-color fb-color-picker" />
                                      </div>
                             </fieldset>
@@ -361,13 +362,13 @@
                  <div class="control-border-controls">
                       <fieldset class="clear row">
 
-                                 <div class="col-xs-8">
+                                 <div class="col-xs-16">
                             <div class="legend ">
                                Font 
                             </div>
                                      </div>
 
-                           <div class="col-xs-16"> 
+                           <div class="col-xs-32"> 
                               
                               <select class="ddn-control ddn-font-lists ddn-font-pinned" ></select> 
                               <%-- <div class="ddn-font-lists-sample-pinned"></div>--%>
@@ -383,19 +384,19 @@
 
                      <fieldset class="clear row">
 
-                                 <div class="col-xs-8">
+                                 <div class="col-xs-16">
                             <div class="legend ">
                                Border 
                             </div>
                                      </div>
 
-                         <div class="col-xs-10"> 
+                         <div class="col-xs-20"> 
                        <div class="control-border-thickness-all control-border-thickness" style="background-color:black;"></div>
 
                                                     <div class="border-px">0px</div>
                              </div>
 
-                         <div class="col-xs-6">
+                         <div class="col-xs-12">
                         <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all"></input>
 
                              </div>
@@ -459,18 +460,18 @@
 
                 <div class="control-columns-roots">
                         <div class="row" style="outline:none;">
-                            <div class="control-columns col-xs-2" id="column1" data-number="2" data-set="0"></div>
-                            <div class="control-columns col-xs-2 " id="column2" data-number="4" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="6" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="8" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="10" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="12" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="14" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="16" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="18" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="20" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="22" data-set="0"></div>
-                            <div class="control-columns col-xs-2" id="column2" data-number="24" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column1" data-number="4" data-set="0"></div>
+                            <div class="control-columns col-xs-4 " id="column2" data-number="8" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="12" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="16" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="20" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="24" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="28" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="32" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="36" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="40" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="44" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="48" data-set="0"></div>
                         </div>
                 </div>
 
@@ -592,7 +593,7 @@
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Height & Width</div>
             <div class="row" style="outline:none; border:none;">
-                <div class="col-xs-12">
+                <div class="col-xs-48">
                    
                        
                           <div id="sm-controls" class='hw-menu-controls smart-menu-controls-table smart-menu-height-width'>
@@ -860,12 +861,12 @@
                                   
                         
                                     <div clas="row">
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-24">
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
-                                                <div class="col-xs-8">All:</div>
-                                                <div class="col-xs-16">
+                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-32">
 
                                                      <div class="control-border-thickness-all control-border-thickness" style="background-color:black;"></div>
 
@@ -877,8 +878,8 @@
 
                                             <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-8">Left: </div>
-                                                 <div class="col-xs-16">
+                                                <div class="col-xs-16">Left: </div>
+                                                 <div class="col-xs-32">
 
                                                     <div class="control-border-thickness-left control-border-thickness" style="background-color:black;"></div>
                                                       <div class="border-px">0px</div>
@@ -888,8 +889,8 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced" >
 
-                                                <div class="col-xs-8">Right:</div>
-                                                  <div class="col-xs-16">
+                                                <div class="col-xs-16">Right:</div>
+                                                  <div class="col-xs-32">
                                                     <div class="control-border-thickness-right control-border-thickness" style="background-color:black;"></div>
                                                       <div class="border-px">0px</div>
                                                 </div>
@@ -897,8 +898,8 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-8">Top:</div>
-                                                 <div class="col-xs-16">
+                                                <div class="col-xs-16">Top:</div>
+                                                 <div class="col-xs-32">
 
                                                       <div class="control-border-thickness-top control-border-thickness" style="background-color:black;"></div>
                                                       <div class="border-px">0px</div>
@@ -907,8 +908,8 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-8">Bottom:</div>
-                                                  <div class="col-xs-16">
+                                                <div class="col-xs-16">Bottom:</div>
+                                                  <div class="col-xs-32">
 
                                                      <div class="control-border-thickness-bottom control-border-thickness" style="background-color:black;"></div>
                                                       <div class="border-px">0px</div>
@@ -919,11 +920,11 @@
                                             
 
                                         </div>
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-24">
                                      
                                              <div class="row border-color-padding-row border-all-divider">
                                              
-                                                 <div class="col-xs-24">
+                                                 <div class="col-xs-48">
 
                                                      <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all"></input>
 
@@ -936,7 +937,7 @@
                                                   </div>
                                             <div class="row border-color-padding-row jq-border-advanced">
                                               
-                                                 <div class="col-xs-24">
+                                                 <div class="col-xs-48">
 
                                                      <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left"></input>
 
@@ -948,7 +949,7 @@
 
                                                </div>
                                               <div class="row border-color-padding-row jq-border-advanced">
-                                               <div class="col-xs-24">
+                                               <div class="col-xs-48">
 
                                                      <input type="text" id="color-picker" value="000000" class="color-picker color-picker-right"></input>
 
@@ -957,7 +958,7 @@
                                              
                                                </div>
                                               <div class="row border-color-padding-row jq-border-advanced">
-                                               <div class="col-xs-24">
+                                               <div class="col-xs-48">
 
                                                      <input type="text" id="color-picker" value="000000" class="color-picker color-picker-top"></input>
 
@@ -967,7 +968,7 @@
                                                 
                                                </div>
                                               <div class="row border-color-padding-row jq-border-advanced">
-                                               <div class="col-xs-24">
+                                               <div class="col-xs-48">
 
                                                      <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"></input>
 
@@ -980,8 +981,8 @@
 
                                              <div class="row border-thickness-padding-row ">
 
-                                                <div class="col-xs-8">Border Corner Round:</div>
-                                                  <div class="col-xs-10">
+                                                <div class="col-xs-16">Border Corner Round:</div>
+                                                  <div class="col-xs-20">
 
                                                      <div class="control-border-thickness-radius " style="background-color:black;"></div>
                                                       <div class="border-px">0px</div>
@@ -1030,7 +1031,7 @@
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Image Url</div>
             <div class="row" style="border:none; outline:none;">
-                <div class="col-xs-24">
+                <div class="col-xs-48">
                     <fieldset class="clear">
 
                         <div class="page-name legend ">
@@ -1059,7 +1060,7 @@
             <div class="close-panel"> <span class="close-button">X</span> </div>
             <div class="control-move-area">Insert Text</div>
             <div class="row" style="border:none; outline:none;">
-                <div class="col-xs-24">
+                <div class="col-xs-48">
                     <fieldset class="clear">
 
                         <%--<div class="page-name legend ">

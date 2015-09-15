@@ -205,25 +205,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -235,25 +235,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -265,25 +265,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-12 col-xs-6"
+                cols: "col-xs-12 col-xs-24 col-xs-12"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -297,25 +297,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -327,25 +327,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -357,25 +357,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-12 col-xs-6"
+                cols: "col-xs-12 col-xs-24 col-xs-12"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -387,25 +387,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-10 col-xs-8"
+                cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -418,25 +418,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-10 col-xs-8"
+                cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-18"
+                cols: "col-xs-12 col-xs-36"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };
@@ -448,25 +448,25 @@ export module Themes.Empty {
             header: {
 
                 height: 41,
-                cols: "col-xs-6 col-xs-10 col-xs-8"
+                cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             },
 
             body: {
 
                 height: 70,
-                cols: "col-xs-6 col-xs-12 col-xs-6"
+                cols: "col-xs-12 col-xs-24 col-xs-12"
             },
 
             footer: {
 
                 height: 5,
-                cols: "col-xs-24"
+                cols: "col-xs-48"
             }
 
         };

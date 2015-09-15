@@ -214,6 +214,7 @@
     <Content Include="border-image.png" />
     <Content Include="ColorPicker.css" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap-customzed-48.min.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-3.3.5-dist\css\bootstrap.css" />
@@ -306,6 +307,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\Social\gpluslogin.png" />
     <Content Include="Content\bootstrap.customized.24.min.css" />
+    <Content Include="Content\bootstrap-customzed-48.min.css" />
     <Content Include="Content\ui-icons_222222_256x240.png" />
     <Content Include="Content\Undo\redo.png" />
     <Content Include="Content\Undo\undo.png" />
