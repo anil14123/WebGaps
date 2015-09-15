@@ -43,7 +43,7 @@ export module BI {
                                 jQuery(this).after(spanResult);
                             }
 
-                            jQuery(this).next(".height-px").text(ui.value + "px");
+                            jQuery(this).next(".height-px").text(ui.value + jQuery(".ddn-bi-pixel-type").val());
                         
                         },
                         slide: function (event, ui) {
@@ -54,7 +54,7 @@ export module BI {
                                 jQuery(this).after(spanResult);
                             }
 
-                            jQuery(this).next(".height-px").text(ui.value + "px");
+                            jQuery(this).next(".height-px").text(ui.value + jQuery(".ddn-bi-pixel-type").val());
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -64,7 +64,7 @@ export module BI {
                                 var height = jQuery(".smart-menu-bi-height").slider("value");
                                 var width = jQuery(".smart-menu-bi-width").slider("value");
 
-                                selectedElement.css("background-size", width + "px" + " " + height + "px");
+                                selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
                             }
                         },
@@ -78,7 +78,7 @@ export module BI {
                                 var height = jQuery(".smart-menu-bi-height").slider("value");
                                 var width = jQuery(".smart-menu-bi-width").slider("value");
 
-                                selectedElement.css("background-size", width + "px" + " " + height + "px");
+                                selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
                                 var undo = new impUnodManager.Manager.UndoManager();
 
@@ -195,6 +195,8 @@ export module BI {
                         if (wh.length >= 2) {
                             var width = wh[0];
                             var heigth = wh[1];
+
+                            jQuery(".ddn-bi-pixel-type").val("px")
 
                             width = width.replace("px", "");
                             heigth = heigth.replace("px", "");

@@ -277,13 +277,13 @@
                            
                             <fieldset class="clear row">
 
-                                <div class="col-xs-4"> 
+                                <div class="col-xs-8"> 
                             <div class="legend ">
                                Height 
                             </div>
                                     </div>
                              
-                                <div class="col-xs-8 control-p">
+                                <div class="col-xs-16 control-p">
                                     <div class='smart-menu-height smart-menu-control'  style="background-color:black;"></div>
                                      <div class="height-px">0px</div>
                                </div>
@@ -291,13 +291,13 @@
 
                              <fieldset class="clear row">
 
-                                 <div class="col-xs-4">
+                                 <div class="col-xs-8">
                             <div class="legend ">
                                Width 
                             </div>
                                      </div>
                             
-                                 <div class="col-xs-8 control-p">
+                                 <div class="col-xs-16 control-p">
                                   <div class='smart-menu-width smart-menu-control'  style="background-color:black;"></div>
                         <div class="height-px">0px</div>
                         
@@ -323,26 +323,26 @@
                           
                             <fieldset class="clear row ">
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-8">
                             <div class="legend ">
                                Foreground 
                             </div>
                                     </div>
 
-                                <div class="col-xs-8">
+                                <div class="col-xs-16">
                                    # <input type="text" value="000000" class="control-color-foreground-color fb-color-picker" />
                                     </div>
                             </fieldset>
 
                              <fieldset class="clear row">
 
-                                 <div class="col-xs-4">
+                                 <div class="col-xs-8">
                             <div class="legend ">
                                Background 
                             </div>
                                      </div>
 
-                                 <div class="col-xs-8">
+                                 <div class="col-xs-16">
                                    # <input type="text" value="90bd64" class="control-color-background-color fb-color-picker" />
                                      </div>
                             </fieldset>
@@ -361,13 +361,13 @@
                  <div class="control-border-controls">
                       <fieldset class="clear row">
 
-                                 <div class="col-xs-4">
+                                 <div class="col-xs-8">
                             <div class="legend ">
                                Font 
                             </div>
                                      </div>
 
-                           <div class="col-xs-8"> 
+                           <div class="col-xs-16"> 
                               
                               <select class="ddn-control ddn-font-lists ddn-font-pinned" ></select> 
                               <%-- <div class="ddn-font-lists-sample-pinned"></div>--%>
@@ -383,19 +383,19 @@
 
                      <fieldset class="clear row">
 
-                                 <div class="col-xs-4">
+                                 <div class="col-xs-8">
                             <div class="legend ">
                                Border 
                             </div>
                                      </div>
 
-                         <div class="col-xs-5"> 
+                         <div class="col-xs-10"> 
                        <div class="control-border-thickness-all control-border-thickness" style="background-color:black;"></div>
 
                                                     <div class="border-px">0px</div>
                              </div>
 
-                         <div class="col-xs-3">
+                         <div class="col-xs-6">
                         <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all"></input>
 
                              </div>
@@ -789,11 +789,16 @@
 
                                  
                                 <div class="legend ">
-                                   Height * Width
+                                   Height * Width 
+                                    
+                                    <select class="ddn-control ddn-bi-pixel-type">
+                                      <option selected value="px">px</option>
+                                      <option value="%">%</option>
+                                 </select>
                                 </div>
 
                                  <div class="bi-h-w" >
-                                     <div class='smart-menu-bi-height smart-menu-bi-control' style="background-color:black;"></div>
+                                     <div class='smart-menu-bi-height smart-menu-bi-control' style="background-color:black;"></div>  
                         
                                      <div class="height-px">0px</div>
 
