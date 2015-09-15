@@ -834,6 +834,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Themes\EmptyLayout\EmptyLayoutJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Triggers\TriggersJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\UndoManager\UndoManager.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Watch\ClipBoardJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Watch\CopyPasteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Watch\WatchMouseJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\_Classes\Auth.ts" />

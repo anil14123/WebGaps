@@ -71,138 +71,145 @@ export module Image {
         AttachInsertImage() {
             jQuery(SelfJQ.controlId).find(".action-button-insert-image").click(function () {
 
-                var imageObj = new SelfJQ();
+                SelfJQ.InsertImage(undefined);             
+            });
+        }
 
-                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                errorHandler.SetErrorClassName("page-insert-image");
+        public static InsertImage(url) {
+            var imageObj = new SelfJQ();
 
-                var ctx = new impPageCtx.Page.ContextJQ();
+            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+            errorHandler.SetErrorClassName("page-insert-image");
 
-                var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
+            var ctx = new impPageCtx.Page.ContextJQ();
 
-                var tbImageContainer = document.createElement("div");
-                var tbImage = document.createElement("div");
-                var tbImageWrapper = document.createElement("div");
+            var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
 
-                var tbImg = document.createElement("img");
+            var tbImageContainer = document.createElement("div");
+            var tbImage = document.createElement("div");
+            var tbImageWrapper = document.createElement("div");
 
-                jQuery(tbImg).addClass("jq-image-block-image ");
-                
-                jQuery(tbImg).addClass("normal-element image-element");
+            var tbImg = document.createElement("img");
 
-                jQuery(tbImageWrapper).addClass("jq-image-block-image-wrapper");
-               
-                var imgSrc = jQuery(".image-library-select").attr("src");
+            jQuery(tbImg).addClass("jq-image-block-image ");
 
-                jQuery(tbImg).attr("src", imgSrc);
+            jQuery(tbImg).addClass("normal-element image-element");
 
-              
+            jQuery(tbImageWrapper).addClass("jq-image-block-image-wrapper");
 
-                jQuery(tbImageWrapper).append(tbImg);
+            var imgSrc;
 
-                jQuery(tbImage).append(tbImageWrapper);
+            if (url == undefined) {
+                imgSrc = jQuery(".image-library-select").attr("src");
+            }
+            else {
+                imgSrc = url;
+            }
 
-                jQuery(tbImage).addClass(SelfJQ.CSSCLASS);
+            jQuery(tbImg).attr("src", imgSrc);
 
-                ///////////////column scope id for debugging and designer //////
-                var tbScopeId = imageObj.GenerateTextBlockScopeId();
+            jQuery(tbImageWrapper).append(tbImg);
 
-                if (debug == true && tbImage != undefined) {
-                    jQuery(tbImage).prepend("<span class='debug-image-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
-                }
+            jQuery(tbImage).append(tbImageWrapper);
 
-                jQuery(tbImage).attr("scopeId", tbScopeId);
+            jQuery(tbImage).addClass(SelfJQ.CSSCLASS);
 
-                jQuery(tbImageContainer).append(tbImage);
+            ///////////////column scope id for debugging and designer //////
+            var tbScopeId = imageObj.GenerateTextBlockScopeId();
 
-                /////////////// row scope id for debugging and designer //////
-                var tbcScopeId = imageObj.GenerateContainerScopeId();
+            if (debug == true && tbImage != undefined) {
+                jQuery(tbImage).prepend("<span class='debug-image-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
+            }
 
-                if (debug == true) {
-                    jQuery(tbImageContainer).append(" <span class='debug-image-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
-                }
+            jQuery(tbImage).attr("scopeId", tbScopeId);
 
-                jQuery(tbImageContainer).addClass(SelfJQ.CONTAINER_CSS_CLASS);
+            jQuery(tbImageContainer).append(tbImage);
 
-                jQuery(tbImageContainer).attr("scopeId", tbcScopeId);
+            /////////////// row scope id for debugging and designer //////
+            var tbcScopeId = imageObj.GenerateContainerScopeId();
 
-                //var smartMenu = "<div class='smart-menu-icon'></div>" +
-                //    "<div class='smart-menu'> " +
-                //    "<div class='smart-menu-controls  smart-menu-height-width' > " +
-                //    "<table style='smart-menu-controls-table'>" +
-                //    " <tr> <td>Height </td> <td> : </td> <td><input maxlength='3' type='text' class='smart-menu-height'> </input> px </td> </tr> " +
-                //    "<tr> <td>Width </td> <td> : </td> <td> <input maxlength='3' type='text' class='smart-menu-width'> px </input> </td> " +
-                //    "</table" +
-                //    "</div>" +
-                //    "</div>";
+            if (debug == true) {
+                jQuery(tbImageContainer).append(" <span class='debug-image-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
+            }
 
-                //jQuery(tbContainer).append(smartMenu);
+            jQuery(tbImageContainer).addClass(SelfJQ.CONTAINER_CSS_CLASS);
+
+            jQuery(tbImageContainer).attr("scopeId", tbcScopeId);
+
+            //var smartMenu = "<div class='smart-menu-icon'></div>" +
+            //    "<div class='smart-menu'> " +
+            //    "<div class='smart-menu-controls  smart-menu-height-width' > " +
+            //    "<table style='smart-menu-controls-table'>" +
+            //    " <tr> <td>Height </td> <td> : </td> <td><input maxlength='3' type='text' class='smart-menu-height'> </input> px </td> </tr> " +
+            //    "<tr> <td>Width </td> <td> : </td> <td> <input maxlength='3' type='text' class='smart-menu-width'> px </input> </td> " +
+            //    "</table" +
+            //    "</div>" +
+            //    "</div>";
+
+            //jQuery(tbContainer).append(smartMenu);
 
 
-                if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container") || window.smartObj != null) {
+            if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container") || window.smartObj != null) {
 
 
-                    //var emptyc = document.createElement("span");
-                    //jQuery(emptyc).addClass("empty-container key design-css design-empty-css");
+                //var emptyc = document.createElement("span");
+                //jQuery(emptyc).addClass("empty-container key design-css design-empty-css");
 
                     
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
+                //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
 
-                    var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
-                    plusContainer.removeClass("jq-plus-container-not-used");
+                var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
+                plusContainer.removeClass("jq-plus-container-not-used");
 
-                    var emptycontainer = document.createElement("div");
+                var emptycontainer = document.createElement("div");
 
-                    var jEc = jQuery(emptycontainer);
+                var jEc = jQuery(emptycontainer);
 
-                    jEc.addClass("empty-container-image image-text-other key");
-                    jEc.append(plusContainer);
+                jEc.addClass("empty-container-image image-text-other key");
+                jEc.append(plusContainer);
 
-                    plusContainer.find(".jq-plus-content").append(tbImageContainer);
-
-
-                    if (window.smartObj == null || window.smartObj.command == "") {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);
-                    }
-                    else {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, true, undefined);
-                    }
-                    //var empty = document.createElement("span");
-                    //jQuery(empty).addClass("empty-container key design-css design-empty-css");
-
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(empty), '', undefined, undefined);
+                plusContainer.find(".jq-plus-content").append(tbImageContainer);
 
 
-                    //// rearrange debug css ....
-
-                    if (selectedRowOrColumn.hasClass("jq-image-block-container")) {
-
-                        var tbOrTbcWithScopeId = selectedRowOrColumn.attr("scopeId");
-
-                        selectedRowOrColumn.find(".debug-image-block-container-css[scopeId=" + tbOrTbcWithScopeId + "]").remove();
-
-                        if (tbOrTbcWithScopeId != undefined) {
-                            selectedRowOrColumn.append('<span class="debug-image-block-container-css debug-css" scopeId="' + tbOrTbcWithScopeId + '" > ' + tbOrTbcWithScopeId + '</span>');
-                        }
-                    }
-                    ///// rearrange debug css completed...
-
-                    jQuery(tbImageContainer).find(".debug-css").remove();
-
-                    errorHandler.ActionSuccess("");
-
-                    jQuery(SelfJQ.controlId).hide();
-
-                    impCommonCode.ControlCommon.Code.Execute();
+                if (window.smartObj == null || window.smartObj.command == "") {
+                    ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);
                 }
                 else {
-                    errorHandler.ActionFail("You can only insert in a column or empty container [].");
+                    ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, true, undefined);
                 }
+                //var empty = document.createElement("span");
+                //jQuery(empty).addClass("empty-container key design-css design-empty-css");
 
-               
-                jQuery(".image-library-image").removeClass("image-library-select");
+                //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(empty), '', undefined, undefined);
 
-            });
+
+                //// rearrange debug css ....
+
+                if (selectedRowOrColumn.hasClass("jq-image-block-container")) {
+
+                    var tbOrTbcWithScopeId = selectedRowOrColumn.attr("scopeId");
+
+                    selectedRowOrColumn.find(".debug-image-block-container-css[scopeId=" + tbOrTbcWithScopeId + "]").remove();
+
+                    if (tbOrTbcWithScopeId != undefined) {
+                        selectedRowOrColumn.append('<span class="debug-image-block-container-css debug-css" scopeId="' + tbOrTbcWithScopeId + '" > ' + tbOrTbcWithScopeId + '</span>');
+                    }
+                }
+                ///// rearrange debug css completed...
+
+                jQuery(tbImageContainer).find(".debug-css").remove();
+
+                errorHandler.ActionSuccess("");
+
+                jQuery(SelfJQ.controlId).hide();
+
+                impCommonCode.ControlCommon.Code.Execute();
+            }
+            else {
+                errorHandler.ActionFail("You can only insert in a column or empty container [].");
+            }
+
+            jQuery(".image-library-image").removeClass("image-library-select");
         }
 
         AttachUserImages()

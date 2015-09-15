@@ -2,6 +2,7 @@
 import impError = require("../Error/ErrorJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
+import impClipboard = require("./ClipBoardJQ");
 
 var CopiedElement: JQuery;
 var isCut = false;
@@ -233,10 +234,14 @@ export module CopyPaste {
                     CopyPasteJQ.ClipBoardData.data != "") {
 
                     if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
-                        alert("Image Url" + CopyPasteJQ.ClipBoardData.data);
+
+                        var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                        clp.InsertImage(CopyPasteJQ.ClipBoardData.data);
                     }
                     else {
-                        alert(CopyPasteJQ.ClipBoardData.data);
+
+                        var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                        clp.InsertText(CopyPasteJQ.ClipBoardData.data);
                     }
                 }
 
