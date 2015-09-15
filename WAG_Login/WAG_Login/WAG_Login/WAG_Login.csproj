@@ -810,6 +810,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\TextJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\CssManager\CssManagerJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Document\DocumentJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Document\IWindow.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Error\ErrorJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\JQte\JQteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\MainJQ.ts" />

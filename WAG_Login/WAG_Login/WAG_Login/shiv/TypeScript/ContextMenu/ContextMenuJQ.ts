@@ -314,29 +314,38 @@ export module ContextMenu {
 
             //var copyObj = new impCopy.CopyPaste.SelfJQ();
 
-            impCopy.CopyPaste.SelfJQ.Copy();
+            impCopy.CopyPaste.CopyPasteJQ.Copy();
         }
 
         public static DeleteElement() {
 
             //var copyObj = new impCopy.CopyPaste.SelfJQ();
 
-            impCopy.CopyPaste.SelfJQ.Delete();
+            impCopy.CopyPaste.CopyPasteJQ.Delete();
         }
 
         public static CutElement() {
 
             //var copyObj = new impCopy.CopyPaste.SelfJQ();
 
-            impCopy.CopyPaste.SelfJQ.Cut();
+            impCopy.CopyPaste.CopyPasteJQ.Cut();
         }
 
         public static PasteElement() {
 
             //var copyObj = new impCopy.CopyPaste.SelfJQ();
 
-            impCopy.CopyPaste.SelfJQ.Paste();
+            impCopy.CopyPaste.CopyPasteJQ.Paste();
         }
+
+        public static PasteClipBorad() {
+
+            jQuery(".jq-clipboard").html("");
+            jQuery("#control-insert-clipboard").show();
+
+            //impCopy.CopyPaste.CopyPasteJQ.PasteClipBoard(); // no need to call. it will be called in paste event.
+        }
+
 
 
 
@@ -459,10 +468,22 @@ export module ContextMenu {
                 if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                     return;
                 }
-
+                
                 ContextMenuJQ.PasteElement();
             });
         }
+
+        public static AttachPasteClipBorad() {
+            jQuery(".li.ctx-menu-paste-clipborad").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.PasteClipBorad();
+            });
+        }
+
 
         public static AttachSpacer() {
 
@@ -629,6 +650,7 @@ export module ContextMenu {
                         ContextMenuJQ.AttachHeightWidth();
                         ContextMenuJQ.AttachCopy();
                         ContextMenuJQ.AttachPaste();
+                        ContextMenuJQ.AttachPasteClipBorad();
                         ContextMenuJQ.AttachCut();
                         ContextMenuJQ.AttachInsertImage();
                         ContextMenuJQ.AttachSpacer();

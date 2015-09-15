@@ -6,17 +6,59 @@ import impUndoManager = require("../UndoManager/UndoManager");
 var CopiedElement: JQuery;
 var isCut = false;
 
+class ClipBorad {
+   public data: string;
+}
+
 export module CopyPaste {
 
-    export class SelfJQ {
+    export class CopyPasteJQ {
 
-        constructor() {
+        static ClipBoardData: ClipBorad;
 
+        static staticRun = CopyPasteJQ.Const();
+
+        static Const() {
+            CopyPasteJQ.ClipBoardData = new ClipBorad();
         }
 
         public Init() {
 
         }
+
+        public static SetClipBoard(clipText: string) {
+            CopyPasteJQ.ClipBoardData.data = clipText;
+        }
+
+        public static IsImageUrl(s: string) {
+            var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+            if (regexp.test(s) == true) {
+                if (s.length >= 5) {
+
+                    var lowerUrl = s.toLowerCase();
+
+                    var types = ["jpeg", "jpg", "png", "gif"]
+
+                    for (var i = 0; i < types.length; i++) {
+
+                        var _type = lowerUrl.substr(lowerUrl.length - 5, 5);
+
+                        var ts = _type.split(".");
+
+                        if (ts.length >= 2) {
+                            if (ts[1] == types[i]) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+       
 
         public static Delete() {
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
@@ -77,7 +119,7 @@ export module CopyPaste {
                             CopiedElement = selecedElement;
                         }
 
-                  
+
                 }
                 else {
                     CopiedElement = jQuery("#noelement--x");
@@ -132,6 +174,7 @@ export module CopyPaste {
             }
         }
 
+
         public static Paste() {
 
             var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
@@ -142,7 +185,7 @@ export module CopyPaste {
                 return;
             }
 
-          
+
             if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
 
                 if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
@@ -171,6 +214,38 @@ export module CopyPaste {
                 undomanager.BeforeOperation();
 
                 isCut = false;
+            }
+            else {
+
+                errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
+            }
+        }
+
+        public static PasteClipBoard() {
+
+            var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
+            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+            if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
+
+                if (CopyPasteJQ.ClipBoardData.data != undefined
+                    &&
+                    CopyPasteJQ.ClipBoardData.data != "") {
+
+                    if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
+                        alert("Image Url" + CopyPasteJQ.ClipBoardData.data);
+                    }
+                    else {
+                        alert(CopyPasteJQ.ClipBoardData.data);
+                    }
+                }
+
+                impCommonCode.ControlCommon.Code.Execute();
+
+                var undomanager = new impUndoManager.Manager.UndoManager();
+
+                undomanager.BeforeOperation();
+
             }
             else {
 

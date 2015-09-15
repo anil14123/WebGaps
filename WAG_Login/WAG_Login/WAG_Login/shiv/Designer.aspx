@@ -69,7 +69,7 @@
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
 
-
+   
 
     <div class="jq-plus-container jq-plus-container-not-used">
 
@@ -1000,6 +1000,34 @@
                 </div>
           </div>
     
+          <!------------------------------ Insert clipborad ------------------------------------>
+
+         <div id="control-insert-clipboard" name="insert-clipborad" class="control-page" style="">
+          
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Image Url/Text</div>
+            <div class="row" style="border:none; outline:none;">
+                <div class="col-xs-24">
+                    <fieldset class="clear">
+
+                        <div class="page-name legend ">
+                            Paste Below
+                        </div>
+
+                          <div class="jq-clipboard" contenteditable="true">
+
+                          </div>
+                       
+
+                    </fieldset>
+                </div>
+            
+            </div>
+
+        </div>
+
+       
+
 
         <!------------------------------ Insert Text ------------------------------------>
 
@@ -1155,6 +1183,17 @@
             </li>
             <li>
                 <div class="li ctx-menu-paste">Paste</div>
+                <div class="innerListContainer">
+                    <ul>
+                        <li>
+                            <div class="li ctx-menu-paste">Paste</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-paste-clipborad">Paste ClipBoard</div>
+                        </li>
+                    </ul>
+                </div>
+
             </li>
             <li>
                 <div class="li ctx-menu-delete-element">Delete</div>

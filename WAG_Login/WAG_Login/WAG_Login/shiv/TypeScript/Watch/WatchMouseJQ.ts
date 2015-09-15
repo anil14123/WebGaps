@@ -20,7 +20,7 @@ export module Watch {
 
     export class MouseJQ {
 
-        public static selectedElement: JQuery;
+        static selectedElement: JQuery;
 
         public static RemoveAndResetRemovableRow() {
             

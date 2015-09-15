@@ -14,6 +14,7 @@ import impJqte = require("./jqte/jqtejq");
 import impControlMove = require("./Controls/ControlMoveJQ");
 import impTemplate = require("./Template/TemplateJQ");
 import impCommonControls = require("./Controls/controlcommonjq");
+import impDocument = require("./Document/DocumentJQ");
 
 
 var ctx = new impPageCtx.Page.ContextJQ();
@@ -51,14 +52,17 @@ jQuery(document).ready(function () {
     if (isMainReady == false) {
         isMainReady = true;
 
-        
-
         // attach resizable...
         impCommonControls.ControlCommon.Code.Execute();      
 
         /// unknow code...
         jQuery(".row").removeClass("design-row");
         jQuery(".column").removeClass("design-column");
+
+        // attach documment ...
+
+        var doc = new impDocument.Document.DocumentJQ();
+        doc.Init();
 
         ////////////////// smart //////////////////////////
         var smart = new impCommon.Common.CommonEvents();

@@ -35,6 +35,10 @@ controls {
     background-color:white;
 }
 
+.jq-clipboard{
+    height:100px;
+    width:300px;
+}
 
 
 .control-page {
