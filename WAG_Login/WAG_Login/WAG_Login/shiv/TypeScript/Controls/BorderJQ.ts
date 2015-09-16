@@ -45,21 +45,23 @@ export module Border {
                         max: 5000,
                         step: 1,
 
-                       change: function (event, ui) {
+                        change: function (event, ui) {
 
-                           jQuery(".control-border-thickness-radius").spinner("value", jQuery(this).val());
-
-                            BorderJQ.OnChange(this);
+                           if (BorderJQ.isSelectProcessing == false) {
+                               BorderJQ.OnChange(this);
+                           }
                         },
                         spin: function (event, ui) {
 
-                            jQuery(".control-border-thickness-radius").spinner("value", jQuery(this).val());
-
-                            BorderJQ.OnChange(this);
+                            if (BorderJQ.isSelectProcessing == false) {
+                                BorderJQ.OnChange(this);
+                            }
                         },
                         stop: function (event, ui) {
 
-                            BorderJQ.OnChange(this);
+                            if (BorderJQ.isSelectProcessing == false) {
+                                BorderJQ.OnChange(this);
+                            }
 
                             var undo = new impUndoManager.Manager.UndoManager();
 
@@ -76,37 +78,25 @@ export module Border {
                             value: 0,
                             change: function (event, ui) {
 
-                               
-
-                                if (jQuery(this).hasClass("control-border-thickness-all")) {
-
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).val());
+                                if (BorderJQ.isSelectProcessing == false) {
+                                    BorderJQ.OnChange(this);
                                 }
-
-
-                                BorderJQ.OnChange(this);
                             },
 
 
                             spin: function (event, ui) {
 
-                                if (jQuery(this).hasClass("control-border-thickness-all")) {
-
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).val());
+                                if (BorderJQ.isSelectProcessing == false) {
+                                    BorderJQ.OnChange(this);
                                 }
-
-                                BorderJQ.OnChange(this);
                             },
 
                             stop: function (event, ui) {
 
-                                BorderJQ.OnChange(this);
-
-                                if (jQuery(this).hasClass("control-border-thickness-all")) {
-
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).spinner("value"));
+                                if (BorderJQ.isSelectProcessing == false) {
+                                    BorderJQ.OnChange(this);
                                 }
-
+                               
                                 var undo = new impUndoManager.Manager.UndoManager();
 
                                 undo.BeforeOperation();
@@ -115,8 +105,7 @@ export module Border {
 
                         }
                         );
-
-                    jQuery(".control-border-thickness").spinner("value", 3);
+                   
 
                     jQuery('.color-picker').colpick({
                         layout: 'hex',
@@ -246,88 +235,106 @@ export module Border {
 
         }
 
+        public static isSelectProcessing = false;
+
         public static OnChange($this) {
 
-            if (borderFirstTime != 0) {
-                borderFirstTime = 1;
-                impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
+            BorderJQ.isSelectProcessing = true;
+
+            try {
+                if (borderFirstTime != 0) {
+                    borderFirstTime = 1;
+                    impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
+                }
+                var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                if (selectedElement != undefined) {
+                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+
+                    if (jQuery($this).hasClass("control-border-thickness-all")) {
+
+                        jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery($this).val());
+                    }
+
+
+                    var common = new impCommon.Common.CommonMethodsJQ();
+
+                    var borderLeft = $(".control-border-thickness-left").spinner("value");
+                    var borderTop = $(".control-border-thickness-top").spinner("value");
+                    var borderRight = $(".control-border-thickness-right").spinner("value");
+                    var borderBottom = $(".control-border-thickness-bottom").spinner("value");
+                    var borderRadius = $(".control-border-thickness-radius").spinner("value");
+
+                    if (borderRadius != undefined) {
+                        selectedElement.css("border-radius", borderRadius + "px");
+                    }
+
+                    if (borderLeft != undefined) {
+                        selectedElement.css("border-left-width", borderLeft + "px");
+
+                        var color = $($this).closest(".control-border-controls").find(".color-picker-left").val();
+
+                        selectedElement.css("border-left-color", "#" + color);
+
+
+                    }
+
+                    if (borderTop != undefined) {
+                        selectedElement.css("border-top-width", borderTop + "px");
+
+                        var color = $($this).closest(".control-border-controls").find(".color-picker-top").val();
+
+                        selectedElement.css("border-top-color", "#" + color);
+
+
+                    }
+
+                    if (borderRight != undefined) {
+                        selectedElement.css("border-right-width", borderRight + "px");
+
+                        var color = $($this).closest(".control-border-controls").find(".color-picker-right").val();
+
+                        selectedElement.css("border-right-color", "#" + color);
+
+                    }
+
+                    if (borderBottom != undefined) {
+                        selectedElement.css("border-bottom-width", borderBottom + "px");
+
+                        var color = $($this).closest(".control-border-controls").find(".color-picker-bottom").val();
+
+                        selectedElement.css("border-bottom-color", "#" + color);
+
+
+                    }
+
+                    selectedElement.css("border-style", "solid");
+
+                    if (borderLeft == 0 && borderTop == 0 && borderRight == 0 && borderBottom == 0) {
+
+                        common.RemoveStyle(selectedElement, "border-left-width");
+                        common.RemoveStyle(selectedElement, "border-top-width");
+                        common.RemoveStyle(selectedElement, "border-bottom-width");
+                        common.RemoveStyle(selectedElement, "border-right-width");
+                        common.RemoveStyle(selectedElement, "border-color");
+                        common.RemoveStyle(selectedElement, "border");
+
+
+                    }
+
+                    selectedElement.removeClass("image-selection");
+
+                }
+                else {
+
+                }
             }
-            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
-
-            if (selectedElement != undefined) {
-                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                var common = new impCommon.Common.CommonMethodsJQ();
-
-                var borderLeft = $(".control-border-thickness-left").spinner("value");
-                var borderTop = $(".control-border-thickness-top").spinner("value");
-                var borderRight = $(".control-border-thickness-right").spinner("value");
-                var borderBottom = $(".control-border-thickness-bottom").spinner("value");
-                var borderRadius = $(".control-border-thickness-radius").spinner("value");
-
-                if (borderRadius != undefined) {
-                    selectedElement.css("border-radius", borderRadius + "px");
-                }
-
-                if (borderLeft != undefined) {
-                    selectedElement.css("border-left-width", borderLeft + "px");
-
-                    var color = $($this).closest(".control-border-controls").find(".color-picker-left").val();
-
-                    selectedElement.css("border-left-color", "#" + color);
-
-
-                }
-
-                if (borderTop != undefined) {
-                    selectedElement.css("border-top-width", borderTop + "px");
-
-                    var color = $($this).closest(".control-border-controls").find(".color-picker-top").val();
-
-                    selectedElement.css("border-top-color", "#" + color);
-
-
-                }
-
-                if (borderRight != undefined) {
-                    selectedElement.css("border-right-width", borderRight + "px");
-
-                    var color = $($this).closest(".control-border-controls").find(".color-picker-right").val();
-
-                    selectedElement.css("border-right-color", "#" + color);
-
-                }
-
-                if (borderBottom != undefined) {
-                    selectedElement.css("border-bottom-width", borderBottom + "px");
-
-                    var color = $($this).closest(".control-border-controls").find(".color-picker-bottom").val();
-
-                    selectedElement.css("border-bottom-color", "#" + color);
-
-
-                }
-
-                selectedElement.css("border-style", "solid");
-
-                if (borderLeft == 0 && borderTop == 0 && borderRight == 0 && borderBottom == 0) {
-
-                    common.RemoveStyle(selectedElement, "border-left-width");
-                    common.RemoveStyle(selectedElement, "border-top-width");
-                    common.RemoveStyle(selectedElement, "border-bottom-width");
-                    common.RemoveStyle(selectedElement, "border-right-width");
-                    common.RemoveStyle(selectedElement, "border-color");
-                    common.RemoveStyle(selectedElement, "border");
-
-
-                }
-
-                selectedElement.removeClass("image-selection");
+            catch (ex) {
 
             }
-            else {
-                
-            }
+
+            BorderJQ.isSelectProcessing = false;
         }
 
         public static ProcessSelectedValues() {

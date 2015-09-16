@@ -44,8 +44,8 @@ export module BI {
 
                            
 
-                           
 
+                           
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
 
@@ -203,7 +203,8 @@ export module BI {
 
             });
                         
-        }     
+        }  
+           
 
         public static isSelectProcessing = false;
         
