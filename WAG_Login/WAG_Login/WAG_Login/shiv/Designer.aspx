@@ -521,7 +521,7 @@
               <fieldset class="clear">
                 
                      <div class=" legend float-left">
-                             Paste Internet Url 
+                             Paste Image Url 
                             </div>
 
                 <input type="text" class="input-sm  internet-image-url" />
@@ -744,7 +744,7 @@
                                 <button class="bi-browse" > Browse</button>
                                      <center><b>OR</b></center>
                                         <div class="float-left">
-                             Paste Internet Url 
+                             Paste Image Url 
                             </div>
 
                       <input type="text" class="input-sm  internet-bi-image-url" />
@@ -819,6 +819,9 @@
                                       <option selected value="px">px</option>
                                       <option value="%">%</option>
                                  </select>
+
+                                    <button class="btn btn-default make-100">Cover 100%</button>
+
                                 </div>
 
                                  <div class="bi-h-w" >

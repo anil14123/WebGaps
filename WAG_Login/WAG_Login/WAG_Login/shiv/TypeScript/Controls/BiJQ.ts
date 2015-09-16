@@ -95,6 +95,46 @@ export module BI {
                         jQuery("#control-image-bi-library").show();
                     });
 
+                    jQuery(".make-100").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+                            
+                            jQuery(".ddn-bi-pixel-type").val("%");
+
+                            var height = 100;
+                            jQuery(".smart-menu-bi-height").slider("value", height);
+
+                            var width = 100;
+                            jQuery(".smart-menu-bi-width").slider("value", width);
+
+                            selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
+
+                            var undo = new impUnodManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+
+                    });
+
+                    jQuery(".ddn-bi-pixel-type").change(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+                            var height = jQuery(".smart-menu-bi-height").slider("value");
+                            var width = jQuery(".smart-menu-bi-width").slider("value");
+
+                            selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
+
+                            var undo = new impUnodManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+
+                    });
+
                     jQuery(".action-button-insert-bi-image").click(function () {
 
                         var src = jQuery(".image-library-bi-select").first().attr("src");
