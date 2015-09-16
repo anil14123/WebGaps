@@ -9,7 +9,7 @@
          <%:SiteName %> 
     </div>
 
-    <input class="input-site-name-primary" value="<%:SiteName%> "/>
+    <input class="input-site-name-primary hide" value="<%:SiteName%> "/>
 
 
     <br />

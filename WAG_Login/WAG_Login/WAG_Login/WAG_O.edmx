@@ -70,7 +70,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PageName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="PageId" Type="uniqueidentifier" />
           <Property Name="SiteId" Type="int" Nullable="false" />
