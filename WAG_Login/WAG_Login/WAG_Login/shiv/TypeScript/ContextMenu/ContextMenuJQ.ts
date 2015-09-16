@@ -61,16 +61,20 @@ export module ContextMenu {
                     contextMenu.DetectContextMenu();
 
                     // adjustment based on windows
-                    var pageY = e.pageY;
+                    var pageY = e.clientY;
 
-                    if ((jQuery(window).scrollTop() + pageY) >= (jQuery(window).height() - 250)) {
+                    if ((pageY ) >= (jQuery(window).height() - 250)) {
 
-                        pageY = e.pageY - 250;
+                        pageY = pageY - 240;
                     }
 
-                    var pageX = e.pageX;
-                    if (e.pageX > ($(document).width() - 200)) {
-                        pageX = e.pageX - 150;
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+
+                    eh.ActionHelp(pageY.toString());
+
+                    var pageX = e.clientX;
+                    if (pageX > (jQuery(document).width() - 200)) {
+                        pageX = pageX - 150;
                     }
                     /////////////////
 
