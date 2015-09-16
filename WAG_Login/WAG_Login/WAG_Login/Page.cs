@@ -18,6 +18,7 @@ namespace WAG_Login_Page
         public string PageName { get; set; }
         public Nullable<System.Guid> PageId { get; set; }
         public int SiteId { get; set; }
+        public string IsFirstTime { get; set; }
     
         public virtual Site Site { get; set; }
     }

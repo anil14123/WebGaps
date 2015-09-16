@@ -115,9 +115,25 @@ export module Site {
 
                 sitedata.removeClass("hide");
 
-                sitedata.find(".page-name").html(result[i].Name);
+                var name = result[i].Name.replace(".html", "")
+                
+                sitedata.find(".page-name").html(name);
+
+                
+                var a = jQuery(document.createElement("a"));
+
+                var link = result[i].Link;
+
+                link = link.replace("?", "&");
+
+                a.attr("href", "/shiv/designer.aspx?Page=" + link);
+                a.addClass("white-link");
+                a.append("Edit");
+
+                sitedata.find(".edit-page").append(a);
 
                 jQuery(".page-manager-data").append(sitedata);
+
             }
         }
 
@@ -158,7 +174,7 @@ export module Site {
 
                 var a = jQuery(document.createElement("a"));
 
-                a.attr("href", "PageManager.aspx?SiteName=" + result[i].Name);
+                a.attr("href", "/shiv/PageManager.aspx?SiteName=" + result[i].Name);
                 a.addClass("white-link");
                 a.append("Open");
 

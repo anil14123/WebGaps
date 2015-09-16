@@ -74,6 +74,7 @@
           <Property Name="PageName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="PageId" Type="uniqueidentifier" />
           <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="IsFirstTime" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Site">
           <Key>
@@ -82,7 +83,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SiteGuid" Type="uniqueidentifier" />
           <Property Name="SiteName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="UserDirectory" Type="varchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -153,6 +154,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Site_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Site" Type="Self.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WebGapsModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -181,6 +194,10 @@
           <AssociationSet Name="FK_Page_Site" Association="Self.FK_Page_Site">
             <End Role="Site" EntitySet="Site" />
             <End Role="Page" EntitySet="Page" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_AspNetUsers" Association="Self.FK_Site_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Site" EntitySet="Site" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -245,6 +262,7 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Sites" Relationship="WebGapsModel.FK_Site_AspNetUsers" FromRole="AspNetUser" ToRole="Site" />
         </EntityType>
         <EntityType Name="Page">
           <Key>
@@ -255,6 +273,7 @@
           <Property Name="PageId" Type="Guid" />
           <Property Name="SiteId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Site" Relationship="Self.FK_Page_Site" FromRole="Page" ToRole="Site" />
+          <Property Name="IsFirstTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Site">
           <Key>
@@ -263,9 +282,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SiteGuid" Type="Guid" />
           <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Pages" Relationship="Self.FK_Page_Site" FromRole="Site" ToRole="Page" />
           <Property Name="UserDirectory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="WebGapsModel.FK_Site_AspNetUsers" FromRole="Site" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -335,7 +355,23 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Site_AspNetUsers" Association="WebGapsModel.FK_Site_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Site_AspNetUsers">
+          <End Type="WebGapsModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="WebGapsModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -400,6 +436,7 @@
           <EntitySetMapping Name="Pages">
             <EntityTypeMapping TypeName="WebGapsModel.Page">
               <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="IsFirstTime" ColumnName="IsFirstTime" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PageName" ColumnName="PageName" />
                 <ScalarProperty Name="PageId" ColumnName="PageId" />

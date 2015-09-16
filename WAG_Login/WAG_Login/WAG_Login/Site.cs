@@ -28,5 +28,6 @@ namespace WAG_Login_Page
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Page> Pages { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

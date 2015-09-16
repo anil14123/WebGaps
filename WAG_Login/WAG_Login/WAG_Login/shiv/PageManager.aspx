@@ -6,7 +6,7 @@
 
     Site Name :
     <div class="site-name-primary">
-         <%:SiteName %> 
+         <%:SiteName%> 
     </div>
 
     <input class="input-site-name-primary hide" value="<%:SiteName%> "/>
@@ -29,15 +29,18 @@
 
     </div>
 
+    <hr />
+
      <div class="page-data hide">
             <div class="col-xs-4 page-name">
             </div>
             <div class="col-xs-4 page-controls">
             </div>
             <div class="col-xs-4 page-controls">
-                <button class=" btn btn-primary edit-page">Open</button>
+                <button class=" btn btn-primary edit-page"></button>
             </div>
         </div>
+
 
     <div class="page-manager-data row">
 

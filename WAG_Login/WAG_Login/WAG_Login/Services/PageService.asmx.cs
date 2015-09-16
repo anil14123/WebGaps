@@ -156,7 +156,8 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                         {
                             foreach (var page in pages)
                             {
-                                pageData.Add(new Data { Name = page.PageName });
+                                string isFirstTime = page.IsFirstTime == "true" ? "?f=new" : "";
+                                pageData.Add(new Data { Name = page.PageName , Link = page.PageName + isFirstTime });
                             }
                         }
 
@@ -278,7 +279,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                     pageToCreate.SiteId = site.Id;
                                     pageToCreate.PageName = pageName ;
-                                    
+                                    pageToCreate.IsFirstTime = "true";
 
                                     entities.Pages.Add(pageToCreate);
 
