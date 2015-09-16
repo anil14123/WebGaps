@@ -604,11 +604,10 @@
                             <div class="legend ">
                                Height 
                             </div>
-              <br />
-                        <div class='smart-menu-height smart-menu-control' style="background-color:black;"></div>
-                        
-                        <div class="height-px">0px</div>
-                        
+             
+                <div style="margin:5px;">
+                        <input class='smart-menu-height smart-menu-control'  />
+                      </div>
                 </fieldset>
 
                    <fieldset class="clear ">
@@ -616,9 +615,9 @@
                             <div class="legend ">
                                Width 
                             </div>
-                       <br />
-                        <div class='smart-menu-width smart-menu-control' style="background-color:black;" ></div>
-                        <div class="height-px">0px</div>
+                       <div style="margin:5px;">
+                        <input class='smart-menu-width smart-menu-control' />
+                        </div>
                         
                      </fieldset>
            

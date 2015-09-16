@@ -95,7 +95,7 @@ export module Smart {
 
                     });
 
-                    jQuery(".smart-menu-width").slider({
+                    jQuery(".smart-menu-width").spinner({
 
                         min: 0,
                         max: 2000,
@@ -104,43 +104,14 @@ export module Smart {
                         change: function (event, ui) {
 
                           
-
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".height-px").text(ui.value + "px");
-
                             //if (SmartMenuJQ.isSelectProcessing == false) {
                             //    SmartMenuJQ.OnChange(this, "width");
                             //}
 
                         
                         },
-                        slide: function (event, ui) {
+                        spin: function (event, ui) {
 
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".height-px").text(ui.value + "px");
-
-
-                            var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                            errorHandler.ActionHelp("Help: You can also use <- and -> arrow key on keyboard.");
-
-                            if (impWatch.Watch.MouseJQ.selectedElement != undefined && impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
-
-                                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                                errorHandler.ActionHelp("Help: You can also use <- and -> arrow key on keyboard.");
-
-                            }
 
                             //if (SmartMenuJQ.isSelectProcessing == false) {
                             //    SmartMenuJQ.OnChange(this, "width");
@@ -150,21 +121,21 @@ export module Smart {
 
 
 
-                            if (prevWidthValue != ui.value) {
+                            if (prevWidthValue != jQuery(this).val()) {
 
                                 isChangedWidth = true;
                             }
 
                             var flag = "-";
 
-                            if (prevWidthValue > ui.value) {
+                            if (prevWidthValue > jQuery(this).val()) {
                                 flag = "+";
                             }
                             else {
                                 flag = "-";
                             }
 
-                            prevWidthValue = ui.value;
+                            prevWidthValue = jQuery(this).val();
 
                             if (isChangedWidth == true) {
                                 isChangedWidth = false;
@@ -187,7 +158,7 @@ export module Smart {
                     });
 
 
-                    jQuery(".smart-menu-height").slider({
+                    jQuery(".smart-menu-height").spinner({
 
                         min: 0,
                         max: 5000,
@@ -195,32 +166,11 @@ export module Smart {
 
                         change: function (event, ui) {
 
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".height-px").text(ui.value + "px");
-
                             if (SmartMenuJQ.isSelectProcessing == false) {
                                 SmartMenuJQ.OnChange(this, "height");
                             }
                         },
                         slide: function (event, ui) {
-
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".height-px").text(ui.value + "px");
-
-
-                            var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                            errorHandler.ActionHelp("Help: You can also use <- and -> arrow key on keyboard.");
 
                             if (SmartMenuJQ.isSelectProcessing == false) {
                                 SmartMenuJQ.OnChange(this , "height");
@@ -284,8 +234,8 @@ export module Smart {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                        var widthVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-width").slider("value");
-                        var heightVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-height").slider("value")
+                        var widthVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
+                        var heightVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
 
 
                         if (selectedElement.hasClass("column")) {
@@ -321,8 +271,8 @@ export module Smart {
             if (selectedElement != undefined) {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                var widthVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-width").slider("value");
-                var heightVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-height").slider("value")
+                var widthVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
+                var heightVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
 
                 if (selectedElement.hasClass("column")) {
 
@@ -628,11 +578,11 @@ export module Smart {
                     }
                 }
 
-                //jQuery("#control-height-width").find(".smart-menu-height").slider("value", heightstr);
-                //jQuery("#control-height-width").find(".smart-menu-width").slider("value", widthstr);
+                //jQuery("#control-height-width").find(".smart-menu-height").spinner("value", heightstr);
+                //jQuery("#control-height-width").find(".smart-menu-width").spinner("value", widthstr);
 
-                jQuery(".smart-menu-height").slider("value", heightstr);
-                jQuery(".smart-menu-width").slider("value", widthstr);
+                jQuery(".smart-menu-height").spinner("value", heightstr);
+                jQuery(".smart-menu-width").spinner("value", widthstr);
 
                 SmartMenuJQ.isSelectProcessing = false;
 
