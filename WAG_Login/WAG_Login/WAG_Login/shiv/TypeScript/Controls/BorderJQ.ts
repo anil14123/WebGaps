@@ -358,6 +358,7 @@ export module Border {
 
                 if (borderRadius != undefined) {
                     borderRadius = borderRadius.replace("px", "");
+
                     jQuery(".control-border-thickness-radius").spinner("value", borderRadius);
                 }
 

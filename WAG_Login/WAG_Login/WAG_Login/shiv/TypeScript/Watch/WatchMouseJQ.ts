@@ -85,6 +85,8 @@ export module Watch {
                 MouseJQ.selectedElement.addClass("design-select-element-just-mark");
                 //MouseJQ.selectedElement.css("outline", "dashed 5px black");
 
+                impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.
+
                 var activeControl = MouseJQ.GetActiveControl();
 
                 if (activeControl != undefined && activeControl != "") {
@@ -93,19 +95,22 @@ export module Watch {
                            
                             break;
                         case 'height-width':
-                        
+                            impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
                             break;
                         case 'image-library':
                             impImage.Image.SelfJQ.ProcessSelectNotify();
                             break;
                         case 'color':
-                           
+                            impColor.Color.ColorJQ.ProcessSelectNotify();
                             break;
                         case 'border':
-                            
+                            impBorder.Border.BorderJQ.ProcessSelectNotify();
                             break;
                         case 'insert-text':
                             impText.Text.TextJQ.ProcessSelectNotify();
+                            break;
+                        case 'bi' :
+                            impBi.BI.BIJQ.ProcessSelectNotify();
                             break;
 
                         default:
@@ -113,12 +118,17 @@ export module Watch {
                     }
                 }
 
-                impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.
-                impColor.Color.ColorJQ.ProcessSelectNotify();
-                impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
-                impBorder.Border.BorderJQ.ProcessSelectNotify();
-                impFont.Font.FontJQ.ProcessSelectNotify();
-                impBi.BI.BIJQ.ProcessSelectNotify();
+                try {
+                    if (jQuery(".jq-properties-all").css("display").toLowerCase() != "none") {
+                        impColor.Color.ColorJQ.ProcessSelectNotify();
+                        impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                        impBorder.Border.BorderJQ.ProcessSelectNotify();
+                        impFont.Font.FontJQ.ProcessSelectNotify();
+                        impBi.BI.BIJQ.ProcessSelectNotify();
+                    }
+                } catch (ex) {
+
+                }
 
                 if (MouseJQ.selectedElement != undefined) {
 

@@ -1156,6 +1156,9 @@
                 <div class="innerListContainer">
                     <ul>
                         <li>
+                            <div class="li ctx-menu-insert-link">Link</div>
+                        </li>
+                        <li>
                             <div class="li ctx-menu-insert-text">Text</div>
                         </li>
                         <li>
@@ -1165,6 +1168,9 @@
                             <div class="li ctx-menu-insert-empty-space">Spacer</div>
                         </li>
                         <li>
+                            <div class="li ctx-menu-insert-object">Other</div>
+                        </li>
+                   <%-- <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
                         </li>
                         <li>
@@ -1175,7 +1181,7 @@
                         </li>
                         <li>
                             <div class="li ctx-menu-insert-css">Css</div>
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
             </li>
