@@ -10,9 +10,35 @@ jQuery(document).ready(function () {
     if (isMainReady == false) {
         isMainReady = true;
 
-        var site =new impSite.Site.SiteJQ();
+        jQuery(".loading").show();
 
-        site.GetPages(jQuery("site-name-primary").text());
+        var site =new impSite.Site.SiteJQ();
+      
+        site.GetPages(jQuery(".input-site-name-primary").val());
+
+       
+        jQuery(document).ready(function () {
+
+         
+            jQuery(".create-page").click(function () {
+
+                jQuery("#control-create-page").show();
+
+                return false;
+            });
+
+            jQuery(".create-page-button").click(function () {
+
+                var site = new impSite.Site.SiteJQ();
+
+                site.CreatePage(jQuery(".input-site-name-primary").val(), jQuery(".input-page-name").val());
+
+                return false;
+
+            });
+
+        });
+
     }
 });
 

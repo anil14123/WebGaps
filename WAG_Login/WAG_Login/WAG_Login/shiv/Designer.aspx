@@ -684,6 +684,42 @@
         </div>
 
 
+         <!------------------------------   Links  --------------------------------------->
+
+        <div id="control-links" name="links" class="control-page" >
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Links</div>
+           
+                <div class="control-link-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                            <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Pages 
+                            </div>
+                               <select class="pages">
+                                   <option selected value="" > -- Select -- </option>
+                               </select>  
+
+                                  <input type="text" class="link-name " />
+
+                            </fieldset>
+
+                            
+
+                    </center>
+
+                    
+                </div>
+        </div>
+
+
         <!------------------------------ Bi Image Lib ------------------------------------>
         
            <div id="control-image-bi-library" name="bi-image-library" class="control-page"  >

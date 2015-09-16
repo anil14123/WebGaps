@@ -7,8 +7,44 @@ export module Site {
 
         public Init() {
 
+          
+        }
+
+        public CreatePage(siteName, pageName) {
+
+            var obj = { siteName: siteName, pageName: pageName };
+
+            var createData = JSON.stringify(obj);
+
+            jQuery.ajax({
+                type: "POST",
+                url: "/services/pageService.asmx/createPage",
+                data: createData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: SiteJQ.OnCreatePageSuccess,
+                error: SiteJQ.OnCreatePageError
+            });
 
         }
+
+        public static OnCreatePageSuccess(data, status) {
+            // alert("success");
+
+            var site = new SiteJQ();
+
+            site.GetPages(jQuery(".input-site-name-primary").val());
+
+            jQuery(".control-page").hide();
+
+            jQuery(".loading").hide();
+        }
+
+        public static OnCreatePageError(request, status, error) {
+            // alert(error);
+            jQuery(".loading").hide();
+        }
+
 
         public CreateSite(siteName) {
 
@@ -30,10 +66,22 @@ export module Site {
 
         public static OnCreateSiteSuccess(data, status) {
             // alert("success");
+
+            var site = new SiteJQ();
+
+            site.GetSites();
+
+            jQuery(".control-page").hide();
+
+            jQuery(".loading").hide();
+
         }
 
         public static OnCreateSiteError(request, status, error) {
             // alert(error);
+
+            jQuery(".loading").hide();
+
         }
 
 
@@ -56,7 +104,11 @@ export module Site {
 
         public static OnGetPagesSuccess(data, status) {
 
+            jQuery(".loading").hide();
+
             var result = data.d;
+            
+            jQuery(".page-manager-data").html("");
 
             for (var i = 0; i < result.length; i++) {
                 var sitedata = jQuery(".page-data.hide").clone();
@@ -71,6 +123,8 @@ export module Site {
 
         public static OnGetPagesError(request, status, error) {
             // alert(error);
+
+            jQuery(".loading").hide();
         }
 
 
@@ -89,7 +143,11 @@ export module Site {
 
         public static OnGetSitesSuccess(data, status) {
 
+            jQuery(".loading").hide();
+
             var result = data.d;
+          
+            jQuery(".site-manager-data").html("");
 
             for (var i = 0; i < result.length; i++) {
                 var sitedata = jQuery(".site-data.hide").clone();
@@ -113,6 +171,7 @@ export module Site {
 
         public static OnGetSitesError(request, status, error) {
             // alert(error);
+            jQuery(".loading").hide();
         }
 
 

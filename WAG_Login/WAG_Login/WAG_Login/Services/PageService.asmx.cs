@@ -138,28 +138,35 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         {
             List<Data> pageData = new List<Data>();
 
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                var entities = new WagPageEntities();
-
-                var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
-                var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
-
-
-                if (user != null)
+                if (User.Identity.IsAuthenticated)
                 {
-                    var pages = entities.Pages.Where(i => i.SiteId == site.Id);
+                    var entities = new WagPageEntities();
 
-                    if (pages != null && pages.Count() > 0)
+                    var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+                    var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
+
+
+                    if (user != null)
                     {
-                        foreach (var page in pages)
+                        var pages = entities.Pages.Where(i => i.SiteId == site.Id);
+
+                        if (pages != null && pages.Count() > 0)
                         {
-                            pageData.Add(new Data { Name = page.PageName });
+                            foreach (var page in pages)
+                            {
+                                pageData.Add(new Data { Name = page.PageName });
+                            }
                         }
+
                     }
 
                 }
-
+            }
+            catch(Exception ex)
+            {
+                
             }
 
             return pageData;
@@ -260,6 +267,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                         {
                             try
                             {
+                                pageName += ".html";
                                 var page = Path.Combine(userFolder, pageName);
 
                                 if (!File.Exists(page))
@@ -269,7 +277,8 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                     var pageToCreate = new WAG_Login_Page.Page();
 
                                     pageToCreate.SiteId = site.Id;
-                                    pageToCreate.PageName = pageName;
+                                    pageToCreate.PageName = pageName ;
+                                    
 
                                     entities.Pages.Add(pageToCreate);
 

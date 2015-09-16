@@ -12,6 +12,6 @@ requirejs.config({
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['./sitemanager_ts/MainJQ.js']);
+requirejs(['./pagemanager_ts/MainJQ.js']);
 
 
