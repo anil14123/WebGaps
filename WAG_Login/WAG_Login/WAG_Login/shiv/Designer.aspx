@@ -285,8 +285,8 @@
                                     </div>
                              
                                 <div class="col-xs-32 control-p">
-                                    <div class='smart-menu-height smart-menu-control'  style="background-color:black;"></div>
-                                     <div class="height-px">0px</div>
+                                    <input class='smart-menu-height smart-menu-control'  />
+                                   
                                </div>
                             </fieldset>
 
@@ -299,8 +299,8 @@
                                      </div>
                             
                                  <div class="col-xs-32 control-p">
-                                  <div class='smart-menu-width smart-menu-control'  style="background-color:black;"></div>
-                        <div class="height-px">0px</div>
+                                  <input class='smart-menu-width smart-menu-control'   />
+                      
                         
                                      </div>
                             </fieldset>
@@ -391,9 +391,8 @@
                                      </div>
 
                          <div class="col-xs-20"> 
-                       <div class="control-border-thickness-all control-border-thickness" style="background-color:black;"></div>
+                       <input class="control-border-thickness-all control-border-thickness"  />
 
-                                                    <div class="border-px">0px</div>
                              </div>
 
                          <div class="col-xs-12">
