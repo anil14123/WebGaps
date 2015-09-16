@@ -547,7 +547,7 @@
                         </fieldset>
 
                       <div class="controls-action"> 
-                       <a href="Dynamic/UploadToImageLibrary.aspx" target="_blank" class="action-button action-link action-button-image-upload">Upload Image</a>
+                       <a href="/shiv/Dynamic/UploadToImageLibrary.aspx" target="_blank" class="action-button action-link action-button-image-upload">Upload Image</a>
                             <button class="action-button action-button-insert-image">Insert</button>
                        </div>
                     

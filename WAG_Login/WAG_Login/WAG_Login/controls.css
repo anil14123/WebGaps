@@ -56,30 +56,25 @@ controls {
 
 
 .control-page {
-
-
+  
     border-top: 1px solid #96d1f8;
-   /*background: #e8ede9;*/
-   /*background: -webkit-gradient(linear, left top, left bottom, from(#c3ccb3), to(#e8ede9));
+    /*background: #e8ede9;*/
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#c3ccb3), to(#e8ede9));
    background: -webkit-linear-gradient(top, #c3ccb3, #e8ede9);
    background: -moz-linear-gradient(top, #c3ccb3, #e8ede9);
    background: -ms-linear-gradient(top, #c3ccb3, #e8ede9);
    background: -o-linear-gradient(top, #c3ccb3, #e8ede9);*/
     -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-  
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
- 
-   text-decoration: none;
-   vertical-align: middle;
-   
-   padding:0;
-
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    vertical-align: middle;
+    padding: 0;
     display: none;
+
+      -moz-box-shadow:  0 0 10px #414145;
+    -webkit-box-shadow:  0 0 10px #414145;
+    box-shadow:  0 0 10px #414145;
 }
 
 .controls-pinned-wrapper {

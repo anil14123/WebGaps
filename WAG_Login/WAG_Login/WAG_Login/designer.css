@@ -10,9 +10,9 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    -moz-box-shadow: rgba(0,0,0,.2) 0 4px 16px;
-    -webkit-box-shadow: rgba(0,0,0,.2) 0 4px 16px;
-    box-shadow: rgba(0,0,0,.2) 0 4px 16px;
+    -moz-box-shadow: 0 0 5px black;
+    -webkit-box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px black;
       
     
    position:fixed;

@@ -227,6 +227,9 @@ export module ContextMenu {
             jQuery(".control-page").find(".close-button").click(function () {
                 jQuery(".control-page").removeClass("control-active");
                 ContextMenuJQ.ShowProperties();
+
+                jQuery(".internet-bi-image-url").val("");
+                jQuery(".internet-image-url").val("");
             });
         }
 
