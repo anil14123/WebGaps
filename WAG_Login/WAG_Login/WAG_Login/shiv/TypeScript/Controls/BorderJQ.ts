@@ -39,7 +39,7 @@ export module Border {
                         jQuery(".jq-border-advanced").fadeToggle(1);
                     });
 
-                    jQuery(".control-border-thickness-radius ").slider({
+                    jQuery(".control-border-thickness-radius").spinner({
 
                         min: 0,
                         max: 5000,
@@ -47,33 +47,19 @@ export module Border {
 
                        change: function (event, ui) {
 
-                            if (jQuery(this).next(".border-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("border-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".border-px").text(ui.value + "px");
+                           jQuery(".control-border-thickness-radius").spinner("value", jQuery(this).val());
 
                             BorderJQ.OnChange(this);
                         },
-                        slide: function (event, ui) {
+                        spin: function (event, ui) {
 
-                            if (jQuery(this).next(".border-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("border-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".border-px").text(ui.value + "px");
-
-                            var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                            errorHandler.ActionHelp("Help: You can also use <- and -> arrow key on keyboard.");
+                            jQuery(".control-border-thickness-radius").spinner("value", jQuery(this).val());
 
                             BorderJQ.OnChange(this);
                         },
                         stop: function (event, ui) {
+
+                            BorderJQ.OnChange(this);
 
                             var undo = new impUndoManager.Manager.UndoManager();
 
@@ -82,7 +68,7 @@ export module Border {
 
                     });
 
-                    jQuery(".control-border-thickness").slider(
+                    jQuery(".control-border-thickness").spinner(
                         {
                             min: 0,
                             max: 50,
@@ -90,42 +76,24 @@ export module Border {
                             value: 0,
                             change: function (event, ui) {
 
-                                if (jQuery(this).next(".border-px").length == 0) {
-                                    var spanResult = jQuery(document.createElement("div"));
-                                    spanResult.addClass("border-px");
-                                    jQuery(this).after(spanResult);
-                                }
-
-                                jQuery(this).next(".border-px").text(ui.value + "px");
+                               
 
                                 if (jQuery(this).hasClass("control-border-thickness-all")) {
 
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").slider("value", ui.value);
+                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).val());
                                 }
 
 
                                 BorderJQ.OnChange(this);
                             },
 
-                          
-                            slide: function (event, ui) {
 
-                                if (jQuery(this).next(".border-px").length == 0) {
-                                    var spanResult = jQuery(document.createElement("div"));
-                                    spanResult.addClass("border-px");
-                                    jQuery(this).after(spanResult);
-                                }
-
-                                jQuery(this).next(".border-px").text(ui.value + "px");
+                            spin: function (event, ui) {
 
                                 if (jQuery(this).hasClass("control-border-thickness-all")) {
 
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").slider("value", ui.value);
+                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).val());
                                 }
-
-                                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                                errorHandler.ActionHelp("Help: You can also use <- and -> arrow key on keyboard.");
 
                                 BorderJQ.OnChange(this);
                             },
@@ -136,7 +104,7 @@ export module Border {
 
                                 if (jQuery(this).hasClass("control-border-thickness-all")) {
 
-                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").slider("value", jQuery(this).slider("value"));
+                                    jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery(this).spinner("value"));
                                 }
 
                                 var undo = new impUndoManager.Manager.UndoManager();
@@ -148,7 +116,7 @@ export module Border {
                         }
                         );
 
-                    jQuery(".control-border-thickness").slider("value", 3);
+                    jQuery(".control-border-thickness").spinner("value", 3);
 
                     jQuery('.color-picker').colpick({
                         layout: 'hex',
@@ -201,11 +169,11 @@ export module Border {
 
                             var common = new impCommon.Common.CommonMethodsJQ();
 
-                            var borderLeft = $(this).closest(".control-border-controls").find(".control-border-thickness-left").slider("value");
-                            var borderTop = $(this).closest(".control-border-controls").find(".control-border-thickness-top").slider("value");
-                            var borderRight = $(this).closest(".control-border-controls").find(".control-border-thickness-right").slider("value");
-                            var borderBottom = $(this).closest(".control-border-controls").find(".control-border-thickness-bottom").slider("value");
-                            var borderRadius = $(this).closest(".control-border-controls").find(".control-border-thickness-radius").slider("value");
+                            var borderLeft = $(this).closest(".control-border-controls").find(".control-border-thickness-left").spinner("value");
+                            var borderTop = $(this).closest(".control-border-controls").find(".control-border-thickness-top").spinner("value");
+                            var borderRight = $(this).closest(".control-border-controls").find(".control-border-thickness-right").spinner("value");
+                            var borderBottom = $(this).closest(".control-border-controls").find(".control-border-thickness-bottom").spinner("value");
+                            var borderRadius = $(this).closest(".control-border-controls").find(".control-border-thickness-radius").spinner("value");
 
                             if (borderRadius != undefined) {
                                 selectedElement.css("border-radius", borderRadius + "px");
@@ -291,11 +259,11 @@ export module Border {
 
                 var common = new impCommon.Common.CommonMethodsJQ();
 
-                var borderLeft = $(".control-border-thickness-left").slider("value");
-                var borderTop = $(".control-border-thickness-top").slider("value");
-                var borderRight = $(".control-border-thickness-right").slider("value");
-                var borderBottom = $(".control-border-thickness-bottom").slider("value");
-                var borderRadius = $(".control-border-thickness-radius").slider("value");
+                var borderLeft = $(".control-border-thickness-left").spinner("value");
+                var borderTop = $(".control-border-thickness-top").spinner("value");
+                var borderRight = $(".control-border-thickness-right").spinner("value");
+                var borderBottom = $(".control-border-thickness-bottom").spinner("value");
+                var borderRadius = $(".control-border-thickness-radius").spinner("value");
 
                 if (borderRadius != undefined) {
                     selectedElement.css("border-radius", borderRadius + "px");
@@ -383,35 +351,35 @@ export module Border {
 
                 if (borderRadius != undefined) {
                     borderRadius = borderRadius.replace("px", "");
-                    jQuery(".control-border-thickness-radius").slider("value", borderRadius);
+                    jQuery(".control-border-thickness-radius").spinner("value", borderRadius);
                 }
 
                 if (borderLeft != undefined) {
 
                     borderLeft = borderLeft.replace("px", "");
-                    jQuery(".control-border-thickness-left").slider("value", borderLeft);
+                    jQuery(".control-border-thickness-left").spinner("value", borderLeft);
                 }
 
                 if (borderTop != undefined) {
 
                     borderTop = borderTop.replace("px", "");
-                    jQuery(".control-border-thickness-top").slider("value", borderTop);
+                    jQuery(".control-border-thickness-top").spinner("value", borderTop);
                 }
 
                 if (borderRight != undefined) {
 
                     borderRight = borderRight.replace("px", "");
-                    jQuery(".control-border-thickness-right").slider("value", borderRight);
+                    jQuery(".control-border-thickness-right").spinner("value", borderRight);
                 }
 
                 if (borderBottom != undefined) {
 
                     borderBottom = borderBottom.replace("px", "");
-                    jQuery(".control-border-thickness-bottom").slider("value", borderBottom);
+                    jQuery(".control-border-thickness-bottom").spinner("value", borderBottom);
                 }
 
                 if (borderLeft == borderTop && borderLeft == borderRight && borderLeft == borderBottom) {
-                    jQuery(".control-border-thickness-all").slider("value", borderLeft);
+                    jQuery(".control-border-thickness-all").spinner("value", borderLeft);
 
                 }
 

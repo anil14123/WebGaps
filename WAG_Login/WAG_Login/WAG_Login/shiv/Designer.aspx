@@ -872,9 +872,7 @@
                                                 <div class="col-xs-16">All:</div>
                                                 <div class="col-xs-32">
 
-                                                     <div class="control-border-thickness-all control-border-thickness" style="background-color:black;"></div>
-
-                                                    <div class="border-px">0px</div>
+                                                     <input class="control-border-thickness-all control-border-thickness" />
 
                                                 </div>
 
@@ -885,9 +883,8 @@
                                                 <div class="col-xs-16">Left: </div>
                                                  <div class="col-xs-32">
 
-                                                    <div class="control-border-thickness-left control-border-thickness" style="background-color:black;"></div>
-                                                      <div class="border-px">0px</div>
-
+                                                    <input class="control-border-thickness-left control-border-thickness" />
+                                                     
                                                 </div>
 
                                             </div>
@@ -895,8 +892,8 @@
 
                                                 <div class="col-xs-16">Right:</div>
                                                   <div class="col-xs-32">
-                                                    <div class="control-border-thickness-right control-border-thickness" style="background-color:black;"></div>
-                                                      <div class="border-px">0px</div>
+                                                    <input class="control-border-thickness-right control-border-thickness"  />
+                                                     
                                                 </div>
 
                                             </div>
@@ -905,8 +902,8 @@
                                                 <div class="col-xs-16">Top:</div>
                                                  <div class="col-xs-32">
 
-                                                      <div class="control-border-thickness-top control-border-thickness" style="background-color:black;"></div>
-                                                      <div class="border-px">0px</div>
+                                                      <input class="control-border-thickness-top control-border-thickness" />
+                                                     
                                                 </div>
 
                                             </div>
@@ -915,8 +912,8 @@
                                                 <div class="col-xs-16">Bottom:</div>
                                                   <div class="col-xs-32">
 
-                                                     <div class="control-border-thickness-bottom control-border-thickness" style="background-color:black;"></div>
-                                                      <div class="border-px">0px</div>
+                                                     <input class="control-border-thickness-bottom control-border-thickness"  />
+                                                    
                                                 </div>
 
                                             </div>
@@ -988,8 +985,8 @@
                                                 <div class="col-xs-16">Border Corner Round:</div>
                                                   <div class="col-xs-20">
 
-                                                     <div class="control-border-thickness-radius " style="background-color:black;"></div>
-                                                      <div class="border-px">0px</div>
+                                                     <input class="control-border-thickness-radius " />
+                                                     
                                                 </div>
 
                                             </div>
