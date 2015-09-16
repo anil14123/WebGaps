@@ -823,20 +823,21 @@
                                     <button class="btn btn-default make-100">Cover 100%</button>
 
                                 </div>
-
-                                 <div class="bi-h-w" >
-                                     <div class='smart-menu-bi-height smart-menu-bi-control' style="background-color:black;"></div>  
                         
-                                     <div class="height-px">0px</div>
+                            <div class="row">
 
+                                 <div class="bi-h-w col-xs-24" >
+                                     <input class='smart-menu-bi-height smart-menu-bi-control' />  
+                        
+                                    
                                  </div>
 
-                                <div class="bi-h-w">
-                                    <div class='smart-menu-bi-width smart-menu-bi-control' style="background-color:black;"></div>
+                                <div class="bi-h-w col-xs-24" >
+                                    <input class='smart-menu-bi-width smart-menu-bi-control' />
                         
-                                     <div class="height-px">0px</div>
+                                    
                                 </div>
-
+                            </div>
 
                          </fieldset>
                     

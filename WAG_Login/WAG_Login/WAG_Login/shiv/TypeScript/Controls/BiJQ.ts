@@ -27,42 +27,32 @@ export module BI {
                     isBIJQReady = true;
 
 
-                    jQuery(".smart-menu-bi-control").slider({
+                    jQuery(".smart-menu-bi-control").spinner({
 
                         min: 0,
                         max: 2000,
                         step: 1,
+                        
 
                         change: function (event, ui) {
 
 
 
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
-
-                            jQuery(this).next(".height-px").text(ui.value + jQuery(".ddn-bi-pixel-type").val());
                         
                         },
-                        slide: function (event, ui) {
+                        spin: function (event, ui) {
 
-                            if (jQuery(this).next(".height-px").length == 0) {
-                                var spanResult = jQuery(document.createElement("div"));
-                                spanResult.addClass("height-px");
-                                jQuery(this).after(spanResult);
-                            }
+                           
 
-                            jQuery(this).next(".height-px").text(ui.value + jQuery(".ddn-bi-pixel-type").val());
+                           
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
 
                             if (selectedElement != undefined) {
 
-                                var height = jQuery(".smart-menu-bi-height").slider("value");
-                                var width = jQuery(".smart-menu-bi-width").slider("value");
+                                var height = jQuery(".smart-menu-bi-height").spinner("value");
+                                var width = jQuery(".smart-menu-bi-width").spinner("value");
 
                                 selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
@@ -75,8 +65,8 @@ export module BI {
 
                             if (selectedElement != undefined) {
 
-                                var height = jQuery(".smart-menu-bi-height").slider("value");
-                                var width = jQuery(".smart-menu-bi-width").slider("value");
+                                var height = jQuery(".smart-menu-bi-height").spinner("value");
+                                var width = jQuery(".smart-menu-bi-width").spinner("value");
 
                                 selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
@@ -104,10 +94,10 @@ export module BI {
                             jQuery(".ddn-bi-pixel-type").val("%");
 
                             var height = 100;
-                            jQuery(".smart-menu-bi-height").slider("value", height);
+                            jQuery(".smart-menu-bi-height").spinner("value", height);
 
                             var width = 100;
-                            jQuery(".smart-menu-bi-width").slider("value", width);
+                            jQuery(".smart-menu-bi-width").spinner("value", width);
 
                             selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
@@ -123,8 +113,8 @@ export module BI {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {
-                            var height = jQuery(".smart-menu-bi-height").slider("value");
-                            var width = jQuery(".smart-menu-bi-width").slider("value");
+                            var height = jQuery(".smart-menu-bi-height").spinner("value");
+                            var width = jQuery(".smart-menu-bi-width").spinner("value");
 
                             selectedElement.css("background-size", width + jQuery(".ddn-bi-pixel-type").val() + " " + height + jQuery(".ddn-bi-pixel-type").val());
 
@@ -257,12 +247,12 @@ export module BI {
                             width = width.replace("px", "");
                             heigth = heigth.replace("px", "");
 
-                            jQuery(".smart-menu-bi-height").slider("value", heigth);
-                            jQuery(".smart-menu-bi-width").slider("value", width);
+                            jQuery(".smart-menu-bi-height").spinner("value", heigth);
+                            jQuery(".smart-menu-bi-width").spinner("value", width);
                         }
                         else {
-                            jQuery(".smart-menu-bi-height").slider("value", 0);
-                            jQuery(".smart-menu-bi-width").slider("value", 0);
+                            jQuery(".smart-menu-bi-height").spinner("value", 0);
+                            jQuery(".smart-menu-bi-width").spinner("value", 0);
                         }
 
                     }

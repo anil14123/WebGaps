@@ -655,8 +655,12 @@ controls {
 
 .bi-h-w{
     float:left; 
-    width:150px; 
+   
     border:1px solid #2b4cb8;
     padding-top:10px;
     padding-left:10px;
+}
+
+.ui-spinner{
+    width : 150px;
 }
