@@ -115,7 +115,7 @@ export module Site {
 
                 sitedata.removeClass("hide");
 
-                sitedata.find(".page-name").html(result[i].name);
+                sitedata.find(".page-name").html(result[i].Name);
 
                 jQuery(".page-manager-data").append(sitedata);
             }

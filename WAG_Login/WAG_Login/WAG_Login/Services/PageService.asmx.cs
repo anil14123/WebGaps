@@ -268,7 +268,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                             try
                             {
                                 pageName += ".html";
-                                var page = Path.Combine(userFolder, pageName);
+                                var page = Path.Combine(siteFolder, pageName);
 
                                 if (!File.Exists(page))
                                 {

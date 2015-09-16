@@ -37,6 +37,10 @@
      padding:4px;
 }
 
+.page-controls{
+    padding:4px;
+}
+
 .loading {
     height: 70px;
     width: 100px;
