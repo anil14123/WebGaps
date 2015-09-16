@@ -126,7 +126,7 @@ export module Site {
 
                 link = link.replace("?", "&");
 
-                a.attr("href", "/shiv/designer.aspx?Page=" + link);
+                a.attr("href", "/shiv/designer.aspx?PageName=" + link + "&" + "SiteName=" + jQuery(".input-site-name-primary").val());
                 a.addClass("white-link");
                 a.append("Edit");
 
