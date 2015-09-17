@@ -828,6 +828,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Page\Context\ContextJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\FooterJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\HeaderJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Page\LoadJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\MenuBarJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\PageElementBaseJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\PageJQ.ts" />

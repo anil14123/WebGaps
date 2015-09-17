@@ -63,9 +63,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                             if (Directory.Exists(siteFolder))
                             {
-
-                                pageName = pageName + ".html";
-
+                                
                                 string filePath = Path.Combine(siteFolder, pageName);
 
                                 if (File.Exists(filePath))
@@ -77,7 +75,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                     }
                                     catch(Exception ex)
                                     {
-                                        return new Data { Success = false, Exception = ex };
+                                        return new Data { Success = false, ExceptionError = ex.Message };
                                     }
                                 }
                                 else
@@ -96,7 +94,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             }
             catch (Exception ex)
             {
-                return new Data { Success = false, Error = "", Exception = ex };
+                return new Data { Success = false, Error = "", ExceptionError = ex.Message };
             }
 
         }
@@ -220,7 +218,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                             catch(Exception ex)
                             {
                               
-                                return new Data { Success = false, Error="" , Exception = ex };
+                                return new Data { Success = false, Error="" , ExceptionError = ex.Message };
                             }
                         }
                     }
@@ -291,7 +289,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                             catch (Exception ex)
                             {
 
-                                return new Data { Success = false, Error = "", Exception = ex };
+                                return new Data { Success = false, Error = "", ExceptionError = ex.Message };
                             }
                         }
                     }

@@ -1,4 +1,5 @@
-﻿
+﻿import impError = require("../Error/ErrorJQ");
+
 export module Save {
 
     export class SaveJQ {
@@ -22,7 +23,12 @@ export module Save {
         }
 
         public static OnSaveSuccess(data, status) {
-            alert("success");
+            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+            if (data.Error != "") {
+                errorHandler.ActionSuccess("Page saved");
+            }
+            
         }
 
         public static OnSaveError(request, status, error) {

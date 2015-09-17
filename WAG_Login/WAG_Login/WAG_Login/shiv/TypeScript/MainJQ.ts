@@ -15,7 +15,7 @@ import impControlMove = require("./Controls/ControlMoveJQ");
 import impTemplate = require("./Template/TemplateJQ");
 import impCommonControls = require("./Controls/controlcommonjq");
 import impDocument = require("./Document/DocumentJQ");
-
+import impPageLoad = require("./Page/LoadJQ");
 
 var ctx = new impPageCtx.Page.ContextJQ();
 
@@ -58,6 +58,12 @@ jQuery(document).ready(function () {
         /// unknow code...
         jQuery(".row").removeClass("design-row");
         jQuery(".column").removeClass("design-column");
+
+        ///// page load /////
+
+        if (jQuery("inpu-page-name").val() != "" && jQuery("inpu-site-name").val() != "") {
+            impPageLoad.Page.LoadJQ.LoadPage("site","site1","page1");
+        }
 
         // attach documment ...
 

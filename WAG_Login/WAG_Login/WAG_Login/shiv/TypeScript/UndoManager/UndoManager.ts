@@ -77,8 +77,7 @@ export module Manager {
                 parent = jQuery(undoObj.parent);
 
                 jQuery("page").html(undoObj.html);
-                 
-                impControlsCommon.ControlCommon.Code.Execute();
+                
                 impControlsCommon.ControlCommon.Code.DestroyResizable();
                 impControlsCommon.ControlCommon.Code.Execute();
 
@@ -139,8 +138,7 @@ export module Manager {
                 if (undoObj != null) {
 
                     jQuery("page").html(undoObj.html);
-                      
-                    impControlsCommon.ControlCommon.Code.Execute();
+                    
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
 

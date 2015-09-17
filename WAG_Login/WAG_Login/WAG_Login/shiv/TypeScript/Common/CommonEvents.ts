@@ -87,7 +87,9 @@ export module Common {
                 save.styles = styles.html();
                 save.page = page.html();
 
-                var data = { Obj: save, site: "site1", pageName: "page1" }
+                var data = {
+                    Obj: save, siteName: jQuery(".input-site-name").val(), pageName: jQuery(".input-page-name").val()
+                }
 
                 var saveData = JSON.stringify(data);
 

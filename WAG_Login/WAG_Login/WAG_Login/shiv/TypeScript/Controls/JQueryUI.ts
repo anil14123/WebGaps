@@ -517,8 +517,10 @@ export module JQueryUI {
         public static ResizableDestroy(elementCss) {
             try {
                 $(elementCss).resizable("destroy");
+                jQuery(elementCss).find("div").remove(".ui-resizable-handle");
             }
             catch (ex) {
+                jQuery(elementCss).find("div").remove(".ui-resizable-handle");
             }
         }
 

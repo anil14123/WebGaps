@@ -37,7 +37,7 @@
             <div class="col-xs-4 page-controls">
             </div>
             <div class="col-xs-4 page-controls">
-                <button class=" btn btn-primary edit-page"></button>
+                <div class=" btn btn-primary edit-page"></div>
             </div>
         </div>
 

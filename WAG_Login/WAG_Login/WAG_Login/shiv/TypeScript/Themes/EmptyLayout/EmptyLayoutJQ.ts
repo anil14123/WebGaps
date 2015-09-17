@@ -179,7 +179,7 @@ export module Themes.Empty {
                         undoManager.PopUndo();
 
 
-                        impControlCommon.ControlCommon.Code.Execute();
+                      
                         impControlCommon.ControlCommon.Code.DestroyResizable();
                         impControlCommon.ControlCommon.Code.Execute();
                         undoManager.BeforeOperation();
