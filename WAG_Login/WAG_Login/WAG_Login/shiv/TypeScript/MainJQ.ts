@@ -59,8 +59,12 @@ jQuery(document).ready(function () {
         jQuery(".row").removeClass("design-row");
         jQuery(".column").removeClass("design-column");
 
-        ///// page load /////
+        ///////
 
+        jQuery(".jq-loading").show();
+
+        ///// page load /////
+        
         if (jQuery("inpu-page-name").val() != "" && jQuery("inpu-site-name").val() != "") {
             impPageLoad.Page.LoadJQ.LoadPage("site","site1","page1");
         }

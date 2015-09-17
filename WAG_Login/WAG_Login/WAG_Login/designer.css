@@ -20,6 +20,21 @@
    z-index:999999999999999999999;
 }
 
+.jq-loading {
+    height: 70px;
+    width: 100px;
+    background-image: url('/Content/loading/colors.gif');
+    background-size: 100% 100%;
+    left: 20%;
+    top: 40%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+   
+    z-index: 999999999999;
+    position: fixed;
+}
+
 .top-row-container{
 
 }

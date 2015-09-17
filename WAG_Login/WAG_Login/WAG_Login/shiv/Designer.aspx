@@ -70,6 +70,11 @@
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
 
+       <div class="jq-loading" >
+     
+     
+     </div>
+
 <input class="input-page-name hide" value="<%:PageName%>"/>
 <input class="input-site-name hide" value="<%:SiteName%>" />
     <input class="input-site-id hide" value ="<%:SiteId%>" />
@@ -423,7 +428,7 @@
 
         <!------------------------------- Templates ----------------------------------->
 
-        <div id="control-templates" name="templates" class="control-page control-templates control-active" style="display:block;" >
+        <div id="control-templates" name="templates" class="control-page control-templates control-active"  >
            
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();jQuery('.control-page').removeClass('control-active');">X</span> </div>
             <div class="control-move-area">Layout</div>

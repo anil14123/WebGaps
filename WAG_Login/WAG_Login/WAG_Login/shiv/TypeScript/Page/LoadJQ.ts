@@ -18,10 +18,12 @@ export module Page {
                     cache: false,
 
                     success: function (data) {
-                        
+
+                        jQuery(".jq-loading").hide();
+
                         var e = jQuery(document.createElement("div"));
                         var pg = jQuery(document.createElement("div"));
-                        e.html(data).find("page").remove(".ui-resizable-handle");
+                        e.html(data);//.find("page").remove(".ui-resizable-handle");
                         pg.append(e.html());
 
                         var pgResizableRemoved = pg;
@@ -35,6 +37,11 @@ export module Page {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            jQuery("#control-templates").hide();
+                        }
+                        else {
+                            jQuery("#control-templates").show();
                         }
 
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
@@ -43,6 +50,9 @@ export module Page {
                     },
 
                     error: function (e) {
+
+                        jQuery(".jq-loading").hide();
+
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
                         errorHandler.ActionFail("Page Loading Failed ! <br> Try again latter");
