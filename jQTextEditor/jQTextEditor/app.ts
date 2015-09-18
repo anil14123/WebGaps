@@ -19,12 +19,76 @@ class jqte {
 
     public Init() {
         this.AttachEvents();
+
+        $(".jqte-editor-tool-ddn").attr("disabled", "disabled").off('click');
+        $(".jqte-editor-tool").attr("disabled", "disabled").off('click');
+
     }
 
     public AttachEvents() {
 
+        $(".jqte-editor-tool").mousedown(function () {
+
+            if (jQuery(this).parent().hasClass("font-icon")) {
+                jqte.SelectionSet("fontName", jQuery(this).text());
+            }
+
+            if (jQuery(this).hasClass("bold-icon")) {
+               jqte.SelectionSet("bold", null);
+            }
+
+        });
+
+        jQuery(".bold-icon").mousedown(function (e) {
+
+            
+
+            jQuery(".jqte-editor").get(0).focus();
+
+            e.preventDefault();
+
+            return false;
+
+        });
+
+        jQuery(".font-icon").mousedown(function (e) {
+
+            if (jQuery(".font-name-list").css("display") == "none")
+                jQuery(".font-name-list").css("display", "block");
+            else
+                jQuery(".font-name-list").css("display", "none");
+
+           // var range = jqte.SelectionSet("backColor", "green");
+
+          //  jQuery(".jqte-editor").get(0).focus();
+
+            e.preventDefault();
+
+            return false;
+
+        });
+
+        jQuery(".jqte-editor").focus(function () {
+
+
+            jQuery(this).addClass("focused");
+        });
+
+        jQuery(".font-name-list li").mousedown(function (e) {
+            var fontName = jQuery(this).text();
+
+            var range = jqte.SelectionSet("fontName", fontName);
+
+
+            jQuery(".jqte-editor").get(0).focus();
+
+        });
+
+
+
         this.AttachGetSelection();
     }
+
 
     public AttachGetSelection() {
         jQuery(".get-selection").click(function () {

@@ -2,7 +2,25 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+.font-name-list{
+    left:0;
+    top:23px;
+    position:absolute;
+    background-color:black;
+    color:white;
+    list-style:none;
+    margin-left:0;
+    padding-left:10px;
+    display:none;
+}
+
+.font-name-list li{
+    border-bottom:1px solid white;
+    padding:3px;
+}
+
 .jqte-toolbar {
+    position:relative;
     background-color: black;
     display: inline-block;
     height: 23px;
@@ -26,6 +44,20 @@ span {
     height:100px;
     width:200px;
     margin-left:100px;
+}
+
+.jqte-editor-tool-ddn
+{
+     display: block;
+     width: 20px;
+    height: 20px;
+    float:left;
+     background-repeat:no-repeat;
+     background-size:20px 20px;
+     margin:2px;
+     border:1px solid white;
+
+     padding:2px;
 }
 
 .jqte-editor-tool
