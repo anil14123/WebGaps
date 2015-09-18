@@ -18,11 +18,18 @@ class jqte {
     }
 
     public Init() {
+
+
+        $(".jqte-editor-tool-ddn").off('click');
+        $(".jqte-editor-tool").off('click');
+
+
         this.AttachEvents();
 
-        $(".jqte-editor-tool-ddn").attr("disabled", "disabled").off('click');
-        $(".jqte-editor-tool").attr("disabled", "disabled").off('click');
+    }
 
+    public End() {
+        return false;
     }
 
     public AttachEvents() {
@@ -73,18 +80,6 @@ class jqte {
 
             jQuery(this).addClass("focused");
         });
-
-        jQuery(".font-name-list li").mousedown(function (e) {
-            var fontName = jQuery(this).text();
-
-            var range = jqte.SelectionSet("fontName", fontName);
-
-
-            jQuery(".jqte-editor").get(0).focus();
-
-        });
-
-
 
         this.AttachGetSelection();
     }
