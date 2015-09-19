@@ -2,9 +2,19 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+.jqte-editor-tool-c{
+    background-color:black;
+    width:100%;
+    height:100%;
+    padding:3px;
+    color:white;
+
+    border:none;
+}
+
 .font-name-list{
     left:0;
-    top:23px;
+    top:30px;
     position:absolute;
     background-color:black;
     color:white;
@@ -15,8 +25,8 @@
 }
 
 .font-name-list li{
-    border-bottom:1px solid white;
-    padding:3px;
+    
+    padding:0;
 }
 
 .jqte-toolbar {
@@ -26,6 +36,7 @@
     height: 23px;
     padding: 10px;
     padding-bottom: 14px;
+
 
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
@@ -46,7 +57,7 @@ span {
     margin-left:100px;
 }
 
-.jqte-editor-tool-ddn
+.jqte-editor-tool-p
 {
      display: block;
      width: 20px;
@@ -72,6 +83,10 @@ span {
      border:1px solid white;
 
      padding:2px;
+}
+
+.editor{
+    float:left;
 }
 
 .bold-icon{

@@ -20,61 +20,75 @@ class jqte {
     public Init() {
 
 
-        $(".jqte-editor-tool-ddn").off('click');
+        jQuery(".jqte-editor-tool").click(function () {
+            return false;
+        });
+
+        $(".jqte-editor-tool-p").off('click');
         $(".jqte-editor-tool").off('click');
-
-
+        
         this.AttachEvents();
+        jQuery(".font-name-list li").each(function () {
 
-    }
-
-    public End() {
-        return false;
+            jQuery(this).css("font-family", jQuery(this).text());
+        });
     }
 
     public AttachEvents() {
 
-        $(".jqte-editor-tool").mousedown(function () {
+        jQuery(document).not(".editor").click(function (e) {
 
-            if (jQuery(this).parent().hasClass("font-icon")) {
-                jqte.SelectionSet("fontName", jQuery(this).text());
+            if (!jQuery(e.target).hasClass("jqte-editor-tool-p")) {
+                jQuery(".jqte-editor-tool-list").hide();
             }
-
-            if (jQuery(this).hasClass("bold-icon")) {
-               jqte.SelectionSet("bold", null);
-            }
-
-        });
-
-        jQuery(".bold-icon").mousedown(function (e) {
-
             
+        });
 
-            jQuery(".jqte-editor").get(0).focus();
+        $(".jqte-editor-tool,.jqte-editor-tool-p").mousedown(function (e) {
 
-            e.preventDefault();
+            var name = jQuery(this).attr("name");
 
+            if (name == "font") {
+                if (jQuery(".font-name-list").css("display") == "none")
+                    jQuery(".font-name-list").css("display", "block");
+                else
+                    jQuery(".font-name-list").css("display", "none");
+            }
+
+            switch (name) {
+                case 'bold': jqte.SelectionSet("bold", null);
+                    break;
+                case 'italic': jqte.SelectionSet("italic", null);
+                    break;
+                case 'underline': jqte.SelectionSet('underline', null);
+                    break;
+                case 'strike': jqte.SelectionSet("strikeThrough", null);
+                    break;
+            }
+            
+            //if (e.cancelBubble != null) e.cancelBubble = true;
+            //if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            //if (e.preventDefault) e.preventDefault();
+            //if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+            //return false;
+        });
+
+
+        $(".jqte-editor-tool-c").mousedown(function (e) {
+
+            if (jQuery(this).parent().parent().hasClass("font-name-list")) {
+                jqte.SelectionSet("fontName", jQuery(this).attr("value"));
+            }
+
+
+            if (e.cancelBubble != null) e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            if (e.preventDefault) e.preventDefault();
+            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
             return false;
 
         });
-
-        jQuery(".font-icon").mousedown(function (e) {
-
-            if (jQuery(".font-name-list").css("display") == "none")
-                jQuery(".font-name-list").css("display", "block");
-            else
-                jQuery(".font-name-list").css("display", "none");
-
-           // var range = jqte.SelectionSet("backColor", "green");
-
-          //  jQuery(".jqte-editor").get(0).focus();
-
-            e.preventDefault();
-
-            return false;
-
-        });
-
+        
         jQuery(".jqte-editor").focus(function () {
 
 
@@ -131,8 +145,8 @@ class jqte {
             range = document.selection.createRange();
             range.execCommand(addCommand, false, thirdParam);
         }
-				
-       
+
+
     }
 
     public static SelectText(element) {
@@ -163,9 +177,9 @@ class jqte {
         }
     }
 
-   
+
 }
 
-window.onload = () => {
+jQuery(document).ready(function () {
     new jqte(".jqte-editor", {});
-};
+});
