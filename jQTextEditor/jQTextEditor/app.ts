@@ -44,7 +44,19 @@ class jqte {
             
         });
 
+        $(".jqte-editor-tool,.jqte-editor-tool-p").mouseup(function (e) {
+            jQuery(this).removeClass("highlight-tool");
+
+            if (e.cancelBubble != null) e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            if (e.preventDefault) e.preventDefault();
+            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+            return false;
+        });
+
         $(".jqte-editor-tool,.jqte-editor-tool-p").mousedown(function (e) {
+
+            jQuery(this).addClass("highlight-tool");
 
             var name = jQuery(this).attr("name");
 
@@ -64,13 +76,32 @@ class jqte {
                     break;
                 case 'strike': jqte.SelectionSet("strikeThrough", null);
                     break;
+                case 'bullet': jqte.SelectionSet("insertUnorderedList", null);
+                    break;
+                case 'number': jqte.SelectionSet("insertOrderedList", null);
+                    break;
+                case 'left': jqte.SelectionSet("justifyLeft", null);
+                    break;
+                case 'right': jqte.SelectionSet("justifyRight", null);
+                    break;
+                case 'center': jqte.SelectionSet("justifyCenter", null);
+                    break;
+                case 'full': jqte.SelectionSet("justifyFull", null);
+                    break;
+                case 'outdent': jqte.SelectionSet("outdent", null);
+                    break;
+                case 'indent': jqte.SelectionSet("indent", null);
+                    break;
+                case 'clear': jqte.SelectionSet("removeFormat", null);
+                    break;
+
             }
             
-            //if (e.cancelBubble != null) e.cancelBubble = true;
-            //if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
-            //if (e.preventDefault) e.preventDefault();
-            //if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
-            //return false;
+            if (e.cancelBubble != null) e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            if (e.preventDefault) e.preventDefault();
+            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+            return false;
         });
 
 
