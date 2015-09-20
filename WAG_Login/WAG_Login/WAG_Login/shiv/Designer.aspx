@@ -591,7 +591,8 @@
 
                 <hr />
 
-                 <div class="control-border-controls">
+                <%--                
+                     <div class="control-border-controls">
                       <fieldset class="clear row">
 
                                  <div class="col-xs-16">
@@ -603,14 +604,16 @@
                            <div class="col-xs-32"> 
                               
                               <select class="ddn-control ddn-font-lists ddn-font-pinned" ></select> 
-                              <%-- <div class="ddn-font-lists-sample-pinned"></div>--%>
+                              <%-- <div class="ddn-font-lists-sample-pinned"></div>
                                <select class="ddn-control ddn-font-size ddn-font-size-pinned" ></select> 
                                
 
                             </div>
                       </fieldset>
                     </div>
-                <hr />
+                    <hr />
+                --%>
+
                   <div class="control-border-controls">
                    
 

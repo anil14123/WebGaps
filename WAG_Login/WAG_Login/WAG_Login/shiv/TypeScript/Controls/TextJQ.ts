@@ -135,7 +135,7 @@ export module Text {
 
                 jQuery(tbContentWrapper).attr("contenteditable", "true");
                 jQuery(tbContentWrapper).append(jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html());
-
+                jQuery(tbContentWrapper).addClass("padding-5");
 
                 jQuery(tbContent).append(tbContentWrapper);
 
