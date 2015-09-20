@@ -497,7 +497,7 @@ controls {
 
 
 #control-add-row{
-    top:120px;
+    top:150px;
     left:30%;
 }
 
@@ -521,7 +521,7 @@ controls {
 
 #control-bi{
     left:35%;
-    top:10%;
+    top:150px;
 }
 
 /******************* Image Library ***************/
@@ -552,7 +552,7 @@ controls {
 
 #control-image-library
 {
-   
+    top:150px;
     left:200px;
      width:700px;
 }
@@ -560,6 +560,7 @@ controls {
 /************ Border */
 
 .control-border{
+    top:150px;
     width:550px;
 }
 
@@ -618,7 +619,7 @@ controls {
 
 
 #control-insert-text{
-   
+   top:150px;
 }
 
 /********** control template *********************/
@@ -650,7 +651,7 @@ controls {
 #control-image-bi-library
 {
     z-index:2147483647;
-
+    top:150px;
     width:700px;
 
 }

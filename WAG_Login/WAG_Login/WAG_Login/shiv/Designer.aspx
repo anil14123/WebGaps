@@ -1337,7 +1337,7 @@
 <%--                        <div class="jq-template" template-id="control-font-style">
 
                         </div>--%>
-                        <div class="jqte-editor"  contenteditable="true" style=" height:100px; width:200px; border:1px solid black; border-radius:5px;" >
+                        <div class="jqte-editor"  contenteditable="true" style=" min-height:200px; min-width:250px; border:1px solid black; border-radius:5px;" >
                             
                         </div>
 
