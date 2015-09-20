@@ -140,7 +140,7 @@ class jqte {
 
                     jQuery(".link-window-url").val("http://")
 
-                    jQuery(".current-editor-scope").find("font[color='']").removeAttr("color");
+                    jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
                     jqte.SelectionSet("foreColor", "#003399");
                     jqte.SelectionSet("createLink", "#");
                   
