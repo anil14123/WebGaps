@@ -334,10 +334,10 @@ export module Image {
 
             if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
 
-                errorHandler.ActionHelp("Help : You cannot insert [Image] here.");
+              //  errorHandler.ActionHelp("Help : You cannot insert [Image] here.");
             }
             else {
-                errorHandler.ActionHelp("Help : You can insert [Image] here.", "altercolor");
+               // errorHandler.ActionHelp("Help : You can insert [Image] here.", "altercolor");
             }
         }
 

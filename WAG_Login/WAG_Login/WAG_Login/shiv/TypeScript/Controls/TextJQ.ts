@@ -269,10 +269,10 @@ export module Text {
 
             if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
 
-                errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                //errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
             }
             else {
-                errorHandler.ActionHelp("Help : You can insert [Text] here ", "altercolor");
+               // errorHandler.ActionHelp("Help : You can insert [Text] here ", "altercolor");
             }
 
         }
