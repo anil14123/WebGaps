@@ -28,6 +28,10 @@
     float:left;
 }
 
+.font-size-list{
+    display:none;
+}
+
 .font-name-list {
     left: 0;
     top: 30px;

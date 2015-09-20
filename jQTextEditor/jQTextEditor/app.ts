@@ -26,6 +26,8 @@ class jqte {
 
         $(".jqte-editor-tool-p").off('click');
         $(".jqte-editor-tool").off('click');
+        $(".jqte-editor-tool-c").off('click');
+        $(".jq-color").off('click');
         
         this.AttachEvents();
         jQuery(".font-name-list li").each(function () {
@@ -60,14 +62,46 @@ class jqte {
 
             var name = jQuery(this).attr("name");
 
-            if (name == "font") {
-                if (jQuery(".font-name-list").css("display") == "none")
-                    jQuery(".font-name-list").css("display", "block");
-                else
-                    jQuery(".font-name-list").css("display", "none");
-            }
-
             switch (name) {
+                case "font":
+                    jQuery(".jqte-editor-tool-list").not(".font-name-list").hide();
+                    if (jQuery(".font-name-list").css("display") == "none") {
+                        jQuery(".font-name-list").css("display", "block");
+                    }
+                    else {
+                        jQuery(".font-name-list").css("display", "none");
+                    }
+
+                    break;
+                case "font-size":
+                    jQuery(".jqte-editor-tool-list").not(".font-size-list").hide();
+                    if (jQuery(".font-size-list ").css("display") == "none") {
+                        jQuery(".font-size-list ").css("display", "block");
+                    }
+                    else {
+                        jQuery(".font-size-list ").css("display", "none");
+                    }
+                    break;
+                case 'fore-color':
+                case 'back-color':
+                    jQuery(".jqte-editor-tool-list").not(".jqte-color-palette").hide();
+
+                    if (jQuery(this).hasClass("current-color-tool")) {
+                        if (jQuery(".jqte-color-palette").css("display") == "none") {
+                            jQuery(".jqte-color-palette").css("display", "block");
+                        }
+                        else {
+                            jQuery(".jqte-color-palette").css("display", "none");
+                        }
+                    }
+                    else {
+                        jQuery(".jqte-color-palette").css("display", "block");
+                    }
+                    
+                    jQuery(".color-tool").removeClass("current-color-tool");
+                    jQuery(this).addClass("current-color-tool");
+                   
+                    break;
                 case 'bold': jqte.SelectionSet("bold", null);
                     break;
                 case 'italic': jqte.SelectionSet("italic", null);
@@ -117,6 +151,7 @@ class jqte {
                 jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).attr("value") + "px").removeAttr("size");
             }
 
+            jQuery(".jqte-editor-tool-list").hide();
 
             if (e.cancelBubble != null) e.cancelBubble = true;
             if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
@@ -125,6 +160,33 @@ class jqte {
             return false;
 
         });
+
+        $(".jq-color").mousedown(function (e) {
+
+            if (jQuery(".current-color-tool").length >0) {
+
+                var name = jQuery(".current-color-tool").attr("name");
+
+                if (name == "back-color") {
+                    jqte.SelectionSet("backColor", jQuery(this).css("background-color"));
+                }
+                else
+                    if (name = "fore-color") {
+                        jqte.SelectionSet("foreColor", jQuery(this).css("background-color"));
+                    }
+
+            }
+
+            jQuery(".jqte-editor-tool-list").hide();
+
+            if (e.cancelBubble != null) e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            if (e.preventDefault) e.preventDefault();
+            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+            return false;
+
+        });
+        
         
         jQuery(".jqte-editor").focus(function () {
 
