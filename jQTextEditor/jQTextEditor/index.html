@@ -17,6 +17,9 @@
 
         <div class="editor">
             <div class="jqte-toolbar">
+
+             
+
                 <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
                 <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
                     <li> <button class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</button></li>
@@ -33,7 +36,7 @@
                     <li> <button class="jqte-editor-tool-c" value="6">6</button></li>
                     <li> <button class="jqte-editor-tool-c" value="7">7</button></li>
                     <li> <button class="jqte-editor-tool-c" value="8">8</button></li>
-                   
+
                     <li> <button class="jqte-editor-tool-c" value="10">10</button></li>
                     <li> <button class="jqte-editor-tool-c" value="11">11</button></li>
                     <li> <button class="jqte-editor-tool-c" value="12">12</button></li>
@@ -45,21 +48,21 @@
                     <li> <button class="jqte-editor-tool-c" value="18">18</button></li>
                     <li> <button class="jqte-editor-tool-c" value="19">19</button></li>
                     <li> <button class="jqte-editor-tool-c" value="20">20</button></li>
-                 
+
                     <li> <button class="jqte-editor-tool-c" value="25">25</button></li>
                     <li> <button class="jqte-editor-tool-c" value="26">26</button></li>
                     <li> <button class="jqte-editor-tool-c" value="27">27</button></li>
                     <li> <button class="jqte-editor-tool-c" value="28">28</button></li>
                     <li> <button class="jqte-editor-tool-c" value="29">29</button></li>
                     <li> <button class="jqte-editor-tool-c" value="30">30</button></li>
-              
+
                     <li> <button class="jqte-editor-tool-c" value="35">35</button></li>
                     <li> <button class="jqte-editor-tool-c" value="36">36</button></li>
                     <li> <button class="jqte-editor-tool-c" value="37">37</button></li>
                     <li> <button class="jqte-editor-tool-c" value="38">38</button></li>
                     <li> <button class="jqte-editor-tool-c" value="39">39</button></li>
                     <li> <button class="jqte-editor-tool-c" value="40">40</button></li>
-                   
+
                     <li> <button class="jqte-editor-tool-c" value="45">45</button></li>
                     <li> <button class="jqte-editor-tool-c" value="46">46</button></li>
                     <li> <button class="jqte-editor-tool-c" value="47">47</button></li>
@@ -172,13 +175,34 @@
                 <button class="link-icon jqte-editor-tool" name="link"></button>
                 <button class="clear-icon jqte-editor-tool" name="clear"></button>
 
-
+                <div class="jqte-link jqte-editor-tool-list" >
+                    
+                    Web Address :
+                    <input type="text" value="http://" class="link-window-url" />
+                    <button class="editor-create-link" style="margin:2px;">Insert</button>
+                </div>
             </div>
 
             <button class="get-selection">Get Selection</button>
 
-            <div  contenteditable="true" class="jqte-editor current-editor-scope"></div>
+            <div contenteditable="true" class="jqte-editor current-editor-scope"></div>
         </div>
     </div>
+
+
+    <style>
+
+        .control-page{
+            left:30%;
+            top:30%;
+
+            position:absolute;
+            display:none;
+        }
+
+    </style>
+
 </body>
 </html>
+
+

@@ -477,3 +477,14 @@ span {
 p{
     margin : 0;
 }
+
+.link-window-url{
+    width:280px;
+}
+
+.jqte-link{
+    width:100%;
+    position:static;
+    clear:both;
+    display:none;
+}

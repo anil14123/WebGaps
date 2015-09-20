@@ -128,6 +128,23 @@ class jqte {
                     break;
                 case 'clear': jqte.SelectionSet("removeFormat", null);
                     break;
+                case "link":
+
+                    jQuery(".jqte-editor-tool-list").not(".jqte-link").hide();
+                    if (jQuery(".jqte-link").css("display") == "none") {
+                        jQuery(".jqte-link").css("display", "block");
+                    }
+                    else {
+                        jQuery(".jqte-link").css("display", "none");
+                    }
+
+                    jQuery(".link-window-url").val("http://")
+
+                    jQuery(".current-editor-scope").find("font[color='']").removeAttr("color");
+                    jqte.SelectionSet("foreColor", "#003399");
+                    jqte.SelectionSet("createLink", "#");
+                  
+                    break;
 
             }
             
@@ -138,6 +155,19 @@ class jqte {
             return false;
         });
 
+
+        jQuery(".editor-create-link").click(function (e) {
+
+            jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("href", jQuery(".link-window-url").val());
+
+            jQuery(".jqte-editor-tool-list").hide();
+
+            if (e.cancelBubble != null) e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+            if (e.preventDefault) e.preventDefault();
+            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+            return false;
+        });
 
         $(".jqte-editor-tool-c").mousedown(function (e) {
 
