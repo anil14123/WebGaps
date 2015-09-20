@@ -9,6 +9,23 @@
     padding: 3px;
     color: white;
     border: none;
+   
+}
+
+.jqte-editor-tool-list{
+    left: 0;
+    top: 30px;
+    position: absolute;
+    background-color: black;
+    color: white;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  
+}
+
+.font-size-list li{
+    float:left;
 }
 
 .font-name-list {
@@ -57,7 +74,7 @@ span {
     height: 20px;
     float: left;
     background-repeat: no-repeat;
-    background-size: 20px 20px;
+    background-size: 100% 100%;
     margin: 2px;
     border: 1px solid white;
     padding: 2px;
@@ -69,14 +86,20 @@ span {
     height: 20px;
     float: left;
     background-repeat: no-repeat;
-    background-size: 20px 20px;
+    background-size: 100% 100%;
     margin: 2px;
     border: 1px solid white;
     padding: 2px;
 }
 
+
+
 .editor {
     float: left;
+}
+
+.font-size-icon{
+    background-image  :url(/jqte/editor/font-size.png)
 }
 
 .bold-icon {

@@ -107,8 +107,14 @@ class jqte {
 
         $(".jqte-editor-tool-c").mousedown(function (e) {
 
-            if (jQuery(this).parent().parent().hasClass("font-name-list")) {
+            if (jQuery(this).parent().parent().hasClass("font-name")) {
                 jqte.SelectionSet("fontName", jQuery(this).attr("value"));
+            }
+
+            if (jQuery(this).parent().parent().hasClass("font-size")) {
+                jqte.SelectionSet("fontSize", 7);
+
+                jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).attr("value") + "px").removeAttr("size");
             }
 
 
