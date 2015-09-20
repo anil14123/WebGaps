@@ -84,6 +84,13 @@ export module Text {
                 jQuery(this).closest('.control-page').hide();
                 jQuery(impError.ErrorHandle.ErrorJQ.notifyId).css("display", "none");
                 jQuery(impError.ErrorHandle.ErrorJQ.notifyId).html('');
+
+                jQuery("rootx").css("top", "45px");
+                jQuery(".designer-top-row").css("height", "45px");
+                jQuery(".editor").hide();
+                jQuery("#notify").css("top", "45px");
+
+
             });
         }
 
@@ -107,6 +114,7 @@ export module Text {
 
         public static AttachInsertText() {
             jQuery(TextJQ.pageId).find(TextJQ.BTN_INSERT_TEXT).click(function (e, s) {
+
 
                 var textObj = new TextJQ();
 

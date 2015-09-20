@@ -265,6 +265,18 @@ export module ContextMenu {
 
             ContextMenuJQ.ControlPageHide();
 
+            ////////////////////////// show editor
+            jQuery("rootx").css("top", "90px");
+            jQuery(".designer-top-row").css("height", "90px");
+            jQuery("#notify").css("top", "90px");
+            jQuery(".editor").show();
+
+            jQuery(".jqte-editor").removeClass("current-editor-scope");
+
+            jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
+            //////////////////////////
+
+
             jQuery(".control-page").removeClass("control-active");
             jQuery("#control-insert-text").addClass("control-active");
 
