@@ -1405,6 +1405,12 @@
                 <div class="li smart-menu-insert-image">Image</div>
             </li>
             <li>
+                <div class="li smart-menu-insert-empty-space">Spacer</div>
+            </li>
+            <li>
+                <div class="li smart-menu-insert-object">Other</div>
+            </li>
+            <%-- <li>
                 <div class="li smart-menu-insert-youtube">Youtube</div>
             </li>
             <li>
@@ -1412,8 +1418,7 @@
             </li>
             <li>
                 <div class="li smart-menu-insert-css">Css</div>
-            </li>
-
+            </li>--%>
         </ul>
     </div>
 
@@ -1424,7 +1429,9 @@
                 <div class="li ctx-menu-add-row">Add Columns</div>
             </li>
             <li>
-                <div class="li ctx-menu-insert">Insert <div class="jq-menu-arrow"></div></div>
+                <div class="li ctx-menu-insert">Insert
+                    <div class="jq-menu-arrow"></div>
+                </div>
                 <div class="innerListContainer">
                     <ul>
                         <li>
@@ -1442,7 +1449,7 @@
                         <li>
                             <div class="li ctx-menu-insert-object">Other</div>
                         </li>
-                   <%-- <li>
+                        <%-- <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
                         </li>
                         <li>
@@ -1458,7 +1465,9 @@
                 </div>
             </li>
             <li>
-                <div class="li ctx-menu-properties">Properties <div class="jq-menu-arrow"></div></div>
+                <div class="li ctx-menu-properties">Properties
+                    <div class="jq-menu-arrow"></div>
+                </div>
                 <div class="innerListContainer">
                     <ul>
                         <li>
@@ -1483,7 +1492,7 @@
                 <div class="li ctx-menu-copy">Copy</div>
             </li>
             <li>
-                <div class="li ctx-menu-paste">Paste</div> 
+                <div class="li ctx-menu-paste">Paste</div>
             </li>
             <li>
                 <div class="li ctx-menu-delete-element">Delete</div>

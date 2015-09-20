@@ -506,8 +506,19 @@ export module ContextMenu {
 
         public static AttachSpacer() {
 
+            jQuery(".smart-menu-insert-empty-space").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                impSpacer.Spacer.SpacerJQ.InsertSpacer();
+
+            });
+
             jQuery(".ctx-menu-insert-empty-space").on("click", function () {
 
+                window.smartObj = null;
 
                 if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                     return;
