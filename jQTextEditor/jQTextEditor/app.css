@@ -188,6 +188,10 @@ span {
     background-image: url('/jqte/editor/link.png');
 }
 
+.unlink-icon{
+     background-image: url('/jqte/editor/unlink.png');
+}
+
 .jqte-color-palette{
     /*8 saperator pallette.*/
 
@@ -484,7 +488,8 @@ p{
 
 .jqte-link{
     width:100%;
-    position:static;
-    clear:both;
+    position:absolute;
+    top:36px;
+  
     display:none;
 }

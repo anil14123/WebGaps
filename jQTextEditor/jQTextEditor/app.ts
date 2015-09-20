@@ -32,7 +32,7 @@ class jqte {
         this.AttachEvents();
         jQuery(".font-name-list li").each(function () {
 
-            jQuery(this).css("font-family", jQuery(this).text());
+            jQuery(this).children().css("font-family", jQuery(this).text());
         });
     }
 
@@ -128,6 +128,8 @@ class jqte {
                     break;
                 case 'clear': jqte.SelectionSet("removeFormat", null);
                     break;
+                case "unlink": jqte.SelectionSet("unlink", null);
+                    break; 
                 case "link":
 
                     jQuery(".jqte-editor-tool-list").not(".jqte-link").hide();
@@ -159,7 +161,7 @@ class jqte {
         jQuery(".editor-create-link").click(function (e) {
 
             jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("href", jQuery(".link-window-url").val());
-
+            jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
             jQuery(".jqte-editor-tool-list").hide();
 
             if (e.cancelBubble != null) e.cancelBubble = true;

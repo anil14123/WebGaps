@@ -46,6 +46,7 @@
     <Content Include="jqte\editor\rightIndent.png" />
     <Content Include="jqte\editor\strike.png" />
     <Content Include="jqte\editor\underline.png" />
+    <Content Include="jqte\editor\unlink.png" />
     <Content Include="jqte\editor_small.png" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
