@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="/controls.css" type="text/css" />
     <link href="/ContextMenu.css" rel="stylesheet" />
     <link class="add-to-page" href="/Themes/457/theme.css" rel="stylesheet" />
-    <link href="/Third-Party/jte/jquery-te-1.4.0.css" rel="stylesheet" />
+    <%--<link href="/Third-Party/jte/jquery-te-1.4.0.css" rel="stylesheet" />--%>
+    <link href="../my-jqte.css.css" rel="stylesheet" />
+
+
     <link href="/JQte.css" rel="stylesheet" />
     <script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>
     <link href="/Third-Party/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" />
@@ -70,15 +73,13 @@
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
 
-       <div class="jq-loading" >
-     
-     
-     </div>
+    <div class="jq-loading">
+    </div>
 
-<input class="input-page-name hide" value="<%:PageName%>"/>
-<input class="input-site-name hide" value="<%:SiteName%>" />
-    <input class="input-site-id hide" value ="<%:SiteId%>" />
-    
+    <input class="input-page-name hide" value="<%:PageName%>" />
+    <input class="input-site-name hide" value="<%:SiteName%>" />
+    <input class="input-site-id hide" value="<%:SiteId%>" />
+
     <div class="jq-plus-container jq-plus-container-not-used">
 
         <div class="jq-plus-element">
@@ -197,6 +198,230 @@
                         <form name="logout" runat="server">
                             <asp:LoginStatus runat="server" CssClass="jq-logout" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row top-row-editor">
+
+                <div class="col-xs-48">
+                    <div class="editor">
+                        <div class="jqte-toolbar">
+
+
+
+                            <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
+                            <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="Georgia, serif">Georgia, serif</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="'Times New Roman', Times, serif">"Times New Roman", Times, serif</button></li>
+                            </ul>
+                            <button tabindex="-1" class="font-size-icon jqte-editor-tool-p" name="font-size"></button>
+                            <ul tabindex="-1" class="font-size-list font-size jqte-editor-tool-list">
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="1">1</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="2">2</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="3">3</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="4">4</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="5">5</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="6">6</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="7">7</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="8">8</button></li>
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="10">10</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="11">11</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="12">12</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="13">13</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="14">14</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="15">15</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="16">16</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="17">17</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="18">18</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="19">19</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="20">20</button></li>
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="25">25</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="26">26</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="27">27</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="28">28</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="29">29</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="30">30</button></li>
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="35">35</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="36">36</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="37">37</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="38">38</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="39">39</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="40">40</button></li>
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="45">45</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="46">46</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="47">47</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="48">48</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="49">49</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="50">50</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="55">55</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="56">56</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="57">57</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="58">58</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="59">59</button></li>
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="60">60</button></li>
+
+
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="70">70</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="80">80</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="90">90</button></li>
+                                <li>
+                                    <button class="jqte-editor-tool-c" value="100">100</button></li>
+                            </ul>
+                            <button class="bold-icon jqte-editor-tool" name="bold"></button>
+                            <button class="italic-icon jqte-editor-tool" name="italic"></button>
+                            <button class="underline-icon jqte-editor-tool" name="underline"></button>
+                            <button class="strike-icon jqte-editor-tool" name="strike"></button>
+                            <button class="fore-color-icon color-tool jqte-editor-tool" name="fore-color"></button>
+                            <div class="jqte-color-palette jqte-editor-tool-list">
+                                <button class="jq-color jq-color-1"></button>
+                                <button class="jq-color jq-color-2"></button>
+                                <button class="jq-color jq-color-3"></button>
+                                <button class="jq-color jq-color-4"></button>
+                                <button class="jq-color jq-color-5"></button>
+                                <button class="jq-color jq-color-6"></button>
+                                <button class="jq-color jq-color-7"></button>
+                                <button class="jq-color jq-color-8"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-9"></button>
+                                <button class="jq-color jq-color-10"></button>
+                                <button class="jq-color jq-color-11"></button>
+                                <button class="jq-color jq-color-12"></button>
+                                <button class="jq-color jq-color-13"></button>
+                                <button class="jq-color jq-color-14"></button>
+                                <button class="jq-color jq-color-15"></button>
+                                <button class="jq-color jq-color-16"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-17"></button>
+                                <button class="jq-color jq-color-18"></button>
+                                <button class="jq-color jq-color-19"></button>
+                                <button class="jq-color jq-color-20"></button>
+                                <button class="jq-color jq-color-21"></button>
+                                <button class="jq-color jq-color-22"></button>
+                                <button class="jq-color jq-color-23"></button>
+                                <button class="jq-color jq-color-24"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-25"></button>
+                                <button class="jq-color jq-color-26"></button>
+                                <button class="jq-color jq-color-27"></button>
+                                <button class="jq-color jq-color-28"></button>
+                                <button class="jq-color jq-color-29"></button>
+                                <button class="jq-color jq-color-30"></button>
+                                <button class="jq-color jq-color-31"></button>
+                                <button class="jq-color jq-color-32"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-33"></button>
+                                <button class="jq-color jq-color-34"></button>
+                                <button class="jq-color jq-color-35"></button>
+                                <button class="jq-color jq-color-36"></button>
+                                <button class="jq-color jq-color-37"></button>
+                                <button class="jq-color jq-color-38"></button>
+                                <button class="jq-color jq-color-39"></button>
+                                <button class="jq-color jq-color-40"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-41"></button>
+                                <button class="jq-color jq-color-42"></button>
+                                <button class="jq-color jq-color-43"></button>
+                                <button class="jq-color jq-color-44"></button>
+                                <button class="jq-color jq-color-45"></button>
+                                <button class="jq-color jq-color-46"></button>
+                                <button class="jq-color jq-color-47"></button>
+                                <button class="jq-color jq-color-48"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-49"></button>
+                                <button class="jq-color jq-color-50"></button>
+                                <button class="jq-color jq-color-51"></button>
+                                <button class="jq-color jq-color-52"></button>
+                                <button class="jq-color jq-color-53"></button>
+                                <button class="jq-color jq-color-54"></button>
+                                <button class="jq-color jq-color-55"></button>
+                                <button class="jq-color jq-color-56"></button>
+                                <div class="jq-color-saperator"></div>
+                                <button class="jq-color jq-color-57"></button>
+                                <button class="jq-color jq-color-58"></button>
+                                <button class="jq-color jq-color-59"></button>
+                                <button class="jq-color jq-color-60"></button>
+                                <button class="jq-color jq-color-61"></button>
+                                <button class="jq-color jq-color-62"></button>
+                                <button class="jq-color jq-color-63"></button>
+                                <button class="jq-color jq-color-64"></button>
+
+
+                            </div>
+                            <button class="back-color-icon  color-tool jqte-editor-tool" name="back-color"></button>
+                            <button class="bullet-icon jqte-editor-tool" name="bullet"></button>
+                            <button class="number-icon jqte-editor-tool" name="number"></button>
+                            <button class="left-icon jqte-editor-tool" name="left"></button>
+                            <button class="right-icon jqte-editor-tool" name="right"></button>
+                            <button class="center-icon jqte-editor-tool" name="center"></button>
+                            <button class="full-icon jqte-editor-tool" name="full"></button>
+                            <button class="left-indent-icon jqte-editor-tool" name="outdent"></button>
+                            <button class="right-indent-icon jqte-editor-tool" name="indent"></button>
+                            <button class="link-icon jqte-editor-tool" name="link"></button>
+                            <button class="unlink-icon jqte-editor-tool" name="unlink"></button>
+                            <button class="clear-icon jqte-editor-tool" name="clear"></button>
+
+                            <div class="jqte-link jqte-editor-tool-list">
+                                &nbsp;&nbsp; Web Address :
+                    <input type="text" value="http://" class="link-window-url" />
+                                <button class="editor-create-link" style="margin: 2px;">Insert</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

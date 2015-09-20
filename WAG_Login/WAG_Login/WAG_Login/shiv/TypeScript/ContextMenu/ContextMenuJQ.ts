@@ -68,9 +68,9 @@ export module ContextMenu {
                         pageY = pageY - 240;
                     }
 
-                    var eh = new impError.ErrorHandle.ErrorJQ();
+                    //var eh = new impError.ErrorHandle.ErrorJQ();
 
-                    eh.ActionHelp(pageY.toString());
+                    //eh.ActionHelp(pageY.toString());
 
                     var pageX = e.clientX;
                     if (pageX > (jQuery(document).width() - 200)) {

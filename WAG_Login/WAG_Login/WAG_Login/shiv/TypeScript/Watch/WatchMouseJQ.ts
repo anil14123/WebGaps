@@ -174,6 +174,16 @@ export module Watch {
 
                         if (e.which === ESC) {
 
+                            /// for moving
+                            $(".empty-container-text").draggable({ disabled: false });
+
+                            jQuery("rootx").css("top", "45px");
+                            jQuery(".designer-top-row").css("height", "45px");
+                            jQuery(".editor").hide();
+                            jQuery("#notify").css("top", "45px");
+
+                            jQuery("page .jqte-editor").css("cursor", "move");
+                            ////////////////////
                           
                             impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide()
 

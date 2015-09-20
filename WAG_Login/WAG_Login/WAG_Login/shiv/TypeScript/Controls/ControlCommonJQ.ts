@@ -2,7 +2,8 @@
 import impJQueryUI = require("./JQueryUI");
 import impAny = require("../page/anyjq");
 import impOn = require("../common/on");
-import impJqte = require("../Jqte/JqteJQ");
+//import impJqte = require("../Jqte/JqteJQ");
+import impJqteOnInsert = require("../Jqte/OnInsert");
 
 export module ControlCommon {
 
@@ -11,7 +12,8 @@ export module ControlCommon {
         public static Execute() {
 
             impOn.On.Code.Execute();
-            new impJqte.JQte.JQteJQ().Init();
+            //new impJqte.JQte.JQteJQ().Init();
+            new impJqteOnInsert.OnInsert.Code().Init();
 
             impJQueryUI.JQueryUI.CommonCode.ResizableColumn();
            

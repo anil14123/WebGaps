@@ -10,7 +10,8 @@ import impAuth = require("./_Classes/Auth");
 import impJqueryUi = require("./Controls/jqueryUI");
 import impCommon = require("./Common/CommonEvents");
 import impPreview = require("./Preview/Preview");
-import impJqte = require("./jqte/jqtejq");
+//import impJqte = require("./jqte/jqtejq");
+import impJqte = require("./jqte/MyJQte");
 import impControlMove = require("./Controls/ControlMoveJQ");
 import impTemplate = require("./Template/TemplateJQ");
 import impCommonControls = require("./Controls/controlcommonjq");
@@ -92,7 +93,7 @@ jQuery(document).ready(function () {
       
         /////////////////// jqte ///////////////////////////
 
-        var jqteObj = new impJqte.JQte.JQteJQ();
+        var jqteObj = new impJqte.MyJQte.jqte("");
 
         jqteObj.Init();
         /////////////////////////////////////////////////////
