@@ -81,29 +81,6 @@ export module Manager {
                 impControlsCommon.ControlCommon.Code.DestroyResizable();
                 impControlsCommon.ControlCommon.Code.Execute();
 
-                jQuery(".jq-text-block").each(function () {
-
-                    var html = jQuery(this).find(".jqte_editor").html();
-
-                    if (html != undefined) {
-                        jQuery(this).html("");
-
-                        var content = jQuery(document.createElement("div"));
-
-                        content.addClass("jq-text-block-content");
-                        content.html(html);
-
-                        jQuery(this).append(content);
-                    }                    
-
-                });
-
-                jQuery(".jq-text-block-content").jqte({
-
-                });
-
-                jQuery(".jqte_editor").addClass("padding-5");
-
                 this.SetSelectElement();
             }
 
@@ -141,31 +118,6 @@ export module Manager {
                     
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
-
-
-                    jQuery(".jq-text-block").each(function () {
-
-                        var html = jQuery(this).find(".jqte_editor").html();
-
-                        if (html != undefined) {
-                            jQuery(this).html("");
-
-                            var content = jQuery(document.createElement("div"));
-
-                            content.addClass("jq-text-block-content");
-
-                            content.html(html);
-
-                            jQuery(this).append(content);
-                        }
-
-                    });
-
-                    jQuery(".jq-text-block-content").jqte({
-
-                    });
-
-                    jQuery(".jqte_editor").addClass("padding-5");
 
                     this.SetSelectElement();
                 }

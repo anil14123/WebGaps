@@ -38,13 +38,13 @@ export module Preview {
 
             jQuery("page").find(".image-selection").removeClass("image-selection");
 
-            jQuery("page").find(".jqte_editor").removeAttr("contenteditable");
+            jQuery("page").find(".jqte-editor").removeAttr("contenteditable");
 
             jQuery("page").find(".jq-text-block-container").removeClass("jq-text-block-container-padding");
 
             jQuery("page").find(".jq-plus").hide();
 
-            jQuery("page").find(".jqte_editor").removeClass("padding-5");
+            jQuery("page").find(".jqte-editor").removeClass("padding-5");
 
             //jQuery("RootX").css("width", "100%");
             // jQuery("controls").hide();
@@ -71,7 +71,7 @@ export module Preview {
             jQuery("page").find(".empty-container-text").removeClass("design-empty-text-css");
             jQuery("page").find(".jq-text-block-container").removeClass("design-text-block");
             jQuery("page").find(".empty-container").removeClass("design-empty-css");
-            jQuery("page").find(".jqte_editor").removeClass("design-jqte_editor");
+            jQuery("page").find(".jqte-editor").removeClass("design-jqte_editor");
             //jQuery(".row").css("padding", "0px");
             //jQuery("rootx").css("padding", "0px");
             jQuery("page").find(".page-static-element").hide();
@@ -90,12 +90,12 @@ export module Preview {
 
 
 
-            jQuery("page").find(".jqte_editor").attr("contentEditable", "true");
+            jQuery("page").find(".jqte-editor").attr("contentEditable", "true");
             jQuery("page").find(".jq-text-block-container").addClass("jq-text-block-container-padding");
 
             jQuery("page").find(".jq-plus").show();
 
-            jQuery("page").find(".jqte_editor").addClass("padding-5");
+            jQuery("page").find(".jqte-editor").addClass("padding-5");
 
             //debug-css
             jQuery("page").find(".debug-css").show();
@@ -122,7 +122,7 @@ export module Preview {
             jQuery("page").find(".jq-text-block-container").addClass("design-text-block");
             jQuery("page").find(".empty-container").addClass("design-empty-css");
             jQuery("page").find(".empty-container-text").addClass("design-empty-text-css");
-            jQuery("page").find(".jqte_editor").addClass("design-jqte_editor");
+            jQuery("page").find(".jqte-editor").addClass("design-jqte_editor");
             //jQuery(".row").css("padding", "15px");
             //jQuery("rootx").css("padding", "10px");
             jQuery("page").find(".page-static-element").show();

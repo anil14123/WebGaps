@@ -36,7 +36,7 @@ export module Text {
         public static insertTextJTE = ".insert-text-jte";
         public static CSSCLASS = 'jq-text-block design-text-block normal-element';
         public static CONTAINER_CSS_CLASS = "jq-text-block-container design-text-block normal-element jq-container";
-        public static JTEEditorClass = ".jqte_editor";
+        public static JTEEditorClass = ".jqte-editor";
 
         constructor() {
             super();
@@ -70,14 +70,7 @@ export module Text {
                     if (isTextJQReady == false) {
                         isTextJQReady = true;
 
-                        jQuery(TextJQ.pageId).find(TextJQ.insertTextJTE).jqte({
-                            change: function () {
-
-                                var text = new TextJQ();
-
-                                // text.PreviewInsertText('notify help');
-                            }
-                        });
+                      
 
 
                     }
@@ -128,10 +121,11 @@ export module Text {
                 var tbContent = document.createElement("div");
                 var tbContentWrapper = document.createElement("div");
 
-                jQuery(tbContentWrapper).addClass("jq-text-block-content key");
+                jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor key");
 
                 jQuery(tbContent).css("font-family", jQuery(impText.Font.FontJQ.ddnId).find("option:selected").val());
 
+                jQuery(tbContentWrapper).attr("contenteditable", "true");
                 jQuery(tbContentWrapper).append(jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html());
 
 
@@ -221,10 +215,6 @@ export module Text {
                     errorHandler.ActionSuccess("");
 
                     jQuery(this).closest(".control-page").hide();
-
-                    jQuery(tbContainer).find(".jq-text-block-content").jqte({
-                     
-                    });
 
                     jQuery(tbContainer).find(".jqte_editor").addClass("padding-5");
 

@@ -1334,12 +1334,13 @@
                             
                         </div>--%>
 
-                        <div class="jq-template" template-id="control-font-style">
+<%--                        <div class="jq-template" template-id="control-font-style">
 
+                        </div>--%>
+                        <div class="jqte-editor"  contenteditable="true" style=" height:100px; width:200px; border:1px solid black; border-radius:5px;" >
+                            
                         </div>
-                        <div id="text_edtor_as_is" style="border:1px solid black; border-radius:5px;" class="jq-drag-cancle">
-                            <input name="input" type="text" value="" class="insert-text-jte">
-                        </div>
+
 
                     </fieldset>
                 </div>
