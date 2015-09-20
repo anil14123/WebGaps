@@ -425,7 +425,15 @@ export module JQueryUI {
             $(elementCss).resizable({
                 handles: handleDefault,
                 start: function (event, ui) {
-
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
+                        //    ||
+                        //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
+                        //    ) {
+                        var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                        commonMethods.RemoveStyle(ui.helper, "min-height");
+                        commonMethods.RemoveStyle(ui.helper, "height");
+                    }    
                 },
                 stop: function (event, ui) {
                     var height = ui.size.height;

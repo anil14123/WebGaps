@@ -15,6 +15,11 @@ padding-3{
     padding:3px;
 }
 
+blockquote{
+    border-left:none;
+    font-size:small;
+}
+
 .root-elements.padding-root-elements {
     padding: 10px;
     padding-bottom: 25px;
