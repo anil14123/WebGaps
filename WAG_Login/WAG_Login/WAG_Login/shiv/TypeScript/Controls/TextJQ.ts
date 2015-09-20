@@ -121,7 +121,7 @@ export module Text {
                 var tbContent = document.createElement("div");
                 var tbContentWrapper = document.createElement("div");
 
-                jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor key");
+                jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor");
 
                 jQuery(tbContent).css("font-family", jQuery(impText.Font.FontJQ.ddnId).find("option:selected").val());
 
