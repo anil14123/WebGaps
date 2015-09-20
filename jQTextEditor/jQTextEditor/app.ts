@@ -220,23 +220,25 @@ class jqte {
         });
         
         
-        jQuery(".jqte-editor").focus(function () {
+        //jQuery(".jqte-editor").focus(function () {
 
 
-            jQuery(this).addClass("focused");
-        });
+        //    jQuery(this).addClass("focused");
+        //});
 
-        this.AttachGetSelection();
+        //for testing
+       // this.AttachGetSelection();
     }
 
 
-    public AttachGetSelection() {
-        jQuery(".get-selection").click(function () {
-            jqte.GetSelectetdText();
+    //for testing
+    //public AttachGetSelection() {
+    //    jQuery(".get-selection").click(function () {
+    //        jqte.GetSelectetdText();
 
-            jQuery(this).closest(".editor").find(".jqte-editor").find("font[size=1]").attr("size", 50);
-        });
-    }
+    //        jQuery(this).closest(".editor").find(".jqte-editor").find("font[size=1]").attr("size", 50);
+    //    });
+    //}
 
     public static GetSelectetdText() {
         return jqte.SelectionSet("fontSize", "1");

@@ -2,6 +2,10 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+.editor{
+    
+}
+
 .jqte-editor-tool-c {
     background-color: black;
     width: 100%;
@@ -98,9 +102,6 @@ span {
 
 
 
-.editor {
-    float: left;
-}
 
 .font-size-icon{
     background-image  :url(/jqte/editor/font-size.png)
