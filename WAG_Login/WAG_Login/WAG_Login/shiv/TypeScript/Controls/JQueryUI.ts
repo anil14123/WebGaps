@@ -446,7 +446,11 @@ export module JQueryUI {
 
                     var width = ui.size.width;
 
-                    if (jQuery(this).hasClass("empty-container-text") || jQuery(this).hasClass("root-elements")) {
+                    if (jQuery(this).hasClass("empty-container-text")
+
+                        || jQuery(this).hasClass("jq-plus-container-text")  
+                        
+                        || jQuery(this).hasClass("root-elements")) {
                         var common = new impCommonMethods.Common.CommonMethodsJQ();
 
                         common.RemoveStyle(jQuery(this), "min-height");
