@@ -45,6 +45,7 @@ export module Preview {
             jQuery("page").find(".jq-plus").hide();
 
             jQuery("page").find(".jqte-editor").removeClass("padding-5");
+            //jQuery("page").find(".jq-image-block-image-wrapper").removeClass("padding-5");
 
             //jQuery("RootX").css("width", "100%");
             // jQuery("controls").hide();
@@ -96,6 +97,7 @@ export module Preview {
             jQuery("page").find(".jq-plus").show();
 
             jQuery("page").find(".jqte-editor").addClass("padding-5");
+            //jQuery("page").find(".jq-image-block-image-wrapper").addClass("padding-5");
 
             //debug-css
             jQuery("page").find(".debug-css").show();

@@ -131,7 +131,7 @@ export module Image {
 
             jQuery(tbImg).addClass("normal-element image-element");
 
-            jQuery(tbImageWrapper).addClass("jq-image-block-image-wrapper");
+            jQuery(tbImageWrapper).addClass("jq-image-block-image-wrapper ");
 
             var imgSrc;
 

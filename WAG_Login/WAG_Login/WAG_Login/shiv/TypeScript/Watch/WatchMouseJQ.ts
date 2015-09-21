@@ -169,7 +169,7 @@ export module Watch {
                     })
 
 
-                    jQuery(document).keydown(function (e) {
+                    jQuery("page").keydown(function (e) {
 
                         var BACK = 8;
 
