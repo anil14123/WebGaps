@@ -196,7 +196,8 @@ export module Image {
 
                 var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
                 plusContainer.removeClass("jq-plus-container-not-used");
-
+                plusContainer.addClass("jq-plus-container-image");
+                plusContainer.removeClass(".jq-plus-container");
                 var emptycontainer = document.createElement("div");
 
                 var jEc = jQuery(emptycontainer);
@@ -206,7 +207,7 @@ export module Image {
 
                 jQuery(tbImg).load(function () {
 
-                    var loadedImgContainer = jQuery(this).closest(".empty-container-image");
+                    var loadedImgContainer = jQuery(this).closest(".jq-plus-container-image");
 
                     if (this.naturalHeight > 200) {
                     }
