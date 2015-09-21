@@ -41,7 +41,7 @@ export module Common {
             return "";
         }
 
-        public static CheckAuth() {
+        public static CheckMal() {
             if (CommonEvents.GetCookie("jQuery") == jQuery("#viewstate").val()) {
                 return true;
             }
@@ -52,7 +52,7 @@ export module Common {
 
         public Init() {
 
-            if (CommonEvents.CheckAuth() == false) {
+            if (CommonEvents.CheckMal() == false) {
                 impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
             }            
 
