@@ -160,15 +160,24 @@ export module ContextMenu {
             if (
                 selectedElement.hasClass("jq-plus-container")
                 ||
-                selectedElement.hasClass("empty-container-text")
-                ||
-                selectedElement.hasClass("empty-container-image")
-                ||
                 selectedElement.hasClass("empty-container-spacer")
                 ) {
                 jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
+                jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+            }
+
+
+            if (
+                selectedElement.hasClass("empty-container-text")
+                ||
+                selectedElement.hasClass("empty-container-image")
+                
+                ) {
+
+                jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
             }
 
