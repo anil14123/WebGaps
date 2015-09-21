@@ -10,6 +10,10 @@
     font-weight: bold;
 }
 
+.padding-10{
+    padding:10px;
+}
+
 #firstTimeHelp {
     position: fixed;
     left: 40%;

@@ -185,7 +185,7 @@ export module Text {
                         || window.smartObj != null) {
 
                         var emptyc = document.createElement("span");
-                        jQuery(emptyc).addClass("empty-container-text key image-text-other design-css design-empty-text-css");
+                        jQuery(emptyc).addClass("empty-container-text padding-10 key image-text-other design-css design-empty-text-css");
 
                         jQuery(emptyc).css("font-size", "14px");
 
@@ -194,6 +194,8 @@ export module Text {
                         var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
                         plusContainer.removeClass("jq-plus-container");
                         plusContainer.addClass("jq-plus-container-text");
+                        plusContainer.addClass("design-css");
+                        plusContainer.addClass("design-empty-text-css");
                         plusContainer.removeClass("jq-plus-container-not-used");
 
                         plusContainer.find(".jq-plus-content").append(tbContainer);

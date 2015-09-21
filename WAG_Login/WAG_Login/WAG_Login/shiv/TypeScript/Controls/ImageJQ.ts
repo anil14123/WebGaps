@@ -202,12 +202,14 @@ export module Image {
                     var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
                     plusContainer.removeClass("jq-plus-container-not-used");
                     plusContainer.addClass("jq-plus-container-image");
-                    plusContainer.removeClass(".jq-plus-container");
+                    plusContainer.addClass("design-css");
+                    plusContainer.addClass("design-empty-text-css");
+                    plusContainer.removeClass("jq-plus-container");
                     var emptycontainer = document.createElement("div");
 
                     var jEc = jQuery(emptycontainer);
 
-                    jEc.addClass("empty-container-image image-text-other key");
+                    jEc.addClass("empty-container-image padding-10 image-text-other key design-css design-empty-text-css");
                     jEc.append(plusContainer);
 
                     jQuery(tbImg).load(function () {
@@ -215,16 +217,17 @@ export module Image {
                         var loadedImgContainer = jQuery(this).closest(".jq-plus-container-image");
 
                         if (this.naturalHeight > 200) {
-                        }
-                        else {
-                            loadedImgContainer.css("width", "auto");
-                        }
-
-                        if (this.naturalWidth > 200) {
-
+                            loadedImgContainer.css("height", "200px");
                         }
                         else {
                             loadedImgContainer.css("height", "auto");
+                        }
+
+                        if (this.naturalWidth > 200) {
+                            loadedImgContainer.css("width", "200px");
+                        }
+                        else {
+                            loadedImgContainer.css("width", "auto");
                         }
 
                     });

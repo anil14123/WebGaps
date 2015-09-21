@@ -446,17 +446,23 @@ export module JQueryUI {
 
                     var width = ui.size.width;
 
-                    if (jQuery(this).hasClass("empty-container-text")
-
+                    if (
+                           jQuery(this).hasClass("empty-container-text")
+                        || jQuery(this).hasClass("empty-container-image")
                         || jQuery(this).hasClass("jq-plus-container-text")  
-                        
+                        || jQuery(this).hasClass("jq-plus-container-image")  
                         || jQuery(this).hasClass("root-elements")) {
                         var common = new impCommonMethods.Common.CommonMethodsJQ();
-
+                                                
                         common.RemoveStyle(jQuery(this), "min-height");
                         common.RemoveStyle(jQuery(this), "height");
-
-                        jQuery(this).css("min-height", height);
+                
+                        if (jQuery(this).hasClass("jq-plus-container-image")) {
+                            jQuery(this).css("height", height);
+                        }
+                        else {
+                            jQuery(this).css("min-height", height);
+                        }
                     }
                     //UndoRedoManager.Push();
                     //alert(height + " x " + width);
