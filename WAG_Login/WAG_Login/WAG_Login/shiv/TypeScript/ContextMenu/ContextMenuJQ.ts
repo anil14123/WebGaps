@@ -109,7 +109,8 @@ export module ContextMenu {
             jQuery(".ctx-menu-insert-css").parent().addClass(CTX_MENU_DISABLED_CLASS);
             jQuery(".ctx-menu-insert-menu").parent().addClass(CTX_MENU_DISABLED_CLASS);
             jQuery(".ctx-menu-insert-empty-space").parent().addClass(CTX_MENU_DISABLED_CLASS);
-
+            jQuery(".ctx-menu-insert-link").parent().addClass(CTX_MENU_DISABLED_CLASS);
+            jQuery(".ctx-menu-insert-object").parent().addClass(CTX_MENU_DISABLED_CLASS);
 
             jQuery(".ctx-menu-delete-element").parent().addClass(CTX_MENU_DISABLED_CLASS);
 
@@ -139,6 +140,8 @@ export module ContextMenu {
                 jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                 jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
             }
@@ -155,6 +158,8 @@ export module ContextMenu {
                 jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
             }
 
             if (
