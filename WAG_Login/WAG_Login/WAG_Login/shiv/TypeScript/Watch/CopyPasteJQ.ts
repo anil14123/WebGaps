@@ -192,7 +192,10 @@ export module CopyPaste {
 
             if (selecedElement != undefined) {
 
-                if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
+                if (selecedElement.hasClass("empty-container")
+                    || selecedElement.hasClass("empty-container-text")
+                    || selecedElement.hasClass("empty-container-image")
+                    || selecedElement.hasClass("column")) {
 
                     if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
                         CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
