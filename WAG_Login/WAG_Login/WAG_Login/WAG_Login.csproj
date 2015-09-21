@@ -845,6 +845,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\JQte\MyJQte.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\JQte\OnInsert.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\MainJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\MalFormed\MalFormedJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuLinkJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuLinksJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Menu\MenuTemplateJQ.ts" />

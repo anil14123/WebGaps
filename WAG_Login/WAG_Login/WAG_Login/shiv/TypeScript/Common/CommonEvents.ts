@@ -14,6 +14,7 @@ import impError = require("../Error/ErrorJQ");
 import impAny = require("../page/anyjq");
 import impOn = require("../Common/on");
 import impSaveClass = require("../_Classes/SaveJq");
+import impmal = require("../MalFormed/MalFormedJQ");
 
 var themeHandle;
 
@@ -29,8 +30,31 @@ export module Common {
 
         isCommonEventsAdded = false;
 
+        public static GetCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        public static CheckAuth() {
+            if (CommonEvents.GetCookie("jQuery") == jQuery("#viewstate").val()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
         public Init() {
 
+            if (CommonEvents.CheckAuth() == false) {
+                impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
+            }            
 
             jQuery("#notify").click(function () {
                 jQuery(this).hide();

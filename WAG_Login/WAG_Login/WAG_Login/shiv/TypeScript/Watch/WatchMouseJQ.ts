@@ -12,7 +12,7 @@ import impError = require("../Error/ErrorJQ");
 import impCtxMenu = require("../ContextMenu/Contextmenujq");
 import impBi = require("../controls/bijq");
 import impOnInsert = require("../JQte/OnInsert");
-
+import impmal = require("../MalFormed/MalFormedJQ");
 var G_isAttachedWatch = false;
 
 var isWatchReady = false;
@@ -37,12 +37,16 @@ export module Watch {
             }
         }
 
+       
+
         public static ProcessClick(e) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
-            if (jQuery(".close-preview").css("display") == "none") {
+            if (jQuery(".close-preview").css("display") == "none" ) {
 
-              
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
 
                 // for cursor...
                 //$(document).mousemove(function (e) {

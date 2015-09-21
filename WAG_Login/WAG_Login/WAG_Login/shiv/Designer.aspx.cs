@@ -19,6 +19,8 @@ namespace WebAppGoTypeScript_X_Modulerization
         public string PageName;
         public string SiteId;
 
+        public string CookieValue;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
@@ -74,6 +76,22 @@ namespace WebAppGoTypeScript_X_Modulerization
         {
             SiteName = Request.QueryString["SiteName"];
             PageName = Request.QueryString["PageName"];
+
+            HttpCookie authCookie = Request.Cookies[".AspNet.ApplicationCookie"];
+           
+            CookieValue = authCookie.Value;
+
+            HttpCookie myCookie = new HttpCookie("jQuery");
+            DateTime now = DateTime.Now;
+
+            // Set the cookie value.
+            myCookie.Value = CookieValue;
+            // Set the cookie expiration date.
+
+            myCookie.Expires = authCookie.Expires; 
+
+            // Add the cookie.
+            Response.Cookies.Add(myCookie);
 
             var entities = new WAG_Login_Page.WagPageEntities();
 

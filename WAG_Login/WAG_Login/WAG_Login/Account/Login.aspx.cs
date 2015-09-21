@@ -30,6 +30,7 @@ namespace WAG_Login.Account
 
             var user = manager.FindByName("demo@gmail.com");
             signInManager.SignIn(user, isPersistent: true, rememberBrowser: true);
+            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
         }
 
         protected void LogIn(object sender, EventArgs e)
