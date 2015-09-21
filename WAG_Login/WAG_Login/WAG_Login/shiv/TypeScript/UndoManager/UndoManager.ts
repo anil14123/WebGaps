@@ -10,7 +10,7 @@ import impControlsCommon = require("../Controls/ControlCommonJQ");
 //import impMain = require("./../MainJQ");
 import impPreview = require("../Preview/Preview");
 import impWatch = require("../Watch/WatchMouseJQ");
-
+import impmal = require("../MalFormed/MalFormedJQ");
 
 export module Manager {
 
@@ -37,6 +37,10 @@ export module Manager {
         }
 
         public Undo() {
+
+            if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                return;
+            }
 
             if (jQuery(".close-preview").css("display") != "none") {
                 impPreview.Preview.PreviewJQ.ClosePreview();
@@ -89,6 +93,10 @@ export module Manager {
 
 
         public Redo() {
+
+            if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                return;
+            }
 
             if (jQuery(".close-preview").css("display") != "none") {
                 impPreview.Preview.PreviewJQ.ClosePreview();
@@ -152,6 +160,10 @@ export module Manager {
         }
 
         public BeforeOperation(selectedParent?: JQuery) {
+
+            if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                return;
+            }
 
             if (window.layoutCreating == false) {
                 try {

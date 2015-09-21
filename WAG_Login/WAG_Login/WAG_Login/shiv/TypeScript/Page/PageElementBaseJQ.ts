@@ -20,6 +20,7 @@ import impConstants = require("../Constants/ConstantsJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impCommonSmart = require("../Common/CommonEvents");
 import impUndoManager = require("../UndoManager/UndoManager");
+import impmal = require("../MalFormed/MalFormedJQ");
 
 var uniqureId = 5;
 
@@ -383,6 +384,10 @@ export module Page {
 
         // Adding element to page.....
         Add(root: JQuery, element: JQuery, className: string, rowcolumn: string, front: boolean, useSmartObj: boolean, beforeAfter: boolean) {
+
+            if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                return;
+            }
 
             if (this.ProcessKey() != true) {
                 return;
