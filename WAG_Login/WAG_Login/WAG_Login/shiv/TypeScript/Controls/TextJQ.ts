@@ -233,6 +233,8 @@ export module Text {
 
                     jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
 
+
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
                 }
                 else {

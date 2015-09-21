@@ -259,6 +259,7 @@ export module Image {
 
                 jQuery(SelfJQ.controlId).hide();
 
+                impCommonCode.ControlCommon.Code.DestroyResizable();
                 impCommonCode.ControlCommon.Code.Execute();
             }
             else {
