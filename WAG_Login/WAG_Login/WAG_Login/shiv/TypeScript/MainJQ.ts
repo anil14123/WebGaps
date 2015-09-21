@@ -39,10 +39,12 @@ function Help() {
 
         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-        if (selectedElement.hasClass("empty-container")) {
-            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+        if (selectedElement != undefined) {
+            if (selectedElement.hasClass("empty-container")) {
+                var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-            errorHandler.ActionHelp("Help: You can add [Text] [Image] [Columns] here.");
+                errorHandler.ActionHelp("Help: You can add [Text] [Image] [Columns] here.");
+            }
         }
     });
 }

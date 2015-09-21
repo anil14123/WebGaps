@@ -17,37 +17,41 @@ export module Spacer {
         public static InsertSpacer() {
 
             var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;
+            if (selectedRowOrColumn != undefined)
+                {
+                if (selectedRowOrColumn.hasClass("column") == true
+                    || selectedRowOrColumn.hasClass("empty-container-text")
+                    || selectedRowOrColumn.hasClass("empty-container-image")
+                    || selectedRowOrColumn.hasClass("empty-container") || window.smartObj != null) {
 
-            if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container") || window.smartObj != null) {
+                    var ctx = new impPageCtx.Page.ContextJQ();
 
-                var ctx = new impPageCtx.Page.ContextJQ();
+                    var emptyc = document.createElement("span");
+                    jQuery(emptyc).addClass("empty-container empty-container-spacer key image-text-other design-css design-empty-css");
 
-                var emptyc = document.createElement("span");
-                jQuery(emptyc).addClass("empty-container empty-container-spacer key image-text-other design-css design-empty-css");
+                    jQuery(emptyc).css("font-size", "14px");
 
-                jQuery(emptyc).css("font-size", "14px");
+                    var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
 
-                var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
-               
-                plusContainer.removeClass("jq-plus-container-not-used");
+                    plusContainer.removeClass("jq-plus-container-not-used");
 
-                var spacer = jQuery( document.createElement("div"));
+                    var spacer = jQuery(document.createElement("div"));
 
-                spacer.addClass("empty-spacer");
+                    spacer.addClass("empty-spacer");
 
-                spacer.html("<center>Space</center>");
+                    spacer.html("<center>Space</center>");
 
-                plusContainer.find(".jq-plus-content").append(spacer);
+                    plusContainer.find(".jq-plus-content").append(spacer);
 
-                jQuery(emptyc).append(plusContainer);
+                    jQuery(emptyc).append(plusContainer);
 
-                if (window.smartObj == null || window.smartObj.command == "") {
-                    ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);
+                    if (window.smartObj == null || window.smartObj.command == "") {
+                        ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);
+                    }
+                    else {
+                        ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                    }
                 }
-                else {
-                    ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
-                }
-
             }
         }
          

@@ -237,21 +237,22 @@ export module Smart {
                         var widthVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
                         var heightVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
 
+                        if (selectedElement != undefined) {
+                            if (selectedElement.hasClass("column")) {
 
-                        if (selectedElement.hasClass("column")) {
-
-                            SmartMenuJQ.ProcessColumnWidth(widthVal);
-                            selectedElement.css("min-height", heightVal + "px");
-                        }
-
-                        else {
-
-                            selectedElement.css("width", widthVal + "px");
-                            if (selectedElement.hasClass("row") || selectedElement.hasClass("column")) {
+                                SmartMenuJQ.ProcessColumnWidth(widthVal);
                                 selectedElement.css("min-height", heightVal + "px");
                             }
+
                             else {
-                                selectedElement.css("height", heightVal + "px");
+
+                                selectedElement.css("width", widthVal + "px");
+                                if (selectedElement.hasClass("row") || selectedElement.hasClass("column")) {
+                                    selectedElement.css("min-height", heightVal + "px");
+                                }
+                                else {
+                                    selectedElement.css("height", heightVal + "px");
+                                }
                             }
                         }
 

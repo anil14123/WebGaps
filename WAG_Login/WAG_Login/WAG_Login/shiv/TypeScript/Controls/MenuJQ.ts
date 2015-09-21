@@ -137,39 +137,41 @@ export module Menu {
 
                     var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
 
-                    var tbContainer = document.createElement("div");
+                    if (selectedRowOrColumn != undefined) {
+                        var tbContainer = document.createElement("div");
 
-                    jQuery(tbContainer).append(menu);
+                        jQuery(tbContainer).append(menu);
 
-                    var tbcScopeId = menuObj.GenerateContainerScopeId();
+                        var tbcScopeId = menuObj.GenerateContainerScopeId();
 
-                    jQuery(tbContainer).attr("scopeId", tbcScopeId);
+                        jQuery(tbContainer).attr("scopeId", tbcScopeId);
 
-                    if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container")) {
+                        if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container")) {
 
-                        var emptyc = document.createElement("span");
-                        jQuery(emptyc).addClass("empty-container-menu key image-text-other ");
+                            var emptyc = document.createElement("span");
+                            jQuery(emptyc).addClass("empty-container-menu key image-text-other ");
 
-                        jQuery(emptyc).css("font-size", "14px");
+                            jQuery(emptyc).css("font-size", "14px");
 
-                        //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
+                            //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
                    
-                        var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
-                        plusContainer.removeClass("jq-plus-container");
-                        plusContainer.addClass("jq-plus-container-text");
-                        plusContainer.removeClass("jq-plus-container-not-used");
+                            var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
+                            plusContainer.removeClass("jq-plus-container");
+                            plusContainer.addClass("jq-plus-container-text");
+                            plusContainer.removeClass("jq-plus-container-not-used");
 
-                        plusContainer.find(".jq-plus-content").append(tbContainer);
+                            plusContainer.find(".jq-plus-content").append(tbContainer);
 
-                        jQuery(emptyc).append(plusContainer);
+                            jQuery(emptyc).append(plusContainer);
 
 
-                        ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                            ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
 
-                        impCommonCode.ControlCommon.Code.Execute();
+                            impCommonCode.ControlCommon.Code.Execute();
+                        }
+
+                        cssMan.Add(nextId);
                     }
-
-                    cssMan.Add(nextId);
                 }
 
             });
@@ -199,10 +201,11 @@ export module Menu {
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+            if (selectedElement != undefined) {
+                if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
 
-            if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
-
-                errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                    errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                }
             }
 
         }

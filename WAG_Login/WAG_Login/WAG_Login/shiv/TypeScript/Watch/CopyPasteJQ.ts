@@ -64,38 +64,41 @@ export module CopyPaste {
         public static Delete() {
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
-            if (
-                !(
-                    selectedElement.hasClass("jq-Header")
-                    ||
-                    selectedElement.hasClass("jq-MenuBar")
-                    ||
-                    selectedElement.hasClass("jq-Content")
-                    ||
-                    selectedElement.hasClass("jq-Footer")
-                    )
-                ) {
-                if (selectedElement.hasClass("jq-image-block-image")) {
-                    selectedElement.closest(".jq-plus-container").remove();
-                }
-                else
-                    if (selectedElement.hasClass("jq-text-block")) {
+
+            if (selectedElement != undefined) {
+                if (
+                    !(
+                        selectedElement.hasClass("jq-Header")
+                        ||
+                        selectedElement.hasClass("jq-MenuBar")
+                        ||
+                        selectedElement.hasClass("jq-Content")
+                        ||
+                        selectedElement.hasClass("jq-Footer")
+                        )
+                    ) {
+                    if (selectedElement.hasClass("jq-image-block-image")) {
                         selectedElement.closest(".jq-plus-container").remove();
                     }
-                    else {
-                        selectedElement.remove();
-                    }
-            }
-            else {
+                    else
+                        if (selectedElement.hasClass("jq-text-block")) {
+                            selectedElement.closest(".jq-plus-container").remove();
+                        }
+                        else {
+                            selectedElement.remove();
+                        }
+                }
+                else {
 
-                selectedElement.hide();
+                    selectedElement.hide();
                 
-                //errorHandler.ActionFail("Cannot delete Header or MenuBar or Body or Footer.");
+                    //errorHandler.ActionFail("Cannot delete Header or MenuBar or Body or Footer.");
+                }
+
+                var undomanager = new impUndoManager.Manager.UndoManager();
+
+                undomanager.BeforeOperation();
             }
-
-            var undomanager = new impUndoManager.Manager.UndoManager();
-
-            undomanager.BeforeOperation();
         }
 
         public static Cut() {
@@ -181,44 +184,47 @@ export module CopyPaste {
             var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
+
             if (jQuery(CopiedElement).length == 0) {
                 errorHandler.ActionFail("Please select and copy/cut a element.");
                 return;
             }
 
+            if (selecedElement != undefined) {
 
-            if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
+                if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
 
-                if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
-                    CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
+                    if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
+                        CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
 
-                    if (isCut == true) {
-                        impCommonCode.ControlCommon.Code.DestroyResizable();
+                        if (isCut == true) {
+                            impCommonCode.ControlCommon.Code.DestroyResizable();
+                        }
+
+                        selecedElement.append(CopiedElement);
+
+                    }
+                    else {
+                        errorHandler.ActionFail("You can only cut and paste element in to same element.");
                     }
 
-                    selecedElement.append(CopiedElement);
+                    if (isCut == true) {
+                        CopiedElement = jQuery("#noelement--x");
+                    }
 
+
+                    impCommonCode.ControlCommon.Code.Execute();
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
+
+                    isCut = false;
                 }
                 else {
-                    errorHandler.ActionFail("You can only cut and paste element in to same element.");
+
+                    errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
                 }
-
-                if (isCut == true) {
-                    CopiedElement = jQuery("#noelement--x");
-                }
-
-
-                impCommonCode.ControlCommon.Code.Execute();
-
-                var undomanager = new impUndoManager.Manager.UndoManager();
-
-                undomanager.BeforeOperation();
-
-                isCut = false;
-            }
-            else {
-
-                errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
             }
         }
 
@@ -227,30 +233,32 @@ export module CopyPaste {
             var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-            if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
+            if (selecedElement != undefined)
+                {
+                if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
 
-                if (CopyPasteJQ.ClipBoardData.data != undefined
-                    &&
-                    CopyPasteJQ.ClipBoardData.data != "") {
+                    if (CopyPasteJQ.ClipBoardData.data != undefined
+                        &&
+                        CopyPasteJQ.ClipBoardData.data != "") {
 
-                    if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
+                        if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
 
-                        var clp = new impClipboard.ClipBoard.ClipBoardJQ();
-                        clp.InsertImage(CopyPasteJQ.ClipBoardData.data);
+                            var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                            clp.InsertImage(CopyPasteJQ.ClipBoardData.data);
+                        }
+                        else {
+
+                            var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                            clp.InsertText(CopyPasteJQ.ClipBoardData.data);
+                        }
                     }
-                    else {
 
-                        var clp = new impClipboard.ClipBoard.ClipBoardJQ();
-                        clp.InsertText(CopyPasteJQ.ClipBoardData.data);
-                    }
+                    impCommonCode.ControlCommon.Code.Execute();
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
                 }
-
-                impCommonCode.ControlCommon.Code.Execute();
-
-                var undomanager = new impUndoManager.Manager.UndoManager();
-
-                undomanager.BeforeOperation();
-
             }
             else {
 

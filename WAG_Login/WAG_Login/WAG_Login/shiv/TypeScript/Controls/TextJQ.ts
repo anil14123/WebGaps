@@ -125,120 +125,126 @@ export module Text {
 
                 var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
 
-                var tbContainer = document.createElement("div");
-                var tbContent = document.createElement("div");
-                var tbContentWrapper = document.createElement("div");
+                if (selectedRowOrColumn != undefined) {
+                    var tbContainer = document.createElement("div");
+                    var tbContent = document.createElement("div");
+                    var tbContentWrapper = document.createElement("div");
 
-                jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor");
+                    jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor");
 
-                jQuery(tbContent).css("font-family", jQuery(impText.Font.FontJQ.ddnId).find("option:selected").val());
+                    jQuery(tbContent).css("font-family", jQuery(impText.Font.FontJQ.ddnId).find("option:selected").val());
 
-                jQuery(tbContentWrapper).attr("tabindex", "1")
-                jQuery(tbContentWrapper).attr("contenteditable", "true");
-                jQuery(tbContentWrapper).append(jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html());
-                jQuery(tbContentWrapper).addClass("padding-5");
+                    jQuery(tbContentWrapper).attr("tabindex", "1")
+                    jQuery(tbContentWrapper).attr("contenteditable", "true");
+                    jQuery(tbContentWrapper).append(jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html());
+                    jQuery(tbContentWrapper).addClass("padding-5");
 
-                jQuery(tbContent).append(tbContentWrapper);
+                    jQuery(tbContent).append(tbContentWrapper);
 
-                jQuery(tbContent).addClass(TextJQ.CSSCLASS);
+                    jQuery(tbContent).addClass(TextJQ.CSSCLASS);
 
-                ///////////////column scope id for debugging and designer //////
-                var tbScopeId = textObj.GenerateTextBlockScopeId();
+                    ///////////////column scope id for debugging and designer //////
+                    var tbScopeId = textObj.GenerateTextBlockScopeId();
 
-                if (debug == true && tbContent != undefined) {
-                    jQuery(tbContent).prepend("<span class='debug-text-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
-                }
+                    if (debug == true && tbContent != undefined) {
+                        jQuery(tbContent).prepend("<span class='debug-text-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
+                    }
 
-                jQuery(tbContent).attr("scopeId", tbScopeId);
+                    jQuery(tbContent).attr("scopeId", tbScopeId);
 
-                jQuery(tbContainer).append(tbContent);
+                    jQuery(tbContainer).append(tbContent);
 
-                /////////////// row scope id for debugging and designer //////
-                var tbcScopeId = textObj.GenerateContainerScopeId();
+                    /////////////// row scope id for debugging and designer //////
+                    var tbcScopeId = textObj.GenerateContainerScopeId();
 
-                if (debug == true) {
-                    jQuery(tbContainer).append(" <span class='debug-text-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
-                }
+                    if (debug == true) {
+                        jQuery(tbContainer).append(" <span class='debug-text-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
+                    }
 
-                jQuery(tbContainer).addClass(TextJQ.CONTAINER_CSS_CLASS);
+                    jQuery(tbContainer).addClass(TextJQ.CONTAINER_CSS_CLASS);
 
-                jQuery(tbContainer).attr("scopeId", tbcScopeId);
+                    jQuery(tbContainer).attr("scopeId", tbcScopeId);
 
-                //var smartMenu = "<div class='smart-menu-icon'></div>" +
-                //    "<div class='smart-menu'> " +
-                //    "<div class='smart-menu-controls  smart-menu-height-width' > " +
-                //    "<table style='smart-menu-controls-table'>" +
-                //    " <tr> <td>Height </td> <td> : </td> <td><input maxlength='3' type='text' class='smart-menu-height'> </input> px </td> </tr> " +
-                //    "<tr> <td>Width </td> <td> : </td> <td> <input maxlength='3' type='text' class='smart-menu-width'> px </input> </td> " +
-                //    "</table" +
-                //    "</div>" +
-                //    "</div>";
+                    //var smartMenu = "<div class='smart-menu-icon'></div>" +
+                    //    "<div class='smart-menu'> " +
+                    //    "<div class='smart-menu-controls  smart-menu-height-width' > " +
+                    //    "<table style='smart-menu-controls-table'>" +
+                    //    " <tr> <td>Height </td> <td> : </td> <td><input maxlength='3' type='text' class='smart-menu-height'> </input> px </td> </tr> " +
+                    //    "<tr> <td>Width </td> <td> : </td> <td> <input maxlength='3' type='text' class='smart-menu-width'> px </input> </td> " +
+                    //    "</table" +
+                    //    "</div>" +
+                    //    "</div>";
 
-                //jQuery(tbContainer).append(smartMenu);
+                    //jQuery(tbContainer).append(smartMenu);
 
 
-                if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container") || window.smartObj != null) {
+                    if (selectedRowOrColumn.hasClass("column") == true
+                        || selectedRowOrColumn.hasClass("empty-container-text")
+                        || selectedRowOrColumn.hasClass("empty-container-image")
+                        || selectedRowOrColumn.hasClass("empty-container")
+                        || window.smartObj != null) {
 
-                    var emptyc = document.createElement("span");
-                    jQuery(emptyc).addClass("empty-container-text key image-text-other design-css design-empty-text-css");
+                        var emptyc = document.createElement("span");
+                        jQuery(emptyc).addClass("empty-container-text key image-text-other design-css design-empty-text-css");
 
-                    jQuery(emptyc).css("font-size", "14px");
+                        jQuery(emptyc).css("font-size", "14px");
 
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
+                        //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
                    
-                    var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
-                    plusContainer.removeClass("jq-plus-container");
-                    plusContainer.addClass("jq-plus-container-text");
-                    plusContainer.removeClass("jq-plus-container-not-used");
+                        var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
+                        plusContainer.removeClass("jq-plus-container");
+                        plusContainer.addClass("jq-plus-container-text");
+                        plusContainer.removeClass("jq-plus-container-not-used");
 
-                    plusContainer.find(".jq-plus-content").append(tbContainer);
+                        plusContainer.find(".jq-plus-content").append(tbContainer);
 
-                    jQuery(emptyc).append(plusContainer);
+                        jQuery(emptyc).append(plusContainer);
 
-                    if (window.smartObj == null || window.smartObj.command == "") {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);
+                        if (window.smartObj == null || window.smartObj.command == "") {
+                            ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);
+                        }
+                        else {
+                            ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                        }
+                        //var empty = document.createElement("span");
+                        //jQuery(empty).addClass("empty-container key design-css design-empty-css ");
+
+                        //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(empty), '', undefined, undefined);
+
+
+                        //// rearrange debug css ....
+
+                        if (selectedRowOrColumn.hasClass("jq-text-block-container")) {
+
+                            var tbOrTbcWithScopeId = selectedRowOrColumn.attr("scopeId");
+
+                            selectedRowOrColumn.find(".debug-text-block-container-css[scopeId=" + tbOrTbcWithScopeId + "]").remove();
+
+                            if (tbOrTbcWithScopeId != undefined) {
+                                selectedRowOrColumn.append('<span class="debug-text-block-container-css debug-css" scopeId="' + tbOrTbcWithScopeId + '" > ' + tbOrTbcWithScopeId + '</span>');
+                            }
+                        }
+                        ///// rearrange debug css completed...
+
+                        errorHandler.ActionSuccess("");
+
+                        jQuery(this).closest(".control-page").hide();
+
+                        jQuery(tbContainer).find(".jqte_editor").addClass("padding-5");
+
+                        // jQuery(tbContent).find(".jqte").addClass("key normal-element design-css design-jqte_editor text-element");
+
+                        jQuery(tbContainer).find(".debug-css").remove();
+
+                        jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
+
+
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
+                        impCommonCode.ControlCommon.Code.Execute();
                     }
                     else {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                        errorHandler.ActionFail("You can only insert in a column or a empty container [].");
                     }
-                    //var empty = document.createElement("span");
-                    //jQuery(empty).addClass("empty-container key design-css design-empty-css ");
-
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(empty), '', undefined, undefined);
-
-
-                    //// rearrange debug css ....
-
-                    if (selectedRowOrColumn.hasClass("jq-text-block-container")) {
-
-                        var tbOrTbcWithScopeId = selectedRowOrColumn.attr("scopeId");
-
-                        selectedRowOrColumn.find(".debug-text-block-container-css[scopeId=" + tbOrTbcWithScopeId + "]").remove();
-
-                        if (tbOrTbcWithScopeId != undefined) {
-                            selectedRowOrColumn.append('<span class="debug-text-block-container-css debug-css" scopeId="' + tbOrTbcWithScopeId + '" > ' + tbOrTbcWithScopeId + '</span>');
-                        }
-                    }
-                    ///// rearrange debug css completed...
-
-                    errorHandler.ActionSuccess("");
-
-                    jQuery(this).closest(".control-page").hide();
-
-                    jQuery(tbContainer).find(".jqte_editor").addClass("padding-5");
-
-                    // jQuery(tbContent).find(".jqte").addClass("key normal-element design-css design-jqte_editor text-element");
-
-                    jQuery(tbContainer).find(".debug-css").remove();
-
-                    jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
-
-
-                    impCommonCode.ControlCommon.Code.DestroyResizable();
-                    impCommonCode.ControlCommon.Code.Execute();
-                }
-                else {
-                    errorHandler.ActionFail("You can only insert in a column or a empty container [].");
                 }
             });
         }
@@ -270,12 +276,14 @@ export module Text {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-            if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
+            if (selectedElement != undefined) {
+                if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
 
-                //errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
-            }
-            else {
-               // errorHandler.ActionHelp("Help : You can insert [Text] here ", "altercolor");
+                    //errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                }
+                else {
+                    // errorHandler.ActionHelp("Help : You can insert [Text] here ", "altercolor");
+                }
             }
 
         }
