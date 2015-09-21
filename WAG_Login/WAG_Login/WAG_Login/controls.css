@@ -516,7 +516,7 @@ controls {
     width:300px;
 
     left:35%;
-    top:22%;
+    top:150px;
 }
 
 #control-bi{
@@ -626,7 +626,9 @@ controls {
 
 #control-templates{
 
-    display:none; top:50px; left:330px; width:630px;
+    display:none; top:150px; left:330px; width:630px;
+
+
 }
 
 

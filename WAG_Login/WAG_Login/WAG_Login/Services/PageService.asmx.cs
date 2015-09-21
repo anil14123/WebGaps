@@ -71,6 +71,8 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                     try
                                     {
                                         File.WriteAllText(filePath, pageText);
+
+
                                         return new Data { Success = true };
                                     }
                                     catch(Exception ex)
@@ -271,8 +273,8 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                 if (!File.Exists(page))
                                 {
-                                    File.Create(page);
-
+                                    FileStream str = File.Create(page);
+                                   
                                     var pageToCreate = new WAG_Login_Page.Page();
 
                                     pageToCreate.SiteId = site.Id;
@@ -282,6 +284,9 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                     entities.Pages.Add(pageToCreate);
 
                                     entities.SaveChanges();
+
+                                    str.Close();
+                                    str.Dispose();
 
                                     return new Data { Success = true };
                                 }
