@@ -3,7 +3,7 @@ import impJQueryUI = require("./JQueryUI");
 import impAny = require("../page/anyjq");
 import impOn = require("../common/on");
 //import impJqte = require("../Jqte/JqteJQ");
-import impJqteOnInsert = require("../Jqte/OnInsert");
+import impJqteOnInsert = require("../JQte/OnInsert");
 
 export module ControlCommon {
 

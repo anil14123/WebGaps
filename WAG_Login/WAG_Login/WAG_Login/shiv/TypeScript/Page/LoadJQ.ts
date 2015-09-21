@@ -46,7 +46,7 @@ export module Page {
 
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                        errorHandler.ActionSuccess("Your page has loaded. <br>Start designing.");
+                        errorHandler.ActionSuccess("Your page is loading. <br>Please wait...");
                     },
 
                     error: function (e) {

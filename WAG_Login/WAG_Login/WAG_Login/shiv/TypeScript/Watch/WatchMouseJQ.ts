@@ -11,6 +11,7 @@ import impHeightWidth = require("../SmartMenu/SmartMenuJQ");
 import impError = require("../Error/ErrorJQ");
 import impCtxMenu = require("../ContextMenu/Contextmenujq");
 import impBi = require("../controls/bijq");
+import impOnInsert = require("../JQte/OnInsert");
 
 var G_isAttachedWatch = false;
 
@@ -23,7 +24,7 @@ export module Watch {
         static selectedElement: JQuery;
 
         public static RemoveAndResetRemovableRow() {
-            
+
             if (jQuery(".removable-row").length > 0) {
                 jQuery(".removable-row").removeClass("removable-row");
                 jQuery(".columns-pending").removeClass("columns-pending");
@@ -73,7 +74,7 @@ export module Watch {
                     //common.RemoveStyle(MouseJQ.selectedElement, "outline");
                 }
 
-               
+
                 MouseJQ.selectedElement = jQuery(e.target);
 
                 MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
@@ -92,7 +93,7 @@ export module Watch {
                 if (activeControl != undefined && activeControl != "") {
                     switch (activeControl.toLowerCase()) {
                         case 'add-row':
-                           
+
                             break;
                         case 'height-width':
                             impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
@@ -109,7 +110,7 @@ export module Watch {
                         case 'insert-text':
                             impText.Text.TextJQ.ProcessSelectNotify();
                             break;
-                        case 'bi' :
+                        case 'bi':
                             impBi.BI.BIJQ.ProcessSelectNotify();
                             break;
 
@@ -143,7 +144,7 @@ export module Watch {
         public static GetActiveControl() {
             var activeControl = "";
             var controls = jQuery(".control-page");
-            for (var i = 0; i <controls.length; i++) {
+            for (var i = 0; i < controls.length; i++) {
 
                 if (jQuery(controls[i]).css("display") == "block") {
                     activeControl = jQuery(controls[i]).attr("name");
@@ -167,13 +168,33 @@ export module Watch {
                         MouseJQ.ProcessClick(e);
                     })
 
+
+                    jQuery(document).keydown(function (e) {
+
+                        var BACK = 8;
+
+                        if (e.which == BACK) {
+
+                            if (impOnInsert.OnInsert.Code.BackPassed == false) {
+                                if (e.cancelBubble != null) e.cancelBubble = true;
+                                if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                                if (e.preventDefault) e.preventDefault();
+                                if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                                return false;
+                            }
+
+                            impOnInsert.OnInsert.Code.BackPassed = false;
+                        }
+
+                    });
+
                     jQuery(document).keyup(function (e) {
 
                         var ESC = 27;
                         var ENTER = 13;
 
                         if (e.which === ESC) {
-
+                                                        
                             /// for moving
                             $(".empty-container-text").draggable({ disabled: false });
 
@@ -187,7 +208,11 @@ export module Watch {
                           
                             impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide()
 
-                            e.preventDefault();
+                            if (e.cancelBubble != null) e.cancelBubble = true;
+                            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                            if (e.preventDefault) e.preventDefault();
+                            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                            return false;
                         }
                     });
 

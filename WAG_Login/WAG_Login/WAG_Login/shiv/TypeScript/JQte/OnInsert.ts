@@ -9,7 +9,18 @@ export module OnInsert {
 
     export class Code {
 
+        public static BackPassed = false;
+
+
         public Init() {
+
+
+            jQuery("page .jqte-editor").unbind("keydown");
+            jQuery("page .jqte-editor").on("keydown", function () {
+
+                Code.BackPassed = true;
+
+            })
 
             jQuery("page .jqte-editor").unbind("keyup");
             jQuery("page .jqte-editor").on("keyup", function () {
@@ -37,7 +48,10 @@ export module OnInsert {
                     jQuery(".jqte-editor").removeClass("current-editor-scope");
 
                     jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
-            });
+
+                    jQuery(this).find(".jqte-editor").focus();
+
+                });
 
             jQuery(".empty-container-text").unbind("dblclick");
             jQuery(".empty-container-text").on("dblclick",
@@ -54,11 +68,11 @@ export module OnInsert {
 
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     errorHandler.ActionHelp("Press [Esc] once to stop editing");
-                   
-                        $(this).draggable({ disabled: true });
-                        jQuery(this).find(".jqte-editor").focus();
-                        jQuery(this).find(".jqte-editor").css("cursor", "pointer");
-                    
+
+                    $(this).draggable({ disabled: true });
+                    jQuery(this).find(".jqte-editor").focus();
+                    jQuery(this).find(".jqte-editor").css("cursor", "pointer");
+
 
                 });
 
