@@ -15,6 +15,18 @@ export module OnInsert {
         public Init() {
 
 
+            jQuery("page .jqte-editor").unbind("click");
+            jQuery("page .jqte-editor").on("click", function () {
+
+                jQuery(".jqte-editor").removeClass("current-editor-scope");
+
+                jQuery(this).addClass("current-editor-scope");
+
+            })
+
+
+          
+
             jQuery("page .jqte-editor").unbind("keydown");
             jQuery("page .jqte-editor").on("keydown", function () {
 
@@ -45,11 +57,7 @@ export module OnInsert {
             jQuery(".empty-container-text").on("click",
                 function () {
 
-                    jQuery(".jqte-editor").removeClass("current-editor-scope");
-
-                    jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
-
-                    jQuery(this).find(".jqte-editor").focus();
+                    jQuery(".current-editor-scope").focus();
 
                 });
 
@@ -62,16 +70,12 @@ export module OnInsert {
                     jQuery("#notify").css("top", "90px");
                     jQuery(".editor").show();
 
-                    jQuery(".jqte-editor").removeClass("current-editor-scope");
-
-                    jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
-
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     errorHandler.ActionHelp("Press [Esc] once to stop editing");
 
                     $(this).draggable({ disabled: true });
-                    jQuery(this).find(".jqte-editor").focus();
-                    jQuery(this).find(".jqte-editor").css("cursor", "pointer");
+                    jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").css("cursor", "pointer");
 
 
                 });
