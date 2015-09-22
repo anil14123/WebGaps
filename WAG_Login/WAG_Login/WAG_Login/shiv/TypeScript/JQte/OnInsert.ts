@@ -14,6 +14,10 @@ export module OnInsert {
 
         public Init() {
 
+            jQuery("page a").not(".jq-logout").unbind("click");
+            jQuery("page a").not(".jq-logout").click(function () {
+                return false;
+            });
 
             jQuery("page .jqte-editor").unbind("click");
             jQuery("page .jqte-editor").on("click", function () {
@@ -23,9 +27,6 @@ export module OnInsert {
                 jQuery(this).addClass("current-editor-scope");
 
             })
-
-
-          
 
             jQuery("page .jqte-editor").unbind("keydown");
             jQuery("page .jqte-editor").on("keydown", function () {
