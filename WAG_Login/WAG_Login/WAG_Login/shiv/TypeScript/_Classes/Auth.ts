@@ -21,13 +21,25 @@ export module Auth {
             });
         }
 
+        public static GetCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+
         public static OnGetAuthSuccess(data, status) {
 
             var resultAuth: any;
 
             resultAuth = data.d;
 
-            if (resultAuth == "jQuery(document).find('#elementmove')") {
+            if (resultAuth == AuthJQ.GetCookie("jQuery")) {
 
                 var element = jQuery(document.createElement("div"));
                 element.attr("src","xa.xml")

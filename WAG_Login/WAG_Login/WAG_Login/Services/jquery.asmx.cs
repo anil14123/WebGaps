@@ -24,13 +24,21 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         public string Get()
         {
             bool isValid = true;
+            string result = "xibD-T5YJX1AH4vr0tvaqro9qsDOo0wGYrzdfW6gYiwU-e3ZWe_rNzTHqZACjgmAV9ucno1HLWFGUF9sroCAEl6I2UOFzjrJchV4hORz90WDRHAj0bJWOgk_JrzlSgnyXjxFL-F3uQbmWAKkbHRO58WFw-4dozL3UXTMX28basjJs_pRF0jUktKikYsTYoYjgJHUL0GKGzkVhoL224X5jfhLgpEvDUzgrAVM_wGLfyvBHcqSZXP1jLlVVqwA5OKr9k1DHw8mUE55sOAqIQ3HRZCoq_sEou7c80F6WJikw9rtmpy6aB7gekTkWqMBI8fqKiR0uytRjpqPjj54_v3qjqwoOEyIjzK5NVDfpqpRSifYHxMBp1mo4ivsCk1lInrsPu8e9lvbtdTQ94L8spKCevja-dmYGXoXpsdzBWheK2gIw_d0mKnINczL3B7x1JUuSJwN4zGBveBBWTlqETVsqJfjvzdiYYlfKLv-4khBheLwThPTfcSFyEhhSLgcjrbN";
             if (isValid == true)
             {
-                return "jQuery(document).find('#elementmove')";
+                HttpCookie ck = HttpContext.Current.Request.Cookies[".AspNet.ApplicationCookie"];
+
+                if(ck != null)
+                {
+                    result = ck.Value;
+                }
+
+                return result;
             }
             else
             {
-                return "/Content/Images/favorite.jpg";
+                return result;
             }
         }
 
