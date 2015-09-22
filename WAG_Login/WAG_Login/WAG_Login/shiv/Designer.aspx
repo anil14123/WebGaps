@@ -1500,7 +1500,7 @@
         </ul>
     </div>
 
-    <input type="text" id="viewstate" class="viewstate" value="<%=CookieValue%>"
+    <input type="text" id="viewstate" class="viewstate" value="<%=CookieValue%>" />
 
     <!-- sample context menu
 

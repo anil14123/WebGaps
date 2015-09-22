@@ -199,8 +199,14 @@ export module JQueryUI {
                             }
 
                             var xsSize = Number(ui.helper.attr("xs-column-size"));
+                            
+                            // modified
+                            var newXsSize = xsSize + colXs - colXsTemp;// + emptyXsCount;
 
-                            var newXsSize = xsSize + colXs - colXsTemp + emptyXsCount;
+                            // added
+                            if (colXs == colXsTemp) {
+                                newXsSize = newXsSize + colXsTemp;
+                            }
 
 
                             var allXs = 0;

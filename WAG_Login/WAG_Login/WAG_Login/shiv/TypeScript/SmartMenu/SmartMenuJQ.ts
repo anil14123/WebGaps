@@ -419,7 +419,13 @@ export module Smart {
 
                         var xsSize = Number(selectedElement.attr("xs-column-size"));
 
-                        var newXsSize = xsSize + colXs - colXsTemp + emptyXsCount;
+                        // modified
+                        var newXsSize = xsSize + colXs - colXsTemp;// + emptyXsCount;
+
+                        // added
+                        if (colXs == colXsTemp) {
+                            newXsSize = newXsSize + colXsTemp;
+                        }
 
 
                         var allXs = 0;
