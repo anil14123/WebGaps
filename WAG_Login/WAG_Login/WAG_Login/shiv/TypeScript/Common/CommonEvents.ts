@@ -89,6 +89,8 @@ export module Common {
                 var styles = jQuery(document.createElement("styles"));
                 var page = jQuery(document.createElement("page"))
 
+                jQuery(".image-selection").removeClass("image-selection");
+
                 jQuery(".add-to-page").each(function () {
 
                     if (jQuery(this).prop("tagName") == "SCRIPT") {
