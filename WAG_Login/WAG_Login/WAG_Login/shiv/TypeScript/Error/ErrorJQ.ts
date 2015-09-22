@@ -125,7 +125,7 @@ export module ErrorHandle {
         LogMessage(message: string) {
             try {
 
-                console.log('Report Enginerr : anil.silverlight@gmail.com : (message) :' + message);
+               // console.log('Report Enginerr : anil.silverlight@gmail.com : (message) :' + message);
             }
             catch (e) {
 
