@@ -85,7 +85,15 @@ export module Site {
         }
 
 
-        public GetPages(siteName: string) {
+        public GetPages(siteName: string, success?, error?) {
+
+            if (success == undefined) {
+                success = SiteJQ.OnGetPagesSuccess;
+            }
+
+            if (error == undefined) {
+                error = SiteJQ.OnGetPagesError;
+            }
 
             var data = { siteName: siteName }
 
@@ -97,8 +105,8 @@ export module Site {
                 data: pageData,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                success: SiteJQ.OnGetPagesSuccess,
-                error: SiteJQ.OnGetPagesError
+                success: success,
+                error: error
             });
         }
 
