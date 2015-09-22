@@ -50,7 +50,7 @@ namespace WAG_Login.Account
                 if (user != null)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    IdentityHelper.RedirectToReturnUrl("/shiv/sitesmanager", Response);
                 }
                 else if (User.Identity.IsAuthenticated)
                 {

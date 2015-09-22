@@ -30,7 +30,7 @@ namespace WAG_Login.Account
 
             var user = manager.FindByName("demo@gmail.com");
             signInManager.SignIn(user, isPersistent: true, rememberBrowser: true);
-            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            IdentityHelper.RedirectToReturnUrl("/shiv/sitesmanager", Response);
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -50,9 +50,7 @@ namespace WAG_Login.Account
                 {
                     case SignInStatus.Success:
 
-                       
-
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        IdentityHelper.RedirectToReturnUrl("/shiv/sitesmanager", Response);
 
                         break;
                     case SignInStatus.LockedOut:
