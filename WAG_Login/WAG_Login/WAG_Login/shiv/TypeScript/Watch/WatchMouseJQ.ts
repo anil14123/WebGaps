@@ -201,6 +201,8 @@ export module Watch {
                                                         
                             /// for moving
                             $(".empty-container-text").draggable({ disabled: false });
+                            $(".empty-container-image").draggable({ disabled: false });
+
 
                             jQuery("rootx").css("top", "45px");
                             jQuery(".designer-top-row").css("height", "45px");

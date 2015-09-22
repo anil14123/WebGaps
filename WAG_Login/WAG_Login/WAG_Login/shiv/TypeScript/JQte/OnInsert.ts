@@ -62,6 +62,14 @@ export module OnInsert {
 
                 });
 
+            jQuery(".empty-container-image").unbind("dblclick");
+            jQuery(".empty-container-image").on("dblclick",
+                function () {
+
+                    $(this).draggable({ disabled: true });
+
+                });
+
             jQuery(".empty-container-text").unbind("dblclick");
             jQuery(".empty-container-text").on("dblclick",
                 function () {
