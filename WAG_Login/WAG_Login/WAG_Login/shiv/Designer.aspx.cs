@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -72,34 +75,41 @@ namespace WebAppGoTypeScript_X_Modulerization
             }
         }
 
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             SiteName = Request.QueryString["SiteName"];
             PageName = Request.QueryString["PageName"];
 
             HttpCookie authCookie = Request.Cookies[".AspNet.ApplicationCookie"];
-           
+
             CookieValue = authCookie.Value;
 
             HttpCookie myCookie = new HttpCookie("jQuery");
+            HttpCookie myCookie2 = new HttpCookie("hatway");
             DateTime now = DateTime.Now;
 
-            // Set the cookie value.
             myCookie.Value = CookieValue;
-            // Set the cookie expiration date.
+           
+            string key = EDC2.EDC.Key;
 
-            myCookie.Expires = authCookie.Expires; 
+            myCookie2.Value = "Ae343efDDgA/dDFEFAadA4dD/AeD=ADDED/D====";
 
             // Add the cookie.
+            myCookie.Expires = authCookie.Expires;
+            myCookie2.Expires = authCookie.Expires;
+            
             Response.Cookies.Add(myCookie);
+            Response.Cookies.Add(myCookie2);
 
             var entities = new WAG_Login_Page.WagPageEntities();
 
             var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
-            if( user!= null)
+            if (user != null)
             {
-               SiteId = user.Id;
+                SiteId = user.Id;
             }
         }
 

@@ -9,8 +9,7 @@
 
 
     <script class="add-to-page jquery" src="/Library/jquery-1.11.2.min.js"></script>
-
-
+   
     <script src="/Library/jquery-ui.js"></script>
 
     <link href="/Content/jquery-ui.min.css" rel="stylesheet" />
@@ -63,8 +62,6 @@
             z-index: 999999999;
         }
     </style>
-
-
 
 </head>
 <body>
