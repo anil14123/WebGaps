@@ -89,6 +89,13 @@ export module Common {
                 var styles = jQuery(document.createElement("styles"));
                 var page = jQuery(document.createElement("page"))
 
+                var styleSheetExtra =
+
+                    " <style> " +
+                    " .jq-plus-element { display:none !important; } " +
+                    " .jq-row-plus-container { display:none !important; } " +
+                    "</style>";
+
                 jQuery(".image-selection").removeClass("image-selection");
 
                 jQuery(".add-to-page").each(function () {
@@ -102,7 +109,8 @@ export module Common {
                     }
 
                     if (jQuery(this).prop("tagName") == "PAGE") {
-                        styles.append($(this).clone());
+                        page.append($(this).clone());
+                        page.append(styleSheetExtra);
                     }
 
                 });

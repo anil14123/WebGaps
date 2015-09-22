@@ -4,13 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-   
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TypeScript HTML App</title>
 
 
     <script class="add-to-page jquery" src="/Library/jquery-1.11.2.min.js"></script>
-   
+
     <script src="/Library/jquery-ui.js"></script>
 
     <link href="/Content/jquery-ui.min.css" rel="stylesheet" />
@@ -77,6 +77,7 @@
     <input class="input-page-name hide" value="<%:PageName%>" />
     <input class="input-site-name hide" value="<%:SiteName%>" />
     <input class="input-site-id hide" value="<%:SiteId%>" />
+    <input class="input-current-location hide" value="/services" />
 
     <div class="jq-plus-container jq-plus-container-not-used">
 
@@ -863,6 +864,63 @@
             </div>
         </div>
 
+        
+        <!------------------------------   Links  --------------------------------------->
+
+        <div id="control-insert-link" name="color" class="control-page" >
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Insert Link</div>
+           
+                <div class="control-insert-link-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                            <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Your Links 
+                            </div>
+
+                            <div style="margin:5px;">
+
+                                  <select class="ddn-control ddn insert-link-links"></select>
+
+                                  <input type="text" class="insert-link-name" />
+
+                            </div>
+
+                            </fieldset>
+
+                             <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Preview 
+                            </div>
+                                  <div style="margin:5px;">
+                                      <div class="insert-link-preview">
+
+
+                                      </div>
+                                  </div>
+
+                            </fieldset>
+
+
+                    </center>
+                     <div class="controls-action"> 
+                     
+                            <button class="action-button action-button-insert-link">Insert</button>
+                       </div>
+                    
+                </div>
+        </div>
+
+
+
         <!------------------------------   Color  --------------------------------------->
 
         <div id="control-color" name="color" class="control-page" >
@@ -916,43 +974,7 @@
                 </div>
         </div>
 
-
-         <!------------------------------   Links  --------------------------------------->
-
-        <div id="control-links" name="links" class="control-page" >
-            
-            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area">Links</div>
-           
-                <div class="control-link-controls">
-                    <center>
-                      
-                           <%-- <div class="page-name legend ">
-                               
-                            </div>--%>
-                           
-                            <fieldset class="clear ">
-
-                            <div class="legend ">
-                               Pages 
-                            </div>
-                               <select class="pages">
-                                   <option selected value="" > -- Select -- </option>
-                               </select>  
-
-                                  <input type="text" class="link-name " />
-
-                            </fieldset>
-
-                            
-
-                    </center>
-
-                    
-                </div>
-        </div>
-
-
+   
         <!------------------------------ Bi Image Lib ------------------------------------>
         
            <div id="control-image-bi-library" name="bi-image-library" class="control-page"  >
@@ -1427,7 +1449,8 @@
                 <div class="li ctx-menu-add-row">Add Columns</div>
             </li>
             <li>
-                <div class="li ctx-menu-insert">Insert
+                <div class="li ctx-menu-insert">
+                    Insert
                     <div class="jq-menu-arrow"></div>
                 </div>
                 <div class="innerListContainer">
@@ -1463,7 +1486,8 @@
                 </div>
             </li>
             <li>
-                <div class="li ctx-menu-properties">Properties
+                <div class="li ctx-menu-properties">
+                    Properties
                     <div class="jq-menu-arrow"></div>
                 </div>
                 <div class="innerListContainer">

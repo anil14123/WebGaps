@@ -22,6 +22,7 @@ import impCommonSmart = require("../common/CommonEvents");
 import impMenuControl = require("../Controls/Menujq");
 import impBi = require("../Controls/BIjq");
 import impSpacer = require("../Controls/SpacerJQ");
+import impLink = require("../Controls/LinkJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -221,6 +222,25 @@ export module ContextMenu {
             })
         }
 
+        public static AttachInsertLink() {
+
+            new impLink.Link.LinkJQ().Init();
+
+            jQuery(".li.ctx-menu-insert-link").on("click", function () {
+
+                window.smartObj = null;
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlInsertLink();
+
+                impLink.Link.LinkJQ.ProcessSelectNotify();
+
+            });
+        }
+
         public static AttachInsertText() {
 
             jQuery(".li.smart-menu-insert-text").on("click", function () {
@@ -289,6 +309,17 @@ export module ContextMenu {
                     jQuery(".jq-properties-all").show();
                 }
             }
+        }
+
+        public static ShowControlInsertLink() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-insert-text").addClass("control-active");
+
+            impLink.Link.LinkJQ.Show();
+            
         }
 
         public static ShowControlInsertText() {
@@ -704,6 +735,7 @@ export module ContextMenu {
                         ContextMenuJQ.ContextMenuBinding();
                         ContextMenuJQ.LiClick();
                         ContextMenuJQ.ContextInnerMenuShowHide();
+                        ContextMenuJQ.AttachInsertLink();
                         ContextMenuJQ.AttachInsertText();
                         ContextMenuJQ.AttachAddRow();
                         ContextMenuJQ.AttachDeleteElement();
