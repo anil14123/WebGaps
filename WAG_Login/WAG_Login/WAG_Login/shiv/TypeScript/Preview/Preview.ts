@@ -85,7 +85,7 @@ export module Preview {
             //jQuery("RootX").css("width", "60%");
             //jQuery("controls").show();
 
-            if (jQuery(".jq-show-plus").css("display") != "none") {
+            if (jQuery(".jq-show-plus").css("display") == "none") {
                 jQuery(".jq-row-plus-container").show();
             }
 
