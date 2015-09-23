@@ -25,10 +25,20 @@ export module NoUI {
             return jQuery("#nononoelement");
         }
 
+        public static Center() {
+            var selectedElement = AlignJQ.Common();
+
+            selectedElement.css("float", "none");
+            selectedElement.closest(".column").css("text-align", "center");
+          
+        }
+
         public static Left() {
             var selectedElement = AlignJQ.Common();
 
             selectedElement.css("float", "left");
+          
+           
         }
 
         public static Right() {
@@ -36,6 +46,7 @@ export module NoUI {
             var selectedElement = AlignJQ.Common();
 
             selectedElement.css("float", "right");
+
         }
 
       

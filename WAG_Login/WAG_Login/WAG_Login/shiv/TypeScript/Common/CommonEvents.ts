@@ -67,6 +67,11 @@ export module Common {
                 impNoUi.NoUI.AlignJQ.Right();
             });
 
+            jQuery(".button-align-center").click(function () {
+
+                impNoUi.NoUI.AlignJQ.Center();
+            });
+
             ///////////// Moving Object....
 
             jQuery(".button-move-left").click(function () {

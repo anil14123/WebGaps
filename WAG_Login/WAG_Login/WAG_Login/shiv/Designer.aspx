@@ -208,6 +208,8 @@
                     <button class="button-align-right  btn btn-toolbar btn-xs btn jq-save-margin">
                         Right</button>
 
+                       <button class="button-align-center  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Center</button>
                 </span>
 
                  <span id="control-object-move" class="control-drag-anywhere" style=" background-color:black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px;; -webkit-border-radius: 5px;; border-radius: 5px;; ">
