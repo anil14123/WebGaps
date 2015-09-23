@@ -7,7 +7,7 @@ declare var window: MyWindow;
 ////////////////////////////////////////////////////////////////////////
 import impAny = require("../page/anyjq");
 import impError = require("../Error/ErrorJQ");
-import impWatch = require("../watch/watchmousejq");
+import impWatch = require("../Watch/WatchMouseJQ");
 export module On {
 
     export class SmartObj {

@@ -172,8 +172,15 @@ export module Watch {
                         MouseJQ.ProcessClick(e);
                     })
 
+                    jQuery("input").keydown(function (e) {
+                        var BACK = 8;
 
-                    jQuery("page").keydown(function (e) {
+                        if (e.which == BACK) {
+                            impOnInsert.OnInsert.Code.BackPassed = true;
+                        }
+                    });
+
+                    jQuery(document).keydown(function (e) {
 
                         var BACK = 8;
 

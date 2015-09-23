@@ -889,9 +889,29 @@
 
                                   <select class="ddn-control ddn insert-link-links"></select>
 
-                                  <input type="text" class="insert-link-name" />
+                                &nbsp;&nbsp; Name:  <input type="text" class="insert-link-name" />
 
                             </div>
+
+                            </fieldset>
+
+                        <fieldset class="clear ">
+
+                            <div class="legend ">
+                               External Link
+                            </div>
+
+                            <div style="margin:5px; text-align:left">
+
+                                <div class="row">
+                                <div class="col-xs-10">Url </div>  <div class="col-xs-36"> <input type="text" id="insert-internet-link-url" /></div>
+                                </div>
+
+                                <div class="row">
+                                <div class="col-xs-10">Name </div> <div class="col-xs-36"> <input type="text" id="insert-internet-link-name" /></div>
+                                </div>
+                            </div>
+                          
 
                             </fieldset>
 
@@ -903,11 +923,39 @@
                                   <div style="margin:5px;">
                                       <div class="insert-link-preview">
 
+                                      </div>
 
+                                    
+
+                                  </div>
+
+                            </fieldset>
+
+                        
+                             <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Colors 
+                            </div>
+                                  <div style="margin:5px;">
+                                     <div>
+                                          
+                                        
+                                          <button class="btn-style-selected btn-style btn btn-default">&nbsp;</button>
+                                          <button class="btn-style btn btn-primary ">&nbsp;</button>
+                                            <button class="btn-style btn btn-success">&nbsp;</button>
+                                         <button class="btn-style btn btn-info">&nbsp;</button>
+                                          <button class="btn-style btn btn-warning">&nbsp;</button>
+                                          <button class="btn-style btn btn-danger">&nbsp;</button>
+                                          <button class="btn-style btn btn-link">&nbsp;</button>
+                                          <button class="btn-style btn btn-black">&nbsp;</button>
+                                          <button class="btn-style btn btn-darkest">&nbsp;</button>
+                                         
                                       </div>
                                   </div>
 
                             </fieldset>
+                         
 
 
                     </center>
