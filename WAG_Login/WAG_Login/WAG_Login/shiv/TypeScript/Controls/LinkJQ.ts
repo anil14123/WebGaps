@@ -44,11 +44,10 @@ export module Link {
                 jQuery(".insert-link-links").append(select);
 
             }
-
-            var previewlink = LinkJQ.CreateCurrentLink(true);
-
-            jQuery(".insert-link-preview").html(previewlink);
+                      
             jQuery(".insert-link-name").val(jQuery(".insert-link-links").find('option:selected').text());
+            var previewlink = LinkJQ.CreateCurrentLink(true);
+            jQuery(".insert-link-preview").html(previewlink);
         }
 
         public static OnGetPagesError(request, status, error) {
@@ -176,7 +175,8 @@ export module Link {
             jQuery(".insert-link-name").on("change", function () {
 
                 LinkJQ.IsExternalUrl = false;
-
+                var previewlink = LinkJQ.CreateCurrentLink(true);
+                
                 jQuery(".insert-link-preview").find("a").text(jQuery(this).val());
             });
 
@@ -184,11 +184,11 @@ export module Link {
 
                 LinkJQ.IsExternalUrl = false;
 
+                jQuery(".insert-link-name").val(jQuery(".insert-link-links").find('option:selected').text());
+
                 var previewlink = LinkJQ.CreateCurrentLink(true);
 
                 jQuery(".insert-link-preview").html(previewlink);
-
-                jQuery(".insert-link-name").val(jQuery(".insert-link-links").find('option:selected').text());
 
                 jQuery("#insert-internet-link-name").val("");
                 jQuery("#insert-internet-link-url").val("");
@@ -213,7 +213,7 @@ export module Link {
             }
 
             if (name == undefined) {
-                name = jQuery(".insert-link-links").find('option:selected').text();
+                name = jQuery(".insert-link-name").val();
             }
 
             if (blankTarget == true) {

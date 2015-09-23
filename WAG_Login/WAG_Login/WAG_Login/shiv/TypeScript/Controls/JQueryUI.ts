@@ -65,8 +65,8 @@ export module JQueryUI {
 
             $(".column").resizable({
                 handles: handleDefault,
-                minHeight: 50,
-                minWidth: 50,
+                minHeight: 30,
+                minWidth: 30,
                 start: function (event, ui) {
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") 
@@ -383,8 +383,8 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-                minHeight: 50,
-                minWidth: 50,
+                minHeight: 30,
+                minWidth: 30,
                 start: function (event, ui) {
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s")
@@ -434,8 +434,8 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-                minHeight: 50,
-                minWidth: 50,
+                minHeight: 30,
+                minWidth: 30,
                 start: function (event, ui) {
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
