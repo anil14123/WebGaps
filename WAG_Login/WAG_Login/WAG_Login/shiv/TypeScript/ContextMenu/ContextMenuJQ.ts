@@ -163,6 +163,8 @@ export module ContextMenu {
                     jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 }
 
                 if (
@@ -221,6 +223,25 @@ export module ContextMenu {
 
             })
         }
+
+        public static AttachInsertLinkContainer() {
+
+            jQuery(".li.ctx-menu-insert-link-container").on("click", function () {
+
+                window.smartObj = null;
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                //to be moved to other class
+                impCopy.CopyPaste.CopyPasteJQ.CreateLinkContainer();
+
+            });
+        }
+
+
+    
 
         public static AttachInsertLink() {
 
@@ -735,6 +756,7 @@ export module ContextMenu {
                         ContextMenuJQ.ContextMenuBinding();
                         ContextMenuJQ.LiClick();
                         ContextMenuJQ.ContextInnerMenuShowHide();
+                        ContextMenuJQ.AttachInsertLinkContainer();
                         ContextMenuJQ.AttachInsertLink();
                         ContextMenuJQ.AttachInsertText();
                         ContextMenuJQ.AttachAddRow();

@@ -169,7 +169,10 @@
                 <button class=" show-preview jq-save-margin btn btn-toolbar btn-xs">
                     <img alt="" class="preview-img" src="/content/preview/preview.png" />
                     Preview</button>
-
+                 <a href="#" target="_blank" style="background-color: buttonface; color:black;" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs">
+                    <img alt="" class="preview-img" src="/content/preview/preview.png" />
+                     Live Preview
+                 </a>
 
 
                 <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
@@ -1512,6 +1515,9 @@
                 </div>
                 <div class="innerListContainer">
                     <ul>
+                        <li>
+                            <div class="li ctx-menu-insert-link-container">Links Container</div>
+                        </li>
                         <li>
                             <div class="li ctx-menu-insert-link">Link</div>
                         </li>

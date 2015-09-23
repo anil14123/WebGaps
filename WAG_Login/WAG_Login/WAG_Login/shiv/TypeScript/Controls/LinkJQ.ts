@@ -5,12 +5,18 @@ import impError = require("../../typescript/error/errorjq");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 
+var initOnceFlag = false;
+
 export module Link {
 
     export class LinkJQ {
 
         public Init() {
-            this.AttachEvents();
+
+            if (initOnceFlag == false) {
+                initOnceFlag = true;
+                this.AttachEvents();
+            }
         }
 
         public static LoadLinks() {

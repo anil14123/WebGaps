@@ -58,7 +58,23 @@ export module CopyPaste {
             return false;
         }
 
+        // method need to be moved some where else
+        public static CreateLinkContainer() {
+            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            if (selectedElement == undefined) {
+                selectedElement = jQuery("#nononoelement");
+            }
+
+            var container = jQuery(document.createElement("div"));
+            
+
+            container.addClass("key empty-container links-container image-text-other");
+
+            selectedElement.append(container);
+
+            impCommonCode.ControlCommon.Code.Execute();
+        }
        
 
         public static Delete() {

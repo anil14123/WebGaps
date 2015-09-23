@@ -28,6 +28,7 @@ export module ControlCommon {
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
             impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
            
+            impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-menu", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");

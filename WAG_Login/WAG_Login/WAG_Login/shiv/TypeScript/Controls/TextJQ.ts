@@ -1,5 +1,4 @@
-﻿/// <reference path="../../../third-party/jte/uncompressed/jquery-te-1.4.0.d.ts" />
-
+﻿
 
 /////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: impCommon.Common.SmartObj; }
@@ -189,7 +188,8 @@ export module Text {
                         || window.smartObj != null) {
 
                         var emptyc = document.createElement("span");
-                        jQuery(emptyc).addClass("empty-container-text padding-10 key image-text-other design-css design-empty-text-css");
+                        jQuery(emptyc).addClass("empty-container-text  key image-text-other design-css design-empty-text-css");
+                        //padding-10
 
                         jQuery(emptyc).css("font-size", "14px");
 

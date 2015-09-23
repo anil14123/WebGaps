@@ -213,7 +213,8 @@ export module Image {
 
                     var jEc = jQuery(emptycontainer);
 
-                    jEc.addClass("empty-container-image padding-10 image-text-other key design-css design-empty-text-css");
+                    jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
+                    //padding-10 
                     jEc.append(plusContainer);
 
                     jQuery(tbImg).load(function () {

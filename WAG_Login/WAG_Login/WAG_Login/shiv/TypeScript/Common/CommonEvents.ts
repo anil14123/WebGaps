@@ -54,7 +54,14 @@ export module Common {
 
             if (CommonEvents.CheckMal() == false) {
                 impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
-            }            
+            }     
+
+            var liveUrl = jQuery(".input-current-location").val() + "/"
+                + jQuery(".input-site-id").val() + "/"
+                + jQuery(".input-site-name").val() + "/"
+                + jQuery(".input-page-name").val();
+
+            jQuery(".anchor-show-live-preview").attr("href", liveUrl);
 
             jQuery("#notify").click(function () {
                 jQuery(this).hide();
@@ -63,6 +70,11 @@ export module Common {
             jQuery(".btn-help").click(function () {
 
                 jQuery("#site-help").slideToggle();
+            });
+
+            jQuery("#site-help").click(function () {
+
+                jQuery(this).slideUp();
             });
 
             themeHandle = window.setInterval(
