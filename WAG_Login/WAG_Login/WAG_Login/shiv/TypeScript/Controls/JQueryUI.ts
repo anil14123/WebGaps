@@ -490,7 +490,7 @@ export module JQueryUI {
 
                     var h = ui.helper;
 
-                    if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined) {
+                    if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")) {
                         CommonCode.droppableCount++;
 
                         ui.draggable.css("opacity", "1");
@@ -515,7 +515,9 @@ export module JQueryUI {
                         undomanager.BeforeOperation();
 
                     } else {
-                        ui.draggable.css("position", "relative").css("left", "").css("top", "");
+                        if (!ui.draggable.hasClass("control-drag-anywhere")) {
+                            ui.draggable.css("position", "relative").css("left", "").css("top", "");
+                        }
                     }
 
                 },

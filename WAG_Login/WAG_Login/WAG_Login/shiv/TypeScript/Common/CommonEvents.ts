@@ -15,6 +15,7 @@ import impAny = require("../page/anyjq");
 import impOn = require("../Common/on");
 import impSaveClass = require("../_Classes/SaveJq");
 import impmal = require("../MalFormed/MalFormedJQ");
+import impNoUi = require("../Controls/NoUi");
 
 var themeHandle;
 
@@ -55,6 +56,31 @@ export module Common {
             if (CommonEvents.CheckMal() == false) {
                 impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
             }     
+
+            ////////////// Flating or aligning...
+
+            jQuery(".button-align-left").click(function () {
+                impNoUi.NoUI.AlignJQ.Left();
+            });
+
+            jQuery(".button-align-right").click(function () {
+                impNoUi.NoUI.AlignJQ.Right();
+            });
+
+            ///////////// Moving Object....
+
+            jQuery(".button-move-left").click(function () {
+                impNoUi.NoUI.MoveJQ.Left();
+            });
+
+            jQuery(".button-move-right").click(function () {
+                impNoUi.NoUI.MoveJQ.Right();
+            });
+
+
+
+            jQuery("#control-align").draggable({ revert: false });
+            jQuery("#control-object-move").draggable({ revert: false });
 
             var liveUrl = jQuery(".input-current-location").val() + "/"
                 + jQuery(".input-site-id").val() + "/"

@@ -169,10 +169,10 @@
                 <button class=" show-preview jq-save-margin btn btn-toolbar btn-xs">
                     <img alt="" class="preview-img" src="/content/preview/preview.png" />
                     Preview</button>
-                 <a href="#" target="_blank" style="background-color: buttonface; color:black;" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs">
+                <a href="#" target="_blank" style="background-color: buttonface; color: black;" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs">
                     <img alt="" class="preview-img" src="/content/preview/preview.png" />
-                     Live Preview
-                 </a>
+                    Live Preview
+                </a>
 
 
                 <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
@@ -199,17 +199,39 @@
                     <img alt="" class="settings-img" src="/content/settings/settings.png" />
                     Properties</button>
 
+                <span id="control-align" class="control-drag-anywhere" style=" background-color:black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px;; -webkit-border-radius: 5px;; border-radius: 5px;; ">
+                    <span style="color:white; background-color:black; padding:5px;"> Align : </span>
+ 
+                  <button class="button-align-left  btn btn-toolbar btn-xs btn jq-save-margin">
+                      Left</button>
+
+                    <button class="button-align-right  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Right</button>
+
+                </span>
+
+                 <span id="control-object-move" class="control-drag-anywhere" style=" background-color:black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px;; -webkit-border-radius: 5px;; border-radius: 5px;; ">
+                    <span style="color:white; background-color:black; padding:5px;"> Move : </span>
+ 
+                  <button class="button-move-left  btn btn-toolbar btn-xs btn jq-save-margin">
+                      Left</button>
+
+                    <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Right</button>
+
+                </span>
+
                 <div class="float-right">
 
-                     <div class="float-left" >
-                    <form name="logout" runat="server">
-                        <asp:LoginStatus runat="server" class="jq-logout btn btn-darkest" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                    </form>
-                        </div>
+                    <div class="float-left">
+                        <form name="logout" runat="server">
+                            <asp:LoginStatus runat="server" class="jq-logout btn btn-darkest" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        </form>
+                    </div>
 
                     <button class="btn btn-darkest btn-help ">Help</button>
 
-                   
+
                 </div>
 
 
@@ -1555,6 +1577,7 @@
                 </div>
                 <div class="innerListContainer">
                     <ul>
+
                         <li>
                             <div class="li ctx-menu-height-width">Height & Width</div>
                         </li>
@@ -1648,12 +1671,11 @@
         <div id="copyright">Copyright &copy; 2015 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
     </div>
 
-    <div id="site-help" >
+    <div id="site-help">
         <ol>
-            <li>
-            If you are unable to drag a element, then press [Esc] or Escape.
-             </li>
-     </ol>
+            <li>If you are unable to drag a element, then press [Esc] or Escape.
+            </li>
+        </ol>
     </div>
 
 </body>
