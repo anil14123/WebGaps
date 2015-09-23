@@ -235,3 +235,10 @@ rootx {
      border-width:1px;*/
 }
 
+#site-help{
+    z-index:999999999999999999999999;
+
+position:absolute; display:none; top:150px; left:400px; background-color:dodgerblue; color:white;
+padding:10px;
+
+}

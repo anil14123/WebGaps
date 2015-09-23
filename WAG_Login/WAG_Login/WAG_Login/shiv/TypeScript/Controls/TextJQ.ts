@@ -125,6 +125,10 @@ export module Text {
 
                 var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
 
+                if (selectedRowOrColumn == undefined) {
+                    selectedRowOrColumn = jQuery("#nonononelement");
+                }
+
                 if (selectedRowOrColumn != undefined) {
                     var tbContainer = document.createElement("div");
                     var tbContent = document.createElement("div");

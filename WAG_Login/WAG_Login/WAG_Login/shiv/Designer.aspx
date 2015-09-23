@@ -153,8 +153,8 @@
 
 
     <div class="top-row-container">
-    
-            <div class="row designer-top-row">
+
+        <div class="row designer-top-row">
 
             <div class="col-xs-48">
                 <button class=" create-layout-show-button jq-save-margin btn btn-toolbar btn-xs">
@@ -172,9 +172,9 @@
 
 
 
-                <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin:5px;">
+                <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
                     Show [+]</button>
-                <button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin:5px;">
+                <button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin: 5px;">
                     Hide [+]</button>
 
 
@@ -196,9 +196,18 @@
                     <img alt="" class="settings-img" src="/content/settings/settings.png" />
                     Properties</button>
 
-                <form name="logout" runat="server" style="float:right;">
-                    <asp:LoginStatus runat="server" CssClass="jq-logout" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                </form>
+                <div class="float-right">
+
+                     <div class="float-left" >
+                    <form name="logout" runat="server">
+                        <asp:LoginStatus runat="server" class="jq-logout btn btn-darkest" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                    </form>
+                        </div>
+
+                    <button class="btn btn-darkest btn-help ">Help</button>
+
+                   
+                </div>
 
 
 
@@ -428,7 +437,7 @@
                 </div>
 
             </div>
-    </div>
+        </div>
 
     </div>
     <rootx style="clear: both; position: relative;">
@@ -1631,6 +1640,14 @@
 
     <div style="display: none;">
         <div id="copyright">Copyright &copy; 2015 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
+    </div>
+
+    <div id="site-help" >
+        <ol>
+            <li>
+            If you are unable to drag a element, then press [Esc] or Escape.
+             </li>
+     </ol>
     </div>
 
 </body>

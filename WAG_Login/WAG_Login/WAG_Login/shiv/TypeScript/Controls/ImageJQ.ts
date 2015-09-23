@@ -119,7 +119,11 @@ export module Image {
 
             var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
 
-            if (selectedRowOrColumn != undefined) {
+            if (selectedRowOrColumn == undefined) {
+                selectedRowOrColumn = jQuery("#nnnoelement");
+            }
+
+            if (selectedRowOrColumn != undefined ) {
                 var tbImageContainer = document.createElement("div");
                 var tbImage = document.createElement("div");
                 var tbImageWrapper = document.createElement("div");

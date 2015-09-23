@@ -60,6 +60,11 @@ export module Common {
                 jQuery(this).hide();
             });
 
+            jQuery(".btn-help").click(function () {
+
+                jQuery("#site-help").slideToggle();
+            });
+
             themeHandle = window.setInterval(
                 function () {
                     if (impAuth.Auth.AuthJQ.IsAuth == true) {
