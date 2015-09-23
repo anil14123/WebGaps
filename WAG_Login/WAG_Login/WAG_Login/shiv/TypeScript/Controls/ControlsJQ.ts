@@ -303,6 +303,10 @@ export module Page {
                     //if (callBackLoadRowAndColumnNames != undefined) {
                     //    callBackLoadRowAndColumnNames();
                     //}
+
+                    if (jQuery(".jq-show-plus").css("display") != "none") {
+                        jQuery(".jq-row-plus-container").hide();
+                    }
                 }
             });
 

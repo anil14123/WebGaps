@@ -158,3 +158,15 @@
     visibility:hidden;
 }
 
+.jq-show-close-plus {
+    padding: 5px;
+    color: white;
+    background-color: cornflowerblue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.display-none{
+    display:none;
+}

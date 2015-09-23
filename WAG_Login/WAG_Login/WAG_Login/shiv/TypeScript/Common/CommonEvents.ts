@@ -80,6 +80,23 @@ export module Common {
                     }
 
                 }, 1000);
+
+            ////////////////
+
+            jQuery(".jq-show-plus").click(function () {
+                jQuery(".jq-row-plus-container").show();
+
+                jQuery(".jq-show-plus").hide();
+                jQuery(".jq-hide-plus").show();
+            });
+
+            jQuery(".jq-hide-plus").click(function () {
+                jQuery(".jq-row-plus-container").hide();
+
+                jQuery(".jq-hide-plus").hide();
+                jQuery(".jq-show-plus").show();
+
+            });
            
             /// save ///////
 

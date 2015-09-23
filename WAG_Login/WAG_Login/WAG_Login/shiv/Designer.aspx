@@ -92,6 +92,11 @@
                 </span>
             </div>
 
+        </div>
+
+        <div class="jq-plus-content jq-plus-element-content"></div>
+
+        
             <div class="jq-plus-element">
                 <%-- <span class="jq-plus-next jq-plus">
              <br /> Swap sample
@@ -99,11 +104,6 @@
                 <span class="jq-plus-next jq-plus">+
                 </span>
             </div>
-        </div>
-
-        <div class="jq-plus-content jq-plus-element-content"></div>
-
-
     </div>
 
 
@@ -168,10 +168,14 @@
                 <button class=" show-preview jq-save-margin btn btn-toolbar btn-xs">
                     <img alt="" class="preview-img" src="/content/preview/preview.png" />
                     Preview</button>
-
-
+                
             </div>
             <div class="col-xs-12">
+                 <button class="btn  btn-xs jq-show-close-plus jq-show-plus ">
+                  Show [+]</button>
+                <button class="btn  btn-xs jq-show-close-plus jq-hide-plus display-none">
+                  Hide [+]</button>
+
 
                 <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-toolbar btn-xs">
                     <img alt="" class="undo-img" src="/content/undo/undo.png" />

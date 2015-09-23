@@ -44,6 +44,8 @@ export module Page {
                             jQuery("#control-templates").show();
                         }
 
+                        jQuery(".jq-row-plus-container").hide();
+
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
                         errorHandler.ActionSuccess("Your page is loading. <br>Please wait...");
