@@ -69,7 +69,12 @@ export module Preview {
             jQuery("page").find(".row").removeClass("design-row");
             jQuery("page").find(".column").removeClass("design-column");
             jQuery("page").find(".jq-text-block").removeClass("design-text-block");
+
+            jQuery("page").find(".jq-plus-container-image").removeClass("design-empty-text-css");
+            jQuery("page").find(".empty-container-image").removeClass("design-empty-text-css");
+            jQuery("page").find(".jq-plus-container-text").removeClass("design-empty-text-css");
             jQuery("page").find(".empty-container-text").removeClass("design-empty-text-css");
+
             jQuery("page").find(".jq-text-block-container").removeClass("design-text-block");
             jQuery("page").find(".empty-container").removeClass("design-empty-css");
             jQuery("page").find(".jqte-editor").removeClass("design-jqte_editor");
@@ -125,6 +130,10 @@ export module Preview {
             jQuery("page").find(".jq-text-block").addClass("design-text-block");
             jQuery("page").find(".jq-text-block-container").addClass("design-text-block");
             jQuery("page").find(".empty-container").addClass("design-empty-css");
+
+            jQuery("page").find(".jq-plus-container-image").addClass("design-empty-text-css");
+            jQuery("page").find(".empty-container-image").addClass("design-empty-text-css");
+            jQuery("page").find(".jq-plus-container-text").addClass("design-empty-text-css");
             jQuery("page").find(".empty-container-text").addClass("design-empty-text-css");
             jQuery("page").find(".jqte-editor").addClass("design-jqte_editor");
             //jQuery(".row").css("padding", "15px");
