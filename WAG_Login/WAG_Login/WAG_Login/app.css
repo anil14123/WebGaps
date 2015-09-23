@@ -237,8 +237,8 @@ rootx {
 
 #site-help{
     z-index:999999999999999999999999;
-
-position:absolute; display:none; top:150px; left:400px; background-color:dodgerblue; color:white;
+    border:6px solid black;
+position:fixed; display:none; top:150px; left:400px; background-color:dodgerblue; color:white;
 padding:10px;
 
 }
