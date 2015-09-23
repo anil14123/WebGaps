@@ -62,9 +62,13 @@ export module Link {
 
         }
 
+        public static IsExternalUrl: boolean;
+
         public AttachEvents() {
 
             jQuery("#insert-internet-link-url").change(function () {
+
+                LinkJQ.IsExternalUrl = true;
 
                 jQuery("#insert-internet-link-name").val("Give Name");
 
@@ -100,6 +104,8 @@ export module Link {
 
             jQuery("#insert-internet-link-name").change(function () {
 
+                LinkJQ.IsExternalUrl = true;
+
                 if (jQuery(this).val() != "Give Name") {
                     var previewlink = LinkJQ.CreateCurrentLink(true, jQuery("#insert-internet-link-url").val(), jQuery(this).val());
                     jQuery(".insert-link-preview").html(previewlink);
@@ -118,10 +124,36 @@ export module Link {
 
             });
 
+            jQuery(".btn-style").click(function () {
+
+                jQuery(".btn-style").removeClass("btn-style-selected");
+                jQuery(this).addClass("btn-style-selected");
+
+
+                var previewlink
+
+                if (LinkJQ.IsExternalUrl == true) {
+                    previewlink = LinkJQ.CreateCurrentLink(true, jQuery("#insert-internet-link-url").val(), jQuery("#insert-internet-link-name").val());
+                }
+                else {
+                    previewlink = LinkJQ.CreateCurrentLink(true);
+                }
+
+                jQuery(".insert-link-preview").html(previewlink);
+
+            });
+
             jQuery(".action-button-insert-link").click(function () {
 
-                var linkToInsert = LinkJQ.CreateCurrentLink();
+                var linkToInsert;
 
+                if (LinkJQ.IsExternalUrl == true) {
+                    linkToInsert = LinkJQ.CreateCurrentLink(true, jQuery("#insert-internet-link-url").val(), jQuery("#insert-internet-link-name").val());
+                }
+                else {
+                    linkToInsert = LinkJQ.CreateCurrentLink(true);
+                }
+               
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                 if (selectedElement != undefined) {
@@ -130,16 +162,27 @@ export module Link {
 
                     var undo = new impUndoManager.Manager.UndoManager();
                     undo.BeforeOperation();
+
+                    jQuery("page a").not(".jq-logout").unbind("click");
+                    jQuery("page a").not(".jq-logout").click(function () {
+                        return false;
+                    });
                 }
+
+
 
             });
 
             jQuery(".insert-link-name").on("change", function () {
 
+                LinkJQ.IsExternalUrl = false;
+
                 jQuery(".insert-link-preview").find("a").text(jQuery(this).val());
             });
 
             jQuery("#control-insert-link").on("change", ".insert-link-links", function () {
+
+                LinkJQ.IsExternalUrl = false;
 
                 var previewlink = LinkJQ.CreateCurrentLink(true);
 
@@ -163,12 +206,18 @@ export module Link {
                 + jQuery(".insert-link-links").find('option:selected').val()
             }
 
+            var btnStyle = jQuery(".btn-style-selected").attr("btn-style");
+
+            if (btnStyle == undefined) {
+                btnStyle = " btn-default ";
+            }
+
             if (name == undefined) {
                 name = jQuery(".insert-link-links").find('option:selected').text();
             }
 
             if (blankTarget == true) {
-                link = "<a target='_blank' class='jq-site-link btn btn-default' href='"
+                link = "<a target='_blank' class='jq-site-link btn " + btnStyle + "' href='"
                 + url
                 + "?nocache=true'>" + name + "</a>";
             }

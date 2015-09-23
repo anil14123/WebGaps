@@ -81,23 +81,28 @@
 
     <div class="jq-plus-container jq-plus-container-not-used">
 
-        <div class="jq-plus-element">
+        <div class="row">
+            <div class="jq-plus-element">
 
-            <%--  <span class="jq-plus-prev jq-plus">
+                <%--  <span class="jq-plus-prev jq-plus">
              <br /> Swap sample
             </span>--%>
 
-            <span class="jq-plus-prev jq-plus">+
-            </span>
+                <span class="jq-plus-prev jq-plus">+
+                </span>
+            </div>
+
+            <div class="jq-plus-element">
+                <%-- <span class="jq-plus-next jq-plus">
+             <br /> Swap sample
+            </span>--%>
+                <span class="jq-plus-next jq-plus">+
+                </span>
+            </div>
         </div>
+
         <div class="jq-plus-content jq-plus-element-content"></div>
-        <div class="jq-plus-element">
-            <%-- <span class="jq-plus-next jq-plus">
-             <br /> Swap sample
-            </span>--%>
-            <span class="jq-plus-next jq-plus">+
-            </span>
-        </div>
+
 
     </div>
 
@@ -941,16 +946,14 @@
                                      <div>
                                           
                                         
-                                          <button class="btn-style-selected btn-style btn btn-default">&nbsp;</button>
-                                          <button class="btn-style btn btn-primary ">&nbsp;</button>
-                                            <button class="btn-style btn btn-success">&nbsp;</button>
-                                         <button class="btn-style btn btn-info">&nbsp;</button>
-                                          <button class="btn-style btn btn-warning">&nbsp;</button>
-                                          <button class="btn-style btn btn-danger">&nbsp;</button>
-                                          <button class="btn-style btn btn-link">&nbsp;</button>
-                                          <button class="btn-style btn btn-black">&nbsp;</button>
-                                          <button class="btn-style btn btn-darkest">&nbsp;</button>
-                                         
+                                          <button class="btn-style-selected btn-style btn btn-default" btn-style="btn-default">&nbsp;</button>
+                                          <button class="btn-style btn btn-primary " btn-style="btn-primary">&nbsp;</button>
+                                          <button class="btn-style btn btn-success" btn-style="btn-success">&nbsp;</button>
+                                          <button class="btn-style btn btn-info" btn-style="btn-info">&nbsp;</button>
+                                          <button class="btn-style btn btn-warning" btn-style="btn-warning">&nbsp;</button>
+                                          <button class="btn-style btn btn-danger" btn-style="btn-danger">&nbsp;</button>
+                                          <button class="btn-style btn btn-link" btn-style="btn-link">&nbsp;</button>
+                                          <button class="btn-style btn btn-darkest" btn-style="btn-darkest">&nbsp;</button>
                                       </div>
                                   </div>
 
