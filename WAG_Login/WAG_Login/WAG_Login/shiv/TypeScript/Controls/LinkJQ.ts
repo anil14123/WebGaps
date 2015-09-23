@@ -148,10 +148,10 @@ export module Link {
                 var linkToInsert;
 
                 if (LinkJQ.IsExternalUrl == true) {
-                    linkToInsert = LinkJQ.CreateCurrentLink(true, jQuery("#insert-internet-link-url").val(), jQuery("#insert-internet-link-name").val());
+                    linkToInsert = LinkJQ.CreateCurrentLink(false, jQuery("#insert-internet-link-url").val(), jQuery("#insert-internet-link-name").val());
                 }
                 else {
-                    linkToInsert = LinkJQ.CreateCurrentLink(true);
+                    linkToInsert = LinkJQ.CreateCurrentLink(false);
                 }
                
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
