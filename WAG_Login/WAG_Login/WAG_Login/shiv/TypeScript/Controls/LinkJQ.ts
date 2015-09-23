@@ -222,7 +222,7 @@ export module Link {
                 + "?nocache=true'>" + name + "</a>";
             }
             else {
-                link = "<a class='jq-site-link btn btn-default' href='"
+                link = "<a class='jq-site-link btn " + btnStyle +  "' href='"
                 + url
                 + "?nocache=true'>" + name + "</a>";
             }
