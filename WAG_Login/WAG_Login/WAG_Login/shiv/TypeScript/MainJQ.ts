@@ -144,7 +144,6 @@ jQuery(document).ready(function () {
         // window.setTimeout(Help, 5000);
         ////////////////////////////////////////////////////
 
-       
     }
 });
 

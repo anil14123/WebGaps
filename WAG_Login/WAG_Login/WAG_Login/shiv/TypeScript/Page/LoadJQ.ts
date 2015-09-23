@@ -3,6 +3,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impCommonSmart = require("../Common/CommonEvents");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impError = require("../Error/ErrorJQ");
+import impAuth = require("../_Classes/Auth");
 
 export module Page {
 
@@ -19,8 +20,8 @@ export module Page {
 
                     success: function (data) {
 
-                        jQuery(".jq-loading").hide();
-
+                        impAuth.Auth.AuthJQ.HideLoading();
+                        
                         var e = jQuery(document.createElement("div"));
                         var pg = jQuery(document.createElement("div"));
                         e.html(data);//.find("page").remove(".ui-resizable-handle");
@@ -53,7 +54,7 @@ export module Page {
 
                     error: function (e) {
 
-                        jQuery(".jq-loading").hide();
+                        impAuth.Auth.AuthJQ.HideLoading();
 
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 

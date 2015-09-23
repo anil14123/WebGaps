@@ -5,6 +5,8 @@ export module Auth {
 
     export class AuthJQ {
 
+        public static LoadingCounter = 0;
+
         public static IsAuth = false;
 
         public static AuthUrl = "/services/jquery.asmx/get";
@@ -35,6 +37,8 @@ export module Auth {
 
         public static OnGetAuthSuccess(data, status) {
 
+            AuthJQ.HideLoading();
+
             var resultAuth: any;
 
             resultAuth = data.d;
@@ -57,10 +61,25 @@ export module Auth {
 
         public static OnGetAuthError(request, status, error) {
 
+            AuthJQ.HideLoading();
+
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
             errorHandler.ActionFail("Some Problem !. <br>Try again later.");
         }
+
+        public static HideLoading() {
+            AuthJQ.LoadingCounter++;
+
+            if (AuthJQ.LoadingCounter == 3) {
+                jQuery(".jq-loading").hide();
+
+                var eh = new impError.ErrorHandle.ErrorJQ();
+                eh.ActionHelp("Page Loaded! <br>Start Designing.");
+            }
+            
+        }
+
 
     }
 

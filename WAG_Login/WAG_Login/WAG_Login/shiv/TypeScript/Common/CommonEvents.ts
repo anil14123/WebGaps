@@ -63,6 +63,9 @@ export module Common {
             themeHandle = window.setInterval(
                 function () {
                     if (impAuth.Auth.AuthJQ.IsAuth == true) {
+
+                        impAuth.Auth.AuthJQ.HideLoading();
+
                         window.clearInterval(themeHandle);
 
                         var layout = new impLayout.Themes.Empty.LayoutJQ();
@@ -72,6 +75,8 @@ export module Common {
                         if (impLayout.Themes.Empty.LayoutJQ.loading != undefined) {
                             impLayout.Themes.Empty.LayoutJQ.loading.Hide()
                         }
+
+                        
                     }
                     else {
                         if (impLayout.Themes.Empty.LayoutJQ.loading != undefined) {
