@@ -120,6 +120,14 @@ export module ContextMenu {
                     jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 }
 
+                if (selectedElement.hasClass("jq-site-link-container")) {
+                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+
+                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                }
+
                 if (selectedElement.hasClass("jqRootRow")) {
                     jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);

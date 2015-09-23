@@ -455,6 +455,7 @@ export module JQueryUI {
                     if (
                            jQuery(this).hasClass("empty-container-text")
                         || jQuery(this).hasClass("empty-container-image")
+                        || jQuery(this).hasClass("empty-container")
                         || jQuery(this).hasClass("jq-plus-container-text")  
                         || jQuery(this).hasClass("jq-plus-container-image")  
                         || jQuery(this).hasClass("root-elements")) {

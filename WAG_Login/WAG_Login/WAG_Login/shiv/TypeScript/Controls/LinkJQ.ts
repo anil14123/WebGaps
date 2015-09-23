@@ -4,6 +4,7 @@ import impPage = require("../../SiteManager_TS/Site/SiteJQ");
 import impError = require("../../typescript/error/errorjq");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
+import impCommonCode = require("../Controls/ControlCommonJQ");
 
 var initOnceFlag = false;
 
@@ -172,6 +173,8 @@ export module Link {
                     jQuery("page a").not(".jq-logout").click(function () {
                         return false;
                     });
+
+                    impCommonCode.ControlCommon.Code.Execute();
                 }
 
 
@@ -223,14 +226,14 @@ export module Link {
             }
 
             if (blankTarget == true) {
-                link = "<a target='_blank' class='jq-site-link btn " + btnStyle + "' href='"
+                link = "<span style='display:inline-block;' class='key jq-site-link-container'><a target='_blank' class='jq-site-link  btn " + btnStyle + "' href='"
                 + url
-                + "?nocache=true'>" + name + "</a>";
+                + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
             }
             else {
-                link = "<a class='jq-site-link btn " + btnStyle +  "' href='"
+                link = "<span style='display:inline-block;' class='key jq-site-link-container'><a class='jq-site-link btn " + btnStyle +  "' href='"
                 + url
-                + "?nocache=true'>" + name + "</a>";
+                + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
             }
 
             return link;
