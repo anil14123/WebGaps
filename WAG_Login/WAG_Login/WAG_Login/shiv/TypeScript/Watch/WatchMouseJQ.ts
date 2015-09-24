@@ -180,6 +180,14 @@ export module Watch {
                         }
                     });
 
+                    jQuery("textarea").keydown(function (e) {
+                        var BACK = 8;
+
+                        if (e.which == BACK) {
+                            impOnInsert.OnInsert.Code.BackPassed = true;
+                        }
+                    });
+
                     jQuery(document).keydown(function (e) {
 
                         var BACK = 8;

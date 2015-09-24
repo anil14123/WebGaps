@@ -23,6 +23,7 @@ import impMenuControl = require("../Controls/Menujq");
 import impBi = require("../Controls/BIjq");
 import impSpacer = require("../Controls/SpacerJQ");
 import impLink = require("../Controls/LinkJQ");
+import impHtml = require("../Controls/HtmlJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -270,6 +271,25 @@ export module ContextMenu {
             });
         }
 
+        public static AttachInsertHTML() {
+
+            new impHtml.Html.HtmlJQ().Init();
+
+            jQuery(".li.ctx-menu-insert-html").on("click", function () {
+
+                window.smartObj = null;
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowControlInsertHTML();
+            
+            });
+
+        }
+
+
         public static AttachInsertText() {
 
             jQuery(".li.smart-menu-insert-text").on("click", function () {
@@ -345,11 +365,20 @@ export module ContextMenu {
             ContextMenuJQ.ControlPageHide();
 
             jQuery(".control-page").removeClass("control-active");
-            jQuery("#control-insert-text").addClass("control-active");
+            jQuery("#control-insert-link").addClass("control-active");
 
             impLink.Link.LinkJQ.Show();
             
         }
+
+        public static ShowControlInsertHTML() {
+
+            ContextMenuJQ.ControlPageHide();
+
+          
+            impHtml.Html.HtmlJQ.Show();
+        }
+
 
         public static ShowControlInsertText() {
 
@@ -766,6 +795,7 @@ export module ContextMenu {
                         ContextMenuJQ.ContextInnerMenuShowHide();
                         ContextMenuJQ.AttachInsertLinkContainer();
                         ContextMenuJQ.AttachInsertLink();
+                        ContextMenuJQ.AttachInsertHTML();
                         ContextMenuJQ.AttachInsertText();
                         ContextMenuJQ.AttachAddRow();
                         ContextMenuJQ.AttachDeleteElement();

@@ -834,6 +834,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\FontJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ImageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\JQueryUI.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\HtmlJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\LinkJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\MenuJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\NoUI.ts" />

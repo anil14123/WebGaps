@@ -31,6 +31,11 @@ export module NoUI {
             selectedElement.css("float", "none");
             selectedElement.closest(".column").css("text-align", "center");
 
+            if (selectedElement.length > 0) {
+                var undo = new impUndoManager.Manager.UndoManager();
+
+                undo.BeforeOperation();
+            }
         }
 
         public static Left() {
@@ -40,7 +45,11 @@ export module NoUI {
 
             selectedElement.css("float", "left");
 
+            if (selectedElement.length > 0) {
+                var undo = new impUndoManager.Manager.UndoManager();
 
+                undo.BeforeOperation();
+            }
         }
 
         public static Right() {
@@ -49,6 +58,11 @@ export module NoUI {
 
             selectedElement.css("float", "right");
 
+            if (selectedElement.length > 0) {
+                var undo = new impUndoManager.Manager.UndoManager();
+
+                undo.BeforeOperation();
+            }
         }
 
 
@@ -92,33 +106,40 @@ export module NoUI {
                 selectedElement.insertBefore(selectedElement.prev(".key"));
             }
             else
-            if (selectedElement.css("float") == "left" ) {
+                if (selectedElement.css("float") == "left") {
 
-                if (selectedElement.prev(".key").length > 0 &&
-                    (selectedElement.prev(".key").css("float") == "right"
-                     || selectedElement.prev(".key").css("float") == "none" )
-                    || selectedElement.prev(".key").length == 0) {
-                    var eh = new impError.ErrorHandle.ErrorJQ();
+                    if (selectedElement.prev(".key").length > 0 &&
+                        (selectedElement.prev(".key").css("float") == "right"
+                            || selectedElement.prev(".key").css("float") == "none")
+                        || selectedElement.prev(".key").length == 0) {
+                        var eh = new impError.ErrorHandle.ErrorJQ();
 
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                    }
+
+                    selectedElement.insertBefore(selectedElement.prev(".key"));
+                }
+                else {
+
+                    if (selectedElement.next(".key").length > 0 &&
+                        (selectedElement.next(".key").css("float") == "left"
+                            || selectedElement.next(".key").css("float") == "none")
+                        || selectedElement.next(".key").length == 0) {
+
+                        var eh = new impError.ErrorHandle.ErrorJQ();
+
+                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                    }
+
+
+                    selectedElement.insertAfter(selectedElement.next(".key"));
+
                 }
 
-                selectedElement.insertBefore(selectedElement.prev(".key"));
-            }
-            else {
+            if (selectedElement.length > 0) {
+                var undo = new impUndoManager.Manager.UndoManager();
 
-                if (selectedElement.next(".key").length > 0 &&
-                    (selectedElement.next(".key").css("float") == "left"
-                        || selectedElement.next(".key").css("float") == "none")
-                    || selectedElement.next(".key").length == 0) {
-
-                    var eh = new impError.ErrorHandle.ErrorJQ();
-
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
-                }
-
-
-                selectedElement.insertAfter(selectedElement.next(".key"));
+                undo.BeforeOperation();
             }
 
         }
@@ -142,32 +163,38 @@ export module NoUI {
                 selectedElement.insertAfter(selectedElement.next(".key"));
             }
             else
-            if (selectedElement.css("float") == "left" ) {
+                if (selectedElement.css("float") == "left") {
 
-                if (selectedElement.next(".key").length > 0 &&
-                    (selectedElement.next(".key").css("float") == "right"
-                    || selectedElement.next(".key").css("float") == "none"   )
-                    || selectedElement.next(".key").length == 0) {
-                    var eh = new impError.ErrorHandle.ErrorJQ();
+                    if (selectedElement.next(".key").length > 0 &&
+                        (selectedElement.next(".key").css("float") == "right"
+                            || selectedElement.next(".key").css("float") == "none")
+                        || selectedElement.next(".key").length == 0) {
+                        var eh = new impError.ErrorHandle.ErrorJQ();
 
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                    }
+
+                    selectedElement.insertAfter(selectedElement.next(".key"));
+                }
+                else {
+
+                    if (selectedElement.prev(".key").length > 0 &&
+                        (selectedElement.prev(".key").css("float") == "left" || selectedElement.prev(".key").css("float") == "none")
+
+                        || selectedElement.prev(".key").length == 0) {
+                        var eh = new impError.ErrorHandle.ErrorJQ();
+
+                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                    }
+
+
+                    selectedElement.insertBefore(selectedElement.prev(".key"));
                 }
 
-                selectedElement.insertAfter(selectedElement.next(".key"));
-            }
-            else {
+            if (selectedElement.length > 0) {
+                var undo = new impUndoManager.Manager.UndoManager();
 
-                if (selectedElement.prev(".key").length > 0 &&
-                    (selectedElement.prev(".key").css("float") == "left" || selectedElement.prev(".key").css("float") == "none" )
-                     
-                    || selectedElement.prev(".key").length == 0) {
-                    var eh = new impError.ErrorHandle.ErrorJQ();
-
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
-                }
-
-
-                selectedElement.insertBefore(selectedElement.prev(".key"));
+                undo.BeforeOperation();
             }
         }
     }

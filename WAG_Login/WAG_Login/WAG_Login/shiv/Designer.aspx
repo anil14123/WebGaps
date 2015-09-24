@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TypeScript HTML App</title>
+    <title>Web Gaps</title>
 
 
     <script class="add-to-page jquery" src="/Library/jquery-1.11.2.min.js"></script>
@@ -197,26 +197,31 @@
                     Page</button>
                 <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
                     <img alt="" class="settings-img" src="/content/settings/settings.png" />
-                    Properties</button>
+                    Properties
 
-                <span id="control-align" class="control-drag-anywhere" style=" background-color:black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px;; -webkit-border-radius: 5px;; border-radius: 5px;; ">
-                    <span style="color:white; background-color:black; padding:5px;"> Align : </span>
- 
-                  <button class="button-align-left  btn btn-toolbar btn-xs btn jq-save-margin">
-                      Left</button>
+                </button>
+
+                <span id="control-align" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+
+                    <span style="color: white; background-color: black; padding: 5px;">Align : 
+
+                    </span>
+
+                    <button class="button-align-left  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Left</button>
 
                     <button class="button-align-right  btn btn-toolbar btn-xs btn jq-save-margin">
                         Right</button>
 
-                       <button class="button-align-center  btn btn-toolbar btn-xs btn jq-save-margin">
+                    <button class="button-align-center  btn btn-toolbar btn-xs btn jq-save-margin">
                         Center</button>
                 </span>
 
-                 <span id="control-object-move" class="control-drag-anywhere" style=" background-color:black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px;; -webkit-border-radius: 5px;; border-radius: 5px;; ">
-                    <span style="color:white; background-color:black; padding:5px;"> Move : </span>
- 
-                  <button class="button-move-left  btn btn-toolbar btn-xs btn jq-save-margin">
-                      Left</button>
+                <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+                    <span style="color: white; background-color: black; padding: 5px;">Move : </span>
+
+                    <button class="button-move-left  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Left</button>
 
                     <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
                         Right</button>
@@ -1425,7 +1430,28 @@
         </div>
 
        
+     <!------------------------------ Insert Html ------------------------------------>
 
+        <div id="control-insert-html" name="insert-html" class="control-page" style="">
+          
+             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Insert Html</div>
+            <div class="row" style="border:none; outline:none;">
+                <div class="col-xs-48">
+                    <fieldset class="clear">
+
+                        <textarea class="input-html" style=" min-height:200px; min-width:250px; border:1px solid black; border-radius:5px;" >
+  </textarea>
+                    </fieldset>
+                </div>
+        
+            </div>
+
+            <div class="controls-action">
+                <button class="action-button action-button-insert-html-clear">Clear</button>
+                <button class="action-button action-button-insert-html">Insert</button>
+            </div>
+        </div>
 
         <!------------------------------ Insert Text ------------------------------------>
 
@@ -1557,10 +1583,13 @@
                         <li>
                             <div class="li ctx-menu-insert-object">Other</div>
                         </li>
+                        <li>
+                            <div class="li ctx-menu-insert-html">Html & Css</div>
+                        </li>
                         <%-- <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
-                        </li>
-                        <li>
+                        </li>--%>
+                        <%-- <li>
                             <div class="li ctx-menu-insert-youtube">Youtube</div>
                         </li>
                         <li>
@@ -1568,7 +1597,7 @@
                         </li>
                         <li>
                             <div class="li ctx-menu-insert-css">Css</div>
-                        </li>--%>
+                        </li> --%>
                     </ul>
                 </div>
             </li>
