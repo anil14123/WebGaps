@@ -463,8 +463,8 @@ export module JQueryUI {
                                                 
                         common.RemoveStyle(jQuery(this), "min-height");
                         common.RemoveStyle(jQuery(this), "height");
-                
-                        if (jQuery(this).hasClass("jq-plus-container-image")) {
+
+                        if (jQuery(this).hasClass("jq-plus-container-image") || jQuery(this).hasClass("empty-container-spacer")) {
                             jQuery(this).css("height", height);
                         }
                         else {

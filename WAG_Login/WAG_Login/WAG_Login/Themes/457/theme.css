@@ -258,6 +258,11 @@ blockquote{
  
 }
 
+.empty-container-spacer{
+    width:100px;
+    height:100px;
+}
+
 .empty-container-text {
     display: inline-block;
    max-width:100%;   
