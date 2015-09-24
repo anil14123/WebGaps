@@ -77,15 +77,47 @@ export module NoUI {
 
             var selectedElement = MoveJQ.Common();
 
-            var eh = new impError.ErrorHandle.ErrorJQ();
+            if (selectedElement.css("float") == "none") {
 
-            eh.ActionHelp("Moving elements are based on Aligned Elements<br>For Eg: Move Left is dependent on Align Left.");
+                if (selectedElement.prev(".key").length > 0 &&
+                    (selectedElement.prev(".key").css("float") == "right"
+                        ||
+                        selectedElement.prev(".key").css("float") == "left")
+                    || selectedElement.prev(".key").length == 0) {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
 
-            if (selectedElement.css("float") == "left" || selectedElement.css("float") == "none") {
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
+                }
+
                 selectedElement.insertBefore(selectedElement.prev(".key"));
             }
             else
-            {
+            if (selectedElement.css("float") == "left" ) {
+
+                if (selectedElement.prev(".key").length > 0 &&
+                    (selectedElement.prev(".key").css("float") == "right"
+                     || selectedElement.prev(".key").css("float") == "none" )
+                    || selectedElement.prev(".key").length == 0) {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                }
+
+                selectedElement.insertBefore(selectedElement.prev(".key"));
+            }
+            else {
+
+                if (selectedElement.next(".key").length > 0 &&
+                    (selectedElement.next(".key").css("float") == "left"
+                        || selectedElement.next(".key").css("float") == "none")
+                    || selectedElement.next(".key").length == 0) {
+
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                }
+
+
                 selectedElement.insertAfter(selectedElement.next(".key"));
             }
 
@@ -95,14 +127,46 @@ export module NoUI {
 
             var selectedElement = MoveJQ.Common();
 
-            var eh = new impError.ErrorHandle.ErrorJQ();
+            if (selectedElement.css("float") == "none") {
 
-            eh.ActionHelp("Moving elements are based on Aligned Elements<br>For Eg: Move Left is dependent on Align Left.");
+                if (selectedElement.next(".key").length > 0 &&
+                    (selectedElement.next(".key").css("float") == "right"
+                        ||
+                        selectedElement.next(".key").css("float") == "left")
+                    || selectedElement.next(".key").length == 0) {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
 
-            if (selectedElement.css("float") == "left" || selectedElement.css("float") == "none") {
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
+                }
+
+                selectedElement.insertAfter(selectedElement.next(".key"));
+            }
+            else
+            if (selectedElement.css("float") == "left" ) {
+
+                if (selectedElement.next(".key").length > 0 &&
+                    (selectedElement.next(".key").css("float") == "right"
+                    || selectedElement.next(".key").css("float") == "none"   )
+                    || selectedElement.next(".key").length == 0) {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                }
+
                 selectedElement.insertAfter(selectedElement.next(".key"));
             }
             else {
+
+                if (selectedElement.prev(".key").length > 0 &&
+                    (selectedElement.prev(".key").css("float") == "left" || selectedElement.prev(".key").css("float") == "none" )
+                     
+                    || selectedElement.prev(".key").length == 0) {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+
+                    eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                }
+
+
                 selectedElement.insertBefore(selectedElement.prev(".key"));
             }
         }
