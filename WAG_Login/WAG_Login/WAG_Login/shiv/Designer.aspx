@@ -1435,7 +1435,7 @@
         <div id="control-insert-html" name="insert-html" class="control-page" style="">
           
              <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area">Insert Html</div>
+            <div class="control-move-area">Insert Html/Css/Script</div>
             <div class="row" style="border:none; outline:none;">
                 <div class="col-xs-48">
                     <fieldset class="clear">
@@ -1584,7 +1584,7 @@
                             <div class="li ctx-menu-insert-object">Other</div>
                         </li>
                         <li>
-                            <div class="li ctx-menu-insert-html">Html & Css</div>
+                            <div class="li ctx-menu-insert-html">Html/Css/Script</div>
                         </li>
                         <%-- <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
