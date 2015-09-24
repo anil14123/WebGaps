@@ -20,8 +20,8 @@ export module ControlCommon {
             impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container");
 
             //working great both
-            impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container-image");
-            impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container-text");
+            //impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container-image");
+            //impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container-text");
 
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-site-link-container");
 
@@ -50,8 +50,8 @@ export module ControlCommon {
         public static DestroyResizable() {
   
             //working great both
-            impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-image");
-            impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
+            //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-image");
+            //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
 
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
