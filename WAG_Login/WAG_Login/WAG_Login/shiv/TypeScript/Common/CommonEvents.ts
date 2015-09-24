@@ -164,6 +164,8 @@ export module Common {
                     " <style> " +
                     " .jq-plus-element { display:none !important; } " +
                     " .jq-row-plus-container { display:none !important; } " +
+                    " .row { margin:0; padding:0; } " +
+                    " .column { margin:0; padding:0; } " +
                     "</style>";
 
                 jQuery(".image-selection").removeClass("image-selection");

@@ -225,14 +225,14 @@ export module Image {
                             loadedImgContainer.css("height", "200px");
                         }
                         else {
-                            loadedImgContainer.css("height", "auto");
+                            loadedImgContainer.css("height", "200px");
                         }
 
                         if (this.naturalWidth > 200) {
                             loadedImgContainer.css("width", "200px");
                         }
                         else {
-                            loadedImgContainer.css("width", "auto");
+                            loadedImgContainer.css("width", "px");
                         }
 
                     });

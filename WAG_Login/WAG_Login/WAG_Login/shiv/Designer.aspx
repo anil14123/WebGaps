@@ -43,7 +43,7 @@
 
     <script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
     <link href="/designer.css" rel="stylesheet" />
-    <link href="/JqPlus.css" rel="stylesheet" />
+    <link class="add-to-page" href="/JqPlus.css" rel="stylesheet" />
     <link href="/SmartContextMenu.css" rel="stylesheet" />
     <link href="/Text.css" rel="stylesheet" />
     <link href="/DesignerPaddings.css" rel="stylesheet" />

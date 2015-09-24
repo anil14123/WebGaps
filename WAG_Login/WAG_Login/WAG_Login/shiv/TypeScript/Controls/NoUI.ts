@@ -63,7 +63,7 @@ export module NoUI {
 
             if (selectedElement != undefined) {
 
-                if (selectedElement.hasClass("column") || selectedElement.hasClass("row") || selectedElement.hasClass("root-elements")) {
+                if (selectedElement.hasClass("root-elements")) {
                     return jQuery("#nononoelement");
                 }
 
