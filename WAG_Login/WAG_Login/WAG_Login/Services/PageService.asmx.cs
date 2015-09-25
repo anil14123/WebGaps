@@ -24,6 +24,13 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
     // [System.Web.Script.Services.ScriptService]
     public class PageService : System.Web.Services.WebService
     {
+        class SrcFiles
+        { 
+            public string FolderPath;
+           public string fileName;
+            public string DestPath;
+            
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -63,13 +70,67 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                             if (Directory.Exists(siteFolder))
                             {
-                                
+
                                 string filePath = Path.Combine(siteFolder, pageName);
 
                                 if (File.Exists(filePath))
                                 {
                                     try
                                     {
+                                        ////////////////////////////////////////////////
+                                        string targetThemeFolder = Path.Combine(siteFolder, "Theme");
+
+                                        string[] themeFile = { "theme.css", "jQuery.js" };
+
+                                        SrcFiles theme = new SrcFiles();
+                                        theme.fileName = "theme.css";
+                                        theme.FolderPath = Path.Combine(Server.MapPath("."), "../Themes/457/");
+                                        theme.DestPath = Path.Combine(siteFolder, "Theme/");
+
+                                        SrcFiles jquery = new SrcFiles();
+                                        jquery.fileName = "jquery-1.11.2.min.js";
+                                        jquery.FolderPath = Path.Combine(Server.MapPath("."), "../Library/");
+                                        jquery.DestPath = Path.Combine(siteFolder, "jQuery/");
+
+
+                                        SrcFiles jqPlus = new SrcFiles();
+                                        jqPlus.fileName = "jqPlus.css";
+                                        jqPlus.FolderPath = Path.Combine(Server.MapPath("."), "../");
+                                        jqPlus.DestPath = Path.Combine(siteFolder, "Theme/");
+                                        
+                                        SrcFiles bootstrap = new SrcFiles();
+                                        bootstrap.fileName = "bootstrap-customzed-48.min.css";
+                                        bootstrap.FolderPath = Path.Combine(Server.MapPath("."), "../Content/bootstrap-3.3.5-dist/css/");
+                                        bootstrap.DestPath = Path.Combine(siteFolder, "Bootstrap/");
+                                        
+
+                                        List<SrcFiles> copy = new List<SrcFiles>();
+
+                                        copy.Add(theme);
+                                        copy.Add(jquery);
+                                        copy.Add(bootstrap);
+                                        copy.Add(jqPlus);
+
+                                        for (int i = 0; i < copy.Count(); i++)
+                                        {
+                                            if (!File.Exists( Path.Combine(copy[i].DestPath ,copy[i].fileName)))
+                                            {
+                                                if (!Directory.Exists(copy[i].DestPath))
+                                                {
+                                                    Directory.CreateDirectory(copy[i].DestPath);
+                                                }
+
+                                                string sourcePath = Path.Combine(copy[i].FolderPath, copy[i].fileName);
+                                                string targetPath = Path.Combine(copy[i].DestPath, copy[i].fileName);
+
+                                                File.Copy(sourcePath, targetPath, true);
+                                            }
+                                        }
+
+                                        ///////////////////// theme file //////////////////
+
+
+
                                         File.WriteAllText(filePath, pageText);
 
 

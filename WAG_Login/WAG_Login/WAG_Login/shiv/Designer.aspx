@@ -9,25 +9,32 @@
     <title>Web Gaps</title>
 
 
-    <script class="add-to-page jquery" src="/Library/jquery-1.11.2.min.js"></script>
+    <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" class="add-to-page jquery" src="jquery/jquery-1.11.2.min.js"></script> <%--add to page--%>
 
     <script src="/Library/jquery-ui.js"></script>
 
-    <link href="/Content/jquery-ui.min.css" rel="stylesheet" />
+    <link  rel="stylesheet" href="/Content/jquery-ui.min.css"  type="text/css"/>
 
-    <link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
+    <link  rel="stylesheet" type="text/css" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" class="add-to-page" href="bootstrap/bootstrap-customzed-48.min.css" />  <%--add to page--%>
+
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
     <%--  <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>--%>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
-    <link href="/ContextMenu.css" rel="stylesheet" />
-    <link class="add-to-page" href="/Themes/457/theme.css" rel="stylesheet" />
+    <link href="/ContextMenu.css" type="text/css" rel="stylesheet" />
+
+    <link href="/Themes/457/theme.css" rel="stylesheet" type="text/css" />
+    <link class="add-to-page" type="text/css" href="theme/theme.css" rel="stylesheet" type="text/css" /> <%--add to page--%>
+
+
     <%--<link href="/Third-Party/jte/jquery-te-1.4.0.css" rel="stylesheet" />--%>
-    <link href="../my-jqte.css.css" rel="stylesheet" />
+    <link href="../my-jqte.css.css" rel="stylesheet" type="text/css" />
 
 
-    <link href="/JQte.css" rel="stylesheet" />
+    <link href="/JQte.css" rel="stylesheet" type="text/css" />
     <script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>
     <link href="/Third-Party/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" />
     <link href="/ColorPicker.css" rel="stylesheet" />
@@ -43,7 +50,8 @@
 
     <script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
     <link href="/designer.css" rel="stylesheet" />
-    <link class="add-to-page" href="/JqPlus.css" rel="stylesheet" />
+    <link href="/JqPlus.css" rel="stylesheet" />
+    <link class="add-to-page"  href="theme/jqplus.css" rel="stylesheet" />
     <link href="/SmartContextMenu.css" rel="stylesheet" />
     <link href="/Text.css" rel="stylesheet" />
     <link href="/DesignerPaddings.css" rel="stylesheet" />
@@ -226,11 +234,15 @@
                     <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
                         Right</button>
 
+                       <%-- 
+                        
                         <button class="button-move-up  btn btn-toolbar btn-xs btn jq-save-margin">
                         Up</button>
 
                         <button class="button-move-down  btn btn-toolbar btn-xs btn jq-save-margin">
                         Down </button>
+                      
+                      --%>
                 </span>
 
                 <div class="float-right">
