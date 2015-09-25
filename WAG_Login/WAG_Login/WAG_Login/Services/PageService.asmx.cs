@@ -10,6 +10,7 @@ using WebAppGoLibrary.Save;
 using WebAppGoLibrary.Site;
 using WebAppGoLibrary.Data;
 using WAG_Login_Page;
+using System.Text.RegularExpressions;
 
 namespace WebAppGoTypeScript_X_Modulerization.Services
 {
@@ -47,12 +48,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    string pageText = "";
-
-                    pageText = Obj.scripts.ToString();
-                    pageText += Obj.styles.ToString();
-                    pageText += Obj.page.ToString();
-
+                  
                     string root = Server.MapPath(".");
 
                     var entities = new WAG_Login_Page.WagPageEntities();
@@ -129,6 +125,81 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                         ///////////////////// theme file //////////////////
 
+                                        ///////////////////// Save Images /////////////////
+
+                                        try
+                                        {
+
+                                            string destDirFullPath = Path.Combine(siteFolder, "iimages");
+
+                                            if (!Directory.Exists(destDirFullPath))
+                                            {
+                                                Directory.CreateDirectory(destDirFullPath);
+                                            }
+
+                                            Regex imagePat = new Regex("(<img [^>]+|image: *url[^)]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                                            Regex imageSrcPat = new Regex("src=(\"[^\"]+\"|'[^']+'| *[^ ]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                                            //Regex imageAltPat = new Regex("alt=(\"[^\"]+\"|'[^']+'| *[^ ]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                                            //Regex imageWidthPat = new Regex("width=(\"[^\"]+\"|'[^']+'| *[^ ]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                                            //Regex imageHeightPat = new Regex("height=(\"[^\"]+\"|'[^']+'| *[^ ]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+                                            Regex imageUrlPat = new Regex(@"url\(([^)]+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+                                            Match mImg;
+                                            foreach (Match match in imagePat.Matches(Obj.page))
+                                            {
+                                                int pos = match.Index;
+                                                string imgStr = Obj.page.Substring(pos, match.Length);
+
+                                                switch (char.ToLower(imgStr[0]))
+                                                {
+                                                    case 'i':   // background-image: url(foo.png);
+                                                        mImg = imageUrlPat.Match(imgStr);
+                                                        break;
+                                                    case '<':   // <img src="foo.png">
+                                                        mImg = imageSrcPat.Match(imgStr);
+                                                        break;
+                                                    default:
+                                                        mImg = null;
+                                                        break;
+                                                }
+
+                                                if (mImg != null)
+                                                {
+                                                    mImg = imageSrcPat.Match(imgStr);
+
+                                                    string imagePath = mImg.Groups[1].Value.Trim().Replace("'", "").Replace("\"", "");
+
+
+                                                    if (imagePath != null)
+                                                    {
+                                                        //"/Content/Images/User_1/12.png"
+
+                                                        imagePath = imagePath.ToLower();
+
+                                                        imagePath = imagePath.Replace("\\", "/");
+
+                                                        string srcImage = Path.Combine(Server.MapPath("."), "../shiv/" + imagePath);
+
+                                                        string destPath = imagePath;
+
+                                                        string destFileFullPath = Path.Combine(siteFolder, destPath);
+
+                                                        File.Copy(srcImage, destFileFullPath, true);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        catch(Exception ex)
+                                        {
+
+                                        }
+                                        ////////////////////////////////////////////////////
+                                       
+                                        string pageText = "";
+
+                                        pageText = Obj.scripts.ToString();
+                                        pageText += Obj.styles.ToString();
+                                        pageText += Obj.page.ToString();
 
 
                                         File.WriteAllText(filePath, pageText);

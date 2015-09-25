@@ -11,7 +11,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
     {
         private string GetUserImagesPath()
         {
-           return Server.MapPath(".") + "/../../Content/Images/User_1/";
+           return Server.MapPath(".") + "/../iimages/";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
 
                     myFileUpload.SaveAs(savePath);
 
-                    uploadedImage.ImageUrl = "/Content/Images/User_1/" + myFileUpload.FileName;
+                    uploadedImage.ImageUrl = "../iimages/" + myFileUpload.FileName;
 
                     result.Text = "Image Uploaded.";
                     result.CssClass = "success";

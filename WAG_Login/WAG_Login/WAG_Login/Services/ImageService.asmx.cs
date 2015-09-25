@@ -34,14 +34,14 @@ namespace WebAppGoTypeScript_X_Modulerization
             DirectoryInfo Folder;
             FileInfo[] Images;
 
-            Folder = new DirectoryInfo( Server.MapPath(".") + "/../Content/Images/User_1/");
+            Folder = new DirectoryInfo( Server.MapPath(".") + "/../shiv/iimages");
             Images = Folder.GetFiles();
             List<ImageJQ> imagesList = new List<ImageJQ>();
 
             for (int i = 0; i < Images.Length; i++)
             {
                 ImageJQ image = new ImageJQ();
-                image.Path = "/Content/Images/User_1/" + Convert.ToString(Images[i].Name).ToLower() ;
+                image.Path = "iimages/" + Convert.ToString(Images[i].Name).ToLower() ;
 
                 imagesList.Add(image);
             }
