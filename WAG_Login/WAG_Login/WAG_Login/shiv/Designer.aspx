@@ -247,12 +247,7 @@
                 </div>
 
 
-
-
-                <div class="row top-row-editor">
-
-                    <div class="col-xs-48">
-                        <div class="editor">
+              <div class="editor">
                             <div class="jqte-toolbar">
 
 
@@ -470,9 +465,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
+   
             </div>
         </div>
 

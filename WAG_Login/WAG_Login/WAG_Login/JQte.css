@@ -89,3 +89,9 @@ page .jqte_editor {
 .jqte_tool, .jqte_tool_icon, .jqte_tool_label{
    border:none;
 }
+
+.editor{
+    position:fixed;
+    top:45px;
+    left:30%;
+}

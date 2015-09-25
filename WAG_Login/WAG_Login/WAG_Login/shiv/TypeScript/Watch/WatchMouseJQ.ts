@@ -219,10 +219,10 @@ export module Watch {
                             $(".empty-container-image").draggable({ disabled: false });
 
 
-                            jQuery("rootx").css("top", "45px");
-                            jQuery(".designer-top-row").css("height", "45px");
+                            jQuery("rootx").css("top", "90px");
+                            jQuery(".designer-top-row").css("height", "90px");
                             jQuery(".editor").hide();
-                            jQuery("#notify").css("top", "45px");
+                            jQuery("#notify").css("top", "90px");
 
                             jQuery("page .jqte-editor").css("cursor", "move");
                             ////////////////////

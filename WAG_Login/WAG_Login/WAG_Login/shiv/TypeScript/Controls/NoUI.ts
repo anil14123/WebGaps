@@ -109,7 +109,7 @@ export module NoUI {
                 if (selectedElement.prevAll(".key").first().length > 0 &&
                     (selectedElement.prevAll(".key").first().css("float") == "right"
                         ||
-                    selectedElement.prevAll(".key").first().css("float") == "left")
+                        selectedElement.prevAll(".key").first().css("float") == "left")
                     || selectedElement.prevAll(".key").first().length == 0) {
                     var eh = new impError.ErrorHandle.ErrorJQ();
 
@@ -123,7 +123,7 @@ export module NoUI {
 
                     if (selectedElement.prevAll(".key").first().length > 0 &&
                         (selectedElement.prevAll(".key").first().css("float") == "right"
-                        || selectedElement.prevAll(".key").first().css("float") == "none")
+                            || selectedElement.prevAll(".key").first().css("float") == "none")
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
@@ -136,7 +136,7 @@ export module NoUI {
 
                     if (selectedElement.nextAll(".key").first().length > 0 &&
                         (selectedElement.nextAll(".key").first().css("float") == "left"
-                        || selectedElement.nextAll(".key").first().css("float") == "none")
+                            || selectedElement.nextAll(".key").first().css("float") == "none")
                         || selectedElement.nextAll(".key").first().length == 0) {
 
                         var eh = new impError.ErrorHandle.ErrorJQ();
@@ -166,7 +166,7 @@ export module NoUI {
                 if (selectedElement.nextAll(".key").first().length > 0 &&
                     (selectedElement.nextAll(".key").first().css("float") == "right"
                         ||
-                    selectedElement.nextAll(".key").first().css("float") == "left")
+                        selectedElement.nextAll(".key").first().css("float") == "left")
                     || selectedElement.nextAll(".key").first().length == 0) {
                     var eh = new impError.ErrorHandle.ErrorJQ();
 
@@ -180,7 +180,7 @@ export module NoUI {
 
                     if (selectedElement.nextAll(".key").first().length > 0 &&
                         (selectedElement.nextAll(".key").first().css("float") == "right"
-                        || selectedElement.nextAll(".key").first().css("float") == "none")
+                            || selectedElement.nextAll(".key").first().css("float") == "none")
                         || selectedElement.nextAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
@@ -193,7 +193,7 @@ export module NoUI {
 
                     if (selectedElement.prevAll(".key").first().length > 0 &&
                         (selectedElement.prevAll(".key").first().css("float") == "left"
-                        || selectedElement.prevAll(".key").first().css("float") == "none")
+                            || selectedElement.prevAll(".key").first().css("float") == "none")
 
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
@@ -217,49 +217,17 @@ export module NoUI {
 
             var selectedElement = MoveJQ.CommonUpDown();
 
-            var isboundaryHit = false;
-            var isboundaryHitHasNoelements = false;
-
+            if (!selectedElement.hasClass("row")) {
                 selectedElement = selectedElement.closest(".row");
+            }
 
-                var lastElement = selectedElement.prevAll(".row").first();
+            var lastElement = selectedElement.prevAll(".row").first();
 
-                if (lastElement.length == 0) {
-                    lastElement = selectedElement.prevAll(".key").last();
-                }
+            if (lastElement.length == 0) {
+                lastElement = selectedElement.prevAll(".key").last();
+            }
 
-
-                if (lastElement.length == 0) {
-                    isboundaryHit = true;
-                    lastElement = selectedElement.closest(".root-elements").prevAll(".root-elements").first().find(".key").last();
-                }
-
-                if (isboundaryHit == true) {
-
-                    if (lastElement.length == 0) {
-
-                        isboundaryHitHasNoelements == true;
-
-                        lastElement = selectedElement.closest(".root-elements").prevAll(".root-elements").first();
-                    }
-                }
-
-                if (isboundaryHitHasNoelements == true) {
-
-
-                    if (lastElement.length > 0) {
-
-                        lastElement.append(selectedElement);
-                    }
-                }
-                else
-                if (isboundaryHit == false) {
-                    selectedElement.insertBefore(lastElement);
-                }
-                else {
-                    selectedElement.insertAfter(lastElement);
-                }
-           
+            selectedElement.insertBefore(lastElement);
 
         }
 
@@ -267,49 +235,21 @@ export module NoUI {
 
             var selectedElement = MoveJQ.CommonUpDown();
 
-            var isboundaryHit = false;
-            var isboundaryHitHasNoelements = false;
 
+            if (!selectedElement.hasClass("row")) {
                 selectedElement = selectedElement.closest(".row");
-
-                var lastElement = selectedElement.nextAll(".row").first();
-
-                if (lastElement.length == 0) {
-                    lastElement = selectedElement.nextAll(".key").last();
-                }
-
-                if (lastElement.length == 0) {
-
-                    isboundaryHit = true;
-                    lastElement = selectedElement.closest(".root-elements").nextAll(".root-elements").first().find(".key").first();
-                }
-
-                if (isboundaryHit == true) {
-
-                    if (lastElement.length == 0) {
-
-                        isboundaryHitHasNoelements == true;
-
-                        lastElement = selectedElement.closest(".root-elements").nextAll(".root-elements").first();
-                    }
-                }
+            }
 
 
-                if (isboundaryHitHasNoelements == true) {
+            var lastElement = selectedElement.nextAll(".row").first();
 
-                    if (lastElement.length > 0) {
+            if (lastElement.length == 0) {
+                lastElement = selectedElement.nextAll(".key").last();
+            }
 
-                        lastElement.append(selectedElement);
-                    }
-                }
-                else
-                if (isboundaryHit == false) {
-                    selectedElement.insertAfter(lastElement);
-                }
-                else {
-                    selectedElement.insertBefore(lastElement);
-                }
-         
+            selectedElement.insertAfter(lastElement);
+
+
         }
 
     }
