@@ -57,6 +57,9 @@ export module Auth {
                 AuthJQ.IsAuth = true;
             }
             else {
+                var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+                errorHandler.ActionFail("Some Problem !. <br>Try refreshing.");
             }
            
         }
