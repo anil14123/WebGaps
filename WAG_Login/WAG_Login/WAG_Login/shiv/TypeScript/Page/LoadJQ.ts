@@ -22,6 +22,8 @@ export module Page {
 
                         impAuth.Auth.AuthJQ.HideLoading();
                         
+                        console.log("isloadhit");
+
                         var e = jQuery(document.createElement("div"));
                         var pg = jQuery(document.createElement("div"));
                         e.html(data);//.find("page").remove(".ui-resizable-handle");

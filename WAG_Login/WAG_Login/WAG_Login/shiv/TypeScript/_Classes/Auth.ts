@@ -39,6 +39,8 @@ export module Auth {
 
             AuthJQ.HideLoading();
 
+            console.log("isgetahit");
+
             var resultAuth: any;
 
             resultAuth = data.d;

@@ -83,6 +83,15 @@ export module ErrorHandle {
 
         ActionHelp(helpMessage: string, changeColor?: string) {
 
+            if (helpMessage != undefined) {
+                var index = helpMessage.toLowerCase().indexOf("page loaded");
+
+                if (index != -1) {
+                    jQuery(".jq-loading").hide();
+                    console.log("Page Loaded");
+                }
+            }
+
             var helpContainer = jQuery(document.createElement("div"));
 
             if (changeColor != undefined) {

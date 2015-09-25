@@ -226,6 +226,11 @@
                     <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
                         Right</button>
 
+                        <button class="button-move-up  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Up</button>
+
+                        <button class="button-move-down  btn btn-toolbar btn-xs btn jq-save-margin">
+                        Down </button>
                 </span>
 
                 <div class="float-right">

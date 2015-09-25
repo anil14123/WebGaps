@@ -87,6 +87,19 @@ export module NoUI {
             return jQuery("#nononoelement");
         }
 
+        public static CommonUpDown() {
+
+            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+
+            if (selectedElement != undefined) {
+
+                return selectedElement;
+            }
+
+            return jQuery("#nononoelement");
+        }
+
         public static Left() {
 
             var selectedElement = MoveJQ.Common();
@@ -198,6 +211,107 @@ export module NoUI {
                 undo.BeforeOperation();
             }
         }
+
+
+        public static Up() {
+
+            var selectedElement = MoveJQ.CommonUpDown();
+
+            var isboundaryHit = false;
+            var isboundaryHitHasNoelements = false;
+
+                selectedElement = selectedElement.closest(".row");
+
+                var lastElement = selectedElement.prevAll(".row").first();
+
+                if (lastElement.length == 0) {
+                    lastElement = selectedElement.prevAll(".key").last();
+                }
+
+
+                if (lastElement.length == 0) {
+                    isboundaryHit = true;
+                    lastElement = selectedElement.closest(".root-elements").prevAll(".root-elements").first().find(".key").last();
+                }
+
+                if (isboundaryHit == true) {
+
+                    if (lastElement.length == 0) {
+
+                        isboundaryHitHasNoelements == true;
+
+                        lastElement = selectedElement.closest(".root-elements").prevAll(".root-elements").first();
+                    }
+                }
+
+                if (isboundaryHitHasNoelements == true) {
+
+
+                    if (lastElement.length > 0) {
+
+                        lastElement.append(selectedElement);
+                    }
+                }
+                else
+                if (isboundaryHit == false) {
+                    selectedElement.insertBefore(lastElement);
+                }
+                else {
+                    selectedElement.insertAfter(lastElement);
+                }
+           
+
+        }
+
+        public static Down() {
+
+            var selectedElement = MoveJQ.CommonUpDown();
+
+            var isboundaryHit = false;
+            var isboundaryHitHasNoelements = false;
+
+                selectedElement = selectedElement.closest(".row");
+
+                var lastElement = selectedElement.nextAll(".row").first();
+
+                if (lastElement.length == 0) {
+                    lastElement = selectedElement.nextAll(".key").last();
+                }
+
+                if (lastElement.length == 0) {
+
+                    isboundaryHit = true;
+                    lastElement = selectedElement.closest(".root-elements").nextAll(".root-elements").first().find(".key").first();
+                }
+
+                if (isboundaryHit == true) {
+
+                    if (lastElement.length == 0) {
+
+                        isboundaryHitHasNoelements == true;
+
+                        lastElement = selectedElement.closest(".root-elements").nextAll(".root-elements").first();
+                    }
+                }
+
+
+                if (isboundaryHitHasNoelements == true) {
+
+                    if (lastElement.length > 0) {
+
+                        lastElement.append(selectedElement);
+                    }
+                }
+                else
+                if (isboundaryHit == false) {
+                    selectedElement.insertAfter(lastElement);
+                }
+                else {
+                    selectedElement.insertBefore(lastElement);
+                }
+         
+        }
+
     }
 
 }

@@ -25,7 +25,7 @@ export module ControlCommon {
 
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-site-link-container");
 
-            impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container");
+            //impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
             impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
@@ -53,7 +53,7 @@ export module ControlCommon {
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-image");
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
 
-            impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
+            //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-image");
 

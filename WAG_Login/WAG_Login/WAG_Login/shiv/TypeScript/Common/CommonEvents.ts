@@ -82,7 +82,15 @@ export module Common {
                 impNoUi.NoUI.MoveJQ.Right();
             });
 
+            jQuery(".button-move-up").click(function () {
+                impNoUi.NoUI.MoveJQ.Up();
+            });
 
+            jQuery(".button-move-down").click(function () {
+                impNoUi.NoUI.MoveJQ.Down();
+            });
+
+            ///////////////////////////////////////////////////////////////
 
             jQuery("#control-align").draggable({ revert: false });
             jQuery("#control-object-move").draggable({ revert: false });
@@ -113,6 +121,8 @@ export module Common {
                     if (impAuth.Auth.AuthJQ.IsAuth == true) {
 
                         impAuth.Auth.AuthJQ.HideLoading();
+
+                        console.log("isahit");
 
                         window.clearInterval(themeHandle);
 
