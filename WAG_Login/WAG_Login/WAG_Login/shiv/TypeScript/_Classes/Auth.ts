@@ -39,8 +39,7 @@ export module Auth {
 
             AuthJQ.HideLoading();
 
-            console.log("isgetahit");
-
+           
             var resultAuth: any;
 
             resultAuth = data.d;
@@ -60,6 +59,9 @@ export module Auth {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
                 errorHandler.ActionFail("Some Problem !. <br>Try refreshing.");
+
+                AuthJQ.HideLoading();
+
             }
            
         }

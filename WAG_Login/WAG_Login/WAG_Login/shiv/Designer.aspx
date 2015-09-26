@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
 
-    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
 
@@ -228,6 +228,10 @@
                     <button class="button-align-center  btn btn-toolbar btn-xs btn jq-save-margin">
                         Center</button>
                 </span>
+
+
+                <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                 Download Site</button>
 
                 <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
                     <span style="color: white; background-color: black; padding: 5px;">Move : </span>

@@ -18,7 +18,7 @@ import impmal = require("../MalFormed/MalFormedJQ");
 import impNoUi = require("../Controls/NoUi");
 
 var themeHandle;
-
+var downloadInterval;
 export module Common {
 
     export class SmartObj {
@@ -122,7 +122,6 @@ export module Common {
 
                         impAuth.Auth.AuthJQ.HideLoading();
 
-                        console.log("isahit");
 
                         window.clearInterval(themeHandle);
 
@@ -134,7 +133,7 @@ export module Common {
                             impLayout.Themes.Empty.LayoutJQ.loading.Hide()
                         }
 
-                        
+
                     }
                     else {
                         if (impLayout.Themes.Empty.LayoutJQ.loading != undefined) {
@@ -160,6 +159,26 @@ export module Common {
                 jQuery(".jq-show-plus").show();
 
             });
+
+            //// download /////////////////
+
+            jQuery(".button-download-site").click(function () {
+
+                var save = new impSaveClass.Save.SaveJQ();
+
+                var data = {
+                    siteName: jQuery(".input-site-name").val()
+                }
+
+                var downloadData = JSON.stringify(data);
+
+                var eh = new impError.ErrorHandle.ErrorJQ();
+
+                eh.ActionHelp("Download will start in few seconds...");
+
+                save.Download(downloadData);
+
+            });
            
             /// save ///////
 
@@ -171,8 +190,8 @@ export module Common {
 
                 var styleSheetExtra =
                     "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
-                    "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />"  +
-                    "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" + 
+                    "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />" +
+                    "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
                     "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
                     " <style> " +
                     " .jq-plus-element { display:none !important; } " +
@@ -199,7 +218,7 @@ export module Common {
                     }
 
                 });
-                
+
                 var save = new impSaveClass.Save.SaveJQ();
 
                 save.scripts = scripts.html();
@@ -213,7 +232,7 @@ export module Common {
                 var saveData = JSON.stringify(data);
 
                 save.SavePage(saveData);
-             
+
 
             });
 

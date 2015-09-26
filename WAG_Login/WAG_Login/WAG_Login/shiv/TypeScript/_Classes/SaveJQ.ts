@@ -8,6 +8,44 @@ export module Save {
         styles: string;
         page: string;
 
+        public static IsDownloadStarted = false;
+
+        public Download(downloadData) {
+
+            jQuery.ajax({
+                type: "POST",
+                url: "/services/pageService.asmx/download",
+                data: downloadData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: SaveJQ.OnDownloadSuccess,
+                error: SaveJQ.OnDownloadError
+            });
+        }
+
+        public static OnDownloadSuccess(data, status) {
+
+            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+            if ((data.d.Error == "" || data.d.Error == null) && data.d.Success == true) {
+                errorHandler.ActionSuccess("Download Started...<br> if download is not started click on this link <a class='download-site-link' href='" + data.d.Link + "' > download </a>");
+
+            }
+            else {
+                errorHandler.ActionFail("Unable to generate download link...");
+            }
+
+        }
+
+        public static OnDownloadError(request, status, error) {
+
+          var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+          errorHandler.ActionFail("Unable to generate download link...");
+
+        }
+
+
         public SavePage(saveData) {
         
            
@@ -25,14 +63,20 @@ export module Save {
         public static OnSaveSuccess(data, status) {
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-            if (data.Error != "") {
+            if (data.d.Error != "") {
                 errorHandler.ActionSuccess("Page saved");
+            }
+            else {
+                errorHandler.ActionFail("Save Failed! <br> Try again later.");
             }
             
         }
 
         public static OnSaveError(request, status, error) {
-            alert(error);
+            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+            errorHandler.ActionFail("Save Failed! <br> Try again later.");
+        
         }
 
 

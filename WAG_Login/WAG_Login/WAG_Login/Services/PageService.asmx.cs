@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -26,11 +27,11 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
     public class PageService : System.Web.Services.WebService
     {
         class SrcFiles
-        { 
+        {
             public string FolderPath;
-           public string fileName;
+            public string fileName;
             public string DestPath;
-            
+
         }
 
         [WebMethod]
@@ -45,7 +46,74 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public Data Download(string siteName)
         {
-            return new Data();
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    var entities = new WAG_Login_Page.WagPageEntities();
+
+                    var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+
+                    string random = GetRandomString();
+
+                    string startPath = Path.Combine(Server.MapPath("."), user.Id + "/" + siteName);
+                    string zipFileDir = Path.Combine(Server.MapPath("."), "../public_downloads/");
+                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + user.Id + "-" + random + "-" + siteName + ".zip");
+
+                    string internetZipPath = "/public_downloads/" + user.Id + "-" + random + "-" + siteName + ".zip";
+
+                    if (!Directory.Exists(zipFileDir))
+                    {
+                        Directory.CreateDirectory(zipFileDir);
+                    }
+
+                    Directory.GetFiles(zipFileDir)
+                     .Select(f => new FileInfo(f))
+                     .Where(f => f.LastAccessTime < DateTime.Now.AddHours(-1))
+                     .ToList()
+                     .ForEach(f => f.Delete());
+
+                    if (File.Exists(zipPath))
+                    {
+                        File.Delete(zipPath);
+                    }
+
+                    ZipFile.CreateFromDirectory(startPath, zipPath);
+
+                    return new Data { Success = true, Link = internetZipPath };
+                }
+                catch (Exception ex)
+                {
+                    return new Data { Success = false, Error = ex.Message };
+                }
+
+            }
+
+            return new Data { Success = false, Error = "" };
+        }
+
+
+        string GetRandomString()
+        {
+            try
+            {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[8];
+                var random = new Random();
+
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var finalString = new String(stringChars);
+
+                return finalString;
+            }
+            catch
+            {
+                return "NoCGen";
+            }
         }
 
         [WebMethod]
@@ -56,7 +124,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                  
+
                     string root = Server.MapPath(".");
 
                     var entities = new WAG_Login_Page.WagPageEntities();
@@ -101,12 +169,12 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                         jqPlus.fileName = "jqPlus.css";
                                         jqPlus.FolderPath = Path.Combine(Server.MapPath("."), "../");
                                         jqPlus.DestPath = Path.Combine(siteFolder, "Theme/");
-                                        
+
                                         SrcFiles bootstrap = new SrcFiles();
                                         bootstrap.fileName = "bootstrap-customzed-48.min.css";
                                         bootstrap.FolderPath = Path.Combine(Server.MapPath("."), "../Content/bootstrap-3.3.5-dist/css/");
                                         bootstrap.DestPath = Path.Combine(siteFolder, "Bootstrap/");
-                                        
+
 
                                         List<SrcFiles> copy = new List<SrcFiles>();
 
@@ -117,7 +185,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                         for (int i = 0; i < copy.Count(); i++)
                                         {
-                                            if (!File.Exists( Path.Combine(copy[i].DestPath ,copy[i].fileName)))
+                                            if (!File.Exists(Path.Combine(copy[i].DestPath, copy[i].fileName)))
                                             {
                                                 if (!Directory.Exists(copy[i].DestPath))
                                                 {
@@ -197,12 +265,12 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                                 }
                                             }
                                         }
-                                        catch(Exception ex)
+                                        catch (Exception ex)
                                         {
 
                                         }
                                         ////////////////////////////////////////////////////
-                                       
+
                                         string pageText = "";
 
                                         pageText = Obj.scripts.ToString();
@@ -215,14 +283,14 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                         return new Data { Success = true };
                                     }
-                                    catch(Exception ex)
+                                    catch (Exception ex)
                                     {
                                         return new Data { Success = false, ExceptionError = ex.Message };
                                     }
                                 }
                                 else
                                 {
-                                    return new Data { Success = false, Error="Page Does Not Exist" };
+                                    return new Data { Success = false, Error = "Page Does Not Exist" };
                                 }
                             }
                         }
@@ -252,16 +320,16 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                 var entities = new WagPageEntities();
 
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
- 
-                if( user!= null)
+
+                if (user != null)
                 {
                     var sites = entities.Sites.Where(i => i.UserId == user.Id);
 
-                    if( sites != null && sites.Count() > 0)
+                    if (sites != null && sites.Count() > 0)
                     {
-                        foreach(var site in sites)
+                        foreach (var site in sites)
                         {
-                            siteData.Add(new Data { Name=site.SiteName });
+                            siteData.Add(new Data { Name = site.SiteName });
                         }
                     }
 
@@ -297,7 +365,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                             foreach (var page in pages)
                             {
                                 string isFirstTime = page.IsFirstTime == "true" ? "?f=new" : "";
-                                pageData.Add(new Data { Name = page.PageName , Link = page.PageName + isFirstTime });
+                                pageData.Add(new Data { Name = page.PageName, Link = page.PageName + isFirstTime });
                             }
                         }
 
@@ -305,9 +373,9 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
             }
 
             return pageData;
@@ -322,11 +390,11 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                 string root = Server.MapPath(".");
 
                 var entities = new WAG_Login_Page.WagPageEntities();
-              
+
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
                 var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
 
-                if(site != null)
+                if (site != null)
                 {
                     return new Data { Error = "Site Name already exists.<br>Choose another Name." };
                 }
@@ -357,10 +425,10 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                 return new Data { Success = true };
                             }
-                            catch(Exception ex)
+                            catch (Exception ex)
                             {
-                              
-                                return new Data { Success = false, Error="" , ExceptionError = ex.Message };
+
+                                return new Data { Success = false, Error = "", ExceptionError = ex.Message };
                             }
                         }
                     }
@@ -385,14 +453,14 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                 var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
                 var pageE = entities.Pages.Where(i => i.SiteId == site.Id && i.PageName == pageName);
 
-                if(site == null)
+                if (site == null)
                 {
                     return new Data { Error = "Please create [Site] first." };
                 }
 
-                if(pageE.Count()>0)
+                if (pageE.Count() > 0)
                 {
-                    return new Data { Error="Page Name already exists.<br>Choose another Name." };
+                    return new Data { Error = "Page Name already exists.<br>Choose another Name." };
                 }
 
                 if (user != null)
@@ -414,11 +482,11 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                 if (!File.Exists(page))
                                 {
                                     FileStream str = File.Create(page);
-                                   
+
                                     var pageToCreate = new WAG_Login_Page.Page();
 
                                     pageToCreate.SiteId = site.Id;
-                                    pageToCreate.PageName = pageName ;
+                                    pageToCreate.PageName = pageName;
                                     pageToCreate.IsFirstTime = "true";
 
                                     entities.Pages.Add(pageToCreate);
