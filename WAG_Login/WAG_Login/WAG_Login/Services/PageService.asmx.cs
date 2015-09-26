@@ -54,14 +54,14 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
-                    string random = GetRandomString();
-                    string random2 = GetRandomString();
+                    string random = GetRandomString(3);
+                    string random2 = GetRandomString(6);
 
                     string startPath = Path.Combine(Server.MapPath("."), user.Id + "/" + siteName);
                     string zipFileDir = Path.Combine(Server.MapPath("."), "../public_downloads/");
-                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random + user.Id.Replace("-","") + "-" + random2 + "-" + siteName + ".zip");
+                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random +  "1n1" + user.Id.Replace("-","") + "k4" + random2 + "-" + siteName + ".zip");
 
-                    string internetZipPath = "/public_downloads/" + random + user.Id.Replace("-", "") + "-" + random2 + "-" + siteName + ".zip";
+                    string internetZipPath = "/public_downloads/" + random + "1n1" + user.Id.Replace("-", "") + "k4" + random2 + "-" + siteName + ".zip";
 
                     if (!Directory.Exists(zipFileDir))
                     {
@@ -93,14 +93,15 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             return new Data { Success = false, Error = "" };
         }
 
+        Random random = new Random();
 
-        string GetRandomString()
+        string GetRandomString(int length)
         {
             try
             {
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                var stringChars = new char[4];
-                var random = new Random();
+                var stringChars = new char[length];
+              
 
                 for (int i = 0; i < stringChars.Length; i++)
                 {
