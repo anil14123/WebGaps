@@ -16,77 +16,88 @@
             display: block;
         }
 
-        .menu-item-root{
-            display:block;
+        .menu-item-root {
+            display: block;
+        }
+
+        .up {
+            height: 1px;
+        }
+
+        .down {
+            height: 1px;
         }
 
         .mouseover {
             border: 2px dotted grey;
+            height: 15px;
+        }
+
+        .menu-manager {
+            cursor: move;
         }
     </style>
 
     <script>
 
         var droppedOnElement;
-        var droppedOnElementLi;
-
+        var draggingElement;
+        var startPos;
         jQuery(document).ready(function () {
 
-            jQuery(".menu-manager .menu-item").draggable();
+            jQuery(".menu-manager .menu-item").draggable({
 
-            jQuery(".menu-manager .menu-item").droppable({
-                revert: true,
-                drop: function (event, ui) {
+                start: function (event, ui) {
+                    startPos = ui.helper.position();
+                    draggingElement = ui.helper;
+                },
+                drag: function (event, ui) {
+                    
+                    if (
+                        (ui.offset.top >= startPos.top - 4)
+                        &&
+                        (ui.offset.top <= startPos.top + 4)
+                        &&
+                       ui.offset.left >= startPos.left + 10)
+                    {
+                        console.log("offset " + ui.offset.top);
+                        console.log("start " + startPos.top);
+                    }
+                  
+                }
 
-                    if (droppedOnElement.hasClass("menu-item-root")) {
-                        var draggable = jQuery(ui.draggable);
+            }
+           );
 
-                        var removeableLi = jQuery(ui.draggable).parent();
-                        draggable.css("left", "0");
-                        draggable.css("top", "0");
+            jQuery(".menu-manager").mouseup(function (e) {
 
-                        draggable = draggable.wrap("<li>").parent();
-                      
-                        jQuery(".menu-item-root").parent().parent().append(draggable);
+                jQuery(".menu-manager .up").removeClass("mouseover");
+                jQuery(".menu-manager .down").removeClass("mouseover");
 
-                        if (removeableLi.parent().children("li").length == 0) {
-                            removeableLi.parent().remove();
-                        }
-                        else {
-                            removeableLi.remove();
-                        }
+                var draggable = draggingElement;
+
+                draggable.css("left", "0");
+                draggable.css("top", "0");
+
+                draggable = draggable.parent();
+
+                if (droppedOnElement != undefined) {
+
+                    if (droppedOnElement.hasClass("down")) {
+                        droppedOnElement.parent().after(draggable);
                     }
                     else {
-                        jQuery(".menu-manager .menu-item").removeClass("mouseover");
-
-                        var helper = jQuery(ui.helper);
-
-                        var draggable = jQuery(ui.draggable);
-
-                        var removeableLi = jQuery(ui.draggable).parent();
-
-                        draggable.css("left", "0");
-                        draggable.css("top", "0");
-
-                        if (droppedOnElement.parent().children("ul").length == 0) {
-                            var ul = jQuery(document.createElement("ul"));
-
-                            droppedOnElement.parent().append(ul)
-                        }
-
-                        draggable = draggable.wrap("<li>").parent();
-
-
-                        if (droppedOnElement != undefined)
-                            droppedOnElement.parent().children("ul").first().append(draggable);
-
-                        if (removeableLi.parent().children("li").length == 0) {
-                            removeableLi.parent().remove();
-                        }
-                        else {
-                            removeableLi.remove();
-                        }
+                        droppedOnElement.parent().before(draggable);
                     }
+                }
+
+            })
+
+
+            jQuery(".menu-manager .down").droppable({
+
+                drop: function (event, ui) {
+
                 },
                 out: function (event, ui) {
 
@@ -95,11 +106,76 @@
 
                     var target = jQuery(event.target);
 
-                    droppedOnElement = target;
+                    if (target.hasClass("up") || target.hasClass("down")) {
+                        droppedOnElement = target;
+                    }
 
-                    jQuery(".menu-manager .menu-item").removeClass("mouseover");
+                    jQuery(".menu-manager .down").removeClass("mouseover");
+                    jQuery(".menu-manager .up").removeClass("mouseover");
 
                     target.addClass("mouseover");
+                }
+
+            });
+
+            jQuery(".menu-manager .up").droppable({
+
+                drop: function (event, ui) {
+
+                },
+                out: function (event, ui) {
+
+                },
+                over: function (event, ui) {
+
+                    var target = jQuery(event.target);
+
+                    if (target.hasClass("up") || target.hasClass("down")) {
+                        droppedOnElement = target;
+                    }
+
+                    jQuery(".menu-manager .down").removeClass("mouseover");
+                    jQuery(".menu-manager .up").removeClass("mouseover");
+
+                    target.addClass("mouseover");
+                }
+
+            });
+
+            jQuery(".menu-manager .menu-item").droppable({
+
+                drop: function (event, ui) {
+
+                    jQuery(".menu-manager .up").removeClass("mouseover");
+                    jQuery(".menu-manager .down").removeClass("mouseover");
+
+                    var helper = jQuery(ui.helper);
+
+                    var draggable = jQuery(ui.draggable);
+
+                    var removeableLi = jQuery(ui.draggable).parent();
+
+                    draggable.css("left", "0");
+                    draggable.css("top", "0");
+
+                    draggable = draggable.parent();
+
+                    if (droppedOnElement != undefined) {
+
+                        if (droppedOnElement.hasClass("down")) {
+                            droppedOnElement.parent().after(draggable);
+                        }
+                        else {
+                            droppedOnElement.parent().before(draggable);
+                        }
+                    }
+
+                },
+                out: function (event, ui) {
+
+                },
+                over: function (event, ui) {
+
                 }
 
             });
@@ -107,7 +183,83 @@
 
         });
 
+
+        /* jQuery(".menu-manager .menu-item").droppable({
+              revert: true,
+              drop: function (event, ui) {
+                  if (droppedOnElement.hasClass("menu-item-root")) {
+                      var draggable = jQuery(ui.draggable);
+                      var removeableLi = jQuery(ui.draggable).parent();
+                      draggable.css("left", "0");
+                      draggable.css("top", "0");
+
+                      draggable = draggable.wrap("<li>").parent();
+
+                      jQuery(".menu-item-root").parent().parent().append(draggable);
+
+                      if (removeableLi.parent().children("li").length == 0) {
+                          removeableLi.parent().remove();
+                      }
+                      else {
+                          removeableLi.remove();
+                      }
+                  }
+                  else {
+                      jQuery(".menu-manager .menu-item").removeClass("mouseover");
+
+                      var helper = jQuery(ui.helper);
+
+                      var draggable = jQuery(ui.draggable);
+
+                      var removeableLi = jQuery(ui.draggable).parent();
+
+                      draggable.css("left", "0");
+                      draggable.css("top", "0");
+
+                      if (droppedOnElement.parent().children("ul").length == 0) {
+                          var ul = jQuery(document.createElement("ul"));
+
+                          droppedOnElement.parent().append(ul)
+                      }
+
+                      draggable = draggable.wrap("<li>").parent();
+
+
+                      if (droppedOnElement != undefined)
+                          droppedOnElement.parent().children("ul").first().append(draggable);
+
+                      if (removeableLi.parent().children("li").length == 0) {
+                          removeableLi.parent().remove();
+                      }
+                      else {
+                          removeableLi.remove();
+                      }
+                  }
+              },
+              out: function (event, ui) {
+
+              },
+              over: function (event, ui) {
+
+                  var target = jQuery(event.target);
+
+                  droppedOnElement = target;
+
+                  jQuery(".menu-manager .menu-item").removeClass("mouseover");
+
+                  target.addClass("mouseover");
+              }
+
+          });
+
+          */
+
+
     </script>
+
+    <style>
+
+    </style>
 
 </head>
 
@@ -123,19 +275,29 @@
                 <span class="menu-item-root menu-item">Drag Root Elements Here </span>
             </li>
             <li>
+                <div class="up"></div>
                 <span class="menu-item"> menu item 1</span>
+                <div class="down"></div>
             </li>
             <li>
+                <div class="up"></div>
                 <span class="menu-item"> menu item 2</span>
+                <div class="down"></div>
             </li>
             <li>
+                <div class="up"></div>
                 <span class="menu-item"> menu item 3</span>
+                <div class="down"></div>
             </li>
             <li>
+                <div class="up"></div>
                 <span class="menu-item"> menu item 4</span>
+                <div class="down"></div>
             </li>
             <li>
+                <div class="up"></div>
                 <span class="menu-item"> menu item 5</span>
+                <div class="down"></div>
             </li>
         </ul>
 
