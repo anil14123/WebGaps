@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="app.js"></script>
+    <script src="Scripts/jquery-1.11.1.js"></script>
+    <script src="Scripts/jquery-ui-1.11.1.js"></script>
+    <style>
+        .plus, .menu-item-name {
+        }
+
+        .menu-item {
+            display: block;
+        }
+
+        .menu-item-root{
+            display:block;
+        }
+
+        .mouseover {
+            border: 2px dotted grey;
+        }
+    </style>
+
+    <script>
+
+        var droppedOnElement;
+        var droppedOnElementLi;
+
+        jQuery(document).ready(function () {
+
+            jQuery(".menu-manager .menu-item").draggable();
+
+            jQuery(".menu-manager .menu-item").droppable({
+                revert: true,
+                drop: function (event, ui) {
+
+                    if (droppedOnElement.hasClass("menu-item-root")) {
+                        var draggable = jQuery(ui.draggable);
+
+                        var removeableLi = jQuery(ui.draggable).parent();
+                        draggable.css("left", "0");
+                        draggable.css("top", "0");
+
+                        draggable = draggable.wrap("<li>").parent();
+                      
+                        jQuery(".menu-item-root").parent().parent().append(draggable);
+
+                        if (removeableLi.parent().children("li").length == 0) {
+                            removeableLi.parent().remove();
+                        }
+                        else {
+                            removeableLi.remove();
+                        }
+                    }
+                    else {
+                        jQuery(".menu-manager .menu-item").removeClass("mouseover");
+
+                        var helper = jQuery(ui.helper);
+
+                        var draggable = jQuery(ui.draggable);
+
+                        var removeableLi = jQuery(ui.draggable).parent();
+
+                        draggable.css("left", "0");
+                        draggable.css("top", "0");
+
+                        if (droppedOnElement.parent().children("ul").length == 0) {
+                            var ul = jQuery(document.createElement("ul"));
+
+                            droppedOnElement.parent().append(ul)
+                        }
+
+                        draggable = draggable.wrap("<li>").parent();
+
+
+                        if (droppedOnElement != undefined)
+                            droppedOnElement.parent().children("ul").first().append(draggable);
+
+                        if (removeableLi.parent().children("li").length == 0) {
+                            removeableLi.parent().remove();
+                        }
+                        else {
+                            removeableLi.remove();
+                        }
+                    }
+                },
+                out: function (event, ui) {
+
+                },
+                over: function (event, ui) {
+
+                    var target = jQuery(event.target);
+
+                    droppedOnElement = target;
+
+                    jQuery(".menu-manager .menu-item").removeClass("mouseover");
+
+                    target.addClass("mouseover");
+                }
+
+            });
+
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <h1>Menu Manager App</h1>
+
+    <div id="content"></div>
+
+    <div class="menu-manager">
+
+        <ul>
+            <li>
+                <span class="menu-item-root menu-item">Drag Root Elements Here </span>
+            </li>
+            <li>
+                <span class="menu-item"> menu item 1</span>
+            </li>
+            <li>
+                <span class="menu-item"> menu item 2</span>
+            </li>
+            <li>
+                <span class="menu-item"> menu item 3</span>
+            </li>
+            <li>
+                <span class="menu-item"> menu item 4</span>
+            </li>
+            <li>
+                <span class="menu-item"> menu item 5</span>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+</html>
