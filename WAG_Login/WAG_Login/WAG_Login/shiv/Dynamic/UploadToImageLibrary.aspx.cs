@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,6 +20,31 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
           
         }
 
+        Random random = new Random();
+
+        string GetRandomString(int length)
+        {
+            try
+            {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[length];
+
+
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var finalString = new String(stringChars);
+
+                return finalString;
+            }
+            catch
+            {
+                return "NoCGen";
+            }
+        }
+
         protected void BtnUpload_Click(object sender, EventArgs e)
         {
             try
@@ -28,6 +54,8 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
                 {
                     string ext = System.IO.Path.GetExtension(this.myFileUpload.PostedFile.FileName).ToLower();
 
+                   string fileName = Path.GetFileName(this.myFileUpload.PostedFile.FileName);
+
                     if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
                     {
                         result.Text = "Not a valid image.";
@@ -36,11 +64,26 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
                         return;
                     }
 
-                    string savePath = GetUserImagesPath() + myFileUpload.FileName;
+                    fileName = GetRandomString(8) + fileName;
+
+                    int i = 0;
+
+                    while (File.Exists(GetUserImagesPath() + fileName))
+                    {
+                        i++;
+
+                        fileName = GetRandomString(5) + fileName;
+                        if (i == 4)
+                        {
+                            break;
+                        }
+                    }
+
+                    string savePath = GetUserImagesPath() + fileName;
 
                     myFileUpload.SaveAs(savePath);
 
-                    uploadedImage.ImageUrl = "../iimages/" + myFileUpload.FileName;
+                    uploadedImage.ImageUrl = "../iimages/" + fileName;
 
                     result.Text = "Image Uploaded.";
                     result.CssClass = "success";

@@ -318,14 +318,14 @@ controls {
 }
 
 .success-notify-background {
-    background-color: yellowgreen;
+    background-color: #7eb707;
 }
 
 .yellow-notify-background {
     padding: 10px;
-    background-color: #d6e421;
-    color:black;
-    font-family:'Comic Sans MS';
+    background-color: #0cc74d;
+    color:white;
+    /*font-family:'Comic Sans MS';*/
     margin:-10px;
 }
 
@@ -333,7 +333,7 @@ controls {
     padding: 10px;
     background-color: #2dc302;
     color:black;
-    font-family:'Comic Sans MS';
+    /*font-family:'Comic Sans MS';*/
      margin:-10px;
 }
 
