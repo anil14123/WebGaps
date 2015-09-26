@@ -55,12 +55,13 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
                     string random = GetRandomString();
+                    string random2 = GetRandomString();
 
                     string startPath = Path.Combine(Server.MapPath("."), user.Id + "/" + siteName);
                     string zipFileDir = Path.Combine(Server.MapPath("."), "../public_downloads/");
-                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + user.Id + "-" + random + "-" + siteName + ".zip");
+                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random + user.Id.Replace("-","") + "-" + random2 + "-" + siteName + ".zip");
 
-                    string internetZipPath = "/public_downloads/" + user.Id + "-" + random + "-" + siteName + ".zip";
+                    string internetZipPath = "/public_downloads/" + random + user.Id.Replace("-", "") + "-" + random2 + "-" + siteName + ".zip";
 
                     if (!Directory.Exists(zipFileDir))
                     {
@@ -98,7 +99,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             try
             {
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                var stringChars = new char[8];
+                var stringChars = new char[4];
                 var random = new Random();
 
                 for (int i = 0; i < stringChars.Length; i++)
