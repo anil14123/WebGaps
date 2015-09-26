@@ -40,17 +40,23 @@ export module Html {
                     var htmlObj = jQuery(document.createElement("div"));
 
                     htmlObj.css("float", "left");
-                    htmlObj.addClass("key");
+                    htmlObj.addClass("key empty-container design-empty-css");
+                    htmlObj.css("height", "100px");
 
                     htmlObj.append(jQuery.parseHTML(html, document, true));
 
                     var innerHtml = jQuery(htmlObj).html();
 
                     selectedElement.append(htmlObj);
+
+                    var undo = new impUndoManager.Manager.UndoManager();
+
+                    undo.BeforeOperation();
+
+                    impCommonCode.ControlCommon.Code.Execute();
                 }
 
                 jQuery("#control-insert-html").hide();
-
             });
         }
 

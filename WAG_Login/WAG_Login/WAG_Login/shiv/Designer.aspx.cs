@@ -91,7 +91,7 @@ namespace WebAppGoTypeScript_X_Modulerization
             DateTime now = DateTime.Now;
 
             myCookie.Value = CookieValue;
-           
+
             string key = EDC2.EDC.Key;
 
             myCookie2.Value = "Ae343efDDgA/dDFEFAadA4dD/AeD=ADDED/D====";
@@ -99,7 +99,7 @@ namespace WebAppGoTypeScript_X_Modulerization
             // Add the cookie.
             myCookie.Expires = authCookie.Expires;
             myCookie2.Expires = authCookie.Expires;
-            
+
             Response.Cookies.Add(myCookie);
             Response.Cookies.Add(myCookie2);
 
@@ -111,6 +111,14 @@ namespace WebAppGoTypeScript_X_Modulerization
             {
                 SiteId = user.Id;
             }
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.AppendCacheExtension("no-store, must-revalidate");
+            Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);
+            Response.AppendHeader("Pragma", "no-cache");
+            Response.AppendHeader("Expires", "0");
+            Response.Cache.SetNoServerCaching();
+            Response.Buffer = true;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

@@ -17,6 +17,7 @@ namespace WAG_Login_Page.shiv
         protected void Page_Load(object sender, EventArgs e)
         {
             SiteName = Request.QueryString["SiteName"];
+
         }
     }
 }

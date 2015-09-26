@@ -40,6 +40,14 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             return "Hello World";
         }
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public Data Download(string siteName)
+        {
+            return new Data();
+        }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public Data SavePage(Save Obj, string siteName, string pageName)

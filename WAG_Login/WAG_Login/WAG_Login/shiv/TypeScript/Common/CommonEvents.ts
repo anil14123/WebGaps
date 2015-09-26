@@ -170,7 +170,10 @@ export module Common {
                 var page = jQuery(document.createElement("page"))
 
                 var styleSheetExtra =
-
+                    "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
+                    "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />"  +
+                    "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" + 
+                    "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
                     " <style> " +
                     " .jq-plus-element { display:none !important; } " +
                     " .jq-row-plus-container { display:none !important; } " +
@@ -192,7 +195,7 @@ export module Common {
 
                     if (jQuery(this).prop("tagName") == "PAGE") {
                         page.append($(this).clone());
-                        page.append(styleSheetExtra);
+                        page.prepend(styleSheetExtra);
                     }
 
                 });

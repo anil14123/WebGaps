@@ -69,7 +69,13 @@ namespace WAG_Login
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.AppendCacheExtension("no-store, must-revalidate");
+            Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);
+            Response.AppendHeader("Pragma", "no-cache");
+            Response.AppendHeader("Expires", "0");
+            Response.Cache.SetNoServerCaching();
+            Response.Buffer = true;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
