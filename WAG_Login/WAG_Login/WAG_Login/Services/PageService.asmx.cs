@@ -248,7 +248,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                                     string imagePath = mImg.Groups[1].Value.Trim().Replace("'", "").Replace("\"", "");
 
 
-                                                    if (imagePath != null)
+                                                    if (imagePath != null && imagePath.Trim() != "")
                                                     {
                                                         //"/Content/Images/User_1/12.png"
 
@@ -262,7 +262,14 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                                         string destFileFullPath = Path.Combine(siteFolder, destPath);
 
-                                                        File.Copy(srcImage, destFileFullPath, true);
+                                                        try {
+
+                                                            File.Copy(srcImage, destFileFullPath, true);
+                                                        }
+                                                        catch(Exception ex)
+                                                        {
+
+                                                        }
                                                     }
                                                 }
                                             }
