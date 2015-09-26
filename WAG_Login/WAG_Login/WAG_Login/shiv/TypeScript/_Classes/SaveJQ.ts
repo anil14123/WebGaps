@@ -28,7 +28,7 @@ export module Save {
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
             if ((data.d.Error == "" || data.d.Error == null) && data.d.Success == true) {
-                errorHandler.ActionSuccess("Download Started...<br> if download is not started click on this link <a class='download-site-link' href='" + data.d.Link + "' > download </a>");
+                errorHandler.ActionSuccess("Download link : <a class='download-site-link' href='" + data.d.Link + "' > click here </a>");
 
             }
             else {
