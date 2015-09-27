@@ -171,7 +171,7 @@ export module Link {
 
                     jQuery("page a").not(".jq-logout").unbind("click");
                     jQuery("page a").not(".jq-logout").click(function () {
-                        return false;
+                        impCommonCode.ControlCommon.Code.AnchorClicked = true;
                     });
 
                     impCommonCode.ControlCommon.Code.Execute();

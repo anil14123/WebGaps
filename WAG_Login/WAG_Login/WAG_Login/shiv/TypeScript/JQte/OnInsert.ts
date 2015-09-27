@@ -2,7 +2,7 @@
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
-
+import impCommonCode = require("../Controls/ControlCommonJQ");
 
 var changed = false;
 export module OnInsert {
@@ -10,13 +10,13 @@ export module OnInsert {
     export class Code {
 
         public static BackPassed = false;
-
+        
 
         public Init() {
 
             jQuery("page a").not(".jq-logout").unbind("click");
             jQuery("page a").not(".jq-logout").click(function () {
-                return false;
+                impCommonCode.ControlCommon.Code.AnchorClicked = true;
             });
 
             jQuery("page .jqte-editor").unbind("click");
@@ -100,7 +100,16 @@ export module OnInsert {
 
                 /////////////////
 
-       
+                if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
+
+                    impCommonCode.ControlCommon.Code.AnchorClicked = false;
+
+                    if (e.cancelBubble != null) e.cancelBubble = true;
+                    if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                    if (e.preventDefault) e.preventDefault();
+                    if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                    return false;
+                }
 
 
             });

@@ -13,6 +13,8 @@ import impCtxMenu = require("../ContextMenu/Contextmenujq");
 import impBi = require("../controls/bijq");
 import impOnInsert = require("../JQte/OnInsert");
 import impmal = require("../MalFormed/MalFormedJQ");
+import impCommonCode = require("../Controls/ControlCommonJQ");
+
 var G_isAttachedWatch = false;
 
 var isWatchReady = false;
@@ -28,7 +30,7 @@ export module Watch {
             if (jQuery(".removable-row").length > 0) {
                 jQuery(".removable-row").removeClass("removable-row");
                 jQuery(".columns-pending").removeClass("columns-pending");
-                MouseJQ.selectedElement = undefined;
+                MouseJQ.selectedElement = jQuery("#nononoelement");
             }
 
             if (MouseJQ.selectedElement == undefined) {
@@ -37,12 +39,12 @@ export module Watch {
             }
         }
 
-       
+
 
         public static ProcessClick(e) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
-            if (jQuery(".close-preview").css("display") == "none" ) {
+            if (jQuery(".close-preview").css("display") == "none") {
 
                 if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
                     return;
@@ -141,6 +143,8 @@ export module Watch {
                         MouseJQ.selectedElement.addClass("image-selection");
 
                 }
+
+
             }
 
         }
@@ -170,6 +174,17 @@ export module Watch {
                     jQuery("page").click(function (e: JQueryMouseEventObject) {
 
                         MouseJQ.ProcessClick(e);
+
+                        if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
+
+                            impCommonCode.ControlCommon.Code.AnchorClicked = false;
+
+                            if (e.cancelBubble != null) e.cancelBubble = true;
+                            if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                            if (e.preventDefault) e.preventDefault();
+                            if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                            return false;
+                        }
                     })
 
                     jQuery("input").keydown(function (e) {

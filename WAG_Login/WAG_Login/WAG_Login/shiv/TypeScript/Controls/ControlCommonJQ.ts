@@ -9,6 +9,8 @@ export module ControlCommon {
 
     export class Code {
 
+        public static AnchorClicked = false;
+
         public static Execute() {
 
             impOn.On.Code.Execute();
