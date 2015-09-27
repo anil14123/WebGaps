@@ -212,7 +212,7 @@ export module Link {
                 //url = jQuery(".input-current-location").val() + "/"
                 //+ jQuery(".input-site-id").val() + "/"
                 //+ jQuery(".input-site-name").val() + "/" +
-                url = jQuery(".insert-link-links").find('option:selected').val()
+                url = jQuery(".insert-link-links").find('option:selected').val();
             }
 
             var btnStyle = jQuery(".btn-style-selected").attr("btn-style");
