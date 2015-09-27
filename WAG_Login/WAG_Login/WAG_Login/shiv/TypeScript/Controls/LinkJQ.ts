@@ -209,10 +209,10 @@ export module Link {
             var link;
 
             if (url == undefined) {
-                url = jQuery(".input-current-location").val() + "/"
-                + jQuery(".input-site-id").val() + "/"
-                + jQuery(".input-site-name").val() + "/"
-                + jQuery(".insert-link-links").find('option:selected').val()
+                //url = jQuery(".input-current-location").val() + "/"
+                //+ jQuery(".input-site-id").val() + "/"
+                //+ jQuery(".input-site-name").val() + "/" +
+                url = jQuery(".insert-link-links").find('option:selected').val()
             }
 
             var btnStyle = jQuery(".btn-style-selected").attr("btn-style");

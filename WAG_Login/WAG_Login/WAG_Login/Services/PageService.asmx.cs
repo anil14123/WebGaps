@@ -59,7 +59,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                     string startPath = Path.Combine(Server.MapPath("."), user.Id + "/" + siteName);
                     string zipFileDir = Path.Combine(Server.MapPath("."), "../public_downloads/");
-                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random +  "1n1" + user.Id.Replace("-","") + "k4" + random2 + "-" + siteName + ".zip");
+                    string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random + "1n1" + user.Id.Replace("-", "") + "k4" + random2 + "-" + siteName + ".zip");
 
                     string internetZipPath = "/public_downloads/" + random + "1n1" + user.Id.Replace("-", "") + "k4" + random2 + "-" + siteName + ".zip";
 
@@ -101,7 +101,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                 var stringChars = new char[length];
-              
+
 
                 for (int i = 0; i < stringChars.Length; i++)
                 {
@@ -187,18 +187,17 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                         for (int i = 0; i < copy.Count(); i++)
                                         {
-                                            if (!File.Exists(Path.Combine(copy[i].DestPath, copy[i].fileName)))
+
+                                            if (!Directory.Exists(copy[i].DestPath))
                                             {
-                                                if (!Directory.Exists(copy[i].DestPath))
-                                                {
-                                                    Directory.CreateDirectory(copy[i].DestPath);
-                                                }
-
-                                                string sourcePath = Path.Combine(copy[i].FolderPath, copy[i].fileName);
-                                                string targetPath = Path.Combine(copy[i].DestPath, copy[i].fileName);
-
-                                                File.Copy(sourcePath, targetPath, true);
+                                                Directory.CreateDirectory(copy[i].DestPath);
                                             }
+
+                                            string sourcePath = Path.Combine(copy[i].FolderPath, copy[i].fileName);
+                                            string targetPath = Path.Combine(copy[i].DestPath, copy[i].fileName);
+
+                                            File.Copy(sourcePath, targetPath, true);
+
                                         }
 
                                         ///////////////////// theme file //////////////////
@@ -262,11 +261,12 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                                         string destFileFullPath = Path.Combine(siteFolder, destPath);
 
-                                                        try {
+                                                        try
+                                                        {
 
                                                             File.Copy(srcImage, destFileFullPath, true);
                                                         }
-                                                        catch(Exception ex)
+                                                        catch (Exception ex)
                                                         {
 
                                                         }
