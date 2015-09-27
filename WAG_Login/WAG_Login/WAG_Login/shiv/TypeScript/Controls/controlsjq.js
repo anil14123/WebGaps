@@ -180,27 +180,32 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                     //alert(colsClasses);
                     var ctx = new impPageCtx.Page.ContextJQ();
                     var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement; //  jQuery("#rows-columns option:selected").val();
-                    var adjustRow = new impCss.CssClass.AdjustJQ();
-                    var adjustColumn = new impCss.CssClass.AdjustJQ();
-                    //adjustRow.height = jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).val();
-                    adjustColumn.height = jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).val();
-                    if (selectedRowOrColumn.hasClass("empty-container")) {
-                        adjustColumn.height = adjustRow.height;
+                    if (selectedRowOrColumn != undefined) {
+                        var adjustRow = new impCss.CssClass.AdjustJQ();
+                        var adjustColumn = new impCss.CssClass.AdjustJQ();
+                        //adjustRow.height = jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).val();
+                        adjustColumn.height = jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).val();
+                        if (selectedRowOrColumn.hasClass("empty-container")) {
+                            adjustColumn.height = adjustRow.height;
+                        }
+                        var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
+                        jQuery(".removable-row").remove();
+                        AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
+                        AddRowJQ.addedRow.addClass("removable-row");
+                        AddRowJQ.addedRow.children(".column").addClass("columns-pending");
+                        // debug-row-ss
+                        //selectedRowOrColumn.find(".debug-row-css[scopeId=" + rowOrColumnWithScopeId + "]").remove();
+                        //if (rowOrColumnWithScopeId != undefined) {
+                        //    selectedRowOrColumn.append('<span class="debug-row-css debug-css" scopeId="' + rowOrColumnWithScopeId + '" > ' + rowOrColumnWithScopeId + '</span>');
+                        //}
+                        errorHandler.ActionSuccess();
+                        //if (callBackLoadRowAndColumnNames != undefined) {
+                        //    callBackLoadRowAndColumnNames();
+                        //}
+                        if (jQuery(".jq-show-plus").css("display") != "none") {
+                            jQuery(".jq-row-plus-container").hide();
+                        }
                     }
-                    var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
-                    jQuery(".removable-row").remove();
-                    AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
-                    AddRowJQ.addedRow.addClass("removable-row");
-                    AddRowJQ.addedRow.children(".column").addClass("columns-pending");
-                    // debug-row-ss
-                    //selectedRowOrColumn.find(".debug-row-css[scopeId=" + rowOrColumnWithScopeId + "]").remove();
-                    //if (rowOrColumnWithScopeId != undefined) {
-                    //    selectedRowOrColumn.append('<span class="debug-row-css debug-css" scopeId="' + rowOrColumnWithScopeId + '" > ' + rowOrColumnWithScopeId + '</span>');
-                    //}
-                    errorHandler.ActionSuccess();
-                    //if (callBackLoadRowAndColumnNames != undefined) {
-                    //    callBackLoadRowAndColumnNames();
-                    //}
                 });
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).click(function (e, s) {
                     jQuery(".removable-row").removeClass("removable-row");

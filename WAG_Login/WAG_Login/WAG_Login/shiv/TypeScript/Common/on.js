@@ -1,4 +1,4 @@
-define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../watch/watchmousejq"], function (require, exports, impAny, impError, impWatch) {
+define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], function (require, exports, impAny, impWatch) {
     var On;
     (function (On) {
         var SmartObj = (function () {
@@ -20,9 +20,9 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../watch/wat
                 jQuery(".empty-container").unbind("click");
                 jQuery(".empty-container").on("click", function () {
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
-                    if (selectedElement.hasClass("empty-container")) {
-                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        errorHandler.ActionHelp("Help: You can add [Text] [Image] [Columns] here.");
+                    if (selectedElement != undefined) {
+                        if (selectedElement.hasClass("empty-container")) {
+                        }
                     }
                 });
             };

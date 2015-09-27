@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impError, impWatch, impUndoManager, impCommonCode) {
     var changed = false;
     var OnInsert;
     (function (OnInsert) {
@@ -6,6 +6,19 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
             function Code() {
             }
             Code.prototype.Init = function () {
+                jQuery("page a").not(".jq-logout").unbind("click");
+                jQuery("page a").not(".jq-logout").click(function () {
+                    impCommonCode.ControlCommon.Code.AnchorClicked = true;
+                });
+                jQuery("page .jqte-editor").unbind("click");
+                jQuery("page .jqte-editor").on("click", function () {
+                    jQuery(".jqte-editor").removeClass("current-editor-scope");
+                    jQuery(this).addClass("current-editor-scope");
+                });
+                jQuery("page .jqte-editor").unbind("keydown");
+                jQuery("page .jqte-editor").on("keydown", function () {
+                    Code.BackPassed = true;
+                });
                 jQuery("page .jqte-editor").unbind("keyup");
                 jQuery("page .jqte-editor").on("keyup", function () {
                     changed = true;
@@ -20,22 +33,25 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                 });
                 jQuery(".empty-container-text").unbind("click");
                 jQuery(".empty-container-text").on("click", function () {
-                    jQuery(".jqte-editor").removeClass("current-editor-scope");
-                    jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
+                    jQuery(".current-editor-scope").focus();
+                });
+                jQuery(".empty-container-image").unbind("dblclick");
+                jQuery(".empty-container-image").on("dblclick", function () {
+                    $(this).draggable({ disabled: true });
                 });
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
-                    jQuery("rootx").css("top", "90px");
-                    jQuery(".designer-top-row").css("height", "90px");
-                    jQuery("#notify").css("top", "90px");
+                    var topRowPx = "180px";
+                    var topNotifyPx = "105px";
+                    jQuery("rootx").css("top", topRowPx);
+                    jQuery(".designer-top-row").css("height", topRowPx);
+                    jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
-                    jQuery(".jqte-editor").removeClass("current-editor-scope");
-                    jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     errorHandler.ActionHelp("Press [Esc] once to stop editing");
                     $(this).draggable({ disabled: true });
-                    jQuery(this).find(".jqte-editor").focus();
-                    jQuery(this).find(".jqte-editor").css("cursor", "pointer");
+                    jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").css("cursor", "pointer");
                 });
                 jQuery("page").unbind("click");
                 jQuery("page").on("click", function (e) {
@@ -44,8 +60,21 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     jQuery("#contextMenu").hide(500); // To hide the context menu
                     jQuery("#smInsertNextPrev").hide(500);
                     /////////////////
+                    if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
+                        impCommonCode.ControlCommon.Code.AnchorClicked = false;
+                        if (e.cancelBubble != null)
+                            e.cancelBubble = true;
+                        if (e.stopPropagation)
+                            e.stopPropagation(); //e.stopPropagation works in Firefox.
+                        if (e.preventDefault)
+                            e.preventDefault();
+                        if (e.returnValue != null)
+                            e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                        return false;
+                    }
                 });
             };
+            Code.BackPassed = false;
             return Code;
         })();
         OnInsert.Code = Code;

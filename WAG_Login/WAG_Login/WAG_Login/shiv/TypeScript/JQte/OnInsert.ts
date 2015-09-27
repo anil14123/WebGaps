@@ -74,9 +74,12 @@ export module OnInsert {
             jQuery(".empty-container-text").on("dblclick",
                 function () {
 
-                    jQuery("rootx").css("top", "90px");
-                    jQuery(".designer-top-row").css("height", "90px");
-                    jQuery("#notify").css("top", "90px");
+                    var topRowPx = "180px";
+                    var topNotifyPx = "105px";
+
+                    jQuery("rootx").css("top", topRowPx);
+                    jQuery(".designer-top-row").css("height", topRowPx);
+                    jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
 
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();

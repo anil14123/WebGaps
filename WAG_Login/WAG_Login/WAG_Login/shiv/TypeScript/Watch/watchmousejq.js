@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/ControlsJQ", "../Controls/TextJQ", "../Controls/ImageJQ", "../Controls/FontJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../SmartMenu/SmartMenuJQ", "../Error/ErrorJQ", "../ContextMenu/Contextmenujq", "../controls/bijq"], function (require, exports, impCommon, impAddRow, impText, impImage, impFont, impBorder, impColor, impHeightWidth, impError, impCtxMenu, impBi) {
+define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/ControlsJQ", "../Controls/TextJQ", "../Controls/ImageJQ", "../Controls/FontJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../SmartMenu/SmartMenuJQ", "../Error/ErrorJQ", "../ContextMenu/Contextmenujq", "../controls/bijq", "../JQte/OnInsert", "../MalFormed/MalFormedJQ", "../Controls/ControlCommonJQ"], function (require, exports, impCommon, impAddRow, impText, impImage, impFont, impBorder, impColor, impHeightWidth, impError, impCtxMenu, impBi, impOnInsert, impmal, impCommonCode) {
     var G_isAttachedWatch = false;
     var isWatchReady = false;
     var Watch;
@@ -11,7 +11,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 if (jQuery(".removable-row").length > 0) {
                     jQuery(".removable-row").removeClass("removable-row");
                     jQuery(".columns-pending").removeClass("columns-pending");
-                    MouseJQ.selectedElement = undefined;
+                    MouseJQ.selectedElement = jQuery("#nononoelement");
                 }
                 if (MouseJQ.selectedElement == undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
@@ -21,6 +21,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             MouseJQ.ProcessClick = function (e) {
                 var common = new impCommon.Common.CommonMethodsJQ();
                 if (jQuery(".close-preview").css("display") == "none") {
+                    if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                        return;
+                    }
                     // for cursor...
                     //$(document).mousemove(function (e) {
                     //    if (e.target != undefined) {
@@ -112,13 +115,73 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         G_isAttachedWatch = true;
                         jQuery("page").click(function (e) {
                             MouseJQ.ProcessClick(e);
+                            if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
+                                impCommonCode.ControlCommon.Code.AnchorClicked = false;
+                                if (e.cancelBubble != null)
+                                    e.cancelBubble = true;
+                                if (e.stopPropagation)
+                                    e.stopPropagation(); //e.stopPropagation works in Firefox.
+                                if (e.preventDefault)
+                                    e.preventDefault();
+                                if (e.returnValue != null)
+                                    e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                                return false;
+                            }
+                        });
+                        jQuery("input").keydown(function (e) {
+                            var BACK = 8;
+                            if (e.which == BACK) {
+                                impOnInsert.OnInsert.Code.BackPassed = true;
+                            }
+                        });
+                        jQuery("textarea").keydown(function (e) {
+                            var BACK = 8;
+                            if (e.which == BACK) {
+                                impOnInsert.OnInsert.Code.BackPassed = true;
+                            }
+                        });
+                        jQuery(document).keydown(function (e) {
+                            var BACK = 8;
+                            if (e.which == BACK) {
+                                if (impOnInsert.OnInsert.Code.BackPassed == false) {
+                                    if (e.cancelBubble != null)
+                                        e.cancelBubble = true;
+                                    if (e.stopPropagation)
+                                        e.stopPropagation(); //e.stopPropagation works in Firefox.
+                                    if (e.preventDefault)
+                                        e.preventDefault();
+                                    if (e.returnValue != null)
+                                        e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                                    return false;
+                                }
+                                impOnInsert.OnInsert.Code.BackPassed = false;
+                            }
                         });
                         jQuery(document).keyup(function (e) {
                             var ESC = 27;
                             var ENTER = 13;
                             if (e.which === ESC) {
+                                /// for moving
+                                $(".empty-container-text").draggable({ disabled: false });
+                                $(".empty-container-image").draggable({ disabled: false });
+                                var topRowPx = "180px";
+                                var topNotifyPx = "105px";
+                                jQuery("rootx").css("top", topRowPx);
+                                jQuery(".designer-top-row").css("height", topRowPx);
+                                jQuery(".editor").hide();
+                                jQuery("#notify").css("top", topNotifyPx);
+                                jQuery("page .jqte-editor").css("cursor", "move");
+                                ////////////////////
                                 impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide();
-                                e.preventDefault();
+                                if (e.cancelBubble != null)
+                                    e.cancelBubble = true;
+                                if (e.stopPropagation)
+                                    e.stopPropagation(); //e.stopPropagation works in Firefox.
+                                if (e.preventDefault)
+                                    e.preventDefault();
+                                if (e.returnValue != null)
+                                    e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                                return false;
                             }
                         });
                     }
@@ -129,4 +192,4 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
         Watch.MouseJQ = MouseJQ;
     })(Watch = exports.Watch || (exports.Watch = {}));
 });
-//# sourceMappingURL=watchmousejq.js.map
+//# sourceMappingURL=WatchMouseJQ.js.map

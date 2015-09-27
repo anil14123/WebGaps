@@ -154,17 +154,19 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             var errorHandler = new impError.ErrorHandle.ErrorJQ();
                             var widthVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
                             var heightVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value");
-                            if (selectedElement.hasClass("column")) {
-                                SmartMenuJQ.ProcessColumnWidth(widthVal);
-                                selectedElement.css("min-height", heightVal + "px");
-                            }
-                            else {
-                                selectedElement.css("width", widthVal + "px");
-                                if (selectedElement.hasClass("row") || selectedElement.hasClass("column")) {
+                            if (selectedElement != undefined) {
+                                if (selectedElement.hasClass("column")) {
+                                    SmartMenuJQ.ProcessColumnWidth(widthVal);
                                     selectedElement.css("min-height", heightVal + "px");
                                 }
                                 else {
-                                    selectedElement.css("height", heightVal + "px");
+                                    selectedElement.css("width", widthVal + "px");
+                                    if (selectedElement.hasClass("row") || selectedElement.hasClass("column")) {
+                                        selectedElement.css("min-height", heightVal + "px");
+                                    }
+                                    else {
+                                        selectedElement.css("height", heightVal + "px");
+                                    }
                                 }
                             }
                         });
@@ -270,7 +272,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                 }
                             }
                             var xsSize = Number(selectedElement.attr("xs-column-size"));
-                            var newXsSize = xsSize + colXs - colXsTemp + emptyXsCount;
+                            // modified
+                            var newXsSize = xsSize + colXs - colXsTemp; // + emptyXsCount;
+                            // added
+                            if (colXs == colXsTemp) {
+                                newXsSize = newXsSize + colXsTemp;
+                            }
                             var allXs = 0;
                             selectedElement.parent().children(".column").each(function () {
                                 allXs += Number(jQuery(this).attr("xs-column-size"));

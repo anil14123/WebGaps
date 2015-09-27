@@ -38,31 +38,44 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 }
                 return false;
             };
+            // method need to be moved some where else
+            CopyPasteJQ.CreateLinkContainer = function () {
+                var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement == undefined) {
+                    selectedElement = jQuery("#nononoelement");
+                }
+                var container = jQuery(document.createElement("div"));
+                container.addClass("key empty-container links-container image-text-other");
+                selectedElement.append(container);
+                impCommonCode.ControlCommon.Code.Execute();
+            };
             CopyPasteJQ.Delete = function () {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                if (!(selectedElement.hasClass("jq-Header")
-                    ||
-                        selectedElement.hasClass("jq-MenuBar")
-                    ||
-                        selectedElement.hasClass("jq-Content")
-                    ||
-                        selectedElement.hasClass("jq-Footer"))) {
-                    if (selectedElement.hasClass("jq-image-block-image")) {
-                        selectedElement.closest(".jq-plus-container").remove();
-                    }
-                    else if (selectedElement.hasClass("jq-text-block")) {
-                        selectedElement.closest(".jq-plus-container").remove();
+                if (selectedElement != undefined) {
+                    if (!(selectedElement.hasClass("jq-Header")
+                        ||
+                            selectedElement.hasClass("jq-MenuBar")
+                        ||
+                            selectedElement.hasClass("jq-Content")
+                        ||
+                            selectedElement.hasClass("jq-Footer"))) {
+                        if (selectedElement.hasClass("jq-image-block-image")) {
+                            selectedElement.closest(".jq-plus-container").remove();
+                        }
+                        else if (selectedElement.hasClass("jq-text-block")) {
+                            selectedElement.closest(".jq-plus-container").remove();
+                        }
+                        else {
+                            selectedElement.remove();
+                        }
                     }
                     else {
-                        selectedElement.remove();
+                        selectedElement.hide();
                     }
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+                    undomanager.BeforeOperation();
                 }
-                else {
-                    selectedElement.hide();
-                }
-                var undomanager = new impUndoManager.Manager.UndoManager();
-                undomanager.BeforeOperation();
             };
             CopyPasteJQ.Cut = function () {
                 isCut = true;
@@ -121,48 +134,55 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     errorHandler.ActionFail("Please select and copy/cut a element.");
                     return;
                 }
-                if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
-                    if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
-                        CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
-                        if (isCut == true) {
-                            impCommonCode.ControlCommon.Code.DestroyResizable();
+                if (selecedElement != undefined) {
+                    if (selecedElement.hasClass("empty-container")
+                        || selecedElement.hasClass("empty-container-text")
+                        || selecedElement.hasClass("empty-container-image")
+                        || selecedElement.hasClass("column")) {
+                        if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
+                            CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
+                            if (isCut == true) {
+                                impCommonCode.ControlCommon.Code.DestroyResizable();
+                            }
+                            selecedElement.append(CopiedElement);
                         }
-                        selecedElement.append(CopiedElement);
+                        else {
+                            errorHandler.ActionFail("You can only cut and paste element in to same element.");
+                        }
+                        if (isCut == true) {
+                            CopiedElement = jQuery("#noelement--x");
+                        }
+                        impCommonCode.ControlCommon.Code.Execute();
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+                        undomanager.BeforeOperation();
+                        isCut = false;
                     }
                     else {
-                        errorHandler.ActionFail("You can only cut and paste element in to same element.");
+                        errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
                     }
-                    if (isCut == true) {
-                        CopiedElement = jQuery("#noelement--x");
-                    }
-                    impCommonCode.ControlCommon.Code.Execute();
-                    var undomanager = new impUndoManager.Manager.UndoManager();
-                    undomanager.BeforeOperation();
-                    isCut = false;
-                }
-                else {
-                    errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
                 }
             };
             CopyPasteJQ.PasteClipBoard = function () {
                 var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
-                    if (CopyPasteJQ.ClipBoardData.data != undefined
-                        &&
-                            CopyPasteJQ.ClipBoardData.data != "") {
-                        if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
-                            var clp = new impClipboard.ClipBoard.ClipBoardJQ();
-                            clp.InsertImage(CopyPasteJQ.ClipBoardData.data);
+                if (selecedElement != undefined) {
+                    if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
+                        if (CopyPasteJQ.ClipBoardData.data != undefined
+                            &&
+                                CopyPasteJQ.ClipBoardData.data != "") {
+                            if (CopyPasteJQ.IsImageUrl(CopyPasteJQ.ClipBoardData.data)) {
+                                var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                                clp.InsertImage(CopyPasteJQ.ClipBoardData.data);
+                            }
+                            else {
+                                var clp = new impClipboard.ClipBoard.ClipBoardJQ();
+                                clp.InsertText(CopyPasteJQ.ClipBoardData.data);
+                            }
                         }
-                        else {
-                            var clp = new impClipboard.ClipBoard.ClipBoardJQ();
-                            clp.InsertText(CopyPasteJQ.ClipBoardData.data);
-                        }
+                        impCommonCode.ControlCommon.Code.Execute();
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+                        undomanager.BeforeOperation();
                     }
-                    impCommonCode.ControlCommon.Code.Execute();
-                    var undomanager = new impUndoManager.Manager.UndoManager();
-                    undomanager.BeforeOperation();
                 }
                 else {
                     errorHandler.ActionFail("You can only paste element to a column and empty blocks.");

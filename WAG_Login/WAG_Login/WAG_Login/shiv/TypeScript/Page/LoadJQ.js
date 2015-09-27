@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ"], function (require, exports, impCommonCode, impUndoManager, impError) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth) {
     var Page;
     (function (Page) {
         var LoadJQ = (function () {
@@ -11,7 +11,8 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                     type: "GET",
                     cache: false,
                     success: function (data) {
-                        jQuery(".jq-loading").hide();
+                        impAuth.Auth.AuthJQ.HideLoading();
+                        console.log("isloadhit");
                         var e = jQuery(document.createElement("div"));
                         var pg = jQuery(document.createElement("div"));
                         e.html(data); //.find("page").remove(".ui-resizable-handle");
@@ -28,11 +29,12 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                         else {
                             jQuery("#control-templates").show();
                         }
+                        jQuery(".jq-row-plus-container").hide();
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        errorHandler.ActionSuccess("Your page has loaded. <br>Start designing.");
+                        errorHandler.ActionSuccess("Your page is loading. <br>Please wait...");
                     },
                     error: function (e) {
-                        jQuery(".jq-loading").hide();
+                        impAuth.Auth.AuthJQ.HideLoading();
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         errorHandler.ActionFail("Page Loading Failed ! <br> Try again latter");
                     }

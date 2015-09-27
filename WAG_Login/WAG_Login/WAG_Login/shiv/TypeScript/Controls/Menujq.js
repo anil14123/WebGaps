@@ -79,25 +79,27 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                         var menuObj = new MenuJQ();
                         var ctx = new impPageCtx.Page.ContextJQ();
                         var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement; //  jQuery("#rows-columns option:selected").val();
-                        var tbContainer = document.createElement("div");
-                        jQuery(tbContainer).append(menu);
-                        var tbcScopeId = menuObj.GenerateContainerScopeId();
-                        jQuery(tbContainer).attr("scopeId", tbcScopeId);
-                        if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container")) {
-                            var emptyc = document.createElement("span");
-                            jQuery(emptyc).addClass("empty-container-menu key image-text-other ");
-                            jQuery(emptyc).css("font-size", "14px");
-                            //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
-                            var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
-                            plusContainer.removeClass("jq-plus-container");
-                            plusContainer.addClass("jq-plus-container-text");
-                            plusContainer.removeClass("jq-plus-container-not-used");
-                            plusContainer.find(".jq-plus-content").append(tbContainer);
-                            jQuery(emptyc).append(plusContainer);
-                            ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
-                            impCommonCode.ControlCommon.Code.Execute();
+                        if (selectedRowOrColumn != undefined) {
+                            var tbContainer = document.createElement("div");
+                            jQuery(tbContainer).append(menu);
+                            var tbcScopeId = menuObj.GenerateContainerScopeId();
+                            jQuery(tbContainer).attr("scopeId", tbcScopeId);
+                            if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-container")) {
+                                var emptyc = document.createElement("span");
+                                jQuery(emptyc).addClass("empty-container-menu key image-text-other ");
+                                jQuery(emptyc).css("font-size", "14px");
+                                //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
+                                var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
+                                plusContainer.removeClass("jq-plus-container");
+                                plusContainer.addClass("jq-plus-container-text");
+                                plusContainer.removeClass("jq-plus-container-not-used");
+                                plusContainer.find(".jq-plus-content").append(tbContainer);
+                                jQuery(emptyc).append(plusContainer);
+                                ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                                impCommonCode.ControlCommon.Code.Execute();
+                            }
+                            cssMan.Add(nextId);
                         }
-                        cssMan.Add(nextId);
                     }
                 });
             };
@@ -114,8 +116,10 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
             MenuJQ.ProcessSelectNotify = function () {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
-                if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
-                    errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                if (selectedElement != undefined) {
+                    if (selectedElement.hasClass("row") || selectedElement.hasClass("normal-element")) {
+                        errorHandler.ActionHelp("Help : You cannot [Text] insert here.");
+                    }
                 }
             };
             return MenuJQ;

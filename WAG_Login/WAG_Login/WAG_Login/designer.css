@@ -13,7 +13,7 @@
     -webkit-box-shadow: 0 0 5px black;
     box-shadow: 0 0 5px black;
       
-    height:90px;
+    height:180px;
    position:fixed;
    top:0;
    left:0;
@@ -41,7 +41,7 @@
 }
 
 rootx{
-    top : 90px;
+    top : 180px;
 }
 
 .close-preview, .show-preview, .choose-templates-button, .create-layout-show-button ,.jq-save {

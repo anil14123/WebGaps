@@ -385,9 +385,14 @@ export module ContextMenu {
             ContextMenuJQ.ControlPageHide();
 
             ////////////////////////// show editor
-            jQuery("rootx").css("top", "90px");
-            jQuery(".designer-top-row").css("height", "90px");
-            jQuery("#notify").css("top", "90px");
+
+            var topRowPx = "180px";
+
+            var topNotifyPx = "105px";
+
+            jQuery("rootx").css("top", topRowPx);
+            jQuery(".designer-top-row").css("height", topRowPx);
+            jQuery("#notify").css("top", topNotifyPx);
             jQuery(".editor").show();
 
             jQuery(".jqte-editor").removeClass("current-editor-scope");

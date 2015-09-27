@@ -84,10 +84,14 @@ export module Text {
                 jQuery(impError.ErrorHandle.ErrorJQ.notifyId).css("display", "none");
                 jQuery(impError.ErrorHandle.ErrorJQ.notifyId).html('');
 
-                jQuery("rootx").css("top", "90px");
-                jQuery(".designer-top-row").css("height", "90px");
+                var topRowPx = "180px";
+
+                var topNotifyPx = "105px";
+
+                jQuery("rootx").css("top", topRowPx);
+                jQuery(".designer-top-row").css("height", topRowPx);
                 jQuery(".editor").hide();
-                jQuery("#notify").css("top", "90px");
+                jQuery("#notify").css("top", topNotifyPx);
 
 
             });

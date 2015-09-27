@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ"], function (require, exports, impControlsCommon, impPreview, impWatch) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal) {
     window.undoActivityIndex = 999999;
     var Manager;
     (function (Manager) {
@@ -19,6 +19,9 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                 }
             };
             UndoManager.prototype.Undo = function () {
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
                 if (jQuery(".close-preview").css("display") != "none") {
                     impPreview.Preview.PreviewJQ.ClosePreview();
                 }
@@ -45,22 +48,13 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                     jQuery("page").html(undoObj.html);
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
-                    jQuery(".jq-text-block").each(function () {
-                        var html = jQuery(this).find(".jqte_editor").html();
-                        if (html != undefined) {
-                            jQuery(this).html("");
-                            var content = jQuery(document.createElement("div"));
-                            content.addClass("jq-text-block-content");
-                            content.html(html);
-                            jQuery(this).append(content);
-                        }
-                    });
-                    jQuery(".jq-text-block-content").jqte({});
-                    jQuery(".jqte_editor").addClass("padding-5");
                     this.SetSelectElement();
                 }
             };
             UndoManager.prototype.Redo = function () {
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
                 if (jQuery(".close-preview").css("display") != "none") {
                     impPreview.Preview.PreviewJQ.ClosePreview();
                 }
@@ -78,18 +72,6 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                         jQuery("page").html(undoObj.html);
                         impControlsCommon.ControlCommon.Code.DestroyResizable();
                         impControlsCommon.ControlCommon.Code.Execute();
-                        jQuery(".jq-text-block").each(function () {
-                            var html = jQuery(this).find(".jqte_editor").html();
-                            if (html != undefined) {
-                                jQuery(this).html("");
-                                var content = jQuery(document.createElement("div"));
-                                content.addClass("jq-text-block-content");
-                                content.html(html);
-                                jQuery(this).append(content);
-                            }
-                        });
-                        jQuery(".jq-text-block-content").jqte({});
-                        jQuery(".jqte_editor").addClass("padding-5");
                         this.SetSelectElement();
                     }
                 }
@@ -110,6 +92,9 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
             UndoManager.prototype.Clear = function () {
             };
             UndoManager.prototype.BeforeOperation = function (selectedParent) {
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
                 if (window.layoutCreating == false) {
                     try {
                         window.undoObjArray.splice(window.undoActivityIndex + 1);

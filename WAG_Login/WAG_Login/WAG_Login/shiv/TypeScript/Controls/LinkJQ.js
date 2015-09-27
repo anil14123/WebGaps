@@ -108,7 +108,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                         undo.BeforeOperation();
                         jQuery("page a").not(".jq-logout").unbind("click");
                         jQuery("page a").not(".jq-logout").click(function () {
-                            return false;
+                            impCommonCode.ControlCommon.Code.AnchorClicked = true;
                         });
                         impCommonCode.ControlCommon.Code.Execute();
                     }
@@ -130,10 +130,10 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
             LinkJQ.CreateCurrentLink = function (blankTarget, url, name) {
                 var link;
                 if (url == undefined) {
-                    url = jQuery(".input-current-location").val() + "/"
-                        + jQuery(".input-site-id").val() + "/"
-                        + jQuery(".input-site-name").val() + "/"
-                        + jQuery(".insert-link-links").find('option:selected').val();
+                    //url = jQuery(".input-current-location").val() + "/"
+                    //+ jQuery(".input-site-id").val() + "/"
+                    //+ jQuery(".input-site-name").val() + "/" +
+                    url = jQuery(".insert-link-links").find('option:selected').val();
                 }
                 var btnStyle = jQuery(".btn-style-selected").attr("btn-style");
                 if (btnStyle == undefined) {

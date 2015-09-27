@@ -54,7 +54,13 @@ define(["require", "exports"], function (require, exports) {
                 // alert(error);
                 jQuery(".loading").hide();
             };
-            SiteJQ.prototype.GetPages = function (siteName) {
+            SiteJQ.prototype.GetPages = function (siteName, success, error) {
+                if (success == undefined) {
+                    success = SiteJQ.OnGetPagesSuccess;
+                }
+                if (error == undefined) {
+                    error = SiteJQ.OnGetPagesError;
+                }
                 var data = { siteName: siteName };
                 var pageData = JSON.stringify(data);
                 jQuery.ajax({
@@ -63,8 +69,8 @@ define(["require", "exports"], function (require, exports) {
                     data: pageData,
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    success: SiteJQ.OnGetPagesSuccess,
-                    error: SiteJQ.OnGetPagesError
+                    success: success,
+                    error: error
                 });
             };
             SiteJQ.OnGetPagesSuccess = function (data, status) {

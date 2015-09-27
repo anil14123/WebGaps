@@ -233,11 +233,13 @@ export module Watch {
                             $(".empty-container-text").draggable({ disabled: false });
                             $(".empty-container-image").draggable({ disabled: false });
 
+                            var topRowPx = "180px";
+                            var topNotifyPx = "105px";
 
-                            jQuery("rootx").css("top", "90px");
-                            jQuery(".designer-top-row").css("height", "90px");
+                            jQuery("rootx").css("top", topRowPx);
+                            jQuery(".designer-top-row").css("height", topRowPx);
                             jQuery(".editor").hide();
-                            jQuery("#notify").css("top", "90px");
+                            jQuery("#notify").css("top", topNotifyPx);
 
                             jQuery("page .jqte-editor").css("cursor", "move");
                             ////////////////////

@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ"], function (require, exports, impWatch, impError, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ", "../Controls/LinkJQ", "../Controls/HtmlJQ"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer, impLink, impHtml) {
     var G_isAttachedContextMenu = false;
     var CTX_MENU_DISABLED_CLASS = "ctx-menu-disabled";
     var ctxMenuIsReady = false;
@@ -26,8 +26,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
                         if ((pageY) >= (jQuery(window).height() - 250)) {
                             pageY = pageY - 240;
                         }
-                        var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp(pageY.toString());
+                        //var eh = new impError.ErrorHandle.ErrorJQ();
+                        //eh.ActionHelp(pageY.toString());
                         var pageX = e.clientX;
                         if (pageX > (jQuery(document).width() - 200)) {
                             pageX = pageX - 150;
@@ -42,69 +42,99 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
             };
             ContextMenuJQ.prototype.DetectContextMenu = function () {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
-                jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-height-width").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-border").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-paste").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-text").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-image").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-youtube").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-html").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-css").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-menu").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-insert-empty-space").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-delete-element").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                if (selectedElement.hasClass("root-elements")) {
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-                if (selectedElement.hasClass("jqRootRow")) {
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-                if (selectedElement.hasClass("column")) {
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-                if (selectedElement.hasClass("empty-container") && !selectedElement.hasClass("empty-container-spacer")) {
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-                if (selectedElement.hasClass("jq-plus-container")
-                    ||
-                        selectedElement.hasClass("empty-container-text")
-                    ||
-                        selectedElement.hasClass("empty-container-image")
-                    ||
-                        selectedElement.hasClass("empty-container-spacer")) {
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-                if (selectedElement.hasClass("empty-container-spacer")) {
-                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                if (selectedElement != undefined) {
+                    jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-height-width").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-border").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-paste").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-text").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-image").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-youtube").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-html").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-css").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-menu").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-empty-space").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-link").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-insert-object").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-delete-element").parent().addClass(CTX_MENU_DISABLED_CLASS);
+                    if (selectedElement.hasClass("root-elements")) {
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("jq-site-link-container")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("jqRootRow")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("column")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("empty-container") && !selectedElement.hasClass("empty-container-spacer")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("jq-plus-container")
+                        ||
+                            selectedElement.hasClass("empty-container-spacer")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("empty-container-text")
+                        ||
+                            selectedElement.hasClass("empty-container-image")) {
+                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    }
+                    if (selectedElement.hasClass("empty-container-spacer")) {
+                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                    }
                 }
             };
             ContextMenuJQ.AttachDeleteElement = function () {
@@ -113,6 +143,37 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
                         return;
                     }
                     ContextMenuJQ.DeleteElement();
+                });
+            };
+            ContextMenuJQ.AttachInsertLinkContainer = function () {
+                jQuery(".li.ctx-menu-insert-link-container").on("click", function () {
+                    window.smartObj = null;
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    //to be moved to other class
+                    impCopy.CopyPaste.CopyPasteJQ.CreateLinkContainer();
+                });
+            };
+            ContextMenuJQ.AttachInsertLink = function () {
+                new impLink.Link.LinkJQ().Init();
+                jQuery(".li.ctx-menu-insert-link").on("click", function () {
+                    window.smartObj = null;
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    ContextMenuJQ.ShowControlInsertLink();
+                    impLink.Link.LinkJQ.ProcessSelectNotify();
+                });
+            };
+            ContextMenuJQ.AttachInsertHTML = function () {
+                new impHtml.Html.HtmlJQ().Init();
+                jQuery(".li.ctx-menu-insert-html").on("click", function () {
+                    window.smartObj = null;
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    ContextMenuJQ.ShowControlInsertHTML();
                 });
             };
             ContextMenuJQ.AttachInsertText = function () {
@@ -164,8 +225,28 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
                     }
                 }
             };
+            ContextMenuJQ.ShowControlInsertLink = function () {
+                ContextMenuJQ.ControlPageHide();
+                jQuery(".control-page").removeClass("control-active");
+                jQuery("#control-insert-link").addClass("control-active");
+                impLink.Link.LinkJQ.Show();
+            };
+            ContextMenuJQ.ShowControlInsertHTML = function () {
+                ContextMenuJQ.ControlPageHide();
+                impHtml.Html.HtmlJQ.Show();
+            };
             ContextMenuJQ.ShowControlInsertText = function () {
                 ContextMenuJQ.ControlPageHide();
+                ////////////////////////// show editor
+                var topRowPx = "180px";
+                var topNotifyPx = "105px";
+                jQuery("rootx").css("top", topRowPx);
+                jQuery(".designer-top-row").css("height", topRowPx);
+                jQuery("#notify").css("top", topNotifyPx);
+                jQuery(".editor").show();
+                jQuery(".jqte-editor").removeClass("current-editor-scope");
+                jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
+                //////////////////////////
                 jQuery(".control-page").removeClass("control-active");
                 jQuery("#control-insert-text").addClass("control-active");
                 jQuery("#control-insert-text").show();
@@ -302,7 +383,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
                 });
             };
             ContextMenuJQ.AttachSpacer = function () {
+                jQuery(".smart-menu-insert-empty-space").on("click", function () {
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    impSpacer.Spacer.SpacerJQ.InsertSpacer();
+                });
                 jQuery(".ctx-menu-insert-empty-space").on("click", function () {
+                    window.smartObj = null;
                     if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                         return;
                     }
@@ -389,6 +477,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
                             ContextMenuJQ.ContextMenuBinding();
                             ContextMenuJQ.LiClick();
                             ContextMenuJQ.ContextInnerMenuShowHide();
+                            ContextMenuJQ.AttachInsertLinkContainer();
+                            ContextMenuJQ.AttachInsertLink();
+                            ContextMenuJQ.AttachInsertHTML();
                             ContextMenuJQ.AttachInsertText();
                             ContextMenuJQ.AttachAddRow();
                             ContextMenuJQ.AttachDeleteElement();
@@ -413,4 +504,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "../C
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });
-//# sourceMappingURL=Contextmenujq.js.map
+//# sourceMappingURL=ContextMenuJQ.js.map

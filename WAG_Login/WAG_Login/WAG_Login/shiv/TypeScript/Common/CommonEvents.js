@@ -1,5 +1,6 @@
-define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Common/on", "../_Classes/SaveJq"], function (require, exports, impUndoManager, impLayout, impAuth, impOn, impSaveClass) {
+define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi"], function (require, exports, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi) {
     var themeHandle;
+    var downloadInterval;
     var Common;
     (function (Common) {
         var SmartObj = (function () {
@@ -14,12 +15,73 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
             function CommonEvents() {
                 this.isCommonEventsAdded = false;
             }
+            CommonEvents.GetCookie = function (cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ')
+                        c = c.substring(1);
+                    if (c.indexOf(name) == 0)
+                        return c.substring(name.length, c.length);
+                }
+                return "";
+            };
+            CommonEvents.CheckMal = function () {
+                if (CommonEvents.GetCookie("jQuery") == jQuery("#viewstate").val()) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            };
             CommonEvents.prototype.Init = function () {
+                if (CommonEvents.CheckMal() == false) {
+                    impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
+                }
+                ////////////// Flating or aligning...
+                jQuery(".button-align-left").click(function () {
+                    impNoUi.NoUI.AlignJQ.Left();
+                });
+                jQuery(".button-align-right").click(function () {
+                    impNoUi.NoUI.AlignJQ.Right();
+                });
+                jQuery(".button-align-center").click(function () {
+                    impNoUi.NoUI.AlignJQ.Center();
+                });
+                ///////////// Moving Object....
+                jQuery(".button-move-left").click(function () {
+                    impNoUi.NoUI.MoveJQ.Left();
+                });
+                jQuery(".button-move-right").click(function () {
+                    impNoUi.NoUI.MoveJQ.Right();
+                });
+                jQuery(".button-move-up").click(function () {
+                    impNoUi.NoUI.MoveJQ.Up();
+                });
+                jQuery(".button-move-down").click(function () {
+                    impNoUi.NoUI.MoveJQ.Down();
+                });
+                ///////////////////////////////////////////////////////////////
+                jQuery("#control-align").draggable({ revert: false });
+                jQuery("#control-object-move").draggable({ revert: false });
+                var liveUrl = jQuery(".input-current-location").val() + "/"
+                    + jQuery(".input-site-id").val() + "/"
+                    + jQuery(".input-site-name").val() + "/"
+                    + jQuery(".input-page-name").val();
+                jQuery(".anchor-show-live-preview").attr("href", liveUrl);
                 jQuery("#notify").click(function () {
                     jQuery(this).hide();
                 });
+                jQuery(".btn-help").click(function () {
+                    jQuery("#site-help").slideToggle();
+                });
+                jQuery("#site-help").click(function () {
+                    jQuery(this).slideUp();
+                });
                 themeHandle = window.setInterval(function () {
                     if (impAuth.Auth.AuthJQ.IsAuth == true) {
+                        impAuth.Auth.AuthJQ.HideLoading();
                         window.clearInterval(themeHandle);
                         var layout = new impLayout.Themes.Empty.LayoutJQ();
                         layout.Init();
@@ -33,11 +95,44 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                         }
                     }
                 }, 1000);
+                ////////////////
+                jQuery(".jq-show-plus").click(function () {
+                    jQuery(".jq-row-plus-container").show();
+                    jQuery(".jq-show-plus").hide();
+                    jQuery(".jq-hide-plus").show();
+                });
+                jQuery(".jq-hide-plus").click(function () {
+                    jQuery(".jq-row-plus-container").hide();
+                    jQuery(".jq-hide-plus").hide();
+                    jQuery(".jq-show-plus").show();
+                });
+                //// download /////////////////
+                jQuery(".button-download-site").click(function () {
+                    var save = new impSaveClass.Save.SaveJQ();
+                    var data = {
+                        siteName: jQuery(".input-site-name").val()
+                    };
+                    var downloadData = JSON.stringify(data);
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+                    eh.ActionHelp("Download will start in few seconds...");
+                    save.Download(downloadData);
+                });
                 /// save ///////
                 jQuery(".jq-save").click(function () {
                     var scripts = jQuery(document.createElement("scripts"));
                     var styles = jQuery(document.createElement("styles"));
                     var page = jQuery(document.createElement("page"));
+                    var styleSheetExtra = "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
+                        "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />" +
+                        "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
+                        "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
+                        " <style> " +
+                        " .jq-plus-element { display:none !important; } " +
+                        " .jq-row-plus-container { display:none !important; } " +
+                        " .row { margin:0; padding:0; } " +
+                        " .column { margin:0; padding:0; } " +
+                        "</style>";
+                    jQuery(".image-selection").removeClass("image-selection");
                     jQuery(".add-to-page").each(function () {
                         if (jQuery(this).prop("tagName") == "SCRIPT") {
                             scripts.append($(this).clone());
@@ -46,7 +141,8 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                             styles.append($(this).clone());
                         }
                         if (jQuery(this).prop("tagName") == "PAGE") {
-                            styles.append($(this).clone());
+                            page.append($(this).clone());
+                            page.prepend(styleSheetExtra);
                         }
                     });
                     var save = new impSaveClass.Save.SaveJQ();

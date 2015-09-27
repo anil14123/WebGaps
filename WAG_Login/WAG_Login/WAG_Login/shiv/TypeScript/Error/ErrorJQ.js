@@ -54,6 +54,13 @@ define(["require", "exports"], function (require, exports) {
                 this.Notify(errorMessage);
             };
             ErrorJQ.prototype.ActionHelp = function (helpMessage, changeColor) {
+                if (helpMessage != undefined) {
+                    var index = helpMessage.toLowerCase().indexOf("page loaded");
+                    if (index != -1) {
+                        jQuery(".jq-loading").hide();
+                        console.log("Page Loaded");
+                    }
+                }
                 var helpContainer = jQuery(document.createElement("div"));
                 if (changeColor != undefined) {
                     helpContainer.addClass("yellow-green-notify-background");
@@ -83,7 +90,6 @@ define(["require", "exports"], function (require, exports) {
             };
             ErrorJQ.prototype.LogMessage = function (message) {
                 try {
-                    console.log('Report Enginerr : anil.silverlight@gmail.com : (message) :' + message);
                 }
                 catch (e) {
                 }

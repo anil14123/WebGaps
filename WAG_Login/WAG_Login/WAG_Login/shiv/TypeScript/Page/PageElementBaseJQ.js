@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impCommonCode, impUndoManager) {
+define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../MalFormed/MalFormedJQ"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impCommonCode, impUndoManager, impmal) {
     var uniqureId = 5;
     var Page;
     (function (Page) {
@@ -252,6 +252,9 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
             };
             // Adding element to page.....
             PageElementBaseJQ.prototype.Add = function (root, element, className, rowcolumn, front, useSmartObj, beforeAfter) {
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
                 if (this.ProcessKey() != true) {
                     return;
                 }

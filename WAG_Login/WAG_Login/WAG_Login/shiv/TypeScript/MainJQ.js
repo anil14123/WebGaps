@@ -1,4 +1,4 @@
-define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./Error/ErrorJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/jqtejq", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Controls/controlcommonjq", "./Document/DocumentJQ", "./Page/LoadJQ"], function (require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impError, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
+define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/MyJQte", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Controls/controlcommonjq", "./Document/DocumentJQ", "./Page/LoadJQ"], function (require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
     var ctx = new impPageCtx.Page.ContextJQ();
     var isMainReady = false;
     function DesignerPadding() {
@@ -13,9 +13,9 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
         /////////////////// empty container //////
         jQuery(".empty-container").on("click", function () {
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
-            if (selectedElement.hasClass("empty-container")) {
-                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                errorHandler.ActionHelp("Help: You can add [Text] [Image] [Columns] here.");
+            if (selectedElement != undefined) {
+                if (selectedElement.hasClass("empty-container")) {
+                }
             }
         });
     }
@@ -47,7 +47,7 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
             DesignerPadding();
             ////////////////////////////////////////////////////
             /////////////////// jqte ///////////////////////////
-            var jqteObj = new impJqte.JQte.JQteJQ();
+            var jqteObj = new impJqte.MyJQte.jqte("");
             jqteObj.Init();
             /////////////////////////////////////////////////////
             ////////////////// add row control ///////////////////
@@ -73,9 +73,6 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
             ////////////// templating mech ////////////////////////////
             var Auth = new impAuth.Auth.AuthJQ();
             Auth.Call();
-            ///////////////////////////////////////////////////////////
-            //////////// help //////////////////////////////////
-            window.setTimeout(Help, 5000);
         }
     });
 });
