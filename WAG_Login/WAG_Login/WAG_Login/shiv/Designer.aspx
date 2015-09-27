@@ -102,6 +102,16 @@
             color:black;
         }
 
+        .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
+             /*font-size:0.7em;*/
+        }
+
+        .btn-toolbar{
+            border:1px solid #cacaca;
+
+           
+        }
+
     </style>
 
 </head>

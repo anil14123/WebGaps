@@ -179,12 +179,9 @@ export module Themes.Empty {
                         undoManager.PopUndo();
 
 
-                      
                         impControlCommon.ControlCommon.Code.DestroyResizable();
                         impControlCommon.ControlCommon.Code.Execute();
                         undoManager.BeforeOperation();
-
-
 
                     }
                     else {
@@ -195,6 +192,8 @@ export module Themes.Empty {
 
                     errorHandler.ActionFail("Please select a layout.!");
                 }
+
+                jQuery(".jq-row-plus-container").hide();
             });
         }
 

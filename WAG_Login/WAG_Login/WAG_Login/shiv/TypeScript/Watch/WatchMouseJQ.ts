@@ -39,7 +39,36 @@ export module Watch {
             }
         }
 
+        public static selectedMoveElement: JQuery;
 
+        public static ProcessMove(e) {
+
+            if (MouseJQ.selectedMoveElement != undefined) {
+
+                MouseJQ.selectedMoveElement.find(".ui-resizable-handle").hide();
+            }
+
+            if (!jQuery(e.target).hasClass(".key")) {
+                MouseJQ.selectedMoveElement = jQuery(e.target).closest(".key");
+            }
+            else {
+                MouseJQ.selectedMoveElement = jQuery(e.target);
+            }
+
+            if (MouseJQ.selectedMoveElement.hasClass("row") || MouseJQ.selectedMoveElement.hasClass("column"))
+            { 
+                MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
+            }
+            else {
+
+                if (MouseJQ.selectedMoveElement.hasClass("ui-resizable")) {
+                    MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
+                }
+                else {
+                    MouseJQ.selectedMoveElement.find(".ui-resizable").first().children(".ui-resizable-handle").show();
+                }
+            }
+        }
 
         public static ProcessClick(e) {
             var common = new impCommon.Common.CommonMethodsJQ();
@@ -171,6 +200,13 @@ export module Watch {
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
 
+                    jQuery(".ui-resizable-handle").hide();
+
+                    jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
+
+                        MouseJQ.ProcessMove(e);
+                    })
+
                     jQuery("page").click(function (e: JQueryMouseEventObject) {
 
                         MouseJQ.ProcessClick(e);
@@ -185,7 +221,7 @@ export module Watch {
                             if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                             return false;
                         }
-                    })
+                    });
 
                     jQuery("input").keydown(function (e) {
                         var BACK = 8;
