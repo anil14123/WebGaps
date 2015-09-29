@@ -76,7 +76,6 @@ namespace WebAppGoTypeScript_X_Modulerization
         }
 
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             SiteName = Request.QueryString["SiteName"];
@@ -121,9 +120,40 @@ namespace WebAppGoTypeScript_X_Modulerization
             Response.Buffer = true;
         }
 
+
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        Random random = new Random();
+
+        string GetRandomString(int length)
+        {
+            try
+            {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[length];
+
+
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var finalString = new String(stringChars);
+
+                return finalString;
+            }
+            catch
+            {
+                return "NoCGen";
+            }
+        }
+
+        private string GetUserImagesPath()
+        {
+            return Server.MapPath(".") + "/iimages/";
         }
 
     }

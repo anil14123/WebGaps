@@ -12,12 +12,12 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
     {
         private string GetUserImagesPath()
         {
-           return Server.MapPath(".") + "/../iimages/";
+            return Server.MapPath(".") + "/../iimages/";
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         Random random = new Random();
@@ -47,59 +47,85 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic
 
         protected void BtnUpload_Click(object sender, EventArgs e)
         {
-            try
+            string resultError = "";
+
+            if (myFileUpload.HasFiles)
             {
-                
-                if (myFileUpload.HasFile)
+                for (int f = 0; f < myFileUpload.PostedFiles.Count(); f++)
                 {
-                    string ext = System.IO.Path.GetExtension(this.myFileUpload.PostedFile.FileName).ToLower();
-
-                   string fileName = Path.GetFileName(this.myFileUpload.PostedFile.FileName);
-
-                    if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                    string fileName = "";
+                    try
                     {
-                        result.Text = "Not a valid image.";
-                        result.CssClass = "fail";
-                        result.Visible = true;
-                        return;
-                    }
 
-                    fileName = GetRandomString(8) + fileName;
+                        string ext = System.IO.Path.GetExtension(this.myFileUpload.PostedFiles[f].FileName).ToLower();
 
-                    int i = 0;
+                        fileName = Path.GetFileName(this.myFileUpload.PostedFiles[f].FileName);
 
-                    while (File.Exists(GetUserImagesPath() + fileName))
-                    {
-                        i++;
+                        int maxFileSize = 5000;
 
-                        fileName = GetRandomString(5) + fileName;
-                        if (i == 4)
+                        int fileSize = myFileUpload.PostedFiles[f].ContentLength;
+                        if (fileSize > (maxFileSize * 1024))
                         {
-                            break;
+                            resultError += fileName + " Image file size is greater than 5Mb.<br><br>";
+
+                            if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                            {
+                                resultError += fileName + " is Not a valid image.<br><br>";
+                            }
+
+                                continue;
                         }
+
+                        if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                        {
+                            resultError += fileName + " is Not a valid image.<br><br>";
+
+                            continue;
+                        }
+
+                        fileName = GetRandomString(8) + fileName;
+
+                        int i = 0;
+
+                        while (File.Exists(GetUserImagesPath() + fileName))
+                        {
+                            i++;
+
+                            fileName = GetRandomString(5) + GetRandomString(5) + fileName;
+                            if (i == 4)
+                            {
+                                break;
+                            }
+                        }
+
+                        string savePath = GetUserImagesPath() + fileName;
+
+                        myFileUpload.SaveAs(savePath);
+
+                      
+                    }
+                    catch (Exception ex)
+                    {
+                        resultError += fileName + " Upload failed : server error.<br><br>";
+                       
                     }
 
-                    string savePath = GetUserImagesPath() + fileName;
-
-                    myFileUpload.SaveAs(savePath);
-
-                    uploadedImage.ImageUrl = "../iimages/" + fileName;
-
-                    result.Text = "Image Uploaded.";
-                    result.CssClass = "success";
-
-                    return;
                 }
+
             }
-            catch (Exception ex)
+
+            if (resultError != "")
             {
-                result.Text = "Upload failed.";
+                result.Text = resultError;
                 result.CssClass = "fail";
-
-                uploadedImage.ImageUrl = "";
+                result.Visible = true;
             }
-
-         
+            else
+            {
+                result.Text = "Images Uploaded.";
+                result.CssClass = "success";
+                
+            }
         }
     }
 }

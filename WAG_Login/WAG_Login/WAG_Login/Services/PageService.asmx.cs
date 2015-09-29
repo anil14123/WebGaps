@@ -12,6 +12,7 @@ using WebAppGoLibrary.Site;
 using WebAppGoLibrary.Data;
 using WAG_Login_Page;
 using System.Text.RegularExpressions;
+using System.Web.Http;
 
 namespace WebAppGoTypeScript_X_Modulerization.Services
 {
@@ -41,6 +42,88 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             return "Hello World";
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string UploadImages()
+        {
+            string resultError = "";
+
+            if (HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+
+                var postedFiles = HttpContext.Current.Request.Files;
+                for (int f = 0; f < HttpContext.Current.Request.Files.Count; f++)
+                {
+                    string fileName = "";
+                    try
+                    {
+
+                        string ext = System.IO.Path.GetExtension(postedFiles[f].FileName).ToLower();
+
+                        fileName = Path.GetFileName(postedFiles[f].FileName);
+
+                        int maxFileSize = 5000;
+
+                        int fileSize = postedFiles[f].ContentLength;
+                        if (fileSize > (maxFileSize * 1024))
+                        {
+                            if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                            {
+                                resultError += fileName + " is Not a valid image.<br>";
+                            }
+                            else
+                            {
+                                resultError += fileName + " image file size is greater than 5Mb.<br>";
+                            }                           
+
+                            continue;
+                        }
+
+                        if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                        {
+                            resultError += fileName + " is Not a valid image.<br>";
+
+                            continue;
+                        }
+
+                        fileName = GetRandomString(8) + fileName;
+
+                        int i = 0;
+
+                        while (File.Exists(GetUserImagesPath() + fileName))
+                        {
+                            i++;
+
+                            fileName = GetRandomString(5) + GetRandomString(5) + fileName;
+                            if (i == 4)
+                            {
+                                break;
+                            }
+                        }
+
+                        string savePath = GetUserImagesPath() + fileName;
+
+                        postedFiles[f].SaveAs(savePath);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        resultError += fileName + " upload failed : server error.<br>";
+
+                    }
+
+                }
+
+            }
+
+            return resultError;
+        
+        }
+  
+        private string GetUserImagesPath()
+        {
+            return Server.MapPath(".") + "/../iimages/";
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

@@ -88,7 +88,7 @@ export module ErrorHandle {
 
                 if (index != -1) {
                     jQuery(".jq-loading").hide();
-                    console.log("Page Loaded");
+                   // console.log("Page Loaded");
                 }
             }
 

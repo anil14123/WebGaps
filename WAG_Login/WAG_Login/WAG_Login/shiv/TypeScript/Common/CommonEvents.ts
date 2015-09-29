@@ -19,6 +19,8 @@ import impNoUi = require("../Controls/NoUi");
 
 var themeHandle;
 var downloadInterval;
+var imageFiles;
+
 export module Common {
 
     export class SmartObj {
@@ -51,11 +53,57 @@ export module Common {
             }
         }
 
+        public static UploadImages() {
+
+            var files = imageFiles;
+
+            //// Add the uploaded image content to the form data collection
+            //if (files.length > 0) {
+            //    data.append("UploadedImage", files[0]);
+            //}
+
+            var data = new FormData();
+
+            for (var i = 0; i < files.length; i++) {
+                data.append(files[i].name, files[i]);
+            }  
+
+            // Make Ajax request with the contentType = false, and procesDate = false
+            $.ajax({
+                type: "POST",
+                url: "/Services/PageService.asmx/UploadImages",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function () {
+                },
+                error: function (request, status, error) {
+                    console.log(error);
+                }
+            });
+
+           
+        }       
+
+          // Grab the files and set them to our variable
+        public static PrepareUpload(event) {
+            imageFiles = event.target.files;
+
+            CommonEvents.UploadImages();
+        }
+
         public Init() {
 
             if (CommonEvents.CheckMal() == false) {
                 impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
             }     
+
+            //////////// images upload ////////////////
+
+           
+            // Add events
+            $('.image-file-upload').on('change', CommonEvents.PrepareUpload);
+                      
 
             ////////////// Flating or aligning...
 

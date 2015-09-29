@@ -86,8 +86,15 @@
 
         jQuery(document).ready(function () {
 
-            jQuery("#result").delay(1000).fadeIn();
+            jQuery("#result").fadeIn();
+
+            jQuery("#result").click(function () {
+
+                jQuery(this).hide();
+            })
         })
+
+
 
     </script>
 
@@ -99,10 +106,8 @@
                 <asp:Label class="result"   ClientIDMode="Static" ID="result"  runat="server"> </asp:Label>
            </center>
 
-            <asp:Image CssClass="uploaded-image" ID="uploadedImage" runat="server" />
-
          
-            <asp:FileUpload CssClass="file-upload" ID="myFileUpload" runat="server" />
+            <asp:FileUpload AllowMultiple="true" CssClass="file-upload" ID="myFileUpload" runat="server" />
 
             <asp:Button CssClass="action-button upload-button" Text="Upload Image" OnClick="BtnUpload_Click" ID="BtnUpload" runat="server" />
         </div>

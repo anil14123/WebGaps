@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
@@ -88,30 +88,46 @@
     </style>
 
     <style>
-
-        .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
-           
+        .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
         }
 
-        .ui-widget-header{
-            background-color:lightgrey;
-            border:none;
+        .ui-widget-header {
+            background-color: lightgrey;
+            border: none;
         }
 
-        .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
-            color:black;
+        .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+            color: black;
         }
 
-        .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
-             /*font-size:0.7em;*/
+        .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+            /*font-size:0.7em;*/
         }
 
-        .btn-toolbar{
-            border:1px solid #cacaca;
-
-           
+        .btn-toolbar {
+            border: 1px solid #cacaca;
         }
 
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+
+            .btn-file input[type=file] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                min-width: 100%;
+                min-height: 100%;
+                font-size: 100px;
+                text-align: right;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: white;
+                cursor: inherit;
+                display: block;
+            }
     </style>
 
 </head>
@@ -206,7 +222,7 @@
 
         <div class="designer-top-row">
 
-            <div class="float-right" style="position:relative; z-index:9999999999999999999999">
+            <div class="float-right" style="position: relative; z-index: 9999999999999999999999">
 
                 <div class="float-left">
                     <form name="logout" runat="server">
@@ -223,8 +239,9 @@
                     <li><a href="#tabs-1">General</a></li>
                     <li><a href="#tabs-2">Advanced</a></li>
                     <li><a href="#tabs-3">Objects</a></li>
+                    <li><a href="#tabs-4">Images Upload</a></li>
                 </ul>
-                <div id="tabs-1" class="row" >
+                <div id="tabs-1" class="row">
 
                     <div class="col-xs-48">
                         <button class=" create-layout-show-button jq-save-margin btn btn-toolbar btn-xs">
@@ -312,18 +329,24 @@
                         </span>
 
 
-
-
-
-
                     </div>
 
-
                 </div>
+
                 <div id="tabs-2">
                 </div>
                 <div id="tabs-3">
                 </div>
+
+                <div id="tabs-4">
+
+                    <span class="btn btn-warning btn-file">Browse 
+                          Images Upload  
+                        <input type="file" multiple="multiple" class="image-file-upload" />
+                    </span>
+
+                </div>
+
             </div>
 
             <div class="editor">
@@ -544,6 +567,8 @@
                     </div>
                 </div>
             </div>
+
+
 
 
 
@@ -1786,7 +1811,5 @@
             </li>
         </ol>
     </div>
-
-
 </body>
 </html>

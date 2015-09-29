@@ -31,15 +31,6 @@ namespace WebAppGoTypeScript_X_Modulerization.Dynamic {
         protected global::System.Web.UI.WebControls.Label result;
         
         /// <summary>
-        /// uploadedImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image uploadedImage;
-        
-        /// <summary>
         /// myFileUpload control.
         /// </summary>
         /// <remarks>
