@@ -239,7 +239,7 @@
                     <li><a href="#tabs-1">General</a></li>
                     <li><a href="#tabs-2">Advanced</a></li>
                     <li><a href="#tabs-3">Objects</a></li>
-                    <li><a href="#tabs-4">Images Upload</a></li>
+                    <li><a href="#tabs-4">Image</a></li>
                 </ul>
                 <div id="tabs-1" class="row">
 
@@ -344,6 +344,9 @@
                           Images Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
+
+                     <button class="button-change-image  btn btn-danger btn-xs btn jq-save-margin">
+                      Change Image</button>
 
                 </div>
 
@@ -936,6 +939,7 @@
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
+                           <button class="action-button action-button-change-image">Change</button>
                             <button class="action-button action-button-insert-image">Insert</button>
                        
                       

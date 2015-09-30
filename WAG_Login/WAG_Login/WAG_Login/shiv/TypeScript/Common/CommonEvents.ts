@@ -1,6 +1,4 @@
-﻿/// <reference path="../controls/imagejq.ts" />
-
-/////////////////////////// window adding property /////////////////////
+﻿/////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: Common.SmartObj; }
 
 declare var window: MyWindow;
@@ -103,6 +101,16 @@ export module Common {
             if (CommonEvents.CheckMal() == false) {
                 impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
             }     
+
+            ///////////// change image ////////////////
+
+            jQuery(".button-change-image").click(function () {
+               
+                impImage.Image.SelfJQ.ChangeImage();
+
+               
+            });
+
 
             //////////// images upload ////////////////
 

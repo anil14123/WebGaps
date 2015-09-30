@@ -447,6 +447,9 @@ export module ContextMenu {
             jQuery(".control-page").removeClass("control-active");
             jQuery(controlId).addClass("control-active");
 
+            jQuery(".action-button-insert-image").show();
+            jQuery(".action-button-change-image").hide();
+
 
             jQuery(controlId).show();
             jQuery(controlId).trigger('custom_loaded');

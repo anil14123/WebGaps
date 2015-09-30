@@ -14,6 +14,7 @@ import impPageCtx = require("../Page/Context/ContextJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonCode = require("./ControlCommonJQ");
 import impCommonSmart = require("../Common/CommonEvents");
+import impUndoManager = require("../UndoManager/UndoManager");
 
 var debug = true;
 var globalImageBlockId = 0;
@@ -106,7 +107,48 @@ export module Image {
                 else {
                     SelfJQ.InsertImage(undefined);
                 }
+               
             });
+
+            jQuery(".action-button-change-image").click(function () {
+
+              var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  
+
+              if (
+                  selectedRowOrColumn != undefined
+                  &&
+                  selectedRowOrColumn.hasClass("empty-container-image")
+                  ) {
+                  var imgSrc = jQuery(".image-library-select").attr("src");
+
+                  if (imgSrc != "") {
+                      selectedRowOrColumn.find(".jq-plus-container-image").find("img").attr("src", imgSrc);
+
+                      var undo = new impUndoManager.Manager.UndoManager();
+
+                      undo.BeforeOperation();
+                  }
+
+              }
+              else {
+
+                  var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+                  errorHandler.ActionFail("please select a image on page to change image.");
+              }
+
+
+            });
+        }
+
+        public static ChangeImage() {
+
+            jQuery(".action-button-insert-image").hide();
+            jQuery(".action-button-change-image").show();
+
+            jQuery("#control-image-library").show();
+            jQuery("#control-image-library").trigger('custom_loaded');
+            
         }
 
         public static InsertImage(url) {
@@ -211,31 +253,21 @@ export module Image {
                     plusContainer.removeClass("jq-plus-container");
                     var emptycontainer = document.createElement("div");
 
+                    plusContainer.css("height", "200px");
+
+                    plusContainer.css("width", "200px");
+
                     var jEc = jQuery(emptycontainer);
 
                     jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
                     //padding-10 
                     jEc.append(plusContainer);
 
-                    jQuery(tbImg).load(function () {
+                    //jQuery(tbImg).load(function () {
 
-                        var loadedImgContainer = jQuery(this).closest(".jq-plus-container-image");
+                       
 
-                        if (this.naturalHeight > 200) {
-                            loadedImgContainer.css("height", "200px");
-                        }
-                        else {
-                            loadedImgContainer.css("height", "200px");
-                        }
-
-                        if (this.naturalWidth > 200) {
-                            loadedImgContainer.css("width", "200px");
-                        }
-                        else {
-                            loadedImgContainer.css("width", "px");
-                        }
-
-                    });
+                    //});
 
                     plusContainer.find(".jq-plus-content").append(tbImageContainer);
 
@@ -272,8 +304,12 @@ export module Image {
 
                     jQuery(SelfJQ.controlId).hide();
 
+                   
+
                     impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
+
+                   
 
                 }
                 else {
