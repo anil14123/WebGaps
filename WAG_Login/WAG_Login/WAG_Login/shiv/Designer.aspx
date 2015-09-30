@@ -340,7 +340,7 @@
 
                 <div id="tabs-4">
 
-                    <span class="btn btn-warning btn-file">Browse 
+                    <span class="btn btn-danger btn-file">Browse 
                           Images Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
@@ -926,9 +926,19 @@
                         </fieldset>
 
                       <div class="controls-action"> 
-                       <a href="/shiv/Dynamic/UploadToImageLibrary.aspx" target="_blank" class="action-button action-link action-button-image-upload">Upload Image</a>
+                          <%-- <a href="/shiv/Dynamic/UploadToImageLibrary.aspx" 
+                           target="_blank" class="action-button action-link action-button-image-upload">
+                           Upload Image</a>--%>
+
+                     <span class="btn btn-danger btn-file">Browse 
+                          Images Upload  
+                        <input type="file" multiple="multiple" class="image-file-upload" />
+                    </span>
+
                             <button class="action-button action-button-insert-image">Insert</button>
-                       </div>
+                       
+                      
+                      </div>
                     
           
         </div>

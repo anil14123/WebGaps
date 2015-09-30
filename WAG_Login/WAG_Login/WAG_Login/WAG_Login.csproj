@@ -308,6 +308,10 @@
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\files\.gitignore" />
     <Content Include="Scripts\jQuery-File-Upload-master\test\index.html" />
     <Content Include="Scripts\jQuery-File-Upload-master\test\test.js" />
+    <Content Include="shiv\Content\loading\colors.gif" />
+    <Content Include="shiv\Content\loading\colorsd.gif" />
+    <Content Include="shiv\Content\loading\colorst.gif" />
+    <Content Include="shiv\Content\loading\Orange.gif" />
     <Content Include="shiv\iimages\1.jpg" />
     <Content Include="shiv\iimages\12.png" />
     <Content Include="shiv\iimages\2.jpg" />
