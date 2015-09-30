@@ -47,7 +47,7 @@ export module ControlCommon {
             jQuery(".ui-resizable-se").html("<div class='jq-square jq-square-se'></div>");
             jQuery(".ui-resizable-s").html("<div class='jq-square jq-square-s'></div>");
 
-            jQuery(".ui-resizable-handle").hide();
+            //jQuery(".ui-resizable-handle").hide();
 
 
         }

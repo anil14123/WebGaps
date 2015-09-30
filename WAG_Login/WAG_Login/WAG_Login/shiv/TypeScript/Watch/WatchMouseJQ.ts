@@ -200,12 +200,12 @@ export module Watch {
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
 
-                    jQuery(".ui-resizable-handle").hide();
+                    //jQuery(".ui-resizable-handle").hide();
 
-                    jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
+                    //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
 
-                        MouseJQ.ProcessMove(e);
-                    })
+                    //    MouseJQ.ProcessMove(e);
+                    //})
 
                     jQuery("page").click(function (e: JQueryMouseEventObject) {
 
