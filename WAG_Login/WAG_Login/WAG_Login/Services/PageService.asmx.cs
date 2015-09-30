@@ -48,72 +48,100 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         {
             string resultError = "";
 
-            if (HttpContext.Current.Request.Files.AllKeys.Any())
+
+            if (User.Identity.IsAuthenticated)
             {
 
-                var postedFiles = HttpContext.Current.Request.Files;
-                for (int f = 0; f < HttpContext.Current.Request.Files.Count; f++)
+                if (HttpContext.Current.Request.Files.AllKeys.Any())
                 {
-                    string fileName = "";
+
                     try
                     {
 
-                        string ext = System.IO.Path.GetExtension(postedFiles[f].FileName).ToLower();
+                        var entities = new WAG_Login_Page.WagPageEntities();
 
-                        fileName = Path.GetFileName(postedFiles[f].FileName);
+                        var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
-                        int maxFileSize = 5000;
+                        Image image = new Image();
 
-                        int fileSize = postedFiles[f].ContentLength;
-                        if (fileSize > (maxFileSize * 1024))
+                        var postedFiles = HttpContext.Current.Request.Files;
+                        for (int f = 0; f < HttpContext.Current.Request.Files.Count; f++)
                         {
-                            if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                            string fileName = "";
+                            try
                             {
-                                resultError += fileName + " is Not a valid image.<br>";
+
+                                string ext = System.IO.Path.GetExtension(postedFiles[f].FileName).ToLower();
+
+                                fileName = Path.GetFileName(postedFiles[f].FileName);
+
+                                int maxFileSize = 5000;
+
+                                int fileSize = postedFiles[f].ContentLength;
+                                if (fileSize > (maxFileSize * 1024))
+                                {
+                                    if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                                    {
+                                        resultError += fileName + " is Not a valid image.<br>";
+                                    }
+                                    else
+                                    {
+                                        resultError += fileName + " image file size is greater than 5Mb.<br>";
+                                    }
+
+                                    continue;
+                                }
+
+                                if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
+                                {
+                                    resultError += fileName + " is Not a valid image.<br>";
+
+                                    continue;
+                                }
+
+                                fileName = GetRandomString(8) + fileName;
+
+                                int i = 0;
+
+                                while (File.Exists(GetUserImagesPath() + fileName))
+                                {
+                                    i++;
+
+                                    fileName = GetRandomString(5) + GetRandomString(5) + fileName;
+                                    if (i == 4)
+                                    {
+                                        break;
+                                    }
+                                }
+
+                                string savePath = GetUserImagesPath() + fileName;
+
+                                postedFiles[f].SaveAs(savePath);
+
+                                image = new Image();
+                                image.UserId = user.Id;
+                                image.FileName = fileName;
+                                image.Path = "iimages";
+
+                                entities.Images.Add(image);
+
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                resultError += fileName + " image file size is greater than 5Mb.<br>";
-                            }                           
+                                resultError += fileName + " upload failed : server error.<br>";
 
-                            continue;
-                        }
-
-                        if (ext != ".jpg" && ext != ".png" && ext != ".gif" && ext != ".jpeg")
-                        {
-                            resultError += fileName + " is Not a valid image.<br>";
-
-                            continue;
-                        }
-
-                        fileName = GetRandomString(8) + fileName;
-
-                        int i = 0;
-
-                        while (File.Exists(GetUserImagesPath() + fileName))
-                        {
-                            i++;
-
-                            fileName = GetRandomString(5) + GetRandomString(5) + fileName;
-                            if (i == 4)
-                            {
-                                break;
                             }
+
                         }
 
-                        string savePath = GetUserImagesPath() + fileName;
 
-                        postedFiles[f].SaveAs(savePath);
-
+                        entities.SaveChanges();
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
-                        resultError += fileName + " upload failed : server error.<br>";
-
+                        resultError = "Server error!.<br>Try again later.";
                     }
-
                 }
-
             }
 
             return resultError;
@@ -122,7 +150,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
   
         private string GetUserImagesPath()
         {
-            return Server.MapPath(".") + "/../iimages/";
+            return Server.MapPath(".") + "/../shiv/iimages/";
         }
 
         [WebMethod]

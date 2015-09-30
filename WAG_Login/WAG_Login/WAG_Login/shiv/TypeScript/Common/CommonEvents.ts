@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../controls/imagejq.ts" />
+
 /////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: Common.SmartObj; }
 
@@ -16,6 +17,7 @@ import impOn = require("../Common/on");
 import impSaveClass = require("../_Classes/SaveJq");
 import impmal = require("../MalFormed/MalFormedJQ");
 import impNoUi = require("../Controls/NoUi");
+import impImage = require("../Controls/ImageJQ");
 
 var themeHandle;
 var downloadInterval;
@@ -76,9 +78,13 @@ export module Common {
                 processData: false,
                 data: data,
                 success: function () {
+
+                    impImage.Image.SelfJQ.ClearImageGalaryPagingValue();
+                    impImage.Image.SelfJQ.GetImages();
+
                 },
                 error: function (request, status, error) {
-                    console.log(error);
+                  
                 }
             });
 

@@ -294,14 +294,35 @@ export module Image {
             });
         }
 
+        public static SetImageGalaryPagingValue() {
+            jQuery(".imges-get-start").val((Number(jQuery(".imges-get-start").val()) + 30).toString());
+        }
+
+        public static GetImageGalaryPagingValue() {
+
+            if (jQuery(".imges-get-start").length == 0) {
+                var pagingElement = jQuery(document.createElement("input"))
+
+                pagingElement.addClass("imges-get-start hide");
+
+                jQuery("body").append(pagingElement);
+
+                jQuery(".imges-get-start").val('0');
+            }
+
+            return jQuery(".imges-get-start").val();
+        }
+
         public static GetImages() {
-        //$('input[type=button]').attr('disabled', true);
-        //$("#MemberDetails").html('');
-            //$("#MemberDetails").addClass("loading");
+
+            var data = { start: SelfJQ.GetImageGalaryPagingValue(), pageSize: 30 };
+
+            var dataStrfy = JSON.stringify(data);
+
             jQuery.ajax({
             type: "POST",
             url: "/services/ImageService.asmx/GetImages",
-            // data: "{'MemberNumber': '" + $("#txt_id").val() + "'}",
+            data: dataStrfy,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: SelfJQ.OnGetImagesSuccess,
@@ -309,6 +330,10 @@ export module Image {
         });
     }
 
+        public static ClearImageGalaryPagingValue() {
+
+            jQuery(".imges-get-start").val("0");
+        }
         
         public static OnGetImagesSuccess(data, status) {
 
@@ -317,7 +342,11 @@ export module Image {
             resultImages = data.d;
 
             if (resultImages.length > 0) {
+
                 jQuery(".image-library").html("");
+            
+                SelfJQ.SetImageGalaryPagingValue();
+
             }
 
             for (var i = 0; i < resultImages.length; i++) {

@@ -813,6 +813,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>WAG_O.tt</DependentUpon>
+    </Compile>
     <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.cs">
       <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

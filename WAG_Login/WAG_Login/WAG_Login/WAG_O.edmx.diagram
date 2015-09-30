@@ -17,6 +17,8 @@
         <AssociationConnector Association="WebGapsModel.FK_Page_Site" ManuallyRouted="false" />
         <AssociationConnector Association="WebGapsModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="WebGapsModel.FK_Site_AspNetUsers" />
+        <EntityTypeShape EntityType="WebGapsModel.Image" Width="1.5" PointX="5.25" PointY="10.5" />
+        <AssociationConnector Association="WebGapsModel.FK_Image_AspUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

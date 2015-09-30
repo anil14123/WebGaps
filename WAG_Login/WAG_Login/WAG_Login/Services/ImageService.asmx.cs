@@ -28,27 +28,44 @@ namespace WebAppGoTypeScript_X_Modulerization
         }
 
         [WebMethod]
-        [ScriptMethod( ResponseFormat = ResponseFormat.Json)]
-        public List<ImageJQ> GetImages()
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<ImageJQ> GetImages(int start, int pageSize)
         {
-            DirectoryInfo Folder;
-            FileInfo[] Images;
-
-            Folder = new DirectoryInfo( Server.MapPath(".") + "/../shiv/iimages");
-            Images = Folder.GetFiles();
+      
             List<ImageJQ> imagesList = new List<ImageJQ>();
-
-            for (int i = 0; i < Images.Length; i++)
+            if (User.Identity.IsAuthenticated)
             {
-                ImageJQ image = new ImageJQ();
-                image.Path = "iimages/" + Convert.ToString(Images[i].Name).ToLower() ;
+                try
+                {
 
-                imagesList.Add(image);
-            }
+                    var entities = new WAG_Login_Page.WagPageEntities();
 
-            if(imagesList.Count >0)
-            {
-               imagesList = imagesList.Where(i => i.Path.Contains(".jpeg") || i.Path.Contains(".jpg") || i.Path.Contains(".gif") || i.Path.Contains(".png") ).ToList();
+                    var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
+
+                    int count = entities.Images.OrderByDescending(k => k.id).Count(i => i.UserId == user.Id);
+
+                    if (count > 0 && count > start)
+                    {
+                        var images = entities.Images.Where(i => i.UserId == user.Id).OrderByDescending(k=>k.id).Skip(start).Take(pageSize);
+
+                        foreach (WAG_Login_Page.Image img in images)
+                        {
+                            ImageJQ image = new ImageJQ();
+                            image.Path = "iimages/" + Convert.ToString(img.FileName).ToLower();
+
+                            imagesList.Add(image);
+                        }
+
+                        if (imagesList.Count > 0)
+                        {
+                            imagesList = imagesList.Where(i => i.Path.Contains(".jpeg") || i.Path.Contains(".jpg") || i.Path.Contains(".gif") || i.Path.Contains(".png")).ToList();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
 
             return imagesList;
