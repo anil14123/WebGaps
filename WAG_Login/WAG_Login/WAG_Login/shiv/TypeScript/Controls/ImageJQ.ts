@@ -294,6 +294,7 @@ export module Image {
 
             jQuery(SelfJQ.controlId).on( "custom_loaded", function () {
 
+                SelfJQ.ClearImageGalaryPagingValue();
                 SelfJQ.GetImages();
 
             });
