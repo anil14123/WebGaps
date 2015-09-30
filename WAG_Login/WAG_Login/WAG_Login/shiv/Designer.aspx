@@ -921,6 +921,7 @@
                             
                             </div>
 
+                            <span class="btn btn-primary load-more-images">Load More Images</span>
                            
 
                         </fieldset>

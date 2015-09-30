@@ -526,12 +526,14 @@ controls {
 
 /******************* Image Library ***************/
 
-.image-library
-{
-    height:280px;
-    max-height:300px;
-    overflow-y:auto;
-    border:1px solid green;
+.image-library {
+    height: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid green;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .image-library-image{

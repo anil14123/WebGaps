@@ -287,6 +287,11 @@ export module Image {
 
         AttachUserImages()
         {
+            jQuery(".load-more-images").click(function () {
+
+                SelfJQ.GetImages();
+            });
+
             jQuery(SelfJQ.controlId).on( "custom_loaded", function () {
 
                 SelfJQ.GetImages();
@@ -295,7 +300,7 @@ export module Image {
         }
 
         public static SetImageGalaryPagingValue() {
-            jQuery(".imges-get-start").val((Number(jQuery(".imges-get-start").val()) + 30).toString());
+            jQuery(".imges-get-start").val((Number(jQuery(".imges-get-start").val()) + 20).toString());
         }
 
         public static GetImageGalaryPagingValue() {
@@ -315,7 +320,7 @@ export module Image {
 
         public static GetImages() {
 
-            var data = { start: SelfJQ.GetImageGalaryPagingValue(), pageSize: 30 };
+            var data = { start: SelfJQ.GetImageGalaryPagingValue(), pageSize: 20 };
 
             var dataStrfy = JSON.stringify(data);
 
@@ -343,8 +348,10 @@ export module Image {
 
             if (resultImages.length > 0) {
 
-                jQuery(".image-library").html("");
-            
+                if (SelfJQ.GetImageGalaryPagingValue() == "0") {
+                    jQuery(".image-library").html("");
+                }
+
                 SelfJQ.SetImageGalaryPagingValue();
 
             }
