@@ -268,6 +268,13 @@ export module Smart {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text").first();
+            }
+            else
+                if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
 
             if (selectedElement != undefined) {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
@@ -313,6 +320,14 @@ export module Smart {
         public static ProcessColumnWidth(width) {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text").first();
+            }
+            else
+                if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
 
             if (selectedElement != undefined) {
 
@@ -554,6 +569,14 @@ export module Smart {
             SmartMenuJQ.isSelectProcessing = true;
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text").first();
+            }
+            else
+                if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
 
             if (selectedElement != undefined) {
 
