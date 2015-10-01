@@ -130,6 +130,7 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         else {
                             errorHandler.ActionFail("Please select a layout.!");
                         }
+                        jQuery(".jq-row-plus-container").hide();
                     });
                 };
                 LayoutJQ.prototype.Layout = function (layout) {

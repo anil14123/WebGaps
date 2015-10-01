@@ -176,6 +176,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             SmartMenuJQ.OnChange = function ($this, whclass) {
                 impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text").first();
+                }
+                else if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
                 if (selectedElement != undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     var widthVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
@@ -209,6 +215,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             };
             SmartMenuJQ.ProcessColumnWidth = function (width) {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text").first();
+                }
+                else if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
                 if (selectedElement != undefined) {
                     var width = width;
                     var originalWidth = selectedElement.width();
@@ -358,6 +370,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             SmartMenuJQ.ProcessSelectedValues = function () {
                 SmartMenuJQ.isSelectProcessing = true;
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text").first();
+                }
+                else if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+                }
                 if (selectedElement != undefined) {
                     var heightstr = selectedElement.css("height");
                     if (heightstr != undefined) {

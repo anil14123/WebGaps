@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/ControlsJQ", "../Controls/TextJQ", "../Controls/ImageJQ", "../Controls/FontJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../SmartMenu/SmartMenuJQ", "../Error/ErrorJQ", "../ContextMenu/Contextmenujq", "../controls/bijq", "../JQte/OnInsert", "../MalFormed/MalFormedJQ", "../Controls/ControlCommonJQ"], function (require, exports, impCommon, impAddRow, impText, impImage, impFont, impBorder, impColor, impHeightWidth, impError, impCtxMenu, impBi, impOnInsert, impmal, impCommonCode) {
+define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/ControlsJQ", "../Controls/TextJQ", "../Controls/ImageJQ", "../Controls/FontJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../SmartMenu/SmartMenuJQ", "../Error/ErrorJQ", "../ContextMenu/Contextmenujq", "../controls/bijq", "../JQte/OnInsert", "../MalFormed/MalFormedJQ", "../Controls/ControlCommonJQ", "../Controls/MarginJQ", "../Controls/PaddingJQ"], function (require, exports, impCommon, impAddRow, impText, impImage, impFont, impBorder, impColor, impHeightWidth, impError, impCtxMenu, impBi, impOnInsert, impmal, impCommonCode, impMargin, impPadding) {
     var G_isAttachedWatch = false;
     var isWatchReady = false;
     var Watch;
@@ -16,6 +16,28 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 if (MouseJQ.selectedElement == undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     errorHandler.ActionHelp("Please select a element.");
+                }
+            };
+            MouseJQ.ProcessMove = function (e) {
+                if (MouseJQ.selectedMoveElement != undefined) {
+                    MouseJQ.selectedMoveElement.find(".ui-resizable-handle").hide();
+                }
+                if (!jQuery(e.target).hasClass(".key")) {
+                    MouseJQ.selectedMoveElement = jQuery(e.target).closest(".key");
+                }
+                else {
+                    MouseJQ.selectedMoveElement = jQuery(e.target);
+                }
+                if (MouseJQ.selectedMoveElement.hasClass("row") || MouseJQ.selectedMoveElement.hasClass("column")) {
+                    MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
+                }
+                else {
+                    if (MouseJQ.selectedMoveElement.hasClass("ui-resizable")) {
+                        MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
+                    }
+                    else {
+                        MouseJQ.selectedMoveElement.find(".ui-resizable").first().children(".ui-resizable-handle").show();
+                    }
                 }
             };
             MouseJQ.ProcessClick = function (e) {
@@ -77,6 +99,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             case 'bi':
                                 impBi.BI.BIJQ.ProcessSelectNotify();
                                 break;
+                            case 'margin':
+                                impMargin.Margin.MarginJQ.ProcessSelectNotify();
+                                break;
+                            case 'padding':
+                                impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                                break;
                             default:
                                 break;
                         }
@@ -113,6 +141,10 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 jQuery(document).ready(function () {
                     if (G_isAttachedWatch == false) {
                         G_isAttachedWatch = true;
+                        //jQuery(".ui-resizable-handle").hide();
+                        //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
+                        //    MouseJQ.ProcessMove(e);
+                        //})
                         jQuery("page").click(function (e) {
                             MouseJQ.ProcessClick(e);
                             if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {

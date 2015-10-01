@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ"], function (require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode) {
+define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impUndoManager) {
     var debug = true;
     var globalImageBlockId = 0;
     var globalImageBlockContainerId = 0;
@@ -67,6 +67,29 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         SelfJQ.InsertImage(undefined);
                     }
                 });
+                jQuery(".action-button-change-image").click(function () {
+                    var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;
+                    if (selectedRowOrColumn != undefined
+                        &&
+                            selectedRowOrColumn.hasClass("empty-container-image")) {
+                        var imgSrc = jQuery(".image-library-select").attr("src");
+                        if (imgSrc != "") {
+                            selectedRowOrColumn.find(".jq-plus-container-image").find("img").attr("src", imgSrc);
+                            var undo = new impUndoManager.Manager.UndoManager();
+                            undo.BeforeOperation();
+                        }
+                    }
+                    else {
+                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                        errorHandler.ActionFail("please select a image on page to change image.");
+                    }
+                });
+            };
+            SelfJQ.ChangeImage = function () {
+                jQuery(".action-button-insert-image").hide();
+                jQuery(".action-button-change-image").show();
+                jQuery("#control-image-library").show();
+                jQuery("#control-image-library").trigger('custom_loaded');
             };
             SelfJQ.InsertImage = function (url) {
                 var imageObj = new SelfJQ();
@@ -135,25 +158,14 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         plusContainer.addClass("design-empty-text-css");
                         plusContainer.removeClass("jq-plus-container");
                         var emptycontainer = document.createElement("div");
+                        plusContainer.css("height", "200px");
+                        plusContainer.css("width", "200px");
                         var jEc = jQuery(emptycontainer);
                         jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
                         //padding-10 
                         jEc.append(plusContainer);
-                        jQuery(tbImg).load(function () {
-                            var loadedImgContainer = jQuery(this).closest(".jq-plus-container-image");
-                            if (this.naturalHeight > 200) {
-                                loadedImgContainer.css("height", "200px");
-                            }
-                            else {
-                                loadedImgContainer.css("height", "200px");
-                            }
-                            if (this.naturalWidth > 200) {
-                                loadedImgContainer.css("width", "200px");
-                            }
-                            else {
-                                loadedImgContainer.css("width", "px");
-                            }
-                        });
+                        //jQuery(tbImg).load(function () {
+                        //});
                         plusContainer.find(".jq-plus-content").append(tbImageContainer);
                         if (window.smartObj == null || window.smartObj.command == "") {
                             ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);
@@ -187,29 +199,50 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 jQuery(".internet-image-url").val("");
             };
             SelfJQ.prototype.AttachUserImages = function () {
+                jQuery(".load-more-images").click(function () {
+                    SelfJQ.GetImages();
+                });
                 jQuery(SelfJQ.controlId).on("custom_loaded", function () {
+                    SelfJQ.ClearImageGalaryPagingValue();
                     SelfJQ.GetImages();
                 });
             };
+            SelfJQ.SetImageGalaryPagingValue = function () {
+                jQuery(".imges-get-start").val((Number(jQuery(".imges-get-start").val()) + 20).toString());
+            };
+            SelfJQ.GetImageGalaryPagingValue = function () {
+                if (jQuery(".imges-get-start").length == 0) {
+                    var pagingElement = jQuery(document.createElement("input"));
+                    pagingElement.addClass("imges-get-start hide");
+                    jQuery("body").append(pagingElement);
+                    jQuery(".imges-get-start").val('0');
+                }
+                return jQuery(".imges-get-start").val();
+            };
             SelfJQ.GetImages = function () {
-                //$('input[type=button]').attr('disabled', true);
-                //$("#MemberDetails").html('');
-                //$("#MemberDetails").addClass("loading");
+                var data = { start: SelfJQ.GetImageGalaryPagingValue(), pageSize: 20 };
+                var dataStrfy = JSON.stringify(data);
                 jQuery.ajax({
                     type: "POST",
                     url: "/services/ImageService.asmx/GetImages",
-                    // data: "{'MemberNumber': '" + $("#txt_id").val() + "'}",
+                    data: dataStrfy,
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: SelfJQ.OnGetImagesSuccess,
                     error: SelfJQ.OnGetImagesError
                 });
             };
+            SelfJQ.ClearImageGalaryPagingValue = function () {
+                jQuery(".imges-get-start").val("0");
+            };
             SelfJQ.OnGetImagesSuccess = function (data, status) {
                 var resultImages;
                 resultImages = data.d;
                 if (resultImages.length > 0) {
-                    jQuery(".image-library").html("");
+                    if (SelfJQ.GetImageGalaryPagingValue() == "0") {
+                        jQuery(".image-library").html("");
+                    }
+                    SelfJQ.SetImageGalaryPagingValue();
                 }
                 for (var i = 0; i < resultImages.length; i++) {
                     var imageContainer = document.createElement("div");

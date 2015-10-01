@@ -58,7 +58,6 @@ define(["require", "exports"], function (require, exports) {
                     var index = helpMessage.toLowerCase().indexOf("page loaded");
                     if (index != -1) {
                         jQuery(".jq-loading").hide();
-                        console.log("Page Loaded");
                     }
                 }
                 var helpContainer = jQuery(document.createElement("div"));

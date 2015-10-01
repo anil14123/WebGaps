@@ -14,8 +14,6 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 jQuery(document).ready(function () {
                     if (isBorderReady == false) {
                         isBorderReady = true;
-                        jQuery(BorderJQ.controlId).on("click", function () {
-                        });
                         jQuery(".border-advanced-show").click(function () {
                             jQuery(".jq-border-advanced").fadeToggle(1);
                         });

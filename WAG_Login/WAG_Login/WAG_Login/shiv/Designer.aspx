@@ -802,7 +802,7 @@
 
     <controls>
 
-        <!------------------------------- Templates ----------------------------------->
+        <!------------------------------- CTemplates ----------------------------------->
 
         <div id="control-templates" name="templates" class="control-page control-templates control-active"  >
            
@@ -825,7 +825,7 @@
         </div>
 
 
-        <!------------------------------- Add a Row ------------------------------------>
+        <!------------------------------- CAdd a Row ------------------------------------>
 
         <div id="control-add-row" name="add-row" class="control-page" >
            
@@ -893,7 +893,7 @@
                 </div>--%>
         </div>
 
-        <!------------------------------ image library --------------------------------->
+        <!------------------------------ Cimage library --------------------------------->
 
         <div id="control-image-library" name="image-library" class="control-page" style="background-color:white;" >
            
@@ -948,7 +948,7 @@
           
         </div>
 
-            <!------------------------------ menu control --------------------------------->
+            <!------------------------------ Cmenu control --------------------------------->
 
         <div id="control-menu" name="control-menu" class="control-menu control-page"  >
            
@@ -980,7 +980,7 @@
           
         </div>
 
-        <!------------------------------ Height Width ---------------------------------->
+        <!------------------------------ CHeight Width ---------------------------------->
 
         <div id="control-height-width" name="height-width" class="control-page " >
            
@@ -1026,7 +1026,7 @@
         </div>
 
         
-        <!------------------------------   Links  --------------------------------------->
+        <!------------------------------   CLinks  --------------------------------------->
 
         <div id="control-insert-link" name="color" class="control-page" >
             
@@ -1128,7 +1128,7 @@
 
 
 
-        <!------------------------------   Color  --------------------------------------->
+        <!------------------------------   CColor  --------------------------------------->
 
         <div id="control-color" name="color" class="control-page" >
             
@@ -1182,7 +1182,7 @@
         </div>
 
    
-        <!------------------------------ Bi Image Lib ------------------------------------>
+        <!------------------------------ CBi Image Lib ------------------------------------>
         
            <div id="control-image-bi-library" name="bi-image-library" class="control-page"  >
            
@@ -1213,7 +1213,7 @@
           
         </div>
 
-        <!------------------------------- Background Image ------------------------------>
+        <!------------------------------- CBI CBackground Image ------------------------------>
         
           <div id="control-bi" name="bi" class="control-page" >
             
@@ -1341,7 +1341,7 @@
         </div>
         
 
-          <!------------------------------   Margin  -------------------------------------->
+          <!------------------------------   CPadding  -------------------------------------->
 
         <style>
             .jq-padding-advanced{
@@ -1367,7 +1367,7 @@
                                   
                         
                                     <div clas="row">
-                                        <div class="col-xs-24">
+                                        <div class="col-xs-48">
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
@@ -1443,7 +1443,7 @@
           </div>
 
 
-          <!------------------------------   Margin  -------------------------------------->
+          <!------------------------------   CMargin  -------------------------------------->
 
         <style>
             .jq-margin-advanced{
@@ -1469,7 +1469,7 @@
                                   
                         
                                     <div clas="row">
-                                        <div class="col-xs-24">
+                                        <div class="col-xs-48">
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
@@ -1546,7 +1546,7 @@
                 </div>
           </div>
 
-        <!------------------------------   Border  -------------------------------------->
+        <!------------------------------   CBorder  -------------------------------------->
 
          <div id="control-border" name="border" class='control-border control-page' >
            
@@ -1726,7 +1726,7 @@
                 </div>
           </div>
     
-          <!------------------------------ Insert clipborad ------------------------------------>
+          <!------------------------------ CInsert clipborad ------------------------------------>
 
          <div id="control-insert-clipboard" name="insert-clipborad" class="control-page" style="">
           
@@ -1753,7 +1753,7 @@
         </div>
 
        
-     <!------------------------------ Insert Html ------------------------------------>
+     <!------------------------------ CInsert Html ------------------------------------>
 
         <div id="control-insert-html" name="insert-html" class="control-page" style="">
           
@@ -1776,7 +1776,7 @@
             </div>
         </div>
 
-        <!------------------------------ Insert Text ------------------------------------>
+        <!------------------------------ CInsert Text ------------------------------------>
 
         <div id="control-insert-text" name="insert-text" class="control-page" style="">
           

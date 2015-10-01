@@ -1,6 +1,7 @@
-define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi"], function (require, exports, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi) {
+define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ"], function (require, exports, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage) {
     var themeHandle;
     var downloadInterval;
+    var imageFiles;
     var Common;
     (function (Common) {
         var SmartObj = (function () {
@@ -35,10 +36,47 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                     return false;
                 }
             };
+            CommonEvents.UploadImages = function () {
+                var files = imageFiles;
+                //// Add the uploaded image content to the form data collection
+                //if (files.length > 0) {
+                //    data.append("UploadedImage", files[0]);
+                //}
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    data.append(files[i].name, files[i]);
+                }
+                // Make Ajax request with the contentType = false, and procesDate = false
+                $.ajax({
+                    type: "POST",
+                    url: "/Services/PageService.asmx/UploadImages",
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function () {
+                        impImage.Image.SelfJQ.ClearImageGalaryPagingValue();
+                        impImage.Image.SelfJQ.GetImages();
+                    },
+                    error: function (request, status, error) {
+                    }
+                });
+            };
+            // Grab the files and set them to our variable
+            CommonEvents.PrepareUpload = function (event) {
+                imageFiles = event.target.files;
+                CommonEvents.UploadImages();
+            };
             CommonEvents.prototype.Init = function () {
                 if (CommonEvents.CheckMal() == false) {
                     impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
                 }
+                ///////////// change image ////////////////
+                jQuery(".button-change-image").click(function () {
+                    impImage.Image.SelfJQ.ChangeImage();
+                });
+                //////////// images upload ////////////////
+                // Add events
+                $('.image-file-upload').on('change', CommonEvents.PrepareUpload);
                 ////////////// Flating or aligning...
                 jQuery(".button-align-left").click(function () {
                     impNoUi.NoUI.AlignJQ.Left();
