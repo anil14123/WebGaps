@@ -137,7 +137,7 @@ controls {
 
 
 .control-page fieldset {
-     background-color: rgba(255,255,255,0.6);
+     background-color: rgba(255,255,255,0.2);
 }
 
 .control-page {
@@ -145,7 +145,7 @@ controls {
     left: 25%;
     top: 150px;
    
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.2);
     
    border:2px solid black;
    
@@ -649,7 +649,13 @@ controls {
 
 .jq-border-advanced{
     
-    display:none;
+    /*display:none;*/
+}
+
+.jq-c-lable
+{
+    font-weight:bold;
+
 }
 
 #control-image-bi-library

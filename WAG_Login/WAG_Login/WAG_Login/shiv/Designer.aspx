@@ -1050,7 +1050,7 @@
 
                                   <select class="ddn-control ddn insert-link-links"></select>
 
-                                &nbsp;&nbsp; Name:  <input type="text" class="insert-link-name" />
+                                &nbsp;&nbsp;<span class="jq-c-lable"> Name: </span> <input type="text" class="insert-link-name" />
 
                             </div>
 
@@ -1065,11 +1065,11 @@
                             <div style="margin:5px; text-align:left">
 
                                 <div class="row">
-                                <div class="col-xs-10">Url </div>  <div class="col-xs-36"> <input type="text" id="insert-internet-link-url" /></div>
+                                <div class="col-xs-10"><span class="jq-c-lable">Url</span> </div>  <div class="col-xs-36"> <input type="text" id="insert-internet-link-url" /></div>
                                 </div>
 
                                 <div class="row">
-                                <div class="col-xs-10">Name </div> <div class="col-xs-36"> <input type="text" id="insert-internet-link-name" /></div>
+                                <div class="col-xs-10"><span class="jq-c-lable">Name</span> </div> <div class="col-xs-36"> <input type="text" id="insert-internet-link-name" /></div>
                                 </div>
                             </div>
                           
@@ -1240,7 +1240,7 @@
                                 <button class="bi-browse" > Browse</button>
                                      <center><b>OR</b></center>
                                         <div class="float-left">
-                             Paste Image Url 
+                             <span class="jq-c-lable">Paste Image Url </span>
                             </div>
 
                       <input type="text" class="input-sm  internet-bi-image-url" />
@@ -1345,7 +1345,7 @@
 
         <style>
             .jq-padding-advanced{
-                display:none;
+                /*display:none;*/
             }
         </style>
 
@@ -1371,7 +1371,7 @@
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
-                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-16"> <span class="jq-c-lable"> All: </span></div>
                                                 <div class="col-xs-32">
 
                                                      <input class="control-padding-all control-padding-padding" />
@@ -1382,7 +1382,7 @@
 
                                             <div class="row border-thickness-padding-row jq-padding-advanced">
 
-                                                <div class="col-xs-16">Left: </div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Left: </span></div>
                                                  <div class="col-xs-32">
 
                                                     <input class="control-padding-left control-padding-padding" />
@@ -1392,7 +1392,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-padding-advanced" >
 
-                                                <div class="col-xs-16">Right:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Right:</span></div>
                                                   <div class="col-xs-32">
                                                     <input class="control-padding-right control-padding-padding"  />
                                                      
@@ -1401,7 +1401,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-padding-advanced">
 
-                                                <div class="col-xs-16">Top:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Top:</span></div>
                                                  <div class="col-xs-32">
 
                                                       <input class="control-padding-top control-padding-padding" />
@@ -1411,7 +1411,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-padding-advanced">
 
-                                                <div class="col-xs-16">Bottom:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Bottom:</span></div>
                                                   <div class="col-xs-32">
 
                                                      <input class="control-padding-bottom control-padding-padding"  />
@@ -1447,7 +1447,7 @@
 
         <style>
             .jq-margin-advanced{
-                display:none;
+                /*display:none;*/
             }
         </style>
 
@@ -1473,7 +1473,7 @@
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
-                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">All:</span></div>
                                                 <div class="col-xs-32">
 
                                                      <input class="control-margin-all control-margin-margin" />
@@ -1484,7 +1484,7 @@
 
                                             <div class="row border-thickness-padding-row jq-margin-advanced">
 
-                                                <div class="col-xs-16">Left: </div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Left:</span> </div>
                                                  <div class="col-xs-32">
 
                                                     <input class="control-margin-left control-margin-margin" />
@@ -1494,7 +1494,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-margin-advanced" >
 
-                                                <div class="col-xs-16">Right:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Right:</span></div>
                                                   <div class="col-xs-32">
                                                     <input class="control-margin-right control-margin-margin"  />
                                                      
@@ -1503,7 +1503,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-margin-advanced">
 
-                                                <div class="col-xs-16">Top:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Top:</span></div>
                                                  <div class="col-xs-32">
 
                                                       <input class="control-margin-top control-margin-margin" />
@@ -1513,7 +1513,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-margin-advanced">
 
-                                                <div class="col-xs-16">Bottom:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Bottom:</span></div>
                                                   <div class="col-xs-32">
 
                                                      <input class="control-margin-bottom control-margin-margin"  />
@@ -1570,7 +1570,7 @@
 
                                             <div class="row border-thickness-padding-row border-all-divider">
 
-                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">All:</span></div>
                                                 <div class="col-xs-32">
 
                                                      <input class="control-border-thickness-all control-border-thickness" />
@@ -1581,7 +1581,7 @@
 
                                             <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-16">Left: </div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Left:</span> </div>
                                                  <div class="col-xs-32">
 
                                                     <input class="control-border-thickness-left control-border-thickness" />
@@ -1591,7 +1591,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced" >
 
-                                                <div class="col-xs-16">Right:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Right:</span></div>
                                                   <div class="col-xs-32">
                                                     <input class="control-border-thickness-right control-border-thickness"  />
                                                      
@@ -1600,7 +1600,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-16">Top:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Top:</span></div>
                                                  <div class="col-xs-32">
 
                                                       <input class="control-border-thickness-top control-border-thickness" />
@@ -1610,7 +1610,7 @@
                                             </div>
                                               <div class="row border-thickness-padding-row jq-border-advanced">
 
-                                                <div class="col-xs-16">Bottom:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Bottom:</span></div>
                                                   <div class="col-xs-32">
 
                                                      <input class="control-border-thickness-bottom control-border-thickness"  />
@@ -1683,7 +1683,7 @@
 
                                              <div class="row border-thickness-padding-row ">
 
-                                                <div class="col-xs-16">Border Corner Round:</div>
+                                                <div class="col-xs-16"><span class="jq-c-lable">Border Corner Round:</span></div>
                                                   <div class="col-xs-20">
 
                                                      <input class="control-border-thickness-radius " />
@@ -1793,7 +1793,7 @@
 <%--                        <div class="jq-template" template-id="control-font-style">
 
                         </div>--%>
-                        <div class="jqte-editor"  contenteditable="true" style=" min-height:200px; min-width:250px; border:1px solid black; border-radius:5px;" >
+                        <div class="jqte-editor"  contenteditable="true" style="background-color:white; min-height:200px; min-width:250px; border:1px solid black; border-radius:5px;" >
                             
                         </div>
 
