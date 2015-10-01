@@ -1126,6 +1126,35 @@
                 </div>
         </div>
 
+         <!------------------------------   CFrontBack  --------------------------------------->
+
+        <div id="control-zindex" name="zindex" class="control-page" >
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Change Element To Front / Back </div>
+           
+                <div class="control-zindex-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                            <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Front/Back 
+                            </div>
+                                   <input type="text" class="control-z-zindex" />
+
+                            </fieldset>
+
+                           
+                    </center>
+
+                    
+                </div>
+        </div>
 
 
         <!------------------------------   CColor  --------------------------------------->
@@ -1950,6 +1979,10 @@
                         <li>
                             <div class="li ctx-menu-background-image">Background Image</div>
                         </li>
+                        <li>
+                            <div class="li ctx-menu-z-index">Front/Back Position</div>
+                        </li>
+
                     </ul>
                 </div>
             </li>

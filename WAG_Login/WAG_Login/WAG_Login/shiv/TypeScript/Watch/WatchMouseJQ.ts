@@ -16,6 +16,7 @@ import impmal = require("../MalFormed/MalFormedJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
+import impFrontBack = require("../Controls/FrontBackJQ");
 
 var G_isAttachedWatch = false;
 
@@ -155,6 +156,9 @@ export module Watch {
                             break;
                         case 'padding':
                             impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                            break;
+                        case 'zindex':
+                            impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
                             break;
                         default:
                             break;

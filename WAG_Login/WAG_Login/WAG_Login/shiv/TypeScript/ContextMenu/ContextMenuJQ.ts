@@ -26,6 +26,7 @@ import impLink = require("../Controls/LinkJQ");
 import impHtml = require("../Controls/HtmlJQ");
 import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
+import impFrontBack = require("../Controls/FrontBackJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -540,6 +541,18 @@ export module ContextMenu {
             jQuery("#control-padding").show();
         }
 
+        public static ShowZindex() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-zindex").addClass("control-active");
+
+
+            jQuery("#control-zindex").show();
+
+        }
+
 
         public static ShowColor() {
 
@@ -645,6 +658,25 @@ export module ContextMenu {
 
             });
         }
+
+        public static AttachZindex() {
+
+            new impFrontBack.FrontBack.FrontBackJQ().Init();
+
+            jQuery(".li.ctx-menu-z-index").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowZindex();
+
+                impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        
 
         public static AttachCopy() {
             jQuery(".li.ctx-menu-copy").on("click", function () {
@@ -876,6 +908,7 @@ export module ContextMenu {
                         ContextMenuJQ.AttachSpacer();
                         ContextMenuJQ.AttachBorder();
                         ContextMenuJQ.AttachMargin();
+                        ContextMenuJQ.AttachZindex();
                         ContextMenuJQ.AttachPadding();
                         ContextMenuJQ.AttachColor();
                         ContextMenuJQ.AttachInsertMenu();
