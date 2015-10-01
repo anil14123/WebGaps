@@ -37,7 +37,7 @@ export module Margin {
 
                     jQuery(".control-margin-margin").spinner(
                         {
-                            min: 0,
+                            min: -1500,
                             max: 1500,
                             step: 1,
                             value: 0,
