@@ -14,6 +14,7 @@ import impBi = require("../controls/bijq");
 import impOnInsert = require("../JQte/OnInsert");
 import impmal = require("../MalFormed/MalFormedJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
+import impMargin = require("../Controls/MarginJQ");
 
 var G_isAttachedWatch = false;
 
@@ -148,6 +149,8 @@ export module Watch {
                         case 'bi':
                             impBi.BI.BIJQ.ProcessSelectNotify();
                             break;
+                        case 'margin':
+                            impMargin.Margin.MarginJQ.ProcessSelectNotify();
 
                         default:
                             break;

@@ -24,6 +24,7 @@ import impBi = require("../Controls/BIjq");
 import impSpacer = require("../Controls/SpacerJQ");
 import impLink = require("../Controls/LinkJQ");
 import impHtml = require("../Controls/HtmlJQ");
+import impMargin = require("../Controls/MarginJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -516,6 +517,29 @@ export module ContextMenu {
             jQuery("#control-border").show();
         }
 
+        public static ShowMarginControl() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-margin").addClass("control-active");
+
+
+            jQuery("#control-margin").show();
+        }
+
+        public static ShowPaddingControl() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-padding").addClass("control-active");
+
+
+            jQuery("#control-padding").show();
+        }
+
+
         public static ShowColor() {
 
             ContextMenuJQ.ControlPageHide();
@@ -584,6 +608,41 @@ export module ContextMenu {
                 impBorder.Border.BorderJQ.ProcessSelectNotify();
 
             });
+        }
+
+
+        public static AttachMargin() {
+
+            new impMargin.Margin.MarginJQ().Init();
+
+            jQuery(".li.ctx-menu-margin").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowMarginControl();
+
+                impMargin.Margin.MarginJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachPadding() {
+
+            //new impPadding.Padding.PaddingJQ().Init();
+
+            //jQuery(".li.ctx-menu-padding").on("click", function () {
+
+            //    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+            //        return;
+            //    }
+
+            //    ContextMenuJQ.ShowPaddingControl();
+
+            //    impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+
+            //});
         }
 
         public static AttachCopy() {
@@ -815,6 +874,8 @@ export module ContextMenu {
                         ContextMenuJQ.AttachInsertImage();
                         ContextMenuJQ.AttachSpacer();
                         ContextMenuJQ.AttachBorder();
+                        ContextMenuJQ.AttachMargin();
+                        ContextMenuJQ.AttachPadding();
                         ContextMenuJQ.AttachColor();
                         ContextMenuJQ.AttachInsertMenu();
                         ContextMenuJQ.AttachBackgroundImage();

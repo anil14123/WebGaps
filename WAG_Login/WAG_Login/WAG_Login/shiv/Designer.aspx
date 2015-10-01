@@ -345,7 +345,7 @@
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
-                     <button class="button-change-image  btn btn-danger btn-xs btn jq-save-margin">
+                     <button class="button-change-image  btn btn-danger  btn jq-save-margin">
                       Change Image</button>
 
                 </div>
@@ -895,12 +895,12 @@
 
         <!------------------------------ image library --------------------------------->
 
-        <div id="control-image-library" name="image-library" class="control-page"  >
+        <div id="control-image-library" name="image-library" class="control-page" style="background-color:white;" >
            
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">images</div>
             
-              <fieldset class="clear">
+              <fieldset class="clear" style="background-color:white;">
                 
                      <div class=" legend float-left">
                              Paste Image Url 
@@ -910,9 +910,9 @@
                 
                 </fieldset>
 
-                                     <center><b>OR</b></center>
+                                     <center style="background-color:white;"><b>OR</b></center>
 
-                        <fieldset class="clear">
+                        <fieldset class="clear" style="background-color:white;">
 
                           <div class=" legend ">
                               Library
@@ -1340,6 +1340,107 @@
                 </div>
         </div>
         
+          <!------------------------------   Margin  -------------------------------------->
+
+        <style>
+
+            /*.jq-margin-advanced{
+                display:none;
+            }*/
+
+        </style>
+
+         <div id="control-margin" name="margin" class='control-border control-page' >
+           
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+             <div class="control-move-area">Margin</div>
+           
+                <div class="control-margin-controls">
+                    <center>
+                       
+                            <%--<div class="page-name legend ">
+                               
+                            </div>--%>
+
+                            <div class="">
+                                <fieldset class="clear">
+                                  
+                        
+                                    <div clas="row">
+                                        <div class="col-xs-24">
+
+                                           <%-- <div class="row border-thickness-padding-row border-all-divider">
+
+                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-32">
+
+                                                     <input class="control-margin-all control-margin-margin" />
+
+                                                </div>
+
+                                            </div>--%>
+
+                                            <div class="row border-thickness-padding-row jq-margin-advanced">
+
+                                                <div class="col-xs-16">Left: </div>
+                                                 <div class="col-xs-32">
+
+                                                    <input class="control-margin-left control-margin-margin" />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-margin-advanced" >
+
+                                                <div class="col-xs-16">Right:</div>
+                                                  <div class="col-xs-32">
+                                                    <input class="control-margin-right control-margin-margin"  />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-margin-advanced">
+
+                                                <div class="col-xs-16">Top:</div>
+                                                 <div class="col-xs-32">
+
+                                                      <input class="control-margin-top control-margin-margin" />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-margin-advanced">
+
+                                                <div class="col-xs-16">Bottom:</div>
+                                                  <div class="col-xs-32">
+
+                                                     <input class="control-margin-bottom control-margin-margin"  />
+                                                    
+                                                </div>
+
+                                            </div>
+
+                                            
+
+                                        </div>
+                                     
+
+                                        </div>
+                                       
+                                    </div>        
+
+                       <%--  <div class="controls-action">
+                
+                           <a class="margin-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
+                         
+                         </div>--%>
+
+                        
+
+                    </center>
+                </div>
+          </div>
 
         <!------------------------------   Border  -------------------------------------->
 
@@ -1732,6 +1833,9 @@
                         </li>
                         <li>
                             <div class="li ctx-menu-border">Border</div>
+                        </li>
+                         <li>
+                            <div class="li ctx-menu-margin">Margin</div>
                         </li>
                         <li>
                             <div class="li ctx-menu-color">Color</div>
