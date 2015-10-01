@@ -30,9 +30,7 @@ export module Border {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                    jQuery(BorderJQ.controlId).on("click", function () {
-
-                    });
+                  
 
                     jQuery(".border-advanced-show").click(function () {
 
