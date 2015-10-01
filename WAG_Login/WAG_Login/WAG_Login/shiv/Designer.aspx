@@ -345,8 +345,8 @@
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
-                     <button class="button-change-image  btn btn-danger  btn jq-save-margin">
-                      Change Image</button>
+                    <button class="button-change-image  btn btn-danger  btn jq-save-margin">
+                        Change Image</button>
 
                 </div>
 
@@ -1340,17 +1340,118 @@
                 </div>
         </div>
         
+
           <!------------------------------   Margin  -------------------------------------->
 
         <style>
-
-            /*.jq-margin-advanced{
+            .jq-padding-advanced{
                 display:none;
-            }*/
-
+            }
         </style>
 
-         <div id="control-margin" name="margin" class='control-border control-page' >
+         <div id="control-padding" name="padding" class='control-padding control-page' >
+           
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+             <div class="control-move-area">Padding</div>
+           
+                <div class="control-padding-controls">
+                    <center>
+                       
+                            <%--<div class="page-name legend ">
+                               
+                            </div>--%>
+
+                            <div class="">
+                                <fieldset class="clear">
+                                  
+                        
+                                    <div clas="row">
+                                        <div class="col-xs-24">
+
+                                            <div class="row border-thickness-padding-row border-all-divider">
+
+                                                <div class="col-xs-16">All:</div>
+                                                <div class="col-xs-32">
+
+                                                     <input class="control-padding-all control-padding-padding" />
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row border-thickness-padding-row jq-padding-advanced">
+
+                                                <div class="col-xs-16">Left: </div>
+                                                 <div class="col-xs-32">
+
+                                                    <input class="control-padding-left control-padding-padding" />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-padding-advanced" >
+
+                                                <div class="col-xs-16">Right:</div>
+                                                  <div class="col-xs-32">
+                                                    <input class="control-padding-right control-padding-padding"  />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-padding-advanced">
+
+                                                <div class="col-xs-16">Top:</div>
+                                                 <div class="col-xs-32">
+
+                                                      <input class="control-padding-top control-padding-padding" />
+                                                     
+                                                </div>
+
+                                            </div>
+                                              <div class="row border-thickness-padding-row jq-padding-advanced">
+
+                                                <div class="col-xs-16">Bottom:</div>
+                                                  <div class="col-xs-32">
+
+                                                     <input class="control-padding-bottom control-padding-padding"  />
+                                                    
+                                                </div>
+
+                                                
+                                            </div>
+
+                                            
+                                           
+                                        </div>
+                                     
+                                        
+                                        </div>
+                                       </fieldset>
+                                    </div>        
+
+                         <div class="controls-action">
+                
+                           <a class="padding-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
+                         
+                         </div>
+
+                        
+
+                    </center>
+                </div>
+          </div>
+
+
+          <!------------------------------   Margin  -------------------------------------->
+
+        <style>
+            .jq-margin-advanced{
+                display:none;
+            }
+        </style>
+
+         <div id="control-margin" name="margin" class='control-margin control-page' >
            
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
@@ -1370,7 +1471,7 @@
                                     <div clas="row">
                                         <div class="col-xs-24">
 
-                                           <%-- <div class="row border-thickness-padding-row border-all-divider">
+                                            <div class="row border-thickness-padding-row border-all-divider">
 
                                                 <div class="col-xs-16">All:</div>
                                                 <div class="col-xs-32">
@@ -1379,7 +1480,7 @@
 
                                                 </div>
 
-                                            </div>--%>
+                                            </div>
 
                                             <div class="row border-thickness-padding-row jq-margin-advanced">
 
@@ -1427,14 +1528,17 @@
                                      
 
                                         </div>
-                                       
-                                    </div>        
+                        
+                                    </fieldset>               
+                                    </div> 
+                        
+                               
 
-                       <%--  <div class="controls-action">
+                         <div class="controls-action">
                 
                            <a class="margin-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
                          
-                         </div>--%>
+                         </div>
 
                         
 
@@ -1834,8 +1938,11 @@
                         <li>
                             <div class="li ctx-menu-border">Border</div>
                         </li>
-                         <li>
+                        <li>
                             <div class="li ctx-menu-margin">Margin</div>
+                        </li>
+                         <li>
+                            <div class="li ctx-menu-padding">Padding</div>
                         </li>
                         <li>
                             <div class="li ctx-menu-color">Color</div>

@@ -25,6 +25,7 @@ import impSpacer = require("../Controls/SpacerJQ");
 import impLink = require("../Controls/LinkJQ");
 import impHtml = require("../Controls/HtmlJQ");
 import impMargin = require("../Controls/MarginJQ");
+import impPadding = require("../Controls/PaddingJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -629,20 +630,20 @@ export module ContextMenu {
         }
 
         public static AttachPadding() {
+             
+            new impPadding.Padding.PaddingJQ().Init();
 
-            //new impPadding.Padding.PaddingJQ().Init();
+            jQuery(".li.ctx-menu-padding").on("click", function () {
 
-            //jQuery(".li.ctx-menu-padding").on("click", function () {
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
 
-            //    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
-            //        return;
-            //    }
+                ContextMenuJQ.ShowPaddingControl();
 
-            //    ContextMenuJQ.ShowPaddingControl();
+                impPadding.Padding.PaddingJQ.ProcessSelectNotify();
 
-            //    impPadding.Padding.PaddingJQ.ProcessSelectNotify();
-
-            //});
+            });
         }
 
         public static AttachCopy() {

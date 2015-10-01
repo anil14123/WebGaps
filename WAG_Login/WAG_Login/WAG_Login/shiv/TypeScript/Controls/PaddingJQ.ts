@@ -7,35 +7,35 @@ import impUndoManager = require("../UndoManager/UndoManager");
 
 var isBorderReady = false;
 var borderFirstTime = 0;
-export module Margin {
+export module Padding {
 
-    export class MarginJQ {
+    export class PaddingJQ {
 
 
-        public static controlId = ".control-margin";
-      
+        public static controlId = ".control-padding";
+
         constructor() {
 
         }
 
         public Init() {
-            MarginJQ.AttachMargin();
+           PaddingJQ.AttachPadding();
         }
 
-        public static AttachMargin() {
+        public static AttachPadding() {
 
 
             jQuery(document).ready(function () {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                    jQuery(".margin-advanced-show").click(function () {
+                    jQuery(".padding-advanced-show").click(function () {
 
-                        jQuery(".jq-margin-advanced").fadeToggle(1);
+                        jQuery(".jq-padding-advanced").fadeToggle(1);
                     });
 
 
-                    jQuery(".control-margin-margin").spinner(
+                    jQuery(".control-padding-padding").spinner(
                         {
                             min: 0,
                             max: 1500,
@@ -43,23 +43,23 @@ export module Margin {
                             value: 0,
                             change: function (event, ui) {
 
-                                if (MarginJQ.isSelectProcessing == false) {
-                                    MarginJQ.OnChange(this);
+                                if (PaddingJQ.isSelectProcessing == false) {
+                                   PaddingJQ.OnChange(this);
                                 }
                             },
 
 
                             spin: function (event, ui) {
 
-                                if (MarginJQ.isSelectProcessing == false) {
-                                    MarginJQ.OnChange(this);
+                                if (PaddingJQ.isSelectProcessing == false) {
+                                   PaddingJQ.OnChange(this);
                                 }
                             },
 
                             stop: function (event, ui) {
 
-                                if (MarginJQ.isSelectProcessing == false) {
-                                    MarginJQ.OnChange(this);
+                                if (PaddingJQ.isSelectProcessing == false) {
+                                   PaddingJQ.OnChange(this);
                                 }
 
                                 var undo = new impUndoManager.Manager.UndoManager();
@@ -80,7 +80,7 @@ export module Margin {
 
         public static OnChange($this) {
 
-            MarginJQ.isSelectProcessing = true;
+           PaddingJQ.isSelectProcessing = true;
 
             try {
                 if (borderFirstTime != 0) {
@@ -89,61 +89,56 @@ export module Margin {
                 }
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-                if (selectedElement != undefined ) {
+                if (selectedElement != undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                    if (!selectedElement.hasClass("column")) {
+                  
 
-                        if (jQuery($this).hasClass("control-margin-all")) {
+                        if (jQuery($this).hasClass("control-padding-all")) {
 
-                            jQuery(".control-margin-margin").not(".control-margin-all").spinner("value", jQuery($this).val());
+                            jQuery(".control-padding-padding").not(".control-padding-all").spinner("value", jQuery($this).val());
                         }
 
                         var common = new impCommon.Common.CommonMethodsJQ();
 
-                        var left = $(".control-margin-left").spinner("value");
-                        var top = $(".control-margin-top").spinner("value");
-                        var right = $(".control-margin-right").spinner("value");
-                        var bottom = $(".control-margin-bottom").spinner("value");
+                        var left = $(".control-padding-left").spinner("value");
+                        var top = $(".control-padding-top").spinner("value");
+                        var right = $(".control-padding-right").spinner("value");
+                        var bottom = $(".control-padding-bottom").spinner("value");
 
                         if (left != undefined) {
-                            selectedElement.css("margin-left", left + "px");
+                            selectedElement.css("padding-left", left + "px");
 
                         }
 
                         if (top != undefined) {
-                            selectedElement.css("margin-top", top + "px");
+                            selectedElement.css("padding-top", top + "px");
 
                         }
 
                         if (right != undefined) {
-                            selectedElement.css("margin-right", right + "px");
+                            selectedElement.css("padding-right", right + "px");
 
 
                         }
 
                         if (bottom != undefined) {
-                            selectedElement.css("margin-bottom", bottom + "px");
+                            selectedElement.css("padding-bottom", bottom + "px");
 
                         }
 
                         if (left == 0 && top == 0 && right == 0 && bottom == 0) {
 
-                            common.RemoveStyle(selectedElement, "margin-left");
-                            common.RemoveStyle(selectedElement, "margin-top");
-                            common.RemoveStyle(selectedElement, "margin-bottom");
-                            common.RemoveStyle(selectedElement, "margin-right");
+                            common.RemoveStyle(selectedElement, "padding-left");
+                            common.RemoveStyle(selectedElement, "padding-top");
+                            common.RemoveStyle(selectedElement, "padding-bottom");
+                            common.RemoveStyle(selectedElement, "padding-right");
 
-                            common.RemoveStyle(selectedElement, "margin");
+                            common.RemoveStyle(selectedElement, "padding");
 
 
                         }
-                    }
-                    else {
-
-                        errorHandler.ActionHelp("Cannot change margin for [Column] blocks");
-                    }
-                  
+                   
 
                 }
                 else {
@@ -154,7 +149,7 @@ export module Margin {
 
             }
 
-            MarginJQ.isSelectProcessing = false;
+           PaddingJQ.isSelectProcessing = false;
         }
 
         public static ProcessSelectedValues() {
@@ -163,43 +158,43 @@ export module Margin {
 
             if (selectedElement != undefined) {
 
-              
 
-                var left = selectedElement.css("margin-left");
-                var top = selectedElement.css("margin-top");
-                var right = selectedElement.css("margin-right");
-                var bottom = selectedElement.css("margin-bottom");
+
+                var left = selectedElement.css("padding-left");
+                var top = selectedElement.css("padding-top");
+                var right = selectedElement.css("padding-right");
+                var bottom = selectedElement.css("padding-bottom");
 
                 if (left != undefined) {
 
                     left = left.replace("px", "");
-                    jQuery(".control-margin-left").spinner("value", left);
+                    jQuery(".control-padding-left").spinner("value", left);
                 }
 
                 if (top != undefined) {
 
                     top = top.replace("px", "");
-                    jQuery(".control-margin-top").spinner("value", top);
+                    jQuery(".control-padding-top").spinner("value", top);
                 }
 
                 if (right != undefined) {
 
                     right = right.replace("px", "");
-                    jQuery(".control-margin-right").spinner("value", right);
+                    jQuery(".control-padding-right").spinner("value", right);
                 }
 
                 if (bottom != undefined) {
 
                     bottom = bottom.replace("px", "");
-                    jQuery(".control-margin-bottom").spinner("value", bottom);
+                    jQuery(".control-padding-bottom").spinner("value", bottom);
                 }
 
                 if (left == top && left == right && left == bottom) {
-                    jQuery(".control-margin-all").spinner("value", left);
+                    jQuery(".control-padding-all").spinner("value", left);
 
                 }
 
-              
+
 
             }
 
@@ -207,7 +202,7 @@ export module Margin {
 
         public static ProcessSelectNotify() {
 
-            MarginJQ.ProcessSelectedValues();
+           PaddingJQ.ProcessSelectedValues();
 
             //var errorHandler = new impError.ErrorHandle.ErrorJQ();
 

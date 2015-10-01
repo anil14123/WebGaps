@@ -979,6 +979,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\MarginJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\MenuJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\NoUI.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\PaddingJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\SpacerJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\TextJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\CssManager\CssManagerJQ.ts" />

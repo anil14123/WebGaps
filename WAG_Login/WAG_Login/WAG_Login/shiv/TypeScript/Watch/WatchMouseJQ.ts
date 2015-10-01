@@ -15,6 +15,7 @@ import impOnInsert = require("../JQte/OnInsert");
 import impmal = require("../MalFormed/MalFormedJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impMargin = require("../Controls/MarginJQ");
+import impPadding = require("../Controls/PaddingJQ");
 
 var G_isAttachedWatch = false;
 
@@ -151,7 +152,10 @@ export module Watch {
                             break;
                         case 'margin':
                             impMargin.Margin.MarginJQ.ProcessSelectNotify();
-
+                            break;
+                        case 'padding':
+                            impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                            break;
                         default:
                             break;
                     }
