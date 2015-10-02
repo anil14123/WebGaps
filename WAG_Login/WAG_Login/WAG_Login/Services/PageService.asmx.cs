@@ -485,7 +485,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                             foreach (var page in pages)
                             {
                                 string isFirstTime = page.IsFirstTime == "true" ? "?f=new" : "";
-                                pageData.Add(new Data { Name = page.PageName, Link = page.PageName + isFirstTime });
+                                pageData.Add(new Data { Id= page.Id, Name = page.PageName, Link = page.PageName + isFirstTime, Extra = Convert.ToString(page.ParentPageId) });
                             }
                         }
 

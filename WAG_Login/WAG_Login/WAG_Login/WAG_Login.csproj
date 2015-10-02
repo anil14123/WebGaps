@@ -268,6 +268,7 @@
     <Content Include="Content\Images\updown1.jpg" />
     <Content Include="Content\Images\updown2.png" />
     <Content Include="Content\Images\updown3.jpg" />
+    <Content Include="Nestable.css" />
     <Content Include="Scripts\jQuery-File-Upload-master\.gitignore" />
     <Content Include="Scripts\jQuery-File-Upload-master\angularjs.html" />
     <Content Include="Scripts\jQuery-File-Upload-master\basic-plus.html" />
@@ -308,6 +309,9 @@
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\files\.gitignore" />
     <Content Include="Scripts\jQuery-File-Upload-master\test\index.html" />
     <Content Include="Scripts\jQuery-File-Upload-master\test\test.js" />
+    <Content Include="Scripts\Nestable-master\index - original.html" />
+    <Content Include="Scripts\Nestable-master\index.html" />
+    <Content Include="Scripts\Nestable-master\jquery.nestable.js" />
     <Content Include="shiv\Content\loading\colors.gif" />
     <Content Include="shiv\Content\loading\colorsd.gif" />
     <Content Include="shiv\Content\loading\colorst.gif" />
@@ -656,6 +660,7 @@
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\files\.htaccess" />
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\index.php" />
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\UploadHandler.php" />
+    <Content Include="Scripts\Nestable-master\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -820,6 +825,9 @@
     <Compile Include="Image.cs">
       <DependentUpon>WAG_O.tt</DependentUpon>
     </Compile>
+    <Compile Include="Page.cs">
+      <DependentUpon>WAG_O.tt</DependentUpon>
+    </Compile>
     <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.cs">
       <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -828,9 +836,6 @@
       <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
     </Compile>
     <Compile Include="EDC.cs" />
-    <Compile Include="Page.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
-    </Compile>
     <Compile Include="shiv\Designer.aspx.cs">
       <DependentUpon>Designer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -955,6 +960,7 @@
     <TypeScriptCompile Include="Library\jqueryui.d.ts" />
     <TypeScriptCompile Include="shiv\PageManager_TS\MainJQ.ts" />
     <TypeScriptCompile Include="shiv\SiteManager_TS\MainJQ.ts" />
+    <TypeScriptCompile Include="shiv\SiteManager_TS\Site\Nestable.d.ts" />
     <TypeScriptCompile Include="shiv\SiteManager_TS\Site\SiteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\.Temp\ExecutePageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\AllMenus\AllMenuJQ.ts" />

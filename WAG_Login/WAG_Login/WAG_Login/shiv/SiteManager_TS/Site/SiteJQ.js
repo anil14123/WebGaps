@@ -76,21 +76,29 @@ define(["require", "exports"], function (require, exports) {
             SiteJQ.OnGetPagesSuccess = function (data, status) {
                 jQuery(".loading").hide();
                 var result = data.d;
-                jQuery(".page-manager-data").html("");
+                var list = jQuery(".jq-pages-list.hide").clone();
+                var item = jQuery(".jq-page-item.hide").clone();
+                var rootlist = list.clone();
+                rootlist.removeClass("hide");
+                jQuery("#nestable3").append(rootlist);
                 for (var i = 0; i < result.length; i++) {
-                    var sitedata = jQuery(".page-data.hide").clone();
-                    sitedata.removeClass("hide");
-                    var name = result[i].Name.replace(".html", "");
-                    sitedata.find(".page-name").html(name);
-                    var a = jQuery(document.createElement("a"));
-                    var link = result[i].Link;
-                    link = link.replace("?", "&");
-                    a.attr("href", "/shiv/designer.aspx?PageName=" + link + "&" + "SiteName=" + jQuery(".input-site-name-primary").val());
-                    a.addClass("white-link");
-                    a.append("Edit");
-                    sitedata.find(".edit-page").append(a);
-                    jQuery(".page-manager-data").append(sitedata);
+                    var newitem = item.clone();
+                    newitem.removeClass("hide");
+                    newitem.attr("data-id", result[i].Id);
+                    newitem.find(".jq-page-item-name").text(result[i].Name);
+                    rootlist.append(newitem);
                 }
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].Extra != "") {
+                        if (jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").children("ol").length == 0) {
+                            var childrenList = list.clone();
+                            childrenList.removeClass("hide");
+                            jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").append(childrenList);
+                        }
+                        jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").children("ol").append(jQuery(".jq-page-item[data-id='" + result[i].Id + "']"));
+                    }
+                }
+                $('#nestable3').nestable();
             };
             SiteJQ.OnGetPagesError = function (request, status, error) {
                 // alert(error);

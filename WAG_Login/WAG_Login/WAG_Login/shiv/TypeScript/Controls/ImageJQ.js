@@ -81,8 +81,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                     }
                     else {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        errorHandler.ActionFail("please select a image on page to change image.");
+                        errorHandler.ActionFail("please select a image change.");
                     }
+                    jQuery("#control-image-library").hide();
                 });
             };
             SelfJQ.ChangeImage = function () {

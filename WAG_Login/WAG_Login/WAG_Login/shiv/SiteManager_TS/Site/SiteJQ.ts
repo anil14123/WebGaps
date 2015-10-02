@@ -115,34 +115,45 @@ export module Site {
             jQuery(".loading").hide();
 
             var result = data.d;
+          
+            var list = jQuery(".jq-pages-list.hide").clone();
+            var item = jQuery(".jq-page-item.hide").clone();
             
-            jQuery(".page-manager-data").html("");
+          
+
+            var rootlist = list.clone();
+            rootlist.removeClass("hide");
+            jQuery("#nestable3").append(rootlist);
 
             for (var i = 0; i < result.length; i++) {
-                var sitedata = jQuery(".page-data.hide").clone();
 
-                sitedata.removeClass("hide");
+                var newitem = item.clone();
+                newitem.removeClass("hide");
 
-                var name = result[i].Name.replace(".html", "")
-                
-                sitedata.find(".page-name").html(name);
+                newitem.attr("data-id", result[i].Id);
 
-                
-                var a = jQuery(document.createElement("a"));
+                newitem.find(".jq-page-item-name").text(result[i].Name);   
 
-                var link = result[i].Link;
+                rootlist.append(newitem);             
+            }
 
-                link = link.replace("?", "&");
+            for (var i = 0; i < result.length; i++) {
 
-                a.attr("href", "/shiv/designer.aspx?PageName=" + link + "&" + "SiteName=" + jQuery(".input-site-name-primary").val());
-                a.addClass("white-link");
-                a.append("Edit");
+                if (result[i].Extra != "") {
 
-                sitedata.find(".edit-page").append(a);
+                    if (jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").children("ol").length == 0) {
 
-                jQuery(".page-manager-data").append(sitedata);
+                        var childrenList = list.clone();
+                        childrenList.removeClass("hide");
+                        jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").append(childrenList);
+                    }
+
+                    jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").children("ol").append(jQuery(".jq-page-item[data-id='" + result[i].Id + "']"));
+                }
 
             }
+
+            $('#nestable3').nestable();
         }
 
         public static OnGetPagesError(request, status, error) {
