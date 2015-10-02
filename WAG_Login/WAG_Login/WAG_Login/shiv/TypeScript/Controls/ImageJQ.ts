@@ -134,9 +134,11 @@ export module Image {
 
                   var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                  errorHandler.ActionFail("please select a image on page to change image.");
+                  errorHandler.ActionFail("please select a image change.");
               }
 
+
+              jQuery("#control-image-library").hide();
 
             });
         }

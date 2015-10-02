@@ -12,17 +12,17 @@ export module FrontBack {
     export class FrontBackJQ {
 
         public Init() {
-            FrontBackJQ.AttachMargin();
+            FrontBackJQ.AttachFrontBack();
         }
 
-        public static AttachMargin() {
+        public static AttachFrontBack() {
 
 
             jQuery(document).ready(function () {
                 if (isFrontBackReady == false) {
                     isFrontBackReady = true;
 
-                    jQuery(".control-z-zindex").spinner(
+                    jQuery(".control-z-zindex").slider(
                         {
                             min: 1,
                             max: 500,
@@ -79,7 +79,7 @@ export module FrontBack {
 
                     if (selectedElement.hasClass("image-text-other")) {
 
-                        var zIndex = jQuery(".control-z-zindex").spinner("value");
+                        var zIndex = jQuery(".control-z-zindex").slider("value");
 
                         selectedElement.css("z-index", zIndex);
                     }
@@ -106,7 +106,7 @@ export module FrontBack {
                 if (selectedElement.hasClass("image-text-other")) {
                     var zindex = selectedElement.css("z-index");
 
-                    jQuery(".control-z-zindex").spinner("value", zindex);
+                    jQuery(".control-z-zindex").slider("value", zindex);
 
                 }
 

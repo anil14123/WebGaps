@@ -1145,7 +1145,7 @@
                             <div class="legend ">
                                Front/Back 
                             </div>
-                                   <input type="text" class="control-z-zindex" />
+                                   <div class="control-z-zindex" style="background-color:black; margin:15px;"/>
 
                             </fieldset>
 
