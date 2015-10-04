@@ -12,7 +12,15 @@ export module Common {
         }
 
         GetDocumentLocation() {
-            return document.location.hostname;
+
+           var hn = document.location.hostname;
+
+           if (hn != undefined && hn != "") {
+               hn = hn.toLowerCase();
+               hn = hn.replace("www.", "");
+           }
+
+           return hn;
         }
 
         PreparePageHref(url) {

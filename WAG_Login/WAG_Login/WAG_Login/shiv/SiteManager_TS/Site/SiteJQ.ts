@@ -128,11 +128,29 @@ export module Site {
             for (var i = 0; i < result.length; i++) {
 
                 var newitem = item.clone();
+
+              
                 newitem.removeClass("hide");
 
+              
                 newitem.attr("data-id", result[i].Id);
 
                 newitem.find(".jq-page-item-name").text(result[i].Name);   
+
+                var a = jQuery(document.createElement("a"));
+                
+                var link = result[i].Link;
+
+                link = link.replace("?", "&");
+
+                a.attr("href", "/shiv/designer.aspx?PageName=" + link + "&" + "SiteName=" + jQuery(".input-site-name-primary").val());
+                a.addClass("white-link");
+                a.append("Open");
+                a.css("float", "right");
+                a.addClass("btn btn-primary btn-xs");
+        
+
+                newitem.find('.jq-page-item-name').append(a);
 
                 rootlist.append(newitem);             
             }
