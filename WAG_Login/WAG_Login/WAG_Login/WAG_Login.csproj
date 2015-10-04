@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -493,6 +493,7 @@
     <Content Include="Scripts\inliner-master\README.md" />
     <Content Include="Scripts\inliner-master\test\fixtures\iconv.opts.json" />
     <Content Include="Scripts\inliner-master\test\fixtures\inline-svg-no-svgo.opts.json" />
+    <None Include="Properties\PublishProfiles\wag.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="JqPlus.css" />
     <Content Include="JQte.css" />
@@ -540,6 +541,7 @@
     <Content Include="shiv\SiteManager_TS\app.js" />
     <Content Include="shiv\SitesManager.aspx" />
     <Content Include="shiv\Steps.aspx" />
+    <Content Include="shiv\TypeScript\appforRjs.js" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
     <Content Include="SmartContextMenu.css" />
@@ -630,7 +632,9 @@
       <DependentUpon>WAG_O.edmx</DependentUpon>
       <LastGenOutput>WAG_O.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -988,6 +992,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\NoUI.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\PaddingJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\SpacerJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\spinner.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\TextJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\CssManager\CssManagerJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Document\DocumentJQ.ts" />

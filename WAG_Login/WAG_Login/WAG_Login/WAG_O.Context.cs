@@ -30,8 +30,8 @@ namespace WAG_Login_Page
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Site> Sites { get; set; }
         public virtual DbSet<Image> Images { get; set; }
-        public virtual DbSet<Page> Pages { get; set; }
     }
 }

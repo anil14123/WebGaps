@@ -4,7 +4,7 @@ export module CssClass {
     export class AdjustJQ {
 
         height: number;
-        width: number;
+        width: number; 
 
         margin: AnyAdjustmentJQ;
         padding: AnyAdjustmentJQ;

@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using WAG_Login.Models;
 using System.Net.Mail;
 using System.Net;
+using System.Configuration;
 
 namespace WAG_Login
 {
@@ -16,25 +17,27 @@ namespace WAG_Login
     {
         public Task SendAsync(IdentityMessage message)
         {
-           // Plug in your email service here to send an email.
-           var email =
-           new MailMessage(
-           new MailAddress("anil.kumar14123@gmail.com", "WebGaps.com (do not reply)"),
-           new MailAddress(message.Destination)
-           )
-           {
-               Subject = message.Subject,
-               Body = message.Body,
-               IsBodyHtml = true
-           };
+            // Plug in your email service here to send an email.
+            var email =
+            new MailMessage(
+            new MailAddress(ConfigurationManager.AppSettings["smtpUser"], "WebGaps.com (do not reply)"),
+            new MailAddress(message.Destination)
+            )
+            {
+                Subject = message.Subject,
+                Body = message.Body,
+                IsBodyHtml = true
+            };
 
             var client = new SmtpClient
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
+                //Host = "smtp.gmail.com",
+                //Port = 587,
+                Host = ConfigurationManager.AppSettings["smtpHost"],
+                Port = Convert.ToInt32(ConfigurationManager.AppSettings["smtpPort"]),
+                EnableSsl = Convert.ToBoolean(ConfigurationManager.AppSettings["enableSmtpSSL"]),
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential("anil.kumar14123@gmail.com", "fundays.com"),
+                Credentials = new NetworkCredential(ConfigurationManager.AppSettings["smtpUser"], ConfigurationManager.AppSettings["smtpPass"]),
                 Timeout = 20000
             };
             client.SendCompleted += (s, e) => {
@@ -113,7 +116,8 @@ namespace WAG_Login
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
-            base(userManager, authenticationManager) { }
+            base(userManager, authenticationManager)
+        { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {

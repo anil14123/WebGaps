@@ -287,9 +287,11 @@ export module Page {
 
                     AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
 
-                    AddRowJQ.addedRow.addClass("removable-row");
+                    if (AddRowJQ.addedRow != undefined) {
+                        AddRowJQ.addedRow.addClass("removable-row");
 
-                    AddRowJQ.addedRow.children(".column").addClass("columns-pending");
+                        AddRowJQ.addedRow.children(".column").addClass("columns-pending");
+                    }
 
                     // debug-row-ss
                     //selectedRowOrColumn.find(".debug-row-css[scopeId=" + rowOrColumnWithScopeId + "]").remove();

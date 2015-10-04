@@ -21,7 +21,7 @@ namespace WAG_Login_Page
         }
     
         public int Id { get; set; }
-        public Nullable<System.Guid> SiteGuid { get; set; }
+        public string SiteGuid { get; set; }
         public string SiteName { get; set; }
         public string UserId { get; set; }
         public string UserDirectory { get; set; }

@@ -8,7 +8,7 @@ export module CssManager {
         MenuName;
         Color;
         MenuId;
-
+        HtmlPath;
     }
 
 
