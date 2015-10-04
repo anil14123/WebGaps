@@ -114,6 +114,9 @@ export module Site {
 
             jQuery(".loading").hide();
 
+            jQuery("#nestable3").html("");
+
+
             var result = data.d;
           
             var list = jQuery(".jq-pages-list.hide").clone();
