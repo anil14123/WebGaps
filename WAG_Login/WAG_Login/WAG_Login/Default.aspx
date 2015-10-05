@@ -7,6 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width; initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/Static Page Themes/responsiva/css/style.css">
+   
+    <meta charset="utf-8" />
+    
+    <meta property="og:site_name" content="Webgaps" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content="WebGaps" />
+
+    <meta name="description" content="Create an account or log in to Webgaps. Create, edit, download websites online for free. a very powerful website builder. thousands of templates to choose." />
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="websites, order, download, create, edit">
+    
 
     <link href="Content/bootstrap-customzed-48.min.css" rel="stylesheet" />
 </head>
