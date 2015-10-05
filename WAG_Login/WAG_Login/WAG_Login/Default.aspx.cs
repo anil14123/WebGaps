@@ -11,14 +11,14 @@ namespace WAG_Login
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            //if(Request.IsAuthenticated)
-            //{
-            //    Response.Redirect("shiv/Steps.aspx");
-            //}
+            if (Request.IsAuthenticated)
+            {
+                Response.Redirect("shiv/Steps.aspx");
+            }
             //else
             //{
             //    Response.Redirect("Account/login.aspx");
             //}
-		}
+        }
 	}
 }
