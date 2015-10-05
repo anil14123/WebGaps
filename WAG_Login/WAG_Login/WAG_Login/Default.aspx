@@ -15,8 +15,8 @@
     <meta property="og:image" content="WebGaps" />
 
     <meta name="description" content="Create an account or log in to Webgaps. Create, edit, download websites online for free. a very powerful website builder. thousands of templates to choose." />
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="websites, order, download, create, edit">
+    <meta name="robots" content="index, nofollow">
+    <meta name="keywords" content="websites, order website, download websites, create website, edit website, free websites, website templates">
     
 
     <link href="Content/bootstrap-customzed-48.min.css" rel="stylesheet" />
