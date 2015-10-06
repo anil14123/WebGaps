@@ -1162,7 +1162,7 @@
         <div id="control-border-shadow" name="bordershadow" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area"> Border Glow/Shadow </div>
+            <div class="control-move-area"> Border Glow / Shadow </div>
            
                 <div class="control-bs-controls">
                     <center>
@@ -1473,7 +1473,7 @@
           <!------------------------------   CPadding  -------------------------------------->
 
         <style>
-            .jq-padding-advanced{
+            .jq-padding-advanced {
                 /*display:none;*/
             }
         </style>
@@ -1575,7 +1575,7 @@
           <!------------------------------   CMargin  -------------------------------------->
 
         <style>
-            .jq-margin-advanced{
+            .jq-margin-advanced {
                 /*display:none;*/
             }
         </style>
@@ -2070,21 +2070,21 @@
                         <li>
                             <div class="li ctx-menu-margin">Margin</div>
                         </li>
-                         <li>
+                        <li>
                             <div class="li ctx-menu-padding">Padding</div>
                         </li>
                         <li>
                             <div class="li ctx-menu-color">Color</div>
                         </li>
-                       
+
                     </ul>
                 </div>
             </li>
 
 
-             <li>
+            <li>
                 <div class="li ctx-menu-more-properties">
-                   More Properties
+                    More Properties
                     <div class="jq-menu-arrow"></div>
                 </div>
                 <div class="innerListContainer">
@@ -2093,14 +2093,15 @@
                             <div class="li ctx-menu-background-image">Background Image</div>
                         </li>
                         <li>
-                            <div class="li ctx-menu-z-index">Front/Back Position</div>
+                            <div class="li ctx-menu-border-shadow">Border Glow / Shadow</div>
                         </li>
-                          <li>
+                        <li>
                             <div class="li ctx-menu-opacity">Opacity</div>
                         </li>
-                          <li>
-                            <div class="li ctx-menu-border-shadow">Border Glow/Shadow</div>
+                        <li>
+                            <div class="li ctx-menu-z-index">Front/Back Position</div>
                         </li>
+
                     </ul>
                 </div>
             </li>
