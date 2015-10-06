@@ -24,10 +24,10 @@ export module Opacity {
 
                     jQuery(".control-o-opacity").slider(
                         {
-                            min: 1,
-                            max: 500,
-                            step: 1,
-                            value: 0,
+                            min: 0,
+                            max: 1,
+                            step: 0.1,
+                            value: 1,
                             change: function (event, ui) {
 
                                 if (OpacityJQ.isSelectProcessing == false) {

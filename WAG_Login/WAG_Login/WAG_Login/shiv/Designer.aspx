@@ -1142,7 +1142,7 @@
                            
                             <fieldset class="clear ">
 
-                            <div class="legend ">
+                            <div class="legend " style="width:200px;">
                                Opacity
                             </div>
                                    <div class="control-o-opacity" style="background-color:black; margin:15px;"/>

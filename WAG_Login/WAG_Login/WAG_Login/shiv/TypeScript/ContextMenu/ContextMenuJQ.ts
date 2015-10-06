@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../library/jquery.d.ts" />
+﻿
+/// <reference path="../../../library/jquery.d.ts" />
 
 /////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
@@ -939,6 +940,7 @@ export module ContextMenu {
                         ContextMenuJQ.AttachBorder();
                         ContextMenuJQ.AttachMargin();
                         ContextMenuJQ.AttachZindex();
+                        ContextMenuJQ.AttachOpacity();
                         ContextMenuJQ.AttachPadding();
                         ContextMenuJQ.AttachColor();
                         ContextMenuJQ.AttachInsertMenu();
