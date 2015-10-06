@@ -1976,6 +1976,19 @@
                         <li>
                             <div class="li ctx-menu-color">Color</div>
                         </li>
+                       
+                    </ul>
+                </div>
+            </li>
+
+
+             <li>
+                <div class="li ctx-menu-more-properties">
+                   More Properties
+                    <div class="jq-menu-arrow"></div>
+                </div>
+                <div class="innerListContainer">
+                    <ul>
                         <li>
                             <div class="li ctx-menu-background-image">Background Image</div>
                         </li>
@@ -1986,6 +1999,7 @@
                     </ul>
                 </div>
             </li>
+
             <li>
                 <div class="li ctx-menu-cut">Cut</div>
             </li>

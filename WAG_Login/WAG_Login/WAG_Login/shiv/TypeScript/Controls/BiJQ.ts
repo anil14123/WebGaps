@@ -142,7 +142,7 @@ export module BI {
 
                         if (selectedElement != undefined) {
 
-                            selectedElement.css("background-image", "url(" + jQuery(this).val() + ")");
+                            selectedElement.css("background-image", "url('" + jQuery(this).val() + "')");
 
                             var undo = new impUnodManager.Manager.UndoManager();
 
