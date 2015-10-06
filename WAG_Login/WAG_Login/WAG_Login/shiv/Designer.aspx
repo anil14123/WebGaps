@@ -1126,6 +1126,36 @@
                 </div>
         </div>
 
+          <!------------------------------   COpacity  --------------------------------------->
+
+        <div id="control-opacity" name="opacity" class="control-page" >
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area">Opacity</div>
+           
+                <div class="control-zindex-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                            <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Opacity
+                            </div>
+                                   <div class="control-o-opacity" style="background-color:black; margin:15px;"/>
+
+                            </fieldset>
+
+                           
+                    </center>
+
+                    
+                </div>
+        </div>
+
          <!------------------------------   CFrontBack  --------------------------------------->
 
         <div id="control-zindex" name="zindex" class="control-page" >
@@ -1995,7 +2025,12 @@
                         <li>
                             <div class="li ctx-menu-z-index">Front/Back Position</div>
                         </li>
-
+                          <li>
+                            <div class="li ctx-menu-opacity">Opacity</div>
+                        </li>
+                          <li>
+                            <div class="li ctx-menu-border-shadow">Border Glow/Shadow</div>
+                        </li>
                     </ul>
                 </div>
             </li>

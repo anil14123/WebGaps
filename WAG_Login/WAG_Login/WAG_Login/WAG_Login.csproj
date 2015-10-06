@@ -997,6 +997,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlMoveJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlsJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\FontJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\OpacityJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\FrontBackJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ImageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\JQueryUI.ts" />

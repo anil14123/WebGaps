@@ -27,6 +27,7 @@ import impHtml = require("../Controls/HtmlJQ");
 import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
 import impFrontBack = require("../Controls/FrontBackJQ");
+import impOpacity = require("../Controls/OpacityJQ");
 
 var G_isAttachedContextMenu = false;
 
@@ -541,6 +542,17 @@ export module ContextMenu {
             jQuery("#control-padding").show();
         }
 
+        public static ShowOpacity() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-opacity").addClass("control-active");
+
+
+            jQuery("#control-opacity").show();
+        }
+
         public static ShowZindex() {
 
             ContextMenuJQ.ControlPageHide();
@@ -658,6 +670,24 @@ export module ContextMenu {
 
             });
         }
+
+        public static AttachOpacity() {
+
+            new impOpacity.Opacity.OpacityJQ().Init();
+
+            jQuery(".li.ctx-menu-opacity").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowOpacity();
+
+                impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
+
+            });
+        }
+
 
         public static AttachZindex() {
 
