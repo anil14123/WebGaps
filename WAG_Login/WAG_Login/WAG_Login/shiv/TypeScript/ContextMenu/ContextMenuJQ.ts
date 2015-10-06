@@ -29,6 +29,7 @@ import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
 import impFrontBack = require("../Controls/FrontBackJQ");
 import impOpacity = require("../Controls/OpacityJQ");
+import impBorderShadow = require("../Controls/BorderShadow");
 
 var G_isAttachedContextMenu = false;
 
@@ -566,6 +567,18 @@ export module ContextMenu {
 
         }
 
+        public static ShowBS() {
+
+            ContextMenuJQ.ControlPageHide();
+
+            jQuery(".control-page").removeClass("control-active");
+            jQuery("#control-border-shadow").addClass("control-active");
+
+
+            jQuery("#control-border-shadow").show();
+
+        }
+
 
         public static ShowColor() {
 
@@ -703,6 +716,23 @@ export module ContextMenu {
                 ContextMenuJQ.ShowZindex();
 
                 impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+
+            });
+        }
+
+        public static AttachBorderShadow() {
+
+            new impBorderShadow.BorderShadow.BorderShadowJQ().Init();
+
+            jQuery(".li.ctx-menu-border-shadow").on("click", function () {
+
+                if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    return;
+                }
+
+                ContextMenuJQ.ShowBS();
+
+                impBorderShadow.BorderShadow.BorderShadowJQ.ProcessSelectNotify();
 
             });
         }
@@ -940,6 +970,7 @@ export module ContextMenu {
                         ContextMenuJQ.AttachBorder();
                         ContextMenuJQ.AttachMargin();
                         ContextMenuJQ.AttachZindex();
+                        ContextMenuJQ.AttachBorderShadow();
                         ContextMenuJQ.AttachOpacity();
                         ContextMenuJQ.AttachPadding();
                         ContextMenuJQ.AttachColor();

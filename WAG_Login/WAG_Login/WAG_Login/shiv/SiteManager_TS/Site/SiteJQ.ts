@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="nestable.d.ts" />
+
 import impError = require("../../typescript/error/errorjq");
 
 export module Site {

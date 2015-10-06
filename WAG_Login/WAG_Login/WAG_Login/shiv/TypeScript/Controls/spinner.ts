@@ -2,6 +2,11 @@
     spinner(xyz);
     slider(xyz);
 
-    data(xyz);
+    data(v): Datad;
+    
+}
 
+class Datad {
+
+    axis;
 }

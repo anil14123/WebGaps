@@ -40,6 +40,11 @@ $(document).ready(function () {
     ////pageBase.Add(pageBase.GetColumn(0, 0), headerContent, "", "0 2", false);
     //////////////////////////////////////////////////////////////////////////////////
 });
+var Datad = (function () {
+    function Datad() {
+    }
+    return Datad;
+})();
 var LocationJQ = (function () {
     function LocationJQ(row, column) {
         this.Row = row;

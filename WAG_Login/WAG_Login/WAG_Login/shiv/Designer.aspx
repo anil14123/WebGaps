@@ -1156,6 +1156,76 @@
                 </div>
         </div>
 
+
+          <!------------------------------   CBorderShadow  --------------------------------------->
+
+        <div id="control-border-shadow" name="bordershadow" class="control-page" >
+            
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
+            <div class="control-move-area"> Border Glow/Shadow </div>
+           
+                <div class="control-bs-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                            <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Horizontal Spacing
+                            </div>
+                                  
+                                <input class="control-b-s-h control-b-s" value="0"/>
+
+                            </fieldset>
+
+                          <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Vertical Spacing
+                            </div>
+                                    <input class="control-b-s-v control-b-s" value="0" />
+                            </fieldset>
+
+                          <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Blur
+                            </div>
+                                   <input class="control-b-s-blur control-b-s" value="0" />
+
+                            </fieldset>
+
+                         <fieldset class="clear ">
+
+                            <div class="legend ">
+                               Color
+                            </div>
+                                   <input class="b-s-color"/>
+
+                            </fieldset>
+
+                         <fieldset class="clear ">
+                          
+                             <button class="btn btn-primary b-s-glow">Glow</button>   
+
+                          </fieldset>
+
+                          <fieldset class="clear ">
+                          
+                             <button class="btn btn-danger b-s-remove">Remove Style</button>   
+
+                          </fieldset>
+                           
+                    </center>
+
+                    
+                </div>
+        </div>
+
+
          <!------------------------------   CFrontBack  --------------------------------------->
 
         <div id="control-zindex" name="zindex" class="control-page" >

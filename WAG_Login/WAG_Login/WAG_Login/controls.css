@@ -45,6 +45,10 @@ controls {
         margin-top:2px;
     }
 
+    .control-bs-controls{
+        width:250px;
+    }
+
 
 .jq-clipboard{
     height:100px;

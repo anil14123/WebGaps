@@ -7,7 +7,7 @@ import impUndoManager = require("../UndoManager/UndoManager");
 var isOpacityReady = false;
 var borderFirstTime = 0;
 
-export module Opacity {
+export module Opacity { 
 
     export class OpacityJQ {
 
@@ -36,7 +36,7 @@ export module Opacity {
                             },
 
 
-                            spin: function (event, ui) {
+                            slide: function (event, ui) {
 
                                 if (OpacityJQ.isSelectProcessing == false) {
                                     OpacityJQ.OnChange(this);
