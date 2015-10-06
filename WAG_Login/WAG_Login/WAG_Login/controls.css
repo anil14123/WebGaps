@@ -534,6 +534,9 @@ controls {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+
+    opacity:0.8;
+    background-color:lightgray;
 }
 
 .image-library-image{
