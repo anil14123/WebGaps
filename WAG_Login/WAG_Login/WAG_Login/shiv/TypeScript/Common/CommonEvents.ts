@@ -250,6 +250,9 @@ export module Common {
                 var styles = jQuery(document.createElement("styles"));
                 var page = jQuery(document.createElement("page"))
 
+                var fullbody = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
+                var fullbodyEnd = "</body></html>";
+
                 var styleSheetExtra =
                     "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
                     "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />" +
@@ -276,6 +279,7 @@ export module Common {
 
                     if (jQuery(this).prop("tagName") == "PAGE") {
                         page.append($(this).clone());
+                        page.find(".jqte-editor").removeAttr("contentEditable").removeAttr("tabindex").css("cursor", "initial");
                         page.prepend(styleSheetExtra);
                     }
 
@@ -285,7 +289,7 @@ export module Common {
 
                 save.scripts = scripts.html();
                 save.styles = styles.html();
-                save.page = page.html();
+                save.page = fullbody + page.html() + fullbodyEnd;
 
                 var data = {
                     Obj: save, siteName: jQuery(".input-site-name").val(), pageName: jQuery(".input-page-name").val()

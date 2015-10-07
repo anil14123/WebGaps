@@ -40,6 +40,12 @@ export module Page {
                             catch (ex) {
                             }
 
+                            jQuery("page .jqte-editor").attr("contentEditable", "true");
+                            jQuery("page .jqte-editor").css("cursor", "move");
+                            jQuery("page .jqte-editor").attr("tabindex", "1");
+
+
+
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
 
