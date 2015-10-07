@@ -1008,6 +1008,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\MenuJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\NoUI.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\PaddingJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\PageProperties.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\SpacerJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\spinner.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\TextJQ.ts" />

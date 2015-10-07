@@ -140,6 +140,16 @@ export module BI {
                     jQuery(".control-bi-controls .bi-selected-image").change(function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        var applyToBody = jQuery(".bi-body").is(':checked'); 
+
+                        if (applyToBody == true) {
+                            jQuery("page").css("background-image", "url('" + jQuery(this).val() + "')");
+
+                            var undo = new impUnodManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                        else
                         if (selectedElement != undefined) {
 
                             selectedElement.css("background-image", "url('" + jQuery(this).val() + "')");

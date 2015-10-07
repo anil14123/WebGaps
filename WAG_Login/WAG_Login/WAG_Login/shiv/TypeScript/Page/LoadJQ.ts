@@ -34,6 +34,12 @@ export module Page {
                         if (pgResizableRemoved.find("page").length > 0) {
                             jQuery("page").html(pgResizableRemoved.find("page").html());
 
+                            try {
+                                jQuery("page").attr("style", pgResizableRemoved.find("page").attr("style"));
+                            }
+                            catch (ex) {
+                            }
+
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
 

@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+page{
+    display:block;
+}
+
 .jq-logout{
     color:#000000;
 }
@@ -38,7 +42,7 @@ blockquote{
 
 .jq-Header {
    
-    background-color: aliceblue;
+    background-color: transparent;
     outline: none;
 }
 
@@ -65,11 +69,12 @@ blockquote{
 
 .jq-MenuBar {
    
-    background-color: lightblue;
+   
     outline: none;
 }
 
 .jq-back-MenuBar {
+     background-color: transparent;
 }
 
 .jq-additional-MenuBar {
@@ -90,11 +95,12 @@ blockquote{
 
 .jq-Content {
    
-    background-color: white;
+  
     outline: none;
 }
 
 .jq-back-Content {
+      background-color:transparent;
 }
 
 .jq-additional-Content {
@@ -104,9 +110,11 @@ blockquote{
 
 .jq-SideBarLeft {
     /*min-height: 500px;*/
+    
 }
 
 .jq-back-SideBarLeft {
+    background-color:transparent;
 }
 
 .jq-additional-SideBarLeft {
@@ -131,6 +139,7 @@ blockquote{
 }
 
 .jq-back-SideBarRight {
+     background-color: transparent;
 }
 
 .jq-additional-SideBarRight {
@@ -140,11 +149,12 @@ blockquote{
 
 .jq-Footer {
    
-    background-color: grey;
+   
     outline: none;
 }
 
 .jq-back-Footer {
+     background-color: transparent;
 }
 
 .jq-additional-Footer {

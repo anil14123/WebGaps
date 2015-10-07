@@ -1126,6 +1126,8 @@
                 </div>
         </div>
 
+
+
           <!------------------------------   COpacity  --------------------------------------->
 
         <div id="control-opacity" name="opacity" class="control-page" >
@@ -1361,7 +1363,7 @@
                             <fieldset class="clear ">
 
                                 <div class="legend ">
-                                   Background Image 
+                                   Background Image &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Body
                                 </div>
                                   <div class="cntrls">
                                 <input class="bi-selected-image" type="text" />
