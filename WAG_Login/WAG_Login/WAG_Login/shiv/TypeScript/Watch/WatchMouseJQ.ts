@@ -250,6 +250,14 @@ export module Watch {
                         }
                     });
 
+                    jQuery(".jqte-editor").keydown(function (e) {
+                        var BACK = 8;
+
+                        if (e.which == BACK) {
+                            impOnInsert.OnInsert.Code.BackPassed = true;
+                        }
+                    });
+
                     jQuery(document).keydown(function (e) {
 
                         var BACK = 8;
