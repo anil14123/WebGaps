@@ -1363,7 +1363,7 @@
                             <fieldset class="clear ">
 
                                 <div class="legend ">
-                                   Background Image &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Body
+                                   Background Image &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Page
                                 </div>
                                   <div class="cntrls">
                                 <input class="bi-selected-image" type="text" />
@@ -2121,7 +2121,7 @@
         </ul>
     </div>
 
-    <input type="text" id="viewstate" class="viewstate" value="<%=CookieValue%>" />
+    <input type="text" id="viewstate" class="viewstate hide" value="<%=CookieValue%>" />
 
     <!-- sample context menu
 
