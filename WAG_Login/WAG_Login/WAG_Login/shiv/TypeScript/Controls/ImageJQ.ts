@@ -256,6 +256,8 @@ export module Image {
                     plusContainer.removeClass("jq-plus-container");
                     var emptycontainer = document.createElement("div");
 
+                    plusContainer.find(".adjust-image-text-other").remove();
+
                     plusContainer.css("height", "200px");
 
                     plusContainer.css("width", "200px");

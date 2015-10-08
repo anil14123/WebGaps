@@ -372,6 +372,35 @@ export module JQueryUI {
                     }
         }
 
+        public static JustResizable(elementCss, handle?) {
+
+            var handleDefault = "e,se,s";
+
+            if (handle != undefined && handle != "") {
+                handleDefault = handle;
+            }
+
+            $(elementCss).resizable({
+                handles: handleDefault,
+
+                start: function (event, ui) {
+
+                    
+                },
+                stop: function (event, ui) {
+                    var height = ui.size.height;
+
+                    var width = ui.size.width;
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
+                }
+
+            });
+
+        }
+
         public static ResizableRootElements(elementCss, handle?) {
 
             var handleDefault = "e,se,s";
