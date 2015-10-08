@@ -11,7 +11,7 @@ export module Page {
 
         public static LoadPage(siteId: string, siteName: string, pageName: string) {
 
-            var url = "/services/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
+            var url = "/services/sites/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
             $.ajax
                 ({
                     url: url,

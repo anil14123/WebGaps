@@ -238,7 +238,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                 if (User.Identity.IsAuthenticated)
                 {
 
-                    string root = Server.MapPath(".");
+                    string root = Server.MapPath(".") + "/Sites/";
 
                     var entities = new WAG_Login_Page.WagPageEntities();
 
@@ -507,7 +507,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         {
             if (User.Identity.IsAuthenticated)
             {
-                string root = Server.MapPath(".");
+                string root = Server.MapPath(".") + "/Sites/";
 
                 var entities = new WAG_Login_Page.WagPageEntities();
 
@@ -565,7 +565,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         {
             if (User.Identity.IsAuthenticated)
             {
-                string root = Server.MapPath(".");
+                string root = Server.MapPath(".") + "/Sites/";
 
                 var entities = new WagPageEntities();
 

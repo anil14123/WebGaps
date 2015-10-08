@@ -143,7 +143,7 @@
     <input class="input-page-name hide" value="<%:PageName%>" />
     <input class="input-site-name hide" value="<%:SiteName%>" />
     <input class="input-site-id hide" value="<%:SiteId%>" />
-    <input class="input-current-location hide" value="/services" />
+    <input class="input-current-location hide" value="/services/sites" />
 
     <div class="jq-plus-container jq-plus-container-not-used">
 

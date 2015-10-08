@@ -102,7 +102,7 @@ namespace WAG_Login.Account
              
                 string root = Server.MapPath(".");
 
-                root = System.IO.Path.Combine(root + "/../", "Services");
+                root = System.IO.Path.Combine(root + "/../", "Services/Sites");
 
                 var ud = System.IO.Path.Combine(root, UserDirectory);
                 if (!System.IO.Directory.Exists(ud))

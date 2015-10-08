@@ -966,6 +966,7 @@
     <Folder Include="requirejs\" />
     <Folder Include="Secure\" />
     <Folder Include="Service References\" />
+    <Folder Include="Services\Sites\" />
     <Folder Include="shiv\TypeScript\Themes\All\" />
     <Folder Include="Snippet\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
