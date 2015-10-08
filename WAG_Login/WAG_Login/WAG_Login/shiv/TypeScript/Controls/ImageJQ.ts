@@ -14,6 +14,7 @@ import impPageCtx = require("../Page/Context/ContextJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonCode = require("./ControlCommonJQ");
 import impCommonSmart = require("../Common/CommonEvents");
+import impOperaction = require("../Common/OperationJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 
 var debug = true;
@@ -273,6 +274,7 @@ export module Image {
 
                     plusContainer.find(".jq-plus-content").append(tbImageContainer);
 
+                    impOperaction.Operation.AfterOperationJQ.Execute(); 
 
                     if (window.smartObj == null || window.smartObj.command == "") {
                         ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);

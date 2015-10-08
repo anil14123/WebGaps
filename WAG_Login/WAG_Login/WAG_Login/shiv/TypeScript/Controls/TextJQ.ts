@@ -16,6 +16,7 @@ import impJQueryUI = require("./JQueryUI");
 import impCommonCode = require("./ControlCommonJQ");
 
 import impCommon = require("../Common/CommonEvents");
+import impOperaction = require("../Common/OperationJQ");
 
 var debug = true;
 var globalTextBlockId = 0;
@@ -209,6 +210,9 @@ export module Text {
                         plusContainer.find(".jq-plus-content").append(tbContainer);
 
                         jQuery(emptyc).append(plusContainer);
+
+
+                        impOperaction.Operation.AfterOperationJQ.Execute(); 
 
                         if (window.smartObj == null || window.smartObj.command == "") {
                             ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);

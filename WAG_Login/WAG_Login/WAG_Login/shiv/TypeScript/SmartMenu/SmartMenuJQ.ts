@@ -420,8 +420,8 @@ export module Smart {
                                     colXsTemp = colXsTemp - eachXs;
                                 }
 
-                                jQuery(nextElements[i]).removeClass("col-xs-" + nextXsSize);
-                                jQuery(nextElements[i]).addClass("col-xs-" + newNextXsSize);
+                                jQuery(nextElements[i]).removeClass("col-sm-" + nextXsSize);
+                                jQuery(nextElements[i]).addClass("col-sm-" + newNextXsSize);
                                 jQuery(nextElements[i]).attr("xs-column-size", newNextXsSize);
 
 
@@ -459,8 +459,8 @@ export module Smart {
                             g--;
                         }
 
-                        jQuery(selectedElement).removeClass("col-xs-" + xsSize);
-                        jQuery(selectedElement).addClass("col-xs-" + newXsSize);
+                        jQuery(selectedElement).removeClass("col-sm-" + xsSize);
+                        jQuery(selectedElement).addClass("col-sm-" + newXsSize);
 
                         selectedElement.attr("xs-column-size", newXsSize);
                     }
@@ -507,8 +507,8 @@ export module Smart {
                                     newXsSize = 1;
                                 }
 
-                                jQuery(selectedElement).removeClass("col-xs-" + xsSize);
-                                jQuery(selectedElement).addClass("col-xs-" + newXsSize);
+                                jQuery(selectedElement).removeClass("col-sm-" + xsSize);
+                                jQuery(selectedElement).addClass("col-sm-" + newXsSize);
                                 selectedElement.attr("xs-column-size", newXsSize);
 
                                 var colXsTemp = colXs;
@@ -539,8 +539,8 @@ export module Smart {
                                     //////////////////////////////////////
 
 
-                                    jQuery(nextElements[0]).removeClass("col-xs-" + nextXsSize);
-                                    jQuery(nextElements[0]).addClass("col-xs-" + newNextXsSize);
+                                    jQuery(nextElements[0]).removeClass("col-sm-" + nextXsSize);
+                                    jQuery(nextElements[0]).addClass("col-sm-" + newNextXsSize);
                                     jQuery(nextElements[0]).attr("xs-column-size", newNextXsSize);
                                 }
                             }

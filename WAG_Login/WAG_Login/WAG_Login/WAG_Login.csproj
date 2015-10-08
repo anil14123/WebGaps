@@ -983,6 +983,7 @@
     <TypeScriptCompile Include="shiv\SiteManager_TS\Site\SiteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\.Temp\ExecutePageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\AllMenus\AllMenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Common\OperationJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\CommonEvents.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\CommonMethodsJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\Files.d.ts" />

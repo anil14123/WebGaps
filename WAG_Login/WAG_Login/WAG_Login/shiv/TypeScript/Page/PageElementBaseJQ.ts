@@ -193,7 +193,7 @@ export module Page {
                     var columnSize = '';
                     if (cols[i] != undefined && commonMethods.Trim(cols[i]) != "") {
                         colClassName = cols[i].toString().replace(/,/g, ' ');
-                        columnSize = colClassName.toString().replace("col-xs-", "");
+                        columnSize = colClassName.toString().replace("col-sm-", "");
                     }
                     else {
                         continue;
@@ -256,8 +256,9 @@ export module Page {
                         else {
                             column.attr("key-css", this.GetDotClassName() + " " + "column");
                         }
-
                     }
+
+                    column.addClass("hidden-xs").addClass("hidden-sm");
 
                     if (root != undefined) {
                         row.attr("key-css", jQuery(root).attr("key-css") + " " + "row");

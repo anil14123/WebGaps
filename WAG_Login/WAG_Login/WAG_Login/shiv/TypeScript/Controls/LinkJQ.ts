@@ -5,6 +5,7 @@ import impError = require("../../typescript/error/errorjq");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");
+import impOperaction = require("../Common/OperationJQ");
 
 var initOnceFlag = false;
 
@@ -163,6 +164,8 @@ export module Link {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                 if (selectedElement != undefined) {
+
+                    impOperaction.Operation.AfterOperationJQ.Execute();
 
                     selectedElement.append(linkToInsert);
 

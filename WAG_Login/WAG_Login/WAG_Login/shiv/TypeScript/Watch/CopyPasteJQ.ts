@@ -3,6 +3,7 @@ import impError = require("../Error/ErrorJQ");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impClipboard = require("./ClipBoardJQ");
+import impOperaction = require("../Common/OperationJQ");
 
 var CopiedElement: JQuery;
 var isCut = false;
@@ -68,10 +69,15 @@ export module CopyPaste {
 
             var container = jQuery(document.createElement("div"));
             
+            impOperaction.Operation.AfterOperationJQ.Execute();
 
             container.addClass("key empty-container links-container image-text-other");
 
             selectedElement.append(container);
+
+            var undo = new impUndoManager.Manager.UndoManager();
+
+            undo.BeforeOperation();
 
             impCommonCode.ControlCommon.Code.Execute();
         }
