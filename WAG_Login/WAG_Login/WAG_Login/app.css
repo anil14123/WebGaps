@@ -18,6 +18,20 @@
     float:left;
 }
 
+.design-page-row{
+  display:none;
+}
+
+
+page .design-page-row{
+    display:block;
+    width:10px;
+    height:10px;
+    background-color:dodgerblue;
+   
+}
+
+
 .design-page-margin{
     border-left : 1px dotted black;
     border-right: 1px dotted black;
@@ -84,7 +98,8 @@ rootx {
 
 .design-row {
     /*outline: 2px dotted lightblue; /* for debugging  outline: 2px dotted lightblue;*/
-    /*outline: 1px dashed #151313;*/
+    outline: 1px dashed #151313;
+    padding:2px;
 }
 
 .design-empty-css {
@@ -111,7 +126,7 @@ rootx {
 .row {
     margin: 0px;
     padding: 15px; /* for debugging padding:15px;*/
-    padding: 0px;
+    padding: 2px;
     clear: both;
     max-width: 100%;
 }

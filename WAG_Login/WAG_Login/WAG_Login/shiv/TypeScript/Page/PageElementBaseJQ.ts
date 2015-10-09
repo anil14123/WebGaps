@@ -268,6 +268,7 @@ export module Page {
                     }
 
                     jQuery(row).append(column);
+                  
 
                     if (adjustColumn != undefined) {
                         this.AdjustElement(column, adjustColumn);
@@ -302,6 +303,8 @@ export module Page {
             if (root == undefined) {
                 root = this.Get();
             }
+
+            jQuery(row).prepend("<span class=\"design-page-row design-square-row\"></span>");
 
             this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
 

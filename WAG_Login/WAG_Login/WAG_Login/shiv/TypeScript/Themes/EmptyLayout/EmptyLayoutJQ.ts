@@ -142,7 +142,7 @@ export module Themes.Empty {
                         //jQuery(".column").removeClass("column-layout-border-yellow");
                         //jQuery(".column").removeClass("column-layout-border-brown");
 
-                        var staticElement = "<span class=\"page-static-element-circle\"> </span>";
+                        var staticElement = "<span class=\"page-static-element-circle design-root-elements-static\"> </span>";
 
                         jQuery("page .root-elements").html("");
 

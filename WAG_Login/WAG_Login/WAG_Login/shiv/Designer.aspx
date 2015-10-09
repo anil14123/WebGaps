@@ -619,7 +619,7 @@
            
             <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
                 <span class="page-static-element">Header</span>
-                <span class="page-static-element-circle"></span>
+                <span class="page-static-element-circle design-css design-root-elements-static"></span>
 
             </div>
 
