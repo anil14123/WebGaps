@@ -1,11 +1,11 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview) {
     var Page;
     (function (Page) {
         var LoadJQ = (function () {
             function LoadJQ() {
             }
             LoadJQ.LoadPage = function (siteId, siteName, pageName) {
-                var url = "/services/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
+                var url = "/services/sites/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
                 $.ajax({
                     url: url,
                     type: "GET",
@@ -20,6 +20,15 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                         var pgResizableRemoved = pg;
                         if (pgResizableRemoved.find("page").length > 0) {
                             jQuery("page").html(pgResizableRemoved.find("page").html());
+                            try {
+                                jQuery("page").attr("style", pgResizableRemoved.find("page").attr("style"));
+                            }
+                            catch (ex) {
+                            }
+                            jQuery("page .jqte-editor").attr("contentEditable", "true");
+                            jQuery("page .jqte-editor").css("cursor", "move");
+                            jQuery("page .jqte-editor").attr("tabindex", "1");
+                            impPreview.Preview.PreviewJQ.ClosePreview();
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
                             var undo = new impUndoManager.Manager.UndoManager();

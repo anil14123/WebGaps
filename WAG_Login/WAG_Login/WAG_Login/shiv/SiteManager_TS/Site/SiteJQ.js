@@ -1,3 +1,4 @@
+/// <reference path="nestable.d.ts" />
 define(["require", "exports"], function (require, exports) {
     var Site;
     (function (Site) {
@@ -75,6 +76,7 @@ define(["require", "exports"], function (require, exports) {
             };
             SiteJQ.OnGetPagesSuccess = function (data, status) {
                 jQuery(".loading").hide();
+                jQuery("#nestable3").html("");
                 var result = data.d;
                 var list = jQuery(".jq-pages-list.hide").clone();
                 var item = jQuery(".jq-page-item.hide").clone();
@@ -86,6 +88,15 @@ define(["require", "exports"], function (require, exports) {
                     newitem.removeClass("hide");
                     newitem.attr("data-id", result[i].Id);
                     newitem.find(".jq-page-item-name").text(result[i].Name);
+                    var a = jQuery(document.createElement("a"));
+                    var link = result[i].Link;
+                    link = link.replace("?", "&");
+                    a.attr("href", "/shiv/designer.aspx?PageName=" + link + "&" + "SiteName=" + jQuery(".input-site-name-primary").val());
+                    a.addClass("white-link");
+                    a.append("Open");
+                    a.css("float", "right");
+                    a.addClass("btn btn-primary btn-xs");
+                    newitem.find('.jq-page-item-name').append(a);
                     rootlist.append(newitem);
                 }
                 for (var i = 0; i < result.length; i++) {

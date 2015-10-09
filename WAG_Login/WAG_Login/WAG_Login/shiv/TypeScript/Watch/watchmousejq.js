@@ -42,92 +42,92 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             };
             MouseJQ.ProcessClick = function (e) {
                 var common = new impCommon.Common.CommonMethodsJQ();
-                if (jQuery(".close-preview").css("display") == "none") {
-                    if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
-                        return;
-                    }
-                    // for cursor...
-                    //$(document).mousemove(function (e) {
-                    //    if (e.target != undefined) {
-                    //        if ((e.pageX >= e.target.clientLeft + e.target.clientWidth - 2)
-                    //            && (jQuery(e.target).closest("#contextMenu").length == 0
-                    //                && jQuery(e.target).closest(".control-page").length == 0))
-                    //             {
-                    //            //var rect = e.target.getBoundingClientRect();
-                    //            jQuery(".cursor-right").show();
-                    //        }
-                    //        else {
-                    //            jQuery(e.target).removeClass("jq-cursor");
-                    //        }
-                    //        jQuery(".cursor-right").css("left", e.pageX -10 + "px");
-                    //        jQuery(".cursor-right").css("top", e.pageY -10 + "px");
-                    //    }
-                    //});
-                    if (MouseJQ.selectedElement != undefined && MouseJQ.selectedElement.length > 0) {
-                        // this is the previous element...
-                        MouseJQ.selectedElement.removeClass("image-selection");
-                        MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
-                    }
-                    MouseJQ.selectedElement = jQuery(e.target);
-                    MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
-                    if (MouseJQ.selectedElement.hasClass("key") == false) {
-                        MouseJQ.selectedElement = jQuery("#noelement");
-                    }
-                    MouseJQ.selectedElement.addClass("design-select-element-just-mark");
-                    //MouseJQ.selectedElement.css("outline", "dashed 5px black");
-                    impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.
-                    var activeControl = MouseJQ.GetActiveControl();
-                    if (activeControl != undefined && activeControl != "") {
-                        switch (activeControl.toLowerCase()) {
-                            case 'add-row':
-                                break;
-                            case 'height-width':
-                                impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
-                                break;
-                            case 'image-library':
-                                impImage.Image.SelfJQ.ProcessSelectNotify();
-                                break;
-                            case 'color':
-                                impColor.Color.ColorJQ.ProcessSelectNotify();
-                                break;
-                            case 'border':
-                                impBorder.Border.BorderJQ.ProcessSelectNotify();
-                                break;
-                            case 'insert-text':
-                                impText.Text.TextJQ.ProcessSelectNotify();
-                                break;
-                            case 'bi':
-                                impBi.BI.BIJQ.ProcessSelectNotify();
-                                break;
-                            case 'margin':
-                                impMargin.Margin.MarginJQ.ProcessSelectNotify();
-                                break;
-                            case 'padding':
-                                impPadding.Padding.PaddingJQ.ProcessSelectNotify();
-                                break;
-                            case 'zindex':
-                                impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                    try {
-                        if (jQuery(".jq-properties-all").css("display").toLowerCase() != "none") {
-                            impColor.Color.ColorJQ.ProcessSelectNotify();
+                //if (jQuery(".close-preview").css("display") == "none") {
+                if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
+                    return;
+                }
+                // for cursor...
+                //$(document).mousemove(function (e) {
+                //    if (e.target != undefined) {
+                //        if ((e.pageX >= e.target.clientLeft + e.target.clientWidth - 2)
+                //            && (jQuery(e.target).closest("#contextMenu").length == 0
+                //                && jQuery(e.target).closest(".control-page").length == 0))
+                //             {
+                //            //var rect = e.target.getBoundingClientRect();
+                //            jQuery(".cursor-right").show();
+                //        }
+                //        else {
+                //            jQuery(e.target).removeClass("jq-cursor");
+                //        }
+                //        jQuery(".cursor-right").css("left", e.pageX -10 + "px");
+                //        jQuery(".cursor-right").css("top", e.pageY -10 + "px");
+                //    }
+                //});
+                if (MouseJQ.selectedElement != undefined && MouseJQ.selectedElement.length > 0) {
+                    // this is the previous element...
+                    MouseJQ.selectedElement.removeClass("image-selection");
+                    MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
+                }
+                MouseJQ.selectedElement = jQuery(e.target);
+                MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
+                if (MouseJQ.selectedElement.hasClass("key") == false) {
+                    MouseJQ.selectedElement = jQuery("#noelement");
+                }
+                MouseJQ.selectedElement.addClass("design-select-element-just-mark");
+                //MouseJQ.selectedElement.css("outline", "dashed 5px black");
+                impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.
+                var activeControl = MouseJQ.GetActiveControl();
+                if (activeControl != undefined && activeControl != "") {
+                    switch (activeControl.toLowerCase()) {
+                        case 'add-row':
+                            break;
+                        case 'height-width':
                             impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                            break;
+                        case 'image-library':
+                            impImage.Image.SelfJQ.ProcessSelectNotify();
+                            break;
+                        case 'color':
+                            impColor.Color.ColorJQ.ProcessSelectNotify();
+                            break;
+                        case 'border':
                             impBorder.Border.BorderJQ.ProcessSelectNotify();
-                            impFont.Font.FontJQ.ProcessSelectNotify();
+                            break;
+                        case 'insert-text':
+                            impText.Text.TextJQ.ProcessSelectNotify();
+                            break;
+                        case 'bi':
                             impBi.BI.BIJQ.ProcessSelectNotify();
-                        }
-                    }
-                    catch (ex) {
-                    }
-                    if (MouseJQ.selectedElement != undefined) {
-                        if (!MouseJQ.selectedElement.hasClass("jqte"))
-                            MouseJQ.selectedElement.addClass("image-selection");
+                            break;
+                        case 'margin':
+                            impMargin.Margin.MarginJQ.ProcessSelectNotify();
+                            break;
+                        case 'padding':
+                            impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                            break;
+                        case 'zindex':
+                            impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                            break;
+                        default:
+                            break;
                     }
                 }
+                try {
+                    if (jQuery(".jq-properties-all").css("display").toLowerCase() != "none") {
+                        impColor.Color.ColorJQ.ProcessSelectNotify();
+                        impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                        impBorder.Border.BorderJQ.ProcessSelectNotify();
+                        impFont.Font.FontJQ.ProcessSelectNotify();
+                        impBi.BI.BIJQ.ProcessSelectNotify();
+                    }
+                }
+                catch (ex) {
+                }
+                if (MouseJQ.selectedElement != undefined) {
+                    if (!MouseJQ.selectedElement.hasClass("jqte"))
+                        MouseJQ.selectedElement.addClass("image-selection");
+                }
+                //}
             };
             MouseJQ.GetActiveControl = function () {
                 var activeControl = "";
@@ -170,6 +170,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                         });
                         jQuery("textarea").keydown(function (e) {
+                            var BACK = 8;
+                            if (e.which == BACK) {
+                                impOnInsert.OnInsert.Code.BackPassed = true;
+                            }
+                        });
+                        jQuery(".jqte-editor").keydown(function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
                                 impOnInsert.OnInsert.Code.BackPassed = true;

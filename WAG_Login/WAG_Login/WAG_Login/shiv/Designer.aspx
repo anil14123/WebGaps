@@ -1403,7 +1403,8 @@
                             <fieldset class="clear ">
 
                                 <div class="legend ">
-                                   Background Image &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Page
+                                   Background Image
+                                    <%-- &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Page--%>
                                 </div>
                                   <div class="cntrls">
                                 <input class="bi-selected-image" type="text" />

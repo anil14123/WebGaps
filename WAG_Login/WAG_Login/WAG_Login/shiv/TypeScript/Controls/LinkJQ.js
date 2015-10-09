@@ -1,5 +1,5 @@
 /// <reference path="../../sitemanager_ts/site/sitejq.ts" />
-define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescript/error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode) {
+define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescript/error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction) {
     var initOnceFlag = false;
     var Link;
     (function (Link) {
@@ -103,6 +103,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                     }
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                     if (selectedElement != undefined) {
+                        impOperaction.Operation.AfterOperationJQ.Execute();
                         selectedElement.append(linkToInsert);
                         var undo = new impUndoManager.Manager.UndoManager();
                         undo.BeforeOperation();

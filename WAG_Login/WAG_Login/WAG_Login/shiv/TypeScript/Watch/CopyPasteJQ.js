@@ -1,4 +1,4 @@
-define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ"], function (require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard) {
+define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ", "../Common/OperationJQ"], function (require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction) {
     var CopiedElement;
     var isCut = false;
     var ClipBorad = (function () {
@@ -45,8 +45,11 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     selectedElement = jQuery("#nononoelement");
                 }
                 var container = jQuery(document.createElement("div"));
+                impOperaction.Operation.AfterOperationJQ.Execute();
                 container.addClass("key empty-container links-container image-text-other");
                 selectedElement.append(container);
+                var undo = new impUndoManager.Manager.UndoManager();
+                undo.BeforeOperation();
                 impCommonCode.ControlCommon.Code.Execute();
             };
             CopyPasteJQ.Delete = function () {

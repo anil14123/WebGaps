@@ -1,10 +1,9 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
     var debug = true;
     var globalImageBlockId = 0;
     var globalImageBlockContainerId = 0;
@@ -159,15 +158,18 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         plusContainer.addClass("design-empty-text-css");
                         plusContainer.removeClass("jq-plus-container");
                         var emptycontainer = document.createElement("div");
+                        plusContainer.find(".adjust-image-text-other").remove();
                         plusContainer.css("height", "200px");
                         plusContainer.css("width", "200px");
                         var jEc = jQuery(emptycontainer);
+                        jEc.prepend("<div class='adjust-image-text-other design-css design-adjust-image-text-other'></div>");
                         jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
                         //padding-10 
                         jEc.append(plusContainer);
                         //jQuery(tbImg).load(function () {
                         //});
                         plusContainer.find(".jq-plus-content").append(tbImageContainer);
+                        impOperaction.Operation.AfterOperationJQ.Execute();
                         if (window.smartObj == null || window.smartObj.command == "") {
                             ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);
                         }

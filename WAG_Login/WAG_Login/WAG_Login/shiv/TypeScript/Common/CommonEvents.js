@@ -160,6 +160,8 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                     var scripts = jQuery(document.createElement("scripts"));
                     var styles = jQuery(document.createElement("styles"));
                     var page = jQuery(document.createElement("page"));
+                    var fullbody = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
+                    var fullbodyEnd = "</body></html>";
                     var styleSheetExtra = "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
                         "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />" +
                         "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
@@ -169,6 +171,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                         " .jq-row-plus-container { display:none !important; } " +
                         " .row { margin:0; padding:0; } " +
                         " .column { margin:0; padding:0; } " +
+                        ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;}" +
                         "</style>";
                     jQuery(".image-selection").removeClass("image-selection");
                     jQuery(".add-to-page").each(function () {
@@ -180,13 +183,14 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                         }
                         if (jQuery(this).prop("tagName") == "PAGE") {
                             page.append($(this).clone());
+                            page.find(".jqte-editor").removeAttr("contentEditable").removeAttr("tabindex").css("cursor", "initial");
                             page.prepend(styleSheetExtra);
                         }
                     });
                     var save = new impSaveClass.Save.SaveJQ();
                     save.scripts = scripts.html();
                     save.styles = styles.html();
-                    save.page = page.html();
+                    save.page = fullbody + page.html() + fullbodyEnd;
                     var data = {
                         Obj: save, siteName: jQuery(".input-site-name").val(), pageName: jQuery(".input-page-name").val()
                     };

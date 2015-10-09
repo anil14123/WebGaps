@@ -1,10 +1,9 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode) {
+define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction) {
     var debug = true;
     var globalTextBlockId = 0;
     var globalTextBoxContainerId = 0;
@@ -120,6 +119,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                             var emptyc = document.createElement("span");
                             jQuery(emptyc).addClass("empty-container-text  key image-text-other design-css design-empty-text-css");
                             //padding-10
+                            jQuery(emptyc).prepend("<div class='adjust-image-text-other design-css design-adjust-image-text-other'></div>");
                             jQuery(emptyc).css("font-size", "14px");
                             //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
                             var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
@@ -130,6 +130,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                             plusContainer.removeClass("jq-plus-container-not-used");
                             plusContainer.find(".jq-plus-content").append(tbContainer);
                             jQuery(emptyc).append(plusContainer);
+                            impOperaction.Operation.AfterOperationJQ.Execute();
                             if (window.smartObj == null || window.smartObj.command == "") {
                                 ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, undefined, undefined);
                             }

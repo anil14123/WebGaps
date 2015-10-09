@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ", "../Controls/LinkJQ", "../Controls/HtmlJQ", "../Controls/MarginJQ", "../Controls/PaddingJQ", "../Controls/FrontBackJQ"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer, impLink, impHtml, impMargin, impPadding, impFrontBack) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ", "../Controls/LinkJQ", "../Controls/HtmlJQ", "../Controls/MarginJQ", "../Controls/PaddingJQ", "../Controls/FrontBackJQ", "../Controls/OpacityJQ", "../Controls/BorderShadow"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer, impLink, impHtml, impMargin, impPadding, impFrontBack, impOpacity, impBorderShadow) {
     var G_isAttachedContextMenu = false;
     var CTX_MENU_DISABLED_CLASS = "ctx-menu-disabled";
     var ctxMenuIsReady = false;
@@ -16,27 +16,26 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             ContextMenuJQ.ContextMenuBinding = function () {
                 // context menu event ...
                 jQuery(document).bind("contextmenu", function (e) {
-                    if (jQuery(e.target).closest(".control-page").length == 0) {
-                        impWatch.Watch.MouseJQ.ProcessClick(e);
-                        e.preventDefault();
-                        var contextMenu = new ContextMenuJQ();
-                        contextMenu.DetectContextMenu();
-                        // adjustment based on windows
-                        var pageY = e.clientY;
-                        if ((pageY) >= (jQuery(window).height() - 250)) {
-                            pageY = pageY - 240;
-                        }
-                        //var eh = new impError.ErrorHandle.ErrorJQ();
-                        //eh.ActionHelp(pageY.toString());
-                        var pageX = e.clientX;
-                        if (pageX > (jQuery(document).width() - 200)) {
-                            pageX = pageX - 150;
-                        }
-                        /////////////////
-                        jQuery(contextMenu.controlId).css("left", pageX + "px"); // For updating the menu position.
-                        jQuery(contextMenu.controlId).css("top", pageY + "px"); // 
-                        jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
-                    } // To prevent the default context menu.
+                    impWatch.Watch.MouseJQ.ProcessClick(e);
+                    e.preventDefault();
+                    var contextMenu = new ContextMenuJQ();
+                    contextMenu.DetectContextMenu();
+                    // adjustment based on windows
+                    var pageY = e.clientY;
+                    if ((pageY) >= (jQuery(window).height() - 250)) {
+                        pageY = pageY - 240;
+                    }
+                    //var eh = new impError.ErrorHandle.ErrorJQ();
+                    //eh.ActionHelp(pageY.toString());
+                    var pageX = e.clientX;
+                    if (pageX > (jQuery(document).width() - 200)) {
+                        pageX = pageX - 150;
+                    }
+                    /////////////////
+                    jQuery(contextMenu.controlId).css("left", pageX + "px"); // For updating the menu position.
+                    jQuery(contextMenu.controlId).css("top", pageY + "px"); // 
+                    jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
+                    // To prevent the default context menu.
                     e.cancelBubble = false;
                 });
             };
@@ -134,6 +133,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     }
                     if (selectedElement.hasClass("empty-container-spacer")) {
                         jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                    }
+                    if (selectedElement.hasClass("page")) {
+                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                        jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     }
                 }
             };
@@ -324,11 +327,23 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 jQuery("#control-padding").addClass("control-active");
                 jQuery("#control-padding").show();
             };
+            ContextMenuJQ.ShowOpacity = function () {
+                ContextMenuJQ.ControlPageHide();
+                jQuery(".control-page").removeClass("control-active");
+                jQuery("#control-opacity").addClass("control-active");
+                jQuery("#control-opacity").show();
+            };
             ContextMenuJQ.ShowZindex = function () {
                 ContextMenuJQ.ControlPageHide();
                 jQuery(".control-page").removeClass("control-active");
                 jQuery("#control-zindex").addClass("control-active");
                 jQuery("#control-zindex").show();
+            };
+            ContextMenuJQ.ShowBS = function () {
+                ContextMenuJQ.ControlPageHide();
+                jQuery(".control-page").removeClass("control-active");
+                jQuery("#control-border-shadow").addClass("control-active");
+                jQuery("#control-border-shadow").show();
             };
             ContextMenuJQ.ShowColor = function () {
                 ContextMenuJQ.ControlPageHide();
@@ -390,6 +405,16 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     impPadding.Padding.PaddingJQ.ProcessSelectNotify();
                 });
             };
+            ContextMenuJQ.AttachOpacity = function () {
+                new impOpacity.Opacity.OpacityJQ().Init();
+                jQuery(".li.ctx-menu-opacity").on("click", function () {
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    ContextMenuJQ.ShowOpacity();
+                    impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
+                });
+            };
             ContextMenuJQ.AttachZindex = function () {
                 new impFrontBack.FrontBack.FrontBackJQ().Init();
                 jQuery(".li.ctx-menu-z-index").on("click", function () {
@@ -398,6 +423,16 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     }
                     ContextMenuJQ.ShowZindex();
                     impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                });
+            };
+            ContextMenuJQ.AttachBorderShadow = function () {
+                new impBorderShadow.BorderShadow.BorderShadowJQ().Init();
+                jQuery(".li.ctx-menu-border-shadow").on("click", function () {
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    ContextMenuJQ.ShowBS();
+                    impBorderShadow.BorderShadow.BorderShadowJQ.ProcessSelectNotify();
                 });
             };
             ContextMenuJQ.AttachCopy = function () {
@@ -543,6 +578,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                             ContextMenuJQ.AttachBorder();
                             ContextMenuJQ.AttachMargin();
                             ContextMenuJQ.AttachZindex();
+                            ContextMenuJQ.AttachBorderShadow();
+                            ContextMenuJQ.AttachOpacity();
                             ContextMenuJQ.AttachPadding();
                             ContextMenuJQ.AttachColor();
                             ContextMenuJQ.AttachInsertMenu();
@@ -557,4 +594,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });
-//# sourceMappingURL=Contextmenujq.js.map
+//# sourceMappingURL=ContextMenuJQ.js.map

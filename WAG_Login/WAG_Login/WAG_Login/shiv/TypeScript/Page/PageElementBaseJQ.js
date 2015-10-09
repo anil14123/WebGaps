@@ -112,7 +112,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                         var columnSize = '';
                         if (cols[i] != undefined && commonMethods.Trim(cols[i]) != "") {
                             colClassName = cols[i].toString().replace(/,/g, ' ');
-                            columnSize = colClassName.toString().replace("col-xs-", "");
+                            columnSize = colClassName.toString().replace("col-sm-", "");
                         }
                         else {
                             continue;
@@ -161,6 +161,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                                 column.attr("key-css", this.GetDotClassName() + " " + "column");
                             }
                         }
+                        column.addClass("hidden-xs").addClass("hidden-sm");
                         if (root != undefined) {
                             row.attr("key-css", jQuery(root).attr("key-css") + " " + "row");
                         }

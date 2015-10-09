@@ -18,6 +18,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
                 impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
                 impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
+                impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container", "");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-menu", "");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
@@ -41,6 +42,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".column");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".root-elements");
+                impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other");
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-site-link-container");
             };
             Code.AnchorClicked = false;

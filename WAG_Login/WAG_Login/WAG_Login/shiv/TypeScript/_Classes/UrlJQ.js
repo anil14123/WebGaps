@@ -6,7 +6,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ"], function (require, e
                 this.NgRoutePrefix = "/#";
             }
             UrlJQ.prototype.GetDocumentLocation = function () {
-                return document.location.hostname;
+                var hn = document.location.hostname;
+                if (hn != undefined && hn != "") {
+                    hn = hn.toLowerCase();
+                    hn = hn.replace("www.", "");
+                }
+                return hn;
             };
             UrlJQ.prototype.PreparePageHref = function (url) {
                 if (url != undefined) {

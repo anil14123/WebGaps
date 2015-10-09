@@ -1,10 +1,9 @@
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
-    __.prototype = b.prototype;
-    d.prototype = new __();
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass", "../Constants/ConstantsJQ", "../ControlNames/PageControlNamesJQ", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "./FontJQ", "./TextJQ", "../SmartMenu/SmartMenuJQ"], function (require, exports, impPageCtx, impCss, impConsts, impPageControlNames, impError, impWatch, impFontList, impText, impSmartMenu) {
+define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass", "../Constants/ConstantsJQ", "../ControlNames/PageControlNamesJQ", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "./FontJQ", "./TextJQ", "../SmartMenu/SmartMenuJQ", "../Common/OperationJQ"], function (require, exports, impPageCtx, impCss, impConsts, impPageControlNames, impError, impWatch, impFontList, impText, impSmartMenu, impOperaction) {
     var Page;
     (function (Page) {
         var RequiredJQ = (function () {
@@ -166,16 +165,16 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         }
                         colPrevNumber = columnNumber + colPrevNumber;
                         if (i == 0) {
-                            colsClasses += 'col-xs-' + columnNumber;
+                            colsClasses += 'col-sm-' + columnNumber;
                         }
                         else {
-                            colsClasses += ' col-xs-' + columnNumber;
+                            colsClasses += ' col-sm-' + columnNumber;
                         }
                     }
                     var lastColClassNumber = 48 - colPrevNumber;
                     // if two spaces are give : code is braking because of split with space.
                     if (lastColClassNumber > 0) {
-                        colsClasses += ' col-xs-' + lastColClassNumber;
+                        colsClasses += ' col-sm-' + lastColClassNumber;
                     }
                     //alert(colsClasses);
                     var ctx = new impPageCtx.Page.ContextJQ();
@@ -190,9 +189,12 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         }
                         var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
                         jQuery(".removable-row").remove();
+                        impOperaction.Operation.AfterOperationJQ.Execute();
                         AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
-                        AddRowJQ.addedRow.addClass("removable-row");
-                        AddRowJQ.addedRow.children(".column").addClass("columns-pending");
+                        if (AddRowJQ.addedRow != undefined) {
+                            AddRowJQ.addedRow.addClass("removable-row");
+                            AddRowJQ.addedRow.children(".column").addClass("columns-pending");
+                        }
                         // debug-row-ss
                         //selectedRowOrColumn.find(".debug-row-css[scopeId=" + rowOrColumnWithScopeId + "]").remove();
                         //if (rowOrColumnWithScopeId != undefined) {

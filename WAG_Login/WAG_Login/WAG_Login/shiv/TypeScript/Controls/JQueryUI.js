@@ -48,8 +48,6 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 var handleDefault = "e,se,s";
                 $(".column").resizable({
                     handles: handleDefault,
-                    minHeight: 30,
-                    minWidth: 30,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -124,8 +122,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                                         else {
                                             colXsTemp = colXsTemp - eachXs;
                                         }
-                                        jQuery(nextElements[i]).removeClass("col-xs-" + nextXsSize);
-                                        jQuery(nextElements[i]).addClass("col-xs-" + newNextXsSize);
+                                        jQuery(nextElements[i]).removeClass("col-sm-" + nextXsSize);
+                                        jQuery(nextElements[i]).addClass("col-sm-" + newNextXsSize);
                                         jQuery(nextElements[i]).attr("xs-column-size", newNextXsSize);
                                     }
                                     else {
@@ -149,8 +147,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                                     newXsSize--;
                                     g--;
                                 }
-                                jQuery(ui.helper).removeClass("col-xs-" + xsSize);
-                                jQuery(ui.helper).addClass("col-xs-" + newXsSize);
+                                jQuery(ui.helper).removeClass("col-sm-" + xsSize);
+                                jQuery(ui.helper).addClass("col-sm-" + newXsSize);
                                 ui.helper.attr("xs-column-size", newXsSize);
                             }
                             catch (ex) {
@@ -182,8 +180,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                                         eachXsTemp = eachXs - 1;
                                         newXsSize = 1;
                                     }
-                                    jQuery(ui.helper).removeClass("col-xs-" + xsSize);
-                                    jQuery(ui.helper).addClass("col-xs-" + newXsSize);
+                                    jQuery(ui.helper).removeClass("col-sm-" + xsSize);
+                                    jQuery(ui.helper).addClass("col-sm-" + newXsSize);
                                     ui.helper.attr("xs-column-size", newXsSize);
                                     var colXsTemp = colXs;
                                     if (colXsTemp > 0) {
@@ -202,8 +200,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                                             g--;
                                         }
                                         //////////////////////////////////////
-                                        jQuery(nextElements[0]).removeClass("col-xs-" + nextXsSize);
-                                        jQuery(nextElements[0]).addClass("col-xs-" + newNextXsSize);
+                                        jQuery(nextElements[0]).removeClass("col-sm-" + nextXsSize);
+                                        jQuery(nextElements[0]).addClass("col-sm-" + newNextXsSize);
                                         jQuery(nextElements[0]).attr("xs-column-size", newNextXsSize);
                                     }
                                 }
@@ -240,6 +238,24 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 else if ($(ui.element).data('ui-resizable').axis == "s") {
                 }
             };
+            CommonCode.JustResizable = function (elementCss, handle) {
+                var handleDefault = "e,se,s";
+                if (handle != undefined && handle != "") {
+                    handleDefault = handle;
+                }
+                $(elementCss).resizable({
+                    handles: handleDefault,
+                    minHeight: 0,
+                    start: function (event, ui) {
+                    },
+                    stop: function (event, ui) {
+                        var height = ui.size.height;
+                        var width = ui.size.width;
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+                        undomanager.BeforeOperation();
+                    }
+                });
+            };
             CommonCode.ResizableRootElements = function (elementCss, handle) {
                 var handleDefault = "e,se,s";
                 if (handle != undefined && handle != "") {
@@ -247,8 +263,6 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 }
                 $(elementCss).resizable({
                     handles: handleDefault,
-                    minHeight: 30,
-                    minWidth: 30,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -283,8 +297,6 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 }
                 $(elementCss).resizable({
                     handles: handleDefault,
-                    minHeight: 30,
-                    minWidth: 30,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
