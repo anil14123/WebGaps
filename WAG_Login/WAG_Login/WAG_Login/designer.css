@@ -21,6 +21,34 @@
    z-index:1200;
 }
 
+/*.verticle-designer-controls{
+    position:fixed;
+
+    top:200px;
+    left:30px;
+
+   
+}
+
+.verticle-designer-controls-tabs{
+     width:200px;
+   
+}
+
+.verticle-designer-controls .ui-tabs-vertical .ui-tabs-nav{
+    width:130px;
+}
+
+.verticle-designer-controls .ui-widget-content{
+    background-color:transparent;
+    border:none;
+}
+
+.jqui-tab{
+    border:1px solid #ddd;
+   background : #eee url("images/ui-bg_highlight-soft_100_eeeeee_1x100.png") 50% top repeat-x
+}*/
+
 .jq-loading {
     height: 70px;
     width: 100px;

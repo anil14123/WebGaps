@@ -142,21 +142,26 @@ export module Themes.Empty {
                         //jQuery(".column").removeClass("column-layout-border-yellow");
                         //jQuery(".column").removeClass("column-layout-border-brown");
 
+                        var staticElement = "<span class=\"page-static-element-circle\"> </span>";
+
                         jQuery("page .root-elements").html("");
 
                         anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "", undefined, undefined);
+                        jQuery(".jq-Header").prepend(staticElement);
 
                         var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
                         adjustColumnHeightMB.height = 50;
 
                         anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "", undefined, adjustColumnHeightMB);
+                        jQuery(".jq-MenuBar").prepend(staticElement);
 
                         var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
                         adjustColumnHeight.height = 500;
                         anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "", undefined, adjustColumnHeight);
+                        jQuery(".jq-Content").prepend(staticElement);
 
                         anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "", undefined, undefined);
-
+                        jQuery(".jq-Footer").prepend(staticElement);
 
                         // escape key issue
                         //if (colorToChange % 2 == 0) {

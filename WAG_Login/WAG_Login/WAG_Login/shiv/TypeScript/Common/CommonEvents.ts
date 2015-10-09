@@ -263,7 +263,7 @@ export module Common {
                     " .jq-row-plus-container { display:none !important; } " +
                     " .row { margin:0; padding:0; } " +
                     " .column { margin:0; padding:0; } " +
-                    ".page-static-element { display:none !important;}" +
+                    ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;}" +
                     "</style>";
 
                 jQuery(".image-selection").removeClass("image-selection");

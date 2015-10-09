@@ -4,6 +4,7 @@ import impCommonSmart = require("../Common/CommonEvents");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impError = require("../Error/ErrorJQ");
 import impAuth = require("../_Classes/Auth");
+import impPreview = require("../Preview/Preview");
 
 export module Page {
 
@@ -44,7 +45,7 @@ export module Page {
                             jQuery("page .jqte-editor").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
 
-
+                            impPreview.Preview.PreviewJQ.ClosePreview();
 
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();

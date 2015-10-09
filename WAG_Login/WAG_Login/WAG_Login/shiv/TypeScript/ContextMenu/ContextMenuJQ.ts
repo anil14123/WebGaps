@@ -222,6 +222,11 @@ export module ContextMenu {
                 if (selectedElement.hasClass("empty-container-spacer")) {
                     jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                 }
+
+                if (selectedElement.hasClass("page")) {
+                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                    jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                }
             }
 
         }

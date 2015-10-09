@@ -10,6 +10,14 @@
     font-weight: bold;
 }
 
+.page-static-element-circle{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background-color:dodgerblue;
+    float:left;
+}
+
 .design-page-margin{
     border-left : 1px dotted black;
     border-right: 1px dotted black;

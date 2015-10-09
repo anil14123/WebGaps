@@ -63,6 +63,17 @@
     <link href="/Loading.css" rel="stylesheet" />
     <link href="/MediaQueries.css" rel="stylesheet" />
 
+ <%--   <style>
+
+  .ui-tabs-vertical { width: 200px; }
+  .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+  .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+
+    </style>--%>
+
     <script>
 
         jQuery(document).ready(function () {
@@ -146,7 +157,7 @@
     <input class="input-current-location hide" value="/services/sites" />
 
     <div class="jq-plus-container jq-plus-container-not-used">
-       
+
         <div class="row">
             <div class="jq-plus-element">
 
@@ -572,7 +583,29 @@
             </div>
 
 
-
+           <%-- <div class="verticle-designer-controls">
+                <div class="verticle-designer-controls-tabs" id="verticle-designer-controls-tabs">
+                    <ul>
+                        <li><a href="#tabs-add">Add</a></li>
+                        <li><a href="#tabs-pages">Pages</a></li>
+                        <li><a href="#tabs-design">Design</a></li>
+                    </ul>
+                    <div id="tabs-add" class="jqui-tab">
+                        <h2>Content heading 1</h2>
+                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                    </div>
+                    <div id="tabs-pages" class="jqui-tab">
+                        <h2>Content heading 2</h2>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                    </div>
+                    <div id="tabs-design" class="jqui-tab">
+                        <h2>Content heading 3</h2>
+                        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                    </div>
+                </div>
+            </div>
+--%>
 
 
         </div>
@@ -580,29 +613,33 @@
     </div>
     <rootx style="clear: both; position: relative;">
 
-        <Page class="add-to-page" unique-id="0" class="page" >
+        <Page class="add-to-page key page" unique-id="0" class="page" >
            
             <div class="page-margin design-css design-page-margin">
            
             <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
                 <span class="page-static-element">Header</span>
+                <span class="page-static-element-circle"></span>
 
             </div>
 
             <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
                 <span class="page-static-element">Menu Bar</span>
+                 <span class="page-static-element-circle"></span>
 
             </div>
 
 
             <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
                <span class="page-static-element">Body</span>
+                 <span class="page-static-element-circle"></span>
 
             </div>
 
 
             <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
                 <span class="page-static-element">Footer</span>
+                 <span class="page-static-element-circle"></span>
                 
             </div>
 
@@ -1762,7 +1799,7 @@
                                              
                                                  <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all"></input>
+                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
 
                                                  </div>
                                                  
@@ -1775,7 +1812,7 @@
                                               
                                                  <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left"></input>
+                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left" />
 
                                                  </div>
                                                  
@@ -1787,7 +1824,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-right"></input>
+                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-right"/>
 
                                                  </div>
                                                  
@@ -1796,7 +1833,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-top"></input>
+                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-top"/>
 
                                                  </div>
                                                  
@@ -1806,7 +1843,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"></input>
+                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"/>
 
                                                  </div>
                                                  
