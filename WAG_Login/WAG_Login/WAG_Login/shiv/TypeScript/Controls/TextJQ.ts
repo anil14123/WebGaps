@@ -196,7 +196,9 @@ export module Text {
                         jQuery(emptyc).addClass("empty-container-text  key image-text-other design-css design-empty-text-css");
                         //padding-10
 
+                        jQuery(emptyc).prepend("<div class='adjust-image-text-other-left design-css design-adjust-image-text-other'></div>");
                         jQuery(emptyc).prepend("<div class='adjust-image-text-other design-css design-adjust-image-text-other'></div>");
+                        
 
                         jQuery(emptyc).css("font-size", "14px");
 

@@ -383,6 +383,7 @@ export module JQueryUI {
             $(elementCss).resizable({
                 handles: handleDefault,
                 minHeight: 0,
+                minWidth:0,
                 start: function (event, ui) {
 
                     

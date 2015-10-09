@@ -264,6 +264,7 @@ export module Image {
 
                     var jEc = jQuery(emptycontainer);
 
+                    jEc.prepend("<div class='adjust-image-text-other-left design-css design-adjust-image-text-other'></div>");
                     jEc.prepend("<div class='adjust-image-text-other design-css design-adjust-image-text-other'></div>");
 
                     jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
