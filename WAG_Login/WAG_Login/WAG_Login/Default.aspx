@@ -134,7 +134,7 @@
                     Hyderabad<br>
                     Vanasthalipuram<br>
                     <abbr title="Phone">P:</abbr>
-                    7095014888
+                   +91 7095014888
                 </div>
 
                 <address>

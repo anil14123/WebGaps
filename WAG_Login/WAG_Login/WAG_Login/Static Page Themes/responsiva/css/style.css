@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /*HTML5 Tags Styles starts here */
@@ -158,7 +158,7 @@ Main Styles
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    opacity:0.7;
+  
 }
 
 .build-str{
@@ -168,19 +168,20 @@ Main Styles
 }
 
 .other-container {
-    background-color:blue;
-    opacity:0.5;
+    background-color:rgba(0,0,255,0.5);
+   
 
-    font-size:30px;
+    font-size:13px;
 }
 
 .steps{
     text-align:center;
     background-color:lightgreen;
-    padding:150px;
-    opacity:0.5;
+    padding:10px;
+    
 
         background-image:url("colorful6.jpg");
+        background-size:cover;
 }
 
 .step{
@@ -196,8 +197,9 @@ Main Styles
 
     background-color:#4f564f;
     background-image:url("colorful6.jpg");
+    background-size:cover;
     color:lightgray;
-    padding:225px;
+    padding:10px;
 
 
 }
@@ -213,15 +215,15 @@ Main Styles
     width:100%;
 }
 
-.step-img-c{
-      height:60px;
-    width:60px;
-
-    padding:3px;
-
-    border:12px solid green;
-
-   background-repeat:no-repeat;
+.step-img-c {
+    height: 60px;
+    width: 60px;
+    padding: 3px;
+    border: 12px solid green;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
 }
 
 .step1 {
@@ -254,7 +256,7 @@ Main Styles
     -webkit-border-radius: 15px;
     border-radius:15px;
 
-    opacity:0.7;
+   
 }
 
     #contents img {
@@ -461,7 +463,7 @@ blockquote {
     }
 
     #logo {
-        background: url(../images/logo2.png) no-repeat;
+       
         height: 55px;
         width: 200px;
         margin-left: auto;
@@ -515,7 +517,7 @@ blockquote {
     }
 
     #logo {
-        background: url(../images/logo2.png) no-repeat;
+       
         height: 55px;
         width: 200px;
         margin-left: auto;
@@ -578,7 +580,7 @@ blockquote {
     }
 
     #logo {
-        background: url(../images/logo3.png) no-repeat;
+       
         height: 41px;
         width: 150px;
         margin-left: auto;
@@ -635,7 +637,7 @@ blockquote {
     }
 
     #logo {
-        background: url(../images/logo3.png) no-repeat;
+       
         height: 41px;
         width: 150px;
         margin-left: auto;
