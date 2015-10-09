@@ -249,7 +249,8 @@
                 <ul>
                     <li><a href="#tabs-1">General</a></li>
                     <li><a href="#tabs-2">Advanced</a></li>
-                    <li><a href="#tabs-3">Objects</a></li>
+                    <li><a href="#tabs-3">Insert</a></li>
+                    <li><a href="#tabs-5">Desgin</a></li>
                     <li><a href="#tabs-4">Image</a></li>
                 </ul>
                 <div id="tabs-1" class="row">
@@ -361,6 +362,10 @@
 
                 </div>
 
+                 <div id="tabs-5">
+
+
+                     </div>
             </div>
 
             <div class="editor">
