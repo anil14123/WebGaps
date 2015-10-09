@@ -245,10 +245,10 @@ export module Page {
                     colPrevNumber = columnNumber + colPrevNumber;
 
                     if (i == 0) {
-                        colsClasses += 'col-sm-' + columnNumber;
+                        colsClasses += 'col-xs-' + columnNumber;
                     }
                     else { //with a space
-                        colsClasses += ' col-sm-' + columnNumber;
+                        colsClasses += ' col-xs-' + columnNumber;
                     }
 
 
@@ -258,7 +258,7 @@ export module Page {
 
                 // if two spaces are give : code is braking because of split with space.
                 if (lastColClassNumber > 0) {
-                    colsClasses += ' col-sm-' + lastColClassNumber;
+                    colsClasses += ' col-xs-' + lastColClassNumber;
                 }
 
                 //alert(colsClasses);

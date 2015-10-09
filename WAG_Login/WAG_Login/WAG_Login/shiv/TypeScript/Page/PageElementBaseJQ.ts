@@ -193,7 +193,7 @@ export module Page {
                     var columnSize = '';
                     if (cols[i] != undefined && commonMethods.Trim(cols[i]) != "") {
                         colClassName = cols[i].toString().replace(/,/g, ' ');
-                        columnSize = colClassName.toString().replace("col-sm-", "");
+                        columnSize = colClassName.toString().replace("col-xs-", "");
                     }
                     else {
                         continue;
