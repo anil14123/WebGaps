@@ -11,7 +11,7 @@ import impText = require("./TextJQ");
 import impSmartMenu = require("../SmartMenu/SmartMenuJQ");
 import impJqueryUI = require("./JqueryUI");
 
-
+import impOperaction = require("../Common/OperationJQ");
 
 export module Page {
 
@@ -284,6 +284,8 @@ export module Page {
                     var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
 
                     jQuery(".removable-row").remove();
+ 
+                    impOperaction.Operation.AfterOperationJQ.Execute(); 
 
                     AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
 

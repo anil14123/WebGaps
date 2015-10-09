@@ -60,7 +60,7 @@ export module ContextMenu {
             // context menu event ...
             jQuery(document).bind("contextmenu", function (e) {
 
-                if (jQuery(e.target).closest(".control-page").length == 0) {
+               
                     impWatch.Watch.MouseJQ.ProcessClick(e);
                     e.preventDefault();
 
@@ -89,7 +89,7 @@ export module ContextMenu {
                     jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
                     jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
                     jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
-                }                    // To prevent the default context menu.
+                                   // To prevent the default context menu.
 
                 e.cancelBubble = false;
             });

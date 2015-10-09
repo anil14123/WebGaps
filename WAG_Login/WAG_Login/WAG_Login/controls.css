@@ -12,6 +12,15 @@ controls {
         padding:3px;
     }
     
+    .image-text-other .adjust-image-text-other .ui-resizable-s .jq-square-s{
+        background-color: dodgerblue;
+
+    }
+
+    .design-adjust-image-text-other{
+        border-bottom:1px dotted black;
+    }
+
     .control-move-area{
        
         border-radius:5px;

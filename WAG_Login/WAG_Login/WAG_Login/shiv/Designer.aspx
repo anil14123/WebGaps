@@ -146,7 +146,7 @@
     <input class="input-current-location hide" value="/services/sites" />
 
     <div class="jq-plus-container jq-plus-container-not-used">
-        <div class="adjust-image-text-other"></div>
+       
         <div class="row">
             <div class="jq-plus-element">
 
