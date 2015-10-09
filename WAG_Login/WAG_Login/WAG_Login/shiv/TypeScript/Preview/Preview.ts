@@ -36,6 +36,8 @@ export module Preview {
             jQuery("#notify").clearQueue();
             jQuery("#notify").fadeOut();
 
+            jQuery(".page-static-element").hide();
+
             jQuery("page").find(".image-selection").removeClass("image-selection");
 
             jQuery("page").find(".jqte-editor").removeAttr("contenteditable");

@@ -10,6 +10,15 @@
     font-weight: bold;
 }
 
+.design-page-margin{
+    border-left : 1px dotted black;
+    border-right: 1px dotted black;
+}
+
+.design-root-elements {
+    border:1px dotted black;
+}
+
 .padding-10{
     padding:10px;
 }

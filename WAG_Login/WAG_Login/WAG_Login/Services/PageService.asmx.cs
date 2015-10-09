@@ -168,7 +168,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                     string random = GetRandomString(3);
                     string random2 = GetRandomString(6);
 
-                    string startPath = Path.Combine(Server.MapPath("."), user.Id + "/" + siteName);
+                    string startPath = Path.Combine(Server.MapPath(".") + "/sites/", user.Id + "/" + siteName);
                     string zipFileDir = Path.Combine(Server.MapPath("."), "../public_downloads/");
                     string zipPath = Path.Combine(Server.MapPath("."), "../public_downloads/" + random + "1n1" + user.Id.Replace("-", "") + "k4" + random2 + "-" + siteName + ".zip");
 

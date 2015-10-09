@@ -581,29 +581,32 @@
     <rootx style="clear: both; position: relative;">
 
         <Page class="add-to-page" unique-id="0" class="page" >
-            
            
-            <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element jqMargin-0 " style="">
+            <div class="page-margin design-css design-page-margin">
+           
+            <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
                 <span class="page-static-element">Header</span>
 
             </div>
 
-            <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element jqMargin-0 " style="">
+            <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
                 <span class="page-static-element">Menu Bar</span>
 
             </div>
 
 
-            <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element jqMargin-0 " style="">
+            <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
                <span class="page-static-element">Body</span>
 
             </div>
 
 
-            <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element jqMargin-0 " style="">
+            <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
                 <span class="page-static-element">Footer</span>
                 
             </div>
+
+                </div> 
 
         </Page>
 

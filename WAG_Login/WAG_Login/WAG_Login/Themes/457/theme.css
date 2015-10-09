@@ -5,6 +5,11 @@ page{
     display:block;
 }
 
+.page-margin{
+    margin:0 auto;
+    width:980px;
+}
+
 .jq-logout{
     color:#000000;
 }
