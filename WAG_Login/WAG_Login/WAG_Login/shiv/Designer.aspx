@@ -847,6 +847,28 @@
 
     <controls>
 
+
+        
+
+         <div id="control-save" name="save" style="top:200px;" class="control-page control-save control-active"  >
+           
+            <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();jQuery('.control-page').removeClass('control-active');">X</span> </div>
+            <div class="control-move-area"></div>
+             
+            <fieldset class="clear" style="width:300px; background-color:white; height:150px;">
+             
+             <center>
+                 Please save your work before leave
+
+                 <hr />
+                     <button class="jq-save jq-save-margin btn btn-primary btn-large" onclick="jQuery(this).closest('.control-page').hide();">
+                            <img alt="" class="save-img" src="/content/save/save.png" />
+                            Save</button>
+                 </center>
+            </fieldset>
+
+        </div>
+
         <!------------------------------- CTemplates ----------------------------------->
 
         <div id="control-templates" name="templates" class="control-page control-templates control-active"  >

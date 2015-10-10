@@ -301,6 +301,11 @@ export module Watch {
 
                     $(window).on('beforeunload', function () {
 
+                        jQuery(".control-page").hide();
+                        jQuery(".control-page").removeClass("control-active");
+                        jQuery("#control-save").addClass("control-active");
+                        jQuery("#control-save").show();
+
                         return "Note: Unsaved changes will be lost!";
 
                     });
