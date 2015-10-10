@@ -858,7 +858,7 @@
             <fieldset class="clear" style="width:300px; background-color:white; height:150px;">
              
              <center>
-                 Please save your work before leave
+               <b style="font-family:monospace;"> Please save your work before leave</b> 
 
                  <hr />
                      <button class="jq-save jq-save-margin btn btn-primary btn-large" onclick="jQuery(this).closest('.control-page').hide();">
