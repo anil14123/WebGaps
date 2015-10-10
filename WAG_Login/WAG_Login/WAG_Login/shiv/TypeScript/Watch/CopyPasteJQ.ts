@@ -214,10 +214,7 @@ export module CopyPaste {
 
             if (selecedElement != undefined) {
 
-                if (selecedElement.hasClass("empty-container")
-                    || selecedElement.hasClass("empty-container-text")
-                    || selecedElement.hasClass("empty-container-image")
-                    || selecedElement.hasClass("column")) {
+                if (selecedElement.hasClass("column")) {
 
                     if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
                         CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
@@ -248,7 +245,7 @@ export module CopyPaste {
                 }
                 else {
 
-                    errorHandler.ActionFail("You can only paste element to a column and empty blocks.");
+                    errorHandler.ActionFail("Please select a [Column] to paste.<br/>Columns are marked with blue circles.");
                 }
             }
         }
