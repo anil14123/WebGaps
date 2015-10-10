@@ -10,6 +10,10 @@ page{
     width:980px;
 }
 
+.image-text-other{
+    margin:4px;
+}
+
 .jq-logout{
     color:#000000;
 }
