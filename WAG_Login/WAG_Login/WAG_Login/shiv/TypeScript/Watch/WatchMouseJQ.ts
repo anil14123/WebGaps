@@ -59,8 +59,7 @@ export module Watch {
                 MouseJQ.selectedMoveElement = jQuery(e.target);
             }
 
-            if (MouseJQ.selectedMoveElement.hasClass("row") || MouseJQ.selectedMoveElement.hasClass("column"))
-            { 
+            if (MouseJQ.selectedMoveElement.hasClass("row") || MouseJQ.selectedMoveElement.hasClass("column")) {
                 MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
             }
             else {
@@ -186,7 +185,7 @@ export module Watch {
             }
 
 
-        //}
+            //}
 
         }
 
@@ -280,7 +279,7 @@ export module Watch {
 
                     $("page").bind('copy', function () {
 
-                        
+
                         impCopy.CopyPaste.CopyPasteJQ.Copy();
                     });
                     $("page").bind('paste', function () {
@@ -295,8 +294,15 @@ export module Watch {
                         }
 
                     });
-                    $("page").bind('cut', function () {
+
+                    jQuery("page").bind('cut', function () {
                         impCopy.CopyPaste.CopyPasteJQ.Cut();
+                    });
+
+                    $(window).on('beforeunload', function () {
+
+                        return "Note: Unsaved changes will be lost!";
+
                     });
 
                     jQuery(document).keyup(function (e) {
