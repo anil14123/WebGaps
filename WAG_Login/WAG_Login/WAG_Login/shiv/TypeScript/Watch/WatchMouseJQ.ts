@@ -17,6 +17,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
 import impFrontBack = require("../Controls/FrontBackJQ");
+import impCopy = require("../Watch/CopyPasteJQ");
 
 var G_isAttachedWatch = false;
 
@@ -275,6 +276,27 @@ export module Watch {
                             impOnInsert.OnInsert.Code.BackPassed = false;
                         }
 
+                    });
+
+                    $("page").bind('copy', function () {
+
+                        
+                        impCopy.CopyPaste.CopyPasteJQ.Copy();
+                    });
+                    $("page").bind('paste', function () {
+
+                        if (MouseJQ.selectedElement.hasClass("column")) {
+                            impCopy.CopyPaste.CopyPasteJQ.Paste();
+                        }
+                        else {
+                            var eh = new impError.ErrorHandle.ErrorJQ();
+
+                            eh.ActionHelp("Please select a [Column] to paste.<br/>Columns are marked with blue circles.");
+                        }
+
+                    });
+                    $("page").bind('cut', function () {
+                        impCopy.CopyPaste.CopyPasteJQ.Cut();
                     });
 
                     jQuery(document).keyup(function (e) {
