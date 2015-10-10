@@ -97,6 +97,8 @@ export module Opacity {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            OpacityJQ.isSelectProcessing = true;
+
             if (selectedElement != undefined) {
 
                 var opacity = selectedElement.css("opacity");
@@ -104,6 +106,8 @@ export module Opacity {
                 jQuery(".control-o-opacity").slider("value", opacity);
 
             }
+
+            OpacityJQ.isSelectProcessing = false;
 
         }
 

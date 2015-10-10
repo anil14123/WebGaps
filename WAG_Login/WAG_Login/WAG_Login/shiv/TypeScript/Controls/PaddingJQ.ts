@@ -156,6 +156,8 @@ export module Padding {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            PaddingJQ.isSelectProcessing = true;
+
             if (selectedElement != undefined) {
 
 
@@ -197,6 +199,8 @@ export module Padding {
 
 
             }
+
+            PaddingJQ.isSelectProcessing = false;
 
         }
 

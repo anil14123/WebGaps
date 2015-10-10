@@ -100,6 +100,8 @@ export module FrontBack {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            FrontBackJQ.isSelectProcessing = true;
+
             if (selectedElement != undefined) {
 
 
@@ -112,6 +114,9 @@ export module FrontBack {
 
 
             }
+            
+
+            FrontBackJQ.isSelectProcessing = false;
 
         }
 

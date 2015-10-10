@@ -161,6 +161,8 @@ export module Margin {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+            MarginJQ.isSelectProcessing = true;
+
             if (selectedElement != undefined) {
 
               
@@ -202,6 +204,8 @@ export module Margin {
               
 
             }
+
+            MarginJQ.isSelectProcessing = false;
 
         }
 
