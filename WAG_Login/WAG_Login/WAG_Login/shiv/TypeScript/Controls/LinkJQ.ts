@@ -8,7 +8,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impOperaction = require("../Common/OperationJQ");
 
 var initOnceFlag = false;
-
+var normalLinkId = 0;
 export module Link {
 
     export class LinkJQ {
@@ -70,6 +70,11 @@ export module Link {
         }
 
         public static IsExternalUrl: boolean;
+
+        public static GenerateId() {
+            return "NormalLink" + ++normalLinkId;
+        }
+
 
         public AttachEvents() {
 
@@ -160,6 +165,8 @@ export module Link {
                 else {
                     linkToInsert = LinkJQ.CreateCurrentLink(false);
                 }
+
+               
                
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -210,6 +217,10 @@ export module Link {
 
         public static CreateCurrentLink(blankTarget?: boolean, url?: string, name?: string) {
             var link;
+            var id;
+            if (blankTarget == false) {
+                id = LinkJQ.GenerateId()
+            }
 
             if (url == undefined) {
                 //url = jQuery(".input-current-location").val() + "/"
@@ -229,14 +240,14 @@ export module Link {
             }
 
             if (blankTarget == true) {
-                link = "<span style='display:inline-block;' class='key jq-site-link-container'><a target='_blank' class='jq-site-link  btn " + btnStyle + "' href='"
+                link = "<span style='display:inline-block;' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a target='_blank' id='" + id + "' class='jq-site-link " + "' href='"
                 + url
-                + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
+                + "?nocache=true'>" + name + "</a></span>";
             }
             else {
-                link = "<span style='display:inline-block;' class='key jq-site-link-container'><a class='jq-site-link btn " + btnStyle +  "' href='"
+                link = "<span style='display:inline-block;' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a id='" + id + "' class='jq-site-link " + "' href='"
                 + url
-                + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
+                + "?nocache=true'>" + name + "</a></span>";
             }
 
             return link;

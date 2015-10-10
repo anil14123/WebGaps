@@ -94,7 +94,7 @@ export module Color {
 
                             if (colorForeground != "") {
 
-                                if (selectedElement.hasClass("jq-editor-link")) {
+                                if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
                                     if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
                                         jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
                                     }
