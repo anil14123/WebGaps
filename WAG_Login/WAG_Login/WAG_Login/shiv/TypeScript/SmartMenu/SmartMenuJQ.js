@@ -275,8 +275,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                     else {
                                         colXsTemp = colXsTemp - eachXs;
                                     }
-                                    jQuery(nextElements[i]).removeClass("col-sm-" + nextXsSize);
-                                    jQuery(nextElements[i]).addClass("col-sm-" + newNextXsSize);
+                                    jQuery(nextElements[i]).removeClass("col-xs-" + nextXsSize);
+                                    jQuery(nextElements[i]).addClass("col-xs-" + newNextXsSize);
                                     jQuery(nextElements[i]).attr("xs-column-size", newNextXsSize);
                                 }
                                 else {
@@ -300,8 +300,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                 newXsSize--;
                                 g--;
                             }
-                            jQuery(selectedElement).removeClass("col-sm-" + xsSize);
-                            jQuery(selectedElement).addClass("col-sm-" + newXsSize);
+                            jQuery(selectedElement).removeClass("col-xs-" + xsSize);
+                            jQuery(selectedElement).addClass("col-xs-" + newXsSize);
                             selectedElement.attr("xs-column-size", newXsSize);
                         }
                         catch (ex) {
@@ -333,8 +333,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                     eachXsTemp = eachXs - 1;
                                     newXsSize = 1;
                                 }
-                                jQuery(selectedElement).removeClass("col-sm-" + xsSize);
-                                jQuery(selectedElement).addClass("col-sm-" + newXsSize);
+                                jQuery(selectedElement).removeClass("col-xs-" + xsSize);
+                                jQuery(selectedElement).addClass("col-xs-" + newXsSize);
                                 selectedElement.attr("xs-column-size", newXsSize);
                                 var colXsTemp = colXs;
                                 if (colXsTemp > 0) {
@@ -353,8 +353,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                         g--;
                                     }
                                     //////////////////////////////////////
-                                    jQuery(nextElements[0]).removeClass("col-sm-" + nextXsSize);
-                                    jQuery(nextElements[0]).addClass("col-sm-" + newNextXsSize);
+                                    jQuery(nextElements[0]).removeClass("col-xs-" + nextXsSize);
+                                    jQuery(nextElements[0]).addClass("col-xs-" + newNextXsSize);
                                     jQuery(nextElements[0]).attr("xs-column-size", newNextXsSize);
                                 }
                             }

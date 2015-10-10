@@ -58,7 +58,10 @@ define(["require", "exports"], function (require, exports) {
                 //jQuery(".row").css("padding", "0px");
                 //jQuery("rootx").css("padding", "0px");
                 jQuery("page").find(".page-static-element").hide();
+                jQuery("page").find(".design-square-row").removeClass("design-page-row");
+                jQuery("page").find(".design-root-elements-static").removeClass("page-static-element-circle");
                 //jQuery(".root-elements").removeClass("padding-root-elements");
+                jQuery("page").find(".root-elements").removeClass("design-root-elements");
             };
             PreviewJQ.ClosePreview = function () {
                 //jQuery("RootX").css("width", "60%");
@@ -99,7 +102,10 @@ define(["require", "exports"], function (require, exports) {
                 //jQuery(".row").css("padding", "15px");
                 //jQuery("rootx").css("padding", "10px");
                 jQuery("page").find(".page-static-element").show();
+                jQuery("page").find(".design-square-row").addClass("design-page-row");
+                jQuery("page").find(".design-root-elements-static").addClass("page-static-element-circle");
                 // jQuery(".root-elements").addClass("padding-root-elements");
+                jQuery("page").find(".root-elements").addClass("design-root-elements");
             };
             return PreviewJQ;
         })();

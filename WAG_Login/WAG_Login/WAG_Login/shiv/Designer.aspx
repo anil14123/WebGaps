@@ -247,13 +247,13 @@
 
             <div id="tabs">
                 <ul>
-                    <li><a href="#tabs-1">General</a></li>
-                    <li><a href="#tabs-2">Advanced</a></li>
-                    <li><a href="#tabs-3">Insert</a></li>
-                    <li><a href="#tabs-5">Desgin</a></li>
-                    <li><a href="#tabs-4">Image</a></li>
+                    <li><a href="#tabs-general">General</a></li>
+                    <li><a href="#tabs-insert">Insert</a></li>
+                    <li><a href="#tabs-design">Desgin</a></li>
+                    <li><a href="#tabs-image">Image</a></li>
+                     <li><a href="#tabs-advanced">Advanced</a></li>
                 </ul>
-                <div id="tabs-1" class="row">
+                <div id="tabs-general" class="row">
 
                     <div class="col-xs-48">
                         <button class=" create-layout-show-button jq-save-margin btn btn-toolbar btn-xs">
@@ -345,12 +345,12 @@
 
                 </div>
 
-                <div id="tabs-2">
+                <div id="tabs-insert">
                 </div>
-                <div id="tabs-3">
+                <div id="tabs-design">
                 </div>
 
-                <div id="tabs-4">
+                <div id="tabs-image">
 
                     <span class="btn btn-danger btn-file">Browse 
                           Images Upload  
@@ -362,7 +362,7 @@
 
                 </div>
 
-                 <div id="tabs-5">
+                 <div id="tabs-advanced">
 
 
                      </div>

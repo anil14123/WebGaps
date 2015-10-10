@@ -112,7 +112,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                         var columnSize = '';
                         if (cols[i] != undefined && commonMethods.Trim(cols[i]) != "") {
                             colClassName = cols[i].toString().replace(/,/g, ' ');
-                            columnSize = colClassName.toString().replace("col-sm-", "");
+                            columnSize = colClassName.toString().replace("col-xs-", "");
                         }
                         else {
                             continue;
@@ -194,6 +194,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 if (root == undefined) {
                     root = this.Get();
                 }
+                jQuery(row).prepend("<span class=\"design-page-row design-square-row\"></span>");
                 this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
                 return row;
             };

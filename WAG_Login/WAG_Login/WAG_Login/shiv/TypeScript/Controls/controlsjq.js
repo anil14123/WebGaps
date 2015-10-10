@@ -165,16 +165,16 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         }
                         colPrevNumber = columnNumber + colPrevNumber;
                         if (i == 0) {
-                            colsClasses += 'col-sm-' + columnNumber;
+                            colsClasses += 'col-xs-' + columnNumber;
                         }
                         else {
-                            colsClasses += ' col-sm-' + columnNumber;
+                            colsClasses += ' col-xs-' + columnNumber;
                         }
                     }
                     var lastColClassNumber = 48 - colPrevNumber;
                     // if two spaces are give : code is braking because of split with space.
                     if (lastColClassNumber > 0) {
-                        colsClasses += ' col-sm-' + lastColClassNumber;
+                        colsClasses += ' col-xs-' + lastColClassNumber;
                     }
                     //alert(colsClasses);
                     var ctx = new impPageCtx.Page.ContextJQ();
