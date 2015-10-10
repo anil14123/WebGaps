@@ -1,6 +1,7 @@
 ﻿/// <reference path="document.d.ts" />
 
 var initOnce = false;
+var globalLinkId = 0;
 export module MyJQte {
 
     export class JqteParams {
@@ -37,6 +38,10 @@ export module MyJQte {
                     jQuery(this).children().css("font-family", jQuery(this).text());
                 });
             }
+        }
+
+        public static GenerateId() {
+            return "EditorLink" + ++globalLinkId;
         }
 
         public AttachEvents() {
@@ -147,8 +152,9 @@ export module MyJQte {
 
                         jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
                         jqte.SelectionSet("foreColor", "#003399");
+                        jQuery(".current-editor-scope").find("font[color='#003399']").addClass("key jq-editor-link");
                         jqte.SelectionSet("createLink", "#");
-
+                        jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("id", MyJQte.jqte.GenerateId());
                         break;
 
                 }

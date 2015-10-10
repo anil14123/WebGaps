@@ -31,7 +31,7 @@ export module Color {
                     isColorReady = true;
 
                     jQuery(".remove-gradient").click(function () {
-                        
+
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {
@@ -92,13 +92,41 @@ export module Color {
 
                             selectedElement.css("color", "#" + colorForeground);
 
+                            if (colorForeground != "") {
+
+                                if (selectedElement.hasClass("jq-editor-link")) {
+                                    if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
+                                        jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                    }
+                                    else {
+                                        var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
+                                        jQuery("page").append(style);
+                                    }
+
+                                    var linkId = "#" + selectedElement.find("a").first().attr("id");
+                                    var linkColor = "#" + colorForeground;
+
+                                    var style = " " +
+                                        linkId + ":link {" +
+                                    " color:" + linkColor + ";}" +
+                                    linkId + ":visited {" +
+                                    " color:" + linkColor + ";}" +
+                                    linkId + ":hover {" + 
+                                    " color:" + linkColor + ";}" +
+                                    linkId + ":active {" +
+                                    " color:" + linkColor + ";}";
+
+                                    jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
+                                }
+                            }
+
                             var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
 
                             selectedElement.css("background-color", "#" + colorBackground);
 
                         }
                         else {
-                           
+
                         }
                     });
 
@@ -148,7 +176,7 @@ export module Color {
                         }
                         else {
 
-                         
+
                         }
                     });
                 }
@@ -208,7 +236,7 @@ export module Color {
                 return "";
             }
         }
-        
+
         public static ProcessSelectNotify() {
 
             ColorJQ.ProcessSelectedValues();
