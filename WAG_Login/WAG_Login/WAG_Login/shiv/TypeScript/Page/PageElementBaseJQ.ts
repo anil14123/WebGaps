@@ -258,7 +258,7 @@ export module Page {
                         }
                     }
 
-                    column.addClass("hidden-xs").addClass("hidden-sm");
+                    //column.addClass("hidden-xs").addClass("hidden-sm");
 
                     if (root != undefined) {
                         row.attr("key-css", jQuery(root).attr("key-css") + " " + "row");

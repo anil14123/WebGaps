@@ -223,6 +223,8 @@ export module CopyPaste {
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                         }
 
+                        impOperaction.Operation.AfterOperationJQ.Execute();
+
                         selecedElement.append(CopiedElement);
 
                     }
