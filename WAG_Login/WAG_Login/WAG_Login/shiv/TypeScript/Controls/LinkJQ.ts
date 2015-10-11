@@ -6,9 +6,10 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impOperaction = require("../Common/OperationJQ");
+import impStatic = require("../Constants/ConstantsJQ");
 
 var initOnceFlag = false;
-var normalLinkId = 0;
+
 export module Link {
 
     export class LinkJQ {
@@ -16,8 +17,12 @@ export module Link {
         public Init() {
 
             if (initOnceFlag == false) {
+
                 initOnceFlag = true;
+
+
                 this.AttachEvents();
+
             }
         }
 
@@ -52,7 +57,7 @@ export module Link {
                 jQuery(".insert-link-links").append(select);
 
             }
-                      
+
             jQuery(".insert-link-name").val(jQuery(".insert-link-links").find('option:selected').text());
             var previewlink = LinkJQ.CreateCurrentLink(true);
             jQuery(".insert-link-preview").html(previewlink);
@@ -72,7 +77,8 @@ export module Link {
         public static IsExternalUrl: boolean;
 
         public static GenerateId() {
-            return "NormalLink" + ++normalLinkId;
+
+            return "NormalLink" + ++impStatic.Constants.StaticJQ.normalLinkId;
         }
 
 
@@ -85,7 +91,7 @@ export module Link {
                 jQuery("#insert-internet-link-name").val("Give Name");
 
                 var value: string;
-                value  = jQuery("#insert-internet-link-url").val();
+                value = jQuery("#insert-internet-link-url").val();
 
                 if (value.length > 0) {
                     while (value.charAt(0) == ' ') value = value.substring(1);
@@ -166,8 +172,8 @@ export module Link {
                     linkToInsert = LinkJQ.CreateCurrentLink(false);
                 }
 
-               
-               
+
+
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                 if (selectedElement != undefined) {
@@ -195,7 +201,7 @@ export module Link {
 
                 LinkJQ.IsExternalUrl = false;
                 var previewlink = LinkJQ.CreateCurrentLink(true);
-                
+
                 jQuery(".insert-link-preview").find("a").text(jQuery(this).val());
             });
 

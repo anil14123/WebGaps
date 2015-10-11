@@ -1,7 +1,9 @@
 ﻿/// <reference path="document.d.ts" />
 
+import impStatic = require("../Constants/ConstantsJQ");
+
 var initOnce = false;
-var globalLinkId = 0;
+
 export module MyJQte {
 
     export class JqteParams {
@@ -23,6 +25,7 @@ export module MyJQte {
 
             if (initOnce == false) {
                 initOnce = true;
+
                 jQuery(".jqte-editor-tool").click(function () {
                     return false;
                 });
@@ -41,7 +44,7 @@ export module MyJQte {
         }
 
         public static GenerateId() {
-            return "EditorLink" + ++globalLinkId;
+            return "EditorLink" + ++impStatic.Constants.StaticJQ.editorLinkId;
         }
 
         public AttachEvents() {

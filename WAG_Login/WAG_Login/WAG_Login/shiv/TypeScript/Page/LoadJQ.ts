@@ -5,6 +5,7 @@ import impUndoManager = require("../UndoManager/UndoManager");
 import impError = require("../Error/ErrorJQ");
 import impAuth = require("../_Classes/Auth");
 import impPreview = require("../Preview/Preview");
+import impStatic = require("../Constants/ConstantsJQ");
 
 export module Page {
 
@@ -44,6 +45,9 @@ export module Page {
                             jQuery("page .jqte-editor").attr("contentEditable", "true");
                             jQuery("page .jqte-editor").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
+
+                            impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
+                            impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;
 
                             impPreview.Preview.PreviewJQ.ClosePreview();
 

@@ -13,5 +13,11 @@ export module Constants {
         public static SecureStrLength = 7;
     }
 
+    export class StaticJQ {
+
+        public static normalLinkId = 0;
+        public static editorLinkId = 0;
+    }
+
     
 }
