@@ -210,8 +210,8 @@ controls {
 
 .control-page fieldset {
     border: 1px solid grey;
-    padding: 5px;
-    border-radius: 8px;
+    
+   
 }
 
 
@@ -513,11 +513,11 @@ controls {
     max-height: 300px;
     overflow-y: auto;
     border: 1px solid green;
-    -moz-border-radius: 5px;
+    /*-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px;*/
     opacity: 0.8;
-    background-color: lightgray;
+    background-color: black;
 }
 
 .image-library-image {
@@ -531,7 +531,7 @@ controls {
 }
 
 .image-library-select {
-    border: 2px solid blue;
+    border: 8px solid blue;
 }
 
 #control-image-library {

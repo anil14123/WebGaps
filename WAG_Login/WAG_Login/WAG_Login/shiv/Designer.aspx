@@ -858,7 +858,7 @@
             <fieldset class="clear" style="width:300px; background-color:white; height:150px;">
              
              <center>
-               <b style="font-family:monospace;"> Please save your work before leave</b> 
+               <h5 style='font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;'> Please save your work before leave</h5> 
 
                  <hr />
                      <button class="jq-save jq-save-margin btn btn-primary btn-large" onclick="jQuery(this).closest('.control-page').hide();">
@@ -969,8 +969,8 @@
             
               <fieldset class="clear" style="background-color:white;">
                 
-                     <div class=" legend float-left">
-                             Paste Image Url 
+                     <div class=" float-left">
+                            <b> Image Url </b>
                             </div>
 
                 <input type="text" class="input-sm  internet-image-url" />
@@ -1149,11 +1149,12 @@
                                Preview 
                             </div>
                                   <div style="margin:5px;">
-                                      <div class="insert-link-preview">
-
-                                      </div>
-
                                     
+                                      
+                                      <center class="insert-link-preview">
+
+                                      </center>
+
 
                                   </div>
 
