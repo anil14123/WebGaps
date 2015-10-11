@@ -157,10 +157,12 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public Data Download(string siteName)
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated && siteName != null && siteName != "" && siteName.Trim() != "")
             {
                 try
                 {
+                    siteName = siteName.Replace(".", "").Replace("\\", "").Replace("/", "");
+
                     var entities = new WAG_Login_Page.WagPageEntities();
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
