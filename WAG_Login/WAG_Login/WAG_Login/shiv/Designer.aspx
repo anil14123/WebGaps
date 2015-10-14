@@ -2133,6 +2133,9 @@
                         <li>
                             <div class="li ctx-menu-height-width">Height & Width</div>
                         </li>
+                         <li>
+                            <div class="li ctx-menu-color">Color</div>
+                        </li>
                         <li>
                             <div class="li ctx-menu-border">Border</div>
                         </li>
@@ -2142,10 +2145,6 @@
                         <li>
                             <div class="li ctx-menu-padding">Padding</div>
                         </li>
-                        <li>
-                            <div class="li ctx-menu-color">Color</div>
-                        </li>
-
                     </ul>
                 </div>
             </li>
