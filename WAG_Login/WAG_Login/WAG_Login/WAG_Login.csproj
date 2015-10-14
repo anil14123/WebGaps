@@ -268,7 +268,10 @@
     <Content Include="Content\Images\updown1.jpg" />
     <Content Include="Content\Images\updown2.png" />
     <Content Include="Content\Images\updown3.jpg" />
+    <Content Include="Content\PropertiesTag\delete.png" />
+    <Content Include="Content\PropertiesTag\settings.png" />
     <Content Include="Nestable.css" />
+    <Content Include="PropertiesTag.css" />
     <Content Include="Scripts\jQuery-File-Upload-master\.gitignore" />
     <Content Include="Scripts\jQuery-File-Upload-master\angularjs.html" />
     <Content Include="Scripts\jQuery-File-Upload-master\basic-plus.html" />

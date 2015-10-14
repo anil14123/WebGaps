@@ -226,6 +226,12 @@
         <br />
         <span class=" visible-xs">Double click on Phone for Menu</span>
     </div>
+
+    <div class="properties-tag">
+        <span class="delete"><img class="delete-img properties-tag-img" src="/Content/PropertiesTag/delete.png" /></span>
+        <span class="settings"> <img class="settings-img properties-tag-img" src="/Content/PropertiesTag/settings.png" /> </span>
+    </div>
+
     <span id="noelement22"></span>
 
 
