@@ -21,7 +21,7 @@ controls {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-
+    display:none;
     border:2px solid black;
 }
 
