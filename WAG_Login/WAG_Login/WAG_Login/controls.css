@@ -11,6 +11,10 @@ controls {
     padding: 3px;
 }
 
+.page{
+   
+}
+
 .properties-tag {
     background-color: white;
     padding: 4px;
@@ -31,6 +35,26 @@ controls {
     float:left;
     cursor:pointer;
 }
+
+.properties-sidebar{
+    padding:0;
+     background-color:#1C1D1D;
+     height:100px;
+}
+.properties-sidebar-container{
+    background-color:#1C1D1D;
+    height:528px;
+
+    position:fixed;
+    top:185px;
+
+    overflow:scroll;
+}
+
+#properties-accordion{
+    padding:5px;
+}
+
 
 .image-text-other .adjust-image-text-other .ui-resizable-s .jq-square-s {
     background-color: #31fa77;

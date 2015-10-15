@@ -63,7 +63,7 @@
     <link href="/Loading.css" rel="stylesheet" />
     <link href="/MediaQueries.css" rel="stylesheet" />
 
- <%--   <style>
+    <%--   <style>
 
   .ui-tabs-vertical { width: 200px; }
   .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
@@ -79,13 +79,44 @@
         jQuery(document).ready(function () {
 
             jQuery("#tabs").tabs();
+            jQuery("#properties-accordion").accordion({
+                 
+                heightStyle: 'accordion-properties-height',
+                //beforeActivate: function (event, ui) {
+                //    ui.newHeader.add(ui.newPanel).prependTo(this)
+                //}
+            });
 
+           
         })
 
     </script>
 
 
     <style>
+
+        .accordion-properties-height{
+            height:auto;
+        }
+
+        .ui-accordion .ui-accordion-content{
+            padding:4px;
+        }
+
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+            font-weight:normal;
+            color:black;
+        }
+
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+            font-weight:bold;
+            color:#D9534F;
+        }
+
+        .ui-accordion .ui-accordion-header{
+            font-size:small;
+        }
+
         #firstTimeHelp {
             border-radius: 5px;
             background-color: black;
@@ -139,6 +170,8 @@
                 cursor: inherit;
                 display: block;
             }
+
+
     </style>
 
 </head>
@@ -228,8 +261,11 @@
     </div>
 
     <div class="properties-tag">
-        <span class="delete"><img class="delete-img properties-tag-img" src="/Content/PropertiesTag/delete.png" /></span>
-        <span class="settings"> <img class="settings-img properties-tag-img" src="/Content/PropertiesTag/settings.png" /> </span>
+        <span class="delete">
+            <img class="delete-img properties-tag-img" src="/Content/PropertiesTag/delete.png" /></span>
+        <span class="settings">
+            <img class="settings-img properties-tag-img" src="/Content/PropertiesTag/settings.png" />
+        </span>
     </div>
 
     <span id="noelement22"></span>
@@ -257,7 +293,7 @@
                     <li><a href="#tabs-insert">Insert</a></li>
                     <li><a href="#tabs-design">Desgin</a></li>
                     <li><a href="#tabs-image">Image</a></li>
-                     <li><a href="#tabs-advanced">Advanced</a></li>
+                    <li><a href="#tabs-advanced">Advanced</a></li>
                 </ul>
                 <div id="tabs-general" class="row">
 
@@ -276,7 +312,7 @@
                             Preview</button>
                         <a href="#" target="_blank" style="background-color: buttonface; color: black;" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs">
                             <img alt="" class="preview-img" src="/content/preview/preview.png" />
-                            Live Preview
+                            Live Preview remove it
                         </a>
 
 
@@ -368,10 +404,8 @@
 
                 </div>
 
-                 <div id="tabs-advanced">
-
-
-                     </div>
+                <div id="tabs-advanced">
+                </div>
             </div>
 
             <div class="editor">
@@ -594,7 +628,7 @@
             </div>
 
 
-           <%-- <div class="verticle-designer-controls">
+            <%-- <div class="verticle-designer-controls">
                 <div class="verticle-designer-controls-tabs" id="verticle-designer-controls-tabs">
                     <ul>
                         <li><a href="#tabs-add">Add</a></li>
@@ -616,47 +650,109 @@
                     </div>
                 </div>
             </div>
---%>
-
-
+            --%>
         </div>
 
     </div>
     <rootx style="clear: both; position: relative;">
 
-        <Page class="add-to-page key page" unique-id="0" class="page" >
+        <div class="row">
+            <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #1C1D1D; padding:0; overflow-y:hidden;">
+                <Page class="add-to-page key page "  unique-id="0" class="page" >
            
-            <div class="page-margin design-css design-page-margin">
+                    <div class="page-margin design-css design-page-margin">
            
-            <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
-                <span class="page-static-element">Header</span>
-                <span class="page-static-element-circle design-css design-root-elements-static"></span>
+                    <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
+                        <span class="page-static-element">Header</span>
+                        <span class="page-static-element-circle design-css design-root-elements-static"></span>
 
-            </div>
+                    </div>
 
-            <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
-                <span class="page-static-element">Menu Bar</span>
-                 <span class="page-static-element-circle"></span>
+                    <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                        <span class="page-static-element">Menu Bar</span>
+                         <span class="page-static-element-circle"></span>
 
-            </div>
-
-
-            <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
-               <span class="page-static-element">Body</span>
-                 <span class="page-static-element-circle"></span>
-
-            </div>
+                    </div>
 
 
-            <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
-                <span class="page-static-element">Footer</span>
-                 <span class="page-static-element-circle"></span>
+                    <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                       <span class="page-static-element">Body</span>
+                         <span class="page-static-element-circle"></span>
+
+                    </div>
+
+
+                    <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                        <span class="page-static-element">Footer</span>
+                         <span class="page-static-element-circle"></span>
                 
+                    </div>
+
+                        </div> 
+
+                </Page>
+           </div>
+
+            <div class="properties-sidebar col-xs-12"  >
+                <div class="properties-sidebar-container">
+               <div id="properties-accordion">
+  <h3>  &nbsp;&nbsp; Height / Width </h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+   
+    </p>
+  </div>
+  <h1>  &nbsp;&nbsp; Color</h1>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+ 
+    </p>
+  </div>
+  <h3> &nbsp;&nbsp; Border</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+   
+    </p>
+   
+  </div>
+   <h3> &nbsp;&nbsp; Border Roundness</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+   
+    </p>
+   
+  </div>
+  <h3> &nbsp;&nbsp; Padding</h3>
+  <div>
+   
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+
+  </div>
+  <h3> &nbsp;&nbsp; Margin</h3>
+  <div>
+   
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+
+  </div>
+  <h3> &nbsp;&nbsp; Opacity</h3>
+  <div>
+   
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+
+  </div>
+</div>
+ </div>
+
             </div>
+        </div>
 
-                </div> 
-
-        </Page>
 
         <div class="controls-pinned-wrapper control-properties jq-properties-all forced-hide control-active-properties" style="display:none;" > 
              <div class="control-move-area">Properties</div>
@@ -2093,9 +2189,6 @@
                 <div class="innerListContainer">
                     <ul>
                         <li>
-                            <div class="li ctx-menu-insert-link-container">Links Container</div>
-                        </li>
-                        <li>
                             <div class="li ctx-menu-insert-link">Link</div>
                         </li>
                         <li>
@@ -2139,7 +2232,7 @@
                         <li>
                             <div class="li ctx-menu-height-width">Height & Width</div>
                         </li>
-                         <li>
+                        <li>
                             <div class="li ctx-menu-color">Color</div>
                         </li>
                         <li>
