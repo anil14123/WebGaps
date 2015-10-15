@@ -264,6 +264,8 @@
     <Content Include="Content\Images\RightImageBlue - Copy.png" />
     <Content Include="Content\Images\RightImageBlue.png" />
     <Content Include="Content\Images\RightImageGreen v2.png" />
+    <Content Include="Content\Images\ui-icons_ef8c08_256x240-x.png" />
+    <Content Include="Content\Images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Content\Images\up.jpg" />
     <Content Include="Content\Images\updown1.jpg" />
     <Content Include="Content\Images\updown2.png" />

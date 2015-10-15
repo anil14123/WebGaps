@@ -1069,7 +1069,7 @@
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">images</div>
             
-              <fieldset class="clear" style="background-color:white;">
+            <%--  <fieldset class="clear" style="background-color:white;">
                 
                      <div class=" float-left">
                             <b> Image Url </b>
@@ -1079,7 +1079,7 @@
                 
                 </fieldset>
 
-                                     <center style="background-color:white;"><b>OR</b></center>
+                                     <center style="background-color:white;"><b>OR</b></center>--%>
 
                         <fieldset class="clear" style="background-color:white;">
 
@@ -1540,7 +1540,7 @@
                                 <input class="bi-selected-image" type="text" />
 
                                 <button class="bi-browse" > Browse</button>
-                                     <center><b>OR</b></center>
+                                    <%-- <center><b>OR</b></center>
                                         <div class="float-left">
                              <span class="jq-c-lable">Paste Image Url </span>
                             </div>
@@ -1549,7 +1549,7 @@
 
                                    
 
-                                      </div>
+                                      </div>--%>
                             </fieldset>
 
                              <fieldset class="clear ">
