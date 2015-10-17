@@ -8,6 +8,7 @@
     font-family: 'lucida sans unicode',sans-serif;
 
     background-color:rgb(144, 146, 204);
+    background-color:#ede7e7;
 }
 
 #contextMenu {
@@ -40,7 +41,11 @@
 #contextMenuitems li:hover {
     background: #EC6603;
     background:#0B0B0A;
+    background-color:#B4A3D6;
+    
     color: #fff;
+    color:black;
+
 }
 
 #contextMenuitems li {
@@ -62,6 +67,7 @@
     top:-1px;
 
       background-color:rgb(144, 146, 204);
+       background-color:#ede7e7;
 }
 
     #contextMenuitems li ul {
@@ -78,6 +84,7 @@
 z-index:999999999;
 padding:8px;
 color:white;
+color:black;
 }
 
 .ctx-menu-disabled{

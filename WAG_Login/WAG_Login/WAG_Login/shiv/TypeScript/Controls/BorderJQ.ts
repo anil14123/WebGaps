@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
+﻿/// <reference path="../../../scripts/evoluteur.colorpicker/colorpicker-master/js/colorpicker.d.ts" />
+/// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
 
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
@@ -30,7 +31,12 @@ export module Border {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                  
+                    jQuery(".border-style").click(function () {
+
+                        jQuery(".border-style").parent().removeClass("border-style-selected");
+                        jQuery(this).parent().addClass("border-style-selected");
+                        BorderJQ.OnChange(this);
+                    });
 
                     jQuery(".border-advanced-show").click(function () {
 
@@ -103,36 +109,37 @@ export module Border {
 
                         }
                         );
-                   
 
-                    jQuery('.color-picker').colpick({
-                        layout: 'hex',
-                        submit: 0,
-                        colorScheme: 'dark',
-                        onChange: function (hsb, hex, rgb, el, bySetColor) {
-                            $(el).css('border-color', '#' + hex);
-                            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-                            if (!bySetColor) jQuery(el).val(hex);
+                    jQuery(".color-picker").colorpicker({});
 
-                            if (jQuery(el).hasClass("color-picker-all")) {
-                                jQuery(".color-picker").not(".color-picker-all").val(jQuery(el).val() + "");
+                    //jQuery('.color-picker').colpick({
+                    //    layout: 'hex',
+                    //    submit: 0,
+                    //    colorScheme: 'dark',
+                    //    onChange: function (hsb, hex, rgb, el, bySetColor) {
+                    //        $(el).css('border-color', '#' + hex);
+                    //        // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+                    //        if (!bySetColor) jQuery(el).val(hex);
 
-                                jQuery(".color-picker").not(".color-picker-all").colpickSetColor(jQuery(el).val() + "");
-                            }
+                    //        if (jQuery(el).hasClass("color-picker-all")) {
+                    //            jQuery(".color-picker").not(".color-picker-all").val(jQuery(el).val() + "");
+
+                    //            jQuery(".color-picker").not(".color-picker-all").colpickSetColor(jQuery(el).val() + "");
+                    //        }
 
 
-                            jQuery(el).change();
-                        },
-                         onHide: function () {
-                            var undo = new impUndoManager.Manager.UndoManager();
+                    //        jQuery(el).change();
+                    //    },
+                    //     onHide: function () {
+                    //        var undo = new impUndoManager.Manager.UndoManager();
 
-                            undo.BeforeOperation();
-                        }
-                    }).keyup(function () {
-                        $(this).colpickSetColor(this.value);
-                    });
+                    //        undo.BeforeOperation();
+                    //    }
+                    //}).keyup(function () {
+                    //    $(this).colpickSetColor(this.value);
+                    //});
 
-                    jQuery('.color-picker').trigger("keyup");
+                    //jQuery('.color-picker').trigger("keyup");
 
                     jQuery('.color-picker').on("change", function () {
 
@@ -268,6 +275,12 @@ export module Border {
                         selectedElement.css("border-radius", borderRadius + "px");
                     }
 
+                    if (jQuery($this).hasClass("color-picker-all")) {
+
+                        jQuery(".color-picker").val(jQuery($this).val());
+                        jQuery(".color-picker").keyup();
+                    }
+
                     if (borderLeft != undefined) {
                         selectedElement.css("border-left-width", borderLeft + "px");
 
@@ -307,7 +320,21 @@ export module Border {
 
                     }
 
-                    selectedElement.css("border-style", "solid");
+                    if (jQuery(".border-style-selected").find(".border-style").hasClass("border-style-solid")) {
+                        selectedElement.css("border-style", "solid");
+                    }
+                    else
+                        if (jQuery(".border-style-selected").find(".border-style").hasClass("border-style-dotted")) {
+                            selectedElement.css("border-style", "dotted");
+                        }
+                        else
+                            if (jQuery(".border-style-selected").find(".border-style").hasClass("border-style-dashed")) {
+                                selectedElement.css("border-style", "dashed");
+                            }
+                            else
+                                if (jQuery(".border-style-selected").find(".border-style").hasClass("border-style-groove")) {
+                                    selectedElement.css("border-style", "groove");
+                                }
 
                     if (borderLeft == 0 && borderTop == 0 && borderRight == 0 && borderBottom == 0) {
 
@@ -393,36 +420,38 @@ export module Border {
                 if (colorLeft != undefined) {
 
                     colorLeft = BorderJQ.RgbToHex(colorLeft);
-                    jQuery(".color-picker-left").val(colorLeft + "");
-                    jQuery(".color-picker-left").colpickSetColor(colorLeft + "");
+                    jQuery(".color-picker-left").val("#" + colorLeft + "");
+                   // jQuery(".color-picker-left").colpickSetColor(colorLeft + "");
                 }
 
                 if (colorTop != undefined) {
 
                     colorTop = BorderJQ.RgbToHex(colorTop);
-                    jQuery(".color-picker-top").val(colorTop + "");
-                    jQuery(".color-picker-top").colpickSetColor(colorTop + "");
+                    jQuery(".color-picker-top").val("#" + colorTop + "");
+                   // jQuery(".color-picker-top").colpickSetColor(colorTop + "");
                 }
 
                 if (colorRight != undefined) {
 
                     colorRight = BorderJQ.RgbToHex(colorRight);
-                    jQuery(".color-picker-right").val(colorRight + "");
-                    jQuery(".color-picker-right").colpickSetColor(colorRight + "");
+                    jQuery(".color-picker-right").val("#" + colorRight + "");
+                  //  jQuery(".color-picker-right").colpickSetColor(colorRight + "");
                 }
 
                 if (colorBottom != undefined) {
 
                     colorBottom = BorderJQ.RgbToHex(colorBottom);
-                    jQuery(".color-picker-bottom").val(colorBottom + "");
-                    jQuery(".color-picker-bottom").colpickSetColor(colorBottom + "");
+                    jQuery(".color-picker-bottom").val("#" + colorBottom + "");
+                  //  jQuery(".color-picker-bottom").colpickSetColor(colorBottom + "");
                 }
 
                 if (colorLeft == colorTop && colorLeft == colorRight && colorLeft == colorBottom) {
-                    jQuery(".color-picker-all").val(colorLeft + "");
-                    jQuery(".color-picker-all").colpickSetColor(colorLeft + "");
+                    jQuery(".color-picker-all").val("#" + colorLeft + "");
+                  //  jQuery(".color-picker-all").colpickSetColor(colorLeft + "");
                 }
 
+
+                jQuery(".color-picker").keyup();
 
                 selectedElement.addClass("image-selection");
 

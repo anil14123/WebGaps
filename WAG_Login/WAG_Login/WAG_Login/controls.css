@@ -38,11 +38,11 @@ controls {
 
 .properties-sidebar{
     padding:0;
-     background-color:#1C1D1D;
-     height:100px;
+     background-color:#D3D3D3;
+     height:600px;
 }
 .properties-sidebar-container{
-    background-color:#1C1D1D;
+    background-color:#D3D3D3;
     height:528px;
 
     position:fixed;
@@ -54,6 +54,11 @@ controls {
 #properties-accordion{
     padding:5px;
 }
+
+
+     .small-name{
+         font-size:smaller;
+     }
 
 
 .image-text-other .adjust-image-text-other .ui-resizable-s .jq-square-s {
@@ -177,6 +182,7 @@ controls {
     vertical-align: middle;
     display: none;
 }
+
 
 
 .close-panel {
@@ -604,7 +610,7 @@ controls {
 }
 
 .border-color-padding-row {
-    padding: 13px;
+    padding: 6px;
 }
 
 .control-border-all-sides {
@@ -612,30 +618,48 @@ controls {
     width: 20px;
 }
 
+.border-style-control-container{
+    padding:4px;
+    display:inline-block;
+}
+
 .border-style {
     display: inline-block;
-    width: 150px;
-    height: 1px;
-    border-color: blue;
+    width: 30px;
+    height:20px;
+   border-width:2px;
+    border-color: black;
 }
 
-.border-solid {
-    border-top: 5px solid black;
-    border-color: #2b4cb8;
+.border-style-solid {
+    border-style:solid;
+    
 }
 
-.border-dashed {
-    border-top: 5px dashed black;
-    border-color: #2b4cb8;
+.border-style-dashed {
+    border-style:dashed;
+   
 }
 
 
-.border-dotted {
-    border-top: 5px dotted black;
-    border-color: #2b4cb8;
+.border-style-dotted {
+    border-style:dotted;
+    
 }
 
-.control-border-style-selected {
+.border-style-groove {
+    border-style:groove;
+   
+}
+
+  .column-no-pad {
+         padding: 0;
+     }
+
+
+.border-style-selected {
+
+    border:1px solid black;
 }
 
 

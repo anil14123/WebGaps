@@ -39,7 +39,7 @@ page .design-page-row{
 }
 
 .design-root-elements {
-    border:1px dotted black;
+    outline:1px dotted black;
 }
 
 .padding-10{

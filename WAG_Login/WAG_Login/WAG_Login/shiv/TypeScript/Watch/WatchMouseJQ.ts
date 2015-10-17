@@ -18,6 +18,7 @@ import impMargin = require("../Controls/MarginJQ");
 import impPadding = require("../Controls/PaddingJQ");
 import impFrontBack = require("../Controls/FrontBackJQ");
 import impCopy = require("../Watch/CopyPasteJQ");
+import impOpacity = require("../Controls/OpacityJQ");
 
 var G_isAttachedWatch = false;
 
@@ -127,7 +128,8 @@ export module Watch {
             impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.
 
             var activeControl = MouseJQ.GetActiveControl();
-
+            var activeSBControl = MouseJQ.GetActiveSidebarControl();
+            
             if (activeControl != undefined && activeControl != "") {
                 switch (activeControl.toLowerCase()) {
                     case 'add-row':
@@ -159,6 +161,49 @@ export module Watch {
                         break;
                     case 'zindex':
                         impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                        break;
+                    case 'opacity':
+                        impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (activeSBControl != undefined && activeSBControl != "") {
+                switch (activeSBControl.toLowerCase()) {
+                    case 'add-row':
+
+                        break;
+                    case 'height-width':
+                        impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                        break;
+                    case 'image-library':
+                        impImage.Image.SelfJQ.ProcessSelectNotify();
+                        break;
+                    case 'color':
+                        impColor.Color.ColorJQ.ProcessSelectNotify();
+                        break;
+                    case 'border':
+                        impBorder.Border.BorderJQ.ProcessSelectNotify();
+                        break;
+                    case 'insert-text':
+                        impText.Text.TextJQ.ProcessSelectNotify();
+                        break;
+                    case 'bi':
+                        impBi.BI.BIJQ.ProcessSelectNotify();
+                        break;
+                    case 'margin':
+                        impMargin.Margin.MarginJQ.ProcessSelectNotify();
+                        break;
+                    case 'padding':
+                        impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                        break;
+                    case 'zindex':
+                        impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                        break;
+                    case 'opacity':
+                        impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
                         break;
                     default:
                         break;
@@ -203,6 +248,15 @@ export module Watch {
             return activeControl;
         }
 
+        public static GetActiveSidebarControl() {
+            var activeControl = "";
+            var activeControl = jQuery(".prop-sb.ui-accordion-header-active").first().attr("name");
+
+            console.log(activeControl);
+
+            return activeControl;
+        }
+
         public WatchPage() {
 
 
@@ -210,6 +264,55 @@ export module Watch {
 
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
+
+                    jQuery(".prop-sb").click(function () {
+
+                        impAddRow.Page.AddRowJQ.ProcessSelectNotify(); 
+
+                        var activeSBControl = MouseJQ.GetActiveSidebarControl();
+
+                        if (activeSBControl != undefined && activeSBControl != "") {
+                            switch (activeSBControl.toLowerCase()) {
+                                case 'add-row':
+
+                                    break;
+                                case 'height-width':
+                                    impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                                    break;
+                                case 'image-library':
+                                    impImage.Image.SelfJQ.ProcessSelectNotify();
+                                    break;
+                                case 'color':
+                                    impColor.Color.ColorJQ.ProcessSelectNotify();
+                                    break;
+                                case 'border':
+                                    impBorder.Border.BorderJQ.ProcessSelectNotify();
+                                    break;
+                                case 'insert-text':
+                                    impText.Text.TextJQ.ProcessSelectNotify();
+                                    break;
+                                case 'bi':
+                                    impBi.BI.BIJQ.ProcessSelectNotify();
+                                    break;
+                                case 'margin':
+                                    impMargin.Margin.MarginJQ.ProcessSelectNotify();
+                                    break;
+                                case 'padding':
+                                    impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                                    break;
+                                case 'zindex':
+                                    impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                                    break;
+                                case 'opacity':
+                                    impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                    });
+
 
                     //jQuery(".ui-resizable-handle").hide();
 

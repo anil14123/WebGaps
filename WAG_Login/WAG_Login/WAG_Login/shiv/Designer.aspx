@@ -40,8 +40,8 @@
 
     <link href="/JQte.css" rel="stylesheet" type="text/css" />
     <script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>
-    <link href="/Third-Party/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" />
-    <link href="/ColorPicker.css" rel="stylesheet" />
+    <%--<link href="/Third-Party/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" />--%>
+    <%--<link href="/ColorPicker.css" rel="stylesheet" />--%>
     <link href="/Cursors.css" rel="stylesheet" />
 
     <link href="/Content/Menus/2/blue/menu.css" rel="stylesheet" />
@@ -52,7 +52,11 @@
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
     <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
 
-    <script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>
+    <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
+   
+    <link href="/Scripts/evoluteur.colorpicker/colorpicker-master/css/evol.colorpicker.css" rel="stylesheet" />
+    <script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>
+
     <link href="/designer.css" rel="stylesheet" />
     <link href="/JqPlus.css" rel="stylesheet" />
 
@@ -74,20 +78,38 @@
 
     </style>--%>
 
+    <style>
+
+        .evo-pop{
+            width:auto;
+        }
+
+        .colorPicker {
+            width:48px;
+        }
+
+        .evo-cp-wrap{
+            width:80px !important;
+        }
+
+
+
+    </style>
+
     <script>
 
         jQuery(document).ready(function () {
 
             jQuery("#tabs").tabs();
             jQuery("#properties-accordion").accordion({
-                 
+                collapsible: true,
                 heightStyle: 'accordion-properties-height',
                 //beforeActivate: function (event, ui) {
                 //    ui.newHeader.add(ui.newPanel).prependTo(this)
                 //}
             });
 
-           
+
         })
 
     </script>
@@ -95,26 +117,46 @@
 
     <style>
 
-        .accordion-properties-height{
-            height:auto;
+        .ui-slider-horizontal .ui-slider-handle{
+            background-color:yellowgreen !important;
         }
 
-        .ui-accordion .ui-accordion-content{
-            padding:4px;
+        #properties-accordion .ui-spinner-input {
+            background-color: white;
         }
 
-        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
-            font-weight:normal;
-            color:black;
+        #properties-accordion .ui-spinner {
+            width: 100px;
         }
 
-        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
-            font-weight:bold;
-            color:#D9534F;
+        #properties-accordion .control-border-controls .ui-spinner {
+            width: 50px;
         }
 
-        .ui-accordion .ui-accordion-header{
-            font-size:small;
+        .accordion-properties-height {
+            height: auto;
+        }
+
+        .ui-accordion .ui-accordion-header {
+            width: 310px;
+        }
+
+        .ui-accordion .ui-accordion-content {
+            padding: 4px;
+        }
+
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            font-weight: normal;
+            color: black;
+        }
+
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+            font-weight: bold;
+            color: black;
+        }
+
+        .ui-accordion .ui-accordion-header {
+            font-size: small;
         }
 
         #firstTimeHelp {
@@ -146,6 +188,7 @@
             /*font-size:0.7em;*/
         }
 
+
         .btn-toolbar {
             border: 1px solid #cacaca;
         }
@@ -170,8 +213,6 @@
                 cursor: inherit;
                 display: block;
             }
-
-
     </style>
 
 </head>
@@ -657,7 +698,7 @@
     <rootx style="clear: both; position: relative;">
 
         <div class="row">
-            <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #1C1D1D; padding:0; overflow-y:hidden;">
+            <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #D3D3D3; padding:0; overflow-y:hidden;">
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
            
                     <div class="page-margin design-css design-page-margin">
@@ -696,55 +737,328 @@
             <div class="properties-sidebar col-xs-12"  >
                 <div class="properties-sidebar-container">
                <div id="properties-accordion">
-  <h3>  &nbsp;&nbsp; Height / Width </h3>
+  <h3 class="prop-sb" name="height-width">  &nbsp;&nbsp; Height / Width </h3>
   <div>
-    <p>
-    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-   
-    </p>
+    <div class="smart-menu-controls-table" style="width:auto;">
+           
+           <div class="row">    
+                <div class="col-xs-12">
+                 <span class="small-name" title="Height">  Height </span>
+                </div>   
+        
+                <div class="col-xs-36">
+                 <input class='smart-menu-height smart-menu-control'  />
+                </div>  
+               </div>                   
+        
+        <div class="row">
+                <div class="col-xs-12">
+                  <span class="small-name" title="Width"> Width  </span>
+                </div>      
+        
+                 <div class="col-xs-36">
+                    <input class='smart-menu-width smart-menu-control'   />
+                 </div>   
+       </div>       
+                        
+
+                
+                </div>
   </div>
-  <h1>  &nbsp;&nbsp; Color</h1>
+  <h1 class="prop-sb" name="color">  &nbsp;&nbsp; Color</h1>
   <div>
-    <p>
-    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+   
+        <div class="control-color-controls">
+                   
+            <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Foreground Color">  Front </span>
+                 </div>     
+              <div class="col-xs-30">
+                # <input type="text" value="000000" class="control-color-foreground-color fb-color-picker" />
+              </div>
+            </div>
+            
+            <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Background Color"> Background </span>
+                 </div>
+              <div class="col-xs-30">
+                   # <input type="text" value="90bd64" class="control-color-background-color fb-color-picker" />
+              </div>
+             </div>
+                    
+         </div>
+
+  </div>
+  <h3 class="prop-sb" name="border"> &nbsp;&nbsp; Border</h3>
+  <div>
+   
+
+    <div class="control-border-controls" >
+                   
+                            <div class="">
+                                  <div class="row">
+
+                                      <center>
+                                       <div class="small-name"> Style  </div>
+                                     
+                                       <div title="Solid Border" class="border-style-control-container border-style-selected">
+                                       <div class="border-style border-style-solid" style="border-style:solid"></div>
+                                       </div>
+
+                                      <div title="Dotted Border" class="border-style-control-container">
+                                      <div class="border-style border-style-dotted" style="border-style:dotted"></div>
+                                      </div>
+                                      
+                                      <div title="Dashed Border" class="border-style-control-container">
+                                      <div class="border-style border-style-dashed" style="border-style:dashed"></div>
+                                      </div>
+                                       
+                                      <div title="Groove Border" class="border-style-control-container">
+                                      <div class="border-style border-style-groove" style="border-style:groove"></div>
+                                      </div>
+
+
+                                      <br /><br />
+                                          </center>
+                                   </div>
+
+                                <div class="row">
+                                   
+                                     <div class="col-xs-28 column-no-pad" >
+
+                                         <span class="small-name" title="Top">Top</span>  <input class="control-border-thickness-top control-border-thickness" />
+                                   <input type="text" id="color-picker" style="width:40px;" value="000000" class="color-picker color-picker-top"/>        
+
+                                       
+                                      </div>
+
+                                    <div class="col-xs-20 column-no-pad"> 
+                                        <span  class="small-name"  title="Right">Right</span><input   class="control-border-thickness-right control-border-thickness"  />
+                                        <input type="text" id="color-picker" style="width:40px;" value="000000" class="color-picker color-picker-right"/>         
+
+                                    </div>
+                                     
+                                    </div>
+
+                                <div class="row">
+
+                                    <center>
+                                        <br />
+                                         <span class="small-name"  title="All">All</span>  <input  class="control-border-thickness-all control-border-thickness" />
+                                   <input type="text" id="color-picker"  value="000000" class="color-picker color-picker-all"/>        
+                                        <br />
+                                        <br />
+                                       </center>
+                                      
+                                </div>
+
+                                 <div class="row">
+                                   
+                                     <div class="col-xs-28 column-no-pad" >
+
+                                         <span class="small-name"  title="Left">Left</span>  <input class="control-border-thickness-left control-border-thickness" />
+                                   <input type="text" id="color-picker"  style="width:40px;" value="000000" class="color-picker color-picker-left"/>        
+
+                                       
+                                      </div>
+
+                                    <div class="col-xs-20 column-no-pad"> 
+                                        <span class="small-name"  title="Bottom">Bott</span><input   class="control-border-thickness-bottom control-border-thickness"  />
+                                        <input type="text" id="color-picker"  style="width:40px;" value="000000" class="color-picker color-picker-bottom"/>         
+
+                                    </div>
+                                     
+                                    </div>
+
+                                  <%-- <input class="control-border-thickness-all control-border-thickness" />
+                                         <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
+
+                                                   <input class="control-border-thickness-left control-border-thickness" />
+                                 <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left" />
+
+                                                             
+
+                                                        
+
+                                                   <input class="control-border-thickness-bottom control-border-thickness"  />
+                                   <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"/>--%>
+                                               
+                                                 </div>
+
+                                            </div>
+
+                                     
+
+                         
+                  
+ </div>
  
-    </p>
-  </div>
-  <h3> &nbsp;&nbsp; Border</h3>
+   <h3 class="prop-sb" name="border"> &nbsp;&nbsp; Border Roundness</h3>
   <div>
-    <p>
-    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-   
-    </p>
-   
+      <div style="padding-left:15px;" class="row">
+         <div class="control-border-controls">
+           <span class="small-name" title="Border Radius"> Radius </span> <input class="control-border-thickness-radius " />
+         </div>
+      </div>
   </div>
-   <h3> &nbsp;&nbsp; Border Roundness</h3>
+  <h3 class="prop-sb" name="padding"> &nbsp;&nbsp; Padding</h3>
   <div>
-    <p>
-    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-   
-    </p>
-   
-  </div>
-  <h3> &nbsp;&nbsp; Padding</h3>
-  <div>
-   
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+
+        <div class="control-padding-controls" >
+                   
+                            <div class="">
+                                
+
+                                <div class="row">
+                                   
+                                     <div class="col-xs-24 column-no-pad" >
+
+                                         <span class="small-name" title="Top">Top</span> 
+                                            <input class="control-padding-top control-padding-padding" />
+                                       
+                                      </div>
+
+                                    <div class="col-xs-24 column-no-pad"> 
+                                        <span  class="small-name"  title="Right">Right</span>
+                                           <input class="control-padding-right control-padding-padding" />
+                                    </div>
+                                     
+                                    </div>
+
+                                <div class="row">
+
+                                    <center>
+                                        <br />
+                                         <span class="small-name"  title="All">All</span> 
+                                          <input class="control-padding-all control-padding-padding" />
+                                              <br />
+                                        <br />
+                                       </center>
+                                      
+                                </div>
+
+                                 <div class="row">
+                                   
+                                     <div class="col-xs-24 column-no-pad" >
+
+                                         <span class="small-name"  title="Left">Left</span>      <input class="control-padding-left control-padding-padding" />
+                                       
+                                      </div>
+
+                                    <div class="col-xs-24 column-no-pad"> 
+                                        <span class="small-name"  title="Bottom">Bottom</span>   <input class="control-padding-bottom control-padding-padding" />
+                                    </div>
+                                     
+                                    </div>
+
+                                  <%-- <input class="control-border-thickness-all control-border-thickness" />
+                                         <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
+
+                                                   <input class="control-border-thickness-left control-border-thickness" />
+                                 <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left" />
+
+                                                             
+
+                                                        
+
+                                                   <input class="control-border-thickness-bottom control-border-thickness"  />
+                                   <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"/>--%>
+                                               
+                                                 </div>
+
+               </div>
+
 
   </div>
-  <h3> &nbsp;&nbsp; Margin</h3>
+  <h3 class="prop-sb" name="margin"> &nbsp;&nbsp; Margin</h3>
   <div>
-   
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+
+        <div class="control-margin-controls" >
+                   
+                            <div class="">
+                                
+
+                                <div class="row">
+                                   
+                                     <div class="col-xs-24 column-no-pad" >
+
+                                         <span class="small-name" title="Top">Top</span> 
+                                            <input class="control-margin-top control-margin-margin" />
+                                       
+                                      </div>
+
+                                    <div class="col-xs-24 column-no-pad"> 
+                                        <span  class="small-name"  title="Right">Right</span>
+                                           <input class="control-margin-right control-margin-margin" />
+                                    </div>
+                                     
+                                    </div>
+
+                                <div class="row">
+
+                                    <center>
+                                        <br />
+                                         <span class="small-name"  title="All">All</span> 
+                                           <input class="control-margin-all control-margin-margin" />
+                                              <br />
+                                        <br />
+                                       </center>
+                                      
+                                </div>
+
+                                 <div class="row">
+                                   
+                                     <div class="col-xs-24 column-no-pad" >
+
+                                         <span class="small-name"  title="Left">Left</span>  
+                                             <input class="control-margin-left control-margin-margin" />
+                                      </div>
+
+                                    <div class="col-xs-24 column-no-pad"> 
+                                        <span class="small-name"  title="Bottom">Bottom</span>  
+                                         <input class="control-margin-bottom control-margin-margin" />
+                                    </div>
+                                     
+                                    </div>
+
+                                  <%-- <input class="control-border-thickness-all control-border-thickness" />
+                                         <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
+
+                                                   <input class="control-border-thickness-left control-border-thickness" />
+                                 <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left" />
+
+                                                             
+
+                                                        
+
+                                                   <input class="control-border-thickness-bottom control-border-thickness"  />
+                                   <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"/>--%>
+                                               
+                                                 </div>
+
+               </div>
 
   </div>
-  <h3> &nbsp;&nbsp; Opacity</h3>
+  <h3 class="prop-sb" name="opacity"> &nbsp;&nbsp; Opacity</h3>
   <div>
    
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+      <div class="control-opacity-controls">
+                    <center>
+                      
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                          
+                               <span class="small-name">Opacity</span>    <div class="control-o-opacity" style="background-color:black; margin:15px;"/>
+
+                      
+                    </center>
+
+                    
+                </div>
 
   </div>
 </div>
@@ -1305,7 +1619,7 @@
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Opacity</div>
            
-                <div class="control-zindex-controls">
+                <div class="control-opacity-controls">
                     <center>
                       
                            <%-- <div class="page-name legend ">
@@ -1650,8 +1964,7 @@
                 /*display:none;*/
             }
         </style>
-
-         <div id="control-padding" name="padding" class='control-padding control-page' >
+    <div id="control-padding" name="padding" class='control-padding control-page' >
            
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
