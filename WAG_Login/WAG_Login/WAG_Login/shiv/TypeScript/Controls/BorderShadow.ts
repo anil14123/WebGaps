@@ -49,23 +49,24 @@ export module BorderShadow {
                         undo.BeforeOperation();
                     });
 
-                    jQuery('.b-s-color').colpick({
-                        layout: 'hex',
-                        submit: 0,
-                        colorScheme: 'dark',
-                        onChange: function (hsb, hex, rgb, el, bySetColor) {
-                            jQuery(el).css('border-color', '#' + hex);
-                            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-                            if (!bySetColor) jQuery(el).val(hex).change();
-                        },
-                        onHide: function () {
-                            var undo = new impUndoManager.Manager.UndoManager();
+                    jQuery('.b-s-color').colorpicker({});
+                    //jQuery('.b-s-color').colpick({
+                    //    layout: 'hex',
+                    //    submit: 0,
+                    //    colorScheme: 'dark',
+                    //    onChange: function (hsb, hex, rgb, el, bySetColor) {
+                    //        jQuery(el).css('border-color', '#' + hex);
+                    //        // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+                    //        if (!bySetColor) jQuery(el).val(hex).change();
+                    //    },
+                    //    onHide: function () {
+                    //        var undo = new impUndoManager.Manager.UndoManager();
 
-                            undo.BeforeOperation();
-                        }
-                    }).keyup(function () {
-                        $(this).colpickSetColor(this.value);
-                    });
+                    //        undo.BeforeOperation();
+                    //    }
+                    //}).keyup(function () {
+                    //    $(this).colpickSetColor(this.value);
+                    //});
 
                     jQuery('.b-s-colorr').trigger("keyup");
 

@@ -143,7 +143,9 @@ export module Border {
 
                     jQuery('.color-picker').on("change", function () {
 
-                        BorderJQ.OnChange(this);
+                        if (BorderJQ.isSelectProcessing == false) {
+                            BorderJQ.OnChange(this);
+                        }
                        
                     });
                               
@@ -364,6 +366,7 @@ export module Border {
 
         public static ProcessSelectedValues() {
 
+            BorderJQ.isSelectProcessing = true;
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
             if (selectedElement != undefined) {
@@ -456,6 +459,8 @@ export module Border {
                 selectedElement.addClass("image-selection");
 
             }
+
+            BorderJQ.isSelectProcessing = false;
 
         }
 

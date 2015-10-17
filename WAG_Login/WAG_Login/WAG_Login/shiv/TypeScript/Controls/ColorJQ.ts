@@ -42,91 +42,97 @@ export module Color {
                         }
                     });
 
-                    jQuery('.fb-color-picker-gradient').colpick({
-                        layout: 'hex',
-                        submit: 0,
-                        colorScheme: 'dark',
-                        onChange: function (hsb, hex, rgb, el, bySetColor) {
-                            jQuery(el).css('border-color', '#' + hex);
-                            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-                            if (!bySetColor) jQuery(el).val(hex).change();
-                        },
-                        onHide: function () {
-                            var undo = new impUndoManager.Manager.UndoManager();
+                    jQuery('.fb-color-picker-gradient').colorpicker({});
 
-                            undo.BeforeOperation();
-                        }
-                    }).keyup(function () {
-                        $(this).colpickSetColor(this.value);
-                    });
+                    //jQuery('.fb-color-picker-gradient').colpick({
+                    //    layout: 'hex',
+                    //    submit: 0,
+                    //    colorScheme: 'dark',
+                    //    onChange: function (hsb, hex, rgb, el, bySetColor) {
+                    //        jQuery(el).css('border-color', '#' + hex);
+                    //        // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+                    //        if (!bySetColor) jQuery(el).val(hex).change();
+                    //    },
+                    //    onHide: function () {
+                    //        var undo = new impUndoManager.Manager.UndoManager();
 
-                    jQuery('.fb-color-picker').colpick({
-                        layout: 'hex',
-                        submit: 0,
-                        colorScheme: 'dark',
-                        onChange: function (hsb, hex, rgb, el, bySetColor) {
-                            jQuery(el).css('border-color', '#' + hex);
-                            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-                            if (!bySetColor) jQuery(el).val(hex).change();
-                        },
-                        onHide: function () {
-                            var undo = new impUndoManager.Manager.UndoManager();
+                    //        undo.BeforeOperation();
+                    //    }
+                    //}).keyup(function () {
+                    //    $(this).colpickSetColor(this.value);
+                    //});
 
-                            undo.BeforeOperation();
-                        }
-                    }).keyup(function () {
-                        $(this).colpickSetColor(this.value);
-                    });
+                    jQuery('.fb-color-picker').colorpicker({});
+                    //jQuery('.fb-color-picker').colpick({
+                    //    layout: 'hex',
+                    //    submit: 0,
+                    //    colorScheme: 'dark',
+                    //    onChange: function (hsb, hex, rgb, el, bySetColor) {
+                    //        jQuery(el).css('border-color', '#' + hex);
+                    //        // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+                    //        if (!bySetColor) jQuery(el).val(hex).change();
+                    //    },
+                    //    onHide: function () {
+                    //        var undo = new impUndoManager.Manager.UndoManager();
+
+                    //        undo.BeforeOperation();
+                    //    }
+                    //}).keyup(function () {
+                    //    $(this).colpickSetColor(this.value);
+                    //});
 
                     jQuery('.fb-color-picker').trigger("keyup");
 
                     jQuery(".fb-color-picker").on("change", function () {
 
-                        impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
+                        if (ColorJQ.isSelectProcessing == false) {
 
-                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
 
-                        if (selectedElement != undefined) {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-                            var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
+                            if (selectedElement != undefined) {
 
-                            selectedElement.css("color", "#" + colorForeground);
+                                var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
 
-                            if (colorForeground != "") {
+                                selectedElement.css("color", "#" + colorForeground);
 
-                                if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
-                                    if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
-                                        jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                if (colorForeground != "") {
+
+                                    if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
+                                        if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
+                                            jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                        }
+                                        else {
+                                            var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
+                                            jQuery("page").append(style);
+                                        }
+
+                                        var linkId = "#" + selectedElement.find("a").first().attr("id");
+                                        var linkColor = "#" + colorForeground;
+
+                                        var style = " " +
+                                            linkId + ":link {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":visited {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":hover {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":active {" +
+                                            " color:" + linkColor + ";}";
+
+                                        jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
                                     }
-                                    else {
-                                        var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
-                                        jQuery("page").append(style);
-                                    }
-
-                                    var linkId = "#" + selectedElement.find("a").first().attr("id");
-                                    var linkColor = "#" + colorForeground;
-
-                                    var style = " " +
-                                        linkId + ":link {" +
-                                    " color:" + linkColor + ";}" +
-                                    linkId + ":visited {" +
-                                    " color:" + linkColor + ";}" +
-                                    linkId + ":hover {" + 
-                                    " color:" + linkColor + ";}" +
-                                    linkId + ":active {" +
-                                    " color:" + linkColor + ";}";
-
-                                    jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
                                 }
+
+                                var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+
+                                selectedElement.css("background-color", "#" + colorBackground);
+
                             }
+                            else {
 
-                            var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
-
-                            selectedElement.css("background-color", "#" + colorBackground);
-
-                        }
-                        else {
-
+                            }
                         }
                     });
 
@@ -184,7 +190,11 @@ export module Color {
 
         }
 
+        public static isSelectProcessing = false;
+
         public static ProcessSelectedValues() {
+
+            ColorJQ.isSelectProcessing = true;
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -198,7 +208,7 @@ export module Color {
                     //jQuery(ColorJQ.controlId).find(".control-color-foreground-color").val(str);
                     //jQuery(ColorJQ.controlId).find(".control-color-foreground-color").trigger("keyup");
 
-                    jQuery(".control-color-foreground-color").val(str);
+                    jQuery(".control-color-foreground-color").val("#"+str);
                     jQuery(".control-color-foreground-color").trigger("keyup");
                 }
 
@@ -210,11 +220,14 @@ export module Color {
                     //jQuery(ColorJQ.controlId).find(".control-color-background-color").val(str);
                     //jQuery(ColorJQ.controlId).find(".control-color-background-color").trigger("keyup");
 
-                    jQuery(".control-color-background-color").val(str);
+                    jQuery(".control-color-background-color").val("#" + str);
                     jQuery(".control-color-background-color").trigger("keyup");
                 }
 
             }
+
+            ColorJQ.isSelectProcessing = false;
+
         }
 
         public static RgbToHex(str) {

@@ -766,7 +766,7 @@
                 </div>
   </div>
   <h1 class="prop-sb" name="color">  &nbsp;&nbsp; Color</h1>
-  <div>
+  <div style="overflow:visible;">
    
         <div class="control-color-controls">
                    
@@ -775,7 +775,7 @@
                <span class="small-name" title="Foreground Color">  Front </span>
                  </div>     
               <div class="col-xs-30">
-                # <input type="text" value="000000" class="control-color-foreground-color fb-color-picker" />
+                 <input type="text" value="#ffffff" class="control-color-foreground-color fb-color-picker" />
               </div>
             </div>
             
@@ -784,7 +784,7 @@
                 <span class="small-name" title="Background Color"> Background </span>
                  </div>
               <div class="col-xs-30">
-                   # <input type="text" value="90bd64" class="control-color-background-color fb-color-picker" />
+                    <input type="text" value="#ffffff" class="control-color-background-color fb-color-picker" />
               </div>
              </div>
                     
@@ -829,14 +829,14 @@
                                      <div class="col-xs-28 column-no-pad" >
 
                                          <span class="small-name" title="Top">Top</span>  <input class="control-border-thickness-top control-border-thickness" />
-                                   <input type="text" id="color-picker" style="width:40px;" value="000000" class="color-picker color-picker-top"/>        
+                                   <input type="text" id="color-picker"  value="#000000" class="color-picker color-picker-top"/>        
 
                                        
                                       </div>
 
                                     <div class="col-xs-20 column-no-pad"> 
                                         <span  class="small-name"  title="Right">Right</span><input   class="control-border-thickness-right control-border-thickness"  />
-                                        <input type="text" id="color-picker" style="width:40px;" value="000000" class="color-picker color-picker-right"/>         
+                                        <input type="text" id="color-picker" value="#000000" class="color-picker color-picker-right"/>         
 
                                     </div>
                                      
@@ -847,7 +847,7 @@
                                     <center>
                                         <br />
                                          <span class="small-name"  title="All">All</span>  <input  class="control-border-thickness-all control-border-thickness" />
-                                   <input type="text" id="color-picker"  value="000000" class="color-picker color-picker-all"/>        
+                                   <input type="text" id="color-picker"  value="#000000" class="color-picker color-picker-all"/>        
                                         <br />
                                         <br />
                                        </center>
@@ -859,14 +859,14 @@
                                      <div class="col-xs-28 column-no-pad" >
 
                                          <span class="small-name"  title="Left">Left</span>  <input class="control-border-thickness-left control-border-thickness" />
-                                   <input type="text" id="color-picker"  style="width:40px;" value="000000" class="color-picker color-picker-left"/>        
+                                   <input type="text" id="color-picker"   value="#000000" class="color-picker color-picker-left"/>        
 
                                        
                                       </div>
 
                                     <div class="col-xs-20 column-no-pad"> 
                                         <span class="small-name"  title="Bottom">Bott</span><input   class="control-border-thickness-bottom control-border-thickness"  />
-                                        <input type="text" id="color-picker"  style="width:40px;" value="000000" class="color-picker color-picker-bottom"/>         
+                                        <input type="text" id="color-picker" value="#000000" class="color-picker color-picker-bottom"/>         
 
                                     </div>
                                      
@@ -1762,7 +1762,7 @@
                             <div class="legend ">
                                Foreground 
                             </div>
-                                   # <input type="text" value="000000" class="control-color-foreground-color fb-color-picker" />
+                                    <input type="text" value="#ffffff" class="control-color-foreground-color fb-color-picker" />
 
                             </fieldset>
 
@@ -1771,7 +1771,7 @@
                             <div class="legend ">
                                Background 
                             </div>
-                                   # <input type="text" value="90bd64" class="control-color-background-color fb-color-picker" />
+                                    <input type="text" value="#ffffff" class="control-color-background-color fb-color-picker" />
 
                             </fieldset>
 
@@ -1782,9 +1782,9 @@
                                Gradient 
                             </div>
                                      
-                                 <input type="text" value="90bd64" class="control-color-gradient-color-1 fb-color-picker-gradient" />
+                                 <input type="text" value="#ffffff" class="control-color-gradient-color-1 fb-color-picker-gradient" />
                                 
-                                <input type="text" value="90bd64" class="control-color-gradient-color-2 fb-color-picker-gradient" />
+                                <input type="text" value="#ffffff" class="control-color-gradient-color-2 fb-color-picker-gradient" />
                                 
                                 
                                 <button class="remove-gradient" style="margin:2px;" >Clear</button>
@@ -2243,7 +2243,7 @@
                                              
                                                  <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
+                                                     <input type="text" id="color-picker" value="#ffffff" class="color-picker color-picker-all" />
 
                                                  </div>
                                                  
@@ -2256,7 +2256,7 @@
                                               
                                                  <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-left" />
+                                                     <input type="text" id="color-picker" value="#ffffff" class="color-picker color-picker-left" />
 
                                                  </div>
                                                  
@@ -2268,7 +2268,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-right"/>
+                                                     <input type="text" id="color-picker" value="#ffffff" class="color-picker color-picker-right"/>
 
                                                  </div>
                                                  
@@ -2277,7 +2277,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-top"/>
+                                                     <input type="text" id="color-picker" value="#ffffff" class="color-picker color-picker-top"/>
 
                                                  </div>
                                                  
@@ -2287,7 +2287,7 @@
                                               <div class="row border-color-padding-row jq-border-advanced">
                                                <div class="col-xs-48">
 
-                                                     <input type="text" id="color-picker" value="000000" class="color-picker color-picker-bottom"/>
+                                                     <input type="text" id="color-picker" value="#ffffff" class="color-picker color-picker-bottom"/>
 
                                                  </div>
                                                  

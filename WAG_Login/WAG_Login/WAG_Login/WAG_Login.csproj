@@ -1018,6 +1018,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\ControlNames\PageControlNamesJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\BiJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\BorderJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\BorderShadow.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ColorJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlCommonJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlMoveJQ.ts" />
