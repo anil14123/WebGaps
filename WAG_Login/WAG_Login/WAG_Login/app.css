@@ -18,6 +18,15 @@
     float:left;
 }
 
+.page-marker{
+  
+    background-color:dodgerblue;
+    color:white;
+    text-align:center;
+   cursor:pointer;
+}
+
+
 .design-page-row{
   display:none;
 }
@@ -41,6 +50,8 @@ page .design-page-row{
 .design-root-elements {
     outline:1px dotted black;
 }
+
+
 
 .padding-10{
     padding:10px;

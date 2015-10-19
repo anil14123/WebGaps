@@ -700,7 +700,7 @@
         <div class="row">
             <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #D3D3D3; padding:0; overflow-y:hidden;">
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
-           
+           <div class="page-marker design-css">PAGE</div>
                     <div class="page-margin design-css design-page-margin">
            
                     <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
@@ -736,6 +736,9 @@
 
             <div class="properties-sidebar col-xs-12"  >
                 <div class="properties-sidebar-container">
+
+                    <%-- CAccordion --%>
+
                <div id="properties-accordion">
   <h3 class="prop-sb" name="height-width">  &nbsp;&nbsp; Height / Width </h3>
   <div>

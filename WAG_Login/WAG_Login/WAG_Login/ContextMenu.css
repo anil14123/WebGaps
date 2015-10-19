@@ -88,7 +88,7 @@ color:black;
 }
 
 .ctx-menu-disabled{
-    background: #dddddd;
+    background:grey;
     color:grey;
 }
 
