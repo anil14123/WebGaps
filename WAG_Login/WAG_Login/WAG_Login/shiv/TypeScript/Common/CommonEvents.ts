@@ -264,7 +264,7 @@ export module Common {
                     " .row { margin:0; padding:0; } " +
                     " .column { margin:0; padding:0; } " +
                     ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:1px;}" +
-                    " .image-text-other .adjust-image-text-other-left{ float: left; } .page-marker{display:none;} " +
+                    " .image-text-other .adjust-image-text-other-left{ float: left; } .page-marker{display:none !important;} " +
                     "</style>";
 
                 jQuery(".image-selection").removeClass("image-selection");

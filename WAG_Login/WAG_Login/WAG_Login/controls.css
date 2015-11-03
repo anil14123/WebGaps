@@ -60,6 +60,10 @@ controls {
          font-size:smaller;
      }
 
+     .jq-plus-container-text .design-row{
+         outline:none;
+     }
+
 
 .image-text-other .adjust-image-text-other .ui-resizable-s .jq-square-s {
     background-color: #31fa77;
