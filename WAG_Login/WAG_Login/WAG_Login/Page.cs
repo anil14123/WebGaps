@@ -17,7 +17,7 @@ namespace WAG_Login_Page
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Page()
         {
-            this.Page1 = new HashSet<Page>();
+            this.Pages1 = new HashSet<Page>();
         }
     
         public int Id { get; set; }
@@ -28,8 +28,8 @@ namespace WAG_Login_Page
         public Nullable<int> ParentPageId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Page> Page1 { get; set; }
-        public virtual Page Page2 { get; set; }
+        public virtual ICollection<Page> Pages1 { get; set; }
+        public virtual Page Page1 { get; set; }
         public virtual Site Site { get; set; }
     }
 }

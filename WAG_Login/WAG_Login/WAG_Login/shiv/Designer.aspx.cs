@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WAG_Login_Page;
 
 namespace WebAppGoTypeScript_X_Modulerization
 {
@@ -102,7 +103,7 @@ namespace WebAppGoTypeScript_X_Modulerization
             Response.Cookies.Add(myCookie);
             Response.Cookies.Add(myCookie2);
 
-            var entities = new WAG_Login_Page.WagPageEntities();
+            var entities = new WebPageEntities();
 
             var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 

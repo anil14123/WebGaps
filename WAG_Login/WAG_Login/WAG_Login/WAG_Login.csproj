@@ -660,15 +660,16 @@
     <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0 - Copy.js" />
     <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0.js" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="WAG_O.Context.tt">
+    <Content Include="Wag_O.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WAG_O.edmx</DependentUpon>
-      <LastGenOutput>WAG_O.Context.cs</LastGenOutput>
+      <DependentUpon>Wag_O.edmx</DependentUpon>
+      <LastGenOutput>Wag_O.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WAG_O.tt">
+    <Content Include="WAG_O.edmx.sql" />
+    <Content Include="Wag_O.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WAG_O.edmx</DependentUpon>
-      <LastGenOutput>WAG_O.cs</LastGenOutput>
+      <DependentUpon>Wag_O.edmx</DependentUpon>
+      <LastGenOutput>Wag_O.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -679,14 +680,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="WAG_O.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WAG_O.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>WAG</CustomToolNamespace>
-    </EntityDeploy>
-    <Content Include="WAG_O.edmx.diagram">
-      <DependentUpon>WAG_O.edmx</DependentUpon>
-    </Content>
     <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\colpick.jquery.json" />
     <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\LICENSE" />
     <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\README.md" />
@@ -703,6 +696,13 @@
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\index.php" />
     <Content Include="Scripts\jQuery-File-Upload-master\server\php\UploadHandler.php" />
     <Content Include="Scripts\Nestable-master\README.md" />
+    <EntityDeploy Include="Wag_O.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Wag_O.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Wag_O.edmx.diagram">
+      <DependentUpon>Wag_O.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -836,16 +836,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -855,7 +855,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -865,10 +865,10 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Image.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="Page.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.cs">
       <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
@@ -931,7 +931,7 @@
       <DependentUpon>Steps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.cs">
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -962,20 +962,20 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WAG_O.Context.cs">
+    <Compile Include="Wag_O.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WAG_O.Context.tt</DependentUpon>
+      <DependentUpon>Wag_O.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WAG_O.cs">
+    <Compile Include="Wag_O.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WAG_O.tt</DependentUpon>
+      <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
-    <Compile Include="WAG_O.Designer.cs">
+    <Compile Include="Wag_O.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WAG_O.edmx</DependentUpon>
+      <DependentUpon>Wag_O.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

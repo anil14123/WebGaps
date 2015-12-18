@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
+using WAG_Login_Page;
 using WebAppGoLibrary;
 
 namespace WebAppGoTypeScript_X_Modulerization
@@ -38,7 +39,7 @@ namespace WebAppGoTypeScript_X_Modulerization
                 try
                 {
 
-                    var entities = new WAG_Login_Page.WagPageEntities();
+                    var entities = new WebPageEntities();
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 

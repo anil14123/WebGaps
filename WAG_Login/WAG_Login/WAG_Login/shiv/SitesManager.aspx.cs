@@ -14,7 +14,7 @@ namespace WAG_Login.shiv
         {
             if (!Page.IsPostBack)
             {
-                var entities = new WagPageEntities();
+                var entities = new WebPageEntities();
 
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 

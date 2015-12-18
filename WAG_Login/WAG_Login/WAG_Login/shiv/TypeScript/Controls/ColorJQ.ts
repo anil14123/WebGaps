@@ -93,42 +93,46 @@ export module Color {
 
                             if (selectedElement != undefined) {
 
-                                var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
+                                if (jQuery(this).hasClass("control-color-foreground-color")) {
+                                    var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
 
-                                selectedElement.css("color", "#" + colorForeground);
+                                    selectedElement.css("color", "#" + colorForeground);
 
-                                if (colorForeground != "") {
+                                    if (colorForeground != "") {
 
-                                    if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
-                                        if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
-                                            jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                        if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
+                                            if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
+                                                jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                            }
+                                            else {
+                                                var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
+                                                jQuery("page").append(style);
+                                            }
+
+                                            var linkId = "#" + selectedElement.find("a").first().attr("id");
+                                            var linkColor = "#" + colorForeground;
+
+                                            var style = " " +
+                                                linkId + ":link {" +
+                                                " color:" + linkColor + ";}" +
+                                                linkId + ":visited {" +
+                                                " color:" + linkColor + ";}" +
+                                                linkId + ":hover {" +
+                                                " color:" + linkColor + ";}" +
+                                                linkId + ":active {" +
+                                                " color:" + linkColor + ";}";
+
+                                            jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
                                         }
-                                        else {
-                                            var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
-                                            jQuery("page").append(style);
-                                        }
-
-                                        var linkId = "#" + selectedElement.find("a").first().attr("id");
-                                        var linkColor = "#" + colorForeground;
-
-                                        var style = " " +
-                                            linkId + ":link {" +
-                                            " color:" + linkColor + ";}" +
-                                            linkId + ":visited {" +
-                                            " color:" + linkColor + ";}" +
-                                            linkId + ":hover {" +
-                                            " color:" + linkColor + ";}" +
-                                            linkId + ":active {" +
-                                            " color:" + linkColor + ";}";
-
-                                        jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
                                     }
                                 }
+                                else
+                                    if (jQuery(this).hasClass("control-color-background-color")) {
 
-                                var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+                                    var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
 
-                                selectedElement.css("background-color", "#" + colorBackground);
-
+                                    selectedElement.css("background-color", "#" + colorBackground);
+                                }
                             }
                             else {
 

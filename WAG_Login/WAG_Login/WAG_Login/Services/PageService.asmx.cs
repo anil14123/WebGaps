@@ -58,7 +58,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                     try
                     {
 
-                        var entities = new WAG_Login_Page.WagPageEntities();
+                        var entities = new WebPageEntities();
 
                         var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
@@ -163,7 +163,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                 {
                     siteName = siteName.Replace(".", "").Replace("\\", "").Replace("/", "");
 
-                    var entities = new WAG_Login_Page.WagPageEntities();
+                    var entities = new WebPageEntities();
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
@@ -242,7 +242,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                     string root = Server.MapPath(".") + "/Sites/";
 
-                    var entities = new WAG_Login_Page.WagPageEntities();
+                    var entities = new WAG_Login_Page.WebPageEntities();
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
@@ -439,7 +439,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
             if (User.Identity.IsAuthenticated)
             {
-                var entities = new WagPageEntities();
+                var entities = new WebPageEntities();
 
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
 
@@ -472,7 +472,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    var entities = new WagPageEntities();
+                    var entities = new WebPageEntities();
 
                     var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
                     var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
@@ -511,7 +511,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 string root = Server.MapPath(".") + "/Sites/";
 
-                var entities = new WAG_Login_Page.WagPageEntities();
+                var entities = new WebPageEntities();
 
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
                 var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
@@ -569,7 +569,7 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
             {
                 string root = Server.MapPath(".") + "/Sites/";
 
-                var entities = new WagPageEntities();
+                var entities = new WebPageEntities();
 
                 var user = entities.AspNetUsers.Where(i => i.UserName == User.Identity.Name).FirstOrDefault();
                 var site = entities.Sites.Where(i => i.SiteName == siteName && i.UserId == user.Id).FirstOrDefault();
