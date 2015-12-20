@@ -287,6 +287,10 @@ export module Page {
  
                     impOperaction.Operation.AfterOperationJQ.Execute(); 
 
+
+                    selectedRowOrColumn.children(".debug-column-css").hide();
+                    selectedRowOrColumn.css("padding", "0");
+
                     AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
 
                     if (AddRowJQ.addedRow != undefined) {

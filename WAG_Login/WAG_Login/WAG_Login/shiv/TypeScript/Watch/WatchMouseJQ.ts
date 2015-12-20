@@ -122,6 +122,18 @@ export module Watch {
                 MouseJQ.selectedElement = jQuery("#noelement");
             }
 
+            if (MouseJQ.selectedElement.hasClass("column") == true) {
+
+                jQuery(".design-page-row").hide();
+                MouseJQ.selectedElement.parent().children(".design-page-row").show();
+            }
+            else
+                if (MouseJQ.selectedElement.hasClass("row") == true) {
+                }
+                else {
+                    jQuery(".design-page-row").hide();
+                }
+
             MouseJQ.selectedElement.addClass("design-select-element-just-mark");
             //MouseJQ.selectedElement.css("outline", "dashed 5px black");
 
