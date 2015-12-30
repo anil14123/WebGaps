@@ -232,7 +232,7 @@
 
     <div class="jq-plus-container jq-plus-container-not-used">
 
-        <div class="row">
+        <div class="row" style="display:none;">
             <div class="jq-plus-element">
 
                 <%--  <span class="jq-plus-prev jq-plus">

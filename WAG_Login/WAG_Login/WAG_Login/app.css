@@ -219,6 +219,7 @@ rootx {
     color: #4699e1;
     background-color: #4699e1;
     display: inline-block;
+    display : none !important;
 }
 
 .debug-text-block-css {
