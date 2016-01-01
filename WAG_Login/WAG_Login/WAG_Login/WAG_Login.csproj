@@ -652,6 +652,8 @@
     <Content Include="shiv\TypeScript\app.js" />
     <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\css\colpick.css" />
     <Content Include="Third-Party\colpick-jQuery-Color-Picker-master\js\colpick.js" />
+    <Content Include="Third-Party\cssmenu\index.html" />
+    <Content Include="Third-Party\cssmenu\styles.css" />
     <Content Include="Third-Party\jte\demo\demo.css" />
     <Content Include="Third-Party\jte\demo\demo.html" />
     <Content Include="Third-Party\jte\jquery-te-1.4.0.css" />
@@ -659,6 +661,9 @@
     <Content Include="Third-Party\jte\jquery-te.png" />
     <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0 - Copy.js" />
     <Content Include="Third-Party\jte\uncompressed\jquery-te-1.4.0.js" />
+    <Content Include="Third-Party\tabmenu.html" />
+    <Content Include="Third-Party\tabmenu\tabmenu.css" />
+    <Content Include="Third-Party\tabmenu\tabmenu.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Wag_O.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

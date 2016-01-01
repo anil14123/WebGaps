@@ -9,11 +9,15 @@
     background: -ms-linear-gradient(top, #1b1c1c, #4e5152);
     background: -o-linear-gradient(top, #1b1c1c, #4e5152);
  
+    background:none;
+    background-color:dodgerblue;
+
     -moz-box-shadow: 0 0 5px black;
     -webkit-box-shadow: 0 0 5px black;
     box-shadow: 0 0 5px black;
       
     height:180px;
+    height:auto;
    position:fixed;
    top:0;
    left:0;
@@ -69,7 +73,7 @@
 }
 
 rootx{
-    top : 180px;
+    top : 55px;
 }
 
 .close-preview, .show-preview, .choose-templates-button, .create-layout-show-button ,.jq-save {

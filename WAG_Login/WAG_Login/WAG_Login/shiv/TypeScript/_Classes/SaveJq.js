@@ -18,7 +18,7 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
             SaveJQ.OnDownloadSuccess = function (data, status) {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 if ((data.d.Error == "" || data.d.Error == null) && data.d.Success == true) {
-                    errorHandler.ActionSuccess("Click on the download link below  <br> <a class='download-site-link' href='" + data.d.Link + "' > click here </a>");
+                    errorHandler.ActionSuccess("Click on the download link below  <br> <a target='_blank' class='download-site-link' href='" + data.d.Link + "' > click here </a>");
                 }
                 else {
                     errorHandler.ActionFail("Unable to generate download link...");

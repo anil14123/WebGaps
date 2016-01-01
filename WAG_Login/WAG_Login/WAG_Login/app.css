@@ -34,7 +34,7 @@ page .design-page-row {
     display: block;
     width: 10px;
     height: 10px;
-    background-color: dodgerblue;
+    background-color: #182129;
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -270,11 +270,12 @@ rootx {
 /**/
 
 .image-selection {
-    border: 4px solid transparent;
-    -o-border-image: url('Content/border-image.png') 30 round;
+
+    border: 3px solid rgba(0, 0, 255, 0.45);
+    /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;
-    border-image: url('Content/border-image.png') 30 round;
+    border-image: url('Content/border-image.png') 30 round;*/
     /*border-style:ridge;
      border-color:white;
      border-width:1px;*/

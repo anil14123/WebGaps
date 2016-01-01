@@ -62,6 +62,7 @@ define(["require", "exports"], function (require, exports) {
                 jQuery("page").find(".design-root-elements-static").removeClass("page-static-element-circle");
                 //jQuery(".root-elements").removeClass("padding-root-elements");
                 jQuery("page").find(".root-elements").removeClass("design-root-elements");
+                jQuery(".page-marker").hide();
             };
             PreviewJQ.ClosePreview = function () {
                 //jQuery("RootX").css("width", "60%");
@@ -106,6 +107,7 @@ define(["require", "exports"], function (require, exports) {
                 jQuery("page").find(".design-root-elements-static").addClass("page-static-element-circle");
                 // jQuery(".root-elements").addClass("padding-root-elements");
                 jQuery("page").find(".root-elements").addClass("design-root-elements");
+                jQuery(".page-marker").show();
             };
             return PreviewJQ;
         })();

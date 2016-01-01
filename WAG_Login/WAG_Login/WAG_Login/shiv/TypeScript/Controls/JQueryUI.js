@@ -41,6 +41,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "height");
                         commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "min-width");
                         commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "width");
+                    },
+                    resize: function (event, ui) {
+                        JQueryUI.CommonCode.ResizeCommon(ui.element);
                     }
                 });
             };
@@ -216,6 +219,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
+                        JQueryUI.CommonCode.ResizeCommon(ui.element);
                         //JQueryUI.CommonCode.OnResize(event, ui);
                         //if (jQuery(ui.element).data('ui-resizable').axis == "se") {
                         //}
@@ -254,6 +258,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         var width = ui.size.width;
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
+                    },
+                    resize: function (event, ui) {
+                        JQueryUI.CommonCode.ResizeCommon(ui.element);
                     }
                 });
             };
@@ -288,8 +295,47 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         //alert(height + " x " + width);
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
+                    },
+                    resize: function (event, ui) {
+                        JQueryUI.CommonCode.ResizeCommon(ui.element);
                     }
                 });
+            };
+            CommonCode.ResizeCommon = function (selectedElement) {
+                try {
+                    var box = jQuery(selectedElement)[0].getBoundingClientRect();
+                    var circleLeftTopElement = jQuery("<div class='circle-deg' style='width:12px; border-radius:50%; height:12px; position:absolute; background-color:#00A1FF;'></div>");
+                    var circleRightTopElement = jQuery(circleLeftTopElement).clone();
+                    var circleLeftBottomElement = jQuery(circleLeftTopElement).clone();
+                    var circleRightBottomElement = jQuery(circleLeftTopElement).clone();
+                    var body = document.body;
+                    var docElem = document.documentElement;
+                    var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+                    var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+                    var clientTop = docElem.clientTop || body.clientTop || 0;
+                    var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+                    var top = box.top + scrollTop - clientTop;
+                    var left = box.left + scrollLeft - clientLeft;
+                    var width = jQuery(selectedElement).css("width");
+                    var height = jQuery(selectedElement).css("height");
+                    var widthf = parseFloat(width.replace("px", ""));
+                    var heightf = parseFloat(height.replace("px", ""));
+                    circleLeftTopElement.css("left", left - 5);
+                    circleLeftTopElement.css("top", top - 5);
+                    circleLeftBottomElement.css("left", left - 5);
+                    circleLeftBottomElement.css("top", top + heightf - 5);
+                    circleRightTopElement.css("left", left + widthf - 5);
+                    circleRightTopElement.css("top", top - 5);
+                    circleRightBottomElement.css("left", left + widthf - 5);
+                    circleRightBottomElement.css("top", top + heightf - 5);
+                    jQuery(".circle-deg").remove();
+                    jQuery("body").append(circleLeftTopElement);
+                    jQuery("body").append(circleLeftBottomElement);
+                    jQuery("body").append(circleRightTopElement);
+                    jQuery("body").append(circleRightBottomElement);
+                }
+                catch (ex) {
+                }
             };
             CommonCode.Resizable = function (elementCss, handle) {
                 var handleDefault = "e,se,s";
@@ -332,6 +378,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         //alert(height + " x " + width);
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
+                    },
+                    resize: function (event, ui) {
+                        JQueryUI.CommonCode.ResizeCommon(ui.element);
                     }
                 });
             };

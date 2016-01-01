@@ -20,6 +20,11 @@
 
     <link rel="stylesheet" href="/Content/jquery-ui.min.css" type="text/css" />
 
+   <%--  <link href="/Third-Party/tabmenu/tabmenu.css" rel="stylesheet" type="text/css" />
+    <script src="/Third-Party/tabmenu/tabmenu.js" type="text/javascript"></script>--%>
+
+    <link href="/Third-Party/cssmenu/styles.css" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
 
 
@@ -94,6 +99,8 @@
 
 
 
+
+
     </style>
 
     <script>
@@ -110,7 +117,28 @@
             });
 
 
-        })
+            //$(".testnav").addClass("ui-menu ui-widget ui-widget-content ui-corner-all");
+            //$(".testnav li").addClass("ui-menu-item");
+            //$(".sub-menu").hide();
+
+            //$(".clk").mouseover(function () {
+
+            //    var menu = "#nav";
+            //    var position = { my: "left top", at: "left bottom+8" };
+            //    $(menu).menu({
+            //        position: position,
+            //        blur: function () {
+            //            $(this).menu("option", "position", position);
+            //        },
+            //        focus: function (e, ui) {
+            //            if ($(menu).get(0) !== $(ui).get(0).item.parent().get(0)) {
+            //                $(this).menu("option", "position", { my: "left top", at: "left top" });
+            //            }
+            //        }
+            //    });
+            //});
+
+        });
 
     </script>
 
@@ -213,6 +241,26 @@
                 cursor: inherit;
                 display: block;
             }
+
+            .jq-button-no-style{
+    background:none !important;
+    border:none !important;
+}
+
+
+            .jq-toolbar-btn, .jq-toolbar-btn:hover, .jq-toolbar-btn:focus{
+                color:white;
+                background-color:transparent;
+            }
+
+             .jq-toolbar-outer-btn, .jq-toolbar-outer-btn:hover, .jq-toolbar-outer-btn:focus{
+                color:white;
+                background-color: #CEAB2E;
+            }
+
+
+           
+           
     </style>
 
 </head>
@@ -318,7 +366,19 @@
 
             <div class="float-right" style="position: relative; z-index: 9999999999999999999999">
 
-                <div class="float-left">
+                  <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin jq-undo btn btn-toolbar btn-xs">
+                            <img alt="" class="undo-img" src="/content/undo/undo.png" />
+                            Undo</button>
+                        <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin  jq-redo btn btn-toolbar btn-xs">
+                            Redo
+                    <img alt="" class="undo-img" src="/content/undo/redo.png" /></button>
+
+                        <button class="jq-save jq-toolbar-outer-btn jq-toolbar-btn jq-save-margin btn btn-toolbar btn-xs">
+                            <img alt="" class="save-img" src="/content/save/save.png" />
+                            Save</button>
+
+
+                <div class="float-right">
                     <form name="logout" runat="server">
                         <asp:LoginStatus runat="server" class="jq-logout btn btn-default" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                     </form>
@@ -326,9 +386,109 @@
 
                 <button class="btn btn-default btn-help ">Help</button>
 
+              
             </div>
 
-            <div id="tabs">
+
+
+            <div id='cssmenu'>
+<ul> 
+   <li><a href='#'><span>Home</span></a></li>
+
+
+   <li class='active has-sub'><a href='#'><span>Page</span></a>
+      <ul>
+         <li ><a href='#'><span><button class=" btn jq-toolbar-btn btn-toolbar btn-xs create-layout-show-button jq-save-margin "> Layout</button></span></a>
+         </li>
+         <li><a href='#'><span><button class=" btn jq-toolbar-btn btn-toolbar btn-xs close-preview jq-save-margin  ">Close Preview</button><button class=" btn jq-toolbar-btn btn-toolbar btn-xs show-preview jq-save-margin ">   Preview</button></span></a>
+           
+         </li>
+           <li><a href='#' href="#" target="_blank" class="anchor-show-live-preview jq-save-margin ">
+                  
+                  <button class="btn jq-toolbar-btn btn-toolbar btn-xs" style="margin-left: 6px;
+    display: inline-block;">  Live Preview</button>
+                     
+                </a>
+           
+         </li>
+         <%-- <li><a href='#'><span>PC</span></a>
+           
+         </li>
+          <li class='last'><a href='#'><span>PC</span></a>
+           
+         </li>--%>
+      </ul>
+   </li>
+    <li class='active has-sub'><a href='#'><span>Rows</span></a>
+      <ul>
+           <li ><a href='#'><span><button class="btn jq-toolbar-btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
+                            Add</button>
+                        <button class="btn btn-toolbar jq-toolbar-btn  btn-xs jq-hide-plus display-none" style="margin: 5px;">
+                            Close Add</button></span></a>
+         </li>
+          </ul>
+        </li>
+   <li><a href='#'><span>About</span></a></li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+
+
+
+            <ul id="tabmenu" style="display:none;">
+                <li>
+                    <a >Tabbed Menu</a>
+                    <ul>
+                        <li><a href="#">Rows</a>
+                            <ul>
+                                <li><a href="#"><button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
+                                        Show [+]</button><button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin: 5px;">Hide [+]</button></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Horizontal submenu 2</a>
+                            <ul>
+                                <li><a href="#">Tabbed menu 2-2-1</a></li>
+                                <li><a href="#">Tabbed menu 2-2-2</a></li>
+                                <li><a href="#">Tabbed menu 2-2-3</a></li>
+                                <li><a href="#">Tabbed menu 2-2-4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Horizontal submenu 3</a></li>
+                    </ul>
+                </li>
+                 <li>
+                 <a href="#">Page</a>
+                    <ul>
+                    <li><a href="#"><button class=" create-layout-show-button jq-save-margin jq-button-no-style"> Layout</button></a>
+               
+                    </li>
+            <li><a href="#"><button class=" close-preview jq-save-margin jq-button-no-style ">Close Preview</button><button class=" show-preview jq-save-margin jq-button-no-style">   Preview</button></a>
+               
+            </li>
+            <li><a href="#" target="_blank" style="" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs jq-button-no-style jq-font-bold"> 
+               
+                          <span style=" margin-top: -5px; display: block;">  Live Preview</span>
+                
+               </a>
+
+            </li>
+            <li><a href="#"><button class="btn btn-toolbar btn-xs  jq-button-no-style  jq-show-plus " >Rows( Show [+] )</button><button class="btn btn-toolbar  btn-xs jq-hide-plus  jq-button-no-style  display-none" >Rows ( Hide [+] )</button></a>
+                
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="?3">Delivery</a>
+        <ul>
+            <li><a href="?31">Tab menu 3-1</a></li>
+            <li><a href="?32">Tab menu 3-2</a></li>
+        </ul>
+    </li>
+    <li><a href="?4">Contact Us</a></li>
+</ul>
+
+
+            <div id="tabs" style="display:none;">
                 <ul>
                     <li><a href="#tabs-general">General</a></li>
                     <li><a href="#tabs-insert">Insert</a></li>
@@ -339,41 +499,17 @@
                 <div id="tabs-general" class="row">
 
                     <div class="col-xs-48">
-                        <button class=" create-layout-show-button jq-save-margin btn btn-toolbar btn-xs">
-                            <img alt="" class="layout-img" src="/content/layout/layout.png" />
-                            Layout</button>
+                       
+
+                       
+                      
+                       
 
 
-
-                        <button class=" close-preview jq-save-margin  btn btn-toolbar btn-xs">
-                            <img alt="" class="preview-img" src="/content/preview/preview.png" />
-                            Close Preview</button>
-                        <button class=" show-preview jq-save-margin btn btn-toolbar btn-xs">
-                            <img alt="" class="preview-img" src="/content/preview/preview.png" />
-                            Preview</button>
-                        <a href="#" target="_blank" style="background-color: buttonface; color: black;" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs">
-                            <img alt="" class="preview-img" src="/content/preview/preview.png" />
-                            Live Preview remove it
-                        </a>
+                       
 
 
-                        <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
-                            Show [+]</button>
-                        <button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin: 5px;">
-                            Hide [+]</button>
-
-
-                        <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-toolbar btn-xs">
-                            <img alt="" class="undo-img" src="/content/undo/undo.png" />
-                            Undo</button>
-                        <button class="jq-undo-buttons jq-save-margin  jq-redo btn btn-toolbar btn-xs">
-                            Redo
-                    <img alt="" class="undo-img" src="/content/undo/redo.png" /></button>
-
-                        <button class="jq-save jq-save-margin btn btn-toolbar btn-xs">
-                            <img alt="" class="save-img" src="/content/save/save.png" />
-                            Save</button>
-
+                        
                         <button class="page-propetries-button  btn btn-toolbar btn-xs jq-save-margin">
                             <img alt="" class="settings-img" src="/content/settings/settings.png" />
                             Page</button>
@@ -893,19 +1029,21 @@
                                             </div>
 
                                      
+      <div>
+          <br />
 
+      <div style="padding-left:15px;" class="row">
+         <div class="control-border-controls">
+           <span class="small-name" title="Border Radius">Border Radius </span> <input class="control-border-thickness-radius " />
+         </div>
+      </div>
+  </div>
                          
                   
  </div>
  
-   <h3 class="prop-sb" name="border"> &nbsp;&nbsp; Border Roundness</h3>
-  <div>
-      <div style="padding-left:15px;" class="row">
-         <div class="control-border-controls">
-           <span class="small-name" title="Border Radius"> Radius </span> <input class="control-border-thickness-radius " />
-         </div>
-      </div>
-  </div>
+  
+  
   <h3 class="prop-sb" name="padding"> &nbsp;&nbsp; Padding</h3>
   <div>
 

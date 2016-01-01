@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic) {
     var Page;
     (function (Page) {
         var LoadJQ = (function () {
@@ -28,6 +28,9 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                             jQuery("page .jqte-editor").attr("contentEditable", "true");
                             jQuery("page .jqte-editor").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
+                            impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
+                            impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;
+                            jQuery("page .design-page-row").hide();
                             impPreview.Preview.PreviewJQ.ClosePreview();
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();

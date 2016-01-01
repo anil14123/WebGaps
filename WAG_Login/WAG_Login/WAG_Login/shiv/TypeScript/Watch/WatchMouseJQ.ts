@@ -241,6 +241,57 @@ export module Watch {
 
             }
 
+            try {
+                var box = jQuery(MouseJQ.selectedElement)[0].getBoundingClientRect();
+
+                var circleLeftTopElement = jQuery("<div class='circle-deg' style='width:12px; border-radius:50%; height:12px; position:absolute; background-color:#00A1FF;'></div>");
+                var circleRightTopElement = jQuery(circleLeftTopElement).clone();
+                var circleLeftBottomElement = jQuery(circleLeftTopElement).clone();
+                var circleRightBottomElement = jQuery(circleLeftTopElement).clone();
+
+                var body = document.body
+
+                var docElem = document.documentElement
+
+                var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop
+
+                var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft
+
+                var clientTop = docElem.clientTop || body.clientTop || 0
+
+                var clientLeft = docElem.clientLeft || body.clientLeft || 0
+
+                var top = box.top + scrollTop - clientTop
+
+                var left = box.left + scrollLeft - clientLeft
+
+                var width = jQuery(MouseJQ.selectedElement).css("width");
+                var height = jQuery(MouseJQ.selectedElement).css("height");
+
+                var widthf = parseFloat(width.replace("px", ""));
+                var heightf = parseFloat(height.replace("px", ""));
+
+                circleLeftTopElement.css("left", left - 5);
+                circleLeftTopElement.css("top", top - 5);
+
+                circleLeftBottomElement.css("left", left -5);
+                circleLeftBottomElement.css("top", top + heightf - 5);
+
+                circleRightTopElement.css("left", left + widthf -7);
+                circleRightTopElement.css("top", top - 5);
+
+                circleRightBottomElement.css("left", left + widthf - 7);
+                circleRightBottomElement.css("top", top + heightf - 5);
+
+                jQuery(".circle-deg").remove();
+                jQuery("body").append(circleLeftTopElement);
+                jQuery("body").append(circleLeftBottomElement);
+                jQuery("body").append(circleRightTopElement);
+                jQuery("body").append(circleRightBottomElement);
+            }
+            catch (ex) {
+
+            }
 
             //}
 

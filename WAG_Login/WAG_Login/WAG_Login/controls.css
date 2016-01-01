@@ -43,10 +43,10 @@ controls {
 }
 .properties-sidebar-container{
     background-color:#D3D3D3;
-    height:528px;
+    height:628px;
 
     position:fixed;
-    top:185px;
+    top:64px;
 
     overflow:scroll;
 }
@@ -66,7 +66,9 @@ controls {
 
 
 .image-text-other .adjust-image-text-other .ui-resizable-s .jq-square-s {
-    background-color: #31fa77;
+    background-color: rgba(0, 128, 0, 0.6);
+     box-shadow:none;
+     border:2px solid #449546;
 }
 
 .design-adjust-image-text-other {
@@ -75,6 +77,8 @@ controls {
 
 .image-text-other .adjust-image-text-other-left .ui-resizable-e .jq-square-e {
     background-color: red;
+     box-shadow:none;
+     border:2px solid red;
 }
 
 .image-text-other .adjust-image-text-other-left{

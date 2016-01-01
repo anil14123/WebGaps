@@ -1,5 +1,5 @@
 /// <reference path="../../sitemanager_ts/site/sitejq.ts" />
-define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescript/error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction) {
+define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescript/error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ", "../Constants/ConstantsJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction, impStatic) {
     var initOnceFlag = false;
     var Link;
     (function (Link) {
@@ -39,6 +39,9 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                 jQuery(".insert-link-links").html("");
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 errorHandler.ActionFail("Something went wrong<br>Try again later!");
+            };
+            LinkJQ.GenerateId = function () {
+                return "NormalLink" + ++impStatic.Constants.StaticJQ.normalLinkId;
             };
             LinkJQ.prototype.AttachEvents = function () {
                 jQuery("#insert-internet-link-url").change(function () {
@@ -113,6 +116,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                         });
                         impCommonCode.ControlCommon.Code.Execute();
                     }
+                    jQuery("#control-insert-link").hide();
                 });
                 jQuery(".insert-link-name").on("change", function () {
                     LinkJQ.IsExternalUrl = false;
@@ -130,6 +134,10 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
             };
             LinkJQ.CreateCurrentLink = function (blankTarget, url, name) {
                 var link;
+                var id;
+                if (blankTarget == false) {
+                    id = LinkJQ.GenerateId();
+                }
                 if (url == undefined) {
                     //url = jQuery(".input-current-location").val() + "/"
                     //+ jQuery(".input-site-id").val() + "/"
@@ -144,14 +152,14 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                     name = jQuery(".insert-link-name").val();
                 }
                 if (blankTarget == true) {
-                    link = "<span style='display:inline-block;' class='key jq-site-link-container'><a target='_blank' class='jq-site-link  btn " + btnStyle + "' href='"
+                    link = "<span style='display:inline-block;;float:none;' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a target='_blank' class='jq-site-link " + "' href='"
                         + url
-                        + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
+                        + "?nocache=true'>" + name + "</a></span>";
                 }
                 else {
-                    link = "<span style='display:inline-block;' class='key jq-site-link-container'><a class='jq-site-link btn " + btnStyle + "' href='"
+                    link = "<span style='display:inline-block' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a id='" + id + "' class='jq-site-link " + "' href='"
                         + url
-                        + "?nocache=true'><span class='jq-site-link-text'>" + name + "</span></a></span>";
+                        + "?nocache=true'>" + name + "</a></span>";
                 }
                 return link;
             };

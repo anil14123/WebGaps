@@ -161,7 +161,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                                 column.attr("key-css", this.GetDotClassName() + " " + "column");
                             }
                         }
-                        column.addClass("hidden-xs").addClass("hidden-sm");
+                        //column.addClass("hidden-xs").addClass("hidden-sm");
                         if (root != undefined) {
                             row.attr("key-css", jQuery(root).attr("key-css") + " " + "row");
                         }

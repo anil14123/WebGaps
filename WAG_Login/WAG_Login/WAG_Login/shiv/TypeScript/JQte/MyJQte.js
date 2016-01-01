@@ -1,5 +1,5 @@
 /// <reference path="document.d.ts" />
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "../Constants/ConstantsJQ"], function (require, exports, impStatic) {
     var initOnce = false;
     var MyJQte;
     (function (MyJQte) {
@@ -28,6 +28,9 @@ define(["require", "exports"], function (require, exports) {
                         jQuery(this).children().css("font-family", jQuery(this).text());
                     });
                 }
+            };
+            jqte.GenerateId = function () {
+                return "EditorLink" + ++impStatic.Constants.StaticJQ.editorLinkId;
             };
             jqte.prototype.AttachEvents = function () {
                 jQuery(document).not(".editor").click(function (e) {
@@ -139,7 +142,9 @@ define(["require", "exports"], function (require, exports) {
                             jQuery(".link-window-url").val("http://");
                             jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
                             jqte.SelectionSet("foreColor", "#003399");
+                            jQuery(".current-editor-scope").find("font[color='#003399']").addClass("key jq-editor-link");
                             jqte.SelectionSet("createLink", "#");
+                            jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("id", MyJQte.jqte.GenerateId());
                             break;
                     }
                     if (e.cancelBubble != null)

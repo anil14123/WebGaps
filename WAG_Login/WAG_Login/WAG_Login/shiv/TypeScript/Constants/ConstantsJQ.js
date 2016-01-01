@@ -14,6 +14,14 @@ define(["require", "exports"], function (require, exports) {
             return ConstantsJQ;
         })();
         Constants.ConstantsJQ = ConstantsJQ;
+        var StaticJQ = (function () {
+            function StaticJQ() {
+            }
+            StaticJQ.normalLinkId = 0;
+            StaticJQ.editorLinkId = 0;
+            return StaticJQ;
+        })();
+        Constants.StaticJQ = StaticJQ;
     })(Constants = exports.Constants || (exports.Constants = {}));
 });
 //# sourceMappingURL=ConstantsJQ.js.map
