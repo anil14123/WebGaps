@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impError, impWatch, impUndoManager, impCommonCode) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode) {
     var changed = false;
     var OnInsert;
     (function (OnInsert) {
@@ -41,15 +41,30 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                 });
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
-                    var topRowPx = "180px";
-                    var topNotifyPx = "105px";
-                    jQuery("rootx").css("top", topRowPx);
-                    jQuery(".designer-top-row").css("height", topRowPx);
-                    jQuery("#notify").css("top", topNotifyPx);
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
-                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                    errorHandler.ActionHelp("Press [Esc] once to stop editing");
+                    //dbl click text editor
+                    //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                    //errorHandler.ActionHelp("Press [Esc] once to stop editing");
                     $(this).draggable({ disabled: true });
+                    jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").css("cursor", "pointer");
+                });
+                jQuery(".jq-site-link").unbind("dblclick");
+                jQuery(".jq-site-link").on("dblclick", function () {
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
+                    jQuery(".editor").show();
+                    //dbl click text editor
+                    //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                    //errorHandler.ActionHelp("Press [Esc] once to stop editing");
                     jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").css("cursor", "pointer");
                 });

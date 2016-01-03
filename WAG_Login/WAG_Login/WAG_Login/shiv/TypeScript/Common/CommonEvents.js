@@ -160,7 +160,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                     var scripts = jQuery(document.createElement("scripts"));
                     var styles = jQuery(document.createElement("styles"));
                     var page = jQuery(document.createElement("page"));
-                    var fullbody = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
+                    var fullbody = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
                     var fullbodyEnd = "</body></html>";
                     var styleSheetExtra = "<script type=\" text/javascript\" class=\"add-to-page jquery\" src= \"jquery/jquery-1.11.2.min.js\" > </script>" +
                         "<link rel=\"stylesheet\" type= \"text/css\" class=\"add-to-page\" href= \"bootstrap/bootstrap-customzed-48.min.css\" />" +

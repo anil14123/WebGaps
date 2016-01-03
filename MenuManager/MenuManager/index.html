@@ -14,6 +14,7 @@
 
         .menu-item {
             display: block;
+          
         }
 
         .menu-item-root {
@@ -21,21 +22,25 @@
         }
 
         .up {
-            height: 1px;
+            height: 4px;
+
+           
         }
 
         .down {
-            height: 1px;
+            height: 4px;
+           
         }
 
         .mouseover {
             border: 2px dotted grey;
-            height: 15px;
+            height: 4px;
         }
 
         .menu-manager {
             cursor: move;
         }
+
     </style>
 
     <script>
@@ -46,24 +51,37 @@
         jQuery(document).ready(function () {
 
             jQuery(".menu-manager .menu-item").draggable({
-
+                
                 start: function (event, ui) {
                     startPos = ui.helper.position();
-                    draggingElement = ui.helper;
+                    draggingElement = jQuery(ui.helper);
+
+                    if (jQuery(this).parent().prev().length > 0) {
+                        droppedOnElement = jQuery(this).parent().prev().children(".down");
+                    }
+                    else
+                    if (jQuery(this).parent().next().length > 0)
+                    {
+                        droppedOnElement = jQuery(this).parent().next().children(".up");
+                    }
+
+
                 },
                 drag: function (event, ui) {
-                    
+
                     if (
                         (ui.offset.top >= startPos.top - 4)
                         &&
                         (ui.offset.top <= startPos.top + 4)
                         &&
-                       ui.offset.left >= startPos.left + 10)
-                    {
+                       ui.offset.left >= startPos.left + 10) {
                         console.log("offset " + ui.offset.top);
                         console.log("start " + startPos.top);
+
+                        if(jQuery(draggingElement)
+
                     }
-                  
+
                 }
 
             }
@@ -258,7 +276,6 @@
     </script>
 
     <style>
-
     </style>
 
 </head>
@@ -271,8 +288,10 @@
     <div class="menu-manager">
 
         <ul>
-            <li>
-                <span class="menu-item-root menu-item">Drag Root Elements Here </span>
+            <li >
+                <div class="up"></div>
+                <span class="menu-item-root menu-item">Root</span>
+                <div class="down"></div>
             </li>
             <li>
                 <div class="up"></div>

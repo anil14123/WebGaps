@@ -78,6 +78,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     MouseJQ.selectedElement.parent().children(".design-page-row").show();
                 }
                 else if (MouseJQ.selectedElement.hasClass("row") == true) {
+                    jQuery(".design-page-row").hide();
+                    MouseJQ.selectedElement.children(".design-page-row").show();
                 }
                 else {
                     jQuery(".design-page-row").hide();
@@ -360,12 +362,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 /// for moving
                                 $(".empty-container-text").draggable({ disabled: false });
                                 $(".empty-container-image").draggable({ disabled: false });
-                                var topRowPx = "180px";
-                                var topNotifyPx = "105px";
-                                jQuery("rootx").css("top", topRowPx);
-                                jQuery(".designer-top-row").css("height", topRowPx);
+                                //var topRowPx = "180px";
+                                //var topNotifyPx = "105px";
+                                //jQuery("rootx").css("top", topRowPx);
+                                //jQuery(".designer-top-row").css("height", topRowPx);
                                 jQuery(".editor").hide();
-                                jQuery("#notify").css("top", topNotifyPx);
+                                //jQuery("#notify").css("top", topNotifyPx);
                                 jQuery("page .jqte-editor").css("cursor", "move");
                                 ////////////////////
                                 impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide();

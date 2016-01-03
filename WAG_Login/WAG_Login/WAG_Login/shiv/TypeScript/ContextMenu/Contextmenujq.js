@@ -241,12 +241,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             ContextMenuJQ.ShowControlInsertText = function () {
                 ContextMenuJQ.ControlPageHide();
                 ////////////////////////// show editor
-                var topRowPx = "180px";
-                var topNotifyPx = "105px";
-                jQuery("rootx").css("top", topRowPx);
-                jQuery(".designer-top-row").css("height", topRowPx);
-                jQuery("#notify").css("top", topNotifyPx);
+                //var topRowPx = "180px";
+                //var topNotifyPx = "105px";
+                //jQuery("rootx").css("top", topRowPx);
+                //jQuery(".designer-top-row").css("height", topRowPx);
+                //jQuery("#notify").css("top", topNotifyPx);
                 jQuery(".editor").show();
+                /////////////////////////////////
                 jQuery(".jqte-editor").removeClass("current-editor-scope");
                 jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
                 //////////////////////////

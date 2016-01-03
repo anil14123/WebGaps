@@ -62,6 +62,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 if (selectedElement != undefined) {
                                     if (jQuery(this).hasClass("control-color-foreground-color")) {
                                         var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
+                                        colorForeground = colorForeground.replace("#", "");
                                         selectedElement.css("color", "#" + colorForeground);
                                         if (colorForeground != "") {
                                             if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
@@ -89,6 +90,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                     }
                                     else if (jQuery(this).hasClass("control-color-background-color")) {
                                         var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+                                        colorBackground = colorBackground.replace("#", "");
                                         selectedElement.css("background-color", "#" + colorBackground);
                                     }
                                 }

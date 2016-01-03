@@ -44,12 +44,12 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     jQuery(this).closest('.control-page').hide();
                     jQuery(impError.ErrorHandle.ErrorJQ.notifyId).css("display", "none");
                     jQuery(impError.ErrorHandle.ErrorJQ.notifyId).html('');
-                    var topRowPx = "180px";
-                    var topNotifyPx = "105px";
-                    jQuery("rootx").css("top", topRowPx);
-                    jQuery(".designer-top-row").css("height", topRowPx);
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
                     jQuery(".editor").hide();
-                    jQuery("#notify").css("top", topNotifyPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
                 });
             };
             TextJQ.AttachPreviewButton = function () {

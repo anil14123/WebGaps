@@ -152,12 +152,12 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                     name = jQuery(".insert-link-name").val();
                 }
                 if (blankTarget == true) {
-                    link = "<span style='display:inline-block;;float:none;' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a target='_blank' class='jq-site-link " + "' href='"
+                    link = "<span style='display:inline-block;;float:none;' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a contentEditable='true' target='_blank' class='jq-site-link jqte-editor" + "' href='"
                         + url
                         + "?nocache=true'>" + name + "</a></span>";
                 }
                 else {
-                    link = "<span style='display:inline-block' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a id='" + id + "' class='jq-site-link " + "' href='"
+                    link = "<span style='display:inline-block' class='key jq-normal-link jq-site-link-container  btn " + btnStyle + "'><a contentEditable='true' id='" + id + "' class='jq-site-link jqte-editor " + "' href='"
                         + url
                         + "?nocache=true'>" + name + "</a></span>";
                 }

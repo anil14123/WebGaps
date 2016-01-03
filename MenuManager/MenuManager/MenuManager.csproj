@@ -57,7 +57,11 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="index.html" />
+    <Content Include="Nestable-master\index - original.html" />
+    <Content Include="Nestable-master\index.html" />
+    <Content Include="Nestable-master\jquery.nestable.js" />
     <Content Include="packages.config" />
+    <Content Include="Nestable-master\README.md" />
     <None Include="Scripts\jquery-1.11.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.1.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />

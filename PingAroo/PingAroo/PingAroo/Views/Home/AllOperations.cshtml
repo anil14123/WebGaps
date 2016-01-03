@@ -1,0 +1,47 @@
+﻿
+@model PingAroo.Models.PingOperations
+
+@{
+    ViewBag.Title = "AllOperations";
+}
+
+<h2>AllOperations</h2>
+
+
+
+   
+    <div class="form-horizontal">
+        <h4>PingOperations</h4>
+        <hr />
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                
+
+              
+                
+@using (Html.BeginForm("Add", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<span>Add : </span>@Html.TextBoxFor(m => m.IpAddress)
+<input type="submit" value="Add" class="btn btn-default" />
+}
+                <br />
+@using (Html.BeginForm("Run", "Home", FormMethod.Post))
+{
+<input type="submit" value="Run" class="btn btn-default" />
+}
+            </div>
+        </div>
+    </div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
