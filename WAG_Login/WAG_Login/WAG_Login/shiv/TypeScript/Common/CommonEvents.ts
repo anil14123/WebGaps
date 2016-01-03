@@ -156,6 +156,7 @@ export module Common {
 
             jQuery("#control-align").draggable({ revert: false });
             jQuery("#control-object-move").draggable({ revert: false });
+           
 
             var liveUrl = jQuery(".input-current-location").val() + "/"
                 + jQuery(".input-site-id").val() + "/"
@@ -250,7 +251,7 @@ export module Common {
                 var styles = jQuery(document.createElement("styles"));
                 var page = jQuery(document.createElement("page"))
 
-                var fullbody = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
+                var fullbody = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /> </head><body>";
                 var fullbodyEnd = "</body></html>";
 
                 var styleSheetExtra =

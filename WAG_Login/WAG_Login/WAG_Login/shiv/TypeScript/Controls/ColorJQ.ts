@@ -96,6 +96,7 @@ export module Color {
                                 if (jQuery(this).hasClass("control-color-foreground-color")) {
                                     var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
 
+                                    colorForeground = colorForeground.replace("#", "");
                                     selectedElement.css("color", "#" + colorForeground);
 
                                     if (colorForeground != "") {
@@ -131,6 +132,7 @@ export module Color {
 
                                     var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
 
+                                    colorBackground = colorBackground.replace("#", "");
                                     selectedElement.css("background-color", "#" + colorBackground);
                                 }
                             }

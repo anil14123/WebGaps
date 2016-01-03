@@ -43,6 +43,7 @@ controls {
 }
 .properties-sidebar-container{
     background-color:#D3D3D3;
+    background-color:#6287A7;
     height:628px;
 
     position:fixed;
@@ -374,7 +375,7 @@ controls {
     padding: 10px;
     display: none;
     z-index: 9999999999999999999;
-    top: 105px;
+    top: 70px; /*notifypx*/
 }
 
 .success-notify-background {

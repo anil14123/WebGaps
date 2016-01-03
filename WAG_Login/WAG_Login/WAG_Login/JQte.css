@@ -40,13 +40,14 @@
 
 .jqte_toolbar
 {
-    position:absolute;
+    position:absolute !important;
   
     border-radius:5px;
     display:none;
     overflow:visible;
     
-
+    border-radius: 5px;
+    border: 1px solid blue;
 }
 
 .jqte
@@ -91,7 +92,6 @@ page .jqte_editor {
 }
 
 .editor{
-    position:fixed;
-    top:110px;
-    left:30%;
+    
+   
 }

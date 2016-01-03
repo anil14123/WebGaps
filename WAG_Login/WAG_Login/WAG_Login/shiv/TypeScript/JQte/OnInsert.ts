@@ -74,18 +74,41 @@ export module OnInsert {
             jQuery(".empty-container-text").on("dblclick",
                 function () {
 
-                    var topRowPx = "180px";
-                    var topNotifyPx = "105px";
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
 
-                    jQuery("rootx").css("top", topRowPx);
-                    jQuery(".designer-top-row").css("height", topRowPx);
-                    jQuery("#notify").css("top", topNotifyPx);
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
 
-                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                    errorHandler.ActionHelp("Press [Esc] once to stop editing");
+                    //dbl click text editor
+                    //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                    //errorHandler.ActionHelp("Press [Esc] once to stop editing");
 
                     $(this).draggable({ disabled: true });
+                    jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").css("cursor", "pointer");
+
+
+                });
+
+            jQuery(".jq-site-link").unbind("dblclick");
+            jQuery(".jq-site-link").on("dblclick",
+                function () {
+
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
+
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
+                    jQuery(".editor").show();
+
+                    //dbl click text editor
+                    //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                    //errorHandler.ActionHelp("Press [Esc] once to stop editing");
+
                     jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").css("cursor", "pointer");
 

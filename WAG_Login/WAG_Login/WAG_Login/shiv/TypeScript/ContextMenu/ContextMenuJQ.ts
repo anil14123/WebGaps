@@ -397,14 +397,15 @@ export module ContextMenu {
 
             ////////////////////////// show editor
 
-            var topRowPx = "180px";
+            //var topRowPx = "180px";
 
-            var topNotifyPx = "105px";
+            //var topNotifyPx = "105px";
 
-            jQuery("rootx").css("top", topRowPx);
-            jQuery(".designer-top-row").css("height", topRowPx);
-            jQuery("#notify").css("top", topNotifyPx);
+            //jQuery("rootx").css("top", topRowPx);
+            //jQuery(".designer-top-row").css("height", topRowPx);
+            //jQuery("#notify").css("top", topNotifyPx);
             jQuery(".editor").show();
+            /////////////////////////////////
 
             jQuery(".jqte-editor").removeClass("current-editor-scope");
 

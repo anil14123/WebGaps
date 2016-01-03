@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
+﻿ign<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   ccc
     <title>Web Gaps</title>
 
 
@@ -380,11 +380,11 @@
 
                 <div class="float-right">
                     <form name="logout" runat="server">
-                        <asp:LoginStatus runat="server" class="jq-logout btn btn-default" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        <asp:LoginStatus runat="server" class="jq-logout btn btn-toolbar btn-xs jq-toolbar-outer-btn" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                     </form>
                 </div>
 
-                <button class="btn btn-default btn-help ">Help</button>
+                <button style="margin:5px;" class="btn btn-toolbar btn-xs jq-toolbar-outer-btn btn-help ">Help</button>
 
               
             </div>
@@ -411,10 +411,12 @@
                 </a>
            
          </li>
-         <%-- <li><a href='#'><span>PC</span></a>
+         <li><a href='#'><span> <button class="page-propetries-button  btn btn-toolbar jq-toolbar-btn btn-xs jq-save-margin">
+                           
+                            Settings</button></span></a>
            
          </li>
-          <li class='last'><a href='#'><span>PC</span></a>
+         <%-- <li class='last'><a href='#'><span>PC</span></a>
            
          </li>--%>
       </ul>
@@ -428,8 +430,34 @@
          </li>
           </ul>
         </li>
-   <li><a href='#'><span>About</span></a></li>
-   <li class='last'><a href='#'><span>Contact</span></a></li>
+
+   
+    <li class='active has-sub'><a href='#'><span>Image</span></a>
+      <ul>
+           <li ><a href='#'><span>
+
+               <span class="btn btn-danger btn-xs btn-file">Upload<input type="file" multiple="multiple" class="image-file-upload" />
+                    </span>
+
+                            </span></a>
+         </li>
+          </ul>
+        </li>
+
+    <li class='active has-sub'><a href='#'><span>Site</span></a>
+      <ul>
+           <li ><a href='#'><span>
+
+                  <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                            Download Site</button>
+                            </span></a>
+         </li>
+          </ul>
+        </li>
+
+
+   
+   
 </ul>
 </div>
 
@@ -510,16 +538,14 @@
 
 
                         
-                        <button class="page-propetries-button  btn btn-toolbar btn-xs jq-save-margin">
-                            <img alt="" class="settings-img" src="/content/settings/settings.png" />
-                            Page</button>
-                        <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
+                      
+                       <%-- <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
                             <img alt="" class="settings-img" src="/content/settings/settings.png" />
                             Properties
 
-                        </button>
+                        </button>--%>
 
-                        <span id="control-align" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+                      <%--  <span id="control-align" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
 
                             <span style="color: white; background-color: black; padding: 5px;">Align : 
 
@@ -533,20 +559,20 @@
 
                             <button class="button-align-center  btn btn-toolbar btn-xs btn jq-save-margin">
                                 Center</button>
-                        </span>
+                        </span>--%>
 
 
-                        <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
-                            Download Site</button>
+                       <%-- <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                            Download Site</button>--%>
 
-                        <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+                       <%-- <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
                             <span style="color: white; background-color: black; padding: 5px;">Move : </span>
 
                             <button class="button-move-left  btn btn-toolbar btn-xs btn jq-save-margin">
                                 Left</button>
 
                             <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
-                                Right</button>
+                                Right</button>--%>
 
                             <%-- 
                         
@@ -556,8 +582,8 @@
                         <button class="button-move-down  btn btn-toolbar btn-xs btn jq-save-margin">
                         Down </button>
                       
-                            --%>
-                        </span>
+                            
+                        </span>--%>
 
 
                     </div>
@@ -585,11 +611,12 @@
                 </div>
             </div>
 
-            <div class="editor">
+            <div class="editor ">
                 <div class="jqte-toolbar">
 
 
-
+                    <div style="display:inline-block; color:white; cursor:pointer;" 
+                        onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); "> &nbsp; &nbsp; Close </div>
                     <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
                     <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
                         <li>
