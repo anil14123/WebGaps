@@ -8,8 +8,7 @@
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
-
-   ccc
+    ccc
     <title>Web Gaps</title>
 
 
@@ -20,7 +19,7 @@
 
     <link rel="stylesheet" href="/Content/jquery-ui.min.css" type="text/css" />
 
-   <%--  <link href="/Third-Party/tabmenu/tabmenu.css" rel="stylesheet" type="text/css" />
+    <%--  <link href="/Third-Party/tabmenu/tabmenu.css" rel="stylesheet" type="text/css" />
     <script src="/Third-Party/tabmenu/tabmenu.js" type="text/javascript"></script>--%>
 
     <link href="/Third-Party/cssmenu/styles.css" rel="stylesheet" />
@@ -58,7 +57,7 @@
     <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
-   
+
     <link href="/Scripts/evoluteur.colorpicker/colorpicker-master/css/evol.colorpicker.css" rel="stylesheet" />
     <script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>
 
@@ -84,23 +83,17 @@
     </style>--%>
 
     <style>
-
-        .evo-pop{
-            width:auto;
+        .evo-pop {
+            width: auto;
         }
 
         .colorPicker {
-            width:48px;
+            width: 48px;
         }
 
-        .evo-cp-wrap{
-            width:80px !important;
+        .evo-cp-wrap {
+            width: 80px !important;
         }
-
-
-
-
-
     </style>
 
     <script>
@@ -144,9 +137,8 @@
 
 
     <style>
-
-        .ui-slider-horizontal .ui-slider-handle{
-            background-color:yellowgreen !important;
+        .ui-slider-horizontal .ui-slider-handle {
+            background-color: yellowgreen !important;
         }
 
         #properties-accordion .ui-spinner-input {
@@ -213,7 +205,7 @@
         }
 
         .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-            font-size:14px;
+            font-size: 14px;
         }
 
 
@@ -242,25 +234,22 @@
                 display: block;
             }
 
-            .jq-button-no-style{
-    background:none !important;
-    border:none !important;
-}
+        .jq-button-no-style {
+            background: none !important;
+            border: none !important;
+        }
 
 
-            .jq-toolbar-btn, .jq-toolbar-btn:hover, .jq-toolbar-btn:focus{
-                color:white;
-                background-color:transparent;
-            }
+        .jq-toolbar-btn, .jq-toolbar-btn:hover, .jq-toolbar-btn:focus {
+            color: white;
+            background-color: transparent;
+            padding:3px;
+        }
 
-             .jq-toolbar-outer-btn, .jq-toolbar-outer-btn:hover, .jq-toolbar-outer-btn:focus{
-                color:white;
-                background-color: #CEAB2E;
-            }
-
-
-           
-           
+        .jq-toolbar-outer-btn, .jq-toolbar-outer-btn:hover, .jq-toolbar-outer-btn:focus {
+            color: white;
+            background-color: #CEAB2E;
+        }
     </style>
 
 </head>
@@ -280,7 +269,7 @@
 
     <div class="jq-plus-container jq-plus-container-not-used">
 
-        <div class="row" style="display:none;">
+        <div class="row" style="display: none;">
             <div class="jq-plus-element">
 
                 <%--  <span class="jq-plus-prev jq-plus">
@@ -366,16 +355,16 @@
 
             <div class="float-right" style="position: relative; z-index: 9999999999999999999999">
 
-                  <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin jq-undo btn btn-toolbar btn-xs">
-                            <img alt="" class="undo-img" src="/content/undo/undo.png" />
-                            Undo</button>
-                        <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin  jq-redo btn btn-toolbar btn-xs">
-                            Redo
+                <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin jq-undo btn btn-toolbar btn-xs">
+                    <img alt="" class="undo-img" src="/content/undo/undo.png" />
+                    Undo</button>
+                <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin  jq-redo btn btn-toolbar btn-xs">
+                    Redo
                     <img alt="" class="undo-img" src="/content/undo/redo.png" /></button>
 
-                        <button class="jq-save jq-toolbar-outer-btn jq-toolbar-btn jq-save-margin btn btn-toolbar btn-xs">
-                            <img alt="" class="save-img" src="/content/save/save.png" />
-                            Save</button>
+                <button class="jq-save jq-toolbar-outer-btn jq-toolbar-btn jq-save-margin btn btn-toolbar btn-xs">
+                    <img alt="" class="save-img" src="/content/save/save.png" />
+                    Save</button>
 
 
                 <div class="float-right">
@@ -384,93 +373,155 @@
                     </form>
                 </div>
 
-                <button style="margin:5px;" class="btn btn-toolbar btn-xs jq-toolbar-outer-btn btn-help ">Help</button>
+                <button style="margin: 5px;" class="btn btn-toolbar btn-xs jq-toolbar-outer-btn btn-help ">Help</button>
 
-              
+
             </div>
 
 
 
             <div id='cssmenu'>
-<ul> 
-   <li><a href='#'><span>Home</span></a></li>
+                <ul>
+                    <li class='active has-sub'><a href='#'><span>Insert</span></a>
+                        <ul>
+                            <li class='has-sub'>
+                                <a href='#'><span>Text  <span class="float-right">></span>  </span></a>
+
+                                <ul>
+                                    <li><a href='#'><span><span class="tool-normal-text btn btn-toolbar btn-xs jq-toolbar-btn">Normal Text Block</span></span></a>
+                                    </li>
+                                    <li><a href='#'><span><span class="tool-heading-1 btn btn-toolbar  btn-xs jq-toolbar-btn">
+                                        <h1>Heading1</h1>
+                                    </span></span></a>
+                                    </li>
+                                    <li><a href='#'><span><span class="tool-heading-2 btn btn-toolbar  btn-xs jq-toolbar-btn">
+                                        <h2>Heading2</h2>
+                                    </span></span></a>
+                                    </li>
+                                    <li><a href='#'><span><span class="tool-heading-3 btn btn-toolbar  btn-xs jq-toolbar-btn">
+                                        <h3>Heading3</h3>
+                                    </span></span></a>
+                                    </li>
+                                    <li><a href='#'><span><span class="tool-heading-4 btn btn-toolbar  btn-xs jq-toolbar-btn">
+                                        <h4>Heading4</h4>
+                                    </span></span></a>
+                                    </li>
+                                    <li><a href='#'><span><span class="tool-heading-5 btn btn-toolbar  btn-xs jq-toolbar-btn">
+                                        <h5>Heading5</h5>
+                                    </span></span></a>
+                                    </li>
+                                </ul>
+
+                            </li>
+
+                            <li class='has-sub'>
+                                <a href='#'><span>Image <span class="float-right">></span> </span></a>
+
+                                <ul>
+                                    <li><a href='#'><span><span class="tool-image btn btn-toolbar  btn-xs jq-toolbar-btn">Single Image</span></span></a>
+                                    </li>
+
+                                    <li><a href='#'><span><span class="tool-image-gallery btn btn-toolbar  btn-xs jq-toolbar-btn">Gallery</span></span></a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                            <li>
+                                <a href='#' ><span class="tool-link ctx-menu-insert-link btn btn-toolbar  btn-xs jq-toolbar-btn">Link</span></a>
+                            </li>
+                            <li>
+                                <a href='#' ><span class="tool-html-js ctx-menu-insert-html btn btn-toolbar  btn-xs jq-toolbar-btn">Html/Javascript</span></a>
+                            </li>
+                            <li >
+                                <a href='#' ><span class="tool-youtube btn btn-toolbar  btn-xs jq-toolbar-btn">Youtube</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
 
 
-   <li class='active has-sub'><a href='#'><span>Page</span></a>
-      <ul>
-         <li ><a href='#'><span><button class=" btn jq-toolbar-btn btn-toolbar btn-xs create-layout-show-button jq-save-margin "> Layout</button></span></a>
-         </li>
-         <li><a href='#'><span><button class=" btn jq-toolbar-btn btn-toolbar btn-xs close-preview jq-save-margin  ">Close Preview</button><button class=" btn jq-toolbar-btn btn-toolbar btn-xs show-preview jq-save-margin ">   Preview</button></span></a>
-           
-         </li>
-           <li><a href='#' href="#" target="_blank" class="anchor-show-live-preview jq-save-margin ">
-                  
-                  <button class="btn jq-toolbar-btn btn-toolbar btn-xs" style="margin-left: 6px;
-    display: inline-block;">  Live Preview</button>
-                     
-                </a>
-           
-         </li>
-         <li><a href='#'><span> <button class="page-propetries-button  btn btn-toolbar jq-toolbar-btn btn-xs jq-save-margin">
-                           
-                            Settings</button></span></a>
-           
-         </li>
-         <%-- <li class='last'><a href='#'><span>PC</span></a>
+                    <li class='active has-sub'><a href='#'><span>Page</span></a>
+                        <ul>
+                            <li><a href='#'><span>
+                                <button class=" btn jq-toolbar-btn btn-toolbar btn-xs create-layout-show-button jq-save-margin ">Layout</button></span></a>
+                            </li>
+                            <li><a href='#'><span>
+                                <button class=" btn jq-toolbar-btn btn-toolbar btn-xs close-preview jq-save-margin  ">Close Preview</button>
+                                <button class=" btn jq-toolbar-btn btn-toolbar btn-xs show-preview jq-save-margin ">Preview</button></span></a>
+
+                            </li>
+                            <li><a href='#' href="#" target="_blank" class="anchor-show-live-preview jq-save-margin ">
+
+                                <button class="btn jq-toolbar-btn btn-toolbar btn-xs" style="margin-left: 6px; display: inline-block;">
+                                    Live Preview</button>
+
+                            </a>
+
+                            </li>
+                            <li><a href='#'><span>
+                                <button class="page-propetries-button  btn btn-toolbar jq-toolbar-btn btn-xs jq-save-margin">
+                                    Settings</button></span></a>
+
+                            </li>
+                            <%-- <li class='last'><a href='#'><span>PC</span></a>
            
          </li>--%>
-      </ul>
-   </li>
-    <li class='active has-sub'><a href='#'><span>Rows</span></a>
-      <ul>
-           <li ><a href='#'><span><button class="btn jq-toolbar-btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
-                            Add</button>
-                        <button class="btn btn-toolbar jq-toolbar-btn  btn-xs jq-hide-plus display-none" style="margin: 5px;">
-                            Close Add</button></span></a>
-         </li>
-          </ul>
-        </li>
+                        </ul>
+                    </li>
+                    <li class='active has-sub'><a href='#'><span>Rows</span></a>
+                        <ul>
+                            <li><a href='#'><span>
+                                <button class="btn jq-toolbar-btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
+                                    Add</button>
+                                <button class="btn btn-toolbar jq-toolbar-btn  btn-xs jq-hide-plus display-none" style="margin: 5px;">
+                                    Close Add</button></span></a>
+                            </li>
+                        </ul>
+                    </li>
 
-   
-    <li class='active has-sub'><a href='#'><span>Image</span></a>
-      <ul>
-           <li ><a href='#'><span>
 
-               <span class="btn btn-danger btn-xs btn-file">Upload<input type="file" multiple="multiple" class="image-file-upload" />
-                    </span>
+                    <li class='active has-sub'><a href='#'><span>Image</span></a>
+                        <ul>
+                            <li><a href='#'><span>
+
+                                <span class="btn btn-danger btn-xs btn-file">Upload<input type="file" multiple="multiple" class="image-file-upload" />
+                                </span>
 
                             </span></a>
-         </li>
-          </ul>
-        </li>
+                            </li>
+                        </ul>
+                    </li>
 
-    <li class='active has-sub'><a href='#'><span>Site</span></a>
-      <ul>
-           <li ><a href='#'><span>
+                    <li class='active has-sub'><a href='#'><span>Site</span></a>
+                        <ul>
+                            <li><a href='#'><span>
 
-                  <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
-                            Download Site</button>
+                                <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                                    Download Site</button>
                             </span></a>
-         </li>
-          </ul>
-        </li>
-
-
-   
-   
-</ul>
-</div>
+                            </li>
+                        </ul>
+                    </li>
 
 
 
-            <ul id="tabmenu" style="display:none;">
+
+                </ul>
+            </div>
+
+
+
+            <ul id="tabmenu" style="display: none;">
                 <li>
-                    <a >Tabbed Menu</a>
+                    <a>Tabbed Menu</a>
                     <ul>
                         <li><a href="#">Rows</a>
                             <ul>
-                                <li><a href="#"><button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
-                                        Show [+]</button><button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin: 5px;">Hide [+]</button></a></li>
+                                <li><a href="#">
+                                    <button class="btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
+                                        Show [+]</button>
+                                    <button class="btn btn-toolbar  btn-xs jq-hide-plus display-none" style="margin: 5px;">Hide [+]</button></a></li>
                             </ul>
                         </li>
                         <li><a href="#">Horizontal submenu 2</a>
@@ -484,39 +535,44 @@
                         <li><a href="#">Horizontal submenu 3</a></li>
                     </ul>
                 </li>
-                 <li>
-                 <a href="#">Page</a>
+                <li>
+                    <a href="#">Page</a>
                     <ul>
-                    <li><a href="#"><button class=" create-layout-show-button jq-save-margin jq-button-no-style"> Layout</button></a>
-               
-                    </li>
-            <li><a href="#"><button class=" close-preview jq-save-margin jq-button-no-style ">Close Preview</button><button class=" show-preview jq-save-margin jq-button-no-style">   Preview</button></a>
-               
-            </li>
-            <li><a href="#" target="_blank" style="" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs jq-button-no-style jq-font-bold"> 
-               
-                          <span style=" margin-top: -5px; display: block;">  Live Preview</span>
-                
-               </a>
+                        <li><a href="#">
+                            <button class=" create-layout-show-button jq-save-margin jq-button-no-style">Layout</button></a>
 
-            </li>
-            <li><a href="#"><button class="btn btn-toolbar btn-xs  jq-button-no-style  jq-show-plus " >Rows( Show [+] )</button><button class="btn btn-toolbar  btn-xs jq-hide-plus  jq-button-no-style  display-none" >Rows ( Hide [+] )</button></a>
-                
-            </li>
-        </ul>
-    </li>
-    <li>
-        <a href="?3">Delivery</a>
-        <ul>
-            <li><a href="?31">Tab menu 3-1</a></li>
-            <li><a href="?32">Tab menu 3-2</a></li>
-        </ul>
-    </li>
-    <li><a href="?4">Contact Us</a></li>
-</ul>
+                        </li>
+                        <li><a href="#">
+                            <button class=" close-preview jq-save-margin jq-button-no-style ">Close Preview</button>
+                            <button class=" show-preview jq-save-margin jq-button-no-style">Preview</button></a>
+
+                        </li>
+                        <li><a href="#" target="_blank" style="" class="anchor-show-live-preview jq-save-margin btn btn-toolbar btn-xs jq-button-no-style jq-font-bold">
+
+                            <span style="margin-top: -5px; display: block;">Live Preview</span>
+
+                        </a>
+
+                        </li>
+                        <li><a href="#">
+                            <button class="btn btn-toolbar btn-xs  jq-button-no-style  jq-show-plus ">Rows( Show [+] )</button>
+                            <button class="btn btn-toolbar  btn-xs jq-hide-plus  jq-button-no-style  display-none">Rows ( Hide [+] )</button></a>
+
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="?3">Delivery</a>
+                    <ul>
+                        <li><a href="?31">Tab menu 3-1</a></li>
+                        <li><a href="?32">Tab menu 3-2</a></li>
+                    </ul>
+                </li>
+                <li><a href="?4">Contact Us</a></li>
+            </ul>
 
 
-            <div id="tabs" style="display:none;">
+            <div id="tabs" style="display: none;">
                 <ul>
                     <li><a href="#tabs-general">General</a></li>
                     <li><a href="#tabs-insert">Insert</a></li>
@@ -527,25 +583,25 @@
                 <div id="tabs-general" class="row">
 
                     <div class="col-xs-48">
-                       
-
-                       
-                      
-                       
 
 
-                       
 
 
-                        
-                      
-                       <%-- <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
+
+
+
+
+
+
+
+
+                        <%-- <button class="properties-button  btn btn-toolbar btn-xs btn jq-save-margin">
                             <img alt="" class="settings-img" src="/content/settings/settings.png" />
                             Properties
 
                         </button>--%>
 
-                      <%--  <span id="control-align" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+                        <%--  <span id="control-align" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
 
                             <span style="color: white; background-color: black; padding: 5px;">Align : 
 
@@ -562,10 +618,10 @@
                         </span>--%>
 
 
-                       <%-- <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                        <%-- <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
                             Download Site</button>--%>
 
-                       <%-- <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+                        <%-- <span id="control-object-move" class="control-drag-anywhere" style="background-color: black; border: 2px solid #1885A9; display: inline-block; padding: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
                             <span style="color: white; background-color: black; padding: 5px;">Move : </span>
 
                             <button class="button-move-left  btn btn-toolbar btn-xs btn jq-save-margin">
@@ -574,7 +630,7 @@
                             <button class="button-move-right  btn btn-toolbar btn-xs btn jq-save-margin">
                                 Right</button>--%>
 
-                            <%-- 
+                        <%-- 
                         
                         <button class="button-move-up  btn btn-toolbar btn-xs btn jq-save-margin">
                         Up</button>
@@ -584,8 +640,6 @@
                       
                             
                         </span>--%>
-
-
                     </div>
 
                 </div>
@@ -615,8 +669,10 @@
                 <div class="jqte-toolbar">
 
 
-                    <div style="display:inline-block; color:white; cursor:pointer;" 
-                        onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); "> &nbsp; &nbsp; Close </div>
+                    <div style="display: inline-block; color: white; cursor: pointer;"
+                        onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
+                      &nbsp; &nbsp; Close
+                    </div>
                     <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
                     <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
                         <li>

@@ -1,11 +1,14 @@
 ﻿
 .editor{
-    z-index:999999999999999999999999;
+    /*z-index:999999999999999999999999;*/
     display:none;
     position:fixed !important;
 
     left:500px;
-    top:6px;
+    top:8px;
+
+    left: 20px;
+    top: 48px;
     
 }
 
@@ -25,6 +28,8 @@
     padding: 3px;
     color: white;
     border: none;
+    text-align:left;
+    padding:6px;
    
 }
 
@@ -69,14 +74,14 @@
     background-color: black;
     display: inline-block;
    
-    padding: 10px;
-    padding-bottom: 14px;
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
+    padding: 5px;;
+    
+    /*-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);*/
 
-    border:1px solid black;
-    border-radius:5px;
+    /*border:1px solid black;
+    border-radius:5px;*/
 }
 
 span {

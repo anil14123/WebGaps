@@ -263,7 +263,7 @@ export module Common {
                     " @media (max-width: 980px) { .page-margin { width: auto !important; } }" + 
                     " .jq-plus-element { display:none !important; } " +
                     " .jq-row-plus-container { display:none !important; } " +
-                    " .row { margin:0; padding:0; } " +
+                    " .row { margin:0; padding:0; clear:both; } " +
                     " .column { margin:0; padding:0; } " +
                     ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:1px;}" +
                     " .image-text-other .adjust-image-text-other-left{ float: left; } .page-marker{display:none !important;} " +

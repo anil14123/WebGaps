@@ -267,7 +267,7 @@ export module ContextMenu {
 
             new impLink.Link.LinkJQ().Init();
 
-            jQuery(".li.ctx-menu-insert-link").on("click", function () {
+            jQuery(".ctx-menu-insert-link").on("click", function () {
 
                 window.smartObj = null;
 
@@ -286,7 +286,7 @@ export module ContextMenu {
 
             new impHtml.Html.HtmlJQ().Init();
 
-            jQuery(".li.ctx-menu-insert-html").on("click", function () {
+            jQuery(".ctx-menu-insert-html").on("click", function () {
 
                 window.smartObj = null;
 

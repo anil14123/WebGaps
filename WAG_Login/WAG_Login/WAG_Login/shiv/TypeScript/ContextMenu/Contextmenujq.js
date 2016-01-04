@@ -160,7 +160,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             };
             ContextMenuJQ.AttachInsertLink = function () {
                 new impLink.Link.LinkJQ().Init();
-                jQuery(".li.ctx-menu-insert-link").on("click", function () {
+                jQuery(".ctx-menu-insert-link").on("click", function () {
                     window.smartObj = null;
                     if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                         return;
@@ -171,7 +171,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             };
             ContextMenuJQ.AttachInsertHTML = function () {
                 new impHtml.Html.HtmlJQ().Init();
-                jQuery(".li.ctx-menu-insert-html").on("click", function () {
+                jQuery(".ctx-menu-insert-html").on("click", function () {
                     window.smartObj = null;
                     if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                         return;
