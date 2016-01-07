@@ -87,6 +87,10 @@
     
 }
 
+.jq-plus-element-content-image{
+    height:100%;
+}
+
 .jq-plus {
     padding: 2px;
     color: white;
