@@ -39,7 +39,7 @@ export module Spacer {
 
                     spacer.addClass("empty-spacer");
 
-                    spacer.html("<center>Space</center>");
+                    spacer.html("<center></center>");
 
                     plusContainer.find(".jq-plus-content").append(spacer);
 

@@ -19,7 +19,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Page/Context/ContextJ
                         plusContainer.removeClass("jq-plus-container-not-used");
                         var spacer = jQuery(document.createElement("div"));
                         spacer.addClass("empty-spacer");
-                        spacer.html("<center>Space</center>");
+                        spacer.html("<center></center>");
                         plusContainer.find(".jq-plus-content").append(spacer);
                         jQuery(emptyc).append(plusContainer);
                         if (window.smartObj == null || window.smartObj.command == "") {

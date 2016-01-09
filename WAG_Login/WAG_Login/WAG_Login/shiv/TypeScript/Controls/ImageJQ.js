@@ -157,6 +157,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         plusContainer.addClass("design-css");
                         plusContainer.addClass("design-empty-text-css");
                         plusContainer.removeClass("jq-plus-container");
+                        plusContainer.find(".jq-plus-element-content").addClass("jq-plus-element-content-image");
                         var emptycontainer = document.createElement("div");
                         plusContainer.find(".adjust-image-text-other").remove();
                         plusContainer.css("height", "200px");
