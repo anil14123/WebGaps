@@ -313,6 +313,14 @@ blockquote{
 
 }
 
+.table-row{
+    display:table-row;
+}
+
+.table-cell{
+    display:table-cell;
+}
+
 .empty-container-menu {
     display: block;
    max-width:100%;   

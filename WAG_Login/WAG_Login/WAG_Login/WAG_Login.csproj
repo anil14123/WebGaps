@@ -251,6 +251,15 @@
     <Content Include="Content\Cursor\right.png" />
     <Content Include="Content\Drag\drag.jpg" />
     <Content Include="Content\Drag\drag.png" />
+    <Content Include="Content\Images\Align Icons\left.png" />
+    <Content Include="Content\Images\Align Icons\middle.png" />
+    <Content Include="Content\Images\Align Icons\moveleft.png" />
+    <Content Include="Content\Images\Align Icons\moveright.png" />
+    <Content Include="Content\Images\Align Icons\not transparent\alignLeft.png" />
+    <Content Include="Content\Images\Align Icons\not transparent\AlignMiddle.jpg" />
+    <Content Include="Content\Images\Align Icons\not transparent\AlignRight.png" />
+    <Content Include="Content\Images\Align Icons\not transparent\leftAlign.jpg" />
+    <Content Include="Content\Images\Align Icons\right.png" />
     <Content Include="Content\Images\arrow.png" />
     <Content Include="Content\Images\colorImageBorder.png" />
     <Content Include="Content\Images\down.jpg" />

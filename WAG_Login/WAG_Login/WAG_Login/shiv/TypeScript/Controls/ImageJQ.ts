@@ -236,9 +236,9 @@ export module Image {
 
 
                 if (selectedRowOrColumn.hasClass("column") == true
-                    || selectedRowOrColumn.hasClass("empty-container-text")
-                    || selectedRowOrColumn.hasClass("empty-container-image")
-                    || selectedRowOrColumn.hasClass("empty-container")
+                    //|| selectedRowOrColumn.hasClass("empty-container-text")
+                    //|| selectedRowOrColumn.hasClass("empty-container-image")
+                    //|| selectedRowOrColumn.hasClass("empty-container")
                     || window.smartObj != null) {
 
 
@@ -324,7 +324,7 @@ export module Image {
 
                 }
                 else {
-                    errorHandler.ActionFail("You can only insert in a column or empty container [].");
+                    errorHandler.ActionFail("You can only insert in a column block.");
                 }
             }
 

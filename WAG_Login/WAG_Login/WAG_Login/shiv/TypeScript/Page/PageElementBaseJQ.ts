@@ -308,6 +308,14 @@ export module Page {
 
             this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
 
+            if (root.hasClass("empty-container-image") || root.hasClass("empty-container-text")) {
+                row.wrap("<div class='table-row'></div>");
+                row.before("<div class='table-cell'></div>");
+                row.addClass("table-cell");
+
+                return row.parent();
+            }
+
             return row;
 
         }
