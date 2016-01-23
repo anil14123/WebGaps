@@ -1,6 +1,7 @@
 ﻿/// <reference path="document.d.ts" />
 
 import impStatic = require("../Constants/ConstantsJQ");
+import impUndoManager = require("../UndoManager/UndoManager");
 
 var initOnce = false;
 
@@ -82,7 +83,6 @@ export module MyJQte {
                         else {
                             jQuery(".font-name-list").css("display", "none");
                         }
-
                         break;
                     case "font-size":
                         jQuery(".jqte-editor-tool-list").not(".font-size-list").hide();
@@ -92,6 +92,7 @@ export module MyJQte {
                         else {
                             jQuery(".font-size-list ").css("display", "none");
                         }
+                        
                         break;
                     case 'fore-color':
                     case 'back-color':
@@ -114,32 +115,74 @@ export module MyJQte {
 
                         break;
                     case 'bold': jqte.SelectionSet("bold", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'italic': jqte.SelectionSet("italic", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'underline': jqte.SelectionSet('underline', null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'strike': jqte.SelectionSet("strikeThrough", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'bullet': jqte.SelectionSet("insertUnorderedList", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'number': jqte.SelectionSet("insertOrderedList", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'left': jqte.SelectionSet("justifyLeft", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'right': jqte.SelectionSet("justifyRight", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'center': jqte.SelectionSet("justifyCenter", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'full': jqte.SelectionSet("justifyFull", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'outdent': jqte.SelectionSet("outdent", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'indent': jqte.SelectionSet("indent", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case 'clear': jqte.SelectionSet("removeFormat", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case "unlink": jqte.SelectionSet("unlink", null);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                         break;
                     case "link":
 
@@ -176,6 +219,10 @@ export module MyJQte {
                 jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
                 jQuery(".jqte-editor-tool-list").hide();
 
+                var undomanager = new impUndoManager.Manager.UndoManager();
+
+                undomanager.BeforeOperation();
+
                 if (e.cancelBubble != null) e.cancelBubble = true;
                 if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
                 if (e.preventDefault) e.preventDefault();
@@ -201,6 +248,10 @@ export module MyJQte {
                     if (selectedtext != "") {
                         jqte.SelectionSet("fontName", jQuery(this).attr("value"));
                     }
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
                 }
 
                 if (jQuery(this).parent().parent().hasClass("font-size")) {
@@ -221,6 +272,10 @@ export module MyJQte {
                     if (selectedtext != "") {
                         jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).attr("value") + "px").removeAttr("size");
                     }
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
                 }
 
                 jQuery(".jqte-editor-tool-list").hide();
@@ -261,6 +316,10 @@ export module MyJQte {
                         if (selectedtext != "") {
                             jqte.SelectionSet("backColor", jQuery(this).css("background-color"));
                         }
+
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+
+                        undomanager.BeforeOperation();
                     }
                     else
                         if (name = "fore-color") {
@@ -311,6 +370,10 @@ export module MyJQte {
                             if (selectedtext != "") {
                                 jqte.SelectionSet("foreColor", jQuery(this).css("background-color"));
                             }
+
+                            var undomanager = new impUndoManager.Manager.UndoManager();
+
+                            undomanager.BeforeOperation();
                         }
 
                 }
