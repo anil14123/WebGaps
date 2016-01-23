@@ -15,6 +15,20 @@ controls {
    
 }
 
+.selected-display-element-container{
+        padding-top: 3px;
+    padding-left: 7px;
+    color: white;
+    font-weight: bold;
+}
+
+.selected-display-element{
+        color: lightgrey;
+    float: right;
+    padding-right: 10px;
+}
+
+
 .properties-tag {
     background-color: white;
     padding: 4px;

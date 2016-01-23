@@ -1,4 +1,4 @@
-﻿ign<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
+﻿ Loading Please wait...<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
-    ccc
+
     <title>Web Gaps</title>
 
 
@@ -28,7 +28,7 @@
 
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
-    <%--  <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>--%>
+      <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
@@ -254,7 +254,7 @@
 
 </head>
 <body>
-
+   
     <div class="loading hide clonable" style="padding: 0;">
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
@@ -684,7 +684,38 @@
                     </ul>
                     <button tabindex="-1" class="font-size-icon jqte-editor-tool-p" name="font-size"></button>
                     <ul tabindex="-1" class="font-size-list font-size jqte-editor-tool-list">
+                          <li style="height:60px;">
+                              <button class="jqte-editor-tool-c" style="font-size:9px;" value="9">Smaller Text</button>
+                        </li>
+                         <li style="height:60px;">
+                              <button class="jqte-editor-tool-c" style="font-size:12px;" value="12">Medium Text</button>
+                        </li>
                         <li>
+                              <button class="jqte-editor-tool-c" value="32" style="font-size:32px;">Heading 1</button>
+                        </li>
+                          <li style="height:60px;">
+                              <button class="jqte-editor-tool-c" style="font-size:24px;  float:none;" value="24">Heading 2</button>
+                        </li>
+                         <li  style="float:none;" >
+                            
+                        </li>
+                         <li >
+                              <button class="jqte-editor-tool-c" style="font-size:19px;" value="19">Heading 3</button>
+                        </li>
+                       
+                         <li style="height:40px;">
+                              <button class="jqte-editor-tool-c" style="font-size:16px;" value="16">Heading 4</button>
+                        </li>
+                         <li style="height:40px;">
+                              <button class="jqte-editor-tool-c" style="font-size:14px; " value="14">Heading 5</button>
+                        </li>
+                          <li style="height:40px;">
+                              <button class="jqte-editor-tool-c" style="font-size:13px; " value="13">Heading 6</button>
+                        </li>
+                          <li style="float:none;" >
+                            <button class="jqte-editor-tool-c" style="font-size:13px; cursor:none; " value="12"></button>
+                        </li>
+                          <li>
                             <button class="jqte-editor-tool-c" value="1">1</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="2">2</button></li>
@@ -785,6 +816,12 @@
                             <button class="jqte-editor-tool-c" value="90">90</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="100">100</button></li>
+                         <li style="float:none;" >
+                             
+                        </li>
+                        <li >
+                            Help: To apply font size to entire text : click on a empty space (not on a word) and select font size. then done.
+                        </li>
                     </ul>
                     <button class="bold-icon jqte-editor-tool" name="bold"></button>
                     <button class="italic-icon jqte-editor-tool" name="italic"></button>
@@ -955,6 +992,8 @@
 
             <div class="properties-sidebar col-xs-12"  >
                 <div class="properties-sidebar-container">
+
+                    <div class="selected-display-element-container">Selected Element : <span class="selected-display-element"></span></div>
 
                     <%-- CAccordion --%>
 
