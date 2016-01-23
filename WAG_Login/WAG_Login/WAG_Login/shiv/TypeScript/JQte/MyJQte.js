@@ -173,11 +173,31 @@ define(["require", "exports", "../Constants/ConstantsJQ"], function (require, ex
                 });
                 $(".jqte-editor-tool-c").mousedown(function (e) {
                     if (jQuery(this).parent().parent().hasClass("font-name")) {
-                        jqte.SelectionSet("fontName", jQuery(this).attr("value"));
+                        jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                        jqte.SelectionSet("foreColor", "#afafaf");
+                        var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                        jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                        if (selectedtext == "") {
+                            var selectedElement = jQuery(".image-selection").last();
+                            selectedElement.find(".jq-text-block").css("font-family", jQuery(this).attr("value"));
+                        }
+                        if (selectedtext != "") {
+                            jqte.SelectionSet("fontName", jQuery(this).attr("value"));
+                        }
                     }
                     if (jQuery(this).parent().parent().hasClass("font-size")) {
                         jqte.SelectionSet("fontSize", 7);
-                        jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).attr("value") + "px").removeAttr("size");
+                        jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                        jqte.SelectionSet("foreColor", "#afafaf");
+                        var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                        jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                        if (selectedtext == "") {
+                            var selectedElement = jQuery(".image-selection").last();
+                            selectedElement.css("font-size", jQuery(this).attr("value") + "px");
+                        }
+                        if (selectedtext != "") {
+                            jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).attr("value") + "px").removeAttr("size");
+                        }
                     }
                     jQuery(".jqte-editor-tool-list").hide();
                     if (e.cancelBubble != null)
@@ -194,10 +214,56 @@ define(["require", "exports", "../Constants/ConstantsJQ"], function (require, ex
                     if (jQuery(".current-color-tool").length > 0) {
                         var name = jQuery(".current-color-tool").attr("name");
                         if (name == "back-color") {
-                            jqte.SelectionSet("backColor", jQuery(this).css("background-color"));
+                            jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                            jqte.SelectionSet("foreColor", "#afafaf");
+                            var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                            jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                            if (selectedtext == "") {
+                                var selectedElement = jQuery(".image-selection").last();
+                                if (selectedElement.hasClass("empty-container-text")) {
+                                    selectedElement = selectedElement.find(".jq-text-block");
+                                }
+                                selectedElement.css("background-color", jQuery(this).css("background-color"));
+                            }
+                            if (selectedtext != "") {
+                                jqte.SelectionSet("backColor", jQuery(this).css("background-color"));
+                            }
                         }
                         else if (name = "fore-color") {
-                            jqte.SelectionSet("foreColor", jQuery(this).css("background-color"));
+                            jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                            jqte.SelectionSet("foreColor", "#afafaf");
+                            var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                            jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                            if (selectedtext == "") {
+                                var selectedElement = jQuery(".image-selection").last();
+                                if (selectedElement != undefined) {
+                                    selectedElement.css("color", jQuery(this).css("background-color"));
+                                    if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
+                                        if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
+                                            jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                        }
+                                        else {
+                                            var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
+                                            jQuery("page").append(style);
+                                        }
+                                        var linkId = "#" + selectedElement.find("a").first().attr("id");
+                                        var linkColor = jQuery(this).css("background-color");
+                                        var style = " " +
+                                            linkId + ":link {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":visited {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":hover {" +
+                                            " color:" + linkColor + ";}" +
+                                            linkId + ":active {" +
+                                            " color:" + linkColor + ";}";
+                                        jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
+                                    }
+                                }
+                            }
+                            if (selectedtext != "") {
+                                jqte.SelectionSet("foreColor", jQuery(this).css("background-color"));
+                            }
                         }
                     }
                     jQuery(".jqte-editor-tool-list").hide();

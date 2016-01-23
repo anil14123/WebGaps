@@ -63,16 +63,32 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 //        jQuery(".cursor-right").css("top", e.pageY -10 + "px");
                 //    }
                 //});
-                if (MouseJQ.selectedElement != undefined && MouseJQ.selectedElement.length > 0) {
+                if (MouseJQ.selectedElement != undefined) {
                     // this is the previous element...
                     MouseJQ.selectedElement.removeClass("image-selection");
                     MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
                 }
+                // safety
+                jQuery(".image-selection").removeClass("image-selection");
                 MouseJQ.selectedElement = jQuery(e.target);
                 MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
                 if (MouseJQ.selectedElement.hasClass("key") == false) {
                     MouseJQ.selectedElement = jQuery("#noelement");
                 }
+                ////////// detecting selected object///////
+                if (MouseJQ.selectedElement.hasClass("column")) {
+                    jQuery(".selected-display-element").text("Column");
+                }
+                else if (MouseJQ.selectedElement.hasClass("row")) {
+                    jQuery(".selected-display-element").text("Row");
+                }
+                else if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                    jQuery(".selected-display-element").text("Text Block");
+                }
+                else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
+                    jQuery(".selected-display-element").text("Image");
+                }
+                ///////////////////////
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
                     jQuery(".design-page-row").hide();
                     MouseJQ.selectedElement.parent().children(".design-page-row").show();

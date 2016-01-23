@@ -194,8 +194,14 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 if (root == undefined) {
                     root = this.Get();
                 }
-                jQuery(row).prepend("<span class=\"design-page-row design-square-row\"></span>");
+                jQuery(row).prepend("<span title='Row' class=\"design-page-row design-square-row\"></span>");
                 this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
+                if (root.hasClass("empty-container-image") || root.hasClass("empty-container-text")) {
+                    row.wrap("<div class='table-row'></div>");
+                    row.before("<div class='table-cell'></div>");
+                    row.addClass("table-cell");
+                    return row.parent();
+                }
                 return row;
             };
             // Adjust element

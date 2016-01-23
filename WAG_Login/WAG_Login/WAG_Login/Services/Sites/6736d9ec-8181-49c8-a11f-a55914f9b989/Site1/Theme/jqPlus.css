@@ -22,8 +22,8 @@
 
 
 .jq-plus-container-text {
-    display: table;
-    float: left;
+    display: table-cell;
+   
     position: relative;
     box-sizing: border-box;
     max-width :100%;

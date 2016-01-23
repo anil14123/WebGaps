@@ -144,9 +144,6 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                     //    "</div>";
                     //jQuery(tbContainer).append(smartMenu);
                     if (selectedRowOrColumn.hasClass("column") == true
-                        || selectedRowOrColumn.hasClass("empty-container-text")
-                        || selectedRowOrColumn.hasClass("empty-container-image")
-                        || selectedRowOrColumn.hasClass("empty-container")
                         || window.smartObj != null) {
                         //var emptyc = document.createElement("span");
                         //jQuery(emptyc).addClass("empty-container key design-css design-empty-css");
@@ -197,7 +194,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     else {
-                        errorHandler.ActionFail("You can only insert in a column or empty container [].");
+                        errorHandler.ActionFail("You can only insert in a column block.");
                     }
                 }
                 jQuery(".image-library-image").removeClass("image-library-select");

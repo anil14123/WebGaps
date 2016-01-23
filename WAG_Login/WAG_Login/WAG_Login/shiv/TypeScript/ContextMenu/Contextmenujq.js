@@ -181,18 +181,44 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             };
             ContextMenuJQ.AttachInsertText = function () {
                 jQuery(".li.smart-menu-insert-text").on("click", function () {
-                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
-                        return;
-                    }
-                    ContextMenuJQ.ShowControlInsertText();
+                    //if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    //    return;
+                    //}
+                    //ContextMenuJQ.ShowControlInsertText();
+                    impText.Text.TextJQ.InsertTextBlock("Sample text to edit");
                     impText.Text.TextJQ.ProcessSelectNotify();
                 });
                 jQuery(".li.ctx-menu-insert-text").on("click", function () {
                     window.smartObj = null;
-                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
-                        return;
-                    }
-                    ContextMenuJQ.ShowControlInsertText();
+                    //if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                    //    return;
+                    //}
+                    //ContextMenuJQ.ShowControlInsertText();
+                    impText.Text.TextJQ.InsertTextBlock("Sample text to edit");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-normal-text").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock(" Sample text to edit");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-heading-1").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock("<h1> Heading1 to edit</h1>");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-heading-2").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock("<h2> Heading2 to edit</h2>");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-heading-3").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock("<h3> Heading3 to edit</h3>");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-heading-4").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock("<h4> Heading4 to edit</h4>");
+                    impText.Text.TextJQ.ProcessSelectNotify();
+                });
+                jQuery(".tool-heading-5").on("click", function () {
+                    impText.Text.TextJQ.InsertTextBlock("<h5> Heading5 to edit</h5>");
                     impText.Text.TextJQ.ProcessSelectNotify();
                 });
             };

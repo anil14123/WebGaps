@@ -95,20 +95,24 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                                 var anyJQ = new impAny.Page.AnyJQ("");
                                 //jQuery(".column").removeClass("column-layout-border-yellow");
                                 //jQuery(".column").removeClass("column-layout-border-brown");
-                                var staticElement = "<span class=\"page-static-element-circle design-root-elements-static\"> </span>";
+                                var staticElement = "<span title class=\"page-static-element-circle design-root-elements-static\"> </span>";
                                 jQuery("page .root-elements").html("");
                                 anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "", undefined, undefined);
-                                jQuery(".jq-Header").prepend(staticElement);
+                                var newStaticElementWithTitle = staticElement.replace("title", "title='Header'");
+                                jQuery(".jq-Header").prepend(newStaticElementWithTitle);
                                 var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
                                 adjustColumnHeightMB.height = 50;
                                 anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "", undefined, adjustColumnHeightMB);
-                                jQuery(".jq-MenuBar").prepend(staticElement);
+                                newStaticElementWithTitle = staticElement.replace("title", "title='Menu Bar'");
+                                jQuery(".jq-MenuBar").prepend(newStaticElementWithTitle);
                                 var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
                                 adjustColumnHeight.height = 500;
                                 anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "", undefined, adjustColumnHeight);
-                                jQuery(".jq-Content").prepend(staticElement);
+                                newStaticElementWithTitle = staticElement.replace("title", "title='Body'");
+                                jQuery(".jq-Content").prepend(newStaticElementWithTitle);
                                 anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "", undefined, undefined);
-                                jQuery(".jq-Footer").prepend(staticElement);
+                                newStaticElementWithTitle = staticElement.replace("title", "title='Footer'");
+                                jQuery(".jq-Footer").prepend(newStaticElementWithTitle);
                                 // escape key issue
                                 //if (colorToChange % 2 == 0) {
                                 //    jQuery("page .root-elements .column").addClass("column-layout-border-yellow");
