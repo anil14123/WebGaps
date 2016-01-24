@@ -340,8 +340,11 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
                                                 int pos = match.Index;
                                                 string imgStr = Obj.page.Substring(pos, match.Length);
 
+                                                imgStr = imgStr.Replace("'","\"").Replace("&quot;", "\"");
+
                                                 switch (char.ToLower(imgStr[0]))
                                                 {
+
                                                     case 'i':   // background-image: url(foo.png);
                                                         mImg = imageUrlPat.Match(imgStr);
                                                         break;
@@ -355,8 +358,6 @@ namespace WebAppGoTypeScript_X_Modulerization.Services
 
                                                 if (mImg != null)
                                                 {
-                                                    mImg = imageSrcPat.Match(imgStr);
-
                                                     string imagePath = mImg.Groups[1].Value.Trim().Replace("'", "").Replace("\"", "");
 
 
