@@ -130,20 +130,40 @@ export module Watch {
             ////////// detecting selected object///////
 
             if (MouseJQ.selectedElement.hasClass("column")) {
-                jQuery(".selected-display-element").text("Column");
+                jQuery(".selected-display-element").text("Column ( Insert item here )");
+                jQuery(".selected-display-element").css("background-color", "#ccc");
+                jQuery(".selected-display-element").css("color", "black");
             }
             else
                 if (MouseJQ.selectedElement.hasClass("row")) {
-                    jQuery(".selected-display-element").text("Row");
+                    jQuery(".selected-display-element").text("Row ( You cannot Insert item here )");
+                    jQuery(".selected-display-element").css("background-color", "orange");
+                    jQuery(".selected-display-element").css("color", "white");
                 }
                 else
                     if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
-                        jQuery(".selected-display-element").text("Text Block");
+                        jQuery(".selected-display-element").text("Text Block ( Double click to edit )");
+                        jQuery(".selected-display-element").css("background-color", "rgb(29, 154, 29)");
+                        jQuery(".selected-display-element").css("color", "white");
                     }
                     else
                         if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
-                            jQuery(".selected-display-element").text("Image");
+                            jQuery(".selected-display-element").text("Image ( You cannot Insert item here )");
+                            jQuery(".selected-display-element").css("background-color", "rgb(37, 85, 188)");
+                            jQuery(".selected-display-element").css("color", "white");
                         }
+                        else
+                            if (MouseJQ.selectedElement.hasClass("jq-normal-link")) {
+                                jQuery(".selected-display-element").text("Link ( You cannot Insert item here )");
+                                jQuery(".selected-display-element").css("background-color", "dodgerblue");
+                                jQuery(".selected-display-element").css("color", "white");
+                            }
+                            else
+                                if (MouseJQ.selectedElement.hasClass("page")) {
+                                    jQuery(".selected-display-element").text("Page ( You cannot Insert item here )");
+                                    jQuery(".selected-display-element").css("background-color", "black");
+                                    jQuery(".selected-display-element").css("color", "white");
+                                }
 
             ///////////////////////
 
@@ -169,7 +189,7 @@ export module Watch {
 
             var activeControl = MouseJQ.GetActiveControl();
             var activeSBControl = MouseJQ.GetActiveSidebarControl();
-            
+
             if (activeControl != undefined && activeControl != "") {
                 switch (activeControl.toLowerCase()) {
                     case 'add-row':
@@ -302,10 +322,10 @@ export module Watch {
                 circleLeftTopElement.css("left", left - 5);
                 circleLeftTopElement.css("top", top - 5);
 
-                circleLeftBottomElement.css("left", left -5);
+                circleLeftBottomElement.css("left", left - 5);
                 circleLeftBottomElement.css("top", top + heightf - 5);
 
-                circleRightTopElement.css("left", left + widthf -7);
+                circleRightTopElement.css("left", left + widthf - 7);
                 circleRightTopElement.css("top", top - 5);
 
                 circleRightBottomElement.css("left", left + widthf - 7);
@@ -358,7 +378,7 @@ export module Watch {
 
                     jQuery(".prop-sb").click(function () {
 
-                        impAddRow.Page.AddRowJQ.ProcessSelectNotify(); 
+                        impAddRow.Page.AddRowJQ.ProcessSelectNotify();
 
                         var activeSBControl = MouseJQ.GetActiveSidebarControl();
 

@@ -58,6 +58,13 @@ export module ContextMenu {
 
         public static ContextMenuBinding() {
             // context menu event ...
+
+            jQuery(document).bind("click", function (e) {
+                var contextMenu = new ContextMenuJQ();
+
+                contextMenu.DetectContextMenu();
+            });
+
             jQuery(document).bind("contextmenu", function (e) {
 
                
@@ -71,9 +78,9 @@ export module ContextMenu {
                     // adjustment based on windows
                     var pageY = e.clientY;
 
-                    if ((pageY ) >= (jQuery(window).height() - 250)) {
+                    if ((pageY) >= 350) {
 
-                        pageY = pageY - 240;
+                        pageY = pageY - jQuery("#contextMenu").height();
                     }
 
                     //var eh = new impError.ErrorHandle.ErrorJQ();
@@ -205,16 +212,16 @@ export module ContextMenu {
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
-                    jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    //jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                     jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 }

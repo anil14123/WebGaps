@@ -25,7 +25,11 @@ controls {
 .selected-display-element{
         color: lightgrey;
     float: right;
-    padding-right: 10px;
+    
+    padding: 4px;
+    margin-right: 6px;
+    font-size:smaller;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -166,6 +170,7 @@ controls {
     -moz-box-shadow: 0 0 10px #414145;
     -webkit-box-shadow: 0 0 10px #414145;
     box-shadow: 0 0 10px #414145;
+    background-color:white;
 }
 
 .controls-pinned-wrapper {
@@ -240,6 +245,8 @@ controls {
     overflow-y: auto;
     max-height: 500px;
     cursor: pointer;
+
+    background-color:white;
 }
 
 .control-properties fieldset {
@@ -591,7 +598,8 @@ controls {
     -webkit-border-radius: 5px;
     border-radius: 5px;*/
     opacity: 0.8;
-    background-color: black;
+    background-color: white;
+    border:1px solid green;
 }
 
 .image-library-image {

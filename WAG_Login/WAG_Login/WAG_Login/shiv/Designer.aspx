@@ -385,7 +385,7 @@
                     <li class='active has-sub'><a href='#'><span>Insert</span></a>
                         <ul>
                             <li class='has-sub'>
-                                <a href='#'><span>Text  <span class="float-right">></span>  </span></a>
+                                <a href='#'><span class="ctx-menu-insert">Text  <span class="float-right">></span>  </span></a>
 
                                 <ul>
                                     <li><a href='#'><span><span class="tool-normal-text btn btn-toolbar btn-xs jq-toolbar-btn">Normal Text Block</span></span></a>
@@ -415,7 +415,7 @@
                             </li>
 
                             <li class='has-sub'>
-                                <a href='#'><span>Image <span class="float-right">></span> </span></a>
+                                <a href='#'><span class="ctx-menu-insert">Image <span class="float-right">></span> </span></a>
 
                                 <ul>
                                     <li><a href='#'><span><span class="tool-image btn btn-toolbar  btn-xs jq-toolbar-btn">Single Image</span></span></a>
@@ -434,7 +434,7 @@
                                 <a href='#' ><span class="tool-html-js ctx-menu-insert-html btn btn-toolbar  btn-xs jq-toolbar-btn">Html/Javascript</span></a>
                             </li>
                             <li >
-                                <a href='#' ><span class="tool-youtube btn btn-toolbar  btn-xs jq-toolbar-btn">Youtube</span></a>
+                                <a href='#' ><span class="tool-youtube btn btn-toolbar ctx-menu-insert btn-xs jq-toolbar-btn">Youtube</span></a>
                             </li>
 
                         </ul>
@@ -956,7 +956,7 @@
         <div class="row">
             <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #D3D3D3; padding:0; overflow-y:hidden;">
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
-           <div class="page-marker design-css">PAGE</div>
+           <div class="page-marker design-css">PAGE( Select here for Page Settings. For example changing Page Background. )</div>
                     <div class="page-margin design-css design-page-margin">
            
                     <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
@@ -993,7 +993,7 @@
             <div class="properties-sidebar col-xs-12"  >
                 <div class="properties-sidebar-container">
 
-                    <div class="selected-display-element-container">Selected Element : <span class="selected-display-element"></span></div>
+                    <div class="selected-display-element-container">Selected : <span class="selected-display-element"></span></div>
 
                     <%-- CAccordion --%>
 
