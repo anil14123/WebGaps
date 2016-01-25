@@ -107,6 +107,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             if (selectedElement != undefined) {
                                 var colorOne = $(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
                                 var colorTwo = $(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
+                                colorOne = colorOne.replace("#", "");
+                                colorTwo = colorTwo.replace("#", "");
                                 var browserSpecificGradient = ["-webkit-linear-gradient", "-o-linear-gradient", "-moz-linear-gradient", "linear-gradient"];
                                 for (var i = 0; i < browserSpecificGradient.length; i++) {
                                     selectedElement.css("background", "" + browserSpecificGradient[i] + "(" + "#" + colorOne + "," + "#" + colorTwo + ")");

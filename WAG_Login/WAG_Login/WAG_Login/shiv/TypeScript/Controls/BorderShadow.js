@@ -92,6 +92,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             color = "#000000";
                         }
                         else {
+                            color = color.replace("#", "");
                             color = "#" + color;
                         }
                         var borderShadow = h + "px" + " " + v + "px" + " "
