@@ -363,6 +363,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                             || jQuery(this).hasClass("empty-container")
                             || jQuery(this).hasClass("jq-plus-container-text")
                             || jQuery(this).hasClass("jq-plus-container-image")
+                            || jQuery(this).hasClass("jq-text-block-container")
                             || jQuery(this).hasClass("root-elements")) {
                             var common = new impCommonMethods.Common.CommonMethodsJQ();
                             common.RemoveStyle(jQuery(this), "min-height");

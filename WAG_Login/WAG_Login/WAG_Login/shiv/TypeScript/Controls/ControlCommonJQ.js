@@ -16,7 +16,8 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 //impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-site-link-container");
                 //impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container");
                 impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-normal-link");
-                impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
+                // impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
+                impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-text-block-container");
                 impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
                 impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
                 impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
@@ -41,7 +42,8 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-normal-link");
-                impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
+                // impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
+                impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-text-block-container");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-image");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".column");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container");
