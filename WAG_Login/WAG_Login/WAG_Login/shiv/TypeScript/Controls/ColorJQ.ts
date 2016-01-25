@@ -160,6 +160,9 @@ export module Color {
 
                             var colorTwo = $(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
 
+                            colorOne = colorOne.replace("#", "");
+                            colorTwo = colorTwo.replace("#", "");
+
                             var browserSpecificGradient = ["-webkit-linear-gradient", "-o-linear-gradient", "-moz-linear-gradient", "linear-gradient"];
 
                             for (var i = 0; i < browserSpecificGradient.length; i++) {

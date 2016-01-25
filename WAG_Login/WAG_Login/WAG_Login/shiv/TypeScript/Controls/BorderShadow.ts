@@ -140,6 +140,7 @@ export module BorderShadow {
                         color = "#000000";
                     }
                     else {
+                        color = color.replace("#", "");
                         color = "#" + color;
                     }
 
