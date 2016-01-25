@@ -208,6 +208,7 @@ export module ContextMenu {
 
                     ) {
 
+                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
