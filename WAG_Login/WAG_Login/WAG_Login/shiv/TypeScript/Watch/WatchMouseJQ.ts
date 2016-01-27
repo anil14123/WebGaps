@@ -363,7 +363,7 @@ export module Watch {
             var activeControl = "";
             var activeControl = jQuery(".prop-sb.ui-accordion-header-active").first().attr("name");
 
-            console.log(activeControl);
+           // console.log(activeControl);
 
             return activeControl;
         }

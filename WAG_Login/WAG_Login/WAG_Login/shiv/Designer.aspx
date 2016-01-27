@@ -1355,6 +1355,187 @@
                 </div>
 
   </div>
+
+
+
+ <h3 class="prop-sb" name="bi"> &nbsp;&nbsp; Background Image</h3>
+  <div>
+   
+      <div class="control-bi-controls">
+                   
+ 
+           <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Background Image">  Background Image </span>
+                 </div>     
+              <div class="col-xs-30">
+                <input class="bi-selected-image hide" type="text" /> <button class="bi-browse" > Browse</button>
+              </div>
+            </div>
+
+
+            <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Repeat Image">   Repeat </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
+                                 <select class="ddn-control ddn-bi-repeat">
+                                      <option selected value="repeat">Repeat</option>
+                                      <option value="no-repeat">No Repeat</option>
+                                      <option value="repeat-x">Repeat-X</option>
+                                      <option value="repeat-y">Repeat-Y</option>
+                                      <option value="round">Round</option>
+                                      <option value="space">Space</option>
+                                 </select>
+                                      </div>
+              </div>
+             </div>
+                    
+
+           <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Attachment">   Attachment </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
+                                <select class="ddn-control ddn-bi-attachment">
+                                      <option selected value="scroll">Scroll</option>
+                                      <option value="fixed">Fixed</option>
+                                      <option value="local">Local</option>
+                                 </select>
+                                      </div>
+              </div>
+             </div>
+
+           <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Position">   Position </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
+                                 <select class="ddn-control ddn-bi-position">
+                                    
+                                      <option selected value="0% 0%">Left Top</option>
+                                      <option value="0% 50%">Left Center</option>
+                                      <option value="0% 100%">Left Bottom</option>
+                                      <option value="100% 0%">Right Top</option>
+                                      <option value="100% 50%">Right Center</option>
+                                      <option value="100% 100%">Right Bottom</option>
+                                      <option value="50% 0%">Center Top</option>
+                                      <option value="50% 50%">Center Center</option>
+                                      <option value="50% 100%">Center Bottom</option>
+                                 </select>
+                                      </div>
+              </div>
+             </div>
+                               
+            <fieldset class="clear row" style="border:1px solid grey; padding:5px;">
+
+                <div class="legend ">
+                                   Height * Width 
+                                    
+                                    <select class="ddn-control ddn-bi-pixel-type">
+                                      <option selected value="px">px</option>
+                                      <option value="%">%</option>
+                                 </select>
+
+                                    <button class="btn btn-default make-100">Cover 100%</button>
+
+                                </div>
+                        
+                            <div class="row">
+
+                                 <div class="bi-h-w col-xs-24" >
+                                     <input class='smart-menu-bi-height smart-menu-bi-control' />  
+                        
+                                    
+                                 </div>
+
+                                <div class="bi-h-w col-xs-24" >
+                                    <input class='smart-menu-bi-width smart-menu-bi-control' />
+                        
+                                    
+                                </div>
+                            </div>
+
+                         </fieldset>
+                    
+                   <button class="remove-bi btn btn-danger btn-sm" style="margin:2px;">Clear Background Image</button>
+                </div>
+
+  </div>
+
+ <h3 class="prop-sb" name="bs"> &nbsp;&nbsp; Border Shadow / Glow</h3>
+  <div>
+   
+         <div class="control-bs-controls">
+                  
+                           <%-- <div class="page-name legend ">
+                               
+                            </div>--%>
+                           
+                  
+                             <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Horizontal Spacing"> Horizontal </span>
+                 </div>     
+              <div class="col-xs-30">
+                  <input class="control-b-s-h control-b-s" value="0"/>
+              </div>
+            </div>
+
+                        
+                             <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Vertical Spacing">Vertical </span>
+                 </div>     
+              <div class="col-xs-30">
+                  <input class="control-b-s-v control-b-s" value="0" />
+              </div>
+            </div>
+
+
+                          <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Blur"> Blur </span>
+                 </div>     
+              <div class="col-xs-30">
+                    <input class="control-b-s-blur control-b-s" value="0" />
+              </div>
+            </div>
+
+
+                        
+                          <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Color"> Color </span>
+                 </div>     
+              <div class="col-xs-30">
+                    <input class="b-s-color"/>
+              </div>
+            </div>
+
+                          <center> <br />  <button class="btn btn-primary b-s-glow">Glow</button></center>
+
+                        
+                          <br />
+                             <button class="btn btn-danger b-s-remove">Clear Border Shadow</button>   
+
+                </div>
+           
+  </div>
+
+<h3 class="prop-sb" name="zindex"> &nbsp;&nbsp; Front Back Position</h3>
+  <div>
+   
+  <div class="control-z-zindex" style="background-color:black; margin:15px;"/>
+           
+  </div>
+
+
+
+
 </div>
  </div>
 
@@ -1734,10 +1915,6 @@
             
                         <fieldset class="clear">
 
-                           <%-- <div class="page-name legend ">
-                              
-                            </div>--%>
-
                             <div id="control-menu-styles" class="control-menu-styles">
                                 
                                 
@@ -1759,7 +1936,7 @@
 
         <!------------------------------ CHeight Width ---------------------------------->
 
-        <div id="control-height-width" name="height-width" class="control-page " >
+      <%--  <div id="control-height-width" name="height-width" class="control-page " >
            
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Height & Width</div>
@@ -1800,7 +1977,7 @@
                  
                 </div>
             </div>
-        </div>
+        </div>--%>
 
         
         <!------------------------------   CLinks  --------------------------------------->
@@ -1908,7 +2085,7 @@
 
           <!------------------------------   COpacity  --------------------------------------->
 
-        <div id="control-opacity" name="opacity" class="control-page" >
+      <%--  <div id="control-opacity" name="opacity" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Opacity</div>
@@ -1916,10 +2093,7 @@
                 <div class="control-opacity-controls">
                     <center>
                       
-                           <%-- <div class="page-name legend ">
-                               
-                            </div>--%>
-                           
+                        
                             <fieldset class="clear ">
 
                             <div class="legend " style="width:200px;">
@@ -1934,81 +2108,76 @@
 
                     
                 </div>
-        </div>
+        </div>--%>
 
 
           <!------------------------------   CBorderShadow  --------------------------------------->
 
-        <div id="control-border-shadow" name="bordershadow" class="control-page" >
+      <%--  <div id="control-border-shadow" name="bordershadow" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area"> Border Glow / Shadow </div>
            
                 <div class="control-bs-controls">
-                    <center>
-                      
-                           <%-- <div class="page-name legend ">
-                               
-                            </div>--%>
-                           
-                            <fieldset class="clear ">
+                  
+                  
+                             <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Horizontal Spacing"> Horizontal Spacing </span>
+                 </div>     
+              <div class="col-xs-30">
+                  <input class="control-b-s-h control-b-s" value="0"/>
+              </div>
+            </div>
 
-                            <div class="legend ">
-                               Horizontal Spacing
-                            </div>
-                                  
-                                <input class="control-b-s-h control-b-s" value="0"/>
+                        
+                             <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Vertical Spacing">Vertical Spacing </span>
+                 </div>     
+              <div class="col-xs-30">
+                  <input class="control-b-s-v control-b-s" value="0" />
+              </div>
+            </div>
 
-                            </fieldset>
 
-                          <fieldset class="clear ">
+                          <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Blur"> Blur </span>
+                 </div>     
+              <div class="col-xs-30">
+                    <input class="control-b-s-blur control-b-s" value="0" />
+              </div>
+            </div>
 
-                            <div class="legend ">
-                               Vertical Spacing
-                            </div>
-                                    <input class="control-b-s-v control-b-s" value="0" />
-                            </fieldset>
 
-                          <fieldset class="clear ">
+                        
+                          <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Color"> Color </span>
+                 </div>     
+              <div class="col-xs-30">
+                    <input class="b-s-color"/>
+              </div>
+            </div>
 
-                            <div class="legend ">
-                               Blur
-                            </div>
-                                   <input class="control-b-s-blur control-b-s" value="0" />
+                          <center>   <button class="btn btn-primary b-s-glow">Glow</button>   </center>
 
-                            </fieldset>
-
-                         <fieldset class="clear ">
-
-                            <div class="legend ">
-                               Color
-                            </div>
-                                   <input class="b-s-color"/>
-
-                            </fieldset>
-
-                         <fieldset class="clear ">
+                        
                           
-                             <button class="btn btn-primary b-s-glow">Glow</button>   
+                             <button class="btn btn-danger b-s-remove">Clear Border Shadow</button>   
 
-                          </fieldset>
-
-                          <fieldset class="clear ">
-                          
-                             <button class="btn btn-danger b-s-remove">Remove Style</button>   
-
-                          </fieldset>
                            
-                    </center>
+                    
 
                     
                 </div>
-        </div>
+        </div>--%>
 
 
          <!------------------------------   CFrontBack  --------------------------------------->
 
-        <div id="control-zindex" name="zindex" class="control-page" >
+      <%--  <div id="control-zindex" name="zindex" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Change Element To Front / Back </div>
@@ -2016,9 +2185,6 @@
                 <div class="control-zindex-controls">
                     <center>
                       
-                           <%-- <div class="page-name legend ">
-                               
-                            </div>--%>
                            
                             <fieldset class="clear ">
 
@@ -2034,12 +2200,12 @@
 
                     
                 </div>
-        </div>
+        </div>--%>
 
 
         <!------------------------------   CColor  --------------------------------------->
 
-        <div id="control-color" name="color" class="control-page" >
+     <%--   <div id="control-color" name="color" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Color</div>
@@ -2090,7 +2256,7 @@
                     
                     
                 </div>
-        </div>
+        </div>--%>
 
    
         <!------------------------------ CBi Image Lib ------------------------------------>
@@ -2102,9 +2268,7 @@
             
                         <fieldset class="clear">
 
-                           <%-- <div class="page-name legend ">
-                              
-                            </div>--%>
+                        
 
                             <div id="imageLibrary" class="image-library">
                                 
@@ -2117,7 +2281,7 @@
                         </fieldset>
 
                       <div class="controls-action"> 
-                       <a href="/Dynamic/UploadToImageLibrary.aspx" target="_blank" class="action-button action-link action-button-image-upload">Upload Image</a>
+                       <span class="btn btn-danger  btn-file">Upload<input type="file" multiple="multiple" class="image-file-upload" /></span>
                             <button class="action-button action-button-insert-bi-image">Insert</button>
                        </div>
                     
@@ -2126,23 +2290,13 @@
 
         <!------------------------------- CBI CBackground Image ------------------------------>
         
-          <div id="control-bi" name="bi" class="control-page" >
+       <%--   <div id="control-bi" name="bi" class="control-page" >
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
             <div class="control-move-area">Background Image</div>
            
                 <div class="control-bi-controls">
                    
-                      
-                           <%-- <div class="page-name legend ">
-                               
-                             </div>--%>
-              
-
-                           
-                          
-                               
-                               
 
 
                                            <div class="row">  
@@ -2245,7 +2399,7 @@
                     
                    <button class="remove-bi btn btn-danger btn-sm" style="margin:2px;">Clear Background Image</button>
                 </div>
-        </div>
+        </div>--%>
         
 
           <!------------------------------   CPadding  -------------------------------------->
@@ -2255,7 +2409,7 @@
                 /*display:none;*/
             }
         </style>
-    <div id="control-padding" name="padding" class='control-padding control-page' >
+   <%-- <div id="control-padding" name="padding" class='control-padding control-page' >
            
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
@@ -2264,10 +2418,7 @@
                 <div class="control-padding-controls">
                     <center>
                        
-                            <%--<div class="page-name legend ">
-                               
-                            </div>--%>
-
+                          
                             <div class="">
                                 <fieldset class="clear">
                                   
@@ -2346,18 +2497,18 @@
 
                     </center>
                 </div>
-          </div>
+          </div>--%>
 
 
           <!------------------------------   CMargin  -------------------------------------->
 
-        <style>            
+        <style>
             -advanced {
-            /*display:none;*/
-         }
+                /*display:none;*/
+            }
         </style>
 
-         <div id="control-margin" name="margin" class='control-margin control-page' >
+        <%-- <div id="control-margin" name="margin" class='control-margin control-page' >
            
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
@@ -2366,10 +2517,6 @@
                 <div class="control-margin-controls">
                     <center>
                        
-                            <%--<div class="page-name legend ">
-                               
-                            </div>--%>
-
                             <div class="">
                                 <fieldset class="clear">
                                   
@@ -2450,11 +2597,11 @@
 
                     </center>
                 </div>
-          </div>
+          </div>--%>
 
         <!------------------------------   CBorder  -------------------------------------->
 
-         <div id="control-border" name="border" class='control-border control-page' >
+       <%--  <div id="control-border" name="border" class='control-border control-page' >
            
             
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
@@ -2463,9 +2610,6 @@
                 <div class="control-border-controls">
                     <center>
                        
-                            <%--<div class="page-name legend ">
-                               
-                            </div>--%>
 
                             <div class="">
                                 <fieldset class="clear">
@@ -2603,21 +2747,6 @@
                                     </div>        
 
                          
-                            
-
-                                <%-- <fieldset class="clear">
-                                    
-                                     <div class="legend ">
-                                        Border Style
-                                      </div>
-                                 
-                                      <div class="border-solid border-style control-border-style-selected" style-name="solid" ></div>
-                                       <div class="border-dotted border-style " style-name="dotted" ></div>
-                                   
-                                   </fieldset>--%>
-
-                           
-
                       
 
                          <div class="controls-action">
@@ -2631,7 +2760,7 @@
                     </center>
                 </div>
           </div>
-    
+    --%>
           <!------------------------------ CInsert clipborad ------------------------------------>
 
          <div id="control-insert-clipboard" name="insert-clipborad" class="control-page" style="">

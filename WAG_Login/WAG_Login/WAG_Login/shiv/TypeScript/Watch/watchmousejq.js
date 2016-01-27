@@ -264,7 +264,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             MouseJQ.GetActiveSidebarControl = function () {
                 var activeControl = "";
                 var activeControl = jQuery(".prop-sb.ui-accordion-header-active").first().attr("name");
-                console.log(activeControl);
+                // console.log(activeControl);
                 return activeControl;
             };
             MouseJQ.prototype.WatchPage = function () {

@@ -148,7 +148,7 @@ controls {
 }
 
 .control-bs-controls {
-    width: 250px;
+    width: 300px;
 }
 
 
@@ -740,7 +740,6 @@ controls {
 
 .bi-h-w {
     float: left;
-    border: 1px solid #2b4cb8;
     padding-top: 10px;
     padding-left: 10px;
 }
