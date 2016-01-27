@@ -56,8 +56,12 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                     success: function () {
                         impImage.Image.SelfJQ.ClearImageGalaryPagingValue();
                         impImage.Image.SelfJQ.GetImages();
+                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                        errorHandler.ActionSuccess("Images Uploaded Sucessfully.");
                     },
                     error: function (request, status, error) {
+                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                        errorHandler.ActionFail("Images Uploaded Failed.(Please check file type or file size.)");
                     }
                 });
             };

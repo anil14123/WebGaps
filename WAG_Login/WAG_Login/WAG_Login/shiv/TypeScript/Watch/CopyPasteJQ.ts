@@ -208,7 +208,7 @@ export module CopyPaste {
 
 
             if (jQuery(CopiedElement).length == 0) {
-                errorHandler.ActionFail("Please select and copy/cut a element.");
+                errorHandler.ActionFail("Please copy/cut a element.");
                 return;
             }
 
@@ -247,7 +247,7 @@ export module CopyPaste {
                 }
                 else {
 
-                    errorHandler.ActionFail("Please select a [Column] to paste.<br/>Columns are marked with blue circles.");
+                    errorHandler.ActionFail("Please select a [Column] to paste.");
                 }
             }
         }

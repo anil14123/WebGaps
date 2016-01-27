@@ -1882,7 +1882,7 @@
                             
                             </div>
 
-                            <span class="btn btn-primary load-more-images">Load More Images</span>
+                            <span class="btn btn-primary load-more-images" style="margin:4px;">Load More Images</span>
                            
 
                         </fieldset>
@@ -1897,8 +1897,8 @@
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
-                           <button class="action-button action-button-change-image">Change</button>
-                            <button class="action-button action-button-insert-image">Insert</button>
+                           <button class="btn btn-primary action-button-change-image">Change</button>
+                            <button class="btn btn-primary action-button-insert-image">Insert</button>
                        
                       
                       </div>
@@ -2276,13 +2276,13 @@
                             
                             </div>
 
-                           
+                             <span class="btn btn-primary load-more-images" style="margin:4px;">Load More Images</span>
 
                         </fieldset>
 
                       <div class="controls-action"> 
                        <span class="btn btn-danger  btn-file">Upload<input type="file" multiple="multiple" class="image-file-upload" /></span>
-                            <button class="action-button action-button-insert-bi-image">Insert</button>
+                            <button class=" btn btn-primary action-button-insert-bi-image">Insert</button>
                        </div>
                     
           
@@ -3091,6 +3091,10 @@
         <ol>
             <li>If you are unable to drag a element, then press [Esc] or Escape.
             </li>
+            <li>You can only paste copied element in a column block.
+            </li>
+
+
         </ol>
     </div>
 </body>

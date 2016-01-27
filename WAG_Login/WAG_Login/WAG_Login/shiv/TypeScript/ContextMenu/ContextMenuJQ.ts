@@ -135,6 +135,7 @@ export module ContextMenu {
                 }
 
                 if (selectedElement.hasClass("jq-site-link-container")) {
+                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
@@ -235,6 +236,12 @@ export module ContextMenu {
                     jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                 }
+
+                if (selectedElement.hasClass("jq-editor-link")) {
+                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                }
+
+              
             }
 
         }

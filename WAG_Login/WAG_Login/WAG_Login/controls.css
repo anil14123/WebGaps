@@ -20,10 +20,11 @@ controls {
     padding-left: 7px;
     color: black;
     font-weight: bold;
+    font-size:smaller;
 }
 
 .selected-display-element{
-        color: lightgrey;
+        
     float: right;
     
     padding: 4px;
@@ -605,7 +606,7 @@ controls {
     border-radius: 5px;*/
     opacity: 0.8;
     background-color: white;
-    border:1px solid green;
+    border:1px dashed green;
 }
 
 .image-library-image {
@@ -619,7 +620,7 @@ controls {
 }
 
 .image-library-select {
-    border: 8px solid blue;
+    border: 2px dashed blue;
 }
 
 #control-image-library {

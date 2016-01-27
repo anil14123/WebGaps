@@ -134,7 +134,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 if (jQuery(CopiedElement).length == 0) {
-                    errorHandler.ActionFail("Please select and copy/cut a element.");
+                    errorHandler.ActionFail("Please copy/cut a element.");
                     return;
                 }
                 if (selecedElement != undefined) {
@@ -159,7 +159,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                         isCut = false;
                     }
                     else {
-                        errorHandler.ActionFail("Please select a [Column] to paste.<br/>Columns are marked with blue circles.");
+                        errorHandler.ActionFail("Please select a [Column] to paste.");
                     }
                 }
             };

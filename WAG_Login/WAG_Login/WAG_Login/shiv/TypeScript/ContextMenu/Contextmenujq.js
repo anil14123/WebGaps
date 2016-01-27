@@ -67,6 +67,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     }
                     if (selectedElement.hasClass("jq-site-link-container")) {
+                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
@@ -142,6 +143,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     if (selectedElement.hasClass("page")) {
                         jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                         jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                    }
+                    if (selectedElement.hasClass("jq-editor-link")) {
+                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     }
                 }
             };

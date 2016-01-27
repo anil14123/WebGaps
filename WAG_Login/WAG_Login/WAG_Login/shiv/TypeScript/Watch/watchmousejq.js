@@ -77,34 +77,22 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 ////////// detecting selected object///////
                 if (MouseJQ.selectedElement.hasClass("column")) {
-                    jQuery(".selected-display-element").text("Column ( Insert item here )");
-                    jQuery(".selected-display-element").css("background-color", "#ccc");
-                    jQuery(".selected-display-element").css("color", "black");
+                    jQuery(".selected-display-element").text("Column");
                 }
                 else if (MouseJQ.selectedElement.hasClass("row")) {
-                    jQuery(".selected-display-element").text("Row ( You cannot Insert item here )");
-                    jQuery(".selected-display-element").css("background-color", "orange");
-                    jQuery(".selected-display-element").css("color", "white");
+                    jQuery(".selected-display-element").text("Row");
                 }
                 else if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
-                    jQuery(".selected-display-element").text("Text Block ( Double click to edit )");
-                    jQuery(".selected-display-element").css("background-color", "rgb(29, 154, 29)");
-                    jQuery(".selected-display-element").css("color", "white");
+                    jQuery(".selected-display-element").text("Text Block");
                 }
                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
-                    jQuery(".selected-display-element").text("Image ( You cannot Insert item here )");
-                    jQuery(".selected-display-element").css("background-color", "rgb(37, 85, 188)");
-                    jQuery(".selected-display-element").css("color", "white");
+                    jQuery(".selected-display-element").text("Image");
                 }
                 else if (MouseJQ.selectedElement.hasClass("jq-normal-link")) {
-                    jQuery(".selected-display-element").text("Link ( You cannot Insert item here )");
-                    jQuery(".selected-display-element").css("background-color", "dodgerblue");
-                    jQuery(".selected-display-element").css("color", "white");
+                    jQuery(".selected-display-element").text("Link");
                 }
                 else if (MouseJQ.selectedElement.hasClass("page")) {
-                    jQuery(".selected-display-element").text("Page ( You cannot Insert item here )");
-                    jQuery(".selected-display-element").css("background-color", "black");
-                    jQuery(".selected-display-element").css("color", "white");
+                    jQuery(".selected-display-element").text("Page");
                 }
                 ///////////////////////
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
@@ -244,7 +232,6 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery("body").append(circleLeftTopElement);
                     jQuery("body").append(circleLeftBottomElement);
                     jQuery("body").append(circleRightTopElement);
-                    jQuery("body").append(circleRightBottomElement);
                 }
                 catch (ex) {
                 }
@@ -417,7 +404,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                             else {
                                 var eh = new impError.ErrorHandle.ErrorJQ();
-                                eh.ActionHelp("Please select a [Column] to paste.<br/>Columns are marked with blue circles.");
+                                eh.ActionHelp("Please select a [Column] to paste.");
                             }
                         });
                         jQuery("page").bind('cut', function () {
