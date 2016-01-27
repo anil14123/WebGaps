@@ -96,15 +96,15 @@ export module Margin {
 
                         if (jQuery($this).hasClass("control-margin-all")) {
 
-                            jQuery(".control-margin-margin").not(".control-margin-all").spinner("value", jQuery($this).val());
+                            $($this).closest(".control-margin-controls").find(".control-margin-margin").not(".control-margin-all").spinner("value", jQuery($this).val());
                         }
 
                         var common = new impCommon.Common.CommonMethodsJQ();
 
-                        var left = $(".control-margin-left").spinner("value");
-                        var top = $(".control-margin-top").spinner("value");
-                        var right = $(".control-margin-right").spinner("value");
-                        var bottom = $(".control-margin-bottom").spinner("value");
+                        var left = $($this).closest(".control-margin-controls").find(".control-margin-left").spinner("value");
+                        var top = $($this).closest(".control-margin-controls").find(".control-margin-top").spinner("value");
+                        var right = $($this).closest(".control-margin-controls").find(".control-margin-right").spinner("value");
+                        var bottom = $($this).closest(".control-margin-controls").find(".control-margin-bottom").spinner("value");
 
                         if (left != undefined) {
                             selectedElement.css("margin-left", left + "px");

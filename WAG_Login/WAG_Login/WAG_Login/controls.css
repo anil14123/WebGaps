@@ -18,7 +18,7 @@ controls {
 .selected-display-element-container{
         padding-top: 3px;
     padding-left: 7px;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -62,6 +62,7 @@ controls {
 .properties-sidebar-container{
     background-color:#D3D3D3;
     background-color:#6287A7;
+    background-color:#eee;
     height:628px;
 
     position:fixed;
@@ -74,9 +75,14 @@ controls {
     padding:5px;
 }
 
+.bi-selected-image{
+    width:130px;
+}
 
      .small-name{
          font-size:smaller;
+         position:relative;
+         top:5px;
      }
 
      .jq-plus-container-text .design-row{
@@ -268,13 +274,13 @@ controls {
 
 
 .control-page .legend {
-    background-color: lightgreen;
+    /*background-color: lightgreen;
     background-color: #99CCFF;
     background-color: #666D73;
-    background-color: #386E9C;
+    background-color: #386E9C;*/
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
+    /*color: white;*/
     padding-left: 5px;
 }
 
@@ -723,7 +729,7 @@ controls {
 }
 
 .jq-c-lable {
-    font-weight: bold;
+    font-size:smaller;
 }
 
 #control-image-bi-library {

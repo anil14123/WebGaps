@@ -7,6 +7,7 @@ import impUnodManager = require("../UndoManager/UndoManager");
 import impImage = require("../controls/imagejq");
 
 import impCommon = require("../Common/CommonEvents");
+import impCommonMethods = require("../common/commonmethodsjq");
 
 var debug = true;
 
@@ -25,6 +26,22 @@ export module BI {
 
                 if (isBIJQReady == false) {
                     isBIJQReady = true;
+
+                    jQuery(".remove-bi").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommonMethods.Common.CommonMethodsJQ();
+
+                            comm.RemoveSingleStyle(selectedElement, "background-image");
+
+                            var undo = new impUnodManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
 
 
                     jQuery(".smart-menu-bi-control").spinner({

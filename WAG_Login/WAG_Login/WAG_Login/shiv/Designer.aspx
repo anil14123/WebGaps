@@ -1,4 +1,4 @@
-﻿ Loading Please wait...<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
+﻿Loading Please wait...<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@
 
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
-      <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+    <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
@@ -243,7 +243,7 @@
         .jq-toolbar-btn, .jq-toolbar-btn:hover, .jq-toolbar-btn:focus {
             color: white;
             background-color: transparent;
-            padding:3px;
+            padding: 3px;
         }
 
         .jq-toolbar-outer-btn, .jq-toolbar-outer-btn:hover, .jq-toolbar-outer-btn:focus {
@@ -254,7 +254,7 @@
 
 </head>
 <body>
-   
+
     <div class="loading hide clonable" style="padding: 0;">
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
@@ -428,13 +428,13 @@
 
                             </li>
                             <li>
-                                <a href='#' ><span class="tool-link ctx-menu-insert-link btn btn-toolbar  btn-xs jq-toolbar-btn">Link</span></a>
+                                <a href='#'><span class="tool-link ctx-menu-insert-link btn btn-toolbar  btn-xs jq-toolbar-btn">Link</span></a>
                             </li>
                             <li>
-                                <a href='#' ><span class="tool-html-js ctx-menu-insert-html btn btn-toolbar  btn-xs jq-toolbar-btn">Html/Javascript</span></a>
+                                <a href='#'><span class="tool-html-js ctx-menu-insert-html btn btn-toolbar  btn-xs jq-toolbar-btn">Html/Javascript</span></a>
                             </li>
-                            <li >
-                                <a href='#' ><span class="tool-youtube btn btn-toolbar ctx-menu-insert btn-xs jq-toolbar-btn">Youtube</span></a>
+                            <li>
+                                <a href='#'><span class="tool-youtube btn btn-toolbar ctx-menu-insert btn-xs jq-toolbar-btn">Youtube</span></a>
                             </li>
 
                         </ul>
@@ -671,7 +671,7 @@
 
                     <div style="display: inline-block; color: white; cursor: pointer;"
                         onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
-                      &nbsp; &nbsp; Close
+                        &nbsp; &nbsp; Close
                     </div>
                     <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
                     <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
@@ -684,38 +684,36 @@
                     </ul>
                     <button tabindex="-1" class="font-size-icon jqte-editor-tool-p" name="font-size"></button>
                     <ul tabindex="-1" class="font-size-list font-size jqte-editor-tool-list">
-                          <li style="height:60px;">
-                              <button class="jqte-editor-tool-c" style="font-size:9px;" value="9">Smaller Text</button>
+                        <li style="height: 60px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 9px;" value="9">Smaller Text</button>
                         </li>
-                         <li style="height:60px;">
-                              <button class="jqte-editor-tool-c" style="font-size:12px;" value="12">Medium Text</button>
+                        <li style="height: 60px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 12px;" value="12">Medium Text</button>
                         </li>
                         <li>
-                              <button class="jqte-editor-tool-c" value="32" style="font-size:32px;">Heading 1</button>
+                            <button class="jqte-editor-tool-c" value="32" style="font-size: 32px;">Heading 1</button>
                         </li>
-                          <li style="height:60px;">
-                              <button class="jqte-editor-tool-c" style="font-size:24px;  float:none;" value="24">Heading 2</button>
+                        <li style="height: 60px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 24px; float: none;" value="24">Heading 2</button>
                         </li>
-                         <li  style="float:none;" >
-                            
+                        <li style="float: none;"></li>
+                        <li>
+                            <button class="jqte-editor-tool-c" style="font-size: 19px;" value="19">Heading 3</button>
                         </li>
-                         <li >
-                              <button class="jqte-editor-tool-c" style="font-size:19px;" value="19">Heading 3</button>
+
+                        <li style="height: 40px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 16px;" value="16">Heading 4</button>
                         </li>
-                       
-                         <li style="height:40px;">
-                              <button class="jqte-editor-tool-c" style="font-size:16px;" value="16">Heading 4</button>
+                        <li style="height: 40px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 14px;" value="14">Heading 5</button>
                         </li>
-                         <li style="height:40px;">
-                              <button class="jqte-editor-tool-c" style="font-size:14px; " value="14">Heading 5</button>
+                        <li style="height: 40px;">
+                            <button class="jqte-editor-tool-c" style="font-size: 13px;" value="13">Heading 6</button>
                         </li>
-                          <li style="height:40px;">
-                              <button class="jqte-editor-tool-c" style="font-size:13px; " value="13">Heading 6</button>
+                        <li style="float: none;">
+                            <button class="jqte-editor-tool-c" style="font-size: 13px; cursor: none;" value="12"></button>
                         </li>
-                          <li style="float:none;" >
-                            <button class="jqte-editor-tool-c" style="font-size:13px; cursor:none; " value="12"></button>
-                        </li>
-                          <li>
+                        <li>
                             <button class="jqte-editor-tool-c" value="1">1</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="2">2</button></li>
@@ -816,11 +814,8 @@
                             <button class="jqte-editor-tool-c" value="90">90</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="100">100</button></li>
-                         <li style="float:none;" >
-                             
-                        </li>
-                        <li >
-                            Help: To apply font size to entire text : click on a empty space (not on a word) and select font size. then done.
+                        <li style="float: none;"></li>
+                        <li>Help: To apply font size to entire text : click on a empty space (not on a word) and select font size. then done.
                         </li>
                     </ul>
                     <button class="bold-icon jqte-editor-tool" name="bold"></button>
@@ -1049,6 +1044,29 @@
               </div>
              </div>
                     
+
+            <div style="background-color:lightgrey; text-align:center;">Color Gradient</div>
+                 
+            
+             <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Start Color">Start Color </span>
+                 </div>
+              <div class="col-xs-30">
+                    <input type="text" value="#ffffff" class="control-color-gradient-color-1 fb-color-picker-gradient" />
+              </div>
+             </div>
+            
+              <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="End Color">End Color </span>
+                 </div>
+              <div class="col-xs-30">
+                    <input type="text" value="#ffffff" class="control-color-gradient-color-2 fb-color-picker-gradient" />
+              </div>
+             </div>                   
+                 <button class="remove-gradient btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Color</button>                   
+             
          </div>
 
   </div>
@@ -1154,11 +1172,17 @@
       <div>
           <br />
 
+           <div style="background-color:lightgrey; text-align:center;">Border Radius</div>
+
       <div style="padding-left:15px;" class="row">
          <div class="control-border-controls">
            <span class="small-name" title="Border Radius">Border Radius </span> <input class="control-border-thickness-radius " />
          </div>
       </div>
+          <br />
+          <div>Help: Set border radius after setting border above.</div>
+
+           <button class="remove-border btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Border</button>     
   </div>
                          
                   
@@ -1211,10 +1235,12 @@
                                       </div>
 
                                     <div class="col-xs-24 column-no-pad"> 
-                                        <span class="small-name"  title="Bottom">Bottom</span>   <input class="control-padding-bottom control-padding-padding" />
+                                        <span class="small-name"  title="Bottom">Bott</span>   <input class="control-padding-bottom control-padding-padding" />
                                     </div>
                                      
                                     </div>
+                                <br />
+                                 <button class="remove-padding btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Padding</button>     
 
                                   <%-- <input class="control-border-thickness-all control-border-thickness" />
                                          <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
@@ -1280,11 +1306,15 @@
                                       </div>
 
                                     <div class="col-xs-24 column-no-pad"> 
-                                        <span class="small-name"  title="Bottom">Bottom</span>  
+                                        <span class="small-name"  title="Bottom">Bott</span>  
                                          <input class="control-margin-bottom control-margin-margin" />
                                     </div>
                                      
                                     </div>
+                                <br />
+
+                                  <button class="remove-margin btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Margin</button>     
+
 
                                   <%-- <input class="control-border-thickness-all control-border-thickness" />
                                          <input type="text" id="color-picker" value="000000" class="color-picker color-picker-all" />
@@ -1316,9 +1346,10 @@
                            
                           
                                <span class="small-name">Opacity</span>    <div class="control-o-opacity" style="background-color:black; margin:15px;"/>
-
-                      
+                                              
                     </center>
+          <br />
+          <button class="remove-opacity btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Opacity</button>     
 
                     
                 </div>
@@ -1738,30 +1769,30 @@
                        
                           <div id="sm-controls" class='hw-menu-controls smart-menu-controls-table smart-menu-height-width'>
 
-                               
-            <fieldset class="clear ">
-              
-                            <div class="legend ">
-                               Height 
-                            </div>
-             
-                <div style="margin:5px;">
-                        <input class='smart-menu-height smart-menu-control'  />
-                      </div>
-                </fieldset>
 
-                   <fieldset class="clear ">
 
-                            <div class="legend ">
-                               Width 
-                            </div>
-                       <div style="margin:5px;">
-                        <input class='smart-menu-width smart-menu-control' />
-                        </div>
-                        
-                     </fieldset>
-           
+                               <div class="row">    
+                <div class="col-xs-12">
+                 <span class="small-name"  title="Height"> Height  </span>
+                </div>   
+        
+                <div class="col-xs-36">
+                 <input class='smart-menu-height smart-menu-control'  />
+                </div>  
+               </div>     
+
+                                 <div class="row">    
+                <div class="col-xs-12">
+                 <span class="small-name" title="Width">  Width  </span>
+                </div>   
+        
+                <div class="col-xs-36">
+                 <input class='smart-menu-width smart-menu-control' />
+                </div>  
+               </div>     
+
        
+                
 
         </div>
 
@@ -2014,47 +2045,49 @@
             <div class="control-move-area">Color</div>
            
                 <div class="control-color-controls">
-                    <center>
-                      
-                           <%-- <div class="page-name legend ">
-                               
-                            </div>--%>
-                           
-                            <fieldset class="clear ">
+                   
+                     <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Foreground Color">  Front </span>
+                 </div>     
+              <div class="col-xs-30">
+                 <input type="text" value="#ffffff" class="control-color-foreground-color fb-color-picker" />
+              </div>
+            </div>
+            
+            <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Background Color"> Background </span>
+                 </div>
+              <div class="col-xs-30">
+                    <input type="text" value="#ffffff" class="control-color-background-color fb-color-picker" />
+              </div>
+             </div>
+                    
 
-                            <div class="legend ">
-                               Foreground 
-                            </div>
-                                    <input type="text" value="#ffffff" class="control-color-foreground-color fb-color-picker" />
-
-                            </fieldset>
-
-                             <fieldset class="clear ">
-
-                            <div class="legend ">
-                               Background 
-                            </div>
-                                    <input type="text" value="#ffffff" class="control-color-background-color fb-color-picker" />
-
-                            </fieldset>
-
-                            <fieldset class="clear row">
-
-                                 
-                            <div class="legend ">
-                               Gradient 
-                            </div>
-                                     
-                                 <input type="text" value="#ffffff" class="control-color-gradient-color-1 fb-color-picker-gradient" />
-                                
-                                <input type="text" value="#ffffff" class="control-color-gradient-color-2 fb-color-picker-gradient" />
-                                
-                                
-                                <button class="remove-gradient" style="margin:2px;" >Clear</button>
-                            </fieldset>
-
-                    </center>
-
+            <div style="background-color:lightgrey; text-align:center;">Color Gradient</div>
+                 
+            
+             <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Start Color">Start Color </span>
+                 </div>
+              <div class="col-xs-30">
+                    <input type="text" value="#ffffff" class="control-color-gradient-color-1 fb-color-picker-gradient" />
+              </div>
+             </div>
+            
+              <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="End Color">End Color </span>
+                 </div>
+              <div class="col-xs-30">
+                    <input type="text" value="#ffffff" class="control-color-gradient-color-2 fb-color-picker-gradient" />
+              </div>
+             </div>                   
+                <button class="remove-gradient btn btn-danger btn-sm" style="margin:2px;" >Clear Color</button>                  
+             
+                    
                     
                 </div>
         </div>
@@ -2107,34 +2140,27 @@
               
 
                            
-                            <fieldset class="clear ">
+                          
+                               
+                               
 
-                                <div class="legend ">
-                                   Background Image
-                                    <%-- &nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp; <input type="checkbox" class="bi-body"/> Apply To Page--%>
-                                </div>
-                                  <div class="cntrls">
-                                <input class="bi-selected-image" type="text" />
 
-                                <button class="bi-browse" > Browse</button>
-                                    <%-- <center><b>OR</b></center>
-                                        <div class="float-left">
-                             <span class="jq-c-lable">Paste Image Url </span>
-                            </div>
+                                           <div class="row">  
+             <div class="col-xs-18">
+               <span class="small-name" title="Background Image">  Background Image </span>
+                 </div>     
+              <div class="col-xs-30">
+                <input class="bi-selected-image" type="text" /> <button class="bi-browse" > Browse</button>
+              </div>
+            </div>
 
-                      <input type="text" class="input-sm  internet-bi-image-url" />
 
-                                   
-
-                                      </div>--%>
-                            </fieldset>
-
-                             <fieldset class="clear ">
-
-                                <div class="legend ">
-                                    Repeat
-                                </div>
-                                  <div class="cntrls">
+                     <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Repeat Image">   Repeat </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
                                  <select class="ddn-control ddn-bi-repeat">
                                       <option selected value="repeat">Repeat</option>
                                       <option value="no-repeat">No Repeat</option>
@@ -2144,32 +2170,32 @@
                                       <option value="space">Space</option>
                                  </select>
                                       </div>
-                            </fieldset>
+              </div>
+             </div>
+                    
 
-                            <fieldset class="clear row">
-
-                                 
-                                <div class="legend ">
-                                   Attachment 
-                                </div>
-                                     <div class="cntrls">
+                         <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Attachment">   Attachment </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
                                 <select class="ddn-control ddn-bi-attachment">
                                       <option selected value="scroll">Scroll</option>
                                       <option value="fixed">Fixed</option>
                                       <option value="local">Local</option>
                                  </select>
-                                         </div>
+                                      </div>
+              </div>
+             </div>
 
-                            </fieldset>
-
-                             <fieldset class="clear row">
-
-                                 
-                                <div class="legend ">
-                                   Position 
-                                </div>
-                                 <div class="cntrls">
-                                  <select class="ddn-control ddn-bi-position">
+                      <div class="row">
+             <div class="col-xs-18">
+                <span class="small-name" title="Position">   Position </span>
+                 </div>
+              <div class="col-xs-30">
+                       <div class="cntrls">
+                                 <select class="ddn-control ddn-bi-position">
                                     
                                       <option selected value="0% 0%">Left Top</option>
                                       <option value="0% 50%">Left Center</option>
@@ -2181,9 +2207,10 @@
                                       <option value="50% 50%">Center Center</option>
                                       <option value="50% 100%">Center Bottom</option>
                                  </select>
-                                     </div>
-                            </fieldset>
-
+                                      </div>
+              </div>
+             </div>
+                               
                         <fieldset class="clear row">
 
                                  
@@ -2216,6 +2243,7 @@
 
                          </fieldset>
                     
+                   <button class="remove-bi btn btn-danger btn-sm" style="margin:2px;">Clear Background Image</button>
                 </div>
         </div>
         
@@ -2310,7 +2338,7 @@
 
                          <div class="controls-action">
                 
-                           <a class="padding-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
+                           <button class="remove-padding btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Padding</button>     <a class="padding-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
                          
                          </div>
 
@@ -2323,10 +2351,10 @@
 
           <!------------------------------   CMargin  -------------------------------------->
 
-        <style>
-            .jq-margin-advanced {
-                /*display:none;*/
-            }
+        <style>            
+            -advanced {
+            /*display:none;*/
+         }
         </style>
 
          <div id="control-margin" name="margin" class='control-margin control-page' >
@@ -2346,7 +2374,7 @@
                                 <fieldset class="clear">
                                   
                         
-                                    <div clas="row">
+                                    <div class="row">
                                         <div class="col-xs-48">
 
                                             <div class="row border-thickness-padding-row border-all-divider">
@@ -2414,7 +2442,7 @@
 
                          <div class="controls-action">
                 
-                           <a class="margin-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
+                           <button class="remove-margin btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Margin</button>     <a class="margin-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
                          
                          </div>
 
@@ -2594,7 +2622,7 @@
 
                          <div class="controls-action">
                 
-                           <a class="border-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
+                        <button class="remove-border btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Border</button>        <a class="border-advanced-show" style="font-weight:bold;" href="#">Advanced</a> 
                          
                          </div>
 
@@ -2722,6 +2750,7 @@
     </controls>
 
     <style>
+            
     </style>
     <div id="smInsertNextPrev" class="smart-context-menu">
 

@@ -29,6 +29,70 @@ export module Color {
             jQuery(document).ready(function () {
                 if (isColorReady == false) {
                     isColorReady = true;
+                    //// all remove methods are in color
+                    jQuery(".remove-border").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommon.Common.CommonMethodsJQ();
+
+                            comm.RemoveStyle(selectedElement, "border");
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
+
+                    jQuery(".remove-opacity").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommon.Common.CommonMethodsJQ();
+
+                            comm.RemoveStyle(selectedElement, "opacity");
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
+
+                    jQuery(".remove-padding").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommon.Common.CommonMethodsJQ();
+
+                            comm.RemoveStyle(selectedElement, "padding");
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
+
+                    jQuery(".remove-margin").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommon.Common.CommonMethodsJQ();
+
+                            comm.RemoveStyle(selectedElement, "margin");
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+                        }
+                    });
 
                     jQuery(".remove-gradient").click(function () {
 
@@ -39,6 +103,11 @@ export module Color {
                             var comm = new impCommon.Common.CommonMethodsJQ();
 
                             comm.RemoveSingleStyle(selectedElement, "background");
+                            comm.RemoveSingleStyle(selectedElement, "background-color");
+                            
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
                         }
                     });
 
@@ -130,17 +199,21 @@ export module Color {
                                 else
                                     if (jQuery(this).hasClass("control-color-background-color")) {
 
-                                    var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+                                        var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
 
 
-                                    if (selectedElement.hasClass("empty-container-text")) {
+                                        if (selectedElement.hasClass("empty-container-text")) {
 
-                                        selectedElement = selectedElement.find(".jq-text-block");
+                                            selectedElement = selectedElement.find(".jq-text-block");
+                                        }
+
+                                        colorBackground = colorBackground.replace("#", "");
+                                        selectedElement.css("background-color", "#" + colorBackground);
                                     }
 
-                                    colorBackground = colorBackground.replace("#", "");
-                                    selectedElement.css("background-color", "#" + colorBackground);
-                                }
+                                var undo = new impUndoManager.Manager.UndoManager();
+
+                                undo.BeforeOperation();
                             }
                             else {
 
@@ -169,6 +242,10 @@ export module Color {
 
                                 selectedElement.css("background", "" + browserSpecificGradient[i] + "(" + "#" + colorOne + "," + "#" + colorTwo + ")");
                             }
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
                         }
                         else {
 
@@ -223,7 +300,7 @@ export module Color {
                     //jQuery(ColorJQ.controlId).find(".control-color-foreground-color").val(str);
                     //jQuery(ColorJQ.controlId).find(".control-color-foreground-color").trigger("keyup");
 
-                    jQuery(".control-color-foreground-color").val("#"+str);
+                    jQuery(".control-color-foreground-color").val("#" + str);
                     jQuery(".control-color-foreground-color").trigger("keyup");
                 }
 
