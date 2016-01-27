@@ -127,7 +127,7 @@ rootx {
 }
 
 .design-empty-text-css {
-    outline: 1px dotted #4699e1;
+    border: 1px dotted #4699e1;
     cursor: pointer;
     max-width: 100%;
 }
