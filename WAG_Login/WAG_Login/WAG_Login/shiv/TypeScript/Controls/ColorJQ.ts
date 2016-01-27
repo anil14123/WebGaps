@@ -29,7 +29,27 @@ export module Color {
             jQuery(document).ready(function () {
                 if (isColorReady == false) {
                     isColorReady = true;
+                    
                     //// all remove methods are in color
+
+                    jQuery(".remove-bi").click(function () {
+
+                        var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement != undefined) {
+
+                            var comm = new impCommon.Common.CommonMethodsJQ();
+
+                            comm.RemoveSingleStyle(selectedElement, "background-image");
+
+                            var undo = new impUndoManager.Manager.UndoManager();
+
+                            undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
+                        }
+                    });
+
                     jQuery(".remove-border").click(function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
@@ -43,6 +63,8 @@ export module Color {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
                         }
                     });
 
@@ -59,6 +81,8 @@ export module Color {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
                         }
                     });
 
@@ -75,6 +99,8 @@ export module Color {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
                         }
                     });
 
@@ -91,6 +117,8 @@ export module Color {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
                         }
                     });
 
@@ -108,6 +136,8 @@ export module Color {
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
+
+                            impWatch.Watch.MouseJQ.ResetAfterClear();
                         }
                     });
 

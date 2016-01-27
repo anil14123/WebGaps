@@ -2955,7 +2955,9 @@
                     </ul>
                 </div>
             </li>
-            <li>
+
+            <%--Properties Menu--%>
+           <%-- <li>
                 <div class="li ctx-menu-properties">
                     Properties
                     <div class="jq-menu-arrow"></div>
@@ -3005,8 +3007,8 @@
 
                     </ul>
                 </div>
-            </li>
-
+            </li>--%>
+            <%--Properties Menu End--%>
             <li>
                 <div class="li ctx-menu-cut">Cut</div>
             </li>

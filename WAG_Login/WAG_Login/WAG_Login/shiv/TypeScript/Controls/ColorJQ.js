@@ -13,11 +13,66 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 jQuery(document).ready(function () {
                     if (isColorReady == false) {
                         isColorReady = true;
+                        //// all remove methods are in color
+                        jQuery(".remove-bi").click(function () {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement != undefined) {
+                                var comm = new impCommon.Common.CommonMethodsJQ();
+                                comm.RemoveSingleStyle(selectedElement, "background-image");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
+                            }
+                        });
+                        jQuery(".remove-border").click(function () {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement != undefined) {
+                                var comm = new impCommon.Common.CommonMethodsJQ();
+                                comm.RemoveStyle(selectedElement, "border");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
+                            }
+                        });
+                        jQuery(".remove-opacity").click(function () {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement != undefined) {
+                                var comm = new impCommon.Common.CommonMethodsJQ();
+                                comm.RemoveStyle(selectedElement, "opacity");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
+                            }
+                        });
+                        jQuery(".remove-padding").click(function () {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement != undefined) {
+                                var comm = new impCommon.Common.CommonMethodsJQ();
+                                comm.RemoveStyle(selectedElement, "padding");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
+                            }
+                        });
+                        jQuery(".remove-margin").click(function () {
+                            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement != undefined) {
+                                var comm = new impCommon.Common.CommonMethodsJQ();
+                                comm.RemoveStyle(selectedElement, "margin");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
+                            }
+                        });
                         jQuery(".remove-gradient").click(function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveSingleStyle(selectedElement, "background");
+                                comm.RemoveSingleStyle(selectedElement, "background-color");
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
+                                impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
                         jQuery('.fb-color-picker-gradient').colorpicker({});
@@ -96,6 +151,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                         colorBackground = colorBackground.replace("#", "");
                                         selectedElement.css("background-color", "#" + colorBackground);
                                     }
+                                    var undo = new impUndoManager.Manager.UndoManager();
+                                    undo.BeforeOperation();
                                 }
                                 else {
                                 }
@@ -113,6 +170,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 for (var i = 0; i < browserSpecificGradient.length; i++) {
                                     selectedElement.css("background", "" + browserSpecificGradient[i] + "(" + "#" + colorOne + "," + "#" + colorTwo + ")");
                                 }
+                                var undo = new impUndoManager.Manager.UndoManager();
+                                undo.BeforeOperation();
                             }
                             else {
                             }

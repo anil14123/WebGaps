@@ -261,6 +261,47 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 return activeControl;
             };
+            MouseJQ.ResetAfterClear = function () {
+                var activeSBControl = MouseJQ.GetActiveSidebarControl();
+                if (activeSBControl != undefined && activeSBControl != "") {
+                    switch (activeSBControl.toLowerCase()) {
+                        case 'add-row':
+                            break;
+                        case 'height-width':
+                            impHeightWidth.Smart.SmartMenuJQ.ProcessSelectNotify();
+                            break;
+                        case 'image-library':
+                            impImage.Image.SelfJQ.ProcessSelectNotify();
+                            break;
+                        case 'color':
+                            impColor.Color.ColorJQ.ProcessSelectNotify();
+                            break;
+                        case 'border':
+                            impBorder.Border.BorderJQ.ProcessSelectNotify();
+                            break;
+                        case 'insert-text':
+                            impText.Text.TextJQ.ProcessSelectNotify();
+                            break;
+                        case 'bi':
+                            impBi.BI.BIJQ.ProcessSelectNotify();
+                            break;
+                        case 'margin':
+                            impMargin.Margin.MarginJQ.ProcessSelectNotify();
+                            break;
+                        case 'padding':
+                            impPadding.Padding.PaddingJQ.ProcessSelectNotify();
+                            break;
+                        case 'zindex':
+                            impFrontBack.FrontBack.FrontBackJQ.ProcessSelectNotify();
+                            break;
+                        case 'opacity':
+                            impOpacity.Opacity.OpacityJQ.ProcessSelectNotify();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            };
             MouseJQ.GetActiveSidebarControl = function () {
                 var activeControl = "";
                 var activeControl = jQuery(".prop-sb.ui-accordion-header-active").first().attr("name");
