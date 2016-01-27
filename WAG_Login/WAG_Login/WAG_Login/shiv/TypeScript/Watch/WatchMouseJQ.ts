@@ -335,7 +335,7 @@ export module Watch {
                 jQuery("body").append(circleLeftTopElement);
                 jQuery("body").append(circleLeftBottomElement);
                 jQuery("body").append(circleRightTopElement);
-                //jQuery("body").append(circleRightBottomElement);
+                jQuery("body").append(circleRightBottomElement);
             }
             catch (ex) {
 

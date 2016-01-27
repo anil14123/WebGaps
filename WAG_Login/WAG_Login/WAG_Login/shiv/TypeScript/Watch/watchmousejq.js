@@ -232,6 +232,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery("body").append(circleLeftTopElement);
                     jQuery("body").append(circleLeftBottomElement);
                     jQuery("body").append(circleRightTopElement);
+                    jQuery("body").append(circleRightBottomElement);
                 }
                 catch (ex) {
                 }

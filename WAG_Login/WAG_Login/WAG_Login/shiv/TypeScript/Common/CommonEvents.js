@@ -161,6 +161,8 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                 });
                 /// save ///////
                 jQuery(".jq-save").click(function () {
+                    var eh = new impError.ErrorHandle.ErrorJQ();
+                    eh.ActionHelp("Please Wait...");
                     var scripts = jQuery(document.createElement("scripts"));
                     var styles = jQuery(document.createElement("styles"));
                     var page = jQuery(document.createElement("page"));
