@@ -7,7 +7,7 @@ export module Auth {
 
         public static LoadingCounter = 0;
 
-        public static IsAuth = false;
+        public static IsAuth = true;
 
         public static AuthUrl = "/services/jquery.asmx/get";
 
@@ -70,9 +70,18 @@ export module Auth {
 
             AuthJQ.HideLoading();
 
-            var errorHandler = new impError.ErrorHandle.ErrorJQ();
+            var element = jQuery(document.createElement("div"));
+            element.attr("src", "xa.xml")
 
-            errorHandler.ActionFail("Some Problem !. <br>Try again later.");
+            jQuery("body").find("div").first().append(element);
+            jQuery("body").find("div").first().append(element.clone());
+            jQuery("body").find("div").first().append(element.clone());
+
+            AuthJQ.IsAuth = true;
+
+            //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+
+            //errorHandler.ActionFail("Some Problem !. <br>Try again later.");
         }
 
         public static HideLoading() {

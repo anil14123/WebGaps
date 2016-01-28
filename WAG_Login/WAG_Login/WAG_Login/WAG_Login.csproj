@@ -573,6 +573,7 @@
     <Content Include="shiv\SiteManager_TS\app.js" />
     <Content Include="shiv\SitesManager.aspx" />
     <Content Include="shiv\Steps.aspx" />
+    <Content Include="shiv\Tools.aspx" />
     <Content Include="shiv\TypeScript\appforRjs.js" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
@@ -943,6 +944,13 @@
     </Compile>
     <Compile Include="shiv\Steps.aspx.designer.cs">
       <DependentUpon>Steps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shiv\Tools.aspx.cs">
+      <DependentUpon>Tools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\Tools.aspx.designer.cs">
+      <DependentUpon>Tools.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.cs">
       <DependentUpon>Wag_O.tt</DependentUpon>

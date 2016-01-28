@@ -55,6 +55,13 @@ jQuery(document).ready(function () {
     if (isMainReady == false) {
         isMainReady = true;
 
+        var element = jQuery(document.createElement("div"));
+        element.attr("src", "xa.xml")
+
+        jQuery("body").find("div").first().append(element);
+        jQuery("body").find("div").first().append(element.clone());
+        jQuery("body").find("div").first().append(element.clone());
+
         // attach resizable...
         impCommonControls.ControlCommon.Code.Execute();      
 

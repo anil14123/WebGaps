@@ -651,8 +651,8 @@
 
                 <div id="tabs-image">
 
-                    <span class="btn btn-danger btn-file">Browse 
-                          Images Upload  
+                    <span class="btn btn-danger btn-file"> 
+                           Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
@@ -1892,8 +1892,8 @@
                            target="_blank" class="action-button action-link action-button-image-upload">
                            Upload Image</a>--%>
 
-                     <span class="btn btn-danger btn-file">Browse 
-                          Images Upload  
+                     <span class="btn btn-danger btn-file"> 
+                          Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
@@ -3026,6 +3026,94 @@
 
     <input type="text" id="viewstate" class="viewstate hide" value="<%=CookieValue%>" />
 
+
+     <style>
+            .insert-tools{
+                border:1px double tan;
+                border-color:tan;
+                display:inline-block;
+
+                background-color:lightgray;
+
+               font: bold 11px "helvetica neue",arial;
+
+               position:fixed;
+
+              
+               bottom:20px;
+               right:400px;
+
+               z-index:99999999999;
+
+            }
+
+            .it{
+                padding:15px;
+                font-weight:bold;
+                display:inline-block;
+
+                border-right:1px solid tan;
+                cursor:pointer;
+            }
+
+            .it-title-text{
+                padding:15px;
+                font-weight:bold;
+                background-color:burlywood;
+                 display:inline-block;
+                 border-right:1px solid tan;
+            }
+
+        </style>
+    
+        <div class="insert-tools ">
+            <span>
+            <span class="it-title-text ">Tools</span>
+                </span>
+
+            <span>
+            <span class="it-paragraph it ctx-menu-insert">Paragraph</span>
+                </span>
+
+            <span>
+            <span class="it-title it ctx-menu-insert">Title</span>
+                </span>
+
+            <span>
+            <span class="it-link it ctx-menu-insert">Link</span>
+                </span>
+
+            <span>
+            <span class="it-image it ctx-menu-insert">Image</span>
+                </span>
+
+            <span>
+            <span class="it-imageAtext it ctx-menu-insert">Image & Text</span>
+                </span>
+
+            <span>
+            <span class="it-columns it">Columns</span>
+                </span>
+
+            <span>
+            <span class="it-photo-gallery it ctx-menu-insert">Photo Gallery</span>
+                </span>
+
+            <span>
+            <span class="it-video it ctx-menu-insert">Video</span>
+                </span>
+
+            <span>
+            <span class="it-contact-form it ctx-menu-insert">Contact Form</span>
+                </span>
+
+            <span>
+            <span class="it-map it ctx-menu-insert">Map</span>
+                </span>
+        </div>
+
+
+
     <!-- sample context menu
 
         <div id="contextMenu">
@@ -3089,11 +3177,9 @@
 
     <div id="site-help">
         <ol>
-            <li>If you are unable to drag a element, then press [Esc] or Escape.
-            </li>
-            <li>You can only paste copied element in a column block.
-            </li>
-
+            <li>You can only insert elements in a column blocks.</li>
+            <li>If you are unable to drag a element, then press [Esc] or Escape.</li>
+            <li>You can only paste copied element in a column block.</li>
 
         </ol>
     </div>
