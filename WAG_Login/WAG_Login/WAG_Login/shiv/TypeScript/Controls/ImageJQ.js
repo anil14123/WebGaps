@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
+    "use strict";
     var debug = true;
     var globalImageBlockId = 0;
     var globalImageBlockContainerId = 0;
@@ -275,7 +276,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
             SelfJQ.CSSCLASS = 'jq-image-block design-image-block normal-element';
             SelfJQ.CONTAINER_CSS_CLASS = "jq-image-block-container design-image-block normal-element jq-container";
             return SelfJQ;
-        })(impPageControlNames.PageControlNamesJQ.Page.Image.Controls);
+        }(impPageControlNames.PageControlNamesJQ.Page.Image.Controls));
         Image.SelfJQ = SelfJQ;
     })(Image = exports.Image || (exports.Image = {}));
 });

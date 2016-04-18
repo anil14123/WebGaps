@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass", "../Constants/ConstantsJQ", "../ControlNames/PageControlNamesJQ", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "./FontJQ", "./TextJQ", "../SmartMenu/SmartMenuJQ", "../Common/OperationJQ"], function (require, exports, impPageCtx, impCss, impConsts, impPageControlNames, impError, impWatch, impFontList, impText, impSmartMenu, impOperaction) {
+    "use strict";
     var Page;
     (function (Page) {
         var RequiredJQ = (function () {
@@ -14,7 +15,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                 jQuery(pageId).find(".required").after("<span class='required-symbol'>*</span");
             };
             return RequiredJQ;
-        })();
+        }());
         Page.RequiredJQ = RequiredJQ;
         var AddRowJQ = (function (_super) {
             __extends(AddRowJQ, _super);
@@ -252,7 +253,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
             };
             AddRowJQ.pageId = "#control-add-row";
             return AddRowJQ;
-        })(impPageControlNames.PageControlNamesJQ.Page.AddRow.Controls);
+        }(impPageControlNames.PageControlNamesJQ.Page.AddRow.Controls));
         Page.AddRowJQ = AddRowJQ;
     })(Page = exports.Page || (exports.Page = {}));
 });

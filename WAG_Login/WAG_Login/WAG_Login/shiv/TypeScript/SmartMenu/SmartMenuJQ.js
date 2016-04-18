@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../Undomanager/undomanager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+    "use strict";
     var isSmartMenuReady = false;
     var isChangedWidth = false;
     var prevWidthValue = 0;
@@ -409,7 +410,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             SmartMenuJQ.smartMenuId = ".smart-menu";
             SmartMenuJQ.isSelectProcessing = false;
             return SmartMenuJQ;
-        })();
+        }());
         Smart.SmartMenuJQ = SmartMenuJQ;
     })(Smart = exports.Smart || (exports.Smart = {}));
 });

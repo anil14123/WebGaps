@@ -57,7 +57,7 @@ controls {
 
 .properties-sidebar{
     padding:0;
-     background-color:#D3D3D3;
+     background-color:#eee;
      height:600px;
 }
 .properties-sidebar-container{
@@ -66,10 +66,13 @@ controls {
     background-color:#eee;
     height:628px;
 
+   
+
     position:fixed;
     top:64px;
 
     overflow:scroll;
+     
 }
 
 #properties-accordion{

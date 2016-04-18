@@ -1,11 +1,12 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var CssManager;
     (function (CssManager) {
         var Menu = (function () {
             function Menu() {
             }
             return Menu;
-        })();
+        }());
         CssManager.Menu = Menu;
         var CssManagerJQ = (function () {
             function CssManagerJQ() {
@@ -66,7 +67,7 @@ define(["require", "exports"], function (require, exports) {
                 }
             };
             return CssManagerJQ;
-        })();
+        }());
         CssManager.CssManagerJQ = CssManagerJQ;
     })(CssManager = exports.CssManager || (exports.CssManager = {}));
 });

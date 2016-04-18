@@ -23,6 +23,8 @@
     text-align: center;
     cursor: pointer;
     font-family:monospace;
+    float: right;
+    padding:4px;
 }
 
 

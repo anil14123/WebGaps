@@ -1,5 +1,6 @@
 /// <reference path="document.d.ts" />
 define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoManager"], function (require, exports, impStatic, impUndoManager) {
+    "use strict";
     var initOnce = false;
     var MyJQte;
     (function (MyJQte) {
@@ -7,7 +8,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
             function JqteParams() {
             }
             return JqteParams;
-        })();
+        }());
         MyJQte.JqteParams = JqteParams;
         var jqte = (function () {
             function jqte(params) {
@@ -383,7 +384,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
             };
             jqte.ThisBrowser = navigator.userAgent.toLowerCase();
             return jqte;
-        })();
+        }());
         MyJQte.jqte = jqte;
     })(MyJQte = exports.MyJQte || (exports.MyJQte = {}));
 });

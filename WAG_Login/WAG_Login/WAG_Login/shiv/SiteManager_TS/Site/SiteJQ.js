@@ -1,5 +1,6 @@
 /// <reference path="nestable.d.ts" />
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Site;
     (function (Site) {
         var SiteJQ = (function () {
@@ -153,8 +154,8 @@ define(["require", "exports"], function (require, exports) {
             SiteJQ.prototype.AttachEditEvent = function () {
             };
             return SiteJQ;
-        })();
+        }());
         Site.SiteJQ = SiteJQ;
     })(Site = exports.Site || (exports.Site = {}));
 });
-//# sourceMappingURL=sitejq.js.map
+//# sourceMappingURL=SiteJQ.js.map

@@ -1,5 +1,6 @@
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+    "use strict";
     var isBorderReady = false;
     var borderFirstTime = 0;
     var Padding;
@@ -126,7 +127,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             PaddingJQ.controlId = ".control-padding";
             PaddingJQ.isSelectProcessing = false;
             return PaddingJQ;
-        })();
+        }());
         Padding.PaddingJQ = PaddingJQ;
     })(Padding = exports.Padding || (exports.Padding = {}));
 });

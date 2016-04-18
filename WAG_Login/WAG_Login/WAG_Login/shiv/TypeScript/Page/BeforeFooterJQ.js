@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ"], function (require, exports, impPage, impConsts) {
+    "use strict";
     var Page;
     (function (Page) {
         var BeforeFooterJQ = (function (_super) {
@@ -12,7 +13,7 @@ define(["require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ"]
                 _super.call(this, null, "BeforeFooter", impConsts.Constants.ConstantsJQ.PAGEROOT, null);
             }
             return BeforeFooterJQ;
-        })(impPage.Page.PageElementBaseJQ);
+        }(impPage.Page.PageElementBaseJQ));
         Page.BeforeFooterJQ = BeforeFooterJQ;
     })(Page = exports.Page || (exports.Page = {}));
 });

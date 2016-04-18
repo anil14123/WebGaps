@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode) {
+    "use strict";
     var initOnceFlag = false;
     var Html;
     (function (Html) {
@@ -44,7 +45,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
             HtmlJQ.ProcessSelectNotify = function () {
             };
             return HtmlJQ;
-        })();
+        }());
         Html.HtmlJQ = HtmlJQ;
     })(Html = exports.Html || (exports.Html = {}));
 });

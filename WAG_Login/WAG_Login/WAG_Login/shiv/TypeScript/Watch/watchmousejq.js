@@ -1,5 +1,6 @@
 /// <reference path="../../../library/jquery.d.ts" />
 define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/ControlsJQ", "../Controls/TextJQ", "../Controls/ImageJQ", "../Controls/FontJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../SmartMenu/SmartMenuJQ", "../Error/ErrorJQ", "../ContextMenu/Contextmenujq", "../controls/bijq", "../JQte/OnInsert", "../MalFormed/MalFormedJQ", "../Controls/ControlCommonJQ", "../Controls/MarginJQ", "../Controls/PaddingJQ", "../Controls/FrontBackJQ", "../Watch/CopyPasteJQ", "../Controls/OpacityJQ"], function (require, exports, impCommon, impAddRow, impText, impImage, impFont, impBorder, impColor, impHeightWidth, impError, impCtxMenu, impBi, impOnInsert, impmal, impCommonCode, impMargin, impPadding, impFrontBack, impCopy, impOpacity) {
+    "use strict";
     var G_isAttachedWatch = false;
     var isWatchReady = false;
     var Watch;
@@ -449,7 +450,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 });
             };
             return MouseJQ;
-        })();
+        }());
         Watch.MouseJQ = MouseJQ;
     })(Watch = exports.Watch || (exports.Watch = {}));
 });

@@ -1,5 +1,6 @@
 /// <reference path="../../../library/jquery.d.ts" />
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Page;
     (function (Page) {
         var Elements;
@@ -32,7 +33,7 @@ define(["require", "exports"], function (require, exports) {
                     return this.classKey + '_' + className;
                 };
                 return ElementJQ;
-            })();
+            }());
             Elements.ElementJQ = ElementJQ;
             // needs review for TypeScript
             function ScaffoldClassName(className) {

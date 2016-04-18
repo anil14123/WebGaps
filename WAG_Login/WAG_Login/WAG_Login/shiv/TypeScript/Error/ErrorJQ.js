@@ -1,5 +1,6 @@
 //console.debug("line:", /\(file:[\w\d/.-]+:([\d]+)/.exec(new Error().stack)[1]);
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var ErrorHandle;
     (function (ErrorHandle) {
         var ErrorJQ = (function () {
@@ -108,8 +109,8 @@ define(["require", "exports"], function (require, exports) {
             };
             ErrorJQ.notifyId = "#notify";
             return ErrorJQ;
-        })();
+        }());
         ErrorHandle.ErrorJQ = ErrorJQ;
     })(ErrorHandle = exports.ErrorHandle || (exports.ErrorHandle = {}));
 });
-//# sourceMappingURL=errorjq.js.map
+//# sourceMappingURL=ErrorJQ.js.map

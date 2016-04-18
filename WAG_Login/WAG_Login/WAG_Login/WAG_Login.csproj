@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -283,6 +283,7 @@
     <Content Include="Content\PropertiesTag\settings.png" />
     <Content Include="Nestable.css" />
     <Content Include="PropertiesTag.css" />
+    <Content Include="Scripts\Colors\Colors.aspx" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\css\demo.css" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\css\evol.colorpicker.css" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\css\evol.colorpicker.min.css" />
@@ -577,6 +578,65 @@
     <Content Include="shiv\TypeScript\appforRjs.js" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
+    <Content Include="SiteTheme\templated-horizons\css\font-awesome.min.css" />
+    <Content Include="SiteTheme\templated-horizons\css\ie\html5shiv.js" />
+    <Content Include="SiteTheme\templated-horizons\css\ie\PIE.htc" />
+    <Content Include="SiteTheme\templated-horizons\css\ie\v8.css" />
+    <Content Include="SiteTheme\templated-horizons\css\images\arrow.png" />
+    <Content Include="SiteTheme\templated-horizons\css\skel.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style-mobile.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style-narrow.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style-narrower.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style-normal.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style-wide.css" />
+    <Content Include="SiteTheme\templated-horizons\css\style.css" />
+    <Content Include="SiteTheme\templated-horizons\fonts\fontawesome-webfont.svg" />
+    <Content Include="SiteTheme\templated-horizons\images\pic01.jpg" />
+    <Content Include="SiteTheme\templated-horizons\images\pic02.jpg" />
+    <Content Include="SiteTheme\templated-horizons\images\pic03.jpg" />
+    <Content Include="SiteTheme\templated-horizons\images\pic04.jpg" />
+    <Content Include="SiteTheme\templated-horizons\index.html" />
+    <Content Include="SiteTheme\templated-horizons\js\init.js" />
+    <Content Include="SiteTheme\templated-horizons\js\jquery.dropotron.min.js" />
+    <Content Include="SiteTheme\templated-horizons\js\jquery.min.js" />
+    <Content Include="SiteTheme\templated-horizons\js\skel-layers.min.js" />
+    <Content Include="SiteTheme\templated-horizons\js\skel.min.js" />
+    <Content Include="SiteTheme\templated-horizons\left-sidebar.html" />
+    <Content Include="SiteTheme\templated-horizons\LICENSE.txt" />
+    <Content Include="SiteTheme\templated-horizons\no-sidebar.html" />
+    <Content Include="SiteTheme\templated-horizons\right-sidebar.html" />
+    <Content Include="Sliders\carousel-slider.slider\deep-minified.html" />
+    <Content Include="Sliders\carousel-slider.slider\img\005.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\006.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\011.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\013.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\014.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\019.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\020.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\021.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\022.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\024.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\025.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\027.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\029.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\030.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\031.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\034.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\038.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\039.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\043.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\044.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\047.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\050.jpg" />
+    <Content Include="Sliders\carousel-slider.slider\img\a03.png" />
+    <Content Include="Sliders\carousel-slider.slider\img\b03.png" />
+    <Content Include="Sliders\carousel-slider.slider\img\loading.gif" />
+    <Content Include="Sliders\carousel-slider.slider\js\jquery-1.9.1.min.js" />
+    <Content Include="Sliders\carousel-slider.slider\js\jssor.slider.debug.js" />
+    <Content Include="Sliders\carousel-slider.slider\js\jssor.slider.min.js" />
+    <Content Include="Sliders\carousel-slider.slider\js\jssor.slider.mini.js" />
+    <Content Include="Sliders\carousel-slider.slider\no-jquery.html" />
+    <Content Include="Sliders\carousel-slider.slider\with-jquery.html" />
     <Content Include="SmartContextMenu.css" />
     <Content Include="Static Page Themes\responsiva\css\colorful6.jpg" />
     <Content Include="Static Page Themes\responsiva\css\create.jpg" />
@@ -674,6 +734,7 @@
     <Content Include="Third-Party\tabmenu.html" />
     <Content Include="Third-Party\tabmenu\tabmenu.css" />
     <Content Include="Third-Party\tabmenu\tabmenu.js" />
+    <Content Include="Trash Can\Default.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Wag_O.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -718,6 +779,10 @@
     <Content Include="Wag_O.edmx.diagram">
       <DependentUpon>Wag_O.edmx</DependentUpon>
     </Content>
+    <Content Include="SiteTheme\templated-horizons\fonts\fontawesome-webfont.eot" />
+    <Content Include="SiteTheme\templated-horizons\fonts\fontawesome-webfont.ttf" />
+    <Content Include="SiteTheme\templated-horizons\fonts\fontawesome-webfont.woff" />
+    <Content Include="SiteTheme\templated-horizons\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -885,6 +950,16 @@
     <Compile Include="Page.cs">
       <DependentUpon>Wag_O.tt</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\Colors\Colors.aspx.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scripts\Colors\Colors.aspx.designer.cs">
+      <DependentUpon>Colors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Data.cs" />
+    <Compile Include="Services\ImageJQ.cs" />
+    <Compile Include="Services\Save.cs" />
     <Compile Include="shiv\Dynamic\UploadToImageLibrary.aspx.cs">
       <DependentUpon>UploadToImageLibrary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -976,6 +1051,13 @@
     </Compile>
     <Compile Include="Themes\abc\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trash Can\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Trash Can\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -1107,12 +1189,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\WebAppGoTypeScript-X-Modulerization\WebAppGoLibrary\WebAppGoLibrary.csproj">
-      <Project>{ee26ff7c-0382-4e82-a4a3-335daba5e721}</Project>
-      <Name>WebAppGoLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1127,12 +1203,14 @@
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
-    <TypeScriptOutFile>sample_temp.js</TypeScriptOutFile>
+    <TypeScriptOutFile>
+    </TypeScriptOutFile>
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

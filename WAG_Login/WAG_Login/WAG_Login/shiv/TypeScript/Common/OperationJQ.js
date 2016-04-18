@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ"], function (require, exports, impWatch) {
+    "use strict";
     var Operation;
     (function (Operation) {
         var AfterOperationJQ = (function () {
@@ -13,7 +14,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ"], function (require, expor
                 }
             };
             return AfterOperationJQ;
-        })();
+        }());
         Operation.AfterOperationJQ = AfterOperationJQ;
         var BeforeOperationJQ = (function () {
             function BeforeOperationJQ() {
@@ -21,7 +22,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ"], function (require, expor
             BeforeOperationJQ.Execute = function () {
             };
             return BeforeOperationJQ;
-        })();
+        }());
         Operation.BeforeOperationJQ = BeforeOperationJQ;
     })(Operation = exports.Operation || (exports.Operation = {}));
 });

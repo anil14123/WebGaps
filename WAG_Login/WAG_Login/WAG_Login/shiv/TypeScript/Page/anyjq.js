@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ"], function (require, exports, impPage, impConsts) {
+    "use strict";
     var Page;
     (function (Page) {
         var AnyJQ = (function (_super) {
@@ -12,8 +13,8 @@ define(["require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ"]
                 _super.call(this, null, "Any", impConsts.Constants.ConstantsJQ.PAGEROOT, null);
             }
             return AnyJQ;
-        })(impPage.Page.PageElementBaseJQ);
+        }(impPage.Page.PageElementBaseJQ));
         Page.AnyJQ = AnyJQ;
     })(Page = exports.Page || (exports.Page = {}));
 });
-//# sourceMappingURL=anyjq.js.map
+//# sourceMappingURL=AnyJQ.js.map

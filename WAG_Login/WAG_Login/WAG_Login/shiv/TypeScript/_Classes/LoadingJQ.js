@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Loading;
     (function (Loading) {
         var LoadingJQ = (function () {
@@ -40,7 +41,7 @@ define(["require", "exports"], function (require, exports) {
                 jQuery(this.controlId).find(".loading.new").first().hide();
             };
             return LoadingJQ;
-        })();
+        }());
         Loading.LoadingJQ = LoadingJQ;
     })(Loading = exports.Loading || (exports.Loading = {}));
 });

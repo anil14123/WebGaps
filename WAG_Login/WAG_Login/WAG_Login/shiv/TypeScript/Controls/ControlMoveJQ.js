@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var clicking = false;
     var control;
     var Control;
@@ -51,7 +52,7 @@ define(["require", "exports"], function (require, exports) {
                 });
             };
             return ControlMoveJQ;
-        })();
+        }());
         Control.ControlMoveJQ = ControlMoveJQ;
     })(Control = exports.Control || (exports.Control = {}));
 });

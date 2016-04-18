@@ -36,11 +36,8 @@
 
     <link href="/Themes/457/theme.css" rel="stylesheet" type="text/css" />
 
-
-
     <%--<link href="/Third-Party/jte/jquery-te-1.4.0.css" rel="stylesheet" />--%>
     <link href="../my-jqte.css.css" rel="stylesheet" type="text/css" />
-
 
     <link href="/JQte.css" rel="stylesheet" type="text/css" />
     <script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>
@@ -57,6 +54,30 @@
     <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
+
+    <script type="text/javascript">
+
+        function elementInViewport(el) {
+            var top = el.offsetTop;
+            var left = el.offsetLeft;
+            var width = el.offsetWidth;
+            var height = el.offsetHeight;
+
+            while (el.offsetParent) {
+                el = el.offsetParent;
+                top += el.offsetTop;
+                left += el.offsetLeft;
+            }
+
+            return (
+              top >= window.pageYOffset &&
+              left >= window.pageXOffset &&
+              (top + height) <= (window.pageYOffset + window.innerHeight) &&
+              (left + width) <= (window.pageXOffset + window.innerWidth)
+            );
+        }
+
+    </script>
 
     <link href="/Scripts/evoluteur.colorpicker/colorpicker-master/css/evol.colorpicker.css" rel="stylesheet" />
     <script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>
@@ -83,8 +104,11 @@
     </style>--%>
 
     <style>
+
         .evo-pop {
-            width: auto;
+            width: 222px;
+            border:1px solid black;
+            box-shadow: 3px 3px 1px #888888;
         }
 
         .colorPicker {
@@ -139,6 +163,11 @@
     <style>
         .ui-slider-horizontal .ui-slider-handle {
             background-color: yellowgreen !important;
+        }
+
+        #properties-accordion {
+            border:5px solid #c3ccb3;
+            padding:10px;
         }
 
         #properties-accordion .ui-spinner-input {
@@ -948,10 +977,16 @@
     </div>
     <rootx style="clear: both; position: relative;">
 
+
+
         <div class="row">
-            <div class="col-xs-36" style="overflow-x:auto; border: 15px solid #D3D3D3; padding:0; overflow-y:hidden;">
+
+             <div class="col-xs-2" style="background-color:greenyellow;"  >
+             </div>
+
+            <div class="col-xs-36" style="overflow-x:auto; border: 6px solid #29adef; padding:0; overflow-y:hidden;">
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
-           <div class="page-marker design-css">PAGE( Select here for Page Settings. For example changing Page Background. )</div>
+           <div class="page-marker design-css">Page</div>
                     <div class="page-margin design-css design-page-margin">
            
                     <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
@@ -985,10 +1020,10 @@
                 </Page>
            </div>
 
-            <div class="properties-sidebar col-xs-12"  >
+            <div class="properties-sidebar col-xs-10"  >
                 <div class="properties-sidebar-container">
 
-                    <div class="selected-display-element-container">Selected : <span class="selected-display-element"></span></div>
+                    <%--<div class="selected-display-element-container">Selected : <span class="selected-display-element"></span></div>--%>
 
                     <%-- CAccordion --%>
 
@@ -3065,54 +3100,6 @@
             }
 
         </style>
-    
-        <div class="insert-tools ">
-            <span>
-            <span class="it-title-text ">Tools</span>
-                </span>
-
-            <span>
-            <span class="it-paragraph it ctx-menu-insert">Paragraph</span>
-                </span>
-
-            <span>
-            <span class="it-title it ctx-menu-insert">Title</span>
-                </span>
-
-            <span>
-            <span class="it-link it ctx-menu-insert">Link</span>
-                </span>
-
-            <span>
-            <span class="it-image it ctx-menu-insert">Image</span>
-                </span>
-
-            <span>
-            <span class="it-imageAtext it ctx-menu-insert">Image & Text</span>
-                </span>
-
-            <span>
-            <span class="it-columns it">Columns</span>
-                </span>
-
-            <span>
-            <span class="it-photo-gallery it ctx-menu-insert">Photo Gallery</span>
-                </span>
-
-            <span>
-            <span class="it-video it ctx-menu-insert">Video</span>
-                </span>
-
-            <span>
-            <span class="it-contact-form it ctx-menu-insert">Contact Form</span>
-                </span>
-
-            <span>
-            <span class="it-map it ctx-menu-insert">Map</span>
-                </span>
-        </div>
-
-
 
     <!-- sample context menu
 
@@ -3183,5 +3170,100 @@
 
         </ol>
     </div>
+
+
+    
+           <table id="my-palette" style="display:none; position:absolute;" class="my-palette">
+                <tbody>
+                    <tr>
+                        <td style="background-color: #ffffff" data-color="#ffffff"><span></span></td>
+                        <td style="background-color: #000000" data-color="#000000"><span></span></td>
+                        <td style="background-color: #eeece1" data-color="#eeece1"><span></span></td>
+                        <td style="background-color: #1f497d" data-color="#1f497d"><span></span></td>
+                        <td style="background-color: #4f81bd" data-color="#4f81bd"><span></span></td>
+                        <td style="background-color: #c0504d" data-color="#c0504d"><span></span></td>
+                        <td style="background-color: #9bbb59" data-color="#9bbb59"><span></span></td>
+                        <td style="background-color: #8064a2" data-color="#8064a2"><span></span></td>
+                        <td style="background-color: #4bacc6" data-color="#4bacc6"><span></span></td>
+                        <td style="background-color: #f79646" data-color="#f79646"><span></span></td>
+                    </tr>
+                   
+                    <tr class="top">
+                        <td style="background-color: #f2f2f2" data-color="#f2f2f2"><span></span></td>
+                        <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
+                        <td style="background-color: #ddd9c3" data-color="#ddd9c3"><span></span></td>
+                        <td style="background-color: #c6d9f0" data-color="#c6d9f0"><span></span></td>
+                        <td style="background-color: #dbe5f1" data-color="#dbe5f1"><span></span></td>
+                        <td style="background-color: #f2dcdb" data-color="#f2dcdb"><span></span></td>
+                        <td style="background-color: #ebf1dd" data-color="#ebf1dd"><span></span></td>
+                        <td style="background-color: #e5e0ec" data-color="#e5e0ec"><span></span></td>
+                        <td style="background-color: #dbeef3" data-color="#dbeef3"><span></span></td>
+                        <td style="background-color: #fdeada" data-color="#fdeada"><span></span></td>
+                    </tr>
+                    <tr class="in">
+                        <td style="background-color: #d8d8d8" data-color="#d8d8d8"><span></span></td>
+                        <td style="background-color: #595959" data-color="#595959"><span></span></td>
+                        <td style="background-color: #c4bd97" data-color="#c4bd97"><span></span></td>
+                        <td style="background-color: #8db3e2" data-color="#8db3e2"><span></span></td>
+                        <td style="background-color: #b8cce4" data-color="#b8cce4"><span></span></td>
+                        <td style="background-color: #e5b9b7" data-color="#e5b9b7"><span></span></td>
+                        <td style="background-color: #d7e3bc" data-color="#d7e3bc"><span></span></td>
+                        <td style="background-color: #ccc1d9" data-color="#ccc1d9"><span></span></td>
+                        <td style="background-color: #b7dde8" data-color="#b7dde8"><span></span></td>
+                        <td style="background-color: #fbd5b5" data-color="#fbd5b5"><span></span></td>
+                    </tr>
+                    <tr class="in">
+                        <td style="background-color: #bfbfbf" data-color="#bfbfbf"><span></span></td>
+                        <td style="background-color: #3f3f3f" data-color="#3f3f3f"><span></span></td>
+                        <td style="background-color: #938953" data-color="#938953"><span></span></td>
+                        <td style="background-color: #548dd4" data-color="#548dd4"><span></span></td>
+                        <td style="background-color: #95b3d7" data-color="#95b3d7"><span></span></td>
+                        <td style="background-color: #d99694" data-color="#d99694"><span></span></td>
+                        <td style="background-color: #c3d69b" data-color="#c3d69b"><span></span></td>
+                        <td style="background-color: #b2a2c7" data-color="#b2a2c7"><span></span></td>
+                        <td style="background-color: #92cddc" data-color="#92cddc"><span></span></td>
+                        <td style="background-color: #fac08f" data-color="#fac08f"><span></span></td>
+                    </tr>
+                    <tr class="in">
+                        <td style="background-color: #a5a5a5" data-color="#a5a5a5"><span></span></td>
+                        <td style="background-color: #262626" data-color="#262626"><span></span></td>
+                        <td style="background-color: #494429" data-color="#494429"><span></span></td>
+                        <td style="background-color: #17365d" data-color="#17365d"><span></span></td>
+                        <td style="background-color: #366092" data-color="#366092"><span></span></td>
+                        <td style="background-color: #953734" data-color="#953734"><span></span></td>
+                        <td style="background-color: #76923c" data-color="#76923c"><span></span></td>
+                        <td style="background-color: #5f497a" data-color="#5f497a"><span></span></td>
+                        <td style="background-color: #31859b" data-color="#31859b"><span></span></td>
+                        <td style="background-color: #e36c09" data-color="#e36c09"><span></span></td>
+                    </tr>
+                    <tr class="bottom">
+                        <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
+                        <td style="background-color: #0c0c0c" data-color="#0c0c0c"><span></span></td>
+                        <td style="background-color: #1d1b10" data-color="#1d1b10"><span></span></td>
+                        <td style="background-color: #0f243e" data-color="#0f243e"><span></span></td>
+                        <td style="background-color: #244061" data-color="#244061"><span></span></td>
+                        <td style="background-color: #632423" data-color="#632423"><span></span></td>
+                        <td style="background-color: #4f6128" data-color="#4f6128"><span></span></td>
+                        <td style="background-color: #3f3151" data-color="#3f3151"><span></span></td>
+                        <td style="background-color: #205867" data-color="#205867"><span></span></td>
+                        <td style="background-color: #974806" data-color="#974806"><span></span></td>
+                    </tr>
+                   
+                    <tr class="standard-colors">
+                        <td style="background-color: #c00000" data-color="#c00000"><span></span></td>
+                        <td style="background-color: #ff0000" data-color="#ff0000"><span></span></td>
+                        <td style="background-color: #ffc000" data-color="#ffc000"><span></span></td>
+                        <td style="background-color: #ffff00" data-color="#ffff00"><span></span></td>
+                        <td style="background-color: #92d050" data-color="#92d050"><span></span></td>
+                        <td style="background-color: #00b050" data-color="#00b050"><span></span></td>
+                        <td style="background-color: #00b0f0" data-color="#00b0f0"><span></span></td>
+                        <td style="background-color: #0070c0" data-color="#0070c0"><span></span></td>
+                        <td style="background-color: #FF00FF" data-color="#FF00FF"><span></span></td>
+                        <td style="background-color: #7030a0" data-color="#7030a0"><span></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
 </body>
 </html>

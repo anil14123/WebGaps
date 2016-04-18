@@ -1,6 +1,7 @@
 /// <reference path="../../../scripts/evoluteur.colorpicker/colorpicker-master/js/colorpicker.d.ts" />
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+    "use strict";
     var isBorderReady = false;
     var borderFirstTime = 0;
     var Border;
@@ -68,7 +69,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".color-picker").colorpicker({});
+                        jQuery(".color-picker").colorpicker({ defaultPalette: 'web' });
                         //jQuery('.color-picker').colpick({
                         //    layout: 'hex',
                         //    submit: 0,
@@ -161,6 +162,35 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         if (jQuery($this).hasClass("control-border-thickness-all")) {
                             jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery($this).val());
+                        }
+                        if ($($this).hasClass("color-picker-left")) {
+                            if ($(".control-border-thickness-left").spinner("value") == 0) {
+                                $(".control-border-thickness-left").spinner("value", 1);
+                            }
+                        }
+                        if ($($this).hasClass("color-picker-top")) {
+                            if ($(".control-border-thickness-top").spinner("value") == 0) {
+                                $(".control-border-thickness-top").spinner("value", 1);
+                            }
+                        }
+                        if ($($this).hasClass("color-picker-right")) {
+                            if ($(".control-border-thickness-right").spinner("value") == 0) {
+                                $(".control-border-thickness-right").spinner("value", 1);
+                            }
+                        }
+                        if ($($this).hasClass("color-picker-bottom")) {
+                            if ($(".control-border-thickness-bottom").spinner("value") == 0) {
+                                $(".control-border-thickness-bottom").spinner("value", 1);
+                            }
+                        }
+                        if ($($this).hasClass("color-picker-all")) {
+                            if ($(".control-border-thickness-all").spinner("value") == 0) {
+                                $(".control-border-thickness-left").spinner("value", 1);
+                                $(".control-border-thickness-top").spinner("value", 1);
+                                $(".control-border-thickness-right").spinner("value", 1);
+                                $(".control-border-thickness-bottom").spinner("value", 1);
+                                $(".control-border-thickness-all").spinner("value", 1);
+                            }
                         }
                         var common = new impCommon.Common.CommonMethodsJQ();
                         var borderLeft = $(".control-border-thickness-left").spinner("value");
@@ -309,7 +339,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             BorderJQ.controlBtnApply = ".action-button-border-apply";
             BorderJQ.isSelectProcessing = false;
             return BorderJQ;
-        })();
+        }());
         Border.BorderJQ = BorderJQ;
     })(Border = exports.Border || (exports.Border = {}));
 });

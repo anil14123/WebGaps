@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, impError) {
+    "use strict";
     var Auth;
     (function (Auth) {
         var AuthJQ = (function () {
@@ -47,8 +48,14 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
             };
             AuthJQ.OnGetAuthError = function (request, status, error) {
                 AuthJQ.HideLoading();
-                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                errorHandler.ActionFail("Some Problem !. <br>Try again later.");
+                var element = jQuery(document.createElement("div"));
+                element.attr("src", "xa.xml");
+                jQuery("body").find("div").first().append(element);
+                jQuery("body").find("div").first().append(element.clone());
+                jQuery("body").find("div").first().append(element.clone());
+                AuthJQ.IsAuth = true;
+                //var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                //errorHandler.ActionFail("Some Problem !. <br>Try again later.");
             };
             AuthJQ.HideLoading = function () {
                 AuthJQ.LoadingCounter++;
@@ -59,10 +66,10 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
                 }
             };
             AuthJQ.LoadingCounter = 0;
-            AuthJQ.IsAuth = false;
+            AuthJQ.IsAuth = true;
             AuthJQ.AuthUrl = "/services/jquery.asmx/get";
             return AuthJQ;
-        })();
+        }());
         Auth.AuthJQ = AuthJQ;
     })(Auth = exports.Auth || (exports.Auth = {}));
 });

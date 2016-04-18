@@ -1,4 +1,5 @@
 define(["require", "exports", "../Controls/ImageJQ"], function (require, exports, impImage) {
+    "use strict";
     var ClipBoard;
     (function (ClipBoard) {
         var ClipBoardJQ = (function () {
@@ -10,7 +11,7 @@ define(["require", "exports", "../Controls/ImageJQ"], function (require, exports
             ClipBoardJQ.prototype.InsertText = function (text) {
             };
             return ClipBoardJQ;
-        })();
+        }());
         ClipBoard.ClipBoardJQ = ClipBoardJQ;
     })(ClipBoard = exports.ClipBoard || (exports.ClipBoard = {}));
 });

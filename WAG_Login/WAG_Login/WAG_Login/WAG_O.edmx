@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebGaps_Login_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebGaps_Login_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -66,7 +66,7 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
-        <EntityType Name="Images">
+        <EntityType Name="Image">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -75,7 +75,7 @@
           <Property Name="FileName" Type="varchar" MaxLength="150" />
           <Property Name="Path" Type="varchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="Pages">
+        <EntityType Name="Page">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -86,7 +86,7 @@
           <Property Name="IsFirstTime" Type="varchar" MaxLength="50" />
           <Property Name="ParentPageId" Type="int" />
         </EntityType>
-        <EntityType Name="Sites">
+        <EntityType Name="Site">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -154,48 +154,48 @@
         </Association>
         <Association Name="FK_Image_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Images">
+            <Dependent Role="Image">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Page_Page">
-          <End Role="Pages" Type="Self.Pages" Multiplicity="0..1" />
-          <End Role="Pages1" Type="Self.Pages" Multiplicity="*" />
+        <Association Name="FK_Page_Page1">
+          <End Role="Page" Type="Self.Page" Multiplicity="0..1" />
+          <End Role="Page1" Type="Self.Page" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pages">
+            <Principal Role="Page">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pages1">
+            <Dependent Role="Page1">
               <PropertyRef Name="ParentPageId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Page_Site">
-          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
-          <End Role="Pages" Type="Self.Pages" Multiplicity="*" />
+          <End Role="Site" Type="Self.Site" Multiplicity="1" />
+          <End Role="Page" Type="Self.Page" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Sites">
+            <Principal Role="Site">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pages">
+            <Dependent Role="Page">
               <PropertyRef Name="SiteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Site_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
+          <End Role="Site" Type="Self.Site" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Sites">
+            <Dependent Role="Site">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -207,9 +207,9 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -228,19 +228,19 @@
           </AssociationSet>
           <AssociationSet Name="FK_Image_AspNetUsers" Association="Self.FK_Image_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Images" EntitySet="Images" />
+            <End Role="Image" EntitySet="Image" />
           </AssociationSet>
-          <AssociationSet Name="FK_Page_Page" Association="Self.FK_Page_Page">
-            <End Role="Pages" EntitySet="Pages" />
-            <End Role="Pages1" EntitySet="Pages" />
+          <AssociationSet Name="FK_Page_Page1" Association="Self.FK_Page_Page1">
+            <End Role="Page" EntitySet="Page" />
+            <End Role="Page1" EntitySet="Page" />
           </AssociationSet>
           <AssociationSet Name="FK_Page_Site" Association="Self.FK_Page_Site">
-            <End Role="Sites" EntitySet="Sites" />
-            <End Role="Pages" EntitySet="Pages" />
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Page" EntitySet="Page" />
           </AssociationSet>
           <AssociationSet Name="FK_Site_AspNetUsers" Association="Self.FK_Site_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Sites" EntitySet="Sites" />
+            <End Role="Site" EntitySet="Site" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -304,45 +304,9 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="Images" Relationship="Self.FK_Image_AspNetUsers" FromRole="AspNetUsers" ToRole="Images" />
-          <NavigationProperty Name="Sites" Relationship="Self.FK_Site_AspNetUsers" FromRole="AspNetUsers" ToRole="Sites" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-        </EntityType>
-        <EntityType Name="Image">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FileName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Image_AspNetUsers" FromRole="Images" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="Page">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PageId" Type="Guid" />
-          <Property Name="SiteId" Type="Int32" Nullable="false" />
-          <Property Name="IsFirstTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ParentPageId" Type="Int32" />
-          <NavigationProperty Name="Pages1" Relationship="Self.FK_Page_Page" FromRole="Pages" ToRole="Pages1" />
-          <NavigationProperty Name="Page1" Relationship="Self.FK_Page_Page" FromRole="Pages1" ToRole="Pages" />
-          <NavigationProperty Name="Site" Relationship="Self.FK_Page_Site" FromRole="Pages" ToRole="Sites" />
-        </EntityType>
-        <EntityType Name="Site">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SiteGuid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserDirectory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Site_AspNetUsers" FromRole="Sites" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Pages" Relationship="Self.FK_Page_Site" FromRole="Sites" ToRole="Pages" />
+          <NavigationProperty Name="Images" Relationship="WebGaps_Login_Model.FK_Image_AspNetUsers" FromRole="AspNetUser" ToRole="Image" />
+          <NavigationProperty Name="Sites" Relationship="WebGaps_Login_Model.FK_Site_AspNetUsers" FromRole="AspNetUser" ToRole="Site" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -372,54 +336,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Image_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="Images" Type="Self.Image" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Images">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Site_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="Sites" Type="Self.Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sites">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Page_Page">
-          <End Role="Pages" Type="Self.Page" Multiplicity="0..1" />
-          <End Role="Pages1" Type="Self.Page" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pages">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pages1">
-              <PropertyRef Name="ParentPageId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Page_Site">
-          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
-          <End Role="Pages" Type="Self.Page" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sites">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pages">
-              <PropertyRef Name="SiteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -430,9 +346,6 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Images" EntityType="Self.Image" />
-          <EntitySet Name="Pages" EntityType="Self.Page" />
-          <EntitySet Name="Sites" EntityType="Self.Site" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -441,27 +354,114 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Image_AspNetUsers" Association="Self.FK_Image_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Images" EntitySet="Images" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Site_AspNetUsers" Association="Self.FK_Site_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Sites" EntitySet="Sites" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Page_Page" Association="Self.FK_Page_Page">
-            <End Role="Pages" EntitySet="Pages" />
-            <End Role="Pages1" EntitySet="Pages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Page_Site" Association="Self.FK_Page_Site">
-            <End Role="Sites" EntitySet="Sites" />
-            <End Role="Pages" EntitySet="Pages" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Images" EntityType="WebGaps_Login_Model.Image" />
+          <EntitySet Name="Pages" EntityType="WebGaps_Login_Model.Page" />
+          <EntitySet Name="Sites" EntityType="WebGaps_Login_Model.Site" />
+          <AssociationSet Name="FK_Image_AspNetUsers" Association="WebGaps_Login_Model.FK_Image_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_AspNetUsers" Association="WebGaps_Login_Model.FK_Site_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Page_Page1" Association="WebGaps_Login_Model.FK_Page_Page1">
+            <End Role="Page" EntitySet="Pages" />
+            <End Role="Page1" EntitySet="Pages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Page_Site" Association="WebGaps_Login_Model.FK_Page_Site">
+            <End Role="Site" EntitySet="Sites" />
+            <End Role="Page" EntitySet="Pages" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="WebGaps_Login_Model.FK_Image_AspNetUsers" FromRole="Image" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PageId" Type="Guid" />
+          <Property Name="SiteId" Type="Int32" Nullable="false" />
+          <Property Name="IsFirstTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentPageId" Type="Int32" />
+          <NavigationProperty Name="Page1" Relationship="WebGaps_Login_Model.FK_Page_Page1" FromRole="Page" ToRole="Page1" />
+          <NavigationProperty Name="Page2" Relationship="WebGaps_Login_Model.FK_Page_Page1" FromRole="Page1" ToRole="Page" />
+          <NavigationProperty Name="Site" Relationship="WebGaps_Login_Model.FK_Page_Site" FromRole="Page" ToRole="Site" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteGuid" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserDirectory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="WebGaps_Login_Model.FK_Site_AspNetUsers" FromRole="Site" ToRole="AspNetUser" />
+          <NavigationProperty Name="Pages" Relationship="WebGaps_Login_Model.FK_Page_Site" FromRole="Site" ToRole="Page" />
+        </EntityType>
+        <Association Name="FK_Image_AspNetUsers">
+          <End Type="WebGaps_Login_Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="WebGaps_Login_Model.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_AspNetUsers">
+          <End Type="WebGaps_Login_Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="WebGaps_Login_Model.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Page_Page1">
+          <End Type="WebGaps_Login_Model.Page" Role="Page" Multiplicity="0..1" />
+          <End Type="WebGaps_Login_Model.Page" Role="Page1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Page1">
+              <PropertyRef Name="ParentPageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Page_Site">
+          <End Type="WebGaps_Login_Model.Site" Role="Site" Multiplicity="1" />
+          <End Type="WebGaps_Login_Model.Page" Role="Page" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Page">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -523,39 +523,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Images">
-            <EntityTypeMapping TypeName="WebGaps_Login_Model.Image">
-              <MappingFragment StoreEntitySet="Images">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pages">
-            <EntityTypeMapping TypeName="WebGaps_Login_Model.Page">
-              <MappingFragment StoreEntitySet="Pages">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PageName" ColumnName="PageName" />
-                <ScalarProperty Name="PageId" ColumnName="PageId" />
-                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
-                <ScalarProperty Name="IsFirstTime" ColumnName="IsFirstTime" />
-                <ScalarProperty Name="ParentPageId" ColumnName="ParentPageId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sites">
-            <EntityTypeMapping TypeName="WebGaps_Login_Model.Site">
-              <MappingFragment StoreEntitySet="Sites">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SiteGuid" ColumnName="SiteGuid" />
-                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserDirectory" ColumnName="UserDirectory" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="WebGaps_Login_Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -564,6 +531,39 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="WebGaps_Login_Model.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="WebGaps_Login_Model.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="ParentPageId" ColumnName="ParentPageId" />
+                <ScalarProperty Name="IsFirstTime" ColumnName="IsFirstTime" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="PageId" ColumnName="PageId" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="WebGaps_Login_Model.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="UserDirectory" ColumnName="UserDirectory" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteGuid" ColumnName="SiteGuid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

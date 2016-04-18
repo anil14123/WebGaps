@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAG_Login", "WAG_Login\WAG_Login.csproj", "{444E8CCE-A6E3-4BCF-B9C3-02FD5E997DDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAG_Login.Tests", "WAG_Login.Tests\WAG_Login.Tests.csproj", "{8F722726-9EB2-4CD5-99B8-54326C2D57F8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppGoLibrary", "..\..\..\WebAppGoTypeScript-X-Modulerization\WebAppGoLibrary\WebAppGoLibrary.csproj", "{EE26FF7C-0382-4E82-A4A3-335DABA5E721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{8F722726-9EB2-4CD5-99B8-54326C2D57F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F722726-9EB2-4CD5-99B8-54326C2D57F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F722726-9EB2-4CD5-99B8-54326C2D57F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE26FF7C-0382-4E82-A4A3-335DABA5E721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE26FF7C-0382-4E82-A4A3-335DABA5E721}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE26FF7C-0382-4E82-A4A3-335DABA5E721}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE26FF7C-0382-4E82-A4A3-335DABA5E721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

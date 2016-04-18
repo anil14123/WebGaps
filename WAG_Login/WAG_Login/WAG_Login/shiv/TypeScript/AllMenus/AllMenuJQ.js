@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Menu;
     (function (Menu) {
         var AllMenuJQ = (function () {
@@ -27,7 +28,7 @@ define(["require", "exports"], function (require, exports) {
                 });
             };
             return AllMenuJQ;
-        })();
+        }());
         Menu.AllMenuJQ = AllMenuJQ;
     })(Menu = exports.Menu || (exports.Menu = {}));
 });

@@ -1,5 +1,6 @@
 /// <reference path="iwindow.ts" />
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var isDocumentReady = false;
     var Document;
     (function (Document) {
@@ -17,7 +18,7 @@ define(["require", "exports"], function (require, exports) {
                 });
             };
             return DocumentJQ;
-        })();
+        }());
         Document.DocumentJQ = DocumentJQ;
     })(Document = exports.Document || (exports.Document = {}));
 });

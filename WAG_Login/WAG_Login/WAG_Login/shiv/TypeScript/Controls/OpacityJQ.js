@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impUndoManager) {
+    "use strict";
     var isOpacityReady = false;
     var borderFirstTime = 0;
     var Opacity;
@@ -75,7 +76,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
             };
             OpacityJQ.isSelectProcessing = false;
             return OpacityJQ;
-        })();
+        }());
         Opacity.OpacityJQ = OpacityJQ;
     })(Opacity = exports.Opacity || (exports.Opacity = {}));
 });

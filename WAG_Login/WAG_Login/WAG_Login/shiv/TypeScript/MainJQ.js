@@ -1,4 +1,5 @@
 define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/MyJQte", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Controls/controlcommonjq", "./Document/DocumentJQ", "./Page/LoadJQ"], function (require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
+    "use strict";
     var ctx = new impPageCtx.Page.ContextJQ();
     var isMainReady = false;
     function DesignerPadding() {
@@ -22,6 +23,11 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
     jQuery(document).ready(function () {
         if (isMainReady == false) {
             isMainReady = true;
+            var element = jQuery(document.createElement("div"));
+            element.attr("src", "xa.xml");
+            jQuery("body").find("div").first().append(element);
+            jQuery("body").find("div").first().append(element.clone());
+            jQuery("body").find("div").first().append(element.clone());
             // attach resizable...
             impCommonControls.ControlCommon.Code.Execute();
             /// unknow code...

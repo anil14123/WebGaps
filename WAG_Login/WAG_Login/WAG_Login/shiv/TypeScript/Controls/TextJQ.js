@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction) {
+    "use strict";
     var debug = true;
     var globalTextBlockId = 0;
     var globalTextBoxContainerId = 0;
@@ -197,7 +198,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
             TextJQ.CONTAINER_CSS_CLASS = "jq-text-block-container design-text-block normal-element jq-container";
             TextJQ.JTEEditorClass = ".jqte-editor";
             return TextJQ;
-        })(impPageControlNames.PageControlNamesJQ.Page.Text.Controls);
+        }(impPageControlNames.PageControlNamesJQ.Page.Text.Controls));
         Text.TextJQ = TextJQ;
     })(Text = exports.Text || (exports.Text = {}));
 });

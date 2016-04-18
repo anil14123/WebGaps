@@ -1,4 +1,5 @@
 define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"], function (require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+    "use strict";
     var ControlCommon;
     (function (ControlCommon) {
         var Code = (function () {
@@ -54,7 +55,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
             };
             Code.AnchorClicked = false;
             return Code;
-        })();
+        }());
         ControlCommon.Code = Code;
     })(ControlCommon = exports.ControlCommon || (exports.ControlCommon = {}));
 });

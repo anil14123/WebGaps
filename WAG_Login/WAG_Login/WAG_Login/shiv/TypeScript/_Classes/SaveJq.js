@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, impError) {
+    "use strict";
     var Save;
     (function (Save) {
         var SaveJQ = (function () {
@@ -54,8 +55,8 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
             };
             SaveJQ.IsDownloadStarted = false;
             return SaveJQ;
-        })();
+        }());
         Save.SaveJQ = SaveJQ;
     })(Save = exports.Save || (exports.Save = {}));
 });
-//# sourceMappingURL=SaveJq.js.map
+//# sourceMappingURL=SaveJQ.js.map

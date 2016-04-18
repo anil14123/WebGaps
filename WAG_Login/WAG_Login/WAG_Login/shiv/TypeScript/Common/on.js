@@ -1,4 +1,5 @@
 define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], function (require, exports, impAny, impWatch) {
+    "use strict";
     var On;
     (function (On) {
         var SmartObj = (function () {
@@ -7,7 +8,7 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], functio
                 this.isDirty = false;
             }
             return SmartObj;
-        })();
+        }());
         On.SmartObj = SmartObj;
         var Code = (function () {
             function Code() {
@@ -95,8 +96,8 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], functio
                 });
             };
             return Code;
-        })();
+        }());
         On.Code = Code;
     })(On = exports.On || (exports.On = {}));
 });
-//# sourceMappingURL=on.js.map
+//# sourceMappingURL=On.js.map

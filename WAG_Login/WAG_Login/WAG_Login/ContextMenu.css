@@ -9,12 +9,16 @@
 
     background-color:rgb(144, 146, 204);
     background-color:#ede7e7;
+
+    background-color: #3f464e;
+    color: #FFFFFF;
+    box-shadow: inset 0px 1px 0px 0px #363f46;
 }
 
 #contextMenu {
     display: none;
     position:fixed;
-    border: 1px solid grey;
+   
     width: 150px;
     box-shadow: 2px 2px 1px grey;
     background-color: white;
@@ -47,6 +51,10 @@
     color: #fff;
     color:black;
 
+    background-color: #eb6363;
+    border-bottom: 1px solid #eb6363;
+    box-shadow: inset 0 1px 0 0 #f44236;
+
 }
 
 #contextMenuitems li {
@@ -58,7 +66,7 @@
 {
      display:none;
     position: absolute;
-    border: 1px solid blue;
+   
     width: 150px;
     box-shadow: 2px 2px 1px grey;
    
@@ -69,6 +77,10 @@
 
       background-color:rgb(144, 146, 204);
        background-color:#ede7e7;
+
+       background-color: #3f464e;
+    color: #FFFFFF;
+    box-shadow: inset 0px 1px 0px 0px #363f46;
 }
 
     #contextMenuitems li ul {
@@ -85,7 +97,6 @@
 z-index:999999999;
 padding:8px;
 color:white;
-color:black;
 }
 
 .ctx-menu-disabled{

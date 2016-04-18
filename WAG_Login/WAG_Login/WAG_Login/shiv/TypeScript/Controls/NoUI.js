@@ -1,4 +1,5 @@
 define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouseJQ", "../Error/ErrorJQ"], function (require, exports, impUndoManager, impWatch, impError) {
+    "use strict";
     var NoUI;
     (function (NoUI) {
         var AlignJQ = (function () {
@@ -40,7 +41,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                 }
             };
             return AlignJQ;
-        })();
+        }());
         NoUI.AlignJQ = AlignJQ;
         var MoveJQ = (function () {
             function MoveJQ() {
@@ -161,8 +162,8 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                 selectedElement.insertAfter(lastElement);
             };
             return MoveJQ;
-        })();
+        }());
         NoUI.MoveJQ = MoveJQ;
     })(NoUI = exports.NoUI || (exports.NoUI = {}));
 });
-//# sourceMappingURL=NoUi.js.map
+//# sourceMappingURL=NoUI.js.map

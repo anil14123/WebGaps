@@ -1,4 +1,5 @@
 define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ"], function (require, exports, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage) {
+    "use strict";
     var themeHandle;
     var downloadInterval;
     var imageFiles;
@@ -10,7 +11,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                 this.isDirty = false;
             }
             return SmartObj;
-        })();
+        }());
         Common.SmartObj = SmartObj;
         var CommonEvents = (function () {
             function CommonEvents() {
@@ -233,7 +234,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                 jQuery($this).addClass("selected-resizable");
             };
             return CommonEvents;
-        })();
+        }());
         Common.CommonEvents = CommonEvents;
     })(Common = exports.Common || (exports.Common = {}));
 });

@@ -1,5 +1,6 @@
 /// <reference path="../../library/jqueryui.d.ts" />
 define(["require", "exports", "./site/Sitejq"], function (require, exports, impSite) {
+    "use strict";
     var isMainReady = false;
     jQuery(document).ready(function () {
         if (isMainReady == false) {

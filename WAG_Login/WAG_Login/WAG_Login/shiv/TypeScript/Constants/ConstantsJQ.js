@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Constants;
     (function (Constants) {
         var ConstantsJQ = (function () {
@@ -12,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
             ConstantsJQ.Str = ["p", "i", "m", "b", "d", "p", "m"];
             ConstantsJQ.SecureStrLength = 7;
             return ConstantsJQ;
-        })();
+        }());
         Constants.ConstantsJQ = ConstantsJQ;
         var StaticJQ = (function () {
             function StaticJQ() {
@@ -20,7 +21,7 @@ define(["require", "exports"], function (require, exports) {
             StaticJQ.normalLinkId = 0;
             StaticJQ.editorLinkId = 0;
             return StaticJQ;
-        })();
+        }());
         Constants.StaticJQ = StaticJQ;
     })(Constants = exports.Constants || (exports.Constants = {}));
 });

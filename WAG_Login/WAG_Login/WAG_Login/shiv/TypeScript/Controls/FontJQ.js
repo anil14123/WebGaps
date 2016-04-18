@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impWatch, impUndoManager) {
+    "use strict";
     var isFontReady = false;
     var Font;
     (function (Font) {
@@ -102,7 +103,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 'Gill Sans, Geneva, sans-serif'
             ];
             return FontJQ;
-        })();
+        }());
         Font.FontJQ = FontJQ;
     })(Font = exports.Font || (exports.Font = {}));
 });

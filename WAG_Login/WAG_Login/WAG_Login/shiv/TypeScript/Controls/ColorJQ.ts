@@ -138,11 +138,24 @@ export module Color {
                             undo.BeforeOperation();
 
                             impWatch.Watch.MouseJQ.ResetAfterClear();
+
+                            jQuery(".control-color-foreground-color").val("#000000");
+                            jQuery(".control-color-foreground-color").trigger("keyup");
+
+                            jQuery(".control-color-background-color").val("#ffffff");
+                            jQuery(".control-color-background-color").trigger("keyup");
+
+                            jQuery(".control-color-gradient-color-1").val("#ffffff");
+                            jQuery(".control-color-gradient-color-1").trigger("keyup");
+
+                            jQuery(".control-color-gradient-color-2").val("#ffffff");
+                            jQuery(".control-color-gradient-color-2").trigger("keyup");
+
                         }
                     });
 
-                    jQuery('.fb-color-picker-gradient').colorpicker({});
-
+                    jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette:'web'});
+                     
                     //jQuery('.fb-color-picker-gradient').colpick({
                     //    layout: 'hex',
                     //    submit: 0,
@@ -160,11 +173,11 @@ export module Color {
                     //}).keyup(function () {
                     //    $(this).colpickSetColor(this.value);
                     //});
-
-                    jQuery('.fb-color-picker').colorpicker({});
+                    
+                    jQuery('.fb-color-picker').colorpicker({ defaultPalette:'web'}); 
                     //jQuery('.fb-color-picker').colpick({
                     //    layout: 'hex',
-                    //    submit: 0,
+                    //    submit: 0,  
                     //    colorScheme: 'dark',
                     //    onChange: function (hsb, hex, rgb, el, bySetColor) {
                     //        jQuery(el).css('border-color', '#' + hex);
@@ -174,7 +187,7 @@ export module Color {
                     //    onHide: function () {
                     //        var undo = new impUndoManager.Manager.UndoManager();
 
-                    //        undo.BeforeOperation();
+                    //        undo.BeforeOperation(); 
                     //    }
                     //}).keyup(function () {
                     //    $(this).colpickSetColor(this.value);

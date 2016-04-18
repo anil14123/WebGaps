@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../cssManager/cssManagerJQ", "../Menu/MenuTemplateJQ"], function (require, exports, impError, impPageCtx, impWatch, impCommonCode, impCssManager, impMenuTemplate) {
+    "use strict";
     var debug = true;
     var globalMenuontainerId = 0;
     var isMenuJQReady = false;
@@ -123,8 +124,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                 }
             };
             return MenuJQ;
-        })();
+        }());
         Menu.MenuJQ = MenuJQ;
     })(Menu = exports.Menu || (exports.Menu = {}));
 });
-//# sourceMappingURL=Menujq.js.map
+//# sourceMappingURL=MenuJQ.js.map

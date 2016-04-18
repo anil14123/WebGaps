@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var isTemplateReady = false;
     var Template;
     (function (Template) {
@@ -23,7 +24,7 @@ define(["require", "exports"], function (require, exports) {
                 });
             };
             return TemplateJQ;
-        })();
+        }());
         Template.TemplateJQ = TemplateJQ;
     })(Template = exports.Template || (exports.Template = {}));
 });

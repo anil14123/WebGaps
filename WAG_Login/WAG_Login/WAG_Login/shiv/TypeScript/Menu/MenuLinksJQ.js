@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, impError) {
+    "use strict";
     var Page;
     (function (Page) {
         var Menu;
@@ -179,7 +180,7 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
                     }
                 };
                 return MenuLinksJQ;
-            })();
+            }());
             Menu.MenuLinksJQ = MenuLinksJQ;
         })(Menu = Page.Menu || (Page.Menu = {}));
     })(Page = exports.Page || (exports.Page = {}));

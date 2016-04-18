@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var PageControlNamesJQ;
     (function (PageControlNamesJQ) {
         var Page;
@@ -16,7 +17,7 @@ define(["require", "exports"], function (require, exports) {
                     Controls.DDN_ROWS_COLUMNS = "#rows-columns";
                     Controls.BTN_ADD_ROW = ".action-button-add-row";
                     return Controls;
-                })();
+                }());
                 AddRow.Controls = Controls;
             })(AddRow = Page.AddRow || (Page.AddRow = {}));
             var Text;
@@ -27,7 +28,7 @@ define(["require", "exports"], function (require, exports) {
                     Controls.BTN_INSERT_TEXT = ".action-button-insert-text";
                     Controls.BTN_CLEAR_TEXT = ".action-button-insert-text-clear";
                     return Controls;
-                })();
+                }());
                 Text.Controls = Controls;
             })(Text = Page.Text || (Page.Text = {}));
             var Image;
@@ -37,7 +38,7 @@ define(["require", "exports"], function (require, exports) {
                     }
                     Controls.BTN_INSERT_IMAGE = ".action-button-insert-image";
                     return Controls;
-                })();
+                }());
                 Image.Controls = Controls;
             })(Image = Page.Image || (Page.Image = {}));
         })(Page = PageControlNamesJQ.Page || (PageControlNamesJQ.Page = {}));

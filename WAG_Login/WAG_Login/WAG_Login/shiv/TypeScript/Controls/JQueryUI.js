@@ -1,5 +1,6 @@
 /// <reference path="../../../library/jqueryui.d.ts" />
 define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impCommonMethods, impUndoManager) {
+    "use strict";
     var JQueryUI;
     (function (JQueryUI) {
         var CommonCode = (function () {
@@ -440,7 +441,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
             };
             CommonCode.droppableCount = 0;
             return CommonCode;
-        })();
+        }());
         JQueryUI.CommonCode = CommonCode;
     })(JQueryUI = exports.JQueryUI || (exports.JQueryUI = {}));
 });

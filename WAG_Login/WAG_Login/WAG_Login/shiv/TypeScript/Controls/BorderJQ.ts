@@ -110,8 +110,8 @@ export module Border {
                         }
                         );
 
-                    jQuery(".color-picker").colorpicker({});
-
+                    jQuery(".color-picker").colorpicker({ defaultPalette: 'web'});
+                     
                     //jQuery('.color-picker').colpick({
                     //    layout: 'hex',
                     //    submit: 0,
@@ -263,8 +263,42 @@ export module Border {
 
                         jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery($this).val());
                     }
+                    
+                    if ($($this).hasClass("color-picker-left")) {
+                        if ($(".control-border-thickness-left").spinner("value") == 0 )
+                        {
+                            $(".control-border-thickness-left").spinner("value", 1);
+                        }
+                    }
 
+                    if ($($this).hasClass("color-picker-top")) {
+                        if ($(".control-border-thickness-top").spinner("value") == 0) {
+                            $(".control-border-thickness-top").spinner("value", 1);
+                        }
+                    }
 
+                    if ($($this).hasClass("color-picker-right")) {
+                        if ($(".control-border-thickness-right").spinner("value") == 0) {
+                            $(".control-border-thickness-right").spinner("value", 1);
+                        }
+                    }
+
+                    if ($($this).hasClass("color-picker-bottom")) {
+                        if ($(".control-border-thickness-bottom").spinner("value") == 0) {
+                            $(".control-border-thickness-bottom").spinner("value", 1);
+                        }
+                    }
+
+                    if ($($this).hasClass("color-picker-all")) {
+                        if ($(".control-border-thickness-all").spinner("value") == 0) {
+                            $(".control-border-thickness-left").spinner("value", 1);
+                            $(".control-border-thickness-top").spinner("value", 1);
+                            $(".control-border-thickness-right").spinner("value", 1);
+                            $(".control-border-thickness-bottom").spinner("value", 1);
+                            $(".control-border-thickness-all").spinner("value", 1);
+                        }
+                    }
+                    
                     var common = new impCommon.Common.CommonMethodsJQ();
 
                     var borderLeft = $(".control-border-thickness-left").spinner("value");
@@ -272,7 +306,7 @@ export module Border {
                     var borderRight = $(".control-border-thickness-right").spinner("value");
                     var borderBottom = $(".control-border-thickness-bottom").spinner("value");
                     var borderRadius = $(".control-border-thickness-radius").spinner("value");
-
+                    
                     if (borderRadius != undefined) {
                         selectedElement.css("border-radius", borderRadius + "px");
                     }

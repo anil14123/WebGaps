@@ -1,5 +1,6 @@
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+    "use strict";
     var isBorderReady = false;
     var borderFirstTime = 0;
     var Margin;
@@ -131,7 +132,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             MarginJQ.controlId = ".control-margin";
             MarginJQ.isSelectProcessing = false;
             return MarginJQ;
-        })();
+        }());
         Margin.MarginJQ = MarginJQ;
     })(Margin = exports.Margin || (exports.Margin = {}));
 });

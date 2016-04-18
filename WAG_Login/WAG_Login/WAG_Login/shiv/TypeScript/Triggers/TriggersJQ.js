@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Page;
     (function (Page) {
         var Controls;
@@ -111,7 +112,7 @@ define(["require", "exports"], function (require, exports) {
                     }
                 };
                 return TriggersJQ;
-            })();
+            }());
             Controls.TriggersJQ = TriggersJQ;
         })(Controls = Page.Controls || (Page.Controls = {}));
     })(Page = exports.Page || (exports.Page = {}));

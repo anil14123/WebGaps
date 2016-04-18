@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../controls/imagejq"], function (require, exports, impWatch, impUnodManager, impImage) {
+    "use strict";
     var debug = true;
     var isBIJQReady = false;
     var nextId = 0;
@@ -156,8 +157,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
             };
             BIJQ.isSelectProcessing = false;
             return BIJQ;
-        })();
+        }());
         BI.BIJQ = BIJQ;
     })(BI = exports.BI || (exports.BI = {}));
 });
-//# sourceMappingURL=BIjq.js.map
+//# sourceMappingURL=BiJQ.js.map

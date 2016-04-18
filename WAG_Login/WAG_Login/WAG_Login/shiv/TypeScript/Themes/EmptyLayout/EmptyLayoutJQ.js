@@ -1,4 +1,5 @@
 define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "../../Page/ContentJQ", "../../Page/FooterJQ", "../../_Classes/CssClass", "../../_Classes/LoadingJQ", "../../page/anyjq", "../../Error/ErrorJQ", "../../UndoManager/UndoManager", "../../Preview/Preview", "../../ContextMenu/ContextMenuJQ", "../../controls/controlcommonjq"], function (require, exports, impHeader, impMenuBar, impBody, impFooter, impCss, impLoading, impAny, impError, impUndoManager, impPreview, impCtxMenu, impControlCommon) {
+    "use strict";
     window.layoutCreating = true;
     var colorToChange = 0;
     var Themes;
@@ -382,7 +383,7 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                     }
                 };
                 return LayoutJQ;
-            })();
+            }());
             Empty.LayoutJQ = LayoutJQ;
         })(Empty = Themes.Empty || (Themes.Empty = {}));
     })(Themes = exports.Themes || (exports.Themes = {}));

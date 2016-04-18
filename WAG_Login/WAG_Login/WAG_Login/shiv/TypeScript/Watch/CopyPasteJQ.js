@@ -1,11 +1,12 @@
 define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ", "../Common/OperationJQ"], function (require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction) {
+    "use strict";
     var CopiedElement;
     var isCut = false;
     var ClipBorad = (function () {
         function ClipBorad() {
         }
         return ClipBorad;
-    })();
+    }());
     var CopyPaste;
     (function (CopyPaste) {
         var CopyPasteJQ = (function () {
@@ -191,7 +192,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
             };
             CopyPasteJQ.staticRun = CopyPasteJQ.Const();
             return CopyPasteJQ;
-        })();
+        }());
         CopyPaste.CopyPasteJQ = CopyPasteJQ;
     })(CopyPaste = exports.CopyPaste || (exports.CopyPaste = {}));
 });

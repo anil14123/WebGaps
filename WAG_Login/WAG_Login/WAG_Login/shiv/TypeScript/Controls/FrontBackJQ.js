@@ -1,4 +1,5 @@
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impUndoManager) {
+    "use strict";
     var isFrontBackReady = false;
     var borderFirstTime = 0;
     var FrontBack;
@@ -79,7 +80,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
             };
             FrontBackJQ.isSelectProcessing = false;
             return FrontBackJQ;
-        })();
+        }());
         FrontBack.FrontBackJQ = FrontBackJQ;
     })(FrontBack = exports.FrontBack || (exports.FrontBack = {}));
 });

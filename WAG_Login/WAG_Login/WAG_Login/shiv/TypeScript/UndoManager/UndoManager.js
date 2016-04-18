@@ -1,4 +1,5 @@
 define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal) {
+    "use strict";
     window.undoActivityIndex = 999999;
     var Manager;
     (function (Manager) {
@@ -112,7 +113,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                 }
             };
             return UndoManager;
-        })();
+        }());
         Manager.UndoManager = UndoManager;
         var UndoJQ = (function () {
             function UndoJQ() {
@@ -122,7 +123,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                 um.PushUndo(this);
             };
             return UndoJQ;
-        })();
+        }());
         Manager.UndoJQ = UndoJQ;
     })(Manager = exports.Manager || (exports.Manager = {}));
 });

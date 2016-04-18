@@ -1,4 +1,5 @@
 define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic) {
+    "use strict";
     var Page;
     (function (Page) {
         var LoadJQ = (function () {
@@ -53,7 +54,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                 });
             };
             return LoadJQ;
-        })();
+        }());
         Page.LoadJQ = LoadJQ;
     })(Page = exports.Page || (exports.Page = {}));
 });

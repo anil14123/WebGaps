@@ -1,5 +1,6 @@
 /// <reference path="../../sitemanager_ts/site/sitejq.ts" />
 define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescript/error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ", "../Constants/ConstantsJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction, impStatic) {
+    "use strict";
     var initOnceFlag = false;
     var Link;
     (function (Link) {
@@ -173,7 +174,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
             LinkJQ.ProcessSelectNotify = function () {
             };
             return LinkJQ;
-        })();
+        }());
         Link.LinkJQ = LinkJQ;
     })(Link = exports.Link || (exports.Link = {}));
 });

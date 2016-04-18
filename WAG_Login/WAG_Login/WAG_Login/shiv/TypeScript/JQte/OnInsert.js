@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode) {
+    "use strict";
     var changed = false;
     var OnInsert;
     (function (OnInsert) {
@@ -91,7 +92,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
             };
             Code.BackPassed = false;
             return Code;
-        })();
+        }());
         OnInsert.Code = Code;
     })(OnInsert = exports.OnInsert || (exports.OnInsert = {}));
 });

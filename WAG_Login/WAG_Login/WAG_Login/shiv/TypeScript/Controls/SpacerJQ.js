@@ -1,4 +1,5 @@
 define(["require", "exports", "../Watch/WatchMouseJQ", "../Page/Context/ContextJQ"], function (require, exports, impWatch, impPageCtx) {
+    "use strict";
     var Spacer;
     (function (Spacer) {
         var SpacerJQ = (function () {
@@ -32,7 +33,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Page/Context/ContextJ
                 }
             };
             return SpacerJQ;
-        })();
+        }());
         Spacer.SpacerJQ = SpacerJQ;
     })(Spacer = exports.Spacer || (exports.Spacer = {}));
 });

@@ -1,4 +1,5 @@
 define(["require", "exports", "../Common/CommonMethodsJQ"], function (require, exports, impCommon) {
+    "use strict";
     var Common;
     (function (Common) {
         var UrlJQ = (function () {
@@ -131,7 +132,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ"], function (require, e
                 return url;
             };
             return UrlJQ;
-        })();
+        }());
         Common.UrlJQ = UrlJQ;
     })(Common = exports.Common || (exports.Common = {}));
 });

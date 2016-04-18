@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var isPreviewReady = false;
     var Preview;
     (function (Preview) {
@@ -110,7 +111,7 @@ define(["require", "exports"], function (require, exports) {
                 jQuery(".page-marker").show();
             };
             return PreviewJQ;
-        })();
+        }());
         Preview.PreviewJQ = PreviewJQ;
     })(Preview = exports.Preview || (exports.Preview = {}));
 });

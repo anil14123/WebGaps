@@ -1,5 +1,6 @@
 /// <reference path="../../../library/jquery.d.ts" />
 define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ", "../Watch/CopyPasteJQ", "../Controls/ImageJQ", "../Controls/BorderJQ", "../Controls/ColorJQ", "../Controls/TextJQ", "../SmartMenu/SmartMenuJQ", "../Controls/Menujq", "../Controls/BIjq", "../Controls/SpacerJQ", "../Controls/LinkJQ", "../Controls/HtmlJQ", "../Controls/MarginJQ", "../Controls/PaddingJQ", "../Controls/FrontBackJQ", "../Controls/OpacityJQ", "../Controls/BorderShadow"], function (require, exports, impWatch, impAddRowControl, impCopy, impInsertImage, impBorder, impColor, impText, impHeightWidth, impMenuControl, impBi, impSpacer, impLink, impHtml, impMargin, impPadding, impFrontBack, impOpacity, impBorderShadow) {
+    "use strict";
     var G_isAttachedContextMenu = false;
     var CTX_MENU_DISABLED_CLASS = "ctx-menu-disabled";
     var ctxMenuIsReady = false;
@@ -626,7 +627,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 });
             };
             return ContextMenuJQ;
-        })();
+        }());
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });

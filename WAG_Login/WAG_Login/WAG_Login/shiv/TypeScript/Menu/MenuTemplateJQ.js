@@ -1,4 +1,5 @@
 define(["require", "exports", "../_Classes/UrlJQ", "../Menu/MenuLinksJQ"], function (require, exports, impCommonUrl, impMenuLinks) {
+    "use strict";
     var firstElementActive = false;
     var Page;
     (function (Page) {
@@ -69,7 +70,7 @@ define(["require", "exports", "../_Classes/UrlJQ", "../Menu/MenuLinksJQ"], funct
                     return menuUl;
                 };
                 return MenuTemplateJQ;
-            })();
+            }());
             Menu.MenuTemplateJQ = MenuTemplateJQ;
         })(Menu = Page.Menu || (Page.Menu = {}));
     })(Page = exports.Page || (exports.Page = {}));

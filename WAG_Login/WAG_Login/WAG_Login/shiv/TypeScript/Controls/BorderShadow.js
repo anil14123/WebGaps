@@ -1,5 +1,6 @@
 /// <reference path="spinner.ts" />
 define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+    "use strict";
     var isBorderReady = false;
     var BorderShadow;
     (function (BorderShadow) {
@@ -29,7 +30,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             var undo = new impUndoManager.Manager.UndoManager();
                             undo.BeforeOperation();
                         });
-                        jQuery('.b-s-color').colorpicker({});
+                        jQuery('.b-s-color').colorpicker({ defaultPalette: 'web' });
                         //jQuery('.b-s-color').colpick({
                         //    layout: 'hex',
                         //    submit: 0,
@@ -119,7 +120,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             BorderShadowJQ.i = 0;
             BorderShadowJQ.isSelectProcessing = false;
             return BorderShadowJQ;
-        })();
+        }());
         BorderShadow.BorderShadowJQ = BorderShadowJQ;
     })(BorderShadow = exports.BorderShadow || (exports.BorderShadow = {}));
 });
