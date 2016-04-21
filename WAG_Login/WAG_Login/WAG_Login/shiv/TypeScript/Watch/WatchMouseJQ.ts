@@ -77,7 +77,9 @@ export module Watch {
         public static ProcessClick(e) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
-            //if (jQuery(".close-preview").css("display") == "none") {
+            if (jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block") {
+                return;
+            }
 
             if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
                 return;
@@ -284,15 +286,17 @@ export module Watch {
 
             if (MouseJQ.selectedElement != undefined) {
 
-                if (!MouseJQ.selectedElement.hasClass("jqte"))
-                    MouseJQ.selectedElement.addClass("image-selection");
-
+                if (!MouseJQ.selectedElement.hasClass("jqte")) {
+                    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                        MouseJQ.selectedElement.addClass("image-selection");
+                    }
+                }
             }
 
             try {
                 var box = jQuery(MouseJQ.selectedElement)[0].getBoundingClientRect();
 
-                var circleLeftTopElement = jQuery("<div class='circle-deg' style='width:12px; border-radius:50%; height:12px; position:absolute; background-color:#00A1FF;'></div>");
+                var circleLeftTopElement = jQuery("<div class='circle-deg' style='width:14px; border-radius:50%; height:14px; border:2px solid white; position:absolute; background-color:#00A1FF;'></div>");
                 var circleRightTopElement = jQuery(circleLeftTopElement).clone();
                 var circleLeftBottomElement = jQuery(circleLeftTopElement).clone();
                 var circleRightBottomElement = jQuery(circleLeftTopElement).clone();

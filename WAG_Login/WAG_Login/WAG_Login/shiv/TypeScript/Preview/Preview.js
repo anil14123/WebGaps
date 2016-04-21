@@ -15,6 +15,7 @@ define(["require", "exports"], function (require, exports) {
                         });
                         jQuery(".show-preview").click(function () {
                             if (jQuery(".control-templates").css("display") == "none") {
+                                jQuery(".circle-deg").remove(); // remove selected object 4 corner circles.
                                 PreviewJQ.ShowPreview();
                             }
                         });

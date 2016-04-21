@@ -419,10 +419,14 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         jQuery(".image-selection").removeClass("image-selection");
                         CommonCode.currentTarget = jQuery(event.target);
                         if (jQuery(event.target).hasClass("key")) {
-                            jQuery(event.target).addClass("image-selection");
+                            if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                                jQuery(event.target).addClass("image-selection");
+                            }
                         }
                         else {
-                            jQuery(event.target).closest(".key").addClass("image-selection");
+                            if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                                jQuery(event.target).closest(".key").addClass("image-selection");
+                            }
                         }
                     }
                 });

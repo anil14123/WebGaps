@@ -166,7 +166,7 @@
         }
 
         #properties-accordion {
-            border:5px solid #c3ccb3;
+            border:5px solid #E6E8E2;
             padding:10px;
         }
 
@@ -206,6 +206,8 @@
 
         .ui-accordion .ui-accordion-header {
             font-size: small;
+            box-shadow: 5px 1px 5px #45B3D6;
+            
         }
 
         #firstTimeHelp {
@@ -407,11 +409,23 @@
 
             </div>
 
+             <button class=" btn jq-toolbar-btn btn-toolbar btn-xs close-preview jq-save-margin  ">Close Preview</button>
+             <button class=" btn jq-toolbar-btn btn-toolbar btn-xs show-preview jq-save-margin ">Preview</button>
+             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
+                <button class="btn jq-toolbar-btn btn-toolbar btn-xs" style="margin-left: 6px; display: inline-block;">
+              Live Preview</button> </a>
+             <button class="btn jq-toolbar-btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
+              Rows Plus </button>
+              <button class="btn btn-toolbar jq-toolbar-btn  btn-xs jq-hide-plus display-none" style="margin: 5px;">
+              Rows Plus Close</button>
+             <span class="btn btn-danger btn-xs btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+                                </span>
 
 
-            <div id='cssmenu'>
-                <ul>
-                    <li class='active has-sub'><a href='#'><span>Insert</span></a>
+                            </a>
+         <%--   <div id='cssmenu'>
+                <ul>--%>
+                  <%--  <li class='active has-sub'><a href='#'><span>Insert</span></a>
                         <ul>
                             <li class='has-sub'>
                                 <a href='#'><span class="ctx-menu-insert">Text  <span class="float-right">></span>  </span></a>
@@ -467,10 +481,9 @@
                             </li>
 
                         </ul>
-                    </li>
+                    </li>--%>
 
-
-                    <li class='active has-sub'><a href='#'><span>Page</span></a>
+<%--                    <li class='active has-sub'><a href='#'><span>Page</span></a>
                         <ul>
                             <li><a href='#'><span>
                                 <button class=" btn jq-toolbar-btn btn-toolbar btn-xs create-layout-show-button jq-save-margin ">Layout</button></span></a>
@@ -493,9 +506,6 @@
                                     Settings</button></span></a>
 
                             </li>
-                            <%-- <li class='last'><a href='#'><span>PC</span></a>
-           
-         </li>--%>
                         </ul>
                     </li>
                     <li class='active has-sub'><a href='#'><span>Rows</span></a>
@@ -533,11 +543,8 @@
                         </ul>
                     </li>
 
-
-
-
-                </ul>
-            </div>
+                </ul>--%>
+            <%--</div>--%>
 
 
 

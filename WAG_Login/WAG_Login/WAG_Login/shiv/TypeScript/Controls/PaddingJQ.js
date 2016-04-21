@@ -19,7 +19,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             jQuery(".jq-padding-advanced").fadeToggle(1);
                         });
                         jQuery(".control-padding-padding").spinner({
-                            min: 0,
+                            min: 1,
                             max: 1500,
                             step: 1,
                             value: 0,

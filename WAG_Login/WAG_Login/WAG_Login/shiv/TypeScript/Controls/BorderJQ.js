@@ -311,7 +311,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         jQuery(".color-picker-all").val("#" + colorLeft + "");
                     }
                     jQuery(".color-picker").keyup();
-                    selectedElement.addClass("image-selection");
+                    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                        selectedElement.addClass("image-selection");
+                    }
                 }
                 BorderJQ.isSelectProcessing = false;
             };

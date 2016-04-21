@@ -37,7 +37,7 @@ export module Padding {
 
                     jQuery(".control-padding-padding").spinner(
                         {
-                            min: 0,
+                            min: 1,
                             max: 1500,
                             step: 1,
                             value: 0,
