@@ -5,6 +5,11 @@ import impUndoManager = require("../UndoManager/UndoManager");
 
 export module JQueryUI {
 
+    export class UIHelper {
+
+        public helper;
+    }
+
     export class CommonCode {
 
         public static droppableCount = 0;
@@ -55,13 +60,83 @@ export module JQueryUI {
                     commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "height");
                     commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "min-width");
                     commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "width");
+
+
                 }
                 ,
                 resize: function (event, ui) {
 
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
+
+                    var uiHelper = new UIHelper();
+
+                    uiHelper.helper = $(this).closest(".column");
+
+                    CommonCode.commonHeight(100, uiHelper);
+
                 }
             });
+        }
+
+        public static commonHeight(height, ui) {
+
+            try {
+                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                commonMethods.RemoveSingleStyle(ui.helper, "height");
+
+                commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+
+                commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+
+                var minHeights = [];
+
+                minHeights.push(height);
+
+                var heights = [];
+
+                heights.push(height);
+
+                jQuery(ui.helper).nextAll(".column").each(function () {
+                    minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
+                    heights.push(parseInt($(this).css("height").replace("px", "")))
+                });
+                jQuery(ui.helper).prevAll(".column").each(function () {
+                    minHeights.push(parseInt($(this).css("min-height").replace("px", "")))
+                    heights.push(parseInt($(this).css("height").replace("px", "")))
+                });
+
+                var maxOfMinHeight = Math.max.apply(Math, minHeights);
+                var maxOfHeight = Math.max.apply(Math, heights);
+
+             
+                if (height > maxOfHeight) {
+
+                }
+                else {
+                    height = maxOfHeight;
+                }
+
+                jQuery(ui.helper).css("min-height", height);
+                jQuery(ui.helper).nextAll(".column").css("min-height", height);
+                jQuery(ui.helper).prevAll(".column").css("min-height", height);
+
+                var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
+
+                if (phase2Height > height) {
+                    jQuery(ui.helper).css("min-height", phase2Height);
+                    jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height);
+                    jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height);
+                }
+            }
+            catch (ex) {
+
+                return "error";
+            }
+
+            return "success";
         }
 
         public static ResizableColumn() {
@@ -70,24 +145,23 @@ export module JQueryUI {
 
             $(".column").resizable({
                 handles: handleDefault,
-               
+
                 start: function (event, ui) {
 
-                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") 
-                    {
-                    //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
-                    //    ||
-                    //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
-                    //    ) {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
+                        //    ||
+                        //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
+                        //    ) {
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
-                       
-                    }    
-                    
-                    
+
+                    }
+
+
                     var nextElements = jQuery(ui.helper).nextAll(".column");
 
-                    nextElements.hide();                                   
+                    nextElements.hide();
                 },
                 stop: function (event, ui) {
 
@@ -112,10 +186,34 @@ export module JQueryUI {
                     var style = jQuery(ui.helper).attr("style");
 
                     if (height != originalHeight) {
-                        commonMethods.RemoveStyle(ui.helper, "min-height");
-                        commonMethods.RemoveStyle(ui.helper, "height");
-                        jQuery(ui.helper).css("min-height", height);
+                        commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                        commonMethods.RemoveSingleStyle(ui.helper, "height");
+                       
+
+                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+
+                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+
+
+                        var result = CommonCode.commonHeight(height, ui);
+
+                        if (result == "error") {
+                            jQuery(ui.helper).css("min-height", height);
+                        }
+
+                        //var uiHelper = new UIHelper();
+
+                        //uiHelper.helper = $(this).closest(".column").parent().closest(".column")
+
+                        //if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
+                        //    CommonCode.commonHeight(100, uiHelper);
+                        //}
+
+
                     }
+
 
                     commonMethods.RemoveStyle(ui.helper, "min-width");
                     commonMethods.RemoveStyle(ui.helper, "width");
@@ -203,7 +301,7 @@ export module JQueryUI {
                             }
 
                             var xsSize = Number(ui.helper.attr("xs-column-size"));
-                            
+
                             // modified
                             var newXsSize = xsSize + colXs - colXsTemp;// + emptyXsCount;
 
@@ -290,7 +388,7 @@ export module JQueryUI {
 
 
                                         /////////////// over all compresser
-                                  
+
                                         var allXs = 0;
                                         ui.helper.parent().children(".column").each(function () {
 
@@ -306,7 +404,7 @@ export module JQueryUI {
                                             g--;
                                         }
 
-                                    //////////////////////////////////////
+                                        //////////////////////////////////////
 
 
                                         jQuery(nextElements[0]).removeClass("col-xs-" + nextXsSize);
@@ -336,10 +434,18 @@ export module JQueryUI {
 
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
 
+
+                    var uiHelper = new UIHelper();
+
+                    uiHelper.helper = $(this).closest(".column");
+
+
+
+
                     //JQueryUI.CommonCode.OnResize(event, ui);
 
 
-                    
+
                     //if (jQuery(ui.element).data('ui-resizable').axis == "se") {
 
                     //}
@@ -355,14 +461,14 @@ export module JQueryUI {
 
                     //        }
 
-                   
+
                 }
 
             });
 
         }
 
-        public static OnResize(event,ui) {
+        public static OnResize(event, ui) {
 
             if (jQuery(ui.element).data('ui-resizable').axis == "se") {
 
@@ -371,7 +477,7 @@ export module JQueryUI {
                 if ($(ui.element).data('ui-resizable').axis == "s") {
 
                     ui.helper.height(ui.helper.height() + 20);
-  
+
                 }
                 else
                     if ($(ui.element).data('ui-resizable').axis == "s") {
@@ -390,10 +496,10 @@ export module JQueryUI {
             $(elementCss).resizable({
                 handles: handleDefault,
                 minHeight: 0,
-                minWidth:0,
+                minWidth: 0,
                 start: function (event, ui) {
 
-                    
+
                 },
                 stop: function (event, ui) {
                     var height = ui.size.height;
@@ -403,10 +509,18 @@ export module JQueryUI {
                     var undomanager = new impUndoManager.Manager.UndoManager();
 
                     undomanager.BeforeOperation();
+
                 },
-                 resize: function (event, ui) {
+                resize: function (event, ui) {
 
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
+
+                    var uiHelper = new UIHelper();
+
+                    uiHelper.helper = $(this).closest(".column");
+
+                    CommonCode.commonHeight(100, uiHelper);
+
                 }
 
             });
@@ -423,19 +537,18 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-              
+
                 start: function (event, ui) {
 
-                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s")
-                    {
-                    //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
-                    //    ||
-                    //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
-                    //    ) {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
+                        //    ||
+                        //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
+                        //    ) {
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
                         commonMethods.RemoveStyle(ui.helper, "height");
-                    }    
+                    }
                 },
                 stop: function (event, ui) {
                     var height = ui.size.height;
@@ -458,7 +571,7 @@ export module JQueryUI {
                     undomanager.BeforeOperation();
                 },
                 resize: function (event, ui) {
-                    
+
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
                 }
 
@@ -530,7 +643,7 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-              
+
                 start: function (event, ui) {
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -540,7 +653,7 @@ export module JQueryUI {
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
                         commonMethods.RemoveStyle(ui.helper, "height");
-                    }    
+                    }
                 },
                 stop: function (event, ui) {
                     var height = ui.size.height;
@@ -548,15 +661,15 @@ export module JQueryUI {
                     var width = ui.size.width;
 
                     if (
-                           jQuery(this).hasClass("empty-container-text")
+                        jQuery(this).hasClass("empty-container-text")
                         || jQuery(this).hasClass("empty-container-image")
                         || jQuery(this).hasClass("empty-container")
-                        || jQuery(this).hasClass("jq-plus-container-text")  
+                        || jQuery(this).hasClass("jq-plus-container-text")
                         || jQuery(this).hasClass("jq-plus-container-image")
                         || jQuery(this).hasClass("jq-text-block-container")
                         || jQuery(this).hasClass("root-elements")) {
                         var common = new impCommonMethods.Common.CommonMethodsJQ();
-                                                
+
                         common.RemoveStyle(jQuery(this), "min-height");
                         common.RemoveStyle(jQuery(this), "height");
 
@@ -570,6 +683,7 @@ export module JQueryUI {
                     //UndoRedoManager.Push();
                     //alert(height + " x " + width);
 
+
                     var undomanager = new impUndoManager.Manager.UndoManager();
 
                     undomanager.BeforeOperation();
@@ -579,6 +693,13 @@ export module JQueryUI {
                 resize: function (event, ui) {
 
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
+
+                    var uiHelper = new UIHelper();
+
+                    uiHelper.helper = $(this).closest(".column");
+
+                    CommonCode.commonHeight(100, uiHelper);
+
                 }
 
             });

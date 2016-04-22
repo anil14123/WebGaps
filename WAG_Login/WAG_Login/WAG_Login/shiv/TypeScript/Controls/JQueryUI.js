@@ -3,6 +3,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
     "use strict";
     var JQueryUI;
     (function (JQueryUI) {
+        var UIHelper = (function () {
+            function UIHelper() {
+            }
+            return UIHelper;
+        }());
+        JQueryUI.UIHelper = UIHelper;
         var CommonCode = (function () {
             function CommonCode() {
             }
@@ -45,8 +51,54 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     },
                     resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
+                        var uiHelper = new UIHelper();
+                        uiHelper.helper = $(this).closest(".column");
+                        CommonCode.commonHeight(100, uiHelper);
                     }
                 });
+            };
+            CommonCode.commonHeight = function (height, ui) {
+                try {
+                    var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                    commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                    commonMethods.RemoveSingleStyle(ui.helper, "height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+                    var minHeights = [];
+                    minHeights.push(height);
+                    var heights = [];
+                    heights.push(height);
+                    jQuery(ui.helper).nextAll(".column").each(function () {
+                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
+                        heights.push(parseInt($(this).css("height").replace("px", "")));
+                    });
+                    jQuery(ui.helper).prevAll(".column").each(function () {
+                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
+                        heights.push(parseInt($(this).css("height").replace("px", "")));
+                    });
+                    var maxOfMinHeight = Math.max.apply(Math, minHeights);
+                    var maxOfHeight = Math.max.apply(Math, heights);
+                    if (height > maxOfHeight) {
+                    }
+                    else {
+                        height = maxOfHeight;
+                    }
+                    jQuery(ui.helper).css("min-height", height);
+                    jQuery(ui.helper).nextAll(".column").css("min-height", height);
+                    jQuery(ui.helper).prevAll(".column").css("min-height", height);
+                    var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
+                    if (phase2Height > height) {
+                        jQuery(ui.helper).css("min-height", phase2Height);
+                        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height);
+                        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height);
+                    }
+                }
+                catch (ex) {
+                    return "error";
+                }
+                return "success";
             };
             CommonCode.ResizableColumn = function () {
                 var handleDefault = "e,se,s";
@@ -77,9 +129,16 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         var style = jQuery(ui.helper).attr("style");
                         if (height != originalHeight) {
-                            commonMethods.RemoveStyle(ui.helper, "min-height");
-                            commonMethods.RemoveStyle(ui.helper, "height");
-                            jQuery(ui.helper).css("min-height", height);
+                            commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                            commonMethods.RemoveSingleStyle(ui.helper, "height");
+                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+                            var result = CommonCode.commonHeight(height, ui);
+                            if (result == "error") {
+                                jQuery(ui.helper).css("min-height", height);
+                            }
                         }
                         commonMethods.RemoveStyle(ui.helper, "min-width");
                         commonMethods.RemoveStyle(ui.helper, "width");
@@ -221,6 +280,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     },
                     resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
+                        var uiHelper = new UIHelper();
+                        uiHelper.helper = $(this).closest(".column");
                         //JQueryUI.CommonCode.OnResize(event, ui);
                         //if (jQuery(ui.element).data('ui-resizable').axis == "se") {
                         //}
@@ -262,6 +323,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     },
                     resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
+                        var uiHelper = new UIHelper();
+                        uiHelper.helper = $(this).closest(".column");
+                        CommonCode.commonHeight(100, uiHelper);
                     }
                 });
             };
@@ -383,6 +447,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     },
                     resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
+                        var uiHelper = new UIHelper();
+                        uiHelper.helper = $(this).closest(".column");
+                        CommonCode.commonHeight(100, uiHelper);
                     }
                 });
             };

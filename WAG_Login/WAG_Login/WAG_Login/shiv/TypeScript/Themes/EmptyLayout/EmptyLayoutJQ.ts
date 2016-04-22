@@ -146,24 +146,24 @@ export module Themes.Empty {
 
                         jQuery("page .root-elements").html("");
 
-                        anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "", undefined, undefined);
+                        anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "layout-column", undefined, undefined);
                         var newStaticElementWithTitle = staticElement.replace("title", "title='Header'");
                         jQuery(".jq-Header").prepend(newStaticElementWithTitle);
 
                         var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
                         adjustColumnHeightMB.height = 50;
 
-                        anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "", undefined, adjustColumnHeightMB);
+                        anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "layout-column", undefined, adjustColumnHeightMB);
                         newStaticElementWithTitle = staticElement.replace("title", "title='Menu Bar'");
                         jQuery(".jq-MenuBar").prepend(newStaticElementWithTitle);
 
                         var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
                         adjustColumnHeight.height = 500;
-                        anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "", undefined, adjustColumnHeight);
+                        anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "layout-column", undefined, adjustColumnHeight);
                         newStaticElementWithTitle = staticElement.replace("title", "title='Body'");
                         jQuery(".jq-Content").prepend(newStaticElementWithTitle);
 
-                        anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "", undefined, undefined);
+                        anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "layout-column", undefined, undefined);
                         newStaticElementWithTitle = staticElement.replace("title", "title='Footer'");
                         jQuery(".jq-Footer").prepend(newStaticElementWithTitle);
 
@@ -526,7 +526,7 @@ export module Themes.Empty {
 
             adjustRow.height = layout.header.height;
             adjustColumn.height = layout.header.height;
-            header.AddRow(undefined, layout.header.cols, "", adjustRow, adjustColumn);
+            header.AddRow(undefined, layout.header.cols, "layout-column", adjustRow, adjustColumn);
 
             try {
                 header.GetColumn(1, 0).text("H");
@@ -536,7 +536,7 @@ export module Themes.Empty {
 
             adjustRow.height = layout.menuBar.height;
             adjustColumn.height = layout.menuBar.height;
-            menuBar.AddRow(undefined, layout.menuBar.cols, "", adjustRow, adjustColumn);
+            menuBar.AddRow(undefined, layout.menuBar.cols, "layout-column", adjustRow, adjustColumn);
 
             try {
                 menuBar.GetColumn(1, 0).text("M");
@@ -546,7 +546,7 @@ export module Themes.Empty {
 
             adjustRow.height = layout.body.height;
             adjustColumn.height = layout.body.height;
-            body.AddRow(undefined, layout.body.cols, "", adjustRow, adjustColumn);
+            body.AddRow(undefined, layout.body.cols, "layout-column", adjustRow, adjustColumn);
 
             try {
                 var column = body.GetColumn(1, 0);
@@ -557,7 +557,7 @@ export module Themes.Empty {
 
             adjustRow.height = layout.footer.height;
             adjustColumn.height = layout.footer.height;
-            footer.AddRow(undefined, layout.footer.cols, "", adjustRow, adjustColumn);
+            footer.AddRow(undefined, layout.footer.cols, "layout-column", adjustRow, adjustColumn);
 
             try {
                 var column = footer.GetColumn(1, 0);

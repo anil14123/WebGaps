@@ -128,4 +128,4 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
         Menu.MenuJQ = MenuJQ;
     })(Menu = exports.Menu || (exports.Menu = {}));
 });
-//# sourceMappingURL=Menujq.js.map
+//# sourceMappingURL=MenuJQ.js.map

@@ -420,9 +420,10 @@
               Rows Plus Close</button>
              <span class="btn btn-danger btn-xs btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
                                 </span>
+            <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
+                                    Download Site</button>
 
 
-                            </a>
          <%--   <div id='cssmenu'>
                 <ul>--%>
                   <%--  <li class='active has-sub'><a href='#'><span>Insert</span></a>
@@ -536,8 +537,7 @@
                         <ul>
                             <li><a href='#'><span>
 
-                                <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
-                                    Download Site</button>
+                                
                             </span></a>
                             </li>
                         </ul>
@@ -984,7 +984,12 @@
     </div>
     <rootx style="clear: both; position: relative;">
 
+        <style>
+            .page-static-element{
+                display:none;
+            }
 
+        </style>
 
         <div class="row">
 
@@ -996,27 +1001,27 @@
            <div class="page-marker design-css">Page</div>
                     <div class="page-margin design-css design-page-margin">
            
-                    <div key-css="jq-Header" unique-id="1" style="min-height: 100px;" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
+                    <div key-css="jq-Header" unique-id="1" style="" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">
                         <span class="page-static-element">Header</span>
                         <span class="page-static-element-circle design-css design-root-elements-static"></span>
 
                     </div>
 
-                    <div key-css="jq-MenuBar" style=" min-height: 60px;"  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                    <div key-css="jq-MenuBar" style=""  unique-id="2" scopeId="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar design-row  row page-element design-root-elements  jqMargin-0 " style="">
                         <span class="page-static-element">Menu Bar</span>
                          <span class="page-static-element-circle"></span>
 
                     </div>
 
 
-                    <div key-css="jq-Content" style="min-height: 500px;" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                    <div key-css="jq-Content" style="" unique-id="3" scopeId="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content design-row  row page-element design-root-elements  jqMargin-0 " style="">
                        <span class="page-static-element">Body</span>
                          <span class="page-static-element-circle"></span>
 
                     </div>
 
 
-                    <div key-css="jq-Footer" style=" min-height: 74px;" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
+                    <div key-css="jq-Footer" style="" unique-id="4" scopeId="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer design-row  row page-element design-root-elements  jqMargin-0 " style="">
                         <span class="page-static-element">Footer</span>
                          <span class="page-static-element-circle"></span>
                 
