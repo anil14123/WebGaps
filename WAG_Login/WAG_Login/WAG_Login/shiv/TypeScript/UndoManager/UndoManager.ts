@@ -11,6 +11,7 @@ import impControlsCommon = require("../Controls/ControlCommonJQ");
 import impPreview = require("../Preview/Preview");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impmal = require("../MalFormed/MalFormedJQ");
+import impOnInsert = require("../jqte/OnInsert");
 
 export module Manager {
 
@@ -85,6 +86,10 @@ export module Manager {
                 impControlsCommon.ControlCommon.Code.DestroyResizable();
                 impControlsCommon.ControlCommon.Code.Execute();
 
+                var c = new impOnInsert.OnInsert.Code();
+
+                c.Init();
+
                 this.SetSelectElement();
             }
 
@@ -126,6 +131,10 @@ export module Manager {
                     
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
+
+                    var c = new impOnInsert.OnInsert.Code();
+
+                    c.Init();
 
                     this.SetSelectElement();
                 }

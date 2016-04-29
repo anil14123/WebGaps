@@ -35,6 +35,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 var handleDefault = "e,se,s";
                 $(".image-element").resizable({
                     handles: handleDefault,
+                    autoHide: true,
+                    delay: 0,
                     start: function (event, ui) {
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "min-height");
@@ -60,6 +62,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
             CommonCode.commonHeight = function (height, ui) {
                 try {
                     var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                    var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
+                    originalHeightStr = originalHeightStr.replace("px", "");
+                    var originalHeight = parseInt(originalHeightStr);
                     commonMethods.RemoveSingleStyle(ui.helper, "min-height");
                     commonMethods.RemoveSingleStyle(ui.helper, "height");
                     commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
@@ -85,15 +90,21 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     else {
                         height = maxOfHeight;
                     }
-                    jQuery(ui.helper).css("min-height", height);
-                    jQuery(ui.helper).nextAll(".column").css("min-height", height);
-                    jQuery(ui.helper).prevAll(".column").css("min-height", height);
+                    jQuery(ui.helper).css("min-height", height + "px");
+                    jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
+                    jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
                     var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
-                    if (phase2Height > height) {
-                        jQuery(ui.helper).css("min-height", phase2Height);
-                        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height);
-                        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height);
+                    if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
+                        jQuery(ui.helper).css("min-height", phase2Height + "px");
+                        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
+                        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
                     }
+                    else {
+                        jQuery(ui.helper).css("min-height", originalHeight + "px");
+                        jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
+                        jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
+                    }
+                    CommonCode.originalHeightBeforeDragStartStr = "";
                 }
                 catch (ex) {
                     return "error";
@@ -104,12 +115,15 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 var handleDefault = "e,se,s";
                 $(".column").resizable({
                     handles: handleDefault,
+                    autoHide: true,
+                    delay: 0,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
+                            CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                             commonMethods.RemoveStyle(ui.helper, "min-height");
                         }
@@ -129,15 +143,16 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         var style = jQuery(ui.helper).attr("style");
                         if (height != originalHeight) {
-                            commonMethods.RemoveSingleStyle(ui.helper, "min-height");
-                            commonMethods.RemoveSingleStyle(ui.helper, "height");
-                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
-                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
-                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
-                            commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
                             var result = CommonCode.commonHeight(height, ui);
                             if (result == "error") {
                                 jQuery(ui.helper).css("min-height", height);
+                            }
+                            else {
+                                var uiHelper = new UIHelper();
+                                uiHelper.helper = $(this).closest(".column").parent().closest(".column");
+                                if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
+                                    CommonCode.commonHeight(100, uiHelper);
+                                }
                             }
                         }
                         commonMethods.RemoveStyle(ui.helper, "min-width");
@@ -313,6 +328,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                     handles: handleDefault,
                     minHeight: 0,
                     minWidth: 0,
+                    delay: 0,
                     start: function (event, ui) {
                     },
                     stop: function (event, ui) {
@@ -336,6 +352,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 }
                 $(elementCss).resizable({
                     handles: handleDefault,
+                    autoHide: true,
+                    delay: 0,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -409,6 +427,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 }
                 $(elementCss).resizable({
                     handles: handleDefault,
+                    autoHide: true,
+                    delay: 0,
                     start: function (event, ui) {
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -457,7 +477,8 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 $(elementCss).droppable({
                     drop: function (event, ui) {
                         var h = ui.helper;
-                        if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")) {
+                        if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
+                            && !ui.draggable.hasClass("bldr-draggable")) {
                             CommonCode.droppableCount++;
                             ui.draggable.css("opacity", "1");
                             if (ui.draggable.find(".jq-image-block-image").length > 0) {
@@ -511,6 +532,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 }
             };
             CommonCode.droppableCount = 0;
+            CommonCode.originalHeightBeforeDragStartStr = "";
             return CommonCode;
         }());
         JQueryUI.CommonCode = CommonCode;

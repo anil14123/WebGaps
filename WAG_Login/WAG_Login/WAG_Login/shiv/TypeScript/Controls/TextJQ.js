@@ -5,6 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction) {
     "use strict";
+    //import impOnInsert = require("../jqte/OnInsert");
     var debug = true;
     var globalTextBlockId = 0;
     var globalTextBoxContainerId = 0;
@@ -49,7 +50,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     //var topNotifyPx = "105px";
                     //jQuery("rootx").css("top", topRowPx);
                     //jQuery(".designer-top-row").css("height", topRowPx);
-                    jQuery(".editor").hide();
+                    jQuery(".editor").show();
                     //jQuery("#notify").css("top", topNotifyPx);
                 });
             };

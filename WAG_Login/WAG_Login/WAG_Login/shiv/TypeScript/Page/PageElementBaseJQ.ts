@@ -243,6 +243,7 @@ export module Page {
                     column.attr("xs-column-size", columnSize);
                     column.css("min-height", "100px");
                     column.addClass("column-padding");
+                   
                     /////////////////////////////////////////////////////////////////
 
                     if (contentClassName != "") {

@@ -284,7 +284,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 //jQuery("#notify").css("top", topNotifyPx);
                 jQuery(".editor").show();
                 /////////////////////////////////
-                jQuery(".jqte-editor").removeClass("current-editor-scope");
+                jQuery(".jqte-editor, .column").removeClass("current-editor-scope");
                 jQuery(this).find(".jqte-editor").addClass("current-editor-scope");
                 //////////////////////////
                 jQuery(".control-page").removeClass("control-active");

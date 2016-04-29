@@ -47,6 +47,8 @@ export module JQueryUI {
 
             $(".image-element").resizable({
                 handles: handleDefault,
+                autoHide: true,
+                delay: 0,
                 start: function (event, ui) {
                     var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                     commonMethods.RemoveStyle(ui.helper.closest(".ui-wrapper"), "min-height");
@@ -81,7 +83,15 @@ export module JQueryUI {
         public static commonHeight(height, ui) {
 
             try {
+
                 var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
+                
+
+                originalHeightStr = originalHeightStr.replace("px", "");
+
+                var originalHeight = parseInt(originalHeightStr);
+
                 commonMethods.RemoveSingleStyle(ui.helper, "min-height");
                 commonMethods.RemoveSingleStyle(ui.helper, "height");
 
@@ -119,17 +129,24 @@ export module JQueryUI {
                     height = maxOfHeight;
                 }
 
-                jQuery(ui.helper).css("min-height", height);
-                jQuery(ui.helper).nextAll(".column").css("min-height", height);
-                jQuery(ui.helper).prevAll(".column").css("min-height", height);
+                jQuery(ui.helper).css("min-height", height + "px");
+                jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
+                jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
 
                 var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
 
-                if (phase2Height > height) {
-                    jQuery(ui.helper).css("min-height", phase2Height);
-                    jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height);
-                    jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height);
+                if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "" ) {
+                    jQuery(ui.helper).css("min-height", phase2Height +"px");
+                    jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
+                    jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
                 }
+                else {
+                    jQuery(ui.helper).css("min-height", originalHeight +"px");
+                    jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
+                    jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
+                }
+
+                CommonCode.originalHeightBeforeDragStartStr = "";
             }
             catch (ex) {
 
@@ -139,13 +156,16 @@ export module JQueryUI {
             return "success";
         }
 
+        public static originalHeightBeforeDragStartStr = "";
+
         public static ResizableColumn() {
 
             var handleDefault = "e,se,s";
 
             $(".column").resizable({
                 handles: handleDefault,
-
+                autoHide: true,
+                delay: 0,
                 start: function (event, ui) {
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
@@ -153,6 +173,9 @@ export module JQueryUI {
                         //    ||
                         //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                         //    ) {
+
+                        CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
+
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
 
@@ -186,30 +209,21 @@ export module JQueryUI {
                     var style = jQuery(ui.helper).attr("style");
 
                     if (height != originalHeight) {
-                        commonMethods.RemoveSingleStyle(ui.helper, "min-height");
-                        commonMethods.RemoveSingleStyle(ui.helper, "height");
-                       
-
-                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
-                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
-
-                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
-                        commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
-
-
+                      
                         var result = CommonCode.commonHeight(height, ui);
 
                         if (result == "error") {
                             jQuery(ui.helper).css("min-height", height);
                         }
+                        else {
+                            var uiHelper = new UIHelper();
 
-                        //var uiHelper = new UIHelper();
+                            uiHelper.helper = $(this).closest(".column").parent().closest(".column")
 
-                        //uiHelper.helper = $(this).closest(".column").parent().closest(".column")
-
-                        //if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
-                        //    CommonCode.commonHeight(100, uiHelper);
-                        //}
+                            if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
+                                CommonCode.commonHeight(100, uiHelper);
+                            }
+                        }
 
 
                     }
@@ -497,6 +511,8 @@ export module JQueryUI {
                 handles: handleDefault,
                 minHeight: 0,
                 minWidth: 0,
+               
+                delay: 0,
                 start: function (event, ui) {
 
 
@@ -537,7 +553,8 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-
+                autoHide: true,
+                delay: 0,
                 start: function (event, ui) {
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
@@ -643,7 +660,8 @@ export module JQueryUI {
 
             $(elementCss).resizable({
                 handles: handleDefault,
-
+                autoHide: true,
+                delay: 0,
                 start: function (event, ui) {
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -713,7 +731,10 @@ export module JQueryUI {
 
                     var h = ui.helper;
 
-                    if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")) {
+                    if (
+                        CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
+                        && !ui.draggable.hasClass("bldr-draggable")
+                    ) {
                         CommonCode.droppableCount++;
 
                         ui.draggable.css("opacity", "1");

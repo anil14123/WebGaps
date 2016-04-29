@@ -251,6 +251,12 @@
     <Content Include="Content\Cursor\right.png" />
     <Content Include="Content\Drag\drag.jpg" />
     <Content Include="Content\Drag\drag.png" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\Images\Align Icons\left.png" />
     <Content Include="Content\Images\Align Icons\middle.png" />
     <Content Include="Content\Images\Align Icons\moveleft.png" />
@@ -261,14 +267,19 @@
     <Content Include="Content\Images\Align Icons\not transparent\leftAlign.jpg" />
     <Content Include="Content\Images\Align Icons\right.png" />
     <Content Include="Content\Images\arrow.png" />
+    <Content Include="Content\Images\carbon_fiber.png" />
     <Content Include="Content\Images\colorImageBorder.png" />
+    <Content Include="Content\Images\controls_ui_bg.png" />
     <Content Include="Content\Images\down.jpg" />
     <Content Include="Content\Images\downArrow - Copy.jpg" />
+    <Content Include="Content\Images\draggable-handle.png" />
+    <Content Include="Content\Images\drgb-icons.png" />
     <Content Include="Content\Images\image border.jpg" />
     <Content Include="Content\Images\imagesBorder.png" />
     <Content Include="Content\Images\imagesBorder2.png" />
     <Content Include="Content\Images\imagesBorder3.jpg" />
     <Content Include="Content\Images\imagesborder4.jpg" />
+    <Content Include="Content\Images\leaf_hole.png" />
     <Content Include="Content\Images\move.png" />
     <Content Include="Content\Images\RightImageBlue - Copy.png" />
     <Content Include="Content\Images\RightImageBlue.png" />
@@ -279,8 +290,13 @@
     <Content Include="Content\Images\updown1.jpg" />
     <Content Include="Content\Images\updown2.png" />
     <Content Include="Content\Images\updown3.jpg" />
+    <Content Include="Content\pallette.gif" />
     <Content Include="Content\PropertiesTag\delete.png" />
     <Content Include="Content\PropertiesTag\settings.png" />
+    <Content Include="Content\resize\resize-diag-icon.png" />
+    <Content Include="Content\resize\resize-hor-icon.png" />
+    <Content Include="Content\resize\resize-ver-icon.png" />
+    <Content Include="InsertTools.css" />
     <Content Include="Nestable.css" />
     <Content Include="PropertiesTag.css" />
     <Content Include="Scripts\Colors\Colors.aspx" />
@@ -517,6 +533,30 @@
     <Content Include="Scripts\inliner-master\README.md" />
     <Content Include="Scripts\inliner-master\test\fixtures\iconv.opts.json" />
     <Content Include="Scripts\inliner-master\test\fixtures\inline-svg-no-svgo.opts.json" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\font\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\bootstrap.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\extras.less" />
+    <Content Include="Content\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
     <None Include="Properties\PublishProfiles\wag.pubxml" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\.gitattributes" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\.gitignore" />
@@ -1081,6 +1121,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Wag_O.edmx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1147,6 +1201,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Document\DocumentJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Document\IWindow.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Error\ErrorJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\InsertTool\InsertToolJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\JQte\Document.d.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\JQte\MyJQte.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\JQte\OnInsert.ts" />

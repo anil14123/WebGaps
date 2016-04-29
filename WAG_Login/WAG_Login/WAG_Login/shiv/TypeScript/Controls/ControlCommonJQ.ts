@@ -13,12 +13,13 @@ export module ControlCommon {
 
         public static Execute() {
 
+
             impOn.On.Code.Execute();
             //new impJqte.JQte.JQteJQ().Init();
             new impJqteOnInsert.OnInsert.Code().Init();
 
             impJQueryUI.JQueryUI.CommonCode.ResizableColumn();
-           
+
             impJQueryUI.JQueryUI.CommonCode.Resizable(".empty-container");
 
             //working great both
@@ -29,7 +30,7 @@ export module ControlCommon {
 
             //impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-normal-link");
-           // impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
+            // impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-text-block-container");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
             //impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
@@ -43,10 +44,13 @@ export module ControlCommon {
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-spacer", "");
+            impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
+
+
             //impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
-                 
+
             impJQueryUI.JQueryUI.CommonCode.Droppable(".column");
-           
+
             impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container");
 
             jQuery(".ui-resizable-e").html("<div class='jq-square jq-square-e'></div>");
@@ -59,25 +63,25 @@ export module ControlCommon {
         }
 
         public static DestroyResizable() {
-  
+
+
             //working great both
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-image");
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
 
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-normal-link");
-           // impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
+            // impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-text-block-container");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-image");
-            
+
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".column");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".root-elements");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other");
             impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other-left");
             //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-site-link-container");
-           
-           
+
         }
 
     }

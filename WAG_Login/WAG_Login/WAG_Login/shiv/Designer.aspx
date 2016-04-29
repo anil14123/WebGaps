@@ -25,12 +25,14 @@
     <link href="/Third-Party/cssmenu/styles.css" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
-
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
     <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
+        <link rel="stylesheet" href="/InsertTools.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
     <link href="/ContextMenu.css" type="text/css" rel="stylesheet" />
 
@@ -104,10 +106,9 @@
     </style>--%>
 
     <style>
-
         .evo-pop {
             width: 222px;
-            border:1px solid black;
+            border: 1px solid black;
             box-shadow: 3px 3px 1px #888888;
         }
 
@@ -166,21 +167,21 @@
         }
 
         #properties-accordion {
-            border:5px solid #E6E8E2;
-            padding:10px;
+            border: 5px solid #E6E8E2;
+            padding: 2px;
         }
 
-        #properties-accordion .ui-spinner-input {
-            background-color: white;
-        }
+            #properties-accordion .ui-spinner-input {
+                background-color: white;
+            }
 
-        #properties-accordion .ui-spinner {
-            width: 100px;
-        }
+            #properties-accordion .ui-spinner {
+                width: 100px;
+            }
 
-        #properties-accordion .control-border-controls .ui-spinner {
-            width: 50px;
-        }
+            #properties-accordion .control-border-controls .ui-spinner {
+                width: 50px;
+            }
 
         .accordion-properties-height {
             height: auto;
@@ -192,6 +193,11 @@
 
         .ui-accordion .ui-accordion-content {
             padding: 4px;
+            font-weight:bold;
+        }
+
+         .ui-accordion .ui-accordion-content input{
+            font-weight:normal;
         }
 
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
@@ -207,7 +213,10 @@
         .ui-accordion .ui-accordion-header {
             font-size: small;
             box-shadow: 5px 1px 5px #45B3D6;
-            
+            box-shadow: 5px 1px 5px #D3DCD3;
+            background-color: #46B34F;
+            background-color:#676767;
+            color:white;
         }
 
         #firstTimeHelp {
@@ -280,6 +289,10 @@
         .jq-toolbar-outer-btn, .jq-toolbar-outer-btn:hover, .jq-toolbar-outer-btn:focus {
             color: white;
             background-color: #CEAB2E;
+        }
+
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+            border: 1px solid #616ed1;
         }
     </style>
 
@@ -383,50 +396,57 @@
     <div class="top-row-container">
 
         <div class="designer-top-row">
+            <style>
+                .btnblue{
+                    background-color:#2D4961 !important;
+                }
+            </style>
 
             <div class="float-right" style="position: relative; z-index: 9999999999999999999999">
 
-                <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin jq-undo btn btn-toolbar btn-xs">
-                    <img alt="" class="undo-img" src="/content/undo/undo.png" />
+                <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-sm btn-primary btnblue">
+                    <span style="color:white;" class="fa fa-undo"></span>
                     Undo</button>
-                <button class="jq-undo-buttons jq-toolbar-outer-btn jq-save-margin  jq-redo btn btn-toolbar btn-xs">
-                    Redo
-                    <img alt="" class="undo-img" src="/content/undo/redo.png" /></button>
+                <button class="jq-undo-buttons jq-save-margin  jq-redo btn   btn-sm btn-primary btnblue">
+                   Redo
+                     <span style="color:white;" class="fa fa-repeat"></span></button>
 
-                <button class="jq-save jq-toolbar-outer-btn jq-toolbar-btn jq-save-margin btn btn-toolbar btn-xs">
+                <button class="jq-save jq-save-margin btn btn-sm btn-primary btnblue" style="padding-right:5px;">
                     <img alt="" class="save-img" src="/content/save/save.png" />
                     Save</button>
 
 
                 <div class="float-right">
                     <form name="logout" runat="server">
-                        <asp:LoginStatus runat="server" class="jq-logout btn btn-toolbar btn-xs jq-toolbar-outer-btn" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        <asp:LoginStatus runat="server" style="color:white;" class="jq-logout btn btn-sm btn-primary btnblue" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                     </form>
                 </div>
 
-                <button style="margin: 5px;" class="btn btn-toolbar btn-xs jq-toolbar-outer-btn btn-help ">Help</button>
+                <button style="margin: 5px;" class="btn  btn-sm btn-primary btn-help btnblue">Help</button>
 
 
             </div>
 
-             <button class=" btn jq-toolbar-btn btn-toolbar btn-xs close-preview jq-save-margin  ">Close Preview</button>
-             <button class=" btn jq-toolbar-btn btn-toolbar btn-xs show-preview jq-save-margin ">Preview</button>
-             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
-                <button class="btn jq-toolbar-btn btn-toolbar btn-xs" style="margin-left: 6px; display: inline-block;">
-              Live Preview</button> </a>
-             <button class="btn jq-toolbar-btn btn-toolbar btn-xs  jq-show-plus " style="margin: 5px;">
-              Rows Plus </button>
-              <button class="btn btn-toolbar jq-toolbar-btn  btn-xs jq-hide-plus display-none" style="margin: 5px;">
-              Rows Plus Close</button>
-             <span class="btn btn-danger btn-xs btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
-                                </span>
-            <button class="button-download-site  btn btn-danger btn-xs btn jq-save-margin">
-                                    Download Site</button>
+            <button class=" btn btn-success btn-sm close-preview jq-save-margin  ">Close Preview</button>
+            <button class=" btn btn-success btn-sm  show-preview jq-save-margin ">Preview</button>
+            <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
+                <button class="btn btn-success btn-sm " style="margin-left: 6px; display: inline-block;">
+                    Live Preview</button>
+            </a>
+            <button class="btn btn-primary btn-sm  jq-show-plus " style="margin: 5px;">
+                Rows Plus
+            </button>
+            <button class="btn btn-danger btn-sm  jq-hide-plus display-none" style="margin: 5px;">
+                Rows Plus Close</button>
+            <span class="btn btn-danger btn-sm  btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+            </span>
+            <button class="button-download-site btn-sm   btn btn-danger  btn jq-save-margin">
+                Download Site</button>
 
 
-         <%--   <div id='cssmenu'>
+            <%--   <div id='cssmenu'>
                 <ul>--%>
-                  <%--  <li class='active has-sub'><a href='#'><span>Insert</span></a>
+            <%--  <li class='active has-sub'><a href='#'><span>Insert</span></a>
                         <ul>
                             <li class='has-sub'>
                                 <a href='#'><span class="ctx-menu-insert">Text  <span class="float-right">></span>  </span></a>
@@ -484,7 +504,7 @@
                         </ul>
                     </li>--%>
 
-<%--                    <li class='active has-sub'><a href='#'><span>Page</span></a>
+            <%--                    <li class='active has-sub'><a href='#'><span>Page</span></a>
                         <ul>
                             <li><a href='#'><span>
                                 <button class=" btn jq-toolbar-btn btn-toolbar btn-xs create-layout-show-button jq-save-margin ">Layout</button></span></a>
@@ -687,8 +707,7 @@
 
                 <div id="tabs-image">
 
-                    <span class="btn btn-danger btn-file"> 
-                           Upload  
+                    <span class="btn btn-danger btn-file">Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
@@ -705,20 +724,55 @@
                 <div class="jqte-toolbar">
 
 
-                    <div style="display: inline-block; color: white; cursor: pointer;"
+                    
+                    <select class="font-name jqte-font-name form-control" style="float:left; width:auto;">
+                        <option value="0"> Font </option>
+                          <option class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Sans Serif</></option>  
+                          <option class="jqte-editor-tool-c" value="'times new roman', serif">Serif</option> 
+                          <option class="jqte-editor-tool-c" value="'arial black', sans-serif">Wide</></option> 
+                          <option class="jqte-editor-tool-c" value="'arial narrow', sans-serif">Narrow</></option> 
+                          <option class="jqte-editor-tool-c" value="'comic sans ms', sans-serif">Comic Sans MS</></option> 
+                          <option class="jqte-editor-tool-c" value="'courier new', monospace">Courier New</></option> 
+                          <option class="jqte-editor-tool-c" value="garamond, serif">Garamond</></option> 
+                          <option class="jqte-editor-tool-c" value="georgia, serif">Georgia</></option> 
+                          <option class="jqte-editor-tool-c" value="tahoma, sans-serif">Tahoma</></option> 
+                          <option class="jqte-editor-tool-c" value="'trebuchet ms', sans-serif">Trebuchet MS</></option> 
+                          <option class="jqte-editor-tool-c" value="'verdana, sans-serif;">Verdana</></option> 
+                    </select>
+
+                     <select class="font-size jqte-font-size form-control" style="float:left; width:auto;">
+                        <option value="0"> Font Size </option>
+                          <option class="jqte-editor-tool-c" value="small">Small</></option>  
+                          <option class="jqte-editor-tool-c" value="normal">Normal</option> 
+                          <option class="jqte-editor-tool-c" value="medium">Medium</></option> 
+                          <option class="jqte-editor-tool-c" value="x-large">Large</></option> 
+                          <option class="jqte-editor-tool-c" value="xx-large">Huge</></option> 
+                           <option class="jqte-editor-tool-c" value="38">2 X Huge</></option> 
+                         <option class="jqte-editor-tool-c" value="42">3 X Huge</></option> 
+                        <option class="jqte-editor-tool-c" value="46">4 X Huge</></option> 
+                         <option class="jqte-editor-tool-c" value="48">5 X Huge</></option> 
+                         <option class="jqte-editor-tool-c" value="50">6 X Huge</></option> 
+                         <option class="jqte-editor-tool-c" value="56">7 X Huge</></option> 
+                         <option class="jqte-editor-tool-c" value="60">8 X Huge</></option> 
+                    </select>
+
+                    <div class="btn btn-default" style="display: inline-block; cursor: pointer;"
                         onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
-                        &nbsp; &nbsp; Close
+                         Close
                     </div>
-                    <button tabindex="-1" class="font-icon jqte-editor-tool-p" name="font"></button>
-                    <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
+                   
+<%--                     <button class=" btn btn-default jqte-edit btn-primary" id="jqte-edit" name="Edit">Edit</button>
+                      <button class=" btn btn-default jqte-edit btn-danger" style="display:none;" id="jqte-edit-stop" name="Edit">Stop Edit</button>--%>
+
+                    <%--  <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
                         <li>
                             <button class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="Georgia, serif">Georgia, serif</button></li>
                         <li>
                             <button class="jqte-editor-tool-c" value="'Times New Roman', Times, serif">"Times New Roman", Times, serif</button></li>
-                    </ul>
-                    <button tabindex="-1" class="font-size-icon jqte-editor-tool-p" name="font-size"></button>
+                    </ul>--%>
+                   <%-- <button tabindex="-1" class="font-size-icon fa  jqte-editor-tool-p" name="font-size"></button>
                     <ul tabindex="-1" class="font-size-list font-size jqte-editor-tool-list">
                         <li style="height: 60px;">
                             <button class="jqte-editor-tool-c" style="font-size: 9px;" value="9">Smaller Text</button>
@@ -853,13 +907,19 @@
                         <li style="float: none;"></li>
                         <li>Help: To apply font size to entire text : click on a empty space (not on a word) and select font size. then done.
                         </li>
-                    </ul>
-                    <button class="bold-icon jqte-editor-tool" name="bold"></button>
-                    <button class="italic-icon jqte-editor-tool" name="italic"></button>
-                    <button class="underline-icon jqte-editor-tool" name="underline"></button>
-                    <button class="strike-icon jqte-editor-tool" name="strike"></button>
-                    <button class="fore-color-icon color-tool jqte-editor-tool" name="fore-color"></button>
+                    </ul>--%>
+
+
+                    <button class="bold-icon btn btn-default fa fa-bold jqte-editor-tool" name="bold"></button>
+                    <button class="italic-icon btn btn-default fa fa-italic jqte-editor-tool" name="italic"></button>
+                    <button class="underline-icon btn btn-default fa fa-underline jqte-editor-tool" name="underline"></button>
+                    <button class="strike-icon btn btn-default fa fa-strikethrough jqte-editor-tool" name="strike"></button>
+                    <button class="fore-color-icon btn btn-default fa fa-font color-tool jqte-editor-tool" name="fore-color"></button>
                     <div class="jqte-color-palette jqte-editor-tool-list">
+
+                        <span class="color-type"></span>
+
+                        <div class="jq-color-saperator"></div>
                         <button class="jq-color jq-color-1"></button>
                         <button class="jq-color jq-color-2"></button>
                         <button class="jq-color jq-color-3"></button>
@@ -934,23 +994,26 @@
 
 
                     </div>
-                    <button class="back-color-icon  color-tool jqte-editor-tool" name="back-color"></button>
-                    <button class="bullet-icon jqte-editor-tool" name="bullet"></button>
-                    <button class="number-icon jqte-editor-tool" name="number"></button>
-                    <button class="left-icon jqte-editor-tool" name="left"></button>
-                    <button class="right-icon jqte-editor-tool" name="right"></button>
-                    <button class="center-icon jqte-editor-tool" name="center"></button>
-                    <button class="full-icon jqte-editor-tool" name="full"></button>
-                    <button class="left-indent-icon jqte-editor-tool" name="outdent"></button>
-                    <button class="right-indent-icon jqte-editor-tool" name="indent"></button>
-                    <button class="link-icon jqte-editor-tool" name="link"></button>
-                    <button class="unlink-icon jqte-editor-tool" name="unlink"></button>
-                    <button class="clear-icon jqte-editor-tool" name="clear"></button>
+                    <button class="back-color-icon btn btn-default fa fa-font  color-tool jqte-editor-tool" name="back-color"></button>
+                    <button class="bullet-icon btn btn-default fa fa-list-ul jqte-editor-tool" name="bullet"></button>
+                    <button class="number-icon btn btn-default fa fa-list-ol jqte-editor-tool" name="number"></button>
+                    <button class="left-icon btn btn-default fa fa-align-left jqte-editor-tool" name="left"></button>
+                    <button class="right-icon btn btn-default fa fa-align-right jqte-editor-tool" name="right"></button>
+                    <button class="center-icon btn btn-default fa fa-align-center jqte-editor-tool" name="center"></button>
+                    <button class="full-icon btn btn-default fa fa-align-justify jqte-editor-tool" name="full"></button>
+                    <button class="left-indent-icon btn btn-default fa fa-indent jqte-editor-tool" name="outdent"></button>
+                    <button class="right-indent-icon btn btn-default fa fa-outdent jqte-editor-tool" name="indent"></button>
+                    <button class="link-icon btn btn-default fa fa-link jqte-editor-tool" name="link"></button>
+                    <button class="unlink-icon btn btn-default fa fa-unlink jqte-editor-tool" name="unlink"></button>
+                    <button class="clear-icon btn btn-default fa fa-eraser jqte-editor-tool" name="clear"></button>
 
                     <div class="jqte-link jqte-editor-tool-list">
                         &nbsp;&nbsp; Web Address :
-                    <input type="text" value="http://" class="link-window-url" />
-                        <button class="editor-create-link" style="margin: 2px;">Insert</button>
+                        <input  type="text" value="http://" class="link-window-url form-control" />
+
+                        <button style="margin: 2px;" class="btn btn-danger" onclick="jQuery(this).parent().hide();">Close</button>
+                        <button class="editor-create-link btn btn-default" style=";margin: 2px;">Insert</button>
+                       
                     </div>
                 </div>
             </div>
@@ -985,18 +1048,21 @@
     <rootx style="clear: both; position: relative;">
 
         <style>
-            .page-static-element{
-                display:none;
+            .page-static-element {
+                display: none;
             }
 
+            .page{
+                display:none;
+            }
         </style>
 
         <div class="row">
 
-             <div class="col-xs-2" style="background-color:greenyellow;"  >
-             </div>
+            <%-- <div class="col-xs-2"  >
+             </div>--%>
 
-            <div class="col-xs-36" style="overflow-x:auto; border: 6px solid #29adef; padding:0; overflow-y:hidden;">
+            <div class="col-xs-38" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:160px;">
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
            <div class="page-marker design-css">Page</div>
                     <div class="page-margin design-css design-page-margin">
@@ -1903,7 +1969,7 @@
         <div id="control-image-library" name="image-library" class="control-page" style="background-color:white;" >
            
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area">images</div>
+            <div class="control-move-area">Images</div>
             
             <%--  <fieldset class="clear" style="background-color:white;">
                 
@@ -1920,7 +1986,7 @@
                         <fieldset class="clear" style="background-color:white;">
 
                           <div class=" legend ">
-                              Library
+                              [ My Images ]
                             </div>
 
                             <div id="imageLibrary" class="image-library">
@@ -1929,7 +1995,7 @@
                             
                             </div>
 
-                            <span class="btn btn-primary load-more-images" style="margin:4px;">Load More Images</span>
+                            <span class="btn btn-primary load-more-images" style="margin:14px;">Load More Images</span>
                            
 
                         </fieldset>
@@ -2938,9 +3004,9 @@
             <li>
                 <div class="li smart-menu-insert-image">Image</div>
             </li>
-            <li>
+           <%-- <li>
                 <div class="li smart-menu-insert-empty-space">Spacer</div>
-            </li>
+            </li>--%>
             <li>
                 <div class="li smart-menu-insert-object">Other</div>
             </li>
@@ -3004,7 +3070,7 @@
             </li>
 
             <%--Properties Menu--%>
-           <%-- <li>
+            <%-- <li>
                 <div class="li ctx-menu-properties">
                     Properties
                     <div class="jq-menu-arrow"></div>
@@ -3074,44 +3140,35 @@
     <input type="text" id="viewstate" class="viewstate hide" value="<%=CookieValue%>" />
 
 
-     <style>
-            .insert-tools{
-                border:1px double tan;
-                border-color:tan;
-                display:inline-block;
+    <style>
+        .insert-tools {
+            border: 1px double tan;
+            border-color: tan;
+            display: inline-block;
+            background-color: lightgray;
+            font: bold 11px "helvetica neue",arial;
+            position: fixed;
+            bottom: 20px;
+            right: 400px;
+            z-index: 99999999999;
+        }
 
-                background-color:lightgray;
+        .it {
+            padding: 15px;
+            font-weight: bold;
+            display: inline-block;
+            border-right: 1px solid tan;
+            cursor: pointer;
+        }
 
-               font: bold 11px "helvetica neue",arial;
-
-               position:fixed;
-
-              
-               bottom:20px;
-               right:400px;
-
-               z-index:99999999999;
-
-            }
-
-            .it{
-                padding:15px;
-                font-weight:bold;
-                display:inline-block;
-
-                border-right:1px solid tan;
-                cursor:pointer;
-            }
-
-            .it-title-text{
-                padding:15px;
-                font-weight:bold;
-                background-color:burlywood;
-                 display:inline-block;
-                 border-right:1px solid tan;
-            }
-
-        </style>
+        .it-title-text {
+            padding: 15px;
+            font-weight: bold;
+            background-color: burlywood;
+            display: inline-block;
+            border-right: 1px solid tan;
+        }
+    </style>
 
     <!-- sample context menu
 
@@ -3184,98 +3241,367 @@
     </div>
 
 
-    
-           <table id="my-palette" style="display:none; position:absolute;" class="my-palette">
-                <tbody>
-                    <tr>
-                        <td style="background-color: #ffffff" data-color="#ffffff"><span></span></td>
-                        <td style="background-color: #000000" data-color="#000000"><span></span></td>
-                        <td style="background-color: #eeece1" data-color="#eeece1"><span></span></td>
-                        <td style="background-color: #1f497d" data-color="#1f497d"><span></span></td>
-                        <td style="background-color: #4f81bd" data-color="#4f81bd"><span></span></td>
-                        <td style="background-color: #c0504d" data-color="#c0504d"><span></span></td>
-                        <td style="background-color: #9bbb59" data-color="#9bbb59"><span></span></td>
-                        <td style="background-color: #8064a2" data-color="#8064a2"><span></span></td>
-                        <td style="background-color: #4bacc6" data-color="#4bacc6"><span></span></td>
-                        <td style="background-color: #f79646" data-color="#f79646"><span></span></td>
-                    </tr>
-                   
-                    <tr class="top">
-                        <td style="background-color: #f2f2f2" data-color="#f2f2f2"><span></span></td>
-                        <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
-                        <td style="background-color: #ddd9c3" data-color="#ddd9c3"><span></span></td>
-                        <td style="background-color: #c6d9f0" data-color="#c6d9f0"><span></span></td>
-                        <td style="background-color: #dbe5f1" data-color="#dbe5f1"><span></span></td>
-                        <td style="background-color: #f2dcdb" data-color="#f2dcdb"><span></span></td>
-                        <td style="background-color: #ebf1dd" data-color="#ebf1dd"><span></span></td>
-                        <td style="background-color: #e5e0ec" data-color="#e5e0ec"><span></span></td>
-                        <td style="background-color: #dbeef3" data-color="#dbeef3"><span></span></td>
-                        <td style="background-color: #fdeada" data-color="#fdeada"><span></span></td>
-                    </tr>
-                    <tr class="in">
-                        <td style="background-color: #d8d8d8" data-color="#d8d8d8"><span></span></td>
-                        <td style="background-color: #595959" data-color="#595959"><span></span></td>
-                        <td style="background-color: #c4bd97" data-color="#c4bd97"><span></span></td>
-                        <td style="background-color: #8db3e2" data-color="#8db3e2"><span></span></td>
-                        <td style="background-color: #b8cce4" data-color="#b8cce4"><span></span></td>
-                        <td style="background-color: #e5b9b7" data-color="#e5b9b7"><span></span></td>
-                        <td style="background-color: #d7e3bc" data-color="#d7e3bc"><span></span></td>
-                        <td style="background-color: #ccc1d9" data-color="#ccc1d9"><span></span></td>
-                        <td style="background-color: #b7dde8" data-color="#b7dde8"><span></span></td>
-                        <td style="background-color: #fbd5b5" data-color="#fbd5b5"><span></span></td>
-                    </tr>
-                    <tr class="in">
-                        <td style="background-color: #bfbfbf" data-color="#bfbfbf"><span></span></td>
-                        <td style="background-color: #3f3f3f" data-color="#3f3f3f"><span></span></td>
-                        <td style="background-color: #938953" data-color="#938953"><span></span></td>
-                        <td style="background-color: #548dd4" data-color="#548dd4"><span></span></td>
-                        <td style="background-color: #95b3d7" data-color="#95b3d7"><span></span></td>
-                        <td style="background-color: #d99694" data-color="#d99694"><span></span></td>
-                        <td style="background-color: #c3d69b" data-color="#c3d69b"><span></span></td>
-                        <td style="background-color: #b2a2c7" data-color="#b2a2c7"><span></span></td>
-                        <td style="background-color: #92cddc" data-color="#92cddc"><span></span></td>
-                        <td style="background-color: #fac08f" data-color="#fac08f"><span></span></td>
-                    </tr>
-                    <tr class="in">
-                        <td style="background-color: #a5a5a5" data-color="#a5a5a5"><span></span></td>
-                        <td style="background-color: #262626" data-color="#262626"><span></span></td>
-                        <td style="background-color: #494429" data-color="#494429"><span></span></td>
-                        <td style="background-color: #17365d" data-color="#17365d"><span></span></td>
-                        <td style="background-color: #366092" data-color="#366092"><span></span></td>
-                        <td style="background-color: #953734" data-color="#953734"><span></span></td>
-                        <td style="background-color: #76923c" data-color="#76923c"><span></span></td>
-                        <td style="background-color: #5f497a" data-color="#5f497a"><span></span></td>
-                        <td style="background-color: #31859b" data-color="#31859b"><span></span></td>
-                        <td style="background-color: #e36c09" data-color="#e36c09"><span></span></td>
-                    </tr>
-                    <tr class="bottom">
-                        <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
-                        <td style="background-color: #0c0c0c" data-color="#0c0c0c"><span></span></td>
-                        <td style="background-color: #1d1b10" data-color="#1d1b10"><span></span></td>
-                        <td style="background-color: #0f243e" data-color="#0f243e"><span></span></td>
-                        <td style="background-color: #244061" data-color="#244061"><span></span></td>
-                        <td style="background-color: #632423" data-color="#632423"><span></span></td>
-                        <td style="background-color: #4f6128" data-color="#4f6128"><span></span></td>
-                        <td style="background-color: #3f3151" data-color="#3f3151"><span></span></td>
-                        <td style="background-color: #205867" data-color="#205867"><span></span></td>
-                        <td style="background-color: #974806" data-color="#974806"><span></span></td>
-                    </tr>
-                   
-                    <tr class="standard-colors">
-                        <td style="background-color: #c00000" data-color="#c00000"><span></span></td>
-                        <td style="background-color: #ff0000" data-color="#ff0000"><span></span></td>
-                        <td style="background-color: #ffc000" data-color="#ffc000"><span></span></td>
-                        <td style="background-color: #ffff00" data-color="#ffff00"><span></span></td>
-                        <td style="background-color: #92d050" data-color="#92d050"><span></span></td>
-                        <td style="background-color: #00b050" data-color="#00b050"><span></span></td>
-                        <td style="background-color: #00b0f0" data-color="#00b0f0"><span></span></td>
-                        <td style="background-color: #0070c0" data-color="#0070c0"><span></span></td>
-                        <td style="background-color: #FF00FF" data-color="#FF00FF"><span></span></td>
-                        <td style="background-color: #7030a0" data-color="#7030a0"><span></span></td>
-                    </tr>
-                </tbody>
-            </table>
 
+    <table id="my-palette" style="display: none; position: absolute;" class="my-palette">
+        <tbody>
+            <tr>
+                <td style="background-color: #ffffff" data-color="#ffffff"><span></span></td>
+                <td style="background-color: #000000" data-color="#000000"><span></span></td>
+                <td style="background-color: #eeece1" data-color="#eeece1"><span></span></td>
+                <td style="background-color: #1f497d" data-color="#1f497d"><span></span></td>
+                <td style="background-color: #4f81bd" data-color="#4f81bd"><span></span></td>
+                <td style="background-color: #c0504d" data-color="#c0504d"><span></span></td>
+                <td style="background-color: #9bbb59" data-color="#9bbb59"><span></span></td>
+                <td style="background-color: #8064a2" data-color="#8064a2"><span></span></td>
+                <td style="background-color: #4bacc6" data-color="#4bacc6"><span></span></td>
+                <td style="background-color: #f79646" data-color="#f79646"><span></span></td>
+            </tr>
+
+            <tr class="top">
+                <td style="background-color: #f2f2f2" data-color="#f2f2f2"><span></span></td>
+                <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
+                <td style="background-color: #ddd9c3" data-color="#ddd9c3"><span></span></td>
+                <td style="background-color: #c6d9f0" data-color="#c6d9f0"><span></span></td>
+                <td style="background-color: #dbe5f1" data-color="#dbe5f1"><span></span></td>
+                <td style="background-color: #f2dcdb" data-color="#f2dcdb"><span></span></td>
+                <td style="background-color: #ebf1dd" data-color="#ebf1dd"><span></span></td>
+                <td style="background-color: #e5e0ec" data-color="#e5e0ec"><span></span></td>
+                <td style="background-color: #dbeef3" data-color="#dbeef3"><span></span></td>
+                <td style="background-color: #fdeada" data-color="#fdeada"><span></span></td>
+            </tr>
+            <tr class="in">
+                <td style="background-color: #d8d8d8" data-color="#d8d8d8"><span></span></td>
+                <td style="background-color: #595959" data-color="#595959"><span></span></td>
+                <td style="background-color: #c4bd97" data-color="#c4bd97"><span></span></td>
+                <td style="background-color: #8db3e2" data-color="#8db3e2"><span></span></td>
+                <td style="background-color: #b8cce4" data-color="#b8cce4"><span></span></td>
+                <td style="background-color: #e5b9b7" data-color="#e5b9b7"><span></span></td>
+                <td style="background-color: #d7e3bc" data-color="#d7e3bc"><span></span></td>
+                <td style="background-color: #ccc1d9" data-color="#ccc1d9"><span></span></td>
+                <td style="background-color: #b7dde8" data-color="#b7dde8"><span></span></td>
+                <td style="background-color: #fbd5b5" data-color="#fbd5b5"><span></span></td>
+            </tr>
+            <tr class="in">
+                <td style="background-color: #bfbfbf" data-color="#bfbfbf"><span></span></td>
+                <td style="background-color: #3f3f3f" data-color="#3f3f3f"><span></span></td>
+                <td style="background-color: #938953" data-color="#938953"><span></span></td>
+                <td style="background-color: #548dd4" data-color="#548dd4"><span></span></td>
+                <td style="background-color: #95b3d7" data-color="#95b3d7"><span></span></td>
+                <td style="background-color: #d99694" data-color="#d99694"><span></span></td>
+                <td style="background-color: #c3d69b" data-color="#c3d69b"><span></span></td>
+                <td style="background-color: #b2a2c7" data-color="#b2a2c7"><span></span></td>
+                <td style="background-color: #92cddc" data-color="#92cddc"><span></span></td>
+                <td style="background-color: #fac08f" data-color="#fac08f"><span></span></td>
+            </tr>
+            <tr class="in">
+                <td style="background-color: #a5a5a5" data-color="#a5a5a5"><span></span></td>
+                <td style="background-color: #262626" data-color="#262626"><span></span></td>
+                <td style="background-color: #494429" data-color="#494429"><span></span></td>
+                <td style="background-color: #17365d" data-color="#17365d"><span></span></td>
+                <td style="background-color: #366092" data-color="#366092"><span></span></td>
+                <td style="background-color: #953734" data-color="#953734"><span></span></td>
+                <td style="background-color: #76923c" data-color="#76923c"><span></span></td>
+                <td style="background-color: #5f497a" data-color="#5f497a"><span></span></td>
+                <td style="background-color: #31859b" data-color="#31859b"><span></span></td>
+                <td style="background-color: #e36c09" data-color="#e36c09"><span></span></td>
+            </tr>
+            <tr class="bottom">
+                <td style="background-color: #7f7f7f" data-color="#7f7f7f"><span></span></td>
+                <td style="background-color: #0c0c0c" data-color="#0c0c0c"><span></span></td>
+                <td style="background-color: #1d1b10" data-color="#1d1b10"><span></span></td>
+                <td style="background-color: #0f243e" data-color="#0f243e"><span></span></td>
+                <td style="background-color: #244061" data-color="#244061"><span></span></td>
+                <td style="background-color: #632423" data-color="#632423"><span></span></td>
+                <td style="background-color: #4f6128" data-color="#4f6128"><span></span></td>
+                <td style="background-color: #3f3151" data-color="#3f3151"><span></span></td>
+                <td style="background-color: #205867" data-color="#205867"><span></span></td>
+                <td style="background-color: #974806" data-color="#974806"><span></span></td>
+            </tr>
+
+            <tr class="standard-colors">
+                <td style="background-color: #c00000" data-color="#c00000"><span></span></td>
+                <td style="background-color: #ff0000" data-color="#ff0000"><span></span></td>
+                <td style="background-color: #ffc000" data-color="#ffc000"><span></span></td>
+                <td style="background-color: #ffff00" data-color="#ffff00"><span></span></td>
+                <td style="background-color: #92d050" data-color="#92d050"><span></span></td>
+                <td style="background-color: #00b050" data-color="#00b050"><span></span></td>
+                <td style="background-color: #00b0f0" data-color="#00b0f0"><span></span></td>
+                <td style="background-color: #0070c0" data-color="#0070c0"><span></span></td>
+                <td style="background-color: #FF00FF" data-color="#FF00FF"><span></span></td>
+                <td style="background-color: #7030a0" data-color="#7030a0"><span></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+      <div id="interface_bottom">
+                <div id="controls_wrap">
+                    <div id="controls">
+                        <div id="controls_nav">
+                            <menu id="leaf_types">
+                                <li data-name="webs.bldr.modules.container.popular" class="active"><a class="leaf_type_btn">Popular</a></li>
+                                <li data-name="webs.bldr.modules.container.structure" class=""><a class="leaf_type_btn">Structure</a></li>
+                                <li data-name="webs.bldr.modules.container.media" class=""><a class="leaf_type_btn">Media</a></li>
+                                <li data-name="webs.bldr.modules.container.social" class=""><a class="leaf_type_btn">Social</a></li>
+                                <li data-name="webs.bldr.modules.container.commerce" class=""><a class="leaf_type_btn">Commerce</a></li>
+                                <li data-name="webs.bldr.dock.ads.appfeeds" class=""><a class="leaf_type_btn">Other</a></li>
+                            </menu>
+
+                        </div>
+                    </div>
+                    <div id="toaster">
+                        <div id="leaf_dock" style="left:-120px;">
+                            <div id="leaf_wrap">
+                                <div id="leaf_container" class="" style="margin-left:-44px;">
+                                    <ul class="leaf_type active" >
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-text">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Paragraph</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-title">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Title</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-image">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-text_image">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image &amp; Text</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-2-columns">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Columns</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-video">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-contact_form">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Contact Form</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-google_map">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-button">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Button</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="leaf_type ">
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-2-columns">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">2 Columns</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-3-columns">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">3 Columns</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-table">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Table</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-buckets">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Combo</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-horizontal_rule">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Divider</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-spacer">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Spacer</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="leaf_type">
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-slideshow">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Slideshow</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-video">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-audio">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Audio</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="leaf_type">
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-social-links">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Social Links</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-twitter-feed">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Twitter Feed</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-fb-like">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Like Box</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-fb-comments">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Comments</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-follow">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Follow</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-share_button">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Share</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="leaf_type">
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-paypal">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Buy Now</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-donate">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Donate</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-webstore_products">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Products</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="leaf_type">
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-html">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Custom HTML</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-google_map">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="bldr-draggable" id="bldr-drgb-email_list">
+                                                <div class="bldr-drgb_icon"><span></span></div>
+                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Subscribe</span></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="leaf_cover"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+    
+
+    <script>
+
+        $(".leaf_type_btn").on("click", function () {
+            $(".leaf_type_btn").parent().removeClass("active");
+            $(this).parent().addClass("active");
+
+            $("#leaf_container .leaf_type").removeClass("active");
+
+            switch( $(this).parent().data("name"))
+            {
+                case 'webs.bldr.modules.container.popular':
+                    $("#leaf_container .leaf_type:eq(0)").addClass("active");
+                    break;
+                case 'webs.bldr.modules.container.structure':
+                    $("#leaf_container .leaf_type:eq(1)").addClass("active");
+                    break;
+                case 'webs.bldr.modules.container.media':
+                    $("#leaf_container .leaf_type:eq(2)").addClass("active");
+                    break;
+                case 'webs.bldr.modules.container.social':
+                    $("#leaf_container .leaf_type:eq(3)").addClass("active");
+                    break;
+                case 'webs.bldr.modules.container.commerce':
+                    $("#leaf_container .leaf_type:eq(4)").addClass("active");
+                    break;
+                case 'webs.bldr.dock.ads.appfeeds':
+                    $("#leaf_container .leaf_type:eq(5)").addClass("active");
+                    break;
+            }
+
+        });
+            
+
+    </script>
 
 </body>
 </html>

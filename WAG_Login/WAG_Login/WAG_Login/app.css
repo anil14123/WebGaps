@@ -24,7 +24,7 @@
     text-align: center;
     cursor: pointer;
     font-family:monospace;
-    float: right;
+    float: left;
     padding:4px;
 }
 
@@ -94,6 +94,15 @@ page .design-page-row {
     clear: both;
 }
 
+.plus-insert-tool{
+    font-size: 30px;
+    background-color: rgba(222,233,244,0.5);
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    color: #2736AF;
+}
+
 rootx {
     display: block;
 }
@@ -107,22 +116,23 @@ rootx {
 
 .design-column {
     /*outline: 1px dotted blue; /* for debugging  outline: 2px dotted blue;*/
-    outline: 1px dashed #282424;
+    /*outline: 1px dashed #282424;
     outline: 1px solid #DCD8D8;
-     outline :1px solid #f5f5f5;
+     outline :1px solid #f5f5f5;*/
      
-    outline :1px dashed #f2e6ae;
-}
+    border :1px dashed #f2e6ae;
+     
+    }
 
 .design-row {
     /*outline: 2px dotted lightblue; /* for debugging  outline: 2px dotted lightblue;*/
     /*outline: 1px dashed #151313;*/
-    outline: 1px dashed #ABA3A3;
+    /*outline: 1px dashed #ABA3A3;
     outline: 1px solid #D0CDCD;
     
-    outline :1px solid #f5f5f5;
-    outline :1px dashed #f2e6ae;
-    
+    outline :1px solid #f5f5f5;*/
+    border :1px dashed #f2e6ae;
+    padding:1px;
 }
 
 .design-empty-css {
@@ -281,7 +291,7 @@ rootx {
 
 .image-selection {
 
-    outline: 4px dashed rgba(0, 0, 0, 0.45);
+    border: 4px dashed rgba(0, 0, 0, 0.45);
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;
@@ -289,6 +299,7 @@ rootx {
     /*border-style:ridge;
      border-color:white;
      border-width:1px;*/
+    
 }
 
 #site-help {

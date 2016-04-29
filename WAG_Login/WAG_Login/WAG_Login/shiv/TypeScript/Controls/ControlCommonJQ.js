@@ -29,6 +29,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");
                 impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-spacer", "");
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
                 //impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
                 impJQueryUI.JQueryUI.CommonCode.Droppable(".column");
                 impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container");

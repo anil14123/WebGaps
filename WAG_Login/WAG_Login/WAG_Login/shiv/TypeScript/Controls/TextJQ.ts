@@ -17,6 +17,7 @@ import impCommonCode = require("./ControlCommonJQ");
 
 import impCommon = require("../Common/CommonEvents");
 import impOperaction = require("../Common/OperationJQ");
+//import impOnInsert = require("../jqte/OnInsert");
 
 var debug = true;
 var globalTextBlockId = 0;
@@ -91,7 +92,7 @@ export module Text {
 
                 //jQuery("rootx").css("top", topRowPx);
                 //jQuery(".designer-top-row").css("height", topRowPx);
-                jQuery(".editor").hide();
+                jQuery(".editor").show();
                 //jQuery("#notify").css("top", topNotifyPx);
 
 
@@ -262,7 +263,7 @@ export module Text {
 
                     jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
 
-
+                    
                     impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
                 }

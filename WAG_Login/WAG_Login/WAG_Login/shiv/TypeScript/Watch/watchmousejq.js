@@ -98,6 +98,11 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".selected-display-element").text("Page");
                 }
                 ///////////////////////
+                if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                    $(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".editor").hide();
+                    jQuery("page .jqte-editor").css("cursor", "move");
+                }
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
                     jQuery(".design-page-row").hide();
                     MouseJQ.selectedElement.parent().children(".design-page-row").show();
@@ -388,7 +393,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery(document).keydown(function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
-                                if (impOnInsert.OnInsert.Code.BackPassed == false) {
+                                if (impOnInsert.OnInsert.Code.BackPassed == false && impOnInsert.OnInsert.Code.BackPassedEdit == false) {
                                     if (e.cancelBubble != null)
                                         e.cancelBubble = true;
                                     if (e.stopPropagation)

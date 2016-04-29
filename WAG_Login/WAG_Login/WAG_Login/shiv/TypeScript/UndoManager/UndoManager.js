@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ", "../jqte/OnInsert"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal, impOnInsert) {
     "use strict";
     window.undoActivityIndex = 999999;
     var Manager;
@@ -49,6 +49,8 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                     jQuery("page").html(undoObj.html);
                     impControlsCommon.ControlCommon.Code.DestroyResizable();
                     impControlsCommon.ControlCommon.Code.Execute();
+                    var c = new impOnInsert.OnInsert.Code();
+                    c.Init();
                     this.SetSelectElement();
                 }
             };
@@ -73,6 +75,8 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview
                         jQuery("page").html(undoObj.html);
                         impControlsCommon.ControlCommon.Code.DestroyResizable();
                         impControlsCommon.ControlCommon.Code.Execute();
+                        var c = new impOnInsert.OnInsert.Code();
+                        c.Init();
                         this.SetSelectElement();
                     }
                 }

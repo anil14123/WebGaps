@@ -1,4 +1,4 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../jqte/MyJQte"], function (require, exports, impWatch, impUndoManager, impCommonCode, impJQte) {
     "use strict";
     var changed = false;
     var OnInsert;
@@ -13,8 +13,15 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 });
                 jQuery("page .jqte-editor").unbind("click");
                 jQuery("page .jqte-editor").on("click", function () {
-                    jQuery(".jqte-editor").removeClass("current-editor-scope");
+                    jQuery(".jqte-editor, .column").removeClass("current-editor-scope");
                     jQuery(this).addClass("current-editor-scope");
+                });
+                jQuery("page .column").unbind("click");
+                jQuery("page .column").on("click", function () {
+                    if (jQuery("#jqte-edit-stop").css("display") == "none") {
+                        jQuery(".jqte-editor, .column").removeClass("current-editor-scope");
+                        jQuery(this).addClass("current-editor-scope");
+                    }
                 });
                 jQuery("page .jqte-editor").unbind("keydown");
                 jQuery("page .jqte-editor").on("keydown", function () {
@@ -40,6 +47,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 jQuery(".empty-container-image").on("dblclick", function () {
                     $(this).draggable({ disabled: true });
                 });
+                debugger;
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
                     //var topRowPx = "180px";
@@ -54,6 +62,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                     $(this).draggable({ disabled: true });
                     jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").css("cursor", "pointer");
+                });
+                jQuery("page .jqte-editor").unbind("mouseup");
+                jQuery("page .jqte-editor").on("mouseup", function (e) {
+                    impJQte.MyJQte.jqte.buttonEmphasize(e);
+                });
+                jQuery("page .column").unbind("mouseup");
+                jQuery("page .column").on("mouseup", function (e) {
+                    impJQte.MyJQte.jqte.buttonEmphasize(e);
                 });
                 jQuery(".jq-site-link").unbind("dblclick");
                 jQuery(".jq-site-link").on("dblclick", function () {
@@ -91,6 +107,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 });
             };
             Code.BackPassed = false;
+            Code.BackPassedEdit = false;
             return Code;
         }());
         OnInsert.Code = Code;

@@ -6,6 +6,9 @@ import impError = require("../Error/ErrorJQ");
 import impAuth = require("../_Classes/Auth");
 import impPreview = require("../Preview/Preview");
 import impStatic = require("../Constants/ConstantsJQ");
+import impInsertTool = require("../InsertTool/InsertToolJQ");
+import impOnInsert = require("../jqte/OnInsert");
+
 
 export module Page {
 
@@ -51,16 +54,29 @@ export module Page {
 
                             jQuery("page .design-page-row").hide();
 
+                            jQuery(".page").show();
+
                             impPreview.Preview.PreviewJQ.ClosePreview();
+
+                            jQuery("#control-templates").hide();
+
+                            var c = new impOnInsert.OnInsert.Code();
+
+                            c.Init();
 
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
+
+                            var insert = new impInsertTool.InsertTool.InsertToolJQ();
+
+                            insert.Process();
 
                             var undo = new impUndoManager.Manager.UndoManager();
 
                             undo.BeforeOperation();
 
-                            jQuery("#control-templates").hide();
+                            $(window).scrollTop();
+                          
                         }
                         else {
                             jQuery("#control-templates").show();

@@ -2,11 +2,14 @@
 .editor {
     /*z-index:999999999999999999999999;*/
     display: none;
+    /*display:block !important;*/
     position: fixed !important;
     left: 500px;
     top: 8px;
     left: 79px;
     top: 81px;
+    left: 0px;
+    top: 66px;
 }
 
 
@@ -18,21 +21,25 @@
 }
 
 .jqte-editor-tool-c {
-    background-color: black;
+    /*background-color: black;
+    background-color:#46B34F ;*/
     width: 100%;
     height: 100%;
     padding: 3px;
-    color: white;
+  
     border: none;
     text-align: left;
     padding: 6px;
 }
 
+
+
 .jqte-editor-tool-list {
     left: 0;
     top: 30px;
     position: absolute;
-    background-color: black;
+    /*background-color: black;
+    background-color: #46B34F;*/
     color: white;
     list-style: none;
     margin-left: 0;
@@ -51,7 +58,7 @@
     left: 0;
     top: 30px;
     position: absolute;
-    background-color: black;
+    /*background-color: black;*/
     color: white;
     list-style: none;
     margin-left: 0;
@@ -66,9 +73,16 @@
 .jqte-toolbar {
     position: relative;
     background-color: black;
+    background-color : #46B34F;
+    background-color: #f5f5f5;
     display: inline-block;
+        border: 1px solid #cccccc;
+           border: 1px solid rgba(255,255,255,0.5);
     padding: 5px;
-    ;
+    padding-right:7px;
+
+    border-bottom:2px solid black;
+    
     /*-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(255, 106, 0, 0.5);*/
@@ -81,129 +95,153 @@ span {
 
 .jqte-editor-tool-p {
     display: block;
-    width: 20px;
-    height: 20px;
+    /*width: 20px;
+    height: 20px;*/
     float: left;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: 2px;
     border: 1px solid white;
-    padding: 2px;
+    /*padding: 2px;*/
 }
 
 .jqte-editor-tool {
     display: block;
-    width: 20px;
-    height: 20px;
+    /*width: 20px;
+    height: 20px;*/
     float: left;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    /*background-repeat: no-repeat;
+    background-size: 100% 100%;*/
     margin: 2px;
-    border: 1px solid white;
-    padding: 2px;
+    /*border: 1px solid white;*/
+    /*padding: 2px;*/
 }
 
 
 
 
 .font-size-icon {
-    background-image: url(/jqte/editor/font-size.png);
+    /*background-image: url(/jqte/editor/font-size.png);*/
 }
 
 .bold-icon {
-    background-image: url("/jqte/editor/bold.png");
+    /*background-image: url("/jqte/editor/bold.png");*/
+    content :"\f032";
 }
 
 .back-color-icon {
-    background-image: url("/jqte/editor/backcolor.png");
+    /*background-image: url("/jqte/editor/backcolor.png");*/
 }
 
 .fore-color-icon {
-    background-image: url("/jqte/editor/forecolor.png");
+    /*background-image: url("/jqte/editor/forecolor.png");*/
 }
 
 .bullet-icon {
-    background-image: url("/jqte/editor/bullet.png");
+    /*background-image: url("/jqte/editor/bullet.png");*/
 }
 
 .number-icon {
-    background-image: url('/jqte/editor/numbers.png');
+    /*background-image: url('/jqte/editor/numbers.png');*/
 }
 
 .center-icon {
-    background-image: url('/jqte/editor/center.png');
+    /*background-image: url('/jqte/editor/center.png');*/
 }
 
 .left-icon {
-    background-image: url('/jqte/editor/left.png');
+    /*background-image: url('/jqte/editor/left.png');*/
 }
 
 .right-icon {
-    background-image: url('/jqte/editor/right.png');
+    /*background-image: url('/jqte/editor/right.png');*/
 }
 
 .full-icon {
-    background-image: url('/jqte/editor/normal.png');
+    /*background-image: url('/jqte/editor/normal.png');*/
 }
 
 .clear-icon {
-    background-image: url('/jqte/editor/clear.png');
+    /*background-image: url('/jqte/editor/clear.png');*/
 }
 
 .increase-icon {
-    background-image: url('/jqte/editor/increase.png');
+    /*background-image: url('/jqte/editor/increase.png');*/
 }
 
 .decrease-icon {
-    background-image: url('/jqte/editor/decrease.png');
+    /*background-image: url('/jqte/editor/decrease.png');*/
 }
 
 
 .font-icon {
-    background-image: url('/jqte/editor/font.png');
+    /*background-image: url('/jqte/editor/font.png');*/
 }
 
 
 .html-icon {
-    background-image: url('/jqte/editor/html.png');
+    /*background-image: url('/jqte/editor/html.png');*/
 }
 
 .left-indent-icon {
-    background-image: url('/jqte/editor/leftIndent.png');
+    /*background-image: url('/jqte/editor/leftIndent.png');*/
 }
 
 .right-indent-icon {
-    background-image: url('/jqte/editor/rightIndent.png');
+    /*background-image: url('/jqte/editor/rightIndent.png');*/
 }
 
 .italic-icon {
-    background-image: url('/jqte/editor/italic.png');
+    /*background-image: url('/jqte/editor/italic.png');*/
 }
 
 .underline-icon {
-    background-image: url('/jqte/editor/underline.png');
+    /*background-image: url('/jqte/editor/underline.png');*/
 }
 
 .strike-icon {
-    background-image: url('/jqte/editor/strike.png');
+    /*background-image: url('/jqte/editor/strike.png');*/
 }
 
 .link-icon {
-    background-image: url('/jqte/editor/link.png');
+    /*background-image: url('/jqte/editor/link.png');*/
 }
 
 .unlink-icon {
-    background-image: url('/jqte/editor/unlink.png');
+    /*background-image: url('/jqte/editor/unlink.png');*/
+}
+
+.color-type{
+    color:black;
+   
+    padding:3px;
 }
 
 .jqte-color-palette {
     /*8 saperator pallette.*/
     position: absolute;
-    top: 33px;
-    left: 90px;
+    top: 35px;
+    left: 429px;
     background-color: black;
     padding: 2px;
     display: none;
+
+    background-color: white;
+    padding:5px;
+
+}
+
+.jqte-color-palette-background {
+    left: 470px;
+}
+
+.fore-color-icon:before{
+    color:red;
+}
+
+.back-color-icon{
+    background-color:#D2A5B8;
+    color:white;
 }
 
 .jq-color-saperator {
@@ -217,6 +255,7 @@ span {
     border-spacing: 0;
     display: block;
     float: left;
+    border-radius:4px;
 }
 
 .jq-color-1 {
@@ -476,7 +515,7 @@ span {
 }
 
 .highlight-tool {
-    border: 2px solid white;
+    border: 10px solid white;
 }
 
 p {
@@ -493,8 +532,12 @@ p {
 }
 
 .jqte-link {
-    width: 100%;
+    /*width: 100%;*/
     position: absolute;
-    top: 36px;
+    top: 150px;
+    left:40%;
     display: none;
+    background-color:#B96565;
+    border-radius:5px;
+    padding:15px;
 }

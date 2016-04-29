@@ -10,7 +10,7 @@
     background: -o-linear-gradient(top, #1b1c1c, #4e5152);
  
     background:none;
-    background-color:dodgerblue;
+    background: #272727 url("/Content/pallette.gif");
 
     -moz-box-shadow: 0 0 5px black;
     -webkit-box-shadow: 0 0 5px black;

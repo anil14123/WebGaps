@@ -54,94 +54,103 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         jQuery(".empty-layout-templates .column").addClass("design-column");
                         jQuery(".empty-layout-templates .root-elements").css("padding", "0");
                     });
-                    //jQuery(".control-templates .close-button").click(function () {
-                    //    jQuery(".column").removeClass("column-layout-border-yellow");
-                    //    jQuery(".column").removeClass("column-layout-border-brown");
-                    //});
+                    jQuery(".control-templates .close-button").click(function () {
+                        if (jQuery(".empty-layout-select").attr("layout-id") == undefined || jQuery(".empty-layout-select").attr("layout-id") == "") {
+                            LayoutJQ.CreateLayout("0", this);
+                        }
+                        jQuery(".column").removeClass("column-layout-border-yellow");
+                        jQuery(".column").removeClass("column-layout-border-brown");
+                    });
                     jQuery(".action-button-layout-create").on("click", function () {
-                        var layoutId = jQuery(".empty-layout-select").attr("layout-id");
-                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        if (layoutId != undefined) {
-                            var layout = undefined;
-                            switch (layoutId) {
-                                case "0":
-                                    layout = LayoutJQ.layout;
-                                    break;
-                                case "1":
-                                    layout = LayoutJQ.layout1;
-                                    break;
-                                case "2":
-                                    layout = LayoutJQ.layout2;
-                                    break;
-                                case "3":
-                                    layout = LayoutJQ.layout3;
-                                    break;
-                                case "4":
-                                    layout = LayoutJQ.layout4;
-                                    break;
-                                case "5":
-                                    layout = LayoutJQ.layout5;
-                                    break;
-                                case "6":
-                                    layout = LayoutJQ.layout6;
-                                    break;
-                                case "7":
-                                    layout = LayoutJQ.layout7;
-                                    break;
-                                case "8":
-                                    layout = LayoutJQ.layout8;
-                                    break;
-                            }
-                            if (layout != undefined) {
-                                var anyJQ = new impAny.Page.AnyJQ("");
-                                //jQuery(".column").removeClass("column-layout-border-yellow");
-                                //jQuery(".column").removeClass("column-layout-border-brown");
-                                var staticElement = "<span title class=\"page-static-element-circle design-root-elements-static\"> </span>";
-                                jQuery("page .root-elements").html("");
-                                anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "layout-column", undefined, undefined);
-                                var newStaticElementWithTitle = staticElement.replace("title", "title='Header'");
-                                jQuery(".jq-Header").prepend(newStaticElementWithTitle);
-                                var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
-                                adjustColumnHeightMB.height = 50;
-                                anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "layout-column", undefined, adjustColumnHeightMB);
-                                newStaticElementWithTitle = staticElement.replace("title", "title='Menu Bar'");
-                                jQuery(".jq-MenuBar").prepend(newStaticElementWithTitle);
-                                var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
-                                adjustColumnHeight.height = 500;
-                                anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "layout-column", undefined, adjustColumnHeight);
-                                newStaticElementWithTitle = staticElement.replace("title", "title='Body'");
-                                jQuery(".jq-Content").prepend(newStaticElementWithTitle);
-                                anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "layout-column", undefined, undefined);
-                                newStaticElementWithTitle = staticElement.replace("title", "title='Footer'");
-                                jQuery(".jq-Footer").prepend(newStaticElementWithTitle);
-                                // escape key issue
-                                //if (colorToChange % 2 == 0) {
-                                //    jQuery("page .root-elements .column").addClass("column-layout-border-yellow");
-                                //}
-                                //else {
-                                //    jQuery("page .root-elements .column").addClass("column-layout-border-brown");
-                                //}
-                                //colorToChange++;
-                                errorHandler.ActionSuccess("Layout Created");
-                                jQuery(this).closest(".control-page").hide();
-                                var undoManager = new impUndoManager.Manager.UndoManager();
-                                undoManager.PopUndo();
-                                undoManager.PopUndo();
-                                undoManager.PopUndo();
-                                undoManager.PopUndo();
-                                impControlCommon.ControlCommon.Code.DestroyResizable();
-                                impControlCommon.ControlCommon.Code.Execute();
-                                undoManager.BeforeOperation();
-                            }
-                            else {
-                                errorHandler.ActionFail("Please try after some time.");
-                            }
+                        LayoutJQ.CreateLayout(undefined, this);
+                    });
+                };
+                LayoutJQ.CreateLayout = function (layoutId, $this) {
+                    if (layoutId == undefined) {
+                        layoutId = jQuery(".empty-layout-select").attr("layout-id");
+                    }
+                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
+                    if (layoutId != undefined) {
+                        var layout = undefined;
+                        switch (layoutId) {
+                            case "0":
+                                layout = LayoutJQ.layout;
+                                break;
+                            case "1":
+                                layout = LayoutJQ.layout1;
+                                break;
+                            case "2":
+                                layout = LayoutJQ.layout2;
+                                break;
+                            case "3":
+                                layout = LayoutJQ.layout3;
+                                break;
+                            case "4":
+                                layout = LayoutJQ.layout4;
+                                break;
+                            case "5":
+                                layout = LayoutJQ.layout5;
+                                break;
+                            case "6":
+                                layout = LayoutJQ.layout6;
+                                break;
+                            case "7":
+                                layout = LayoutJQ.layout7;
+                                break;
+                            case "8":
+                                layout = LayoutJQ.layout8;
+                                break;
+                        }
+                        if (layout != undefined) {
+                            var anyJQ = new impAny.Page.AnyJQ("");
+                            //jQuery(".column").removeClass("column-layout-border-yellow");
+                            //jQuery(".column").removeClass("column-layout-border-brown");
+                            var staticElement = "<span title class=\"page-static-element-circle design-root-elements-static\"> </span>";
+                            jQuery("page .root-elements").html("");
+                            anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "layout-column", undefined, undefined);
+                            var newStaticElementWithTitle = staticElement.replace("title", "title='Header'");
+                            jQuery(".jq-Header").prepend(newStaticElementWithTitle);
+                            var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
+                            adjustColumnHeightMB.height = 50;
+                            anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "layout-column", undefined, adjustColumnHeightMB);
+                            newStaticElementWithTitle = staticElement.replace("title", "title='Menu Bar'");
+                            jQuery(".jq-MenuBar").prepend(newStaticElementWithTitle);
+                            var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
+                            adjustColumnHeight.height = 500;
+                            anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "layout-column", undefined, adjustColumnHeight);
+                            newStaticElementWithTitle = staticElement.replace("title", "title='Body'");
+                            jQuery(".jq-Content").prepend(newStaticElementWithTitle);
+                            anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "layout-column", undefined, undefined);
+                            newStaticElementWithTitle = staticElement.replace("title", "title='Footer'");
+                            jQuery(".jq-Footer").prepend(newStaticElementWithTitle);
+                            // escape key issue
+                            //if (colorToChange % 2 == 0) {
+                            //    jQuery("page .root-elements .column").addClass("column-layout-border-yellow");
+                            //}
+                            //else {
+                            //    jQuery("page .root-elements .column").addClass("column-layout-border-brown");
+                            //}
+                            //colorToChange++;
+                            errorHandler.ActionSuccess("Layout Created");
+                            jQuery($this).closest(".control-page").hide();
+                            var undoManager = new impUndoManager.Manager.UndoManager();
+                            undoManager.PopUndo();
+                            undoManager.PopUndo();
+                            undoManager.PopUndo();
+                            undoManager.PopUndo();
+                            jQuery(".page").show();
+                            impControlCommon.ControlCommon.Code.DestroyResizable();
+                            impControlCommon.ControlCommon.Code.Execute();
+                            undoManager.BeforeOperation();
                         }
                         else {
-                            errorHandler.ActionFail("Please select a layout.!");
+                            errorHandler.ActionFail("Please try after some time.");
                         }
-                        jQuery(".jq-row-plus-container").hide();
-                    });
+                    }
+                    else {
+                        errorHandler.ActionFail("Please select a layout.!");
+                    }
+                    jQuery(".jq-row-plus-container").hide();
                 };
                 LayoutJQ.prototype.Layout = function (layout) {
                     var templateNumber = 1;

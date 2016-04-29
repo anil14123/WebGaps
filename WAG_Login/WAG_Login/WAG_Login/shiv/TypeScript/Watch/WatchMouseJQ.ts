@@ -170,6 +170,13 @@ export module Watch {
             ///////////////////////
 
 
+            if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                $(".empty-container-text").draggable({ disabled: false });
+                jQuery(".editor").hide();
+                jQuery("page .jqte-editor").css("cursor", "move");
+            }
+
+
             if (MouseJQ.selectedElement.hasClass("column") == true) {
 
                 jQuery(".design-page-row").hide();
@@ -527,7 +534,7 @@ export module Watch {
 
                         if (e.which == BACK) {
 
-                            if (impOnInsert.OnInsert.Code.BackPassed == false) {
+                            if (impOnInsert.OnInsert.Code.BackPassed == false && impOnInsert.OnInsert.Code.BackPassedEdit == false) {
                                 if (e.cancelBubble != null) e.cancelBubble = true;
                                 if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
                                 if (e.preventDefault) e.preventDefault();

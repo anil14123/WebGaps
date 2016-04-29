@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ", "../InsertTool/InsertToolJQ", "../jqte/OnInsert"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic, impInsertTool, impOnInsert) {
     "use strict";
     var Page;
     (function (Page) {
@@ -32,12 +32,18 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                             impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
                             impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;
                             jQuery("page .design-page-row").hide();
+                            jQuery(".page").show();
                             impPreview.Preview.PreviewJQ.ClosePreview();
+                            jQuery("#control-templates").hide();
+                            var c = new impOnInsert.OnInsert.Code();
+                            c.Init();
                             impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
+                            var insert = new impInsertTool.InsertTool.InsertToolJQ();
+                            insert.Process();
                             var undo = new impUndoManager.Manager.UndoManager();
                             undo.BeforeOperation();
-                            jQuery("#control-templates").hide();
+                            $(window).scrollTop();
                         }
                         else {
                             jQuery("#control-templates").show();

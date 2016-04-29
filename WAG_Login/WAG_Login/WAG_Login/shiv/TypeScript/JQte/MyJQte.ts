@@ -2,7 +2,8 @@
 
 import impStatic = require("../Constants/ConstantsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
-
+import impOnInsert = require("../JQte/OnInsert");
+import impCommonCode = require("../Controls/ControlCommonJQ");
 var initOnce = false;
 
 export module MyJQte {
@@ -41,6 +42,34 @@ export module MyJQte {
 
                     jQuery(this).children().css("font-family", jQuery(this).text());
                 });
+
+                //jQuery("#jqte-edit").on("click", function () {
+                //    jQuery("#jqte-edit").hide();
+                //    jQuery("#jqte-edit-stop").show();
+
+                //    jQuery(".column.design-column").find(".ui-resizable-handle").attr("contentEditable", "false").hide();
+                //    jQuery(".row").attr("contentEditable", "false");
+                //    jQuery(".column.design-column").attr("contentEditable", "true");
+                //    jQuery(".column.design-column").find(".image-text-other, .image-text-other *").not(".jqte-editor").attr("contentEditable", "false");
+
+                //    impOnInsert.OnInsert.Code.BackPassedEdit = true;
+
+                //});
+
+                //jQuery("#jqte-edit-stop").on("click", function () {
+                //    jQuery("#jqte-edit").show();
+                //    jQuery("#jqte-edit-stop").hide();
+
+                //    jQuery(".column.design-column").find(".ui-resizable-handle").removeAttr("contentEditable").show();
+                //    jQuery(".row").removeAttr("contentEditable");
+                //    jQuery(".column.design-column").removeAttr("contentEditable");
+                //    jQuery(".column.design-column").find(".image-text-other, .image-text-other *").not(".jqte-editor").removeAttr("contentEditable").show();
+
+                //    impCommonCode.ControlCommon.Code.Execute();
+
+                //    impOnInsert.OnInsert.Code.BackPassedEdit = false;
+
+                //});
             }
         }
 
@@ -48,7 +77,102 @@ export module MyJQte {
             return "EditorLink" + ++impStatic.Constants.StaticJQ.editorLinkId;
         }
 
+        public static buttons = [];
+        public static formats = [["p", "Normal"], ["h1", "Header 1"], ["h2", "Header 2"], ["h3", "Header 3"], ["h4", "Header 4"], ["h5", "Header 5"], ["h6", "Header 6"], ["pre", "Preformatted"]];
+
+        // insertion function for parameters to toolbar
+        public static addParams(name, command, key, tag, emphasis) {
+            var thisCssNo = jqte.buttons.length + 1;
+            return jqte.buttons.push({ name: name, cls: thisCssNo, command: command, key: key, tag: tag, emphasis: emphasis });
+        }
+
+        public static detectElement(tags) {
+
+            var resultdetect = false, $node = jqte.getSelectedNode(), parentsTag;
+
+            if ($node) {
+                $.each(tags, function (i, val) {
+                    parentsTag = $node.prop('tagName').toLowerCase();
+
+                    if (parentsTag == val)
+                        resultdetect = true;
+                    else {
+                        $node.parents().each(function () {
+                            parentsTag = $(this).prop('tagName').toLowerCase();
+                            if (parentsTag == val)
+                                resultdetect = true;
+                        });
+                    }
+                });
+
+                return resultdetect;
+            }
+            else
+                return false;
+        };
+
+        public static buttonEmphasize(e) {
+            for (var n = 0; n < jqte.buttons.length; n++) {
+                if (jqte.buttons[n].emphasis && jqte.buttons[n].tag != '')
+                    if (jqte.detectElement(jqte.buttons[n].tag)) {
+
+                        $(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").addClass("active");
+                        $(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").addClass("active");
+
+                    }
+                    else {
+                        $(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").removeClass("active");
+                        $(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").removeClass("active");
+                    }
+            }
+        }
+
+
+        public static getSelectedNode() {
+            var node, selection;
+            if (window.getSelection) {
+                selection = getSelection();
+                node = selection.anchorNode;
+            }
+            if (!node && document.selection && document.selection.createRange && document.selection.type != "None") {
+                selection = document.selection;
+                var range = selection.getRangeAt ? selection.getRangeAt(0) : selection.createRange();
+                node = range.commonAncestorContainer ? range.commonAncestorContainer :
+                    range.parentElement ? range.parentElement() : range.item(0);
+            }
+            if (node) {
+                return (node.nodeName == "#text" ? $(node.parentNode) : $(node));
+            }
+            else
+                return node;
+        }
+
+
         public AttachEvents() {
+
+            jqte.addParams('format', 'formats', '', '', false); // text format button  --> no hotkey
+            jqte.addParams('fsize', 'fSize', '', '', false); // font size button --> no hotkey
+            jqte.addParams('color', 'colors', '', '', false); // text color button  --> no hotkey
+            jqte.addParams('b', 'bold', 'B', ["b", "strong"], true); // bold --> ctrl + b
+            jqte.addParams('i', 'italic', 'I', ["i", "em"], true); // italic --> ctrl + i
+            jqte.addParams('u', 'underline', 'U', ["u"], true); // underline --> ctrl + u
+            jqte.addParams('ol', 'number', '¾', ["ol"], true); // ordered list --> ctrl + .(dot)
+            jqte.addParams('ul', 'bullet', '¼', ["ul"], true); // unordered list --> ctrl + ,(comma)
+            jqte.addParams('sub', 'subscript', '(', ["sub"], true); // sub script --> ctrl + down arrow
+            jqte.addParams('sup', 'superscript', '&', ["sup"], true); // super script --> ctrl + up arrow
+            jqte.addParams('outdent', 'outdent', '%', ["blockquote"], true); // outdent --> ctrl + left arrow
+            jqte.addParams('indent', 'indent', '\'', ["blockquote"], true); // indent --> ctrl + right arrow
+            jqte.addParams('left', 'left', '', '', true); // justify Left --> no hotkey
+            jqte.addParams('center', 'center', '', '', true); // justify center --> no hotkey
+            jqte.addParams('right', 'right', '', '', true); // justify right --> no hotkey
+            jqte.addParams('strike', 'strike', 'K', ["strike"], true); // strike through --> ctrl + K
+            jqte.addParams('link', 'link', 'L', ["a"], false); // insertion link  --> ctrl + L
+            jqte.addParams('unlink', 'unlink', '', ["a"], true); // remove link --> ctrl + N 
+            jqte.addParams('remove', 'removeformat', '.', '', false); // remove all styles --> ctrl + delete
+            jqte.addParams('rule', 'inserthorizontalrule', 'H', ["hr"], false); // insertion horizontal rule --> ctrl + H
+            jqte.addParams('source', 'displaysource', '', '', false); // feature of displaying source
+
+
 
             jQuery(document).not(".editor").click(function (e) {
 
@@ -70,8 +194,9 @@ export module MyJQte {
 
             $(".jqte-editor-tool,.jqte-editor-tool-p").mousedown(function (e) {
 
-                jQuery(this).addClass("highlight-tool");
-
+               // jQuery(this).addClass("highlight-tool");
+                jQuery(".jqte-color-palette").css("display", "none");
+                
                 var name = jQuery(this).attr("name");
 
                 switch (name) {
@@ -92,10 +217,20 @@ export module MyJQte {
                         else {
                             jQuery(".font-size-list ").css("display", "none");
                         }
-                        
+
                         break;
                     case 'fore-color':
                     case 'back-color':
+
+                        if (name == "back-color") {
+                            jQuery(".jqte-color-palette").find(".color-type").text("Background Color");
+                            jQuery(".jqte-color-palette").addClass("jqte-color-palette-background");
+                        }
+                        else {
+                            jQuery(".jqte-color-palette").find(".color-type").text("Text Color");
+                            jQuery(".jqte-color-palette").removeClass("jqte-color-palette-background");
+                        }
+
                         jQuery(".jqte-editor-tool-list").not(".jqte-color-palette").hide();
 
                         if (jQuery(this).hasClass("current-color-tool")) {
@@ -115,6 +250,7 @@ export module MyJQte {
 
                         break;
                     case 'bold': jqte.SelectionSet("bold", null);
+                        
                         var undomanager = new impUndoManager.Manager.UndoManager();
 
                         undomanager.BeforeOperation();
@@ -205,6 +341,8 @@ export module MyJQte {
 
                 }
 
+                jqte.buttonEmphasize(e);
+
                 if (e.cancelBubble != null) e.cancelBubble = true;
                 if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
                 if (e.preventDefault) e.preventDefault();
@@ -230,9 +368,90 @@ export module MyJQte {
                 return false;
             });
 
+            $(".jqte-font-name").on( "change",function (e) {
+
+                if (jQuery(this).val() != 0) {
+                    jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                    jqte.SelectionSet("foreColor", "#afafaf");
+                    var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                    jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+
+                    if (selectedtext == "") {
+                        var selectedElement = jQuery(".image-selection").last();
+
+                        selectedElement.find(".jq-text-block").css("font-family", jQuery(this).attr("value"));
+                    }
+
+                    if (selectedtext != "") {
+                        jqte.SelectionSet("fontName", jQuery(this).val());
+                    }
+
+                    jQuery(this).val("0");
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
+                }
+
+                if (e.cancelBubble != null) e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                if (e.preventDefault) e.preventDefault();
+                if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                return false;
+
+            });
+
+            $(".jqte-font-size").on("change", function (e) {
+
+                if (jQuery(this).val() != 0) {
+                    jqte.SelectionSet("fontSize", 7);
+
+                    jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+                    jqte.SelectionSet("foreColor", "#afafaf");
+                    var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
+                    jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
+
+                    var res = parseInt(jQuery(this).val())
+
+                    if (selectedtext == "") {
+                        var selectedElement = jQuery(".image-selection").last();
+
+                        if (res == NaN) {
+                            selectedElement.css("font-size", jQuery(this).val() + "px");
+                        }
+                        else {
+                            selectedElement.css("font-size", jQuery(this).val());
+                        }
+                    }
+
+                    if (selectedtext != "") {
+                        if (res == NaN) {
+                            jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val() +"px").removeAttr("size");
+                        }
+                        else {
+                            jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val() ).removeAttr("size");
+                        }
+                    }
+
+                    jQuery(this).val("0");
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
+                }
+
+                if (e.cancelBubble != null) e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation(); //e.stopPropagation works in Firefox.
+                if (e.preventDefault) e.preventDefault();
+                if (e.returnValue != null) e.returnValue = false; // http://blog.patricktresp.de/2012/02/
+                return false;
+
+            });
+
             $(".jqte-editor-tool-c").mousedown(function (e) {
 
-                if (jQuery(this).parent().parent().hasClass("font-name")) {
+                debugger;
+                if (jQuery(this).parent().hasClass("font-name")) {
 
                     jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
                     jqte.SelectionSet("foreColor", "#afafaf");
@@ -262,8 +481,7 @@ export module MyJQte {
                     var selectedtext = jQuery(".current-editor-scope").find("font[color='#afafaf']").text();
                     jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
 
-                    if (selectedtext == "")
-                    {
+                    if (selectedtext == "") {
                         var selectedElement = jQuery(".image-selection").last();
 
                         selectedElement.css("font-size", jQuery(this).attr("value") + "px");
@@ -312,7 +530,7 @@ export module MyJQte {
                             selectedElement.css("background-color", jQuery(this).css("background-color"));
                         }
 
-                       
+
                         if (selectedtext != "") {
                             jqte.SelectionSet("backColor", jQuery(this).css("background-color"));
                         }
@@ -365,7 +583,7 @@ export module MyJQte {
                                 }
                             }
 
-                           
+
 
                             if (selectedtext != "") {
                                 jqte.SelectionSet("foreColor", jQuery(this).css("background-color"));
@@ -387,8 +605,9 @@ export module MyJQte {
                 return false;
 
             });
-        
-        
+
+
+
             //jQuery(".jqte-editor").focus(function () {
 
 
@@ -441,7 +660,7 @@ export module MyJQte {
 
                 document.execCommand(addCommand, false, thirdParam);
             }
-				
+
             // for ie
             else if (document.selection && document.selection.createRange && document.selection.type != "None") {
                 range = document.selection.createRange();
