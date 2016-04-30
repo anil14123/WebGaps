@@ -251,7 +251,7 @@ export module Text {
                     }
                     ///// rearrange debug css completed...
 
-                    errorHandler.ActionSuccess("");
+                    //errorHandler.ActionSuccess("");
 
                     jQuery(this).closest(".control-page").hide();
 

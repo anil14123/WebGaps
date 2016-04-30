@@ -32,7 +32,7 @@ export module JQueryUI {
                     CommonCode.droppableCount = 0;
 
                     ui.helper.css("opacity", "1");
-                    ui.helper.css("z-index", "1");
+                    ui.helper.css("z-index", "0");
                 }
             });
         }

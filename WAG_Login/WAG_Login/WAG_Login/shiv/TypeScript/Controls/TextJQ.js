@@ -154,7 +154,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                             }
                         }
                         ///// rearrange debug css completed...
-                        errorHandler.ActionSuccess("");
+                        //errorHandler.ActionSuccess("");
                         jQuery(this).closest(".control-page").hide();
                         jQuery(tbContainer).find(".jqte_editor").addClass("padding-5");
                         // jQuery(tbContent).find(".jqte").addClass("key normal-element design-css design-jqte_editor text-element");

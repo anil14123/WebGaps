@@ -1,5 +1,4 @@
-﻿Loading Please wait...<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +24,14 @@
     <link href="/Third-Party/cssmenu/styles.css" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="/Content/bootstrap-3.3.5-dist/css/bootstrap-customzed-48.min.css" rel="stylesheet" />
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
     <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="/app.css" type="text/css" />
-        <link rel="stylesheet" href="/InsertTools.css" type="text/css" />
+    <link rel="stylesheet" href="/InsertTools.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
     <link href="/ContextMenu.css" type="text/css" rel="stylesheet" />
 
@@ -193,12 +192,12 @@
 
         .ui-accordion .ui-accordion-content {
             padding: 4px;
-            font-weight:bold;
+            font-weight: bold;
         }
 
-         .ui-accordion .ui-accordion-content input{
-            font-weight:normal;
-        }
+            .ui-accordion .ui-accordion-content input {
+                font-weight: normal;
+            }
 
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             font-weight: normal;
@@ -211,12 +210,12 @@
         }
 
         .ui-accordion .ui-accordion-header {
-            font-size: small;
+            font-size: 11px;
             box-shadow: 5px 1px 5px #45B3D6;
             box-shadow: 5px 1px 5px #D3DCD3;
             background-color: #46B34F;
-            background-color:#676767;
-            color:white;
+            background-color: #676767;
+            color: white;
         }
 
         #firstTimeHelp {
@@ -291,7 +290,7 @@
             background-color: #CEAB2E;
         }
 
-        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
             border: 1px solid #616ed1;
         }
     </style>
@@ -397,50 +396,51 @@
 
         <div class="designer-top-row">
             <style>
-                .btnblue{
-                    background-color:#2D4961 !important;
+                .btnblue {
+                    background-color: #2D4961 !important;
                 }
             </style>
 
             <div class="float-right" style="position: relative; z-index: 9999999999999999999999">
 
-                <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-sm btn-primary btnblue">
-                    <span style="color:white;" class="fa fa-undo"></span>
+                <button class="jq-undo-buttons jq-save-margin jq-undo btn btn-xs btn-primary btnblue">
+                    <span style="color: white;" class="fa fa-undo"></span>
                     Undo</button>
-                <button class="jq-undo-buttons jq-save-margin  jq-redo btn   btn-sm btn-primary btnblue">
-                   Redo
-                     <span style="color:white;" class="fa fa-repeat"></span></button>
+                <button class="jq-undo-buttons jq-save-margin  jq-redo btn   btn-xs btn-primary btnblue">
+                    Redo
+                     <span style="color: white;" class="fa fa-repeat"></span>
+                </button>
 
-                <button class="jq-save jq-save-margin btn btn-sm btn-primary btnblue" style="padding-right:5px;">
-                    <img alt="" class="save-img" src="/content/save/save.png" />
+                <button class="jq-save jq-save-margin btn btn-xs btn-primary btnblue" style="padding-right: 5px;">
+                   <span style="color: white;" class="fa fa-save"></span>
                     Save</button>
 
 
                 <div class="float-right">
                     <form name="logout" runat="server">
-                        <asp:LoginStatus runat="server" style="color:white;" class="jq-logout btn btn-sm btn-primary btnblue" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        <asp:LoginStatus runat="server" Style="color: white;" class="jq-logout btn btn-xs btn-primary btnblue" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                     </form>
                 </div>
 
-                <button style="margin: 5px;" class="btn  btn-sm btn-primary btn-help btnblue">Help</button>
+                <button style="margin: 5px;" class="btn  btn-xs btn-primary btn-help btnblue">Help</button>
 
 
             </div>
 
-            <button class=" btn btn-success btn-sm close-preview jq-save-margin  ">Close Preview</button>
-            <button class=" btn btn-success btn-sm  show-preview jq-save-margin ">Preview</button>
+            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">Close Preview</button>
+            <button class=" btn btn-success btn-xs  show-preview jq-save-margin ">Preview</button>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
-                <button class="btn btn-success btn-sm " style="margin-left: 6px; display: inline-block;">
+                <button class="btn btn-success btn-xs " style="margin-left: 6px; display: inline-block;">
                     Live Preview</button>
             </a>
-            <button class="btn btn-primary btn-sm  jq-show-plus " style="margin: 5px;">
+            <button class="btn btn-primary btn-xs  jq-show-plus " style="margin: 5px;">
                 Rows Plus
             </button>
-            <button class="btn btn-danger btn-sm  jq-hide-plus display-none" style="margin: 5px;">
+            <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
                 Rows Plus Close</button>
-            <span class="btn btn-danger btn-sm  btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+            <span class="btn btn-danger btn-xs  btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
-            <button class="button-download-site btn-sm   btn btn-danger  btn jq-save-margin">
+            <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
                 Download Site</button>
 
 
@@ -720,48 +720,80 @@
                 </div>
             </div>
 
-            <div class="editor ">
+          
+
+
+            <%-- <div class="verticle-designer-controls">
+                <div class="verticle-designer-controls-tabs" id="verticle-designer-controls-tabs">
+                    <ul>
+                        <li><a href="#tabs-add">Add</a></li>
+                        <li><a href="#tabs-pages">Pages</a></li>
+                        <li><a href="#tabs-design">Design</a></li>
+                    </ul>
+                    <div id="tabs-add" class="jqui-tab">
+                        <h2>Content heading 1</h2>
+                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                    </div>
+                    <div id="tabs-pages" class="jqui-tab">
+                        <h2>Content heading 2</h2>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                    </div>
+                    <div id="tabs-design" class="jqui-tab">
+                        <h2>Content heading 3</h2>
+                        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                    </div>
+                </div>
+            </div>
+            --%>
+        </div>
+
+
+
+    </div>
+
+      <div class="editor " style="z-index: 999;">
                 <div class="jqte-toolbar">
 
 
-                    
-                    <select class="font-name jqte-font-name form-control" style="float:left; width:auto;">
-                        <option value="0"> Font </option>
-                          <option class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Sans Serif</></option>  
-                          <option class="jqte-editor-tool-c" value="'times new roman', serif">Serif</option> 
-                          <option class="jqte-editor-tool-c" value="'arial black', sans-serif">Wide</></option> 
-                          <option class="jqte-editor-tool-c" value="'arial narrow', sans-serif">Narrow</></option> 
-                          <option class="jqte-editor-tool-c" value="'comic sans ms', sans-serif">Comic Sans MS</></option> 
-                          <option class="jqte-editor-tool-c" value="'courier new', monospace">Courier New</></option> 
-                          <option class="jqte-editor-tool-c" value="garamond, serif">Garamond</></option> 
-                          <option class="jqte-editor-tool-c" value="georgia, serif">Georgia</></option> 
-                          <option class="jqte-editor-tool-c" value="tahoma, sans-serif">Tahoma</></option> 
-                          <option class="jqte-editor-tool-c" value="'trebuchet ms', sans-serif">Trebuchet MS</></option> 
-                          <option class="jqte-editor-tool-c" value="'verdana, sans-serif;">Verdana</></option> 
+
+                    <select class="font-name jqte-font-name form-control" style="float: left; height:20px; padding:0; width: auto;">
+                        <option value="0">Font </option>
+                        <option class="jqte-editor-tool-c" value="Arial, Helvetica, sans-serif">Sans Serif</></option>
+                        <option class="jqte-editor-tool-c" value="'times new roman', serif">Serif</option>
+                        <option class="jqte-editor-tool-c" value="'arial black', sans-serif">Wide</></option>
+                        <option class="jqte-editor-tool-c" value="'arial narrow', sans-serif">Narrow</></option>
+                        <option class="jqte-editor-tool-c" value="'comic sans ms', sans-serif">Comic Sans MS</></option>
+                        <option class="jqte-editor-tool-c" value="'courier new', monospace">Courier New</></option>
+                        <option class="jqte-editor-tool-c" value="garamond, serif">Garamond</></option>
+                        <option class="jqte-editor-tool-c" value="georgia, serif">Georgia</></option>
+                        <option class="jqte-editor-tool-c" value="tahoma, sans-serif">Tahoma</></option>
+                        <option class="jqte-editor-tool-c" value="'trebuchet ms', sans-serif">Trebuchet MS</></option>
+                        <option class="jqte-editor-tool-c" value="'verdana, sans-serif;">Verdana</></option>
                     </select>
 
-                     <select class="font-size jqte-font-size form-control" style="float:left; width:auto;">
-                        <option value="0"> Font Size </option>
-                          <option class="jqte-editor-tool-c" value="small">Small</></option>  
-                          <option class="jqte-editor-tool-c" value="normal">Normal</option> 
-                          <option class="jqte-editor-tool-c" value="medium">Medium</></option> 
-                          <option class="jqte-editor-tool-c" value="x-large">Large</></option> 
-                          <option class="jqte-editor-tool-c" value="xx-large">Huge</></option> 
-                           <option class="jqte-editor-tool-c" value="38">2 X Huge</></option> 
-                         <option class="jqte-editor-tool-c" value="42">3 X Huge</></option> 
-                        <option class="jqte-editor-tool-c" value="46">4 X Huge</></option> 
-                         <option class="jqte-editor-tool-c" value="48">5 X Huge</></option> 
-                         <option class="jqte-editor-tool-c" value="50">6 X Huge</></option> 
-                         <option class="jqte-editor-tool-c" value="56">7 X Huge</></option> 
-                         <option class="jqte-editor-tool-c" value="60">8 X Huge</></option> 
+                    <select class="font-size jqte-font-size form-control" style="float: left;  height:20px; padding:0; width: auto;">
+                        <option value="0">Font Size </option>
+                        <option class="jqte-editor-tool-c" value="small">Small</></option>
+                        <option class="jqte-editor-tool-c" value="normal">Normal</option>
+                        <option class="jqte-editor-tool-c" value="medium">Medium</></option>
+                        <option class="jqte-editor-tool-c" value="x-large">Large</></option>
+                        <option class="jqte-editor-tool-c" value="xx-large">Huge</></option>
+                        <option class="jqte-editor-tool-c" value="38">2 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="42">3 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="46">4 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="48">5 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="50">6 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="56">7 X Huge</></option>
+                        <option class="jqte-editor-tool-c" value="60">8 X Huge</></option>
                     </select>
 
                     <div class="btn btn-default" style="display: inline-block; cursor: pointer;"
                         onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
-                         Close
+                        Close
                     </div>
-                   
-<%--                     <button class=" btn btn-default jqte-edit btn-primary" id="jqte-edit" name="Edit">Edit</button>
+
+                    <%--                     <button class=" btn btn-default jqte-edit btn-primary" id="jqte-edit" name="Edit">Edit</button>
                       <button class=" btn btn-default jqte-edit btn-danger" style="display:none;" id="jqte-edit-stop" name="Edit">Stop Edit</button>--%>
 
                     <%--  <ul tabindex="-1" class="font-name-list font-name jqte-editor-tool-list">
@@ -772,7 +804,7 @@
                         <li>
                             <button class="jqte-editor-tool-c" value="'Times New Roman', Times, serif">"Times New Roman", Times, serif</button></li>
                     </ul>--%>
-                   <%-- <button tabindex="-1" class="font-size-icon fa  jqte-editor-tool-p" name="font-size"></button>
+                    <%-- <button tabindex="-1" class="font-size-icon fa  jqte-editor-tool-p" name="font-size"></button>
                     <ul tabindex="-1" class="font-size-list font-size jqte-editor-tool-list">
                         <li style="height: 60px;">
                             <button class="jqte-editor-tool-c" style="font-size: 9px;" value="9">Smaller Text</button>
@@ -1009,42 +1041,53 @@
 
                     <div class="jqte-link jqte-editor-tool-list">
                         &nbsp;&nbsp; Web Address :
-                        <input  type="text" value="http://" class="link-window-url form-control" />
+                        <input type="text" value="http://" class="link-window-url form-control" />
 
                         <button style="margin: 2px;" class="btn btn-danger" onclick="jQuery(this).parent().hide();">Close</button>
-                        <button class="editor-create-link btn btn-default" style=";margin: 2px;">Insert</button>
-                       
+                        <button class="editor-create-link btn btn-default" style="margin: 2px;">Insert</button>
+
                     </div>
                 </div>
             </div>
 
-
-            <%-- <div class="verticle-designer-controls">
-                <div class="verticle-designer-controls-tabs" id="verticle-designer-controls-tabs">
-                    <ul>
-                        <li><a href="#tabs-add">Add</a></li>
-                        <li><a href="#tabs-pages">Pages</a></li>
-                        <li><a href="#tabs-design">Design</a></li>
-                    </ul>
-                    <div id="tabs-add" class="jqui-tab">
-                        <h2>Content heading 1</h2>
-                        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-                    </div>
-                    <div id="tabs-pages" class="jqui-tab">
-                        <h2>Content heading 2</h2>
-                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-                    </div>
-                    <div id="tabs-design" class="jqui-tab">
-                        <h2>Content heading 3</h2>
-                        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-                        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-                    </div>
-                </div>
-            </div>
-            --%>
-        </div>
-
+    <div class="align-center show-hide-menu absolute" style="left: 50%;">
+        <span class="show-hide-menu-btn fa fa-angle-double-up hide-menu black pointer btn-xs btn btn-default"></span>
+        <span class="show-hide-menu-btn fa fa-angle-double-down show-menu black btn btn-xs btn-default"></span>
     </div>
+
+
+    <style>
+        .show-hide-menu-btn {
+           display:none;
+        }
+
+        .white {
+            color: white !important;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .black {
+            color: black;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .show-hide-menu {
+            top: 0;
+            z-index: 9999;
+            position:fixed;
+        }
+    </style>
+
     <rootx style="clear: both; position: relative;">
 
         <style>
@@ -1052,8 +1095,8 @@
                 display: none;
             }
 
-            .page{
-                display:none;
+            .page {
+                display: none;
             }
         </style>
 
@@ -3004,7 +3047,7 @@
             <li>
                 <div class="li smart-menu-insert-image">Image</div>
             </li>
-           <%-- <li>
+            <%-- <li>
                 <div class="li smart-menu-insert-empty-space">Spacer</div>
             </li>--%>
             <li>
@@ -3333,240 +3376,240 @@
         </tbody>
     </table>
 
-      <div id="interface_bottom">
-                <div id="controls_wrap">
-                    <div id="controls">
-                        <div id="controls_nav">
-                            <menu id="leaf_types">
-                                <li data-name="webs.bldr.modules.container.popular" class="active"><a class="leaf_type_btn">Popular</a></li>
-                                <li data-name="webs.bldr.modules.container.structure" class=""><a class="leaf_type_btn">Structure</a></li>
-                                <li data-name="webs.bldr.modules.container.media" class=""><a class="leaf_type_btn">Media</a></li>
-                                <li data-name="webs.bldr.modules.container.social" class=""><a class="leaf_type_btn">Social</a></li>
-                                <li data-name="webs.bldr.modules.container.commerce" class=""><a class="leaf_type_btn">Commerce</a></li>
-                                <li data-name="webs.bldr.dock.ads.appfeeds" class=""><a class="leaf_type_btn">Other</a></li>
-                            </menu>
-
-                        </div>
-                    </div>
-                    <div id="toaster">
-                        <div id="leaf_dock" style="left:-120px;">
-                            <div id="leaf_wrap">
-                                <div id="leaf_container" class="" style="margin-left:-44px;">
-                                    <ul class="leaf_type active" >
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-text">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Paragraph</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-title">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Title</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-image">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-text_image">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image &amp; Text</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-2-columns">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Columns</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-video">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-contact_form">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Contact Form</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-google_map">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-button">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Button</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="leaf_type ">
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-2-columns">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">2 Columns</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-3-columns">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">3 Columns</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-table">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Table</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-buckets">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Combo</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-horizontal_rule">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Divider</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-spacer">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Spacer</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="leaf_type">
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-slideshow">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Slideshow</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-video">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-audio">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Audio</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="leaf_type">
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-social-links">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Social Links</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-twitter-feed">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Twitter Feed</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-fb-like">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Like Box</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-fb-comments">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Comments</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-follow">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Follow</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-share_button">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Share</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="leaf_type">
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-paypal">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Buy Now</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-donate">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Donate</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-webstore_products">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Products</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="leaf_type">
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-html">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Custom HTML</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-google_map">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bldr-draggable" id="bldr-drgb-email_list">
-                                                <div class="bldr-drgb_icon"><span></span></div>
-                                                <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Subscribe</span></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="leaf_cover"></div>
-                            </div>
-                        </div>
-                    </div>
+    <div id="interface_bottom">
+        <div id="controls_wrap">
+            <div id="controls">
+                <div id="controls_nav">
+                    <menu id="leaf_types">
+                        <li data-name="webs.bldr.modules.container.popular" class="active"><a class="leaf_type_btn">Popular</a></li>
+                        <li data-name="webs.bldr.modules.container.structure" class=""><a class="leaf_type_btn">Structure</a></li>
+                        <li data-name="webs.bldr.modules.container.media" class=""><a class="leaf_type_btn">Media</a></li>
+                        <li data-name="webs.bldr.modules.container.social" class=""><a class="leaf_type_btn">Social</a></li>
+                        <li data-name="webs.bldr.modules.container.commerce" class=""><a class="leaf_type_btn">Commerce</a></li>
+                        <li data-name="webs.bldr.dock.ads.appfeeds" class=""><a class="leaf_type_btn">Other</a></li>
+                    </menu>
 
                 </div>
             </div>
+            <div id="toaster">
+                <div id="leaf_dock" style="left: -120px;">
+                    <div id="leaf_wrap">
+                        <div id="leaf_container" class="" style="margin-left: -44px;">
+                            <ul class="leaf_type active">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-text">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Paragraph</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-title">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Title</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-image">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-text_image">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Image &amp; Text</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-2-columns">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Columns</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-video">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-contact_form">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Contact Form</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-google_map">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-button">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Button</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="leaf_type ">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-2-columns">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">2 Columns</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-3-columns">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">3 Columns</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-table">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Table</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-buckets">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Combo</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-horizontal_rule">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Divider</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-spacer">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Spacer</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="leaf_type">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-photo_gallery">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Photo Gallery</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-slideshow">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Slideshow</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-video">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Video</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-audio">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Audio</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="leaf_type">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-social-links">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Social Links</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-twitter-feed">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Twitter Feed</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-fb-like">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Like Box</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-fb-comments">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">FB Comments</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-follow">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Follow</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-share_button">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Share</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="leaf_type">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-paypal">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Buy Now</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-donate">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">PayPal Donate</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-webstore_products">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Products</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="leaf_type">
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-html">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Custom HTML</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-google_map">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Map</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bldr-draggable" id="bldr-drgb-email_list">
+                                        <div class="bldr-drgb_icon"><span></span></div>
+                                        <div class="bldr-drgb_desc-container"><span class="bldr-drgb_desc">Subscribe</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="leaf_cover"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
-    
+
 
     <script>
 
@@ -3576,8 +3619,7 @@
 
             $("#leaf_container .leaf_type").removeClass("active");
 
-            switch( $(this).parent().data("name"))
-            {
+            switch ($(this).parent().data("name")) {
                 case 'webs.bldr.modules.container.popular':
                     $("#leaf_container .leaf_type:eq(0)").addClass("active");
                     break;
@@ -3599,7 +3641,7 @@
             }
 
         });
-            
+
 
     </script>
 

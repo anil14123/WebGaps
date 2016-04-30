@@ -327,19 +327,19 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         var res = parseInt(jQuery(this).val());
                         if (selectedtext == "") {
                             var selectedElement = jQuery(".image-selection").last();
-                            if (res == NaN) {
-                                selectedElement.css("font-size", jQuery(this).val() + "px");
+                            if (isNaN(res)) {
+                                selectedElement.css("font-size", jQuery(this).val());
                             }
                             else {
-                                selectedElement.css("font-size", jQuery(this).val());
+                                selectedElement.css("font-size", jQuery(this).val() + "px");
                             }
                         }
                         if (selectedtext != "") {
-                            if (res == NaN) {
-                                jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val() + "px").removeAttr("size");
+                            if (isNaN(res)) {
+                                jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val()).removeAttr("size");
                             }
                             else {
-                                jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val()).removeAttr("size");
+                                jQuery(".current-editor-scope").find("font[size='7']").css("font-size", jQuery(this).val() + "px").removeAttr("size");
                             }
                         }
                         jQuery(this).val("0");

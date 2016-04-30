@@ -20,6 +20,7 @@ import impImage = require("../Controls/ImageJQ");
 var themeHandle;
 var downloadInterval;
 var imageFiles;
+var showHideMenuHandle;
 
 export module Common {
 
@@ -117,6 +118,49 @@ export module Common {
                
             });
 
+            showHideMenuHandle = window.setInterval(function () {
+
+                if (jQuery(".show-hide-menu-btn").hasClass("btn-default")) {
+
+                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
+                }
+                else {
+                    jQuery(".show-hide-menu-btn").addClass("btn-default").removeClass("btn-danger").removeClass("white");
+                }
+
+            }, 2000);
+
+            ///////////////show hide menu//////////////
+            jQuery(".show-hide-menu-btn").hide();
+            jQuery(".hide-menu").show();
+            jQuery(".show-menu, .hide-menu").on("click", function () {
+
+                window.clearInterval(showHideMenuHandle);
+                if (!jQuery(".show-hide-menu-btn").hasClass("btn-danger")) {
+                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
+                }
+
+                if (!(jQuery(".hide-menu").css("display") == "none")) {
+                    jQuery(".hide-menu").hide();
+                    jQuery(".show-menu").show();
+
+                    jQuery(".top-row-container").hide();
+                    jQuery("rootx").css("top", "0");
+                    jQuery(".editor").css("top", "0");
+                    jQuery(".properties-sidebar-container").css("top", "0");
+                }
+                else {
+                    jQuery(".hide-menu").show();
+                    jQuery(".show-menu").hide();
+
+                    jQuery("rootx").css("top", "56px");
+                    jQuery(".editor").css("top", "56px");
+                    jQuery(".properties-sidebar-container").css("top", "56px");
+                    jQuery(".top-row-container").show();
+                    
+                }
+
+            });
 
             //////////// images upload ////////////////
 
