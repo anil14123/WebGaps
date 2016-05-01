@@ -86,10 +86,7 @@ export module OnInsert {
                         $(this).draggable({ disabled: true });
 
                     });
-
-
-
-                debugger;
+            
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick",
                     function () {

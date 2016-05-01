@@ -21,9 +21,11 @@ function isOnScreen(el) {
     var width = 222;
     var height = 285;
 
+    $doc = $(document);
+
     var bounds = $(el).offset();
-    var right = bounds.left + width;
-    var bottom = bounds.top + height;
+    var right = bounds.left - $doc.scrollLeft() + width;
+    var bottom = bounds.top - $doc.scrollTop() + height;
 
     return (!(bounds.left < viewport.left || right > viewport.right || bounds.top < viewport.top || bottom > viewport.bottom));
 }
@@ -181,13 +183,13 @@ function isOnScreen(el) {
                 labels = opts.strings.split(',');
 
             var h = '<div class="evo-pop' + _ie + ' ui-widget ui-widget-content ui-corner-all"' +
-                (this._isPopup ? ' style="position:absolute"' : '') + '>' +
+                (this._isPopup ? ' style="position:fixed"' : '') + '>' + // absolute in fixed // anil
                 // palette
                 '<span>' + this['_paletteHTML' + pIdx]() + '</span>' +
                 // links
-                '<div class="evo-more"><a href="javascript:void(0)">' + labels[1 + pIdx] + '</a>';
+                '<div class="evo-more"><a href="javascript:void(0)" class="btn btn-danger white">' + labels[1 + pIdx] + '</a>';
             if (opts.history) {
-                h += '<a href="javascript:void(0)" class="evo-hist">' + labels[5] + '</a>';
+                h += '<a href="javascript:void(0)" class="evo-hist btn btn-danger white" >' + labels[5] + '</a>';
             }
             h += '</div>';
             // indicator
@@ -394,16 +396,22 @@ function isOnScreen(el) {
                         });
                     }
 
-                    $(this._palette).css("position", "absolute");
+                    $(this._palette).css("position", "fixed");
                     $(this._palette).css("bottom", "");
                     $(this._palette).css("right", "");
+
+                    var $doc = $(document);
+                    //return {
+                    //    'x': offset.left - $doc.scrollLeft(),
+                    //    'y': offset.top - $doc.scrollTop()
+                    //};
 
                     $(this._palette).appendTo("body");
                     $(this._palette).offset({ top: -1000, left:-1000 });
                     for (var i = 0; i < 2; i++) {
                                               
                         if (i == 0) {
-                            $(this._palette).offset({ top: $(this.element).offset().top +20, left: $(this.element).offset().left - 150 });
+                            $(this._palette).offset({ top: $(this.element).offset().top +20 , left: $(this.element).offset().left - 150 });
                         }
 
                         if (isOnScreen(this._palette)) {
@@ -412,7 +420,7 @@ function isOnScreen(el) {
                                                 
                         if(i==1)
                         {
-                            $(this._palette).offset({ top: $(this.element).offset().top - 260, left: $(this.element).offset().left - 150 });
+                            $(this._palette).offset({ top: $(this.element).offset().top - 260 , left: $(this.element).offset().left - 150 });
                         }
                     }
 

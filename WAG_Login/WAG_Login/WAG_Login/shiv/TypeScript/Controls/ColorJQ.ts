@@ -247,7 +247,7 @@ export module Color {
 
                                         if (selectedElement.hasClass("empty-container-text")) {
 
-                                            selectedElement = selectedElement.find(".jq-text-block");
+                                            //selectedElement = selectedElement.find(".jq-text-block");
                                         }
 
                                         colorBackground = colorBackground.replace("#", "");

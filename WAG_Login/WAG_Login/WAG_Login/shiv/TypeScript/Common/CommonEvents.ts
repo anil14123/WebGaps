@@ -135,6 +135,7 @@ export module Common {
             jQuery(".hide-menu").show();
             jQuery(".show-menu, .hide-menu").on("click", function () {
 
+                jQuery("#hideMenuHelpTop").hide();
                 window.clearInterval(showHideMenuHandle);
                 if (!jQuery(".show-hide-menu-btn").hasClass("btn-danger")) {
                     jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
@@ -161,6 +162,35 @@ export module Common {
                 }
 
             });
+
+            jQuery(".hide-left-menu").show();
+            jQuery(".hide-left-menu, .show-left-menu").on("click", function () {
+
+                jQuery("#hideLeftMenuHelp").hide();
+
+                window.clearInterval(showHideMenuHandle);
+                if (!jQuery(".show-hide-menu-btn").hasClass("btn-danger")) {
+                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
+                }
+
+                if (!(jQuery(".hide-left-menu").css("display") == "none")) {
+                    jQuery(".hide-left-menu").hide();
+                    jQuery(".show-left-menu").show();
+
+                    jQuery("#property-sidebar-page-column").hide();
+                    jQuery("#main-page-column").addClass("col-xs-48").removeClass("col-xs-38");
+
+                }
+                else {
+                    jQuery(".hide-left-menu").show();
+                    jQuery(".show-left-menu").hide();
+
+                    jQuery("#main-page-column").addClass("col-xs-38").removeClass("col-xs-48");
+                    jQuery("#property-sidebar-page-column").show();
+                }
+
+            });
+
 
             //////////// images upload ////////////////
 

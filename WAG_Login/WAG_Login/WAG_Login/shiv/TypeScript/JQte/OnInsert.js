@@ -47,7 +47,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 jQuery(".empty-container-image").on("dblclick", function () {
                     $(this).draggable({ disabled: true });
                 });
-                debugger;
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
                     //var topRowPx = "180px";

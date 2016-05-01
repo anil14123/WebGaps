@@ -155,7 +155,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                     else if (jQuery(this).hasClass("control-color-background-color")) {
                                         var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
                                         if (selectedElement.hasClass("empty-container-text")) {
-                                            selectedElement = selectedElement.find(".jq-text-block");
                                         }
                                         colorBackground = colorBackground.replace("#", "");
                                         selectedElement.css("background-color", "#" + colorBackground);
