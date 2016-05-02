@@ -124,8 +124,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
                             CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
-                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                            commonMethods.RemoveStyle(ui.helper, "min-height");
+                            window.setTimeout(function () {
+                                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                                commonMethods.RemoveStyle(ui.helper, "min-height");
+                            }, 500);
                         }
                         var nextElements = jQuery(ui.helper).nextAll(".column");
                         nextElements.hide();
@@ -435,9 +437,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
-                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                            commonMethods.RemoveStyle(ui.helper, "min-height");
-                            commonMethods.RemoveStyle(ui.helper, "height");
+                            ui.helper.css("height", ui.helper.css("min-height"));
+                            window.setTimeout(function () {
+                                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                                commonMethods.RemoveStyle(ui.helper, "min-height");
+                            }, 1000);
                         }
                     },
                     stop: function (event, ui) {
@@ -450,13 +454,15 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             || jQuery(this).hasClass("jq-plus-container-image")
                             || jQuery(this).hasClass("jq-text-block-container")
                             || jQuery(this).hasClass("root-elements")) {
-                            var common = new impCommonMethods.Common.CommonMethodsJQ();
-                            common.RemoveStyle(jQuery(this), "min-height");
-                            common.RemoveStyle(jQuery(this), "height");
+                            //var common = new impCommonMethods.Common.CommonMethodsJQ();
+                            //common.RemoveStyle(jQuery(this), "min-height");
+                            //common.RemoveStyle(jQuery(this), "height");
                             if (jQuery(this).hasClass("jq-plus-container-image") || jQuery(this).hasClass("empty-container-spacer")) {
                                 jQuery(this).css("height", height);
+                                jQuery(this).css("min-height", height);
                             }
                             else {
+                                jQuery(this).css("height", height);
                                 jQuery(this).css("min-height", height);
                             }
                         }
