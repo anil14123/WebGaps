@@ -178,7 +178,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                 if (selectedElement.hasClass("empty-container-text")) {
-                    selectedElement = selectedElement.find(".jq-plus-container-text").first();
+                    selectedElement = selectedElement.find(".jq-text-block-container").first();
                 }
                 else if (selectedElement.hasClass("empty-container-image")) {
                     selectedElement = selectedElement.find(".jq-plus-container-image").first();
@@ -206,6 +206,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                 selectedElement.css("min-height", heightVal + "px");
                             }
                             else {
+                                selectedElement.css("min-height", heightVal + "px");
                                 selectedElement.css("height", heightVal + "px");
                             }
                         }

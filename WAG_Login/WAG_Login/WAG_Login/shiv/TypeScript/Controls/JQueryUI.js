@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jqueryui.d.ts" />
-define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impCommonMethods, impUndoManager) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "../Controls/TextJQ"], function (require, exports, impWatch, impCommonMethods, impUndoManager, impText) {
     "use strict";
     var JQueryUI;
     (function (JQueryUI) {
@@ -477,6 +477,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                 $(elementCss).droppable({
                     drop: function (event, ui) {
                         var h = ui.helper;
+                        impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection");
                         if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
                             && !ui.draggable.hasClass("bldr-draggable")) {
                             CommonCode.droppableCount++;
@@ -497,6 +498,17 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../UndoManager/UndoM
                         else {
                             if (!ui.draggable.hasClass("control-drag-anywhere")) {
                                 ui.draggable.css("position", "relative").css("left", "").css("top", "");
+                                if (ui.draggable.hasClass("bldr-draggable")) {
+                                    var id = ui.draggable.attr("id");
+                                    switch (id) {
+                                        case 'bldr-drgb-text':
+                                            impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+                                            break;
+                                        case 'bldr-drgb-title':
+                                            impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
+                                            break;
+                                    }
+                                }
                             }
                         }
                     },

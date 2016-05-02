@@ -1,7 +1,10 @@
 ﻿/// <reference path="../../../library/jqueryui.d.ts" />
 
+import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
+import impText = require("../Controls/TextJQ");
+
 
 export module JQueryUI {
 
@@ -663,6 +666,7 @@ export module JQueryUI {
                 autoHide: true,
                 delay: 0,
                 start: function (event, ui) {
+                     
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
@@ -671,9 +675,12 @@ export module JQueryUI {
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
                         commonMethods.RemoveStyle(ui.helper, "height");
+
+                       
                     }
                 },
                 stop: function (event, ui) {
+
                     var height = ui.size.height;
 
                     var width = ui.size.width;
@@ -731,6 +738,8 @@ export module JQueryUI {
 
                     var h = ui.helper;
 
+                    impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection");
+
                     if (
                         CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
                         && !ui.draggable.hasClass("bldr-draggable")
@@ -759,9 +768,30 @@ export module JQueryUI {
                         undomanager.BeforeOperation();
 
                     } else {
+
+                      
+
                         if (!ui.draggable.hasClass("control-drag-anywhere")) {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "");
+
+                            if (ui.draggable.hasClass("bldr-draggable")) {
+
+                                var id = ui.draggable.attr("id");
+
+                                switch (id) {
+                                    case 'bldr-drgb-text':
+                                        impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+                                        break;
+                                    case 'bldr-drgb-title':
+                                        impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
+                                        break;
+                                        
+                                }
+
+                            }
+
                         }
+                        
                     }
 
                 },

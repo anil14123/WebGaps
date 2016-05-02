@@ -81,9 +81,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     }
                     if (selectedElement.hasClass("column")) {
-                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        // jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        // jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        // jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);

@@ -71,17 +71,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveSingleStyle(selectedElement, "background");
                                 comm.RemoveSingleStyle(selectedElement, "background-color");
+                                comm.RemoveSingleStyle(selectedElement, "color");
                                 var undo = new impUndoManager.Manager.UndoManager();
                                 undo.BeforeOperation();
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
-                                jQuery(".control-color-foreground-color").val("#000000");
-                                jQuery(".control-color-foreground-color").trigger("keyup");
-                                jQuery(".control-color-background-color").val("#ffffff");
-                                jQuery(".control-color-background-color").trigger("keyup");
-                                jQuery(".control-color-gradient-color-1").val("#ffffff");
-                                jQuery(".control-color-gradient-color-1").trigger("keyup");
-                                jQuery(".control-color-gradient-color-2").val("#ffffff");
-                                jQuery(".control-color-gradient-color-2").trigger("keyup");
                             }
                         });
                         jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette: 'web' });

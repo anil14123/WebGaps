@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta http-equiv="Expires" content="0">
@@ -11,9 +12,7 @@
 
     <title>Web Gaps</title>
 
-
     <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
-
 
     <script src="/Library/jquery-ui.js"></script>
 
@@ -56,30 +55,6 @@
     <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
-
-    <script type="text/javascript">
-
-        function elementInViewport(el) {
-            var top = el.offsetTop;
-            var left = el.offsetLeft;
-            var width = el.offsetWidth;
-            var height = el.offsetHeight;
-
-            while (el.offsetParent) {
-                el = el.offsetParent;
-                top += el.offsetTop;
-                left += el.offsetLeft;
-            }
-
-            return (
-              top >= window.pageYOffset &&
-              left >= window.pageXOffset &&
-              (top + height) <= (window.pageYOffset + window.innerHeight) &&
-              (left + width) <= (window.pageXOffset + window.innerWidth)
-            );
-        }
-
-    </script>
 
     <link href="/Scripts/evoluteur.colorpicker/colorpicker-master/css/evol.colorpicker.css" rel="stylesheet" />
     <script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>
@@ -293,6 +268,10 @@
 
         .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
             border: 1px solid #616ed1;
+        }
+
+        .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+            margin-left: -15px;
         }
     </style>
 
@@ -1057,38 +1036,37 @@
     </div>
 
     <div id="hideMenuHelpTop">
-        <span class="fa fa-hand-o-left help-guid help-guid-hide-menu"> &nbsp; Hide Menu </span>
+        <span class="fa fa-hand-o-left help-guid help-guid-hide-menu">&nbsp; Hide Menu </span>
     </div>
 
     <style>
         .help-guid {
             padding: 10px;
             background-color: yellowgreen;
-            position: absolute;
+            position: fixed;
             left: 625px;
             z-index: 99999;
-            top:50px;
-
-            color:white;
-            
-
-            border-radius:5px;
+            top: 50px;
+            color: white;
+            font-weight: bold;
+            font-size: small;
+            border-radius: 5px;
         }
 
-         .help-guid-left {
+        .help-guid-left {
             padding: 10px;
             background-color: yellowgreen;
             float: right;
             z-index: 99999;
-
-            color:white;
-            
-            border-radius:5px;
+            color: white;
+            font-size: small;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
 
-        .hide-menu{
-            position:absolute;
+        .hide-menu {
+            position: absolute;
             top: 50px;
         }
 
@@ -1100,7 +1078,7 @@
             margin-left: -20px;
         }
 
-       
+
         .show-hide-menu-btn {
             display: none;
         }
@@ -1562,10 +1540,10 @@
                             </div>--%>
                            
                           
-                               <span class="small-name">Opacity</span>    <div class="control-o-opacity" style="background-color:black; margin:15px;"/>
+                               <span class="small-name">Opacity</span>    <div class="control-o-opacity" style="background-color:black; margin:10px; width:190px;"/>
                                               
                     </center>
-          <br />
+         
           <button class="remove-opacity btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Opacity</button>     
 
                     
@@ -1586,7 +1564,7 @@
                <span class="small-name" title="Background Image">  Background Image </span>
                  </div>     
               <div class="col-xs-30">
-                <input class="bi-selected-image hide" type="text" /> <button class="bi-browse" > Browse</button>
+                <input class="bi-selected-image hide" type="text" /> <button class="bi-browse btn btn-xs btn-danger" > Browse</button>
               </div>
             </div>
 
