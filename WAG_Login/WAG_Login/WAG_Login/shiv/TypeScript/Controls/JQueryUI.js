@@ -16,15 +16,31 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 jQuery(element).draggable({
                     cancel: cancelableCss,
                     revert: 'invalid',
+                    helper: 'clone',
+                    appendTo: 'body',
                     start: function (event, ui) {
+                        jQuery("#interface_bottom").hide();
                         CommonCode.droppableCount++;
+                        if (ui.helper.hasClass("empty-container-text")) {
+                            ui.helper.css("width", "250px");
+                        }
                         ui.helper.css("z-index", "9999999999");
                         ui.helper.css("opacity", "0.6");
                     },
                     stop: function (event, ui) {
-                        CommonCode.droppableCount = 0;
+                        jQuery("#interface_bottom").show();
+                        CommonCode.droppableCount = 2; //old 0
+                        if (ui.helper.hasClass("empty-container-text")) {
+                            ui.helper.css("width", "auto");
+                        }
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
+                    },
+                    drag: function (event, ui) {
+                        ui.helper.offset({
+                            top: event.clientY,
+                            left: event.clientX
+                        });
                     }
                 });
             };
@@ -484,8 +500,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     drop: function (event, ui) {
                         var h = ui.helper;
                         try {
+                            //debugger;
                             window.smartObj.currentObj = undefined;
                             window.smartObj.command = "";
+                            impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
                             var x = event.clientX;
                             var y = event.clientY + $(document).scrollTop();
                             jQuery(".nearest-element").removeClass("nearest-element");
@@ -530,10 +548,20 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             ui.draggable.css("opacity", "1");
                             if (ui.draggable.find(".jq-image-block-image").length > 0) {
                                 ui.draggable.css("position", "relative").css("left", "").css("top", "");
-                                CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
+                                }
+                                else {
+                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                                }
                             }
                             else {
-                                CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                }
+                                else {
+                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                }
                             }
                             jQuery(".image-selection").removeClass("image-selection");
                             event.stopPropagation();
@@ -557,6 +585,15 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 }
                             }
                         }
+                        jQuery(".image-text-other").each(function (index, _this) {
+                            var $this = jQuery(_this);
+                            var bottom = $this.offset().top + $this.height();
+                            var top = $this.offset().top;
+                            var left = $this.offset().left;
+                            $this.attr("top", top);
+                            $this.attr("bottom", bottom);
+                            $this.attr("left", left);
+                        });
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
@@ -591,7 +628,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     jQuery(elementCss).find("div").remove(".ui-resizable-handle");
                 }
             };
-            CommonCode.droppableCount = 0;
+            CommonCode.droppableCount = 2; //old 0
             CommonCode.originalHeightBeforeDragStartStr = "";
             return CommonCode;
         }());

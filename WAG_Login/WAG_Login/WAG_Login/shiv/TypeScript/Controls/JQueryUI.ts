@@ -20,28 +20,50 @@ export module JQueryUI {
 
     export class CommonCode {
 
-        public static droppableCount = 0;
+        public static droppableCount = 2; //old 0
         public static currentTarget: JQuery;
 
         public static Draggable(element, cancelableCss) {
             jQuery(element).draggable({
                 cancel: cancelableCss,
                 revert: 'invalid',
+                helper: 'clone',
+                appendTo: 'body',
                 start: function (event, ui) {
+                    jQuery("#interface_bottom").hide();
 
                     CommonCode.droppableCount++;
+
+                    if (ui.helper.hasClass("empty-container-text")) {
+                        ui.helper.css("width", "250px");
+                    }
 
                     ui.helper.css("z-index", "9999999999");
                     ui.helper.css("opacity", "0.6");
 
                 },
                 stop: function (event, ui) {
-                  
-                    CommonCode.droppableCount = 0;
+                    jQuery("#interface_bottom").show();
+
+                    CommonCode.droppableCount = 2; //old 0
+
+                    if (ui.helper.hasClass("empty-container-text")) {
+                        ui.helper.css("width", "auto");
+                    }
 
                     ui.helper.css("opacity", "1");
                     ui.helper.css("z-index", "0");
+                },
+                drag: function (event: JQueryMouseEventObject, ui) {
+
+                    ui.helper.offset({
+
+                        top: event.clientY,
+                        left: event.clientX
+
+                    });
                 }
+
             });
         }
 
@@ -94,7 +116,7 @@ export module JQueryUI {
 
                 var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                 var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
-                
+
 
                 originalHeightStr = originalHeightStr.replace("px", "");
 
@@ -129,7 +151,7 @@ export module JQueryUI {
                 var maxOfMinHeight = Math.max.apply(Math, minHeights);
                 var maxOfHeight = Math.max.apply(Math, heights);
 
-             
+
                 if (height > maxOfHeight) {
 
                 }
@@ -143,13 +165,13 @@ export module JQueryUI {
 
                 var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
 
-                if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "" ) {
-                    jQuery(ui.helper).css("min-height", phase2Height +"px");
+                if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
+                    jQuery(ui.helper).css("min-height", phase2Height + "px");
                     jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
                     jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
                 }
                 else {
-                    jQuery(ui.helper).css("min-height", originalHeight +"px");
+                    jQuery(ui.helper).css("min-height", originalHeight + "px");
                     jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
                     jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
                 }
@@ -183,7 +205,7 @@ export module JQueryUI {
                         //    ) {
 
                         CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
-                       
+
                         window.setTimeout(function () {
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                             commonMethods.RemoveStyle(ui.helper, "min-height");
@@ -219,7 +241,7 @@ export module JQueryUI {
                     var style = jQuery(ui.helper).attr("style");
 
                     if (height != originalHeight) {
-                      
+
                         var result = CommonCode.commonHeight(height, ui);
 
                         if (result == "error") {
@@ -521,7 +543,7 @@ export module JQueryUI {
                 handles: handleDefault,
                 minHeight: 0,
                 minWidth: 0,
-               
+
                 delay: 0,
                 start: function (event, ui) {
 
@@ -673,7 +695,7 @@ export module JQueryUI {
                 autoHide: true,
                 delay: 0,
                 start: function (event, ui) {
-                     
+
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
@@ -682,11 +704,11 @@ export module JQueryUI {
                         ui.helper.css("height", ui.helper.css("min-height"));
                         window.setTimeout(function () {
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                           
+
                             commonMethods.RemoveStyle(ui.helper, "min-height");
-                           
+
                         }, 1000);
-                       
+
                     }
                 },
                 stop: function (event, ui) {
@@ -749,11 +771,13 @@ export module JQueryUI {
                 drop: function (event: JQueryMouseEventObject, ui) {
 
                     var h = ui.helper;
-                   
-                    try {
 
+                    try {
+                        //debugger;
                         window.smartObj.currentObj = undefined;
                         window.smartObj.command = "";
+
+                        impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
 
                         var x = event.clientX;
                         var y = event.clientY + $(document).scrollTop();
@@ -799,13 +823,13 @@ export module JQueryUI {
                                     window.smartObj.currentObj = impWatch.Watch.MouseJQ.nearestElement;
                                     window.smartObj.command = "n";
                                 }
-                               
+
                             }
-                           
+
                         }
                     }
                     catch (ex) {
-                       
+
                     }
 
 
@@ -822,10 +846,21 @@ export module JQueryUI {
                         if (ui.draggable.find(".jq-image-block-image").length > 0) {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "")
 
-                            CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
+                            }
+                            else {
+                                CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                            }
                         }
                         else {
-                            CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+
+                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                            }
+                            else {
+                                CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                            }
                         }
 
                         jQuery(".image-selection").removeClass("image-selection");
@@ -840,7 +875,7 @@ export module JQueryUI {
 
                     } else {
 
-                      
+
 
                         if (!ui.draggable.hasClass("control-drag-anywhere")) {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "");
@@ -856,14 +891,27 @@ export module JQueryUI {
                                     case 'bldr-drgb-title':
                                         impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
                                         break;
-                                        
+
                                 }
 
                             }
 
                         }
-                        
+
                     }
+
+                    jQuery(".image-text-other").each(function (index, _this) {
+                        var $this = jQuery(_this);
+
+                        var bottom = $this.offset().top + $this.height();
+                        var top = $this.offset().top;
+                        var left = $this.offset().left;
+
+                        $this.attr("top", top);
+                        $this.attr("bottom", bottom);
+                        $this.attr("left", left);
+
+                    });
 
                 },
                 out: function (event, ui) {

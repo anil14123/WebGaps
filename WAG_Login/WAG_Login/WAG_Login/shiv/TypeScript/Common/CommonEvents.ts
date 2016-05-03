@@ -5,7 +5,7 @@ declare var window: MyWindow;
 
 ////////////////////////////////////////////////////////////////////////
 
-
+import impJQueryUI = require("../Controls/JQueryUI");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impLayout = require("../Themes/EmptyLayout/EmptyLayoutJQ");
 import impAuth = require("../_Classes/Auth");
@@ -117,6 +117,8 @@ export module Common {
 
                
             });
+
+            impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
 
             jQuery(".jq-full-page").on("click", function () {
                 jQuery(".page-margin").css("width", "auto");

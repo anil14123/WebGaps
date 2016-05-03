@@ -412,22 +412,33 @@
                 }
             </style>
 
-            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">  <span class=" fa fa-eye  blue"></span> Close Preview</button>
-            <button class=" btn btn-success btn-xs  show-preview jq-save-margin "> <span class=" fa fa-eye  blue"></span> Preview</button>
+            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">  <span class=" fa fa-eye  black"></span> Close Preview</button>
+            <button class=" btn btn-success btn-xs  show-preview jq-save-margin "> <span class=" fa fa-eye  black"></span> Preview</button>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
                 <button class="btn btn-success btn-xs " style="margin-left: 6px; display: inline-block;">
-               <span class=" fa fa-eye  blue"></span>     Live Preview</button>
+               <span class=" fa fa-eye  black"></span>     Live Preview</button>
             </a>
             <button class="btn btn-primary btn-xs  jq-show-plus " style="margin: 5px;">
               <span class="fa fa-plus-square white"></span>  Rows Plus
             </button>
             <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
                 Rows Plus Close</button>
-            <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-upload white"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+            <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-cloud-upload black"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
-              <span class="fa fa-download white"></span>  Download Site</button>
+              <span class="fa fa-cloud-download black"></span>  Download Site</button>
 
+            <style>
+
+                .green{
+                    color:#46B34F;
+                }
+
+                .black{
+                    color:black;
+                }
+
+            </style>
 
             <%--   <div id='cssmenu'>
                 <ul>--%>

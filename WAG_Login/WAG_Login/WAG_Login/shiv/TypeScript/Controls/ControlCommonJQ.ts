@@ -44,9 +44,7 @@ export module ControlCommon {
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");
             impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-spacer", "");
-            impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
-
-
+           
             jQuery(".empty-container-text, .empty-container-image").css("z-index", "0");
 
             jQuery(".image-text-other").each(function (index, _this) {

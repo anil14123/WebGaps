@@ -1,4 +1,4 @@
-define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ"], function (require, exports, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage) {
+define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ"], function (require, exports, impJQueryUI, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage) {
     "use strict";
     var themeHandle;
     var downloadInterval;
@@ -80,6 +80,7 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Themes/EmptyLayo
                 jQuery(".button-change-image").click(function () {
                     impImage.Image.SelfJQ.ChangeImage();
                 });
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
                 jQuery(".jq-full-page").on("click", function () {
                     jQuery(".page-margin").css("width", "auto");
                 });
