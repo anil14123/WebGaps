@@ -66,11 +66,14 @@ export module JQueryUI {
                 drag: function (event: JQueryMouseEventObject, ui) {
 
                     ui.helper.offset({
-
                         top: event.clientY,
                         left: event.clientX
-
                     });
+
+                   var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
+
+                   element.addClass("image-selection-drag");
+                  
                 }
 
             });
@@ -778,9 +781,9 @@ export module JQueryUI {
 
             $(elementCss).droppable({
                 drop: function (event: JQueryMouseEventObject, ui) {
-
+                                       
                     var h = ui.helper;
-
+                    
                     try {
                         debugger;
                         window.smartObj = new JQueryUI.SmartObj();
@@ -793,6 +796,10 @@ export module JQueryUI {
                         var y = event.clientY + $(document).scrollTop();
 
                         jQuery(".nearest-element").removeClass("nearest-element");
+
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                            impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
+                        }
 
                         if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
 

@@ -50,6 +50,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             top: event.clientY,
                             left: event.clientX
                         });
+                        var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
+                        element.addClass("image-selection-drag");
                     }
                 });
             };
@@ -517,6 +519,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             var x = event.clientX;
                             var y = event.clientY + $(document).scrollTop();
                             jQuery(".nearest-element").removeClass("nearest-element");
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                                impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
+                            }
                             if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
                                 var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
                                 var nearestLeftArray = [];

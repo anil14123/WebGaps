@@ -64,7 +64,7 @@ export module ControlCommon {
 
             impJQueryUI.JQueryUI.CommonCode.Droppable(".column");
 
-            impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container");
+            impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container, .image-text-other");
 
             jQuery(".ui-resizable-e").html("<div class='jq-square jq-square-e'></div>");
             jQuery(".ui-resizable-se").html("<div class='jq-square jq-square-se'></div>");
