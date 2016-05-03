@@ -361,11 +361,11 @@
         <span class=" visible-xs">Double click on Phone for Menu</span>
     </div>
 
-    <div class="properties-tag">
+    <div class="jq-properties-tag">
         <span class="delete">
-            <img class="delete-img properties-tag-img" src="/Content/PropertiesTag/delete.png" /></span>
+           </span>
         <span class="settings">
-            <img class="settings-img properties-tag-img" src="/Content/PropertiesTag/settings.png" />
+           
         </span>
     </div>
 
@@ -406,22 +406,27 @@
 
 
             </div>
+            <style>
+                .blue{
+                    color:blue;
+                }
+            </style>
 
-            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">Close Preview</button>
-            <button class=" btn btn-success btn-xs  show-preview jq-save-margin ">Preview</button>
+            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">  <span class=" fa fa-eye  blue"></span> Close Preview</button>
+            <button class=" btn btn-success btn-xs  show-preview jq-save-margin "> <span class=" fa fa-eye  blue"></span> Preview</button>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
                 <button class="btn btn-success btn-xs " style="margin-left: 6px; display: inline-block;">
-                    Live Preview</button>
+               <span class=" fa fa-eye  blue"></span>     Live Preview</button>
             </a>
             <button class="btn btn-primary btn-xs  jq-show-plus " style="margin: 5px;">
-                Rows Plus
+              <span class="fa fa-plus-square white"></span>  Rows Plus
             </button>
             <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
                 Rows Plus Close</button>
-            <span class="btn btn-danger btn-xs  btn-file">Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+            <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-upload white"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
-                Download Site</button>
+              <span class="fa fa-download white"></span>  Download Site</button>
 
 
             <%--   <div id='cssmenu'>
@@ -1126,10 +1131,13 @@
 
             <%-- <div class="col-xs-2"  >
              </div>--%>
-
+            
             <div class="col-xs-38" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:160px;">
+
+                <span class="btn btn-xs btn-primary jq-full-page float-right jq-save-margin" style="margin-top:4px; margin-right:4px; position:relative; ">Make Full Page</span> <span style="margin-top:4px; position:relative; " class="btn btn-xs btn-primary jq-small-page float-right jq-save-margin">Make Small Page</span>
+
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
-           <div class="page-marker design-css">Page</div>
+           <div class="page-marker design-css">Page</div> 
                     <div class="page-margin design-css design-page-margin">
            
                     <div key-css="jq-Header" unique-id="1" style="" scopeId="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header design-row row page-element design-root-elements jqMargin-0 " style="">

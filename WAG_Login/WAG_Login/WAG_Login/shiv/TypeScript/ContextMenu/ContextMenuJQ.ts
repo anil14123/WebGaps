@@ -71,6 +71,40 @@ export module ContextMenu {
                     impWatch.Watch.MouseJQ.ProcessClick(e);
                     e.preventDefault();
 
+                    //var x = e.clientX;
+                    //var y = e.clientY;
+
+                    //jQuery(".nearest-element").removeClass(".nearest-element");
+
+                    //if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+
+                    //    var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+
+                    //    var nearestArray = [];
+
+                    //    if ($elements.length > 0) {
+
+                    //        $elements.each(function (index, _this) {
+                    //            var $this = $(_this);
+
+                    //            var top = parseFloat($this.attr("top"));
+                    //            var bottom = parseFloat($this.attr("bottom"));
+                    //            var left = parseFloat($this.attr("left"));
+
+                    //            if (y >= top && y <= bottom && x >= left) {
+                    //                nearestArray.push(left);
+                    //            }
+                              
+                    //        });
+
+                    //        var nearest = Math.max.apply(Math, nearestArray);
+
+                    //        impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearest + "']").addClass("nearest-element");
+
+                    //        impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element");
+                    //    }
+                    //}
+
                     var contextMenu = new ContextMenuJQ();
 
                     contextMenu.DetectContextMenu();
@@ -155,7 +189,7 @@ export module ContextMenu {
 
                    // jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                    // jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                   // jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                     jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);

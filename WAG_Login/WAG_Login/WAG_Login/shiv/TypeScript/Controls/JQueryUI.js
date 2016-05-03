@@ -483,6 +483,46 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(elementCss).droppable({
                     drop: function (event, ui) {
                         var h = ui.helper;
+                        try {
+                            window.smartObj.currentObj = undefined;
+                            window.smartObj.command = "";
+                            var x = event.clientX;
+                            var y = event.clientY + $(document).scrollTop();
+                            jQuery(".nearest-element").removeClass("nearest-element");
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                                var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+                                var nearestLeftArray = [];
+                                var nearestTopArray = [];
+                                if ($elements.length > 0) {
+                                    $elements.each(function (index, _this) {
+                                        var $this = $(_this);
+                                        var top = parseFloat($this.attr("top"));
+                                        var bottom = parseFloat($this.attr("bottom"));
+                                        var left = parseFloat($this.attr("left"));
+                                        if (y >= top && y <= bottom && x >= left) {
+                                            nearestLeftArray.push(left);
+                                            nearestTopArray.push(top);
+                                        }
+                                    });
+                                    var nearestLeft = 0;
+                                    var nearestTop = 0;
+                                    if (nearestLeftArray.length > 0) {
+                                        nearestLeft = Math.max.apply(Math, nearestLeftArray);
+                                    }
+                                    if (nearestTopArray.length > 0) {
+                                        nearestTop = Math.max.apply(Math, nearestTopArray);
+                                    }
+                                    impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+                                    impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+                                    if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                        window.smartObj.currentObj = impWatch.Watch.MouseJQ.nearestElement;
+                                        window.smartObj.command = "n";
+                                    }
+                                }
+                            }
+                        }
+                        catch (ex) {
+                        }
                         impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection");
                         if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
                             && !ui.draggable.hasClass("bldr-draggable")) {
@@ -527,11 +567,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         if (jQuery(event.target).hasClass("key")) {
                             if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                                 jQuery(event.target).addClass("image-selection");
+                                impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
                             }
                         }
                         else {
                             if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                                 jQuery(event.target).closest(".key").addClass("image-selection");
+                                impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
                             }
                         }
                     }

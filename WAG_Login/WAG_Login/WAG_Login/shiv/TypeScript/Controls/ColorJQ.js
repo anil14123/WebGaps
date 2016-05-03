@@ -122,27 +122,30 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                         colorForeground = colorForeground.replace("#", "");
                                         selectedElement.css("color", "#" + colorForeground);
                                         if (colorForeground != "") {
-                                            if (selectedElement.hasClass("jq-editor-link") || selectedElement.hasClass("jq-normal-link")) {
-                                                if (jQuery("page").find("." + selectedElement.find("a").first().attr("id")).length > 0) {
-                                                    jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html("");
+                                            selectedElement.each(function (index, $this) {
+                                                var $$this = jQuery($this);
+                                                if ($$this.hasClass("jq-editor-link") || $$this.hasClass("jq-normal-link")) {
+                                                    if (jQuery("page").find("." + $$this.find("a").first().attr("id")).length > 0) {
+                                                        jQuery("page").find("." + $$this.find("a").first().attr("id")).html("");
+                                                    }
+                                                    else {
+                                                        var style = "<style class='" + $$this.find("a").first().attr("id") + "'> </span>";
+                                                        jQuery("page").append(style);
+                                                    }
+                                                    var linkId = "#" + $$this.find("a").first().attr("id");
+                                                    var linkColor = "#" + colorForeground;
+                                                    var style = " " +
+                                                        linkId + ":link {" +
+                                                        " color:" + linkColor + ";}" +
+                                                        linkId + ":visited {" +
+                                                        " color:" + linkColor + ";}" +
+                                                        linkId + ":hover {" +
+                                                        " color:" + linkColor + ";}" +
+                                                        linkId + ":active {" +
+                                                        " color:" + linkColor + ";}";
+                                                    jQuery("page").find("." + $$this.find("a").first().attr("id")).html(style);
                                                 }
-                                                else {
-                                                    var style = "<style class='" + selectedElement.find("a").first().attr("id") + "'> </span>";
-                                                    jQuery("page").append(style);
-                                                }
-                                                var linkId = "#" + selectedElement.find("a").first().attr("id");
-                                                var linkColor = "#" + colorForeground;
-                                                var style = " " +
-                                                    linkId + ":link {" +
-                                                    " color:" + linkColor + ";}" +
-                                                    linkId + ":visited {" +
-                                                    " color:" + linkColor + ";}" +
-                                                    linkId + ":hover {" +
-                                                    " color:" + linkColor + ";}" +
-                                                    linkId + ":active {" +
-                                                    " color:" + linkColor + ";}";
-                                                jQuery("page").find("." + selectedElement.find("a").first().attr("id")).html(style);
-                                            }
+                                            });
                                         }
                                     }
                                     else if (jQuery(this).hasClass("control-color-background-color")) {

@@ -47,6 +47,21 @@ export module ControlCommon {
             impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
 
 
+            jQuery(".empty-container-text, .empty-container-image").css("z-index", "0");
+
+            jQuery(".image-text-other").each(function (index, _this) {
+                var $this = jQuery(_this);
+
+                var bottom = $this.offset().top + $this.height();
+                var top = $this.offset().top;
+                var left = $this.offset().left;
+
+                $this.attr("top", top);
+                $this.attr("bottom", bottom);
+                $this.attr("left", left);
+               
+            });
+
             //impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
 
             impJQueryUI.JQueryUI.CommonCode.Droppable(".column");

@@ -1,9 +1,14 @@
 ﻿/// <reference path="../../../library/jqueryui.d.ts" />
 
+interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
+declare var window: MyWindow;
+
+
 import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impText = require("../Controls/TextJQ");
+import impCommonSmart = require("../Common/CommonEvents");
 
 
 export module JQueryUI {
@@ -28,10 +33,10 @@ export module JQueryUI {
 
                     ui.helper.css("z-index", "9999999999");
                     ui.helper.css("opacity", "0.6");
+
                 },
                 stop: function (event, ui) {
-
-
+                  
                     CommonCode.droppableCount = 0;
 
                     ui.helper.css("opacity", "1");
@@ -741,9 +746,68 @@ export module JQueryUI {
         public static Droppable(elementCss) {
 
             $(elementCss).droppable({
-                drop: function (event, ui) {
+                drop: function (event: JQueryMouseEventObject, ui) {
 
                     var h = ui.helper;
+                   
+                    try {
+
+                        window.smartObj.currentObj = undefined;
+                        window.smartObj.command = "";
+
+                        var x = event.clientX;
+                        var y = event.clientY + $(document).scrollTop();
+
+                        jQuery(".nearest-element").removeClass("nearest-element");
+
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+
+                            var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+
+                            var nearestLeftArray = [];
+                            var nearestTopArray = [];
+
+                            if ($elements.length > 0) {
+
+                                $elements.each(function (index, _this) {
+                                    var $this = $(_this);
+
+                                    var top = parseFloat($this.attr("top"));
+                                    var bottom = parseFloat($this.attr("bottom"));
+                                    var left = parseFloat($this.attr("left"));
+
+                                    if (y >= top && y <= bottom && x >= left) {
+                                        nearestLeftArray.push(left);
+                                        nearestTopArray.push(top);
+                                    }
+
+                                });
+                                var nearestLeft = 0;
+                                var nearestTop = 0;
+                                if (nearestLeftArray.length > 0) {
+                                    nearestLeft = Math.max.apply(Math, nearestLeftArray);
+                                }
+                                if (nearestTopArray.length > 0) {
+                                    nearestTop = Math.max.apply(Math, nearestTopArray);
+                                }
+
+                                impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+
+                                impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+
+                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    window.smartObj.currentObj = impWatch.Watch.MouseJQ.nearestElement;
+                                    window.smartObj.command = "n";
+                                }
+                               
+                            }
+                           
+                        }
+                    }
+                    catch (ex) {
+                       
+                    }
+
 
                     impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection");
 
@@ -813,11 +877,13 @@ export module JQueryUI {
                     if (jQuery(event.target).hasClass("key")) {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                             jQuery(event.target).addClass("image-selection");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
                         }
                     }
                     else {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                             jQuery(event.target).closest(".key").addClass("image-selection");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
                         }
                     }
                 }

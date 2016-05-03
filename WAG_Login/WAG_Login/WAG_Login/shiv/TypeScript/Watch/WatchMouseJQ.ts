@@ -29,6 +29,7 @@ export module Watch {
     export class MouseJQ {
 
         static selectedElement: JQuery;
+        static nearestElement: JQuery;
 
         public static RemoveAndResetRemovableRow() {
 
@@ -74,7 +75,7 @@ export module Watch {
             }
         }
 
-        public static ProcessClick(e) {
+        public static ProcessClick(e: JQueryMouseEventObject) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
             if (jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block") {
@@ -95,7 +96,7 @@ export module Watch {
             //             {
             //            //var rect = e.target.getBoundingClientRect();
             //            jQuery(".cursor-right").show();
-                       
+
             //        }
             //        else {
             //            jQuery(e.target).removeClass("jq-cursor");
@@ -106,23 +107,26 @@ export module Watch {
             //    }
             //});
 
-            if (MouseJQ.selectedElement != undefined) {
-               
+            if (MouseJQ.selectedElement != undefined && e.ctrlKey == false) {
+
                 // this is the previous element...
-               
+
                 MouseJQ.selectedElement.removeClass("image-selection");
                 MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
                 //common.RemoveStyle(MouseJQ.selectedElement, "outline");
             }
             // safety
-            jQuery(".image-selection").removeClass("image-selection");
-
+            if (e.ctrlKey == false) {
+                jQuery(".image-selection").removeClass("image-selection");
+            }
 
 
 
             MouseJQ.selectedElement = jQuery(e.target);
 
             MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
+
+
 
             if (MouseJQ.selectedElement.hasClass("key") == false) {
                 MouseJQ.selectedElement = jQuery("#noelement");
@@ -296,6 +300,10 @@ export module Watch {
                 if (!MouseJQ.selectedElement.hasClass("jqte")) {
                     if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                         MouseJQ.selectedElement.addClass("image-selection");
+
+                        if (e.ctrlKey == true) {
+                            MouseJQ.selectedElement = jQuery(".image-selection");
+                        }
                     }
                 }
             }
@@ -419,7 +427,7 @@ export module Watch {
             var activeControl = "";
             var activeControl = jQuery(".prop-sb.ui-accordion-header-active").first().attr("name");
 
-           // console.log(activeControl);
+            // console.log(activeControl);
 
             return activeControl;
         }
@@ -492,6 +500,7 @@ export module Watch {
 
                         MouseJQ.ProcessClick(e);
 
+
                         if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
 
                             impCommonCode.ControlCommon.Code.AnchorClicked = false;
@@ -545,6 +554,54 @@ export module Watch {
                             impOnInsert.OnInsert.Code.BackPassed = false;
                         }
 
+                        if (e.ctrlKey || e.metaKey) {
+                            switch (String.fromCharCode(e.which).toLowerCase()) {
+                                case 's':
+
+                                    try {
+                                        console.log("ctrl + s pressed");
+                                    }
+                                    catch (ex) {
+
+                                    }
+                                    event.preventDefault();
+                                    jQuery(".jq-save").click();
+
+                                    return false;
+                                case 'z':
+
+                                    if (
+                                        !(MouseJQ.selectedElement.hasClass("empty-container-text")
+                                            && MouseJQ.selectedElement.length == 1
+                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "pointer")
+                                    ) {
+                                        try {
+                                            console.log("ctrl + z pressed");
+                                        }
+                                        catch (ex) {
+
+                                        }
+                                        event.preventDefault();
+                                        jQuery(".jq-undo").click();
+                                        return false;
+                                    }
+                                    break;
+
+                                case 'y':
+
+
+                                    try {
+                                        console.log("ctrl + y pressed");
+                                    }
+                                    catch (ex) {
+
+                                    }
+                                    event.preventDefault();
+                                    jQuery(".jq-redo").click();
+                                    return false;
+                            }
+                        }
+
                     });
 
                     $("page").bind('copy', function () {
@@ -586,7 +643,7 @@ export module Watch {
                         var ENTER = 13;
 
                         if (e.which === ESC) {
-                                                        
+
                             /// for moving
                             $(".empty-container-text").draggable({ disabled: false });
                             $(".empty-container-image").draggable({ disabled: false });
@@ -601,7 +658,7 @@ export module Watch {
 
                             jQuery("page .jqte-editor").css("cursor", "move");
                             ////////////////////
-                          
+
                             impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide()
 
                             if (e.cancelBubble != null) e.cancelBubble = true;

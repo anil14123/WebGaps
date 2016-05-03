@@ -66,13 +66,15 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 //        jQuery(".cursor-right").css("top", e.pageY -10 + "px");
                 //    }
                 //});
-                if (MouseJQ.selectedElement != undefined) {
+                if (MouseJQ.selectedElement != undefined && e.ctrlKey == false) {
                     // this is the previous element...
                     MouseJQ.selectedElement.removeClass("image-selection");
                     MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
                 }
                 // safety
-                jQuery(".image-selection").removeClass("image-selection");
+                if (e.ctrlKey == false) {
+                    jQuery(".image-selection").removeClass("image-selection");
+                }
                 MouseJQ.selectedElement = jQuery(e.target);
                 MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
                 if (MouseJQ.selectedElement.hasClass("key") == false) {
@@ -210,6 +212,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     if (!MouseJQ.selectedElement.hasClass("jqte")) {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                             MouseJQ.selectedElement.addClass("image-selection");
+                            if (e.ctrlKey == true) {
+                                MouseJQ.selectedElement = jQuery(".image-selection");
+                            }
                         }
                     }
                 }
@@ -405,6 +410,42 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                     return false;
                                 }
                                 impOnInsert.OnInsert.Code.BackPassed = false;
+                            }
+                            if (e.ctrlKey || e.metaKey) {
+                                switch (String.fromCharCode(e.which).toLowerCase()) {
+                                    case 's':
+                                        try {
+                                            console.log("ctrl + s pressed");
+                                        }
+                                        catch (ex) {
+                                        }
+                                        event.preventDefault();
+                                        jQuery(".jq-save").click();
+                                        return false;
+                                    case 'z':
+                                        if (!(MouseJQ.selectedElement.hasClass("empty-container-text")
+                                            && MouseJQ.selectedElement.length == 1
+                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "pointer")) {
+                                            try {
+                                                console.log("ctrl + z pressed");
+                                            }
+                                            catch (ex) {
+                                            }
+                                            event.preventDefault();
+                                            jQuery(".jq-undo").click();
+                                            return false;
+                                        }
+                                        break;
+                                    case 'y':
+                                        try {
+                                            console.log("ctrl + y pressed");
+                                        }
+                                        catch (ex) {
+                                        }
+                                        event.preventDefault();
+                                        jQuery(".jq-redo").click();
+                                        return false;
+                                }
                             }
                         });
                         $("page").bind('copy', function () {

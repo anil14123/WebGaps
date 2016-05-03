@@ -118,6 +118,14 @@ export module Common {
                
             });
 
+            jQuery(".jq-full-page").on("click", function () {
+                jQuery(".page-margin").css("width", "auto");
+            });
+
+            jQuery(".jq-small-page").on("click", function () {
+                jQuery(".page-margin").css("width", "980px");
+            });
+
             showHideMenuHandle = window.setInterval(function () {
 
                 if (jQuery(".show-hide-menu-btn").hasClass("btn-default")) {
@@ -344,7 +352,7 @@ export module Common {
                     "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
                     "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
                     " <style> " +
-                    " @media (max-width: 980px) { .page-margin { width: auto !important; } }" + 
+                    " @media (max-width: 980px) { .page-margin { width: auto !important; } .empty-container-text {display:inline-block; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:inline-block; } }  " + 
                     " .jq-plus-element { display:none !important; } " +
                     " .jq-row-plus-container { display:none !important; } " +
                     " .row { margin:0; padding:2px; clear:both; } .root-elements{ padding:0;} " +
