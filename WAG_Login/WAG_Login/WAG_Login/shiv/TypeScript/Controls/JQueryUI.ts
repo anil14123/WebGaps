@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../../library/jqueryui.d.ts" />
 
-interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
+interface MyWindow extends Window { smartObj: JQueryUI.SmartObj }
 declare var window: MyWindow;
 
 
@@ -8,10 +8,14 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impText = require("../Controls/TextJQ");
-import impCommonSmart = require("../Common/CommonEvents");
-
 
 export module JQueryUI {
+
+    export class SmartObj {
+        currentObj: JQuery;
+        command = "";
+        isDirty = false;
+    }
 
     export class UIHelper {
 
@@ -32,6 +36,8 @@ export module JQueryUI {
                 start: function (event, ui) {
                     jQuery("#interface_bottom").hide();
 
+
+
                     CommonCode.droppableCount++;
 
                     if (ui.helper.hasClass("empty-container-text")) {
@@ -45,11 +51,14 @@ export module JQueryUI {
                 stop: function (event, ui) {
                     jQuery("#interface_bottom").show();
 
+
                     CommonCode.droppableCount = 2; //old 0
 
                     if (ui.helper.hasClass("empty-container-text")) {
                         ui.helper.css("width", "auto");
                     }
+
+                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
                     ui.helper.css("opacity", "1");
                     ui.helper.css("z-index", "0");
@@ -773,7 +782,8 @@ export module JQueryUI {
                     var h = ui.helper;
 
                     try {
-                        //debugger;
+                        debugger;
+                        window.smartObj = new JQueryUI.SmartObj();
                         window.smartObj.currentObj = undefined;
                         window.smartObj.command = "";
 
@@ -846,7 +856,7 @@ export module JQueryUI {
                         if (ui.draggable.find(".jq-image-block-image").length > 0) {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "")
 
-                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                            if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
                                 impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
                             }
                             else {
@@ -855,7 +865,7 @@ export module JQueryUI {
                         }
                         else {
 
-                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                            if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
                                 impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
                             }
                             else {
@@ -918,22 +928,23 @@ export module JQueryUI {
                     CommonCode.droppableCount++;
                 },
                 over: function (event, ui) {
-                    jQuery(".image-selection").removeClass("image-selection");
+                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
                     CommonCode.currentTarget = jQuery(event.target);
 
                     if (jQuery(event.target).hasClass("key")) {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(event.target).addClass("image-selection");
+                            jQuery(event.target).addClass("image-selection-drag");
                             impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
                         }
                     }
                     else {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(event.target).closest(".key").addClass("image-selection");
+                            jQuery(event.target).closest(".key").addClass("image-selection-drag");
                             impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
                         }
                     }
+
                 }
 
             });

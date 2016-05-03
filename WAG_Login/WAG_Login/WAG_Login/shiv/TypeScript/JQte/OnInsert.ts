@@ -83,7 +83,7 @@ export module OnInsert {
                 jQuery(".empty-container-image").on("dblclick",
                     function () {
 
-                        $(this).draggable({ disabled: true });
+                       // $(this).draggable({ disabled: true });
 
                     });
             

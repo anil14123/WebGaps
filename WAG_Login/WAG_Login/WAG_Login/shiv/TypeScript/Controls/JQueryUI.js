@@ -3,6 +3,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
     "use strict";
     var JQueryUI;
     (function (JQueryUI) {
+        var SmartObj = (function () {
+            function SmartObj() {
+                this.command = "";
+                this.isDirty = false;
+            }
+            return SmartObj;
+        }());
+        JQueryUI.SmartObj = SmartObj;
         var UIHelper = (function () {
             function UIHelper() {
             }
@@ -33,6 +41,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         if (ui.helper.hasClass("empty-container-text")) {
                             ui.helper.css("width", "auto");
                         }
+                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
                     },
@@ -500,7 +509,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     drop: function (event, ui) {
                         var h = ui.helper;
                         try {
-                            //debugger;
+                            debugger;
+                            window.smartObj = new JQueryUI.SmartObj();
                             window.smartObj.currentObj = undefined;
                             window.smartObj.command = "";
                             impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
@@ -548,7 +558,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             ui.draggable.css("opacity", "1");
                             if (ui.draggable.find(".jq-image-block-image").length > 0) {
                                 ui.draggable.css("position", "relative").css("left", "").css("top", "");
-                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
                                     impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
                                 }
                                 else {
@@ -556,7 +566,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 }
                             }
                             else {
-                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
                                     impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
                                 }
                                 else {
@@ -599,17 +609,17 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         CommonCode.droppableCount++;
                     },
                     over: function (event, ui) {
-                        jQuery(".image-selection").removeClass("image-selection");
+                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         CommonCode.currentTarget = jQuery(event.target);
                         if (jQuery(event.target).hasClass("key")) {
                             if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                                jQuery(event.target).addClass("image-selection");
+                                jQuery(event.target).addClass("image-selection-drag");
                                 impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
                             }
                         }
                         else {
                             if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                                jQuery(event.target).closest(".key").addClass("image-selection");
+                                jQuery(event.target).closest(".key").addClass("image-selection-drag");
                                 impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
                             }
                         }
