@@ -142,21 +142,22 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     autoHide: true,
                     delay: 0,
                     start: function (event, ui) {
+                        // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
+                        //  jQuery(".dummy-div").height(ui.helper.height() + 2);
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
                             CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
-                            window.setTimeout(function () {
-                                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                                commonMethods.RemoveStyle(ui.helper, "min-height");
-                            }, 500);
+                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                            commonMethods.RemoveStyle(ui.helper, "min-height");
                         }
                         var nextElements = jQuery(ui.helper).nextAll(".column");
                         nextElements.hide();
                     },
                     stop: function (event, ui) {
+                        //jQuery(".dummy-div").remove();
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");
                         var height = ui.size.height;
                         var width = ui.size.width;
@@ -320,6 +321,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
+                        //if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                        //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                        //}
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
                         uiHelper.helper = $(this).closest(".column");
@@ -454,21 +458,22 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(elementCss).resizable({
                     handles: handleDefault,
                     autoHide: true,
-                    delay: 0,
+                    delay: 150,
                     start: function (event, ui) {
+                        $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
+                        jQuery(".dummy-div").height(ui.helper.height() + 2);
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
                             ui.helper.css("height", ui.helper.css("min-height"));
-                            window.setTimeout(function () {
-                                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                                commonMethods.RemoveStyle(ui.helper, "min-height");
-                            }, 1000);
+                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                            commonMethods.RemoveStyle(ui.helper, "min-height");
                         }
                     },
                     stop: function (event, ui) {
+                        jQuery(".dummy-div").remove();
                         var height = ui.size.height;
                         var width = ui.size.width;
                         if (jQuery(this).hasClass("empty-container-text")
@@ -496,6 +501,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
+                        if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                            jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                        }
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
                         uiHelper.helper = $(this).closest(".column");

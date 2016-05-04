@@ -79,7 +79,7 @@ export module JQueryUI {
             });
         }
 
-      
+
         public static ResizableImage() {
 
             var handleDefault = "e,se,s";
@@ -207,6 +207,10 @@ export module JQueryUI {
                 delay: 0,
                 start: function (event, ui) {
 
+                   // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
+
+                  //  jQuery(".dummy-div").height(ui.helper.height() + 2);
+
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
@@ -214,12 +218,9 @@ export module JQueryUI {
                         //    ) {
 
                         CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
-
-                        window.setTimeout(function () {
-                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                            commonMethods.RemoveStyle(ui.helper, "min-height");
-                        }, 500);
-
+                        var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                        commonMethods.RemoveStyle(ui.helper, "min-height");
+                      
                     }
 
 
@@ -228,6 +229,8 @@ export module JQueryUI {
                     nextElements.hide();
                 },
                 stop: function (event, ui) {
+
+                    //jQuery(".dummy-div").remove();
 
                     jQuery(".ui-resizable-se").removeClass("selected-resizable");
 
@@ -487,6 +490,10 @@ export module JQueryUI {
 
                 resize: function (event, ui) {
 
+                    //if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                    //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                    //}
+
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
 
 
@@ -702,8 +709,12 @@ export module JQueryUI {
             $(elementCss).resizable({
                 handles: handleDefault,
                 autoHide: true,
-                delay: 0,
+                delay: 150,
                 start: function (event, ui) {
+
+                    $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
+
+                    jQuery(".dummy-div").height(ui.helper.height() +2);
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -711,16 +722,15 @@ export module JQueryUI {
                         //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                         //    ) {
                         ui.helper.css("height", ui.helper.css("min-height"));
-                        window.setTimeout(function () {
-                            var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
 
-                            commonMethods.RemoveStyle(ui.helper, "min-height");
-
-                        }, 1000);
-
+                        var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                        commonMethods.RemoveStyle(ui.helper, "min-height");
+                       
                     }
                 },
                 stop: function (event, ui) {
+
+                    jQuery(".dummy-div").remove();
 
                     var height = ui.size.height;
 
@@ -760,6 +770,9 @@ export module JQueryUI {
 
                 resize: function (event, ui) {
 
+                    if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                        jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                    }
                     JQueryUI.CommonCode.ResizeCommon(ui.element);
 
                     var uiHelper = new UIHelper();
@@ -774,150 +787,150 @@ export module JQueryUI {
 
         }
 
+
+
         public static Droppable(elementCss) {
 
             $(elementCss).droppable({
                 greedy: true,
                 drop: function (event: JQueryMouseEventObject, ui) {
-                 
-                        try {
+
+                    try {
 
 
-                            window.smartObj = new JQueryUI.SmartObj();
-                            window.smartObj.currentObj = undefined;
-                            window.smartObj.command = "";
+                        window.smartObj = new JQueryUI.SmartObj();
+                        window.smartObj.currentObj = undefined;
+                        window.smartObj.command = "";
 
-                            impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
+                        impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
 
-                            var x = event.clientX;
-                            var y = event.clientY + $(document).scrollTop();
+                        var x = event.clientX;
+                        var y = event.clientY + $(document).scrollTop();
 
-                            jQuery(".nearest-element").removeClass("nearest-element");
+                        jQuery(".nearest-element").removeClass("nearest-element");
 
-                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
-                                impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
-                            }
-
-                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
-
-                                var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
-
-                                var nearestLeftArray = [];
-                                var nearestTopArray = [];
-
-                                if ($elements.length > 0) {
-
-                                    $elements.each(function (index, _this) {
-                                        var $this = $(_this);
-
-                                        var top = parseFloat($this.attr("top"));
-                                        var bottom = parseFloat($this.attr("bottom"));
-                                        var left = parseFloat($this.attr("left"));
-
-                                        if (y >= top && y <= bottom && x >= left) {
-                                            nearestLeftArray.push(left);
-                                            nearestTopArray.push(top);
-                                        }
-
-                                    });
-                                    var nearestLeft = 0;
-                                    var nearestTop = 0;
-                                    if (nearestLeftArray.length > 0) {
-                                        nearestLeft = Math.max.apply(Math, nearestLeftArray);
-                                    }
-                                    if (nearestTopArray.length > 0) {
-                                        nearestTop = Math.max.apply(Math, nearestTopArray);
-                                    }
-
-                                    impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
-
-                                    impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
-
-                                    if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-                                        window.smartObj.currentObj = impWatch.Watch.MouseJQ.nearestElement;
-                                        window.smartObj.command = "n";
-                                    }
-
-                                }
-
-                            }
-                        }
-                        catch (ex) {
-
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                            impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
                         }
 
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
 
-                        impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
+                            var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
 
-                        if (
-                            CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
-                            && !ui.draggable.hasClass("bldr-draggable")
-                        ) {
-                            CommonCode.droppableCount++;
+                            var nearestLeftArray = [];
+                            var nearestTopArray = [];
 
-                            ui.draggable.css("opacity", "1");
+                            if ($elements.length > 0) {
 
-                            if (ui.draggable.find(".jq-image-block-image").length > 0) {
-                                ui.draggable.css("position", "relative").css("left", "").css("top", "")
+                                $elements.each(function (index, _this) {
+                                    var $this = $(_this);
 
-                                if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
-                                }
-                                else {
+                                    var top = parseFloat($this.attr("top"));
+                                    var bottom = parseFloat($this.attr("bottom"));
+                                    var left = parseFloat($this.attr("left"));
 
-                                    if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
-                                        CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                                    if (y >= top && y <= bottom && x >= left) {
+                                        nearestLeftArray.push(left);
+                                        nearestTopArray.push(top);
                                     }
-                                    else {
-                                        CommonCode.currentTarget.closest(".key").after(ui.draggable.closest(".empty-container-image"));
-                                    }
+
+                                });
+                                var nearestLeft = 0;
+                                var nearestTop = 0;
+                                if (nearestLeftArray.length > 0) {
+                                    nearestLeft = Math.max.apply(Math, nearestLeftArray);
                                 }
+                                if (nearestTopArray.length > 0) {
+                                    nearestTop = Math.max.apply(Math, nearestTopArray);
+                                }
+
+                                impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+
+                                impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+
+                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    window.smartObj.currentObj = impWatch.Watch.MouseJQ.nearestElement;
+                                    window.smartObj.command = "n";
+                                }
+
+                            }
+
+                        }
+                    }
+                    catch (ex) {
+
+                    }
+
+
+                    impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
+
+                    if (
+                        CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
+                        && !ui.draggable.hasClass("bldr-draggable")
+                    ) {
+                        CommonCode.droppableCount++;
+
+                        ui.draggable.css("opacity", "1");
+
+                        if (ui.draggable.find(".jq-image-block-image").length > 0) {
+                            ui.draggable.css("position", "relative").css("left", "").css("top", "")
+
+                            if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
                             }
                             else {
 
-                                if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
+                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
                                 }
                                 else {
-                                    if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
-                                        CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
-                                    }
-                                    else {
-                                        CommonCode.currentTarget.closest(".key").after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
-                                    }
+                                    CommonCode.currentTarget.closest(".key").after(ui.draggable.closest(".empty-container-image"));
                                 }
                             }
+                        }
+                        else {
 
-                            jQuery(".image-selection").removeClass("image-selection");
+                            if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                            }
+                            else {
+                                if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
+                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                }
+                                else {
+                                    CommonCode.currentTarget.closest(".key").after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                }
+                            }
+                        }
 
-                            event.stopPropagation();
+                        jQuery(".image-selection").removeClass("image-selection");
 
-                            CommonCode.currentTarget = null;
+                        event.stopPropagation();
 
-                            var undomanager = new impUndoManager.Manager.UndoManager();
+                        CommonCode.currentTarget = null;
 
-                            undomanager.BeforeOperation();
+                        var undomanager = new impUndoManager.Manager.UndoManager();
 
-                        } else {
+                        undomanager.BeforeOperation();
+
+                    } else {
 
 
 
-                            if (!ui.draggable.hasClass("control-drag-anywhere")) {
-                                ui.draggable.css("position", "relative").css("left", "").css("top", "");
+                        if (!ui.draggable.hasClass("control-drag-anywhere")) {
+                            ui.draggable.css("position", "relative").css("left", "").css("top", "");
 
-                                if (ui.draggable.hasClass("bldr-draggable")) {
+                            if (ui.draggable.hasClass("bldr-draggable")) {
 
-                                    var id = ui.draggable.attr("id");
+                                var id = ui.draggable.attr("id");
 
-                                    switch (id) {
-                                        case 'bldr-drgb-text':
-                                            impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
-                                            break;
-                                        case 'bldr-drgb-title':
-                                            impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
-                                            break;
-
-                                    }
+                                switch (id) {
+                                    case 'bldr-drgb-text':
+                                        impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+                                        break;
+                                    case 'bldr-drgb-title':
+                                        impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
+                                        break;
 
                                 }
 
@@ -925,19 +938,21 @@ export module JQueryUI {
 
                         }
 
-                        jQuery(".image-text-other").each(function (index, _this) {
-                            var $this = jQuery(_this);
+                    }
 
-                            var bottom = $this.offset().top + $this.height();
-                            var top = $this.offset().top;
-                            var left = $this.offset().left;
+                    jQuery(".image-text-other").each(function (index, _this) {
+                        var $this = jQuery(_this);
 
-                            $this.attr("top", top);
-                            $this.attr("bottom", bottom);
-                            $this.attr("left", left);
+                        var bottom = $this.offset().top + $this.height();
+                        var top = $this.offset().top;
+                        var left = $this.offset().left;
 
-                        });
-                  
+                        $this.attr("top", top);
+                        $this.attr("bottom", bottom);
+                        $this.attr("left", left);
+
+                    });
+
                 },
                 out: function (event, ui) {
                     CommonCode.droppableCount++;
@@ -972,7 +987,7 @@ export module JQueryUI {
             catch (ex) {
             }
         }
-        
+
         public static DroppableDestroy(elementCss) {
             try {
                 $(elementCss).droppable("destroy");

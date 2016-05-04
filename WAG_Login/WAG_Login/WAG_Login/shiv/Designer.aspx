@@ -1143,7 +1143,7 @@
             <%-- <div class="col-xs-2"  >
              </div>--%>
             
-            <div class="col-xs-38" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:160px;">
+            <div class="col-xs-38" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:260px;">
 
                 <span class="btn btn-xs btn-primary jq-full-page float-right jq-save-margin" style="margin-top:4px; margin-right:4px; position:relative; ">Make Full Page</span> <span style="margin-top:4px; position:relative; " class="btn btn-xs btn-primary jq-small-page float-right jq-save-margin">Make Small Page</span>
 
@@ -1176,6 +1176,7 @@
                          <span class="page-static-element-circle"></span>
                 
                     </div>
+
 
                         </div> 
 
