@@ -211,7 +211,17 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 if (MouseJQ.selectedElement != undefined) {
                     if (!MouseJQ.selectedElement.hasClass("jqte")) {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            MouseJQ.selectedElement.addClass("image-selection");
+                            if (e.ctrlKey == true) {
+                                if (MouseJQ.selectedElement.hasClass("image-selection")) {
+                                    MouseJQ.selectedElement.removeClass("image-selection");
+                                }
+                                else {
+                                    MouseJQ.selectedElement.addClass("image-selection");
+                                }
+                            }
+                            else {
+                                MouseJQ.selectedElement.addClass("image-selection");
+                            }
                             if (e.ctrlKey == true) {
                                 MouseJQ.selectedElement = jQuery(".image-selection");
                             }

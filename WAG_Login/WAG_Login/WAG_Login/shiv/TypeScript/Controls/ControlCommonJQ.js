@@ -23,12 +23,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 //impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
                 impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
                 impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other-left", "e");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-normal-link", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-menu", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-text", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-image", "");
-                impJQueryUI.JQueryUI.CommonCode.Draggable(".empty-container-spacer", "");
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-normal-link .empty-container, .empty-container-menu, .empty-container-text, .empty-container-image, .empty-container-spacer", "");
                 jQuery(".empty-container-text, .empty-container-image").css("z-index", "0");
                 jQuery(".image-text-other").each(function (index, _this) {
                     var $this = jQuery(_this);
@@ -40,8 +35,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                     $this.attr("left", left);
                 });
                 //impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-plus-container", "");
-                impJQueryUI.JQueryUI.CommonCode.Droppable(".column");
-                impJQueryUI.JQueryUI.CommonCode.Droppable(".empty-container, .image-text-other");
+                impJQueryUI.JQueryUI.CommonCode.Droppable(".column, .empty-container, .image-text-other");
                 jQuery(".ui-resizable-e").html("<div class='jq-square jq-square-e'></div>");
                 jQuery(".ui-resizable-se").html("<div class='jq-square jq-square-se'></div>");
                 jQuery(".ui-resizable-s").html("<div class='jq-square jq-square-s'></div>");
@@ -61,7 +55,8 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".root-elements");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other-left");
-                //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-site-link-container");
+                impJQueryUI.JQueryUI.CommonCode.DroppableDestroy(".column, .empty-container, .image-text-other");
+                impJQueryUI.JQueryUI.CommonCode.DraggableDestroy(".jq-normal-link, .empty-container, .empty-container-menu, .empty-container-text .empty-container-image, .empty-container-spacer");
             };
             Code.AnchorClicked = false;
             return Code;

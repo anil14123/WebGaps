@@ -115,6 +115,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                         jQuery("page a").not(".jq-logout").click(function () {
                             impCommonCode.ControlCommon.Code.AnchorClicked = true;
                         });
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     jQuery("#control-insert-link").hide();

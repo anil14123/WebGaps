@@ -1058,7 +1058,7 @@
     <style>
         .help-guid {
             padding: 10px;
-            background-color: yellowgreen;
+            background-color: #337AB7;
             position: fixed;
             left: 625px;
             z-index: 99999;
@@ -1071,7 +1071,7 @@
 
         .help-guid-left {
             padding: 10px;
-            background-color: yellowgreen;
+            background-color: #337AB7;
             float: right;
             z-index: 99999;
             color: white;

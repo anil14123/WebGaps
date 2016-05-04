@@ -55,9 +55,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     }
                 });
             };
-            CommonCode.DraggableDestroy = function (element) {
-                jQuery(element).draggable("destroy");
-            };
             CommonCode.ResizableImage = function () {
                 var handleDefault = "e,se,s";
                 $(".image-element").resizable({
@@ -508,10 +505,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             };
             CommonCode.Droppable = function (elementCss) {
                 $(elementCss).droppable({
+                    greedy: true,
                     drop: function (event, ui) {
-                        var h = ui.helper;
                         try {
-                            debugger;
                             window.smartObj = new JQueryUI.SmartObj();
                             window.smartObj.currentObj = undefined;
                             window.smartObj.command = "";
@@ -556,7 +552,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                         catch (ex) {
                         }
-                        impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection");
+                        impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
                         if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
                             && !ui.draggable.hasClass("bldr-draggable")) {
                             CommonCode.droppableCount++;
@@ -567,7 +563,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                     impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
                                 }
                                 else {
-                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                                    if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
+                                        CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
+                                    }
+                                    else {
+                                        CommonCode.currentTarget.closest(".key").after(ui.draggable.closest(".empty-container-image"));
+                                    }
                                 }
                             }
                             else {
@@ -575,7 +576,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                     impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
                                 }
                                 else {
-                                    CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                    if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
+                                        CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                    }
+                                    else {
+                                        CommonCode.currentTarget.closest(".key").after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
+                                    }
                                 }
                             }
                             jQuery(".image-selection").removeClass("image-selection");
@@ -631,8 +637,20 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     }
                 });
             };
+            CommonCode.DraggableDestroy = function (element) {
+                try {
+                    jQuery(element).draggable("destroy");
+                }
+                catch (ex) {
+                }
+            };
             CommonCode.DroppableDestroy = function (elementCss) {
-                $(elementCss).droppable("destroy");
+                try {
+                    $(elementCss).droppable("destroy");
+                }
+                catch (ex) {
+                    jQuery(elementCss).find("div").remove(".ui-resizable-handle");
+                }
             };
             CommonCode.ResizableDestroy = function (elementCss) {
                 try {

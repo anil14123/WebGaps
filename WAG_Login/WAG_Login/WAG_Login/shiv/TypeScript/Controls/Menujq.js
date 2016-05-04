@@ -97,6 +97,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                                 plusContainer.find(".jq-plus-content").append(tbContainer);
                                 jQuery(emptyc).append(plusContainer);
                                 ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
+                                impCommonCode.ControlCommon.Code.DestroyResizable();
                                 impCommonCode.ControlCommon.Code.Execute();
                             }
                             cssMan.Add(nextId);

@@ -1,7 +1,7 @@
 ﻿
 
 /////////////////////////// window adding property /////////////////////
-interface MyWindow extends Window { smartObj: impCommon.Common.SmartObj; }
+interface MyWindow extends Window { smartObj: Text.SmartObj; }
 
 declare var window: MyWindow;
 
@@ -15,7 +15,6 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impJQueryUI = require("./JQueryUI");
 import impCommonCode = require("./ControlCommonJQ");
 
-import impCommon = require("../Common/CommonEvents");
 import impOperaction = require("../Common/OperationJQ");
 //import impOnInsert = require("../jqte/OnInsert");
 
@@ -28,6 +27,13 @@ var isTextInit = false;
 
 
 export module Text {
+
+    export class SmartObj {
+        currentObj: JQuery;
+        command = "";
+        isDirty = false;
+    }
+
 
     export class TextJQ extends impPageControlNames.PageControlNamesJQ.Page.Text.Controls {
 
@@ -139,6 +145,12 @@ export module Text {
                 selectedRowOrColumn = jQuery("#nonononelement");
             }
 
+            if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
+                window.smartObj = new SmartObj();
+                window.smartObj.currentObj = selectedRowOrColumn;
+                window.smartObj.command = "n";
+            }
+
             if (selectedRowOrColumn != undefined) {
                 var tbContainer = document.createElement("div");
                 var tbContent = document.createElement("div");
@@ -197,7 +209,7 @@ export module Text {
                     //|| selectedRowOrColumn.hasClass("empty-container-text")
                     //|| selectedRowOrColumn.hasClass("empty-container-image")
                     //|| selectedRowOrColumn.hasClass("empty-container")
-                    || window.smartObj != null) {
+                    || (window.smartObj != null && window.smartObj.currentObj != null)) {
 
                     var emptyc = document.createElement("span");
                     jQuery(emptyc).addClass("empty-container-text  key image-text-other design-css design-empty-text-css");

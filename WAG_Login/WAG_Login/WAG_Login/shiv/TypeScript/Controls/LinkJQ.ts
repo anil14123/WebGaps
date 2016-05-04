@@ -190,6 +190,7 @@ export module Link {
                         impCommonCode.ControlCommon.Code.AnchorClicked = true;
                     });
 
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
                 }
 

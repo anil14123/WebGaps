@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../MalFormed/MalFormedJQ"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impCommonCode, impUndoManager, impmal) {
+define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../UndoManager/UndoManager", "../MalFormed/MalFormedJQ"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impUndoManager, impmal) {
     "use strict";
     var uniqureId = 5;
     var Page;
@@ -361,7 +361,6 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                         }
                     }
                 }
-                impCommonCode.ControlCommon.Code.Execute();
             };
             PageElementBaseJQ.prototype.AddContent = function (content, className, rowcolumn, front) {
                 this.CreateNotExist();

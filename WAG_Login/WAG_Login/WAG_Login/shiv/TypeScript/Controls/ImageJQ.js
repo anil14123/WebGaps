@@ -10,6 +10,14 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
     var globalImageBlockContainerId = 0;
     var Image;
     (function (Image) {
+        var SmartObj = (function () {
+            function SmartObj() {
+                this.command = "";
+                this.isDirty = false;
+            }
+            return SmartObj;
+        }());
+        Image.SmartObj = SmartObj;
         var SelfJQ = (function (_super) {
             __extends(SelfJQ, _super);
             function SelfJQ() {
@@ -98,6 +106,11 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 errorHandler.SetErrorClassName("page-insert-image");
                 var ctx = new impPageCtx.Page.ContextJQ();
                 var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement; //  jQuery("#rows-columns option:selected").val();
+                if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
+                    window.smartObj = new SmartObj();
+                    window.smartObj.currentObj = selectedRowOrColumn;
+                    window.smartObj.command = "n";
+                }
                 if (selectedRowOrColumn == undefined) {
                     selectedRowOrColumn = jQuery("#nnnoelement");
                 }

@@ -79,6 +79,7 @@ export module CopyPaste {
 
             undo.BeforeOperation();
 
+            impCommonCode.ControlCommon.Code.DestroyResizable();
             impCommonCode.ControlCommon.Code.Execute();
         }
        
@@ -184,6 +185,7 @@ export module CopyPaste {
                             CopiedElement = selecedElement.clone();;
                         }
 
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
 
 
@@ -236,7 +238,7 @@ export module CopyPaste {
                         CopiedElement = jQuery("#noelement--x");
                     }
 
-
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
 
                     var undomanager = new impUndoManager.Manager.UndoManager();
@@ -277,6 +279,7 @@ export module CopyPaste {
                         }
                     }
 
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
 
                     var undomanager = new impUndoManager.Manager.UndoManager();

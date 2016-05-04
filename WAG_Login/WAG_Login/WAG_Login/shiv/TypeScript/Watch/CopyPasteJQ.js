@@ -51,6 +51,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 selectedElement.append(container);
                 var undo = new impUndoManager.Manager.UndoManager();
                 undo.BeforeOperation();
+                impCommonCode.ControlCommon.Code.DestroyResizable();
                 impCommonCode.ControlCommon.Code.Execute();
             };
             CopyPasteJQ.Delete = function () {
@@ -122,6 +123,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                             CopiedElement = selecedElement.clone();
                             ;
                         }
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     else {
@@ -154,6 +156,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                         if (isCut == true) {
                             CopiedElement = jQuery("#noelement--x");
                         }
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
@@ -181,6 +184,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                                 clp.InsertText(CopyPasteJQ.ClipBoardData.data);
                             }
                         }
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();

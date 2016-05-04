@@ -29,6 +29,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         selectedElement.append(htmlObj);
                         var undo = new impUndoManager.Manager.UndoManager();
                         undo.BeforeOperation();
+                        impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
                     }
                     jQuery("#control-insert-html").hide();

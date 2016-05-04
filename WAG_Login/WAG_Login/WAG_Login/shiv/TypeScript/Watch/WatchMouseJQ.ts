@@ -119,20 +119,15 @@ export module Watch {
             if (e.ctrlKey == false) {
                 jQuery(".image-selection").removeClass("image-selection");
             }
-
-
-
+            
             MouseJQ.selectedElement = jQuery(e.target);
 
             MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
 
-
-
             if (MouseJQ.selectedElement.hasClass("key") == false) {
                 MouseJQ.selectedElement = jQuery("#noelement");
             }
-
-
+            
             ////////// detecting selected object///////
 
             if (MouseJQ.selectedElement.hasClass("column")) {
@@ -299,7 +294,18 @@ export module Watch {
 
                 if (!MouseJQ.selectedElement.hasClass("jqte")) {
                     if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                        MouseJQ.selectedElement.addClass("image-selection");
+
+                        if (e.ctrlKey == true) {
+                            if (MouseJQ.selectedElement.hasClass("image-selection")) {
+                                MouseJQ.selectedElement.removeClass("image-selection");
+                            }
+                            else {
+                                MouseJQ.selectedElement.addClass("image-selection");
+                            }
+                        }
+                        else {
+                            MouseJQ.selectedElement.addClass("image-selection");
+                        }
 
                         if (e.ctrlKey == true) {
                             MouseJQ.selectedElement = jQuery(".image-selection");

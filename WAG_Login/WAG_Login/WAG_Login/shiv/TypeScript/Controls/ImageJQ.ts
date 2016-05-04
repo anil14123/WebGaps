@@ -1,7 +1,7 @@
 ﻿
 
 /////////////////////////// window adding property /////////////////////
-interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
+interface MyWindow extends Window { smartObj: Image.SmartObj }
 
 declare var window: MyWindow;
 
@@ -13,7 +13,6 @@ import impPageControlNames = require("../ControlNames/PageControlNamesJQ");
 import impPageCtx = require("../Page/Context/ContextJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonCode = require("./ControlCommonJQ");
-import impCommonSmart = require("../Common/CommonEvents");
 import impOperaction = require("../Common/OperationJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 
@@ -22,6 +21,12 @@ var globalImageBlockId = 0;
 var globalImageBlockContainerId = 0;
 
 export module Image {
+
+    export class SmartObj {
+        currentObj: JQuery;
+        command = "";
+        isDirty = false;
+    }
 
     export class SelfJQ extends impPageControlNames.PageControlNamesJQ.Page.Image.Controls {
 
@@ -163,6 +168,12 @@ export module Image {
             var ctx = new impPageCtx.Page.ContextJQ();
 
             var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
+            
+            if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
+                window.smartObj = new SmartObj();
+                window.smartObj.currentObj = selectedRowOrColumn;
+                window.smartObj.command = "n";
+            }
 
             if (selectedRowOrColumn == undefined) {
                 selectedRowOrColumn = jQuery("#nnnoelement");

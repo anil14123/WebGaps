@@ -167,6 +167,8 @@ export module Menu {
 
                             ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined, true, undefined);
 
+
+                            impCommonCode.ControlCommon.Code.DestroyResizable();
                             impCommonCode.ControlCommon.Code.Execute();
                         }
 

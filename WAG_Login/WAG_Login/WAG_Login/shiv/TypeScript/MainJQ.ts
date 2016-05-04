@@ -63,7 +63,9 @@ jQuery(document).ready(function () {
         jQuery("body").find("div").first().append(element.clone());
 
         // attach resizable...
-        impCommonControls.ControlCommon.Code.Execute();      
+
+        //impCommonControls.ControlCommon.Code.DestroyResizable();
+        //impCommonControls.ControlCommon.Code.Execute();      
 
         /// unknow code...
         jQuery(".row").removeClass("design-row");

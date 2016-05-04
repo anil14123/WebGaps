@@ -118,7 +118,10 @@ export module Common {
                
             });
 
-            impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
+            if (!jQuery(".bldr-draggable").hasClass("event-added")) {
+                jQuery(".bldr-draggable").addClass("event-added");
+                impJQueryUI.JQueryUI.CommonCode.Draggable(".bldr-draggable", "");
+            }
 
             jQuery(".jq-full-page").on("click", function () {
                 jQuery(".page-margin").css("width", "auto");

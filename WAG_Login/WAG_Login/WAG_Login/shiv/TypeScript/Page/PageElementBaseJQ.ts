@@ -536,9 +536,6 @@ export module Page {
                         }
                     }
             }
-
-            impCommonCode.ControlCommon.Code.Execute();
-
         }
 
         AddContent(content, className, rowcolumn, front) {

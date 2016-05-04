@@ -53,6 +53,7 @@ export module Html {
 
                     undo.BeforeOperation();
 
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
                 }
 

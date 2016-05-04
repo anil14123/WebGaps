@@ -1,4 +1,4 @@
-define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/MyJQte", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Controls/controlcommonjq", "./Document/DocumentJQ", "./Page/LoadJQ"], function (require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
+define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/MyJQte", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Document/DocumentJQ", "./Page/LoadJQ"], function (require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impDocument, impPageLoad) {
     "use strict";
     var ctx = new impPageCtx.Page.ContextJQ();
     var isMainReady = false;
@@ -29,7 +29,8 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
             jQuery("body").find("div").first().append(element.clone());
             jQuery("body").find("div").first().append(element.clone());
             // attach resizable...
-            impCommonControls.ControlCommon.Code.Execute();
+            //impCommonControls.ControlCommon.Code.DestroyResizable();
+            //impCommonControls.ControlCommon.Code.Execute();      
             /// unknow code...
             jQuery(".row").removeClass("design-row");
             jQuery(".column").removeClass("design-column");

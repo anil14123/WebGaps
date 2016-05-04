@@ -13,6 +13,14 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
     var isTextInit = false;
     var Text;
     (function (Text) {
+        var SmartObj = (function () {
+            function SmartObj() {
+                this.command = "";
+                this.isDirty = false;
+            }
+            return SmartObj;
+        }());
+        Text.SmartObj = SmartObj;
         var TextJQ = (function (_super) {
             __extends(TextJQ, _super);
             function TextJQ() {
@@ -81,6 +89,11 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                 if (selectedRowOrColumn == undefined) {
                     selectedRowOrColumn = jQuery("#nonononelement");
                 }
+                if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
+                    window.smartObj = new SmartObj();
+                    window.smartObj.currentObj = selectedRowOrColumn;
+                    window.smartObj.command = "n";
+                }
                 if (selectedRowOrColumn != undefined) {
                     var tbContainer = document.createElement("div");
                     var tbContent = document.createElement("div");
@@ -119,7 +132,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     //    "</div>";
                     //jQuery(tbContainer).append(smartMenu);
                     if (selectedRowOrColumn.hasClass("column") == true
-                        || window.smartObj != null) {
+                        || (window.smartObj != null && window.smartObj.currentObj != null)) {
                         var emptyc = document.createElement("span");
                         jQuery(emptyc).addClass("empty-container-text  key image-text-other design-css design-empty-text-css");
                         //padding-10
