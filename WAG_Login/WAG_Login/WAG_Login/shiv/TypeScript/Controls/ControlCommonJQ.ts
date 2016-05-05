@@ -39,8 +39,8 @@ export module ControlCommon {
 
             //impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-normal-link");
-            // impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
-            impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-text-block-container");
+            impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-text");
+           // impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-text-block-container");
             impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-plus-container-image");
             //impJQueryUI.JQueryUI.CommonCode.ResizableRootElements(".root-elements", "s");
             impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
