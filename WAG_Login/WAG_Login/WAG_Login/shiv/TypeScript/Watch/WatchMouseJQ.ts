@@ -172,7 +172,8 @@ export module Watch {
             if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
                 $(".empty-container-text").draggable({ disabled: false });
                 jQuery(".editor").hide();
-                jQuery("page .jqte-editor").css("cursor", "move");
+
+                jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
             }
 
 
@@ -579,7 +580,7 @@ export module Watch {
                                     if (
                                         !(MouseJQ.selectedElement.hasClass("empty-container-text")
                                             && MouseJQ.selectedElement.length == 1
-                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "pointer")
+                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")
                                     ) {
                                         try {
                                             console.log("ctrl + z pressed");
@@ -662,7 +663,7 @@ export module Watch {
                             jQuery(".editor").hide();
                             //jQuery("#notify").css("top", topNotifyPx);
 
-                            jQuery("page .jqte-editor").css("cursor", "move");
+                            jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                             ////////////////////
 
                             impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide()

@@ -279,9 +279,10 @@ blockquote{
 
 .empty-container-image {
     display: inline-block;
-    display:table;
-   max-width:100%;   
-   float:left;
+    display:inline-table;
+   max-width:100%; 
+       vertical-align: text-top;  
+   /*float:left;*/
 
  
 }
@@ -305,9 +306,11 @@ blockquote{
 
 .empty-container-text {
     display: inline-block;
-    display:table;
+    display:inline-table;
    max-width:100%;   
-   float:left;
+
+       vertical-align: text-top;
+   /*float:left;*/
 
    min-width:50px;
 

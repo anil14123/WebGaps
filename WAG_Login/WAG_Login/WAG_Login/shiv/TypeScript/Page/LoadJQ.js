@@ -27,7 +27,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                             catch (ex) {
                             }
                             jQuery("page .jqte-editor").attr("contentEditable", "true");
-                            jQuery("page .jqte-editor").css("cursor", "move");
+                            jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
                             impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
                             impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;

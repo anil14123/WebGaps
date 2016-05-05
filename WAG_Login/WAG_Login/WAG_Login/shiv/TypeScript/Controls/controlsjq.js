@@ -203,13 +203,14 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         //if (rowOrColumnWithScopeId != undefined) {
                         //    selectedRowOrColumn.append('<span class="debug-row-css debug-css" scopeId="' + rowOrColumnWithScopeId + '" > ' + rowOrColumnWithScopeId + '</span>');
                         //}
-                        errorHandler.ActionSuccess();
+                        //errorHandler.ActionSuccess();
                         //if (callBackLoadRowAndColumnNames != undefined) {
                         //    callBackLoadRowAndColumnNames();
                         //}
                         if (jQuery(".jq-show-plus").css("display") != "none") {
                             jQuery(".jq-row-plus-container").hide();
                         }
+                        jQuery("#control-common-execute").click();
                     }
                 });
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).click(function (e, s) {

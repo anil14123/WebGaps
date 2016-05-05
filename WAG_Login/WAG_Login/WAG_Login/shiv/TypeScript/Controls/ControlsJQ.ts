@@ -306,7 +306,7 @@ export module Page {
                     //    selectedRowOrColumn.append('<span class="debug-row-css debug-css" scopeId="' + rowOrColumnWithScopeId + '" > ' + rowOrColumnWithScopeId + '</span>');
                     //}
 
-                    errorHandler.ActionSuccess();
+                    //errorHandler.ActionSuccess();
 
                     //if (callBackLoadRowAndColumnNames != undefined) {
                     //    callBackLoadRowAndColumnNames();
@@ -315,6 +315,9 @@ export module Page {
                     if (jQuery(".jq-show-plus").css("display") != "none") {
                         jQuery(".jq-row-plus-container").hide();
                     }
+
+                    jQuery("#control-common-execute").click();
+
                 }
             });
 

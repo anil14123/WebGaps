@@ -1,6 +1,6 @@
 ﻿
 .editor {
-    /*z-index:999999999999999999999999;*/
+    z-index:999999999999999999999999;
     display: none;
     /*display:block !important;*/
     position: fixed !important;

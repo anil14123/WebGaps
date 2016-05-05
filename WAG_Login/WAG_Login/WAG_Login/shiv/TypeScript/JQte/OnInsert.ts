@@ -105,7 +105,7 @@ export module OnInsert {
 
                         $(this).draggable({ disabled: true });
                         jQuery(".current-editor-scope").focus();
-                        jQuery(".current-editor-scope").css("cursor", "pointer");
+                        jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
 
 
                     });
@@ -140,7 +140,7 @@ export module OnInsert {
                         //errorHandler.ActionHelp("Press [Esc] once to stop editing");
 
                         jQuery(".current-editor-scope").focus();
-                        jQuery(".current-editor-scope").css("cursor", "pointer");
+                        jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
 
 
                     });

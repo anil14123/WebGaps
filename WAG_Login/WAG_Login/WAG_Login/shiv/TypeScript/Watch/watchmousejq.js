@@ -103,7 +103,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
                     $(".empty-container-text").draggable({ disabled: false });
                     jQuery(".editor").hide();
-                    jQuery("page .jqte-editor").css("cursor", "move");
+                    jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                 }
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
                     jQuery(".design-page-row").hide();
@@ -435,7 +435,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                     case 'z':
                                         if (!(MouseJQ.selectedElement.hasClass("empty-container-text")
                                             && MouseJQ.selectedElement.length == 1
-                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "pointer")) {
+                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")) {
                                             try {
                                                 console.log("ctrl + z pressed");
                                             }
@@ -493,7 +493,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 //jQuery(".designer-top-row").css("height", topRowPx);
                                 jQuery(".editor").hide();
                                 //jQuery("#notify").css("top", topNotifyPx);
-                                jQuery("page .jqte-editor").css("cursor", "move");
+                                jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                                 ////////////////////
                                 impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide();
                                 if (e.cancelBubble != null)

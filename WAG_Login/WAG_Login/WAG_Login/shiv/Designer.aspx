@@ -2107,13 +2107,13 @@
                            target="_blank" class="action-button action-link action-button-image-upload">
                            Upload Image</a>--%>
 
-                     <span class="btn btn-danger btn-file"> 
+                     <span class="btn btn-danger btn-sm btn-file"> 
                           Upload  
                         <input type="file" multiple="multiple" class="image-file-upload" />
                     </span>
 
-                           <button class="btn btn-primary action-button-change-image">Change</button>
-                            <button class="btn btn-primary action-button-insert-image">Insert</button>
+                           <button class="btn btn-primary btn-sm action-button-change-image">Change</button>
+                            <button class="btn btn-primary btn-sm action-button-insert-image">Insert</button>
                        
                       
                       </div>
@@ -3667,7 +3667,9 @@
         </div>
     </div>
 
+    <button id="control-common-execute" style="display:none;">
 
+    </button>
 
 
     <script>

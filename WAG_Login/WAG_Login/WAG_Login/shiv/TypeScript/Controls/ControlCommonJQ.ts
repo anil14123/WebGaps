@@ -11,6 +11,15 @@ export module ControlCommon {
 
         public static AnchorClicked = false;
 
+        public static AttachClick() {
+
+            jQuery("#control-common-execute").on("click", function () {
+
+                Code.DestroyResizable();
+                Code.Execute();
+            });
+        }
+
         public static Execute() {
 
 

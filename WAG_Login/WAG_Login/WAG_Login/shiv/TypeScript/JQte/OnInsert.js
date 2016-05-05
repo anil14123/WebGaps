@@ -60,7 +60,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                     //errorHandler.ActionHelp("Press [Esc] once to stop editing");
                     $(this).draggable({ disabled: true });
                     jQuery(".current-editor-scope").focus();
-                    jQuery(".current-editor-scope").css("cursor", "pointer");
+                    jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                 });
                 jQuery("page .jqte-editor").unbind("mouseup");
                 jQuery("page .jqte-editor").on("mouseup", function (e) {
@@ -82,7 +82,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                     //var errorHandler = new impError.ErrorHandle.ErrorJQ();
                     //errorHandler.ActionHelp("Press [Esc] once to stop editing");
                     jQuery(".current-editor-scope").focus();
-                    jQuery(".current-editor-scope").css("cursor", "pointer");
+                    jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                 });
                 jQuery("page").unbind("click");
                 jQuery("page").on("click", function (e) {

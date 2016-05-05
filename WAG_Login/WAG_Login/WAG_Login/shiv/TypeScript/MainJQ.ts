@@ -65,7 +65,8 @@ jQuery(document).ready(function () {
         // attach resizable...
 
         //impCommonControls.ControlCommon.Code.DestroyResizable();
-        //impCommonControls.ControlCommon.Code.Execute();      
+        //impCommonControls.ControlCommon.Code.Execute(); 
+        impCommonControls.ControlCommon.Code.AttachClick();
 
         /// unknow code...
         jQuery(".row").removeClass("design-row");

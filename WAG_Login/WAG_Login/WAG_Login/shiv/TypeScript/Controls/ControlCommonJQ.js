@@ -5,6 +5,12 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
         var Code = (function () {
             function Code() {
             }
+            Code.AttachClick = function () {
+                jQuery("#control-common-execute").on("click", function () {
+                    Code.DestroyResizable();
+                    Code.Execute();
+                });
+            };
             Code.Execute = function () {
                 impOn.On.Code.Execute();
                 //new impJqte.JQte.JQteJQ().Init();
