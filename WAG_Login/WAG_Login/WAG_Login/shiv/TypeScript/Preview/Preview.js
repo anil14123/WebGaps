@@ -75,7 +75,7 @@ define(["require", "exports"], function (require, exports) {
                     jQuery(".jq-row-plus-container").show();
                 }
                 jQuery("page").find(".image-selection").removeClass("image-selection");
-                jQuery("page").find(".jqte-editor").attr("contentEditable", "true");
+                //jQuery("page").find(".jqte-editor").attr("contentEditable", "true");
                 jQuery("page").find(".jq-text-block-container").addClass("jq-text-block-container-padding");
                 jQuery("page").find(".jq-plus").show();
                 //jQuery("page").find(".jqte-editor").addClass("padding-5");

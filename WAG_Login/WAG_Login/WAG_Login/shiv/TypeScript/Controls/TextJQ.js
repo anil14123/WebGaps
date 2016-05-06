@@ -101,7 +101,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     jQuery(tbContentWrapper).addClass("jq-text-block-content jqte-editor");
                     jQuery(tbContent).css("font-family", jQuery(impText.Font.FontJQ.ddnId).find("option:selected").val());
                     jQuery(tbContentWrapper).attr("tabindex", "1");
-                    jQuery(tbContentWrapper).attr("contenteditable", "true");
+                    //jQuery(tbContentWrapper).attr("contenteditable", "true");
                     //jQuery(tbContentWrapper).append(jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html());
                     jQuery(tbContentWrapper).append(sampleText);
                     //jQuery(tbContentWrapper).addClass("padding-5");

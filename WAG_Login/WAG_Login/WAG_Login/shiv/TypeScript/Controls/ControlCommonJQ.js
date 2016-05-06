@@ -12,7 +12,6 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 });
             };
             Code.Execute = function () {
-                debugger;
                 impOn.On.Code.Execute();
                 new impJqteOnInsert.OnInsert.Code().Init();
                 impJQueryUI.JQueryUI.CommonCode.ResizableColumn();

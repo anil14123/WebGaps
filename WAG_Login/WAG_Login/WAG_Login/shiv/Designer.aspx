@@ -785,7 +785,7 @@
             </select>
 
             <div class="btn btn-default jqte-close" style="display: inline-block; margin-left: 2px; cursor: pointer;"
-                onclick="jQuery('.editor').hide();  $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
+                onclick="jQuery('.editor').hide(); $('.current-editor-scope').removeAttr('contentEditable'); jQuery('.current-editor-scope').closest('.empty-container-text').find('.jq-text-block-container').find('*').not('.ui-resizable-handle').css('cursor', 'move'); $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
                 Close
             </div>
 

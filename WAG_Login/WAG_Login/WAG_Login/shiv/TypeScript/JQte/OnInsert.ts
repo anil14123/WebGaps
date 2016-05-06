@@ -106,7 +106,7 @@ export module OnInsert {
                         $(this).draggable({ disabled: true });
                         jQuery(".current-editor-scope").focus();
                         jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
-
+                        jQuery(".current-editor-scope").attr("contentEditable", "true");
 
                     });
 

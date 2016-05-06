@@ -108,7 +108,7 @@ export module Preview {
 
 
 
-            jQuery("page").find(".jqte-editor").attr("contentEditable", "true");
+            //jQuery("page").find(".jqte-editor").attr("contentEditable", "true");
             jQuery("page").find(".jq-text-block-container").addClass("jq-text-block-container-padding");
 
             jQuery("page").find(".jq-plus").show();

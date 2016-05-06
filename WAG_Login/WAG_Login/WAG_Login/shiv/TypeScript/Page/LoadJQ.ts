@@ -45,7 +45,7 @@ export module Page {
                             catch (ex) {
                             }
 
-                            jQuery("page .jqte-editor").attr("contentEditable", "true");
+                            //jQuery("page .jqte-editor").attr("contentEditable", "true");
                             jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
 
