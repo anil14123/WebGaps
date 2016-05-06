@@ -1078,6 +1078,8 @@
             font-size: small;
             font-weight: bold;
             border-radius: 5px;
+
+            display:none;
         }
 
 
@@ -1281,7 +1283,7 @@
               </div>
              </div>                   
                  <button class="remove-gradient btn btn-danger btn-sm" style="margin:2px; font-size:12px;" >Clear Color</button>                   
-             
+              
          </div>
 
   </div>
