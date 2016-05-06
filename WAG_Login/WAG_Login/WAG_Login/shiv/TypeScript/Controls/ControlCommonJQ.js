@@ -12,6 +12,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 });
             };
             Code.Execute = function () {
+                debugger;
                 impOn.On.Code.Execute();
                 //new impJqte.JQte.JQteJQ().Init();
                 new impJqteOnInsert.OnInsert.Code().Init();
@@ -48,21 +49,23 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                 //jQuery(".ui-resizable-handle").hide();
             };
             Code.DestroyResizable = function () {
+                debugger;
+                impJQueryUI.JQueryUI.CommonCode.DroppableDestroy(".column, .empty-container, .image-text-other");
+                impJQueryUI.JQueryUI.CommonCode.DraggableDestroy(".jq-normal-link, .empty-container, .empty-container-menu, .empty-container-text .empty-container-image, .empty-container-spacer");
                 //working great both
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-image");
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container-text");
                 //impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-normal-link");
                 // impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
-                impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-text-block-container");
+                impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-text");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".jq-plus-container-image");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".column");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".empty-container");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".root-elements");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other");
                 impJQueryUI.JQueryUI.CommonCode.ResizableDestroy(".adjust-image-text-other-left");
-                impJQueryUI.JQueryUI.CommonCode.DroppableDestroy(".column, .empty-container, .image-text-other");
-                impJQueryUI.JQueryUI.CommonCode.DraggableDestroy(".jq-normal-link, .empty-container, .empty-container-menu, .empty-container-text .empty-container-image, .empty-container-spacer");
+                debugger;
             };
             Code.AnchorClicked = false;
             return Code;

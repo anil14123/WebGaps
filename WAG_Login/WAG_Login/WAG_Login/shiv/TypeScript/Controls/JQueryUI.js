@@ -646,28 +646,36 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 });
             };
             CommonCode.DraggableDestroy = function (element) {
-                try {
-                    jQuery(element).draggable("destroy");
-                }
-                catch (ex) {
-                }
+                jQuery(element).each(function (index, _this) {
+                    try {
+                        var $this = $(_this);
+                        $this.draggable("destroy");
+                    }
+                    catch (ex) {
+                    }
+                });
             };
             CommonCode.DroppableDestroy = function (elementCss) {
-                try {
-                    $(elementCss).droppable("destroy");
-                }
-                catch (ex) {
-                    jQuery(elementCss).find("div").remove(".ui-resizable-handle");
-                }
+                jQuery(elementCss).each(function (index, _this) {
+                    try {
+                        var $this = $(_this);
+                        $this.droppable("destroy");
+                    }
+                    catch (ex) {
+                    }
+                });
             };
             CommonCode.ResizableDestroy = function (elementCss) {
-                try {
-                    $(elementCss).resizable("destroy");
-                    jQuery(elementCss).find("div").remove(".ui-resizable-handle");
-                }
-                catch (ex) {
-                    jQuery(elementCss).find("div").remove(".ui-resizable-handle");
-                }
+                jQuery(elementCss).each(function (index, _this) {
+                    try {
+                        var $this = $(_this);
+                        $this.resizable("destroy");
+                        jQuery($this).find("div").remove(".ui-resizable-handle");
+                    }
+                    catch (ex) {
+                        jQuery($this).find("div").remove(".ui-resizable-handle");
+                    }
+                });
             };
             CommonCode.droppableCount = 2; //old 0
             CommonCode.originalHeightBeforeDragStartStr = "";
