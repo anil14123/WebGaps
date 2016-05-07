@@ -209,11 +209,16 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         jQuery(".control-color-foreground-color").trigger("keyup");
                     }
                     var str = selectedElement.css("background-color");
-                    if (str != undefined) {
+                    if (str != undefined && str != "transparent" && str != "rgba(0, 0, 0, 0)") {
                         str = ColorJQ.RgbToHex(str);
                         //jQuery(ColorJQ.controlId).find(".control-color-background-color").val(str);
                         //jQuery(ColorJQ.controlId).find(".control-color-background-color").trigger("keyup");
                         jQuery(".control-color-background-color").val("#" + str);
+                        jQuery(".control-color-background-color").trigger("keyup");
+                    }
+                    else {
+                        str = "transparent";
+                        jQuery(".control-color-background-color").val(str);
                         jQuery(".control-color-background-color").trigger("keyup");
                     }
                 }

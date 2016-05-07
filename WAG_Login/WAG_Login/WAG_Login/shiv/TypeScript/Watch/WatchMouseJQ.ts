@@ -655,7 +655,7 @@ export module Watch {
                             $(".empty-container-text").draggable({ disabled: false });
                             $(".empty-container-image").draggable({ disabled: false });
 
-                            $(".current-editor-scope").removeAttr("contentEditable");
+                            $("page .jq-text-block-content").removeAttr("contentEditable");
 
                             //var topRowPx = "180px";
                             //var topNotifyPx = "105px";
