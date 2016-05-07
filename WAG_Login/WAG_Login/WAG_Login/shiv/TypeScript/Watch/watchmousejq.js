@@ -485,16 +485,18 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             var ENTER = 13;
                             if (e.which === ESC) {
                                 /// for moving
+                                //Resetting Code Text Editor..
                                 $(".empty-container-text").draggable({ disabled: false });
                                 $(".empty-container-image").draggable({ disabled: false });
                                 $("page .jq-text-block-content").removeAttr("contentEditable");
+                                jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
+                                ////////////////////
                                 //var topRowPx = "180px";
                                 //var topNotifyPx = "105px";
                                 //jQuery("rootx").css("top", topRowPx);
                                 //jQuery(".designer-top-row").css("height", topRowPx);
                                 jQuery(".editor").hide();
                                 //jQuery("#notify").css("top", topNotifyPx);
-                                jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                                 ////////////////////
                                 impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide();
                                 if (e.cancelBubble != null)
