@@ -33,6 +33,7 @@ export module JQueryUI {
                 revert: 'invalid',
                 helper: 'clone',
                 appendTo: 'body',
+                distance: 5,
                 start: function (event, ui) {
                     jQuery("#interface_bottom").hide();
 
@@ -40,12 +41,12 @@ export module JQueryUI {
 
                     CommonCode.droppableCount++;
 
-                    if (ui.helper.hasClass("empty-container-text")) {
-                        ui.helper.css("width", "250px");
-                    }
+                    //if (ui.helper.hasClass("empty-container-text")) {
+                    //    ui.helper.css("width", "250px");
+                    //}
 
                     ui.helper.css("z-index", "9999999999");
-                    ui.helper.css("opacity", "0.6");
+                    ui.helper.css("opacity", "0.8");
 
                 },
                 stop: function (event, ui) {
@@ -54,9 +55,9 @@ export module JQueryUI {
 
                     CommonCode.droppableCount = 2; //old 0
 
-                    if (ui.helper.hasClass("empty-container-text")) {
-                        ui.helper.css("width", "auto");
-                    }
+                    //if (ui.helper.hasClass("empty-container-text")) {
+                    //    ui.helper.css("width", "auto");
+                    //}
 
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
@@ -791,6 +792,7 @@ export module JQueryUI {
 
             $(elementCss).droppable({
                 greedy: true,
+                tolerance: "pointer",
                 drop: function (event: JQueryMouseEventObject, ui) {
 
                     try {

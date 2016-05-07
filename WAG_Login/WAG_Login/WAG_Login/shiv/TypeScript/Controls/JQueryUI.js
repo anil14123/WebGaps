@@ -26,21 +26,22 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     revert: 'invalid',
                     helper: 'clone',
                     appendTo: 'body',
+                    distance: 5,
                     start: function (event, ui) {
                         jQuery("#interface_bottom").hide();
                         CommonCode.droppableCount++;
-                        if (ui.helper.hasClass("empty-container-text")) {
-                            ui.helper.css("width", "250px");
-                        }
+                        //if (ui.helper.hasClass("empty-container-text")) {
+                        //    ui.helper.css("width", "250px");
+                        //}
                         ui.helper.css("z-index", "9999999999");
-                        ui.helper.css("opacity", "0.6");
+                        ui.helper.css("opacity", "0.8");
                     },
                     stop: function (event, ui) {
                         jQuery("#interface_bottom").show();
                         CommonCode.droppableCount = 2; //old 0
-                        if (ui.helper.hasClass("empty-container-text")) {
-                            ui.helper.css("width", "auto");
-                        }
+                        //if (ui.helper.hasClass("empty-container-text")) {
+                        //    ui.helper.css("width", "auto");
+                        //}
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
@@ -514,6 +515,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.Droppable = function (elementCss) {
                 $(elementCss).droppable({
                     greedy: true,
+                    tolerance: "pointer",
                     drop: function (event, ui) {
                         try {
                             window.smartObj = new JQueryUI.SmartObj();
