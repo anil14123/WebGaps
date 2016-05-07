@@ -297,6 +297,10 @@ rootx {
     background-color:black;
 }
 
+.z-index-back{
+    z-index:-10;
+}
+
 .no_select {
     user-select: none;
     -o-user-select: none;
@@ -307,12 +311,12 @@ rootx {
 }
 
 .image-selection-drag {
-    box-shadow: 0px 0px 10px blue;
+    box-shadow:0px 0px 10px #C5BFBF;
 }
 
 .image-selection {
     //border: 4px dashed rgba(0, 0, 0, 0.45);
-    box-shadow: 0px 0px 10px blue;
+    box-shadow: 0px 0px 10px #C5BFBF;
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;

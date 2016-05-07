@@ -59,4 +59,4 @@ define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, i
         Save.SaveJQ = SaveJQ;
     })(Save = exports.Save || (exports.Save = {}));
 });
-//# sourceMappingURL=SaveJq.js.map
+//# sourceMappingURL=SaveJQ.js.map

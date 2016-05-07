@@ -1067,6 +1067,8 @@
             font-weight: bold;
             font-size: small;
             border-radius: 5px;
+
+            display:none;
         }
 
         .help-guid-left {

@@ -422,6 +422,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     var circleRightTopElement = jQuery(circleLeftTopElement).clone();
                     var circleLeftBottomElement = jQuery(circleLeftTopElement).clone();
                     var circleRightBottomElement = jQuery(circleLeftTopElement).clone();
+                    circleRightBottomElement.addClass("z-index-back");
                     var body = document.body;
                     var docElem = document.documentElement;
                     var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;

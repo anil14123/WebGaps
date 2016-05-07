@@ -323,6 +323,8 @@ export module Watch {
                 var circleLeftBottomElement = jQuery(circleLeftTopElement).clone();
                 var circleRightBottomElement = jQuery(circleLeftTopElement).clone();
 
+                circleRightBottomElement.addClass("z-index-back");
+
                 var body = document.body
 
                 var docElem = document.documentElement
