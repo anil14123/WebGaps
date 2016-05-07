@@ -58,6 +58,7 @@
 
 .ui-resizable-handle {
      overflow:visible;
+
 }
 
 .ui-resizable-handle:hover{
@@ -87,7 +88,7 @@
 .jq-square-e {
     left: -2px;
     top: 45%;
-
+   
     left: -5px;
 
     background-image:url(/Content/resize/resize-hor-icon.png);

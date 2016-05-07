@@ -47,10 +47,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         ui.helper.css("z-index", "0");
                     },
                     drag: function (event, ui) {
-                        ui.helper.offset({
-                            top: event.clientY,
-                            left: event.clientX
-                        });
+                        //ui.helper.offset({
+                        //    top: event.clientY,
+                        //    left: event.clientX
+                        //});
                         var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
                         element.addClass("image-selection-drag");
                     }
@@ -141,7 +141,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(".column").resizable({
                     handles: handleDefault,
                     autoHide: true,
-                    delay: 0,
+                    distance: 0,
                     start: function (event, ui) {
                         // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
                         //  jQuery(".dummy-div").height(ui.helper.height() + 2);
@@ -322,22 +322,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
-                        //if (jQuery(".dummy-div").height() < ui.helper.height()) {
-                        //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
-                        //}
-                        JQueryUI.CommonCode.ResizeCommon(ui.element);
-                        var uiHelper = new UIHelper();
-                        uiHelper.helper = $(this).closest(".column");
-                        //JQueryUI.CommonCode.OnResize(event, ui);
-                        //if (jQuery(ui.element).data('ui-resizable').axis == "se") {
-                        //}
-                        //else
-                        //    if ($(ui.element).data('ui-resizable').axis == "s") {
-                        //        ui.helper.height(ui.helper.height() + 20);
-                        //    }
-                        //    else
-                        //        if ($(ui.element).data('ui-resizable').axis == "s") {
-                        //        }
                     }
                 });
             };
@@ -365,14 +349,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     stop: function (event, ui) {
                         var height = ui.size.height;
                         var width = ui.size.width;
-                        var undomanager = new impUndoManager.Manager.UndoManager();
-                        undomanager.BeforeOperation();
-                    },
-                    resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
                         uiHelper.helper = $(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+                        undomanager.BeforeOperation();
+                    },
+                    resize: function (event, ui) {
                     }
                 });
             };
@@ -460,7 +444,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(elementCss).resizable({
                     handles: handleDefault,
                     autoHide: true,
-                    delay: 150,
+                    distance: 0,
                     start: function (event, ui) {
                         $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
                         jQuery(".dummy-div").height(ui.helper.height() + 2);
@@ -499,17 +483,19 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                         //UndoRedoManager.Push();
                         //alert(height + " x " + width);
-                        var undomanager = new impUndoManager.Manager.UndoManager();
-                        undomanager.BeforeOperation();
-                    },
-                    resize: function (event, ui) {
-                        if (jQuery(".dummy-div").height() < ui.helper.height()) {
-                            jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
-                        }
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
                         uiHelper.helper = $(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
+                        var undomanager = new impUndoManager.Manager.UndoManager();
+                        undomanager.BeforeOperation();
+                    },
+                    resize: function (event, ui) {
+                        window.setTimeout(function () {
+                            if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                                jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                            }
+                        }, 10);
                     }
                 });
             };

@@ -1211,7 +1211,13 @@
 
                     <%-- CAccordion --%>
 
-               <div id="properties-accordion">
+                      <div id="control-settings" class="hide">
+
+                          Control Settings
+                          <br /><br /><br />
+                      </div>
+
+                      <div id="properties-accordion">
   <h3 class="prop-sb" name="height-width">  &nbsp;&nbsp; Height / Width </h3>
   <div>
     <div class="smart-menu-controls-table" style="width:auto;">
@@ -1756,7 +1762,8 @@
 
 
 </div>
- </div>
+             
+               </div>
 
             </div>
         </div>
