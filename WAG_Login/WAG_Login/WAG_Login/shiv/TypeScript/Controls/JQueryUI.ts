@@ -122,85 +122,86 @@ export module JQueryUI {
 
         public static commonHeight(height, ui) {
 
-            try {
+                try {
 
-                var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
-
-
-                originalHeightStr = originalHeightStr.replace("px", "");
-
-                var originalHeight = parseInt(originalHeightStr);
-
-                commonMethods.RemoveSingleStyle(ui.helper, "min-height");
-                commonMethods.RemoveSingleStyle(ui.helper, "height");
-
-                commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
-                commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
-
-                commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
-                commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
-
-                var minHeights = [];
-
-                minHeights.push(height);
-
-                var heights = [];
-
-                heights.push(height);
-
-                jQuery(ui.helper).nextAll(".column").each(function () {
-                    minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
-                    heights.push(parseInt($(this).css("height").replace("px", "")))
-                });
-                jQuery(ui.helper).prevAll(".column").each(function () {
-                    minHeights.push(parseInt($(this).css("min-height").replace("px", "")))
-                    heights.push(parseInt($(this).css("height").replace("px", "")))
-                });
-
-                var maxOfMinHeight = Math.max.apply(Math, minHeights);
-                var maxOfHeight = Math.max.apply(Math, heights);
+                    var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                    var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
 
 
-                if (height > maxOfHeight) {
+                    originalHeightStr = originalHeightStr.replace("px", "");
 
+                    var originalHeight = parseInt(originalHeightStr);
+
+                    commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                    commonMethods.RemoveSingleStyle(ui.helper, "height");
+
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+
+                    var minHeights = [];
+
+                    minHeights.push(height);
+
+                    var heights = [];
+
+                    heights.push(height);
+
+                    jQuery(ui.helper).nextAll(".column").each(function () {
+                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
+                        heights.push(parseInt($(this).css("height").replace("px", "")))
+                    });
+                    jQuery(ui.helper).prevAll(".column").each(function () {
+                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")))
+                        heights.push(parseInt($(this).css("height").replace("px", "")))
+                    });
+
+                    var maxOfMinHeight = Math.max.apply(Math, minHeights);
+                    var maxOfHeight = Math.max.apply(Math, heights);
+
+
+                    if (height > maxOfHeight) {
+
+                    }
+                    else {
+                        height = maxOfHeight;
+                    }
+
+                    jQuery(ui.helper).css("min-height", height + "px");
+                    jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
+                    jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
+
+                    var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
+
+                    if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
+                        jQuery(ui.helper).css("min-height", phase2Height + "px");
+                        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
+                        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
+                    }
+                    else {
+                        jQuery(ui.helper).css("min-height", originalHeight + "px");
+                        jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
+                        jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
+                    }
+
+                    CommonCode.originalHeightBeforeDragStartStr = "";
                 }
-                else {
-                    height = maxOfHeight;
+                catch (ex) {
+
+                    return "error";
                 }
 
-                jQuery(ui.helper).css("min-height", height + "px");
-                jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
-                jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
-
-                var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
-
-                if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
-                    jQuery(ui.helper).css("min-height", phase2Height + "px");
-                    jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
-                    jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
-                }
-                else {
-                    jQuery(ui.helper).css("min-height", originalHeight + "px");
-                    jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
-                    jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
-                }
-
-                CommonCode.originalHeightBeforeDragStartStr = "";
-            }
-            catch (ex) {
-
-                return "error";
-            }
-
-            return "success";
+                return "success";
+            
         }
 
         public static originalHeightBeforeDragStartStr = "";
 
         public static ResizableColumn() {
 
-            var handleDefault = "e,se,s";
+            var handleDefault = "e,s";//"e,se,s";
 
             $(".column").resizable({
                 handles: handleDefault,

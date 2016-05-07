@@ -41,7 +41,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 });
                 jQuery(".empty-container-text").unbind("click");
                 jQuery(".empty-container-text").on("click", function () {
-                    jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").removeClass("current-editor-scope");
+                    jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
                 });
                 jQuery(".empty-container-image").unbind("dblclick");
                 jQuery(".empty-container-image").on("dblclick", function () {

@@ -137,7 +137,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 return "success";
             };
             CommonCode.ResizableColumn = function () {
-                var handleDefault = "e,se,s";
+                var handleDefault = "e,s"; //"e,se,s";
                 $(".column").resizable({
                     handles: handleDefault,
                     autoHide: true,

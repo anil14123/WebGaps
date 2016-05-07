@@ -75,7 +75,9 @@ export module OnInsert {
                 jQuery(".empty-container-text").on("click",
                     function () {
 
-                        jQuery(".current-editor-scope").focus();
+                        jQuery(".current-editor-scope").removeClass("current-editor-scope");
+
+                        jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
 
                     });
 
