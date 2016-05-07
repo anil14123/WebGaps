@@ -71,15 +71,15 @@ export module OnInsert {
 
                 })
 
-                jQuery(".empty-container-text").unbind("click");
-                jQuery(".empty-container-text").on("click",
-                    function () {
+                //jQuery(".empty-container-text").unbind("click");
+                //jQuery(".empty-container-text").on("click",
+                //    function () {
 
-                        jQuery(".current-editor-scope").removeClass("current-editor-scope");
+                //        //jQuery(".current-editor-scope").removeClass("current-editor-scope");
 
-                        jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
+                //        //jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
 
-                    });
+                //    });
 
                 jQuery(".empty-container-image").unbind("dblclick");
                 jQuery(".empty-container-image").on("dblclick",
@@ -93,6 +93,17 @@ export module OnInsert {
                 jQuery(".empty-container-text").on("dblclick",
                     function () {
 
+                        //Resetting code
+                        $(".empty-container-text").draggable({ disabled: false });
+                        jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
+                        $("page .jq-text-block-content").removeAttr("contentEditable");
+                        //////////////////
+
+                        jQuery(".current-editor-scope").removeClass("current-editor-scope");
+
+                        jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
+
+                      
                         //var topRowPx = "180px";
                         //var topNotifyPx = "105px";
 
@@ -100,10 +111,6 @@ export module OnInsert {
                         //jQuery(".designer-top-row").css("height", topRowPx);
                         //jQuery("#notify").css("top", topNotifyPx);
                         jQuery(".editor").show();
-
-                        //dbl click text editor
-                        //var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        //errorHandler.ActionHelp("Press [Esc] once to stop editing");
 
                         $(this).draggable({ disabled: true });
                         jQuery(".current-editor-scope").focus();
