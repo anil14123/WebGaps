@@ -126,6 +126,10 @@ export module Color {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
 
                             var comm = new impCommon.Common.CommonMethodsJQ();
@@ -204,6 +208,10 @@ export module Color {
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
+
                             if (selectedElement != undefined) {
 
                                 if (jQuery(this).hasClass("control-color-foreground-color")) {
@@ -276,6 +284,10 @@ export module Color {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
 
                             var colorOne = $(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
@@ -305,6 +317,10 @@ export module Color {
                     jQuery(ColorJQ.controlBtnApply).on("click", function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement != undefined) {
 
@@ -338,6 +354,10 @@ export module Color {
             ColorJQ.isSelectProcessing = true;
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text");
+            }
 
             if (selectedElement != undefined) {
 

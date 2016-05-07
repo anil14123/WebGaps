@@ -67,6 +67,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-gradient").click(function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveSingleStyle(selectedElement, "background");
@@ -116,6 +119,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             if (ColorJQ.isSelectProcessing == false) {
                                 impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                                if (selectedElement.hasClass("empty-container-text")) {
+                                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                                }
                                 if (selectedElement != undefined) {
                                     if (jQuery(this).hasClass("control-color-foreground-color")) {
                                         var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
@@ -165,6 +171,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         jQuery(".fb-color-picker-gradient").on("change", function () {
                             impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var colorOne = $(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
                                 var colorTwo = $(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
@@ -182,6 +191,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(ColorJQ.controlBtnApply).on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
                                 selectedElement.css("color", "#" + colorForeground);
@@ -199,6 +211,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
             ColorJQ.ProcessSelectedValues = function () {
                 ColorJQ.isSelectProcessing = true;
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
                 if (selectedElement != undefined) {
                     var str = selectedElement.css("color");
                     if (str != undefined) {
