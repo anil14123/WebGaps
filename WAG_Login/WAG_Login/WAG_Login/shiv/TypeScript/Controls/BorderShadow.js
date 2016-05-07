@@ -30,7 +30,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             var undo = new impUndoManager.Manager.UndoManager();
                             undo.BeforeOperation();
                         });
-                        jQuery('.b-s-color').colorpicker({ defaultPalette: 'web' });
+                        //jQuery('.b-s-color').colorpicker({ defaultPalette: 'web' }); 
+                        jQuery('.b-s-color').colorpicker();
                         //jQuery('.b-s-color').colpick({
                         //    layout: 'hex',
                         //    submit: 0,

@@ -69,7 +69,8 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".color-picker").colorpicker({ defaultPalette: 'web' });
+                        //jQuery(".color-picker").colorpicker({ defaultPalette: 'web'});
+                        jQuery(".color-picker").colorpicker();
                         //jQuery('.color-picker').colpick({
                         //    layout: 'hex',
                         //    submit: 0,

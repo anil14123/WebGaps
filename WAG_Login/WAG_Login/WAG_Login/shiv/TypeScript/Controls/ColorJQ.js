@@ -80,7 +80,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette: 'web' });
+                        // jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette:'web'});
+                        jQuery('.fb-color-picker-gradient').colorpicker();
                         //jQuery('.fb-color-picker-gradient').colpick({
                         //    layout: 'hex',
                         //    submit: 0,
@@ -97,7 +98,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         //}).keyup(function () {
                         //    $(this).colpickSetColor(this.value);
                         //});
-                        jQuery('.fb-color-picker').colorpicker({ defaultPalette: 'web' });
+                        //jQuery('.fb-color-picker').colorpicker({ defaultPalette: 'web' }); 
+                        jQuery('.fb-color-picker').colorpicker();
                         //jQuery('.fb-color-picker').colpick({
                         //    layout: 'hex',
                         //    submit: 0,  

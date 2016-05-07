@@ -110,7 +110,8 @@ export module Border {
                         }
                         );
 
-                    jQuery(".color-picker").colorpicker({ defaultPalette: 'web'});
+                    //jQuery(".color-picker").colorpicker({ defaultPalette: 'web'});
+                    jQuery(".color-picker").colorpicker();
                      
                     //jQuery('.color-picker').colpick({
                     //    layout: 'hex',

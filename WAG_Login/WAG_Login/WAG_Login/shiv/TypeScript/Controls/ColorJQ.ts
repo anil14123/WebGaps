@@ -159,8 +159,8 @@ export module Color {
                         }
                     });
 
-                    jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette:'web'});
-                     
+                   // jQuery('.fb-color-picker-gradient').colorpicker({ defaultPalette:'web'});
+                    jQuery('.fb-color-picker-gradient').colorpicker();
                     //jQuery('.fb-color-picker-gradient').colpick({
                     //    layout: 'hex',
                     //    submit: 0,
@@ -179,7 +179,9 @@ export module Color {
                     //    $(this).colpickSetColor(this.value);
                     //});
                     
-                    jQuery('.fb-color-picker').colorpicker({ defaultPalette:'web'}); 
+                    //jQuery('.fb-color-picker').colorpicker({ defaultPalette: 'web' }); 
+                    jQuery('.fb-color-picker').colorpicker(); 
+
                     //jQuery('.fb-color-picker').colpick({
                     //    layout: 'hex',
                     //    submit: 0,  

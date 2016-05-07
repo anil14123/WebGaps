@@ -49,7 +49,9 @@ export module BorderShadow {
                         undo.BeforeOperation();
                     });
 
-                    jQuery('.b-s-color').colorpicker({ defaultPalette:'web'}); 
+                    //jQuery('.b-s-color').colorpicker({ defaultPalette: 'web' }); 
+                    jQuery('.b-s-color').colorpicker(); 
+
                     //jQuery('.b-s-color').colpick({
                     //    layout: 'hex',
                     //    submit: 0,
