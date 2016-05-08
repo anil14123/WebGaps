@@ -91,23 +91,24 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".editor").hide();
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                 }
-                if (MouseJQ.selectedElement.hasClass("column") == true) {
-                    jQuery(".design-page-row").hide();
-                    MouseJQ.selectedElement.parent().children(".design-page-row").show();
-                }
-                else if (MouseJQ.selectedElement.hasClass("row") == true) {
-                    jQuery(".design-page-row").hide();
-                    MouseJQ.selectedElement.children(".design-page-row").show();
-                }
-                else {
-                    if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
-                        jQuery(".design-page-row").hide();
-                        MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
-                    }
-                    else {
-                        jQuery(".design-page-row").hide();
-                    }
-                }
+                //if (MouseJQ.selectedElement.hasClass("column") == true) {
+                //    jQuery(".design-page-row").hide();
+                //    MouseJQ.selectedElement.parent().children(".design-page-row").show();
+                //}
+                //else
+                //    if (MouseJQ.selectedElement.hasClass("row") == true) {
+                //        jQuery(".design-page-row").hide();
+                //        MouseJQ.selectedElement.children(".design-page-row").show();
+                //    }
+                //    else {
+                //        if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+                //            jQuery(".design-page-row").hide();
+                //            MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
+                //        }
+                //        else {
+                //            jQuery(".design-page-row").hide();
+                //        }
+                //    }
                 MouseJQ.selectedElement.addClass("design-select-element-just-mark");
                 //MouseJQ.selectedElement.css("outline", "dashed 5px black");
                 impAddRow.Page.AddRowJQ.ProcessSelectNotify(); // order here is important... because border is applying before removable row border property is removed.

@@ -210,6 +210,10 @@ export module JQueryUI {
                 distance: 0,
                 start: function (event, ui) {
 
+                    var axis = jQuery(ui.element).data('ui-resizable').axis;
+
+                    jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
+
                     // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
 
                     //  jQuery(".dummy-div").height(ui.helper.height() + 2);
@@ -271,18 +275,8 @@ export module JQueryUI {
 
                         var result = CommonCode.commonHeight(height, ui);
 
-                        if (result == "error") {
-                            jQuery(ui.helper).css("min-height", height);
-                        }
-                        else {
-                            var uiHelper = new UIHelper();
-
-                            uiHelper.helper = $(this).closest(".column").parent().closest(".column")
-
-                            if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
-                                CommonCode.commonHeight(100, uiHelper);
-                            }
-                        }
+                        commonMethods.RemoveSingleStyle(ui.helper, "height");
+                        jQuery(ui.helper).css("min-height", height);
 
                         //var clientscrolly = 0;
                         //if (height > originalHeight) {
@@ -564,10 +558,15 @@ export module JQueryUI {
 
                 delay: 0,
                 start: function (event, ui) {
+                    var axis = jQuery(ui.element).data('ui-resizable').axis;
 
+                    jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
 
                 },
                 stop: function (event, ui) {
+
+                    jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
+
                     var height = ui.size.height;
 
                     var width = ui.size.width;

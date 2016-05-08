@@ -160,25 +160,25 @@ export module Watch {
             }
 
 
-            if (MouseJQ.selectedElement.hasClass("column") == true) {
+            //if (MouseJQ.selectedElement.hasClass("column") == true) {
 
-                jQuery(".design-page-row").hide();
-                MouseJQ.selectedElement.parent().children(".design-page-row").show();
-            }
-            else
-                if (MouseJQ.selectedElement.hasClass("row") == true) {
-                    jQuery(".design-page-row").hide();
-                    MouseJQ.selectedElement.children(".design-page-row").show();
-                }
-                else {
-                    if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
-                        jQuery(".design-page-row").hide();
-                        MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
-                    }
-                    else {
-                        jQuery(".design-page-row").hide();
-                    }
-                }
+            //    jQuery(".design-page-row").hide();
+            //    MouseJQ.selectedElement.parent().children(".design-page-row").show();
+            //}
+            //else
+            //    if (MouseJQ.selectedElement.hasClass("row") == true) {
+            //        jQuery(".design-page-row").hide();
+            //        MouseJQ.selectedElement.children(".design-page-row").show();
+            //    }
+            //    else {
+            //        if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+            //            jQuery(".design-page-row").hide();
+            //            MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
+            //        }
+            //        else {
+            //            jQuery(".design-page-row").hide();
+            //        }
+            //    }
 
             MouseJQ.selectedElement.addClass("design-select-element-just-mark");
             //MouseJQ.selectedElement.css("outline", "dashed 5px black");

@@ -52,7 +52,7 @@ export module Page {
                             impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
                             impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;
 
-                            jQuery("page .design-page-row").hide();
+                            //jQuery("page .design-page-row").hide();
 
                             jQuery(".page").show();
 
