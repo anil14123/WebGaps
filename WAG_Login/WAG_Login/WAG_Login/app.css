@@ -351,7 +351,7 @@ rootx {
 }
 
 .column.empty:hover::after {
-    content: "\A[Drag/Drop Here]";
+    content: "\A[Drag @ Drop Here]";
 }
 
 .column.empty:hover {
@@ -367,3 +367,24 @@ rootx {
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
+.empty-drop-element{
+    width :100%;
+    display:none;
+    position:absolute;
+    top:0;
+    bottom:0;
+}
+
+.jq-dragging{
+    max-width:600px !important;
+    max-height:500px !important;
+}
+
+/*.column.empty:hover .empty-drop-element{
+   display:inline-block;
+   opacity:0.8;
+   
+}*/
+

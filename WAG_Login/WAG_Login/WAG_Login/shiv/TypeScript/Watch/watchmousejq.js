@@ -100,7 +100,13 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     MouseJQ.selectedElement.children(".design-page-row").show();
                 }
                 else {
-                    jQuery(".design-page-row").hide();
+                    if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+                        jQuery(".design-page-row").hide();
+                        MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
+                    }
+                    else {
+                        jQuery(".design-page-row").hide();
+                    }
                 }
                 MouseJQ.selectedElement.addClass("design-select-element-just-mark");
                 //MouseJQ.selectedElement.css("outline", "dashed 5px black");

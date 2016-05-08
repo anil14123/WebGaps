@@ -362,11 +362,8 @@
     </div>
 
     <div class="jq-properties-tag">
-        <span class="delete">
-           </span>
-        <span class="settings">
-           
-        </span>
+        <span class="delete"></span>
+        <span class="settings"></span>
     </div>
 
     <span id="noelement22"></span>
@@ -407,37 +404,35 @@
 
             </div>
             <style>
-                .blue{
-                    color:blue;
+                .blue {
+                    color: blue;
                 }
             </style>
 
-            <button class=" btn btn-success btn-xs close-preview jq-save-margin  ">  <span class=" fa fa-eye  black"></span> Close Preview</button>
-            <button class=" btn btn-success btn-xs  show-preview jq-save-margin "> <span class=" fa fa-eye  black"></span> Preview</button>
+            <button class=" btn btn-success btn-xs close-preview jq-save-margin  "><span class=" fa fa-eye  black"></span> Close Preview</button>
+            <button class=" btn btn-success btn-xs  show-preview jq-save-margin "><span class=" fa fa-eye  black"></span> Preview</button>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview ">
                 <button class="btn btn-success btn-xs " style="margin-left: 6px; display: inline-block;">
-               <span class=" fa fa-eye  black"></span>     Live Preview</button>
+                    <span class=" fa fa-eye  black"></span> Live Preview</button>
             </a>
             <button class="btn btn-primary btn-xs  jq-show-plus " style="margin: 5px;">
-              <span class="fa fa-plus-square white"></span>  Rows Plus
+                <span class="fa fa-plus-square white"></span> Rows Plus
             </button>
             <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
-                Rows Plus Close</button>
+                 Rows Plus Close</button>
             <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-cloud-upload black"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
-              <span class="fa fa-cloud-download black"></span>  Download Site</button>
+                <span class="fa fa-cloud-download black"></span> Download Site</button>
 
             <style>
-
-                .green{
-                    color:#46B34F;
+                .green {
+                    color: #46B34F;
                 }
 
-                .black{
-                    color:black;
+                .black {
+                    color: black;
                 }
-
             </style>
 
             <%--   <div id='cssmenu'>
@@ -1067,8 +1062,7 @@
             font-weight: bold;
             font-size: small;
             border-radius: 5px;
-
-            display:none;
+            display: none;
         }
 
         .help-guid-left {
@@ -1080,8 +1074,7 @@
             font-size: small;
             font-weight: bold;
             border-radius: 5px;
-
-            display:none;
+            display: none;
         }
 
 
@@ -1095,7 +1088,18 @@
         }
 
         .hide-show-left-menu {
-            margin-left: -20px;
+            border-left: 1px solid #676767;
+            border-top: 1px solid #676767;
+            border-bottom: 1px solid #676767;
+            margin-left: -23px;
+            color: #656161;
+            opacity: 0.8;
+            padding: 5px;
+            width: 25px;
+            padding-left: 2px;
+            padding-right: 0;
+            vertical-align: middle;
+            background-color: rgb(238, 238, 238);
         }
 
 
@@ -1147,7 +1151,7 @@
             <%-- <div class="col-xs-2"  >
              </div>--%>
             
-            <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:260px;">
+            <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; border-right:1px solid #676767; padding:0; overflow-y:hidden; padding-bottom:260px;">
 
                 <span style="margin-top:3px; margin-right:14px; position:relative;" class="btn btn-xs btn-danger jq-desktop float-right jq-save-margin" >Desktop</span>
                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-tablet float-right jq-save-margin">Tablet</span>
@@ -1190,8 +1194,8 @@
 
                 <div style="float:right; position:relative;">
                       <div class="align-center show-hide-menu absolute" style="top: 300px; ">
-        <span class="fa fa-angle-double-right show-hide-menu-btn hide-left-menu hide-show-left-menu  black pointer btn-xs btn btn-default"></span>
-        <span class="fa fa-angle-double-left show-hide-menu-btn show-left-menu hide-show-left-menu black btn btn-xs btn-default"></span>
+        <div class="fa fa-angle-double-right show-hide-menu-btn hide-left-menu hide-show-left-menu fa-1x black pointer "></div>
+        <div class="fa fa-angle-double-left show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>
 
         <div id="hideLeftMenuHelp"> &nbsp;
             <span class="fa fa-hand-o-left help-guid-left help-guid-hide-menu"> &nbsp; Hide Menu </span>
@@ -3141,7 +3145,7 @@
         <ul id="contextMenuitems">
 
             <li>
-                <div class="li ctx-menu-add-row">Add Columns</div>
+                <div class="li ctx-menu-add-row">Add Row</div>
             </li>
             <li>
                 <div class="li ctx-menu-insert">
@@ -3680,8 +3684,7 @@
         </div>
     </div>
 
-    <button id="control-common-execute" style="display:none;">
-
+    <button id="control-common-execute" style="display: none;">
     </button>
 
 

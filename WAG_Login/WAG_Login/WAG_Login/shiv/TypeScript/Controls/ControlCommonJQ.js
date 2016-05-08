@@ -19,18 +19,22 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                     impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-normal-link, .jq-plus-container-text, .jq-plus-container-image");
                     impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
                     impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other-left", "e");
-                    impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-normal-link .empty-container, .row, .empty-container-menu, .empty-container-text, .empty-container-image, .empty-container-spacer", "");
+                    impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-normal-link .empty-container, .empty-container-menu, .empty-container-text, .empty-container-image, .empty-container-spacer", "");
                     jQuery(".empty-container-text, .empty-container-image").css("z-index", "0");
                     jQuery(".column").each(function () {
-                        if (jQuery(this).children(".image-text-other, .row, .column").length == 0) {
+                        if (jQuery(this).children(".image-text-other.empty-container-image, .image-text-other.empty-container-text, .row, .column").length == 0) {
                             jQuery(this).addClass("empty");
+                            if (jQuery(this).find("empty-drop-element").length == 0) {
+                                jQuery(this).append("<div class='image-text-other empty-drop-element' ></div>");
+                            }
                         }
                         else {
                             jQuery(this).removeClass("empty");
+                            jQuery(this).find(".empty-drop-element").remove();
                         }
                     });
                     //should be optimized....
-                    jQuery(".image-text-other").each(function (index, _this) {
+                    jQuery(".image-text-other, .empty-container-empty").each(function (index, _this) {
                         var $this = jQuery(_this);
                         var bottom = $this.offset().top + $this.height();
                         var top = $this.offset().top;

@@ -131,29 +131,13 @@ export module Common {
                 jQuery(".page-margin").css("width", "980px");
             });
 
-            showHideMenuHandle = window.setInterval(function () {
-
-                if (jQuery(".show-hide-menu-btn").hasClass("btn-default")) {
-
-                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
-                }
-                else {
-                    jQuery(".show-hide-menu-btn").addClass("btn-default").removeClass("btn-danger").removeClass("white");
-                }
-
-            }, 2000);
-
             ///////////////show hide menu//////////////
             jQuery(".show-hide-menu-btn").hide();
             jQuery(".hide-menu").show();
             jQuery(".show-menu, .hide-menu").on("click", function () {
 
                 jQuery("#hideMenuHelpTop").hide();
-                window.clearInterval(showHideMenuHandle);
-                if (!jQuery(".show-hide-menu-btn").hasClass("btn-danger")) {
-                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
-                }
-
+           
                 if (!(jQuery(".hide-menu").css("display") == "none")) {
                     jQuery(".hide-menu").hide();
                     jQuery(".show-menu").show();
@@ -180,11 +164,6 @@ export module Common {
             jQuery(".hide-left-menu, .show-left-menu").on("click", function () {
 
                 jQuery("#hideLeftMenuHelp").hide();
-
-                window.clearInterval(showHideMenuHandle);
-                if (!jQuery(".show-hide-menu-btn").hasClass("btn-danger")) {
-                    jQuery(".show-hide-menu-btn").addClass("btn-danger").removeClass("btn-default").addClass("white");
-                }
 
                 if (!(jQuery(".hide-left-menu").css("display") == "none")) {
                     jQuery(".hide-left-menu").hide();
