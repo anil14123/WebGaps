@@ -229,10 +229,19 @@ export module JQueryUI {
                     var nextElements = jQuery(ui.helper).nextAll(".column");
 
                     nextElements.hide();
+
+
+                    var axis = jQuery(ui.element).data('ui-resizable').axis;
+
+                    jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
+                  
                 },
                 stop: function (event, ui) {
 
                     //jQuery(".dummy-div").remove();
+
+                    jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
+
 
                     jQuery(".ui-resizable-se").removeClass("selected-resizable");
 
@@ -492,6 +501,8 @@ export module JQueryUI {
 
                 resize: function (event, ui) {
 
+
+
                 }
 
             });
@@ -685,8 +696,11 @@ export module JQueryUI {
             $(elementCss).resizable({
                 handles: handleDefault,
                 autoHide: true,
-                distance : 0,
+                distance: 0,
                 start: function (event, ui) {
+                    var axis = jQuery(ui.element).data('ui-resizable').axis;
+
+                    jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
 
                     $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
 
@@ -745,6 +759,7 @@ export module JQueryUI {
 
                     CommonCode.commonHeight(100, uiHelper);
 
+                    jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
 
                     var undomanager = new impUndoManager.Manager.UndoManager();
 
@@ -758,7 +773,10 @@ export module JQueryUI {
                         if (jQuery(".dummy-div").height() < ui.helper.height()) {
                             jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
                         }
-                    },10);
+                    }, 10);
+
+
+
 
                 }
 

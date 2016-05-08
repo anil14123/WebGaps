@@ -70,6 +70,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");
                             }
+                            else if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveSingleStyle(selectedElement, "background");
@@ -124,6 +127,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 if (selectedElement.hasClass("empty-container-text")) {
                                     selectedElement = selectedElement.find(".jq-plus-container-text");
                                 }
+                                else if (selectedElement.hasClass("empty-container-image")) {
+                                    selectedElement = selectedElement.find(".jq-plus-container-image");
+                                }
                                 if (selectedElement != undefined) {
                                     if (jQuery(this).hasClass("control-color-foreground-color")) {
                                         var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
@@ -176,6 +182,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");
                             }
+                            else if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
                             if (selectedElement != undefined) {
                                 var colorOne = $(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
                                 var colorTwo = $(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
@@ -196,6 +205,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");
                             }
+                            else if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
                             if (selectedElement != undefined) {
                                 var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
                                 selectedElement.css("color", "#" + colorForeground);
@@ -215,6 +227,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                 if (selectedElement.hasClass("empty-container-text")) {
                     selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
+                else if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image");
                 }
                 if (selectedElement != undefined) {
                     var str = selectedElement.css("color");

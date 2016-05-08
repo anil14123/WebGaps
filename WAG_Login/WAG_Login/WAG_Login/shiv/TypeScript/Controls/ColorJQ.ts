@@ -129,6 +129,10 @@ export module Color {
                         if (selectedElement.hasClass("empty-container-text")) {
                             selectedElement = selectedElement.find(".jq-plus-container-text");
                         }
+                        else
+                            if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
 
                         if (selectedElement != undefined) {
 
@@ -213,6 +217,10 @@ export module Color {
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");
                             }
+                            else
+                                if (selectedElement.hasClass("empty-container-image")) {
+                                    selectedElement = selectedElement.find(".jq-plus-container-image");
+                                }
 
                             if (selectedElement != undefined) {
 
@@ -289,6 +297,10 @@ export module Color {
                         if (selectedElement.hasClass("empty-container-text")) {
                             selectedElement = selectedElement.find(".jq-plus-container-text");
                         }
+                        else
+                            if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
 
                         if (selectedElement != undefined) {
 
@@ -323,6 +335,10 @@ export module Color {
                         if (selectedElement.hasClass("empty-container-text")) {
                             selectedElement = selectedElement.find(".jq-plus-container-text");
                         }
+                        else
+                            if (selectedElement.hasClass("empty-container-image")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-image");
+                            }
 
                         if (selectedElement != undefined) {
 
@@ -360,6 +376,10 @@ export module Color {
             if (selectedElement.hasClass("empty-container-text")) {
                 selectedElement = selectedElement.find(".jq-plus-container-text");
             }
+            else
+                if (selectedElement.hasClass("empty-container-image")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-image");
+                }
 
             if (selectedElement != undefined) {
 

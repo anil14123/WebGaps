@@ -156,9 +156,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                         var nextElements = jQuery(ui.helper).nextAll(".column");
                         nextElements.hide();
+                        var axis = jQuery(ui.element).data('ui-resizable').axis;
+                        jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
                         //jQuery(".dummy-div").remove();
+                        jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");
                         var height = ui.size.height;
                         var width = ui.size.width;
@@ -446,6 +449,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     autoHide: true,
                     distance: 0,
                     start: function (event, ui) {
+                        var axis = jQuery(ui.element).data('ui-resizable').axis;
+                        jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                         $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
                         jQuery(".dummy-div").height(ui.helper.height() + 2);
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
@@ -487,6 +492,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         var uiHelper = new UIHelper();
                         uiHelper.helper = $(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
+                        jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
                     },

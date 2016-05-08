@@ -1147,9 +1147,11 @@
             <%-- <div class="col-xs-2"  >
              </div>--%>
             
-            <div class="col-xs-38" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:260px;">
+            <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; padding:0; overflow-y:hidden; padding-bottom:260px;">
 
-                <span class="btn btn-xs btn-primary jq-full-page float-right jq-save-margin" style="margin-top:4px; margin-right:4px; position:relative; ">Make Full Page</span> <span style="margin-top:4px; position:relative; " class="btn btn-xs btn-primary jq-small-page float-right jq-save-margin">Make Small Page</span>
+                <span style="margin-top:3px; margin-right:14px; position:relative;" class="btn btn-xs btn-danger jq-desktop float-right jq-save-margin" >Desktop</span>
+                <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-tablet float-right jq-save-margin">Tablet</span>
+                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-mobile float-right jq-save-margin">Mobile</span>
 
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
            <div class="page-marker design-css">Page</div> 
@@ -1201,7 +1203,7 @@
 
            </div>
 
-            <div class="properties-sidebar col-xs-10"id="property-sidebar-page-column" style="position:relative;" >
+            <div class="properties-sidebar col-xs-12"id="property-sidebar-page-column" style="position:relative;" >
 
             
 

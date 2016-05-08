@@ -135,12 +135,12 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                         jQuery(".hide-left-menu").hide();
                         jQuery(".show-left-menu").show();
                         jQuery("#property-sidebar-page-column").hide();
-                        jQuery("#main-page-column").addClass("col-xs-48").removeClass("col-xs-38");
+                        jQuery("#main-page-column").addClass("col-xs-48").removeClass("col-xs-36");
                     }
                     else {
                         jQuery(".hide-left-menu").show();
                         jQuery(".show-left-menu").hide();
-                        jQuery("#main-page-column").addClass("col-xs-38").removeClass("col-xs-48");
+                        jQuery("#main-page-column").addClass("col-xs-36").removeClass("col-xs-48");
                         jQuery("#property-sidebar-page-column").show();
                     }
                 });
