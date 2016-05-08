@@ -37,12 +37,13 @@ export module JQueryUI {
                 start: function (event, ui) {
                     jQuery("#interface_bottom").hide();
 
-                    jQuery(".empty-drop-element").show();
+
 
                     CommonCode.droppableCount++;
 
-                    ui.helper.addClass("jq-dragging");
-                   
+                    //if (ui.helper.hasClass("empty-container-text")) {
+                    //    ui.helper.css("width", "250px");
+                    //}
 
                     ui.helper.css("z-index", "9999999999");
                     ui.helper.css("opacity", "0.8");
@@ -51,7 +52,6 @@ export module JQueryUI {
                 stop: function (event, ui) {
                     jQuery("#interface_bottom").show();
 
-                    ui.helper.removeClass("jq-dragging");
 
                     CommonCode.droppableCount = 2; //old 0
 
@@ -193,7 +193,7 @@ export module JQueryUI {
             //    return "error";
             //}
 
-            return "success";
+            return "error";
 
         }
 
@@ -240,7 +240,7 @@ export module JQueryUI {
                 },
                 stop: function (event: JQueryMouseEventObject, ui) {
 
-                   
+
 
                     //jQuery(".dummy-div").remove();
 
@@ -269,24 +269,20 @@ export module JQueryUI {
 
                     if (height != originalHeight) {
 
-                        commonMethods.RemoveSingleStyle(ui.helper, "height");
+                        var result = CommonCode.commonHeight(height, ui);
 
-                        jQuery(ui.helper).css("min-height", height);
+                        if (result == "error") {
+                            jQuery(ui.helper).css("min-height", height);
+                        }
+                        else {
+                            var uiHelper = new UIHelper();
 
-                        //var result = CommonCode.commonHeight(height, ui);
+                            uiHelper.helper = $(this).closest(".column").parent().closest(".column")
 
-                        //if (result == "error") {
-                        //    jQuery(ui.helper).css("min-height", height);
-                        //}
-                        //else {
-                        //    var uiHelper = new UIHelper();
-
-                        //    uiHelper.helper = $(this).closest(".column").parent().closest(".column")
-
-                        //    if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
-                        //        CommonCode.commonHeight(100, uiHelper);
-                        //    }
-                        //}
+                            if ($(uiHelper.helper).length > 0 && !$(uiHelper.helper).hasClass("jq-MiddleContent") && !$(uiHelper.helper).hasClass("jq-SideBarLeft") && !$(uiHelper.helper).hasClass("jq-SideBarRight")) {
+                                CommonCode.commonHeight(100, uiHelper);
+                            }
+                        }
 
                         //var clientscrolly = 0;
                         //if (height > originalHeight) {
@@ -820,7 +816,6 @@ export module JQueryUI {
 
                     try {
 
-                        jQuery(".empty-drop-element").hide();
 
                         window.smartObj = new JQueryUI.SmartObj();
                         window.smartObj.currentObj = undefined;
@@ -900,20 +895,10 @@ export module JQueryUI {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "")
 
                             if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-
-                                if (ui.draggable.find(impWatch.Watch.MouseJQ.nearestElement).length > 0) {
-
-                                }
-                                else {
-                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
-                                }
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.closest(".empty-container-image"));
                             }
                             else {
 
-                                if (ui.draggable.find(CommonCode.currentTarget).length > 0) {
-
-                                }
-                                else
                                 if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
                                     CommonCode.currentTarget.closest(".key").append(ui.draggable.closest(".empty-container-image"));
                                 }
@@ -925,20 +910,9 @@ export module JQueryUI {
                         else {
 
                             if (impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-
-                                if (ui.draggable.find(impWatch.Watch.MouseJQ.nearestElement).length > 0) {
-
-                                }
-                                else {
-                                    impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
-                                }
+                                impWatch.Watch.MouseJQ.nearestElement.after(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
                             }
                             else {
-
-                                if (ui.draggable.find(CommonCode.currentTarget).length > 0) {
-
-                                }
-                                else
                                 if (CommonCode.currentTarget.closest(".key").hasClass("column")) {
                                     CommonCode.currentTarget.closest(".key").append(ui.draggable.css("position", "relative").css("left", "").css("top", ""));
                                 }
@@ -1011,13 +985,7 @@ export module JQueryUI {
                 over: function (event, ui) {
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
-                    CommonCode.currentTarget = jQuery(event.target || event.srcElement || event.currentTarget);
-
-                    console.log("---------------------")
-                    console.log(event.currentTarget);
-                    console.log(event.target);
-                    console.log(event.srcElement);
-                    console.log("---------------------");
+                    CommonCode.currentTarget = jQuery(event.target);
 
                     if (jQuery(event.target).hasClass("key")) {
                         if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
