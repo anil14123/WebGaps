@@ -52,7 +52,7 @@
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-    <script data-main="TypeScript/app.js" src="/Library/require.js"></script>
+    <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
 

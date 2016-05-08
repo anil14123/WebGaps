@@ -5,6 +5,7 @@
 // directory.
 requirejs.config({
     baseUrl: '',
+    urlArgs: "bust=" + (new Date()).getTime(),
     paths: {
        
     }

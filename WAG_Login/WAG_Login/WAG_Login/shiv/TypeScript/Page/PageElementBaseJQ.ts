@@ -305,7 +305,7 @@ export module Page {
                 root = this.Get();
             }
 
-            jQuery(row).prepend("<span title='Row' class=\"design-page-row design-square-row\"></span>");
+            jQuery(row).prepend("<span title='Row' class=\"design-page-row design-square-row\">Row</span>");
 
             this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
 

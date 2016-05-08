@@ -36,11 +36,15 @@
 
 page .design-page-row {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 38px;
+   
+    color:white;
     background-color: #182129;
     margin-top: 2px;
     margin-bottom: 2px;
+    padding:4px;
+
+   
 }
 
 
