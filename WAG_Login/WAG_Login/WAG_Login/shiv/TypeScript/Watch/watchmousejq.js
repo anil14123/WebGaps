@@ -20,24 +20,10 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
             };
             MouseJQ.ProcessMove = function (e) {
-                if (MouseJQ.selectedMoveElement != undefined) {
-                    MouseJQ.selectedMoveElement.find(".ui-resizable-handle").hide();
-                }
-                if (!jQuery(e.target).hasClass(".key")) {
-                    MouseJQ.selectedMoveElement = jQuery(e.target).closest(".key");
-                }
-                else {
-                    MouseJQ.selectedMoveElement = jQuery(e.target);
-                }
-                if (MouseJQ.selectedMoveElement.hasClass("row") || MouseJQ.selectedMoveElement.hasClass("column")) {
-                    MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
-                }
-                else {
-                    if (MouseJQ.selectedMoveElement.hasClass("ui-resizable")) {
-                        MouseJQ.selectedMoveElement.children(".ui-resizable-handle").show();
-                    }
-                    else {
-                        MouseJQ.selectedMoveElement.find(".ui-resizable").first().children(".ui-resizable-handle").show();
+                var $target = jQuery(event.target);
+                if ($target.hasClass("column")) {
+                    if ($target.children(".image-text-other, .row").length == 0) {
+                        $target.append("");
                     }
                 }
             };

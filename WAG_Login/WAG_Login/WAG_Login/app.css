@@ -37,14 +37,11 @@
 page .design-page-row {
     display: block;
     width: 38px;
-   
-    color:white;
+    color: white;
     background-color: #182129;
     margin-top: 2px;
     margin-bottom: 2px;
-    padding:4px;
-
-   
+    padding: 4px;
 }
 
 
@@ -116,6 +113,7 @@ rootx {
     margin: 0;
     max-width: 100%;
     padding: 0;
+    cursor:auto;
 }
 
 .design-column {
@@ -290,19 +288,19 @@ rootx {
 
 /**/
 
-.height-dummy-text-image{
-   background-color:brown;
-   float:right;
-   width:100px;
+.height-dummy-text-image {
+    background-color: brown;
+    float: right;
+    width: 100px;
 }
 
-.height-dummy-column{
-    width:100px;
-    background-color:black;
+.height-dummy-column {
+    width: 100px;
+    background-color: black;
 }
 
-.z-index-back{
-    z-index:-10;
+.z-index-back {
+    z-index: -10;
 }
 
 .no_select {
@@ -315,14 +313,17 @@ rootx {
 }
 
 .image-selection-drag {
-    box-shadow:0px 0px 10px #C5BFBF;
-    box-shadow:0px 0px 4px #4F79C5;
+    box-shadow: 0px 0px 10px #C5BFBF;
+    box-shadow: 0px 0px 4px #4F79C5;
+
+   background-color: #e0dada;
+   opacity:0.9;
 }
 
 .image-selection {
     /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
     box-shadow: 0px 0px 10px #C5BFBF;
-      box-shadow:0px 0px 4px #4F79C5;
+    box-shadow: 0px 0px 4px #4F79C5;
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;
@@ -342,4 +343,27 @@ rootx {
     background-color: dodgerblue;
     color: white;
     padding: 10px;
+}
+
+.column.empty:hover::before {
+    content: "Empty Column \a";
+    white-space: pre;
+}
+
+.column.empty:hover::after {
+    content: "\A[Drag/Drop Here]";
+}
+
+.column.empty:hover {
+    background-color: #e0dada;
+    opacity: 0.8;
+}
+
+
+.empty {
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

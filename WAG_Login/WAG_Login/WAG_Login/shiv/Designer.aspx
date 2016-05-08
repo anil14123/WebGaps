@@ -2016,7 +2016,7 @@
         <div id="control-add-row" name="add-row" class="control-page" >
            
             <div class="close-panel"> <span class="close-button" onclick="jQuery(this).closest('.control-page').hide();">X</span> </div>
-            <div class="control-move-area">Add Columns</div>
+            <div class="control-move-area">Add Row</div>
              <!--<div class="help">
                 <span class="help-field"> Required Fields </span>  : <span class="help-symbol help-symbol"> * </span>
             </div>-->

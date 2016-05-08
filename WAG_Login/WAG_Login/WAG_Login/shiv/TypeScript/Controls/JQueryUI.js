@@ -85,57 +85,58 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 });
             };
             CommonCode.commonHeight = function (height, ui) {
-                try {
-                    var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
-                    var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
-                    originalHeightStr = originalHeightStr.replace("px", "");
-                    var originalHeight = parseInt(originalHeightStr);
-                    commonMethods.RemoveSingleStyle(ui.helper, "min-height");
-                    commonMethods.RemoveSingleStyle(ui.helper, "height");
-                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
-                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
-                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
-                    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
-                    var minHeights = [];
-                    minHeights.push(height);
-                    var heights = [];
-                    heights.push(height);
-                    jQuery(ui.helper).nextAll(".column").each(function () {
-                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
-                        heights.push(parseInt($(this).css("height").replace("px", "")));
-                    });
-                    jQuery(ui.helper).prevAll(".column").each(function () {
-                        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
-                        heights.push(parseInt($(this).css("height").replace("px", "")));
-                    });
-                    var maxOfMinHeight = Math.max.apply(Math, minHeights);
-                    var maxOfHeight = Math.max.apply(Math, heights);
-                    if (height > maxOfHeight) {
-                    }
-                    else {
-                        height = maxOfHeight;
-                    }
-                    jQuery(ui.helper).css("min-height", height + "px");
-                    jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
-                    jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
-                    var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
-                    if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
-                        jQuery(ui.helper).css("min-height", phase2Height + "px");
-                        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
-                        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
-                    }
-                    else {
-                        jQuery(ui.helper).css("min-height", originalHeight + "px");
-                        jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
-                        jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
-                    }
-                    CommonCode.originalHeightBeforeDragStartStr = "";
-                }
-                catch (ex) {
-                    return "error";
-                }
+                //try {
+                //    var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                //    var originalHeightStr = (CommonCode.originalHeightBeforeDragStartStr == null || CommonCode.originalHeightBeforeDragStartStr == "") ? $(ui.helper).css("min-height") : CommonCode.originalHeightBeforeDragStartStr;
+                //    originalHeightStr = originalHeightStr.replace("px", "");
+                //    var originalHeight = parseInt(originalHeightStr);
+                //    commonMethods.RemoveSingleStyle(ui.helper, "min-height");
+                //    commonMethods.RemoveSingleStyle(ui.helper, "height");
+                //    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "min-height");
+                //    commonMethods.RemoveSingleStyle(jQuery(ui.helper).nextAll(".column"), "height");
+                //    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "min-height");
+                //    commonMethods.RemoveSingleStyle(jQuery(ui.helper).prevAll(".column"), "height");
+                //    var minHeights = [];
+                //    minHeights.push(height);
+                //    var heights = [];
+                //    heights.push(height);
+                //    jQuery(ui.helper).nextAll(".column").each(function () {
+                //        minHeights.push(parseInt($(this).css("min-height").replace("px", "")));
+                //        heights.push(parseInt($(this).css("height").replace("px", "")))
+                //    });
+                //    jQuery(ui.helper).prevAll(".column").each(function () {
+                //        minHeights.push(parseInt($(this).css("min-height").replace("px", "")))
+                //        heights.push(parseInt($(this).css("height").replace("px", "")))
+                //    });
+                //    var maxOfMinHeight = Math.max.apply(Math, minHeights);
+                //    var maxOfHeight = Math.max.apply(Math, heights);
+                //    if (height > maxOfHeight) {
+                //    }
+                //    else {
+                //        height = maxOfHeight;
+                //    }
+                //    jQuery(ui.helper).css("min-height", height + "px");
+                //    jQuery(ui.helper).nextAll(".column").css("min-height", height + "px");
+                //    jQuery(ui.helper).prevAll(".column").css("min-height", height + "px");
+                //    var phase2Height = parseInt(jQuery(ui.helper).css("height").replace("px", ""));
+                //    if (phase2Height > height && phase2Height > originalHeight || CommonCode.originalHeightBeforeDragStartStr != "") {
+                //        jQuery(ui.helper).css("min-height", phase2Height + "px");
+                //        jQuery(ui.helper).nextAll(".column").css("min-height", phase2Height + "px");
+                //        jQuery(ui.helper).prevAll(".column").css("min-height", phase2Height + "px");
+                //    }
+                //    else {
+                //        jQuery(ui.helper).css("min-height", originalHeight + "px");
+                //        jQuery(ui.helper).nextAll(".column").css("min-height", originalHeight + "px");
+                //        jQuery(ui.helper).prevAll(".column").css("min-height", originalHeight + "px");
+                //    }
+                //    CommonCode.originalHeightBeforeDragStartStr = "";
+                //}
+                //catch (ex) {
+                //    return "error";
+                //}
                 return "success";
             };
+            //public static scrollElement: JQuery;
             CommonCode.ResizableColumn = function () {
                 var handleDefault = "e,s"; //"e,se,s";
                 $(".column").resizable({
@@ -158,19 +159,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         var nextElements = jQuery(ui.helper).nextAll(".column");
                         nextElements.hide();
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
-                        CommonCode.scrollElement = jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
+                        //CommonCode.scrollElement = jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
-                        try {
-                            var axis = jQuery(ui.element).data('ui-resizable').axis;
-                            if (axis == "s") {
-                                $('html, body').animate({
-                                    scrollTop: CommonCode.scrollElement.offset().top - 200
-                                }, 10);
-                            }
-                        }
-                        catch (ex) {
-                        }
                         //jQuery(".dummy-div").remove();
                         jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");
@@ -629,6 +620,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             $this.attr("bottom", bottom);
                             $this.attr("left", left);
                         });
+                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                        jQuery(".empty").removeClass("empty");
+                        jQuery("#control-common-execute").click();
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
