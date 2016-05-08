@@ -150,6 +150,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
+                            ui.element.height(ui.element.height());
                             CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                             commonMethods.RemoveStyle(ui.helper, "min-height");
@@ -157,9 +158,19 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         var nextElements = jQuery(ui.helper).nextAll(".column");
                         nextElements.hide();
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
-                        jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
+                        CommonCode.scrollElement = jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
+                        try {
+                            var axis = jQuery(ui.element).data('ui-resizable').axis;
+                            if (axis == "s") {
+                                $('html, body').animate({
+                                    scrollTop: CommonCode.scrollElement.offset().top - 200
+                                }, 10);
+                            }
+                        }
+                        catch (ex) {
+                        }
                         //jQuery(".dummy-div").remove();
                         jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");

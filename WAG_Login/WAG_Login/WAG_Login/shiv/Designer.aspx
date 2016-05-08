@@ -2021,25 +2021,25 @@
                 <span class="help-field"> Required Fields </span>  : <span class="help-symbol help-symbol"> * </span>
             </div>-->
 
-            <fieldset class="clear" style="min-width:410px;">
+            <fieldset class="clear" style="min-width:160px;">
                <%-- <div class="page-name legend ">
                     
                 </div>--%>
 
                 <div class="control-columns-roots">
                         <div class="row" style="outline:none;">
-                            <div class="control-columns col-xs-4" id="column1" data-number="4" data-set="0"></div>
-                            <div class="control-columns col-xs-4 " id="column2" data-number="8" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="12" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="16" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="20" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="24" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="28" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="32" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="36" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="40" data-set="0"></div>
+                           <%-- <div class="control-columns col-xs-4" id="column1" data-number="4" data-set="0"></div>
+                            <div class="control-columns col-xs-4 " id="column2" data-number="8" data-set="0"></div>--%>
+                            <div class="control-columns col-xs-16" id="column2" data-number="12" data-set="0"></div>
+                           <%-- <div class="control-columns col-xs-4" id="column2" data-number="16" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="20" data-set="0"></div>--%>
+                            <div class="control-columns col-xs-16" id="column2" data-number="24" data-set="0"></div>
+                            <%--<div class="control-columns col-xs-4" id="column2" data-number="28" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="32" data-set="0"></div>--%>
+                            <div class="control-columns col-xs-16" id="column2" data-number="36" data-set="0"></div>
+                           <%-- <div class="control-columns col-xs-4" id="column2" data-number="40" data-set="0"></div>
                             <div class="control-columns col-xs-4" id="column2" data-number="44" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="48" data-set="0"></div>
+                            <div class="control-columns col-xs-4" id="column2" data-number="48" data-set="0"></div>--%>
                         </div>
                 </div>
 
