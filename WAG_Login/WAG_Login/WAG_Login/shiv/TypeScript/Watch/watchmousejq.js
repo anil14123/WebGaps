@@ -20,12 +20,43 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
             };
             MouseJQ.ProcessMove = function (e) {
-                var $target = jQuery(event.target);
-                if ($target.hasClass("column")) {
-                    if ($target.children(".image-text-other, .row").length == 0) {
-                        $target.append("");
-                    }
+                if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                    return;
                 }
+                var $target = jQuery(event.target);
+                if (!$target.hasClass("key")) {
+                    $target = $target.closest(".key");
+                }
+                if ($target.hasClass("key")) {
+                    jQuery(".design-page-row").hide();
+                }
+                else {
+                    return;
+                }
+                if ($target.hasClass("row")) {
+                    $target.children(".design-page-row").show();
+                }
+                else {
+                    $target.closest(".row").children(".design-page-row").show();
+                }
+                //if ($target.hasClass("column") == true) {
+                //    jQuery(".design-page-row").hide();
+                //    $target.closest(".row").children(".design-page-row").show();
+                //}
+                //else
+                //    if ($target.hasClass("row") == true) {
+                //        jQuery(".design-page-row").hide();
+                //        $target.children(".design-page-row").show();
+                //    }
+                //    else {
+                //        if ($target.hasClass("image-text-other") == true) {
+                //            jQuery(".design-page-row").hide();
+                //            $target.parent().parent().children(".design-page-row").show();
+                //        }
+                //        else {
+                //            jQuery(".design-page-row").hide();
+                //        }
+                //    }
             };
             MouseJQ.ProcessClick = function (e) {
                 var common = new impCommon.Common.CommonMethodsJQ();
@@ -363,9 +394,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                         });
                         //jQuery(".ui-resizable-handle").hide();
-                        //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
-                        //    MouseJQ.ProcessMove(e);
-                        //})
+                        jQuery(document).mousemove(function (e) {
+                            MouseJQ.ProcessMove(e);
+                        });
                         jQuery("page").click(function (e) {
                             MouseJQ.ProcessClick(e);
                             if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {

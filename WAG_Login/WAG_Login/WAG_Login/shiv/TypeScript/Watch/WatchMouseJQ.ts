@@ -49,13 +49,49 @@ export module Watch {
 
         public static ProcessMove(e) {
 
+            if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                return;
+            }
+
             var $target = jQuery(event.target);
 
-            if ($target.hasClass("column")) {
-                if ($target.children(".image-text-other, .row").length == 0) {
-                    $target.append("");
-                }
+            if (!$target.hasClass("key")) {
+                $target = $target.closest(".key");
             }
+
+            if ($target.hasClass("key")) {
+                jQuery(".design-page-row").hide();
+            }
+            else {
+                return;
+            }
+
+            if ($target.hasClass("row")) {
+                $target.children(".design-page-row").show();
+            }
+            else {
+                $target.closest(".row").children(".design-page-row").show();
+            }
+
+            //if ($target.hasClass("column") == true) {
+
+            //    jQuery(".design-page-row").hide();
+            //    $target.closest(".row").children(".design-page-row").show();
+            //}
+            //else
+            //    if ($target.hasClass("row") == true) {
+            //        jQuery(".design-page-row").hide();
+            //        $target.children(".design-page-row").show();
+            //    }
+            //    else {
+            //        if ($target.hasClass("image-text-other") == true) {
+            //            jQuery(".design-page-row").hide();
+            //            $target.parent().parent().children(".design-page-row").show();
+            //        }
+            //        else {
+            //            jQuery(".design-page-row").hide();
+            //        }
+            //    }
         }
 
         public static ProcessClick(e: JQueryMouseEventObject) {
@@ -489,10 +525,10 @@ export module Watch {
 
                     //jQuery(".ui-resizable-handle").hide();
 
-                    //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
+                    jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
 
-                    //    MouseJQ.ProcessMove(e);
-                    //})
+                        MouseJQ.ProcessMove(e);
+                    })
 
                     jQuery("page").click(function (e: JQueryMouseEventObject) {
 

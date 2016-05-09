@@ -30,6 +30,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     start: function (event, ui) {
                         jQuery("#interface_bottom").hide();
                         jQuery(ui.helper).addClass("jq-dragging");
+                        jQuery("page").addClass("dragging");
                         CommonCode.droppableCount++;
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "250px");
@@ -40,6 +41,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     stop: function (event, ui) {
                         jQuery("#interface_bottom").show();
                         jQuery(ui.helper).removeClass("jq-dragging");
+                        jQuery("page").removeClass("dragging");
                         CommonCode.droppableCount = 2; //old 0
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "auto");
@@ -146,6 +148,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     autoHide: true,
                     distance: 0,
                     start: function (event, ui) {
+                        jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                         // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
@@ -166,6 +169,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //CommonCode.scrollElement = jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
+                        jQuery("page").removeClass("resizing");
                         //jQuery(".dummy-div").remove();
                         jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");
@@ -346,10 +350,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     minWidth: 0,
                     delay: 0,
                     start: function (event, ui) {
+                        jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
+                        jQuery("page").removeClass("resizing");
                         jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         var height = ui.size.height;
                         var width = ui.size.width;
@@ -450,6 +456,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     autoHide: true,
                     distance: 0,
                     start: function (event, ui) {
+                        jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                         $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
@@ -465,6 +472,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                     },
                     stop: function (event, ui) {
+                        jQuery("page").removeClass("resizing");
                         jQuery(".dummy-div").remove();
                         var height = ui.size.height;
                         var width = ui.size.width;

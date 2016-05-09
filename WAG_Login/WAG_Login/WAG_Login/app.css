@@ -36,12 +36,18 @@
 
 page .design-page-row {
     display: block;
+    padding: 4px;
+    
+}
+
+page .design-square-row{
     width: 38px;
     color: white;
     background-color: #182129;
     margin-top: 2px;
     margin-bottom: 2px;
-    padding: 4px;
+     padding: 4px;
+   
 }
 
 
@@ -371,7 +377,6 @@ rootx {
 
 .empty-drop-element{
     width :100%;
-    display:none;
     position:absolute;
     top:0;
     bottom:0;

@@ -38,6 +38,7 @@ export module JQueryUI {
                     jQuery("#interface_bottom").hide();
                     jQuery(ui.helper).addClass("jq-dragging");
 
+                    jQuery("page").addClass("dragging");
                    
                     CommonCode.droppableCount++;
 
@@ -53,6 +54,7 @@ export module JQueryUI {
                     jQuery("#interface_bottom").show();
                     jQuery(ui.helper).removeClass("jq-dragging");
 
+                    jQuery("page").removeClass("dragging");
 
                     CommonCode.droppableCount = 2; //old 0
 
@@ -211,6 +213,8 @@ export module JQueryUI {
                 distance: 0,
                 start: function (event, ui) {
 
+                    jQuery("page").addClass("resizing");
+
                     var axis = jQuery(ui.element).data('ui-resizable').axis;
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
@@ -245,7 +249,7 @@ export module JQueryUI {
                 },
                 stop: function (event: JQueryMouseEventObject, ui) {
 
-
+                    jQuery("page").removeClass("resizing");
 
                     //jQuery(".dummy-div").remove();
 
@@ -559,6 +563,9 @@ export module JQueryUI {
 
                 delay: 0,
                 start: function (event, ui) {
+
+                    jQuery("page").addClass("resizing");
+
                     var axis = jQuery(ui.element).data('ui-resizable').axis;
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
@@ -566,8 +573,12 @@ export module JQueryUI {
                 },
                 stop: function (event, ui) {
 
+                    jQuery("page").removeClass("resizing");
+
+
                     jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
 
+                  
                     var height = ui.size.height;
 
                     var width = ui.size.width;
@@ -721,6 +732,10 @@ export module JQueryUI {
                 autoHide: true,
                 distance: 0,
                 start: function (event, ui) {
+
+
+                    jQuery("page").addClass("resizing");
+
                     var axis = jQuery(ui.element).data('ui-resizable').axis;
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
@@ -742,6 +757,8 @@ export module JQueryUI {
                     }
                 },
                 stop: function (event, ui) {
+
+                    jQuery("page").removeClass("resizing");
 
                     jQuery(".dummy-div").remove();
 
