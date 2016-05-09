@@ -1172,6 +1172,10 @@
             .page {
                 display: none;
             }
+
+            .border{
+                border:1px solid black;
+            }
         </style>
 
         <div class="row">
@@ -1223,7 +1227,7 @@
                 <div style="float:right; position:relative;">
                       <div class="align-center show-hide-menu absolute" style="top: 300px; ">
         <div class="fa fa-play  show-hide-menu-btn hide-left-menu hide-show-left-menu fa-1x black pointer "></div>
-        <div class="fa fa-play fa-flip-horizontal show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>
+        <div class="fa fa-play fa-flip-horizontal border show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>
 
         <div id="hideLeftMenuHelp"> &nbsp;
             <span class="fa fa-hand-o-left help-guid-left help-guid-hide-menu"> &nbsp; Hide Menu </span>

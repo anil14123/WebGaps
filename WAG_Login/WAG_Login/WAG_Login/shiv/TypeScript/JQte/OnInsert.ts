@@ -4,6 +4,7 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impJQte = require("../jqte/MyJQte");
+import impAddrow = require("../Controls/ControlsJQ");
 
 var changed = false;
 export module OnInsert {
@@ -15,6 +16,13 @@ export module OnInsert {
 
 
         public Init() {
+
+            jQuery("page .jq-add-column").unbind("click");
+            jQuery("page .jq-add-column").on("click", function () {
+                var addrow = new impAddrow.Page.AddRowJQ();
+                alert("+");
+            });
+
             
             jQuery("page a").not(".jq-logout").unbind("click");
             jQuery("page a").not(".jq-logout").click(function () {

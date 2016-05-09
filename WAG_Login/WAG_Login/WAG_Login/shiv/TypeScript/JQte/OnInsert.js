@@ -1,4 +1,4 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../jqte/MyJQte"], function (require, exports, impWatch, impUndoManager, impCommonCode, impJQte) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../jqte/MyJQte", "../Controls/ControlsJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode, impJQte, impAddrow) {
     "use strict";
     var changed = false;
     var OnInsert;
@@ -7,6 +7,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
             function Code() {
             }
             Code.prototype.Init = function () {
+                jQuery("page .jq-add-column").unbind("click");
+                jQuery("page .jq-add-column").on("click", function () {
+                    var addrow = new impAddrow.Page.AddRowJQ();
+                    alert("+");
+                });
                 jQuery("page a").not(".jq-logout").unbind("click");
                 jQuery("page a").not(".jq-logout").click(function () {
                     impCommonCode.ControlCommon.Code.AnchorClicked = true;
