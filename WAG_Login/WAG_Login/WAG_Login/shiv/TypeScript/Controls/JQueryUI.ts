@@ -36,9 +36,9 @@ export module JQueryUI {
                 distance: 5,
                 start: function (event, ui) {
                     jQuery("#interface_bottom").hide();
+                    jQuery(ui.helper).addClass("jq-dragging");
 
-
-
+                   
                     CommonCode.droppableCount++;
 
                     //if (ui.helper.hasClass("empty-container-text")) {
@@ -51,6 +51,7 @@ export module JQueryUI {
                 },
                 stop: function (event, ui) {
                     jQuery("#interface_bottom").show();
+                    jQuery(ui.helper).removeClass("jq-dragging");
 
 
                     CommonCode.droppableCount = 2; //old 0

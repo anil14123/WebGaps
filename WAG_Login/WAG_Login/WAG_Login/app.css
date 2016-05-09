@@ -316,7 +316,7 @@ rootx {
     box-shadow: 0px 0px 10px #C5BFBF;
     box-shadow: 0px 0px 4px #4F79C5;
 
-   background-color: #e0dada;
+   background-color: #e0dada !important;
    opacity:0.9;
 }
 

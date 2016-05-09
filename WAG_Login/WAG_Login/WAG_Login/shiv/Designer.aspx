@@ -425,6 +425,16 @@
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
                 <span class="fa fa-cloud-download black"></span> Download Site</button>
 
+             <button class="white jq-mobile back-black mobile-button-border-white mobile-button-last-border-white float-right" style="margin-right:30px;">
+                <span class="fa fa-mobile fa-2x"> </span>
+            </button>
+             <button class="white jq-tablet back-black mobile-button-border-white float-right">
+                <span class="fa fa-tablet fa-2x"> </span>
+            </button>
+             <button class="white jq-desktop back-black mobile-button-border-white   float-right" >
+                <span class="fa fa-desktop fa-2x"> </span>
+            </button>
+
             <style>
                 .green {
                     color: #46B34F;
@@ -432,6 +442,24 @@
 
                 .black {
                     color: black;
+                }
+
+                .mobile-button-border-white{
+                    border-right:none;
+                    border-left:1px solid white;
+                    border-top:none;
+                    border-bottom:none;
+
+                }
+
+                .mobile-button-last-border-white{
+                    border-right:1px solid white;
+                    border-top:none;
+                    border-bottom:none;
+                }
+                
+                .back-black{
+                    background-color:black;
                 }
             </style>
 
@@ -1153,9 +1181,9 @@
             
             <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; border-right:1px solid #676767; padding:0; overflow-y:hidden; padding-bottom:260px;">
 
-                <span style="margin-top:3px; margin-right:14px; position:relative;" class="btn btn-xs btn-danger jq-desktop float-right jq-save-margin" >Desktop</span>
+                <%--<span style="margin-top:3px; margin-right:14px; position:relative;" class="btn btn-xs btn-danger jq-desktop float-right jq-save-margin" >Desktop</span>
                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-tablet float-right jq-save-margin">Tablet</span>
-                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-mobile float-right jq-save-margin">Mobile</span>
+                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-mobile float-right jq-save-margin">Mobile</span>--%>
 
                 <Page class="add-to-page key page "  unique-id="0" class="page" >
            <div class="page-marker design-css">Page</div> 

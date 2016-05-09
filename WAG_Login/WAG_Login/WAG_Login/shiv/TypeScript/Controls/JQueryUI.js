@@ -29,6 +29,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     distance: 5,
                     start: function (event, ui) {
                         jQuery("#interface_bottom").hide();
+                        jQuery(ui.helper).addClass("jq-dragging");
                         CommonCode.droppableCount++;
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "250px");
@@ -38,6 +39,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     },
                     stop: function (event, ui) {
                         jQuery("#interface_bottom").show();
+                        jQuery(ui.helper).removeClass("jq-dragging");
                         CommonCode.droppableCount = 2; //old 0
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "auto");
