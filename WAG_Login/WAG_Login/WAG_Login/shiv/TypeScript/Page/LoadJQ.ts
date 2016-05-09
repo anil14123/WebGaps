@@ -46,6 +46,9 @@ export module Page {
                             }
 
                             //jQuery("page .jqte-editor").attr("contentEditable", "true");
+
+                            jQuery(".main-page-column").css("border", "1px solid #29adef");
+
                             jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                             jQuery("page .jqte-editor").attr("tabindex", "1");
 

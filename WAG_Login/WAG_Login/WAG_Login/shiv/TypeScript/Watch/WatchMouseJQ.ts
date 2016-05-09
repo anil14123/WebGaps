@@ -196,25 +196,25 @@ export module Watch {
             }
 
 
-            //if (MouseJQ.selectedElement.hasClass("column") == true) {
+            if (MouseJQ.selectedElement.hasClass("column") == true) {
 
-            //    jQuery(".design-page-row").hide();
-            //    MouseJQ.selectedElement.parent().children(".design-page-row").show();
-            //}
-            //else
-            //    if (MouseJQ.selectedElement.hasClass("row") == true) {
-            //        jQuery(".design-page-row").hide();
-            //        MouseJQ.selectedElement.children(".design-page-row").show();
-            //    }
-            //    else {
-            //        if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
-            //            jQuery(".design-page-row").hide();
-            //            MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
-            //        }
-            //        else {
-            //            jQuery(".design-page-row").hide();
-            //        }
-            //    }
+                jQuery(".design-page-row").hide();
+                MouseJQ.selectedElement.parent().children(".design-page-row").show();
+            }
+            else
+                if (MouseJQ.selectedElement.hasClass("row") == true) {
+                    jQuery(".design-page-row").hide();
+                    MouseJQ.selectedElement.children(".design-page-row").show();
+                }
+                else {
+                    if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+                        jQuery(".design-page-row").hide();
+                        MouseJQ.selectedElement.parent().parent().children(".design-page-row").show();
+                    }
+                    else {
+                        jQuery(".design-page-row").hide();
+                    }
+                }
 
             MouseJQ.selectedElement.addClass("design-select-element-just-mark");
             //MouseJQ.selectedElement.css("outline", "dashed 5px black");
@@ -525,10 +525,10 @@ export module Watch {
 
                     //jQuery(".ui-resizable-handle").hide();
 
-                    jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
+                    //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
 
-                        MouseJQ.ProcessMove(e);
-                    })
+                    //    MouseJQ.ProcessMove(e);
+                    //})
 
                     jQuery("page").click(function (e: JQueryMouseEventObject) {
 

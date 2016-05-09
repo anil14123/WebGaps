@@ -1179,7 +1179,7 @@
             <%-- <div class="col-xs-2"  >
              </div>--%>
             
-            <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border: 2px solid #29adef; border-right:1px solid #676767; padding:0; overflow-y:hidden; padding-bottom:260px;">
+            <div class="col-xs-36" id="main-page-column" style="overflow-x:auto; border-right:1px solid #676767; padding:0; overflow-y:hidden; padding-bottom:260px;">
 
                 <%--<span style="margin-top:3px; margin-right:14px; position:relative;" class="btn btn-xs btn-danger jq-desktop float-right jq-save-margin" >Desktop</span>
                 <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-tablet float-right jq-save-margin">Tablet</span>
@@ -1222,8 +1222,8 @@
 
                 <div style="float:right; position:relative;">
                       <div class="align-center show-hide-menu absolute" style="top: 300px; ">
-        <div class="fa fa-angle-double-right show-hide-menu-btn hide-left-menu hide-show-left-menu fa-1x black pointer "></div>
-        <div class="fa fa-angle-double-left show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>
+        <div class="fa fa-play  show-hide-menu-btn hide-left-menu hide-show-left-menu fa-1x black pointer "></div>
+        <div class="fa fa-play fa-flip-horizontal show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>
 
         <div id="hideLeftMenuHelp"> &nbsp;
             <span class="fa fa-hand-o-left help-guid-left help-guid-hide-menu"> &nbsp; Hide Menu </span>
