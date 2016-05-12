@@ -840,7 +840,7 @@ export module JQueryUI {
             $(elementCss).droppable({
                 greedy: true,
                 tolerance: "pointer",
-                accept: '.bldr-draggable',
+                accept: '.bldr-draggable, .image-text-other',
                 drop: function (event: JQueryMouseEventObject, ui) {
 
                     if (CommonCode.DroppableEventCount == 1) {
@@ -1013,7 +1013,7 @@ export module JQueryUI {
 
                     jQuery(".empty").removeClass("empty");
 
-                    jQuery(".control-common-execute").click();
+                    jQuery("#control-common-execute").click();
                 },
                 out: function (event, ui) {
                     CommonCode.droppableCount++;

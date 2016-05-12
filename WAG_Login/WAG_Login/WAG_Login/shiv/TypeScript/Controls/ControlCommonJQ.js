@@ -24,7 +24,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"],
                     jQuery(".column").each(function () {
                         if (jQuery(this).children(".image-text-other.empty-container-image, .image-text-other.empty-container-text, .row, .column").length == 0) {
                             jQuery(this).addClass("empty");
-                            if (jQuery(this).find("empty-drop-element").length == 0) {
+                            if (jQuery(this).find(".empty-drop-element").length == 0) {
                                 jQuery(this).append("<div class='image-text-other empty-drop-element' ></div>");
                             }
                         }

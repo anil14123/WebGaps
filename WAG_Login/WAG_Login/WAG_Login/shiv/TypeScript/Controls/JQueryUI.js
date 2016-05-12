@@ -521,7 +521,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(elementCss).droppable({
                     greedy: true,
                     tolerance: "pointer",
-                    accept: '.bldr-draggable',
+                    accept: '.bldr-draggable, .image-text-other',
                     drop: function (event, ui) {
                         if (CommonCode.DroppableEventCount == 1) {
                             return;
@@ -637,7 +637,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         });
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         jQuery(".empty").removeClass("empty");
-                        jQuery(".control-common-execute").click();
+                        jQuery("#control-common-execute").click();
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
