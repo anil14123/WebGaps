@@ -65,72 +65,133 @@ export module ContextMenu {
                 contextMenu.DetectContextMenu();
             });
 
-            jQuery(document).bind("contextmenu", function (e) {
+            jQuery(document).bind("contextmenu", function (e: JQueryMouseEventObject) {
 
-               
-                    impWatch.Watch.MouseJQ.ProcessClick(e);
-                    e.preventDefault();
 
-                    //var x = e.clientX;
-                    //var y = e.clientY;
+                impWatch.Watch.MouseJQ.ProcessClick(e);
 
-                    //jQuery(".nearest-element").removeClass(".nearest-element");
 
-                    //if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                window.setTimeout(function () {
+                    try {
 
-                    //    var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+                        impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
 
-                    //    var nearestArray = [];
+                        var x = e.clientX;
+                        var y = e.clientY + $(document).scrollTop();
 
-                    //    if ($elements.length > 0) {
+                        jQuery(".nearest-element").removeClass("nearest-element");
 
-                    //        $elements.each(function (index, _this) {
-                    //            var $this = $(_this);
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                            impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
+                        }
 
-                    //            var top = parseFloat($this.attr("top"));
-                    //            var bottom = parseFloat($this.attr("bottom"));
-                    //            var left = parseFloat($this.attr("left"));
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
 
-                    //            if (y >= top && y <= bottom && x >= left) {
-                    //                nearestArray.push(left);
-                    //            }
-                              
-                    //        });
+                            var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
 
-                    //        var nearest = Math.max.apply(Math, nearestArray);
+                            var nearestLeftArray = [];
+                            var nearestTopArray = [];
 
-                    //        impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearest + "']").addClass("nearest-element");
+                            if ($elements.length > 0) {
 
-                    //        impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element");
-                    //    }
-                    //}
+                                $elements.each(function (index, _this) {
+                                    var $this = $(_this);
 
-                    var contextMenu = new ContextMenuJQ();
+                                    var top = parseFloat($this.attr("top"));
+                                    var bottom = parseFloat($this.attr("bottom"));
+                                    var left = parseFloat($this.attr("left"));
 
-                    contextMenu.DetectContextMenu();
+                                    if (y >= top && y <= bottom && x >= left) {
+                                        nearestLeftArray.push(left);
+                                        nearestTopArray.push(top);
+                                    }
 
-                    // adjustment based on windows
-                    var pageY = e.clientY;
+                                });
+                                var nearestLeft = 0;
+                                var nearestTop = 0;
+                                if (nearestLeftArray.length > 0) {
+                                    nearestLeft = Math.max.apply(Math, nearestLeftArray);
+                                }
+                                if (nearestTopArray.length > 0) {
+                                    nearestTop = Math.max.apply(Math, nearestTopArray);
+                                }
 
-                    if ((pageY) >= 350) {
+                                impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
 
-                        pageY = pageY - jQuery("#contextMenu").height();
+                                impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+
+                            }
+
+                        }
                     }
+                    catch (ex) {
 
-                    //var eh = new impError.ErrorHandle.ErrorJQ();
-
-                    //eh.ActionHelp(pageY.toString());
-
-                    var pageX = e.clientX;
-                    if (pageX > (jQuery(document).width() - 200)) {
-                        pageX = pageX - 150;
                     }
-                    /////////////////
+                }, 5);
 
-                    jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
-                    jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
-                    jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
-                                   // To prevent the default context menu.
+
+                e.preventDefault();
+
+                //var x = e.clientX;
+                //var y = e.clientY;
+
+                //jQuery(".nearest-element").removeClass(".nearest-element");
+
+                //if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+
+                //    var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+
+                //    var nearestArray = [];
+
+                //    if ($elements.length > 0) {
+
+                //        $elements.each(function (index, _this) {
+                //            var $this = $(_this);
+
+                //            var top = parseFloat($this.attr("top"));
+                //            var bottom = parseFloat($this.attr("bottom"));
+                //            var left = parseFloat($this.attr("left"));
+
+                //            if (y >= top && y <= bottom && x >= left) {
+                //                nearestArray.push(left);
+                //            }
+
+                //        });
+
+                //        var nearest = Math.max.apply(Math, nearestArray);
+
+                //        impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearest + "']").addClass("nearest-element");
+
+                //        impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element");
+                //    }
+                //}
+
+                var contextMenu = new ContextMenuJQ();
+
+                contextMenu.DetectContextMenu();
+
+                // adjustment based on windows
+                var pageY = e.clientY;
+
+                if ((pageY) >= 350) {
+
+                    pageY = pageY - jQuery("#contextMenu").height();
+                }
+
+                //var eh = new impError.ErrorHandle.ErrorJQ();
+
+                //eh.ActionHelp(pageY.toString());
+
+                var pageX = e.clientX;
+                if (pageX > (jQuery(document).width() - 200)) {
+                    pageX = pageX - 150;
+                }
+                /////////////////
+
+                jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
+                jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
+                jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
+                // To prevent the default context menu.
 
                 e.cancelBubble = false;
             });
@@ -138,14 +199,10 @@ export module ContextMenu {
 
         public DetectContextMenu() {
 
-
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
             if (selectedElement != undefined) {
                 jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-height-width").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                jQuery(".ctx-menu-border").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
 
                 jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
                 jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
@@ -168,15 +225,6 @@ export module ContextMenu {
                     jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 }
 
-                if (selectedElement.hasClass("jq-site-link-container")) {
-                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-
                 if (selectedElement.hasClass("jqRootRow")) {
                     jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
@@ -186,84 +234,22 @@ export module ContextMenu {
                 }
 
                 if (selectedElement.hasClass("column")) {
-
-                   // jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                   // jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                     jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                     jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                 }
 
-                if (selectedElement.hasClass("empty-container") && !selectedElement.hasClass("empty-container-spacer")) {
+                if (selectedElement.hasClass("image-text-other")) {
                     jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
 
                     jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
                     jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-
-                if (
-                    selectedElement.hasClass("jq-plus-container")
-                    ||
-                    selectedElement.hasClass("empty-container-spacer")
-                    ) {
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-
-
-                if (
-                    selectedElement.hasClass("empty-container-text")
-                    ||
-                    selectedElement.hasClass("empty-container-image")
-
-                    ) {
-
-                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
-                    //jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    //jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-
-                    jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                }
-
-                if (selectedElement.hasClass("empty-container-spacer")) {
-                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                 }
 
                 if (selectedElement.hasClass("page")) {
@@ -271,11 +257,6 @@ export module ContextMenu {
                     jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                 }
 
-                if (selectedElement.hasClass("jq-editor-link")) {
-                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
-                }
-
-              
             }
 
         }
@@ -310,7 +291,7 @@ export module ContextMenu {
         }
 
 
-    
+
 
         public static AttachInsertLink() {
 
@@ -344,7 +325,7 @@ export module ContextMenu {
                 }
 
                 ContextMenuJQ.ShowControlInsertHTML();
-            
+
             });
 
         }
@@ -481,14 +462,14 @@ export module ContextMenu {
             jQuery("#control-insert-link").addClass("control-active");
 
             impLink.Link.LinkJQ.Show();
-            
+
         }
 
         public static ShowControlInsertHTML() {
 
             ContextMenuJQ.ControlPageHide();
 
-          
+
             impHtml.Html.HtmlJQ.Show();
         }
 
@@ -777,7 +758,7 @@ export module ContextMenu {
         }
 
         public static AttachPadding() {
-             
+
             new impPadding.Padding.PaddingJQ().Init();
 
             jQuery(".li.ctx-menu-padding").on("click", function () {
@@ -845,7 +826,7 @@ export module ContextMenu {
             });
         }
 
-        
+
 
         public static AttachCopy() {
             jQuery(".li.ctx-menu-copy").on("click", function () {
@@ -875,7 +856,7 @@ export module ContextMenu {
                 if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                     return;
                 }
-                
+
                 ContextMenuJQ.PasteElement();
             });
         }
@@ -912,7 +893,7 @@ export module ContextMenu {
                     return;
                 }
 
-                impSpacer.Spacer.SpacerJQ.InsertSpacer();                                
+                impSpacer.Spacer.SpacerJQ.InsertSpacer();
 
             });
         }
@@ -968,7 +949,7 @@ export module ContextMenu {
         }
 
         public static AttachInsertMenu() {
-          
+
             jQuery(".li.ctx-menu-insert-menu").on("click", function () {
 
 
@@ -1002,7 +983,7 @@ export module ContextMenu {
             });
         }
 
-      
+
 
 
         public static ContextInnerMenuShowHide() {
@@ -1048,7 +1029,7 @@ export module ContextMenu {
 
                 if (ctxMenuIsReady == false) {
                     ctxMenuIsReady = true;
-                    
+
                     jQuery(document).on("click", function () {
 
                         jQuery("#contextMenu").hide(500);              // To hide the context menu
@@ -1058,7 +1039,7 @@ export module ContextMenu {
                     if (G_isAttachedContextMenu == false) {
                         G_isAttachedContextMenu = true;
 
-                        
+
                         ContextMenuJQ.ContextMenuBinding();
                         ContextMenuJQ.LiClick();
                         ContextMenuJQ.ContextInnerMenuShowHide();

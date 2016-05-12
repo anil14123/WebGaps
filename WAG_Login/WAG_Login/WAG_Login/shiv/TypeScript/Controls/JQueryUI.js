@@ -28,9 +28,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     appendTo: 'body',
                     distance: 5,
                     start: function (event, ui) {
+                        CommonCode.DragStopped = false;
                         jQuery("#interface_bottom").hide();
                         jQuery(ui.helper).addClass("jq-dragging");
                         jQuery("page").addClass("dragging");
+                        CommonCode.DroppableEventCount = 0;
                         CommonCode.droppableCount++;
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "250px");
@@ -39,6 +41,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         ui.helper.css("opacity", "0.8");
                     },
                     stop: function (event, ui) {
+                        CommonCode.DragStopped = true;
                         jQuery("#interface_bottom").show();
                         jQuery(ui.helper).removeClass("jq-dragging");
                         jQuery("page").removeClass("dragging");
@@ -518,7 +521,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 $(elementCss).droppable({
                     greedy: true,
                     tolerance: "pointer",
+                    accept: '.bldr-draggable',
                     drop: function (event, ui) {
+                        if (CommonCode.DroppableEventCount == 1) {
+                            return;
+                        }
+                        CommonCode.DroppableEventCount = 1;
                         try {
                             window.smartObj = new JQueryUI.SmartObj();
                             window.smartObj.currentObj = undefined;
@@ -629,7 +637,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         });
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         jQuery(".empty").removeClass("empty");
-                        jQuery("#control-common-execute").click();
+                        jQuery(".control-common-execute").click();
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
@@ -667,6 +675,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     try {
                         var $this = $(_this);
                         $this.droppable("destroy");
+                        $this.removeClass("ui-droppable");
                     }
                     catch (ex) {
                     }
@@ -685,6 +694,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 });
             };
             CommonCode.droppableCount = 2; //old 0
+            CommonCode.DroppableEventCount = 0;
+            CommonCode.DragStopped = true;
             CommonCode.originalHeightBeforeDragStartStr = "";
             return CommonCode;
         }());

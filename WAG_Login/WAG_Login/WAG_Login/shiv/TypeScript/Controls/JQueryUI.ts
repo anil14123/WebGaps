@@ -27,6 +27,9 @@ export module JQueryUI {
         public static droppableCount = 2; //old 0
         public static currentTarget: JQuery;
 
+        public static DroppableEventCount = 0;
+        public static DragStopped = true;
+
         public static Draggable(element, cancelableCss) {
             jQuery(element).draggable({
                 cancel: cancelableCss,
@@ -35,11 +38,16 @@ export module JQueryUI {
                 appendTo: 'body',
                 distance: 5,
                 start: function (event, ui) {
+
+                    CommonCode.DragStopped = false;
+
                     jQuery("#interface_bottom").hide();
                     jQuery(ui.helper).addClass("jq-dragging");
 
                     jQuery("page").addClass("dragging");
-                   
+
+                  
+                    CommonCode.DroppableEventCount = 0;
                     CommonCode.droppableCount++;
 
                     //if (ui.helper.hasClass("empty-container-text")) {
@@ -51,6 +59,9 @@ export module JQueryUI {
 
                 },
                 stop: function (event, ui) {
+
+                    CommonCode.DragStopped = true;
+
                     jQuery("#interface_bottom").show();
                     jQuery(ui.helper).removeClass("jq-dragging");
 
@@ -829,7 +840,17 @@ export module JQueryUI {
             $(elementCss).droppable({
                 greedy: true,
                 tolerance: "pointer",
+                accept: '.bldr-draggable',
                 drop: function (event: JQueryMouseEventObject, ui) {
+
+                    if (CommonCode.DroppableEventCount == 1) {
+
+                        return;
+                    }
+
+                    CommonCode.DroppableEventCount = 1;
+
+
 
                     try {
 
@@ -896,8 +917,7 @@ export module JQueryUI {
                     catch (ex) {
 
                     }
-
-
+                    
                     impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
 
                     if (
@@ -993,8 +1013,7 @@ export module JQueryUI {
 
                     jQuery(".empty").removeClass("empty");
 
-                    jQuery("#control-common-execute").click();
-
+                    jQuery(".control-common-execute").click();
                 },
                 out: function (event, ui) {
                     CommonCode.droppableCount++;
@@ -1041,6 +1060,7 @@ export module JQueryUI {
                 try {
                     var $this = $(_this);
                     $this.droppable("destroy");
+                    $this.removeClass("ui-droppable");
                 }
                 catch (ex) {
                 }

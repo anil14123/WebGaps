@@ -22,6 +22,46 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 });
                 jQuery(document).bind("contextmenu", function (e) {
                     impWatch.Watch.MouseJQ.ProcessClick(e);
+                    window.setTimeout(function () {
+                        try {
+                            impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
+                            var x = e.clientX;
+                            var y = e.clientY + $(document).scrollTop();
+                            jQuery(".nearest-element").removeClass("nearest-element");
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                                impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
+                            }
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                                var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+                                var nearestLeftArray = [];
+                                var nearestTopArray = [];
+                                if ($elements.length > 0) {
+                                    $elements.each(function (index, _this) {
+                                        var $this = $(_this);
+                                        var top = parseFloat($this.attr("top"));
+                                        var bottom = parseFloat($this.attr("bottom"));
+                                        var left = parseFloat($this.attr("left"));
+                                        if (y >= top && y <= bottom && x >= left) {
+                                            nearestLeftArray.push(left);
+                                            nearestTopArray.push(top);
+                                        }
+                                    });
+                                    var nearestLeft = 0;
+                                    var nearestTop = 0;
+                                    if (nearestLeftArray.length > 0) {
+                                        nearestLeft = Math.max.apply(Math, nearestLeftArray);
+                                    }
+                                    if (nearestTopArray.length > 0) {
+                                        nearestTop = Math.max.apply(Math, nearestTopArray);
+                                    }
+                                    impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+                                    impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+                                }
+                            }
+                        }
+                        catch (ex) {
+                        }
+                    }, 5);
                     e.preventDefault();
                     //var x = e.clientX;
                     //var y = e.clientY;
@@ -69,8 +109,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                 if (selectedElement != undefined) {
                     jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-height-width").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    jQuery(".ctx-menu-border").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().addClass(CTX_MENU_DISABLED_CLASS);
@@ -88,13 +126,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     if (selectedElement.hasClass("root-elements")) {
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     }
-                    if (selectedElement.hasClass("jq-site-link-container")) {
-                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    }
                     if (selectedElement.hasClass("jqRootRow")) {
                         jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
@@ -102,72 +133,22 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     }
                     if (selectedElement.hasClass("column")) {
-                        // jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        // jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                     }
-                    if (selectedElement.hasClass("empty-container") && !selectedElement.hasClass("empty-container-spacer")) {
+                    if (selectedElement.hasClass("image-text-other")) {
                         jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    }
-                    if (selectedElement.hasClass("jq-plus-container")
-                        ||
-                            selectedElement.hasClass("empty-container-spacer")) {
-                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    }
-                    if (selectedElement.hasClass("empty-container-text")
-                        ||
-                            selectedElement.hasClass("empty-container-image")) {
-                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-cut").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-copy").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-paste").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-youtube").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-html").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-css").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-menu").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-empty-space").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-link").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        //jQuery(".ctx-menu-insert-object").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                        jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
-                    }
-                    if (selectedElement.hasClass("empty-container-spacer")) {
-                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     }
                     if (selectedElement.hasClass("page")) {
                         jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                         jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
-                    }
-                    if (selectedElement.hasClass("jq-editor-link")) {
-                        jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     }
                 }
             };

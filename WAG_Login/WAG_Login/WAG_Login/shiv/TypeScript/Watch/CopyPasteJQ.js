@@ -141,14 +141,24 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     return;
                 }
                 if (selecedElement != undefined) {
-                    if (selecedElement.hasClass("column")) {
+                    if (selecedElement.hasClass("column") || selecedElement.hasClass("image-text-other")) {
                         if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
                             CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
                             if (isCut == true) {
                                 impCommonCode.ControlCommon.Code.DestroyResizable();
                             }
                             impOperaction.Operation.AfterOperationJQ.Execute();
-                            selecedElement.append(CopiedElement);
+                            if (selecedElement.hasClass("column")) {
+                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    impWatch.Watch.MouseJQ.nearestElement.after(CopiedElement);
+                                }
+                                else {
+                                    selecedElement.append(CopiedElement);
+                                }
+                            }
+                            else {
+                                selecedElement.after(CopiedElement);
+                            }
                         }
                         else {
                             errorHandler.ActionFail("You can only cut and paste element in to same element.");

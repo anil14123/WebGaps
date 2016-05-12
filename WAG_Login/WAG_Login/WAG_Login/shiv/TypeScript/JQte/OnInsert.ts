@@ -50,8 +50,6 @@ export module OnInsert {
             })
 
 
-
-
             jQuery("page .jqte-editor").unbind("keydown");
             jQuery("page .jqte-editor").on("keydown", function () {
 

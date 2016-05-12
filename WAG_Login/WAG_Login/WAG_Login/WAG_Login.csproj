@@ -1282,7 +1282,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56399</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56399/</IISUrl>
+          <IISUrl>http://localhost:56392/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
