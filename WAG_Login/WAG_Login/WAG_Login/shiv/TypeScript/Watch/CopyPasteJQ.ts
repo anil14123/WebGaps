@@ -9,7 +9,7 @@ var CopiedElement: JQuery;
 var isCut = false;
 
 class ClipBorad {
-   public data: string;
+    public data: string;
 }
 
 export module CopyPaste {
@@ -68,7 +68,7 @@ export module CopyPaste {
             }
 
             var container = jQuery(document.createElement("div"));
-            
+
             impOperaction.Operation.AfterOperationJQ.Execute();
 
             container.addClass("key empty-container links-container image-text-other");
@@ -82,7 +82,7 @@ export module CopyPaste {
             impCommonCode.ControlCommon.Code.DestroyResizable();
             impCommonCode.ControlCommon.Code.Execute();
         }
-       
+
 
         public static Delete() {
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
@@ -98,8 +98,8 @@ export module CopyPaste {
                         selectedElement.hasClass("jq-Content")
                         ||
                         selectedElement.hasClass("jq-Footer")
-                        )
-                    ) {
+                    )
+                ) {
                     if (selectedElement.hasClass("jq-image-block-image")) {
                         selectedElement.closest(".jq-plus-container").remove();
                     }
@@ -108,13 +108,67 @@ export module CopyPaste {
                             selectedElement.closest(".jq-plus-container").remove();
                         }
                         else {
-                            selectedElement.remove();
+
+                            if (selectedElement.hasClass("column")) {
+                               
+                                var columnsCount = selectedElement.closest(".row").children(".column").length;
+
+                                var columnSize = "";
+
+                                var columnClass = "";
+
+                                if (columnsCount == 2) {
+                                    columnClass = "col-xs-48";
+                                    columnSize = "48";
+                                }
+
+                                if (columnsCount == 3) {
+                                    columnClass = "col-xs-24";
+                                    columnSize = "24";
+                                }
+
+                                if (columnsCount == 4) {
+                                    columnClass = "col-xs-16";
+                                    columnSize = "16";
+                                }
+
+                                var lastColumn: JQuery;
+
+                               
+                                /// then calculate...
+                                selectedElement.closest(".row").children(".column").each(function () {
+
+                                    lastColumn = jQuery(this);
+
+                                    var prevSize = jQuery(this).attr("xs-column-size");
+
+                                    var cssClass = "col-xs-" + prevSize;
+
+                                    if (cssClass == columnClass) {
+                                        return;
+                                    }
+
+                                    jQuery(this).addClass(columnClass);
+                                    jQuery(this).attr("xs-column-size", columnSize);
+                                    jQuery(this).removeClass(cssClass);
+
+                                });
+
+                                /// remove here.....
+                                selectedElement.remove();
+
+                            }
+                            else {
+                                selectedElement.remove();
+                            }
+
+
                         }
                 }
                 else {
 
                     selectedElement.hide();
-                
+
                     //errorHandler.ActionFail("Cannot delete Header or MenuBar or Body or Footer.");
                 }
 
@@ -269,8 +323,7 @@ export module CopyPaste {
             var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-            if (selecedElement != undefined)
-                {
+            if (selecedElement != undefined) {
                 if (selecedElement.hasClass("empty-container") || selecedElement.hasClass("column")) {
 
                     if (CopyPasteJQ.ClipBoardData.data != undefined

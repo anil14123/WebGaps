@@ -5,6 +5,7 @@ import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");
 import impJQte = require("../jqte/MyJQte");
 import impAddrow = require("../Controls/ControlsJQ");
+import impElements = require("../PageElements/ElementJQ");
 
 var changed = false;
 export module OnInsert {
@@ -19,11 +20,79 @@ export module OnInsert {
 
             jQuery("page .jq-add-column").unbind("click");
             jQuery("page .jq-add-column").on("click", function () {
-                var addrow = new impAddrow.Page.AddRowJQ();
-                alert("+");
+
+                var columnsCount = jQuery(this).closest(".row").children(".column").length;
+
+                if (columnsCount >= 4) {
+
+                   var error = new impError.ErrorHandle.ErrorJQ();
+
+                   error.ActionHelp("Cannot add more than 4 columns");
+
+                    return;
+                }
+
+                var columnSize = "";
+
+                var columnClass = "";
+
+                if (columnsCount == 1) {
+                    columnClass = "col-xs-24";
+                    columnSize = "24";
+                }
+
+                if (columnsCount == 2) {
+                    columnClass = "col-xs-16";
+                    columnSize = "16";
+                }
+
+                if (columnsCount == 3) {
+                    columnClass = "col-xs-12";
+                    columnSize = "12";
+                }
+
+                var lastColumn: JQuery;
+
+                jQuery(this).closest(".row").children(".column").each(function () {
+
+                    lastColumn = jQuery(this);
+
+                    var prevSize = jQuery(this).attr("xs-column-size");
+
+                    var cssClass = "col-xs-" + prevSize;
+
+                    if (cssClass == columnClass) {
+                        return;
+                    }
+
+                    jQuery(this).addClass(columnClass);
+                    jQuery(this).attr("xs-column-size", columnSize);
+                    jQuery(this).removeClass(cssClass);
+
+                });
+
+                var column: JQuery;
+                var elements2 = new impElements.Page.Elements.ElementJQ();
+                var columnCss = columnClass + " " + " from-column-add-click " + "column key design-column column-number-" + (columnsCount +1);
+                column = elements2.CreateDiv('', columnCss);
+
+                column.attr("column-number", columnsCount + 1);
+                column.attr("xs-column-size", columnSize);
+                column.css("min-height", "100px");
+                column.addClass("column-padding");
+
+                jQuery(this).closest(".row").append(column);
+
+                jQuery("#control-common-execute").click();
+
+
+                var undomanager = new impUndoManager.Manager.UndoManager();
+
+                undomanager.BeforeOperation();
+
             });
 
-            
+
             jQuery("page a").not(".jq-logout").unbind("click");
             jQuery("page a").not(".jq-logout").click(function () {
                 impCommonCode.ControlCommon.Code.AnchorClicked = true;

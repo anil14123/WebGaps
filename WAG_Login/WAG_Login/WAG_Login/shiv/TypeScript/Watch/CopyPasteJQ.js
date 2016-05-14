@@ -72,7 +72,41 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                             selectedElement.closest(".jq-plus-container").remove();
                         }
                         else {
-                            selectedElement.remove();
+                            if (selectedElement.hasClass("column")) {
+                                var columnsCount = selectedElement.closest(".row").children(".column").length;
+                                var columnSize = "";
+                                var columnClass = "";
+                                if (columnsCount == 2) {
+                                    columnClass = "col-xs-48";
+                                    columnSize = "48";
+                                }
+                                if (columnsCount == 3) {
+                                    columnClass = "col-xs-24";
+                                    columnSize = "24";
+                                }
+                                if (columnsCount == 4) {
+                                    columnClass = "col-xs-16";
+                                    columnSize = "16";
+                                }
+                                var lastColumn;
+                                /// then calculate...
+                                selectedElement.closest(".row").children(".column").each(function () {
+                                    lastColumn = jQuery(this);
+                                    var prevSize = jQuery(this).attr("xs-column-size");
+                                    var cssClass = "col-xs-" + prevSize;
+                                    if (cssClass == columnClass) {
+                                        return;
+                                    }
+                                    jQuery(this).addClass(columnClass);
+                                    jQuery(this).attr("xs-column-size", columnSize);
+                                    jQuery(this).removeClass(cssClass);
+                                });
+                                /// remove here.....
+                                selectedElement.remove();
+                            }
+                            else {
+                                selectedElement.remove();
+                            }
                         }
                     }
                     else {

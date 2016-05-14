@@ -7649,7 +7649,7 @@ define("shiv/TypeScript/Controls/JQueryUI", ["require", "exports", "shiv/TypeScr
                             commonMethods.RemoveStyle(ui.helper, "min-height");
                         }
                         var nextElements = jQuery(ui.helper).nextAll(".column");
-                        nextElements.hide();
+                       // nextElements.hide();
                     },
                     stop: function (event, ui) {
                         jQuery(".ui-resizable-se").removeClass("selected-resizable");

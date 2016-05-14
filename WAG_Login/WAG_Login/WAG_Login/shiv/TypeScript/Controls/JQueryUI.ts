@@ -971,8 +971,6 @@ export module JQueryUI {
 
                     } else {
 
-
-
                         if (!ui.draggable.hasClass("control-drag-anywhere")) {
                             ui.draggable.css("position", "relative").css("left", "").css("top", "");
 
@@ -993,7 +991,6 @@ export module JQueryUI {
                             }
 
                         }
-
                     }
 
                     jQuery(".image-text-other").each(function (index, _this) {

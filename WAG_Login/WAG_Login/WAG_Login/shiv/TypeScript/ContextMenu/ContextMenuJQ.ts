@@ -81,11 +81,13 @@ export module ContextMenu {
 
                         jQuery(".nearest-element").removeClass("nearest-element");
 
+                        var column = impWatch.Watch.MouseJQ.selectedElement;
+
                         if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
-                            impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
+                            column = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
                         }
 
-                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                        if (column.hasClass("column")) {
 
                             var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
 
@@ -116,7 +118,7 @@ export module ContextMenu {
                                     nearestTop = Math.max.apply(Math, nearestTopArray);
                                 }
 
-                                impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+                                column.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
 
                                 impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
 
