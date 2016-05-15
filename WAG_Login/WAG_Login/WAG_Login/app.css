@@ -375,6 +375,7 @@ rootx {
     vertical-align: middle;
     font-size: medium;
     font-weight: bold;
+    color:black !important;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 

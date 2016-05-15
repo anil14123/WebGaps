@@ -193,7 +193,11 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         impOperaction.Operation.AfterOperationJQ.Execute();
                         selectedRowOrColumn.children(".debug-column-css").hide();
                         selectedRowOrColumn.css("padding", "0");
-                        AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn);
+                        var beforeAfter = undefined;
+                        if (selectedRowOrColumn.hasClass("row")) {
+                            beforeAfter = false;
+                        }
+                        AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn, beforeAfter);
                         if (AddRowJQ.addedRow != undefined) {
                             AddRowJQ.addedRow.addClass("removable-row");
                             AddRowJQ.addedRow.children(".column").addClass("columns-pending");
