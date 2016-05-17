@@ -223,7 +223,7 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                         "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
                         "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
                         " <style> " +
-                        " @media (max-width: 980px) { .page-margin { width: auto !important; } .empty-container-text {display:inline-block; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:inline-block; } }  " +
+                        " @media (max-width: 980px) { .page-margin { width: auto !important; } .empty-container-text {display:inline-block; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:inline-block; height:auto !important; } }  " +
                         " .jq-plus-element { display:none !important; } " +
                         " .jq-row-plus-container { display:none !important; } " +
                         " .row { margin:0; padding:2px; clear:both; } .root-elements{ padding:0;} " +
