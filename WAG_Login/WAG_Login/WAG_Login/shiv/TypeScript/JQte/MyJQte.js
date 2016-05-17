@@ -17,7 +17,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
             jqte.prototype.Init = function () {
                 if (initOnce == false) {
                     initOnce = true;
-                    jQuery(".jqte-editor-tool").click(function () {
+                    jQuery(".jqte-editor-tool").on("click", function () {
                         return false;
                     });
                     $(".jqte-editor-tool-p").off('click');
@@ -112,12 +112,12 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                 jqte.addParams('remove', 'removeformat', '.', '', false); // remove all styles --> ctrl + delete
                 jqte.addParams('rule', 'inserthorizontalrule', 'H', ["hr"], false); // insertion horizontal rule --> ctrl + H
                 jqte.addParams('source', 'displaysource', '', '', false); // feature of displaying source
-                jQuery(document).not(".editor").click(function (e) {
+                jQuery(document).not(".editor").on("click", function (e) {
                     if (!jQuery(e.target).hasClass("jqte-editor-tool-p")) {
                         jQuery(".jqte-editor-tool-list").hide();
                     }
                 });
-                $(".jqte-editor-tool,.jqte-editor-tool-p").mouseup(function (e) {
+                $(".jqte-editor-tool,.jqte-editor-tool-p").on("mouseup", function (e) {
                     jQuery(this).removeClass("highlight-tool");
                     if (e.cancelBubble != null)
                         e.cancelBubble = true;
@@ -129,7 +129,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-editor-tool,.jqte-editor-tool-p").mousedown(function (e) {
+                $(".jqte-editor-tool,.jqte-editor-tool-p").on("mousedown", function (e) {
                     // jQuery(this).addClass("highlight-tool");
                     jQuery(".jqte-color-palette").css("display", "none");
                     var name = jQuery(this).attr("name");
@@ -274,7 +274,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                jQuery(".editor-create-link").click(function (e) {
+                jQuery(".editor-create-link").on("click", function (e) {
                     jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("href", jQuery(".link-window-url").val());
                     jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
                     jQuery(".jqte-editor-tool-list").hide();
@@ -356,7 +356,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-editor-tool-c").mousedown(function (e) {
+                $(".jqte-editor-tool-c").on("mousedown", function (e) {
                     debugger;
                     if (jQuery(this).parent().hasClass("font-name")) {
                         jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
@@ -400,7 +400,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jq-color").mousedown(function (e) {
+                $(".jq-color").on("mousedown", function (e) {
                     if (jQuery(".current-color-tool").length > 0) {
                         var name = jQuery(".current-color-tool").attr("name");
                         if (name == "back-color") {

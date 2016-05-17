@@ -396,7 +396,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         //jQuery(document).mousemove(function (e: JQueryMouseEventObject) {
                         //    MouseJQ.ProcessMove(e);
                         //})
-                        jQuery("page").click(function (e) {
+                        jQuery("page").on("click", function (e) {
                             MouseJQ.ProcessClick(e);
                             if (impCommonCode.ControlCommon.Code.AnchorClicked == true) {
                                 impCommonCode.ControlCommon.Code.AnchorClicked = false;
@@ -411,25 +411,25 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 return false;
                             }
                         });
-                        jQuery("input").keydown(function (e) {
+                        jQuery("input").on("keydown", function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
                                 impOnInsert.OnInsert.Code.BackPassed = true;
                             }
                         });
-                        jQuery("textarea").keydown(function (e) {
+                        jQuery("textarea").on("keydown", function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
                                 impOnInsert.OnInsert.Code.BackPassed = true;
                             }
                         });
-                        jQuery(".jqte-editor").keydown(function (e) {
+                        jQuery(".jqte-editor").on("keydown", function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
                                 impOnInsert.OnInsert.Code.BackPassed = true;
                             }
                         });
-                        jQuery(document).keydown(function (e) {
+                        jQuery(document).on("keydown", function (e) {
                             var BACK = 8;
                             if (e.which == BACK) {
                                 if (impOnInsert.OnInsert.Code.BackPassed == false && impOnInsert.OnInsert.Code.BackPassedEdit == false) {

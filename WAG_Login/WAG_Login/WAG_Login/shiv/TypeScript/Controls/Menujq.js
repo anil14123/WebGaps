@@ -30,7 +30,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                 }
             };
             MenuJQ.AttachNextMenu = function () {
-                jQuery(".control-menu-next").click(function () {
+                jQuery(".control-menu-next").on("click", function () {
                     var cssman = new impCssManager.CssManager.CssManagerJQ();
                     nextId++;
                     if (nextId < cssman.Menus.length) {
@@ -47,7 +47,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                 });
             };
             MenuJQ.AttachPrevMenu = function () {
-                jQuery(".control-menu-prev").click(function () {
+                jQuery(".control-menu-prev").on("click", function () {
                     var cssman = new impCssManager.CssManager.CssManagerJQ();
                     nextId--;
                     if (nextId >= 0) {
@@ -71,7 +71,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "
                 });
             };
             MenuJQ.AttachInsertMenu = function () {
-                jQuery(".control-menu").find(".control-menu-insert").click(function (e, s) {
+                jQuery(".control-menu").find(".control-menu-insert").on("click", function (e, s) {
                     var cssMan = new impCssManager.CssManager.CssManagerJQ();
                     if (nextId >= 0 && nextId < cssMan.Menus.length) {
                         var menuDesignId = cssMan.Menus[nextId].MenuId;

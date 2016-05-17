@@ -530,7 +530,7 @@ export module Watch {
                     //    MouseJQ.ProcessMove(e);
                     //})
 
-                    jQuery("page").click(function (e: JQueryMouseEventObject) {
+                    jQuery("page").on("click" ,function (e: JQueryMouseEventObject) {
 
                         MouseJQ.ProcessClick(e);
 
@@ -547,7 +547,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery("input").keydown(function (e) {
+                    jQuery("input").on("keydown" ,function (e) {
                         var BACK = 8;
 
                         if (e.which == BACK) {
@@ -555,7 +555,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery("textarea").keydown(function (e) {
+                    jQuery("textarea").on("keydown", function (e) {
                         var BACK = 8;
 
                         if (e.which == BACK) {
@@ -563,7 +563,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery(".jqte-editor").keydown(function (e) {
+                    jQuery(".jqte-editor").on("keydown" ,function (e) {
                         var BACK = 8;
 
                         if (e.which == BACK) {
@@ -571,7 +571,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery(document).keydown(function (e) {
+                    jQuery(document).on("keydown" ,function (e) {
 
                         var BACK = 8;
 

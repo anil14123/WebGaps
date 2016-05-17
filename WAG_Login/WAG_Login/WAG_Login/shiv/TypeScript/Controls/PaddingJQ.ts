@@ -29,7 +29,7 @@ export module Padding {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                    jQuery(".padding-advanced-show").click(function () {
+                    jQuery(".padding-advanced-show").on("click" ,function () {
 
                         jQuery(".jq-padding-advanced").fadeToggle(1);
                     });

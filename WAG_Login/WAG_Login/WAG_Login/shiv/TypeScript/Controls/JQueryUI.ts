@@ -1010,7 +1010,7 @@ export module JQueryUI {
 
                     jQuery(".empty").removeClass("empty");
 
-                    jQuery("#control-common-execute").click();
+                    jQuery("#control-common-execute").trigger("click");
                 },
                 out: function (event, ui) {
                     CommonCode.droppableCount++;

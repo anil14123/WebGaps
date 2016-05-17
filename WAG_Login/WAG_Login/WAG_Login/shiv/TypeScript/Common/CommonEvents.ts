@@ -111,7 +111,7 @@ export module Common {
 
             ///////////// change image ////////////////
 
-            jQuery(".button-change-image").click(function () {
+            jQuery(".button-change-image").on("click" , function () {
                
                 impImage.Image.SelfJQ.ChangeImage();
 
@@ -193,34 +193,34 @@ export module Common {
 
             ////////////// Flating or aligning...
 
-            jQuery(".button-align-left").click(function () {
+            jQuery(".button-align-left").on("click" , function () {
                 impNoUi.NoUI.AlignJQ.Left();
             });
 
-            jQuery(".button-align-right").click(function () {
+            jQuery(".button-align-right").on("click", function () {
                 impNoUi.NoUI.AlignJQ.Right();
             });
 
-            jQuery(".button-align-center").click(function () {
+            jQuery(".button-align-center").on("click", function () {
 
                 impNoUi.NoUI.AlignJQ.Center();
             });
 
             ///////////// Moving Object....
 
-            jQuery(".button-move-left").click(function () {
+            jQuery(".button-move-left").on("click", function () {
                 impNoUi.NoUI.MoveJQ.Left();
             });
 
-            jQuery(".button-move-right").click(function () {
+            jQuery(".button-move-right").on("click", function () {
                 impNoUi.NoUI.MoveJQ.Right();
             });
 
-            jQuery(".button-move-up").click(function () {
+            jQuery(".button-move-up").on("click", function () {
                 impNoUi.NoUI.MoveJQ.Up();
             });
 
-            jQuery(".button-move-down").click(function () {
+            jQuery(".button-move-down").on("click", function () {
                 impNoUi.NoUI.MoveJQ.Down();
             });
 
@@ -237,16 +237,16 @@ export module Common {
 
             jQuery(".anchor-show-live-preview").attr("href", liveUrl);
 
-            jQuery("#notify").click(function () {
+            jQuery("#notify").on("click",function () {
                 jQuery(this).hide();
             });
 
-            jQuery(".btn-help").click(function () {
+            jQuery(".btn-help").on("click" ,function () {
 
                 jQuery("#site-help").slideToggle();
             });
 
-            jQuery("#site-help").click(function () {
+            jQuery("#site-help").on("click",function () {
 
                 jQuery(this).slideUp();
             });
@@ -280,14 +280,14 @@ export module Common {
 
             ////////////////
 
-            jQuery(".jq-show-plus").click(function () {
+            jQuery(".jq-show-plus").on("click",function () {
                 jQuery(".jq-row-plus-container").show();
 
                 jQuery(".jq-show-plus").hide();
                 jQuery(".jq-hide-plus").show();
             });
 
-            jQuery(".jq-hide-plus").click(function () {
+            jQuery(".jq-hide-plus").on("click",function () {
                 jQuery(".jq-row-plus-container").hide();
 
                 jQuery(".jq-hide-plus").hide();
@@ -297,7 +297,7 @@ export module Common {
 
             //// download /////////////////
 
-            jQuery(".button-download-site").click(function () {
+            jQuery(".button-download-site").on("click",function () {
 
                 var save = new impSaveClass.Save.SaveJQ();
 
@@ -317,7 +317,7 @@ export module Common {
            
             /// save ///////
 
-            jQuery(".jq-save").click(function () {
+            jQuery(".jq-save").on("click",function () {
 
                 var eh = new impError.ErrorHandle.ErrorJQ();
 
@@ -384,19 +384,19 @@ export module Common {
 
             //// undo manager ////
 
-            jQuery(".jq-undo").click(function () {
+            jQuery(".jq-undo").on("click",function () {
 
                 var undoManager = new impUndoManager.Manager.UndoManager();
                 undoManager.Undo();
 
             });
 
-            jQuery(".jq-redo").click(function () {
+            jQuery(".jq-redo").on("click" ,function () {
                 var undoManager = new impUndoManager.Manager.UndoManager();
                 undoManager.Redo();
             });
 
-            jQuery(".properties-button").click(function () {
+            jQuery(".properties-button").on("click",function () {
 
                 if (jQuery(".control-properties").css("display") == "block") {
                     jQuery(".control-properties").addClass("forced-hide");

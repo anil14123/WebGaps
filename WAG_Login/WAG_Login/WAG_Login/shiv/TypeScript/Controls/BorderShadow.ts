@@ -22,7 +22,7 @@ export module BorderShadow {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                    jQuery(".b-s-remove").click(function () {
+                    jQuery(".b-s-remove").on("click" ,function () {
 
                         var cm = new impCommon.Common.CommonMethodsJQ();
 
@@ -37,7 +37,7 @@ export module BorderShadow {
                         undo.BeforeOperation();
                     });
 
-                    jQuery(".b-s-glow").click(function () {
+                    jQuery(".b-s-glow").on("click",function () {
 
                         jQuery(".control-b-s").spinner("value", 0);
                         jQuery(".control-b-s-blur").spinner("value", 35);

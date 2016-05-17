@@ -59,7 +59,7 @@ export module ContextMenu {
         public static ContextMenuBinding() {
             // context menu event ...
 
-            jQuery(document).bind("click", function (e) {
+            jQuery(document).on("click", function (e) {
                 var contextMenu = new ContextMenuJQ();
 
                 contextMenu.DetectContextMenu();
@@ -418,12 +418,12 @@ export module ContextMenu {
 
         public static AttachControlPageClose() {
 
-            jQuery(".control-templates").find(".close-button").click(function () {
+            jQuery(".control-templates").find(".close-button").on("click" ,function () {
                 jQuery(".control-page").removeClass("control-active");
                 ContextMenuJQ.ShowProperties();
             });
 
-            jQuery(".control-page").find(".close-button").click(function () {
+            jQuery(".control-page").find(".close-button").on("click" ,function () {
                 jQuery(".control-page").removeClass("control-active");
                 ContextMenuJQ.ShowProperties();
 
@@ -991,7 +991,7 @@ export module ContextMenu {
         public static ContextInnerMenuShowHide() {
 
 
-            jQuery("#contextMenuitems").find(".li").mouseenter(function (e) {
+            jQuery("#contextMenuitems").find(".li").on("mouseenter" ,function (e) {
 
                 // adjustment based on window.
                 var left = 147;
@@ -1005,7 +1005,7 @@ export module ContextMenu {
 
             });
 
-            jQuery("#contextMenuitems").find("li").mouseleave(function (e) {
+            jQuery("#contextMenuitems").find("li").on("mouseleave",function (e) {
 
 
                 jQuery(this).find(".innerListContainer").first().css("display", "none");
@@ -1017,7 +1017,7 @@ export module ContextMenu {
 
         public static LiClick() {
             // selected item ...
-            jQuery("#contextMenuitems > li").click(function () {
+            jQuery("#contextMenuitems > li").on("click", function () {
                 // alert($(this).text());  // Performing the selected function.
 
             });

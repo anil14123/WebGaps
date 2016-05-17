@@ -15,7 +15,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 jQuery(document).ready(function () {
                     if (isBorderReady == false) {
                         isBorderReady = true;
-                        jQuery(".padding-advanced-show").click(function () {
+                        jQuery(".padding-advanced-show").on("click", function () {
                             jQuery(".jq-padding-advanced").fadeToggle(1);
                         });
                         jQuery(".control-padding-padding").spinner({

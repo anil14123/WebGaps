@@ -105,7 +105,7 @@ export module Image {
 
 
         AttachInsertImage() {
-            jQuery(SelfJQ.controlId).find(".action-button-insert-image").click(function () {
+            jQuery(SelfJQ.controlId).find(".action-button-insert-image").on("click" ,function () {
 
                 if (jQuery(".internet-image-url").val() != "" ) {
                     SelfJQ.InsertImage(jQuery(".internet-image-url").val());
@@ -116,7 +116,7 @@ export module Image {
                
             });
 
-            jQuery(".action-button-change-image").click(function () {
+            jQuery(".action-button-change-image").on("click" ,function () {
 
               var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  
 
@@ -345,7 +345,7 @@ export module Image {
 
         AttachUserImages()
         {
-            jQuery(".load-more-images").click(function () {
+            jQuery(".load-more-images").on("click" ,function () {
 
                 SelfJQ.GetImages();
             });

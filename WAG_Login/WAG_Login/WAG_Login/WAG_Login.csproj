@@ -296,6 +296,9 @@
     <Content Include="Content\resize\resize-diag-icon.png" />
     <Content Include="Content\resize\resize-hor-icon.png" />
     <Content Include="Content\resize\resize-ver-icon.png" />
+    <Content Include="controls.min.css">
+      <DependentUpon>controls.css</DependentUpon>
+    </Content>
     <Content Include="InsertTools.css" />
     <Content Include="Nestable.css" />
     <Content Include="PropertiesTag.css" />
@@ -557,6 +560,7 @@
     <Content Include="Content\font-awesome\scss\_mixins.scss" />
     <Content Include="Content\font-awesome\scss\_path.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\wag.pubxml" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\.gitattributes" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\.gitignore" />

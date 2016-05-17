@@ -37,11 +37,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 }
                             }
                         });
-                        jQuery(".bi-browse").click(function () {
+                        jQuery(".bi-browse").on("click", function () {
                             impImage.Image.SelfJQ.GetImages();
                             jQuery("#control-image-bi-library").show();
                         });
-                        jQuery(".make-100").click(function () {
+                        jQuery(".make-100").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 jQuery(".ddn-bi-pixel-type").val("%");
@@ -54,7 +54,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".ddn-bi-pixel-type").change(function () {
+                        jQuery(".ddn-bi-pixel-type").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var height = jQuery(".smart-menu-bi-height").spinner("value");
@@ -64,13 +64,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".action-button-insert-bi-image").click(function () {
+                        jQuery(".action-button-insert-bi-image").on("click", function () {
                             var src = jQuery(".image-library-bi-select").first().attr("src");
                             jQuery(".bi-selected-image").val(src).change();
                             jQuery(".image-library-image").removeClass("image-library-bi-select");
                             jQuery("#control-image-bi-library").hide();
                         });
-                        jQuery(".control-bi-controls .bi-selected-image").change(function () {
+                        jQuery(".control-bi-controls .bi-selected-image").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             var applyToBody = jQuery(".bi-body").is(':checked');
                             if (applyToBody == true) {
@@ -84,7 +84,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".control-bi-controls .internet-bi-image-url").change(function () {
+                        jQuery(".control-bi-controls .internet-bi-image-url").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-image", "url(" + jQuery(this).val() + ")");
@@ -92,7 +92,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".control-bi-controls .ddn-bi-repeat").change(function () {
+                        jQuery(".control-bi-controls .ddn-bi-repeat").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-repeat", jQuery(this).val());
@@ -100,7 +100,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".control-bi-controls .ddn-bi-attachment").change(function () {
+                        jQuery(".control-bi-controls .ddn-bi-attachment").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-attachment", jQuery(this).val());
@@ -108,7 +108,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 undo.BeforeOperation();
                             }
                         });
-                        jQuery(".control-bi-controls .ddn-bi-position").change(function () {
+                        jQuery(".control-bi-controls .ddn-bi-position").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-position", jQuery(this).val());

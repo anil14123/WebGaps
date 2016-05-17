@@ -60,7 +60,7 @@ export module Menu {
 
         public static AttachNextMenu() {
 
-            jQuery(".control-menu-next").click(function () {
+            jQuery(".control-menu-next").on("click",function () {
                 var cssman = new impCssManager.CssManager.CssManagerJQ();
 
                 nextId++;
@@ -87,7 +87,7 @@ export module Menu {
 
         public static AttachPrevMenu() {
 
-            jQuery(".control-menu-prev").click(function () {
+            jQuery(".control-menu-prev").on("click" ,function () {
                 var cssman = new impCssManager.CssManager.CssManagerJQ();
 
                 nextId--;
@@ -120,7 +120,7 @@ export module Menu {
         }
 
         public static AttachInsertMenu() {
-            jQuery(".control-menu").find(".control-menu-insert").click(function (e, s) {
+            jQuery(".control-menu").find(".control-menu-insert").on("click" ,function (e, s) {
 
                 var cssMan = new impCssManager.CssManager.CssManagerJQ();
 

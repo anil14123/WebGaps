@@ -13,13 +13,13 @@ export module Preview {
 
                     isPreviewReady = true;
 
-                    jQuery(".close-preview").click(function () {
+                    jQuery(".close-preview").on("click" ,function () {
 
                         jQuery(".editor").css("display", "block");
                         PreviewJQ.ClosePreview();
                     });
 
-                    jQuery(".show-preview").click(function () {
+                    jQuery(".show-preview").on("click" ,function () {
                         
                         if (jQuery(".control-templates").css("display") =="none") {
 

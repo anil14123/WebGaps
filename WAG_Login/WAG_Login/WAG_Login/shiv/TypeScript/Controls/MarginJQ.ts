@@ -29,7 +29,7 @@ export module Margin {
                 if (isBorderReady == false) {
                     isBorderReady = true;
 
-                    jQuery(".margin-advanced-show").click(function () {
+                    jQuery(".margin-advanced-show").on("click" ,function () {
 
                         jQuery(".jq-margin-advanced").fadeToggle(1);
                     });

@@ -15,7 +15,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                     if (isColorReady == false) {
                         isColorReady = true;
                         //// all remove methods are in color
-                        jQuery(".remove-bi").click(function () {
+                        jQuery(".remove-bi").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
@@ -25,7 +25,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery(".remove-border").click(function () {
+                        jQuery(".remove-border").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
@@ -35,7 +35,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery(".remove-opacity").click(function () {
+                        jQuery(".remove-opacity").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
@@ -45,7 +45,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery(".remove-padding").click(function () {
+                        jQuery(".remove-padding").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
@@ -55,7 +55,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery(".remove-margin").click(function () {
+                        jQuery(".remove-margin").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
@@ -65,7 +65,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 impWatch.Watch.MouseJQ.ResetAfterClear();
                             }
                         });
-                        jQuery(".remove-gradient").click(function () {
+                        jQuery(".remove-gradient").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");

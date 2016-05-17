@@ -14,7 +14,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 jQuery(document).ready(function () {
                     if (isBorderReady == false) {
                         isBorderReady = true;
-                        jQuery(".b-s-remove").click(function () {
+                        jQuery(".b-s-remove").on("click", function () {
                             var cm = new impCommon.Common.CommonMethodsJQ();
                             jQuery(".control-b-s").spinner("value", 0);
                             jQuery(".b-s-color").val("000000").keyup();
@@ -23,7 +23,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             var undo = new impUndoManager.Manager.UndoManager();
                             undo.BeforeOperation();
                         });
-                        jQuery(".b-s-glow").click(function () {
+                        jQuery(".b-s-glow").on("click", function () {
                             jQuery(".control-b-s").spinner("value", 0);
                             jQuery(".control-b-s-blur").spinner("value", 35);
                             jQuery(".b-s-color").val("0000FF").keyup();

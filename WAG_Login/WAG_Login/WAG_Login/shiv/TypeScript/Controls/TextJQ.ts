@@ -115,7 +115,7 @@ export module Text {
         }
 
         public static AttachClearText() {
-            jQuery(TextJQ.pageId).find(TextJQ.BTN_CLEAR_TEXT).click(function (e, s) {
+            jQuery(TextJQ.pageId).find(TextJQ.BTN_CLEAR_TEXT).on("click",function (e, s) {
                 jQuery(TextJQ.JTEEditorClass).html('');
 
                 var text = new TextJQ();
@@ -124,7 +124,7 @@ export module Text {
         }
 
         public static AttachInsertText() {
-            jQuery(TextJQ.pageId).find(TextJQ.BTN_INSERT_TEXT).click(function (e, s) {
+            jQuery(TextJQ.pageId).find(TextJQ.BTN_INSERT_TEXT).on("click",function (e, s) {
 
                 TextJQ.InsertTextBlock("Sample text to edit");
             });

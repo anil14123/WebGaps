@@ -30,7 +30,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                 this.AttachReset();
             };
             AddRowJQ.prototype.AttachReset = function () {
-                jQuery("#btnResetAddRowControls").click(function () {
+                jQuery("#btnResetAddRowControls").on("click", function () {
                     var ar = new AddRowJQ();
                     ar.ResetAddRowsControls();
                 });
@@ -82,7 +82,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_VALUE_CONTROL).text(jQuery(AddRowJQ.COLUMN_HEIGHT_CONTROL).val() + ' pixels');
             };
             AddRowJQ.prototype.RowColumnNamesDDN = function () {
-                jQuery(AddRowJQ.pageId).find(AddRowJQ.DDN_ROWS_COLUMNS).change(function () {
+                jQuery(AddRowJQ.pageId).find(AddRowJQ.DDN_ROWS_COLUMNS).on("change", function () {
                     //not done [mark]
                     var selectedRowOrColumn = jQuery("#rows-columns option:selected").val();
                     if (selectedRowOrColumn == ".jq-Content") {
@@ -138,7 +138,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                 }
             };
             AddRowJQ.prototype.AddRow = function (callBackLoadRowAndColumnNames) {
-                jQuery(".control-columns").click(function () {
+                jQuery(".control-columns").on("click", function () {
                     var columnSet = jQuery(this).attr("data-set");
                     if (columnSet == "1") {
                         jQuery(this).attr("data-set", "0");
@@ -214,10 +214,10 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         if (jQuery(".jq-show-plus").css("display") != "none") {
                             jQuery(".jq-row-plus-container").hide();
                         }
-                        jQuery("#control-common-execute").click();
+                        jQuery("#control-common-execute").trigger("click");
                     }
                 });
-                jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).click(function (e, s) {
+                jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).on("click", function (e, s) {
                     jQuery(".removable-row").removeClass("removable-row");
                     if (callBackLoadRowAndColumnNames != undefined) {
                         callBackLoadRowAndColumnNames();
@@ -225,7 +225,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                 });
             };
             AddRowJQ.prototype.ControlColumns = function () {
-                jQuery(AddRowJQ.pageId).find(AddRowJQ.CONTROL_COLUMNS).click(function (e, s) {
+                jQuery(AddRowJQ.pageId).find(AddRowJQ.CONTROL_COLUMNS).on("click", function (e, s) {
                     //var columnSet = jQuery(this).attr("data-set");
                     //if (columnSet == "1") {
                     //    jQuery(this).attr("data-set", "0");
@@ -239,13 +239,13 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
             };
             AddRowJQ.prototype.ControlRowHeight = function () {
                 AddRowJQ.SetRowHeightControl(impConsts.Constants.ConstantsJQ.HEIGHTCONTROLRESETVALUE);
-                jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).change(function () {
+                jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).on("change", function () {
                     jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_VALUE_CONTROL).text(jQuery(this).val() + ' pixels');
                 });
             };
             AddRowJQ.prototype.ControlColumnHeight = function () {
                 AddRowJQ.SetColumnHeightControl(impConsts.Constants.ConstantsJQ.HEIGHTCONTROLRESETVALUE);
-                jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).change(function () {
+                jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).on("change", function () {
                     jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_VALUE_CONTROL).text(jQuery(this).val() + ' pixels');
                 });
             };

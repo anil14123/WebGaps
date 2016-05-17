@@ -32,7 +32,7 @@ export module Color {
                     
                     //// all remove methods are in color
 
-                    jQuery(".remove-bi").click(function () {
+                    jQuery(".remove-bi").on("click",function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -50,7 +50,7 @@ export module Color {
                         }
                     });
 
-                    jQuery(".remove-border").click(function () {
+                    jQuery(".remove-border").on("click",function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -68,7 +68,7 @@ export module Color {
                         }
                     });
 
-                    jQuery(".remove-opacity").click(function () {
+                    jQuery(".remove-opacity").on("click" ,function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -86,7 +86,7 @@ export module Color {
                         }
                     });
 
-                    jQuery(".remove-padding").click(function () {
+                    jQuery(".remove-padding").on("click" ,function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -104,7 +104,7 @@ export module Color {
                         }
                     });
 
-                    jQuery(".remove-margin").click(function () {
+                    jQuery(".remove-margin").on("click",function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -122,7 +122,7 @@ export module Color {
                         }
                     });
 
-                    jQuery(".remove-gradient").click(function () {
+                    jQuery(".remove-gradient").on("click", function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 

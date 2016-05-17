@@ -10,11 +10,11 @@ define(["require", "exports"], function (require, exports) {
                 jQuery(document).ready(function () {
                     if (isPreviewReady == false) {
                         isPreviewReady = true;
-                        jQuery(".close-preview").click(function () {
+                        jQuery(".close-preview").on("click", function () {
                             jQuery(".editor").css("display", "block");
                             PreviewJQ.ClosePreview();
                         });
-                        jQuery(".show-preview").click(function () {
+                        jQuery(".show-preview").on("click", function () {
                             if (jQuery(".control-templates").css("display") == "none") {
                                 jQuery(".editor").attr("style", " display: none !important;");
                                 jQuery(".circle-deg").remove(); // remove selected object 4 corner circles.

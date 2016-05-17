@@ -67,7 +67,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 return false;
             };
             SelfJQ.prototype.AttachInsertImage = function () {
-                jQuery(SelfJQ.controlId).find(".action-button-insert-image").click(function () {
+                jQuery(SelfJQ.controlId).find(".action-button-insert-image").on("click", function () {
                     if (jQuery(".internet-image-url").val() != "") {
                         SelfJQ.InsertImage(jQuery(".internet-image-url").val());
                     }
@@ -75,7 +75,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         SelfJQ.InsertImage(undefined);
                     }
                 });
-                jQuery(".action-button-change-image").click(function () {
+                jQuery(".action-button-change-image").on("click", function () {
                     var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;
                     if (selectedRowOrColumn != undefined
                         &&
@@ -215,7 +215,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 jQuery(".internet-image-url").val("");
             };
             SelfJQ.prototype.AttachUserImages = function () {
-                jQuery(".load-more-images").click(function () {
+                jQuery(".load-more-images").on("click", function () {
                     SelfJQ.GetImages();
                 });
                 jQuery(SelfJQ.controlId).on("custom_loaded", function () {

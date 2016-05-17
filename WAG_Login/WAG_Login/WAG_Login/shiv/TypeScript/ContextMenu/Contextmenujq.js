@@ -16,7 +16,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
             };
             ContextMenuJQ.ContextMenuBinding = function () {
                 // context menu event ...
-                jQuery(document).bind("click", function (e) {
+                jQuery(document).on("click", function (e) {
                     var contextMenu = new ContextMenuJQ();
                     contextMenu.DetectContextMenu();
                 });
@@ -236,11 +236,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 });
             };
             ContextMenuJQ.AttachControlPageClose = function () {
-                jQuery(".control-templates").find(".close-button").click(function () {
+                jQuery(".control-templates").find(".close-button").on("click", function () {
                     jQuery(".control-page").removeClass("control-active");
                     ContextMenuJQ.ShowProperties();
                 });
-                jQuery(".control-page").find(".close-button").click(function () {
+                jQuery(".control-page").find(".close-button").on("click", function () {
                     jQuery(".control-page").removeClass("control-active");
                     ContextMenuJQ.ShowProperties();
                     jQuery(".internet-bi-image-url").val("");
@@ -570,7 +570,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 });
             };
             ContextMenuJQ.ContextInnerMenuShowHide = function () {
-                jQuery("#contextMenuitems").find(".li").mouseenter(function (e) {
+                jQuery("#contextMenuitems").find(".li").on("mouseenter", function (e) {
                     // adjustment based on window.
                     var left = 147;
                     if (e.pageX > ($(document).width() - 200)) {
@@ -579,13 +579,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     jQuery(this).parent().find(".innerListContainer").first().css("left", left + "px");
                     jQuery(this).parent().find(".innerListContainer").first().css("display", "block");
                 });
-                jQuery("#contextMenuitems").find("li").mouseleave(function (e) {
+                jQuery("#contextMenuitems").find("li").on("mouseleave", function (e) {
                     jQuery(this).find(".innerListContainer").first().css("display", "none");
                 });
             };
             ContextMenuJQ.LiClick = function () {
                 // selected item ...
-                jQuery("#contextMenuitems > li").click(function () {
+                jQuery("#contextMenuitems > li").on("click", function () {
                     // alert($(this).text());  // Performing the selected function.
                 });
             };

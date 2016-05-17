@@ -15,7 +15,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 jQuery(document).ready(function () {
                     if (isBorderReady == false) {
                         isBorderReady = true;
-                        jQuery(".margin-advanced-show").click(function () {
+                        jQuery(".margin-advanced-show").on("click", function () {
                             jQuery(".jq-margin-advanced").fadeToggle(1);
                         });
                         jQuery(".control-margin-margin").spinner({

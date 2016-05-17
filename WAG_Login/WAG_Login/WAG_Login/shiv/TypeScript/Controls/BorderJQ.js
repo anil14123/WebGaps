@@ -16,12 +16,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                 jQuery(document).ready(function () {
                     if (isBorderReady == false) {
                         isBorderReady = true;
-                        jQuery(".border-style").click(function () {
+                        jQuery(".border-style").on("click", function () {
                             jQuery(".border-style").parent().removeClass("border-style-selected");
                             jQuery(this).parent().addClass("border-style-selected");
                             BorderJQ.OnChange(this);
                         });
-                        jQuery(".border-advanced-show").click(function () {
+                        jQuery(".border-advanced-show").on("click", function () {
                             jQuery(".jq-border-advanced").fadeToggle(1);
                         });
                         jQuery(".control-border-thickness-radius").spinner({

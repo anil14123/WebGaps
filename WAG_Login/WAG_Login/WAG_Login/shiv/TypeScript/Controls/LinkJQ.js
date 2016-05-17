@@ -45,7 +45,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                 return "NormalLink" + ++impStatic.Constants.StaticJQ.normalLinkId;
             };
             LinkJQ.prototype.AttachEvents = function () {
-                jQuery("#insert-internet-link-url").change(function () {
+                jQuery("#insert-internet-link-url").on("change", function () {
                     LinkJQ.IsExternalUrl = true;
                     jQuery("#insert-internet-link-name").val("Give Name");
                     var value;
@@ -69,7 +69,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                     var previewlink = LinkJQ.CreateCurrentLink(true, jQuery(this).val(), jQuery("#insert-internet-link-name").val());
                     jQuery(".insert-link-preview").html(previewlink);
                 });
-                jQuery("#insert-internet-link-name").change(function () {
+                jQuery("#insert-internet-link-name").on("change", function () {
                     LinkJQ.IsExternalUrl = true;
                     if (jQuery(this).val() != "Give Name") {
                         var previewlink = LinkJQ.CreateCurrentLink(true, jQuery("#insert-internet-link-url").val(), jQuery(this).val());
@@ -85,7 +85,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                         }
                     }
                 });
-                jQuery(".btn-style").click(function () {
+                jQuery(".btn-style").on("click", function () {
                     jQuery(".btn-style").removeClass("btn-style-selected");
                     jQuery(this).addClass("btn-style-selected");
                     var previewlink;
@@ -97,7 +97,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                     }
                     jQuery(".insert-link-preview").html(previewlink);
                 });
-                jQuery(".action-button-insert-link").click(function () {
+                jQuery(".action-button-insert-link").on("click", function () {
                     var linkToInsert;
                     if (LinkJQ.IsExternalUrl == true) {
                         linkToInsert = LinkJQ.CreateCurrentLink(false, jQuery("#insert-internet-link-url").val(), jQuery("#insert-internet-link-name").val());
@@ -112,7 +112,7 @@ define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../../typescr
                         var undo = new impUndoManager.Manager.UndoManager();
                         undo.BeforeOperation();
                         jQuery("page a").not(".jq-logout").unbind("click");
-                        jQuery("page a").not(".jq-logout").click(function () {
+                        jQuery("page a").not(".jq-logout").on("click", function () {
                             impCommonCode.ControlCommon.Code.AnchorClicked = true;
                         });
                         impCommonCode.ControlCommon.Code.DestroyResizable();

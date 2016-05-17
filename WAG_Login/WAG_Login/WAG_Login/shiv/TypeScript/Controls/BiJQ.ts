@@ -39,16 +39,9 @@ export module BI {
 
                         change: function (event, ui) {
 
-
-
-                        
                         },
                         spin: function (event, ui) {
 
-                           
-
-
-                           
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
 
@@ -81,14 +74,14 @@ export module BI {
                     });                   
             
 
-                    jQuery(".bi-browse").click(function () {
+                    jQuery(".bi-browse").on("click" ,function () {
 
                         impImage.Image.SelfJQ.GetImages();
 
                         jQuery("#control-image-bi-library").show();
                     });
 
-                    jQuery(".make-100").click(function () {
+                    jQuery(".make-100").on("click" ,function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -111,7 +104,7 @@ export module BI {
 
                     });
 
-                    jQuery(".ddn-bi-pixel-type").change(function () {
+                    jQuery(".ddn-bi-pixel-type").on("change" , function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
@@ -128,7 +121,7 @@ export module BI {
 
                     });
 
-                    jQuery(".action-button-insert-bi-image").click(function () {
+                    jQuery(".action-button-insert-bi-image").on("click" , function () {
 
                         var src = jQuery(".image-library-bi-select").first().attr("src");
 
@@ -140,7 +133,7 @@ export module BI {
                         jQuery("#control-image-bi-library").hide();
                     });
 
-                    jQuery(".control-bi-controls .bi-selected-image").change(function () {
+                    jQuery(".control-bi-controls .bi-selected-image").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         var applyToBody = jQuery(".bi-body").is(':checked'); 
@@ -163,7 +156,7 @@ export module BI {
                         }
                     });
 
-                    jQuery(".control-bi-controls .internet-bi-image-url").change(function () {
+                    jQuery(".control-bi-controls .internet-bi-image-url").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {
@@ -177,7 +170,7 @@ export module BI {
                     });
 
 
-                    jQuery(".control-bi-controls .ddn-bi-repeat").change(function () {
+                    jQuery(".control-bi-controls .ddn-bi-repeat").on("change",function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {
@@ -189,7 +182,7 @@ export module BI {
                         }
                     });
 
-                    jQuery(".control-bi-controls .ddn-bi-attachment").change(function () {
+                    jQuery(".control-bi-controls .ddn-bi-attachment").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {
@@ -201,7 +194,7 @@ export module BI {
                         }
                     });
 
-                    jQuery(".control-bi-controls .ddn-bi-position").change(function () {
+                    jQuery(".control-bi-controls .ddn-bi-position").on("change",function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
                         if (selectedElement != undefined) {

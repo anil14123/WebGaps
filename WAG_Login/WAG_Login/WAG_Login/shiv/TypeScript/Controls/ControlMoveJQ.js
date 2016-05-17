@@ -13,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
                 this.MouseMove();
             };
             ControlMoveJQ.prototype.MouseDown = function () {
-                jQuery('.control-move-area').mousedown(function (e) {
+                jQuery('.control-move-area').on("mousedown", function (e) {
                     control = jQuery(this).closest(".control-page");
                     if (control.length == 0) {
                         control = jQuery(this).closest(".control-properties");
@@ -23,14 +23,14 @@ define(["require", "exports"], function (require, exports) {
                 });
             };
             ControlMoveJQ.prototype.MouseUp = function () {
-                jQuery(document).mouseup(function (e) {
+                jQuery(document).on("mouseup", function (e) {
                     clicking = false;
                     //$('.clickstatus').text('mouseup');
                     //$('.movestatus').text('click released, no more move event');
                 });
             };
             ControlMoveJQ.prototype.MouseMove = function () {
-                jQuery(document).mousemove(function (e) {
+                jQuery(document).on("mousemove", function (e) {
                     if (clicking == false)
                         return;
                     if ((e.clientX + 20) > jQuery(window).width() || (e.clientY + 20) > jQuery(window).height()) {

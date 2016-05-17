@@ -46,7 +46,7 @@ export module Page {
         }
 
         AttachReset() {
-            jQuery("#btnResetAddRowControls").click(function () {
+            jQuery("#btnResetAddRowControls").on("click",function () {
                 var ar = new AddRowJQ();
                 ar.ResetAddRowsControls();
             });
@@ -126,7 +126,7 @@ export module Page {
 
 
         RowColumnNamesDDN() {
-            jQuery(AddRowJQ.pageId).find(AddRowJQ.DDN_ROWS_COLUMNS).change(function () {
+            jQuery(AddRowJQ.pageId).find(AddRowJQ.DDN_ROWS_COLUMNS).on("change" ,function () {
 
                 //not done [mark]
                 var selectedRowOrColumn = jQuery("#rows-columns option:selected").val();
@@ -203,7 +203,7 @@ export module Page {
 
         AddRow(callBackLoadRowAndColumnNames) {
 
-            jQuery(".control-columns").click(function () {
+            jQuery(".control-columns").on("click" ,function () {
             
                 var columnSet = jQuery(this).attr("data-set");
 
@@ -320,13 +320,13 @@ export module Page {
                         jQuery(".jq-row-plus-container").hide();
                     }
 
-                    jQuery("#control-common-execute").click();
+                    jQuery("#control-common-execute").trigger("click");
 
                 }
             });
 
 
-            jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).click(function (e, s) {
+            jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).on("click",function (e, s) {
 
                 jQuery(".removable-row").removeClass("removable-row");
                 
@@ -340,7 +340,7 @@ export module Page {
 
         ControlColumns() {
 
-            jQuery(AddRowJQ.pageId).find(AddRowJQ.CONTROL_COLUMNS).click(function (e, s) {
+            jQuery(AddRowJQ.pageId).find(AddRowJQ.CONTROL_COLUMNS).on("click",function (e, s) {
 
                 //var columnSet = jQuery(this).attr("data-set");
 
@@ -359,7 +359,7 @@ export module Page {
 
             AddRowJQ.SetRowHeightControl(impConsts.Constants.ConstantsJQ.HEIGHTCONTROLRESETVALUE);
 
-            jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).change(function () {
+            jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_CONTROL).on("change" ,function () {
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.ROW_HEIGHT_VALUE_CONTROL).text(jQuery(this).val() + ' pixels');
             });
         }
@@ -368,7 +368,7 @@ export module Page {
 
             AddRowJQ.SetColumnHeightControl(impConsts.Constants.ConstantsJQ.HEIGHTCONTROLRESETVALUE);
 
-            jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).change(function () {
+            jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_CONTROL).on("change" ,function () {
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.COLUMN_HEIGHT_VALUE_CONTROL).text(jQuery(this).val() + ' pixels');
             });
         }

@@ -28,7 +28,7 @@ export module MyJQte {
             if (initOnce == false) {
                 initOnce = true;
 
-                jQuery(".jqte-editor-tool").click(function () {
+                jQuery(".jqte-editor-tool").on("click" ,function () {
                     return false;
                 });
 
@@ -174,7 +174,7 @@ export module MyJQte {
 
 
 
-            jQuery(document).not(".editor").click(function (e) {
+            jQuery(document).not(".editor").on("click" ,function (e) {
 
                 if (!jQuery(e.target).hasClass("jqte-editor-tool-p")) {
                     jQuery(".jqte-editor-tool-list").hide();
@@ -182,7 +182,7 @@ export module MyJQte {
 
             });
 
-            $(".jqte-editor-tool,.jqte-editor-tool-p").mouseup(function (e) {
+            $(".jqte-editor-tool,.jqte-editor-tool-p").on("mouseup" ,function (e) {
                 jQuery(this).removeClass("highlight-tool");
 
                 if (e.cancelBubble != null) e.cancelBubble = true;
@@ -192,7 +192,7 @@ export module MyJQte {
                 return false;
             });
 
-            $(".jqte-editor-tool,.jqte-editor-tool-p").mousedown(function (e) {
+            $(".jqte-editor-tool,.jqte-editor-tool-p").on("mousedown" ,function (e) {
 
                // jQuery(this).addClass("highlight-tool");
                 jQuery(".jqte-color-palette").css("display", "none");
@@ -351,7 +351,7 @@ export module MyJQte {
             });
 
 
-            jQuery(".editor-create-link").click(function (e) {
+            jQuery(".editor-create-link").on("click" ,function (e) {
 
                 jQuery(".current-editor-scope").find("font[color='#003399']").find("a").first().attr("href", jQuery(".link-window-url").val());
                 jQuery(".current-editor-scope").find("font[color='#003399']").removeAttr("color");
@@ -448,7 +448,7 @@ export module MyJQte {
 
             });
 
-            $(".jqte-editor-tool-c").mousedown(function (e) {
+            $(".jqte-editor-tool-c").on("mousedown", function (e) {
 
                 debugger;
                 if (jQuery(this).parent().hasClass("font-name")) {
@@ -506,7 +506,7 @@ export module MyJQte {
 
             });
 
-            $(".jq-color").mousedown(function (e) {
+            $(".jq-color").on("mousedown" ,function (e) {
 
                 if (jQuery(".current-color-tool").length > 0) {
 

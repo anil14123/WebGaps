@@ -69,14 +69,14 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                 });
             };
             TextJQ.AttachClearText = function () {
-                jQuery(TextJQ.pageId).find(TextJQ.BTN_CLEAR_TEXT).click(function (e, s) {
+                jQuery(TextJQ.pageId).find(TextJQ.BTN_CLEAR_TEXT).on("click", function (e, s) {
                     jQuery(TextJQ.JTEEditorClass).html('');
                     var text = new TextJQ();
                     text.PreviewInsertText('notify help');
                 });
             };
             TextJQ.AttachInsertText = function () {
-                jQuery(TextJQ.pageId).find(TextJQ.BTN_INSERT_TEXT).click(function (e, s) {
+                jQuery(TextJQ.pageId).find(TextJQ.BTN_INSERT_TEXT).on("click", function (e, s) {
                     TextJQ.InsertTextBlock("Sample text to edit");
                 });
             };

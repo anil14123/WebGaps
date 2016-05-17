@@ -84,7 +84,7 @@ export module Link {
 
         public AttachEvents() {
 
-            jQuery("#insert-internet-link-url").change(function () {
+            jQuery("#insert-internet-link-url").on("change",function () {
 
                 LinkJQ.IsExternalUrl = true;
 
@@ -120,7 +120,7 @@ export module Link {
 
             });
 
-            jQuery("#insert-internet-link-name").change(function () {
+            jQuery("#insert-internet-link-name").on("change" ,function () {
 
                 LinkJQ.IsExternalUrl = true;
 
@@ -142,7 +142,7 @@ export module Link {
 
             });
 
-            jQuery(".btn-style").click(function () {
+            jQuery(".btn-style").on("click" ,function () {
 
                 jQuery(".btn-style").removeClass("btn-style-selected");
                 jQuery(this).addClass("btn-style-selected");
@@ -161,7 +161,7 @@ export module Link {
 
             });
 
-            jQuery(".action-button-insert-link").click(function () {
+            jQuery(".action-button-insert-link").on("click" ,function () {
 
                 var linkToInsert;
 
@@ -186,7 +186,7 @@ export module Link {
                     undo.BeforeOperation();
 
                     jQuery("page a").not(".jq-logout").unbind("click");
-                    jQuery("page a").not(".jq-logout").click(function () {
+                    jQuery("page a").not(".jq-logout").on("click",function () {
                         impCommonCode.ControlCommon.Code.AnchorClicked = true;
                     });
 

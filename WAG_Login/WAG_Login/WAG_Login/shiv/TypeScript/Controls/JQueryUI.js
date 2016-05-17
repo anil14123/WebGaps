@@ -637,7 +637,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         });
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         jQuery(".empty").removeClass("empty");
-                        jQuery("#control-common-execute").click();
+                        jQuery("#control-common-execute").trigger("click");
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;

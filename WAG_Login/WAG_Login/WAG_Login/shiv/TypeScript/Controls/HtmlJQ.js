@@ -13,10 +13,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 }
             };
             HtmlJQ.prototype.AttachEvents = function () {
-                jQuery(".action-button-insert-html-clear").click(function () {
+                jQuery(".action-button-insert-html-clear").on("click", function () {
                     jQuery(".input-html").val("");
                 });
-                jQuery(".action-button-insert-html").click(function () {
+                jQuery(".action-button-insert-html").on("click", function () {
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                     if (selectedElement != undefined) {
                         var html = jQuery(".input-html").val();
