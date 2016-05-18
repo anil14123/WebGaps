@@ -12,9 +12,9 @@
 
     <title>Web Gaps</title>
 
-    <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
+  <%--  <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
 
-    <script src="/Library/jquery-ui.js"></script>
+    <script src="/Library/jquery-ui.js"></script>--%>
 
     <link rel="stylesheet" href="/Content/jquery-ui.min.css" type="text/css" />
 
@@ -41,7 +41,7 @@
     <link href="../my-jqte.css.css" rel="stylesheet" type="text/css" />
 
     <link href="/JQte.css" rel="stylesheet" type="text/css" />
-    <script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>
+    <%--<script src="/Third-Party/jte/uncompressed/jquery-te-1.4.0.js"></script>--%>
     <%--<link href="/Third-Party/colpick-jQuery-Color-Picker-master/css/colpick.css" rel="stylesheet" />--%>
     <%--<link href="/ColorPicker.css" rel="stylesheet" />--%>
     <link href="/Cursors.css" rel="stylesheet" />
@@ -52,12 +52,12 @@
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-    <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
+    <script data-main="TypeScript/app2.js?v=2" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
 
     <link href="/Scripts/evoluteur.colorpicker/colorpicker-master/css/evol.colorpicker.css" rel="stylesheet" />
-    <script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>
+    <%--<script src="/Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker.js"></script>--%>
 
     <link href="/designer.css" rel="stylesheet" />
     <link href="/JqPlus.css" rel="stylesheet" />

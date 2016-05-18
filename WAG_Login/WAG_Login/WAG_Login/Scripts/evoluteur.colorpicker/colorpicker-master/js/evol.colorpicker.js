@@ -33,6 +33,7 @@ function isOnScreen(el) {
 
 (function ($, undefined) {
 
+    
     var _idx = 0,
         ua = window.navigator.userAgent,
         isIE = ua.indexOf("MSIE ") > 0,

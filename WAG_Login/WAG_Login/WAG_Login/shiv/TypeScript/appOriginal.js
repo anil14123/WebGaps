@@ -18,7 +18,7 @@ requirejs.config({
             deps: [
                  'jquery'
             ],
-            exports: '$'
+            exports: 'jQuery'
         },
         colPicker: {
             deps: [

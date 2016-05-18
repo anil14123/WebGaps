@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../sitemanager_ts/site/sitejq.ts" />
 
 import impPage = require("../../SiteManager_TS/Site/SiteJQ");
-import impError = require("../../typescript/error/errorjq");
+import impError = require("../error/errorjq");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");

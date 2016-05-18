@@ -300,6 +300,7 @@
       <DependentUpon>controls.css</DependentUpon>
     </Content>
     <Content Include="InsertTools.css" />
+    <Content Include="Library\globalJSCommon.js" />
     <Content Include="Nestable.css" />
     <Content Include="PropertiesTag.css" />
     <Content Include="Scripts\Colors\Colors.aspx" />
@@ -536,6 +537,9 @@
     <Content Include="Scripts\inliner-master\README.md" />
     <Content Include="Scripts\inliner-master\test\fixtures\iconv.opts.json" />
     <Content Include="Scripts\inliner-master\test\fixtures\inline-svg-no-svgo.opts.json" />
+    <Content Include="shiv\TypeScript\app.build.js" />
+    <Content Include="shiv\TypeScript\MainJQ.js" />
+    <Content Include="shiv\TypeScript\SiteManager_TS\app.js" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
@@ -619,7 +623,7 @@
     <Content Include="shiv\SitesManager.aspx" />
     <Content Include="shiv\Steps.aspx" />
     <Content Include="shiv\Tools.aspx" />
-    <Content Include="shiv\TypeScript\appforRjs.js" />
+    <Content Include="shiv\TypeScript\appForRs.js" />
     <Content Include="Site.Master" />
     <Content Include="SiteManager.css" />
     <Content Include="SiteTheme\templated-horizons\css\font-awesome.min.css" />
@@ -1152,6 +1156,7 @@
     <Folder Include="Secure\" />
     <Folder Include="Service References\" />
     <Folder Include="Services\Sites\" />
+    <Folder Include="shiv\TypeScript\appdirectory-build\" />
     <Folder Include="shiv\TypeScript\Themes\All\" />
     <Folder Include="Snippet\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
@@ -1227,6 +1232,8 @@
     <TypeScriptCompile Include="shiv\TypeScript\Page\PageElementBaseJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Page\PageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Preview\Preview.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\SiteManager_TS\MainJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\SiteManager_TS\Site\SiteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\SmartMenu\SmartMenuJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Template\TemplateJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Themes\EmptyLayout\EmptyLayoutJQ.ts" />
