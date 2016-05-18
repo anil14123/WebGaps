@@ -52,7 +52,7 @@
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-    <script data-main="TypeScript/app2.js?v=2" src="/Library/require.js"></script>
+    <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
 
@@ -98,40 +98,7 @@
 
     <script>
 
-        jQuery(document).ready(function () {
-
-            jQuery("#tabs").tabs();
-            jQuery("#properties-accordion").accordion({
-                collapsible: true,
-                heightStyle: 'accordion-properties-height',
-                //beforeActivate: function (event, ui) {
-                //    ui.newHeader.add(ui.newPanel).prependTo(this)
-                //}
-            });
-
-
-            //$(".testnav").addClass("ui-menu ui-widget ui-widget-content ui-corner-all");
-            //$(".testnav li").addClass("ui-menu-item");
-            //$(".sub-menu").hide();
-
-            //$(".clk").mouseover(function () {
-
-            //    var menu = "#nav";
-            //    var position = { my: "left top", at: "left bottom+8" };
-            //    $(menu).menu({
-            //        position: position,
-            //        blur: function () {
-            //            $(this).menu("option", "position", position);
-            //        },
-            //        focus: function (e, ui) {
-            //            if ($(menu).get(0) !== $(ui).get(0).item.parent().get(0)) {
-            //                $(this).menu("option", "position", { my: "left top", at: "left top" });
-            //            }
-            //        }
-            //    });
-            //});
-
-        });
+       
 
     </script>
 
@@ -3369,12 +3336,14 @@
 
     <script>
 
-        var loading = jQuery(".loading.clonable").clone();
 
-        loading.addClass("new")
-        loading.removeClass("clonable");
-        loading.removeClass("hide");
-        jQuery(".control-templates").append(loading);
+        /// need to check this 
+        //var loading = jQuery(".loading.clonable").clone();
+
+        //loading.addClass("new")
+        //loading.removeClass("clonable");
+        //loading.removeClass("hide");
+        //jQuery(".control-templates").append(loading);
 
     </script>
 
@@ -3718,41 +3687,6 @@
 
     <button id="control-common-execute" style="display: none;">
     </button>
-
-
-    <script>
-
-        $(".leaf_type_btn").on("click", function () {
-            $(".leaf_type_btn").parent().removeClass("active");
-            $(this).parent().addClass("active");
-
-            $("#leaf_container .leaf_type").removeClass("active");
-
-            switch ($(this).parent().data("name")) {
-                case 'webs.bldr.modules.container.popular':
-                    $("#leaf_container .leaf_type:eq(0)").addClass("active");
-                    break;
-                case 'webs.bldr.modules.container.structure':
-                    $("#leaf_container .leaf_type:eq(1)").addClass("active");
-                    break;
-                case 'webs.bldr.modules.container.media':
-                    $("#leaf_container .leaf_type:eq(2)").addClass("active");
-                    break;
-                case 'webs.bldr.modules.container.social':
-                    $("#leaf_container .leaf_type:eq(3)").addClass("active");
-                    break;
-                case 'webs.bldr.modules.container.commerce':
-                    $("#leaf_container .leaf_type:eq(4)").addClass("active");
-                    break;
-                case 'webs.bldr.dock.ads.appfeeds':
-                    $("#leaf_container .leaf_type:eq(5)").addClass("active");
-                    break;
-            }
-
-        });
-
-
-    </script>
 
 </body>
 </html>

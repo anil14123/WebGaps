@@ -74,8 +74,60 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
             };
             CommonEvents.prototype.Init = function () {
                 if (CommonEvents.CheckMal() == false) {
-                    impmal.MalFormed.MalFormedJQ.IsMalFormed = true;
+                    impmal.MalFormed.MalFormedJQ.IsMalFormed = false; // i modified to false 
                 }
+                /// Designer.aspx code
+                jQuery(document).ready(function () {
+                    jQuery("#tabs").tabs();
+                    jQuery("#properties-accordion").accordion({
+                        collapsible: true,
+                        heightStyle: 'accordion-properties-height',
+                    });
+                    //$(".testnav").addClass("ui-menu ui-widget ui-widget-content ui-corner-all");
+                    //$(".testnav li").addClass("ui-menu-item");
+                    //$(".sub-menu").hide();
+                    //$(".clk").mouseover(function () {
+                    //    var menu = "#nav";
+                    //    var position = { my: "left top", at: "left bottom+8" };
+                    //    $(menu).menu({
+                    //        position: position,
+                    //        blur: function () {
+                    //            $(this).menu("option", "position", position);
+                    //        },
+                    //        focus: function (e, ui) {
+                    //            if ($(menu).get(0) !== $(ui).get(0).item.parent().get(0)) {
+                    //                $(this).menu("option", "position", { my: "left top", at: "left top" });
+                    //            }
+                    //        }
+                    //    });
+                    //});
+                });
+                $(".leaf_type_btn").on("click", function () {
+                    $(".leaf_type_btn").parent().removeClass("active");
+                    $(this).parent().addClass("active");
+                    $("#leaf_container .leaf_type").removeClass("active");
+                    switch ($(this).parent().data("name").toString()) {
+                        case 'webs.bldr.modules.container.popular':
+                            $("#leaf_container .leaf_type:eq(0)").addClass("active");
+                            break;
+                        case 'webs.bldr.modules.container.structure':
+                            $("#leaf_container .leaf_type:eq(1)").addClass("active");
+                            break;
+                        case 'webs.bldr.modules.container.media':
+                            $("#leaf_container .leaf_type:eq(2)").addClass("active");
+                            break;
+                        case 'webs.bldr.modules.container.social':
+                            $("#leaf_container .leaf_type:eq(3)").addClass("active");
+                            break;
+                        case 'webs.bldr.modules.container.commerce':
+                            $("#leaf_container .leaf_type:eq(4)").addClass("active");
+                            break;
+                        case 'webs.bldr.dock.ads.appfeeds':
+                            $("#leaf_container .leaf_type:eq(5)").addClass("active");
+                            break;
+                    }
+                });
+                ///////////////////////////////////////////////////
                 ///////////// change image ////////////////
                 jQuery(".button-change-image").on("click", function () {
                     impImage.Image.SelfJQ.ChangeImage();
