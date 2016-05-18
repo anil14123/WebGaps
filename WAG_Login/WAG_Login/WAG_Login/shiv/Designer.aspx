@@ -245,6 +245,13 @@
 </head>
 <body>
 
+  <%--
+    <iframe id="loadingIframe" style="z-index:99999999999999999999999999999; position:absolute; top:0; height:100%; width:100%; left:0; bottom:0; right:0" src="loading.aspx"> 
+        
+    </iframe>
+ --%>
+
+
     <div class="loading hide clonable" style="padding: 0;">
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
@@ -328,9 +335,15 @@
         <span class=" visible-xs">Double click on Phone for Menu</span>
     </div>
 
-    <div class="jq-properties-tag">
-        <span class="delete"></span>
-        <span class="settings"></span>
+    <div class="jq-properties-tag" style="">
+        
+        <span class="jq-left tag-control button-move-left"> <span class="fa fa-arrow-left "></span> </span>
+        <span class="jq-right tag-control button-move-right"> <span class="fa fa-arrow-right "></span> </span>
+
+        <span class="jq-design tag-control"> <span class="fa fa-paint-brush fa-2x"></span> </span>
+        <span class="jq-settings tag-control"> <span class="fa fa-cog fa-2x"></span> </span>
+        <span class="jq-delete tag-control tag-color-red"> <span class="fa fa-remove fa-2x" ></span></span>
+        
     </div>
 
     <span id="noelement22"></span>
@@ -1036,7 +1049,8 @@
         </div>
     </div>
 
-    <div class="align-center show-hide-menu absolute" style="left: 600px">
+   <%-- 
+       <div class="align-center show-hide-menu absolute" style="left: 600px">
         <span class="show-hide-menu-btn fa fa-angle-double-up hide-menu black pointer btn-xs btn btn-default"></span>
         <span class="show-hide-menu-btn fa fa-angle-double-down show-menu black btn btn-xs btn-default"></span>
     </div>
@@ -1044,6 +1058,7 @@
     <div id="hideMenuHelpTop">
         <span class="fa fa-hand-o-left help-guid help-guid-hide-menu">&nbsp; Hide Menu </span>
     </div>
+  --%>
 
     <style>
         .help-guid {

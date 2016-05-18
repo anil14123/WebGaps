@@ -537,7 +537,10 @@
     <Content Include="Scripts\inliner-master\README.md" />
     <Content Include="Scripts\inliner-master\test\fixtures\iconv.opts.json" />
     <Content Include="Scripts\inliner-master\test\fixtures\inline-svg-no-svgo.opts.json" />
+    <Content Include="shiv\Loading.aspx" />
+    <Content Include="shiv\loading.gif" />
     <Content Include="shiv\TypeScript\app.build.js" />
+    <Content Include="shiv\TypeScript\compiler.jar" />
     <Content Include="shiv\TypeScript\MainJQ.js" />
     <Content Include="shiv\TypeScript\SiteManager_TS\app.js" />
     <Content Include="WebForm2.aspx" />
@@ -1046,6 +1049,13 @@
     <Compile Include="Services\PageService.asmx.cs">
       <DependentUpon>PageService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="shiv\Loading.aspx.cs">
+      <DependentUpon>Loading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shiv\Loading.aspx.designer.cs">
+      <DependentUpon>Loading.aspx</DependentUpon>
     </Compile>
     <Compile Include="shiv\PageManager.aspx.cs">
       <DependentUpon>PageManager.aspx</DependentUpon>

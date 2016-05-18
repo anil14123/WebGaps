@@ -2,7 +2,14 @@
 wrapShim: true,
  baseUrl: "../../shiv/TypeScript",
   
-optimize: "uglify",
+ optimize: "uglify",
+
+ closure: {
+     CompilerOptions: {},
+     CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
+     loggingLevel: 'WARNING'
+ },
+
 uglify2: {
         //Example of a specialized config. If you are fine
         //with the default options, no need to specify
@@ -45,5 +52,5 @@ uglify2: {
     //call for a module used for mainConfigFile, since requirejs will read
     //"deps" during runtime to do the equivalent of require(deps) to kick
     //off some module loading.
-    deps: ["../../Library/globalJSCommon.js"],
+    //deps: ["../../Library/globalJSCommon.js"],
 })

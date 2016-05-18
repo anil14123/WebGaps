@@ -113,7 +113,7 @@ export module NoUI {
                     || selectedElement.prevAll(".key").first().length == 0) {
                     var eh = new impError.ErrorHandle.ErrorJQ();
 
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
+                   // eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
                 }
 
                 selectedElement.insertBefore(selectedElement.prevAll(".key").first());
@@ -127,7 +127,7 @@ export module NoUI {
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                       // eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
                     }
 
                     selectedElement.insertBefore(selectedElement.prevAll(".key").first());
@@ -141,7 +141,7 @@ export module NoUI {
 
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                       // eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
                     }
 
 
@@ -170,7 +170,7 @@ export module NoUI {
                     || selectedElement.nextAll(".key").first().length == 0) {
                     var eh = new impError.ErrorHandle.ErrorJQ();
 
-                    eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
+                   // eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
                 }
 
                 selectedElement.insertAfter(selectedElement.nextAll(".key").first());
@@ -184,7 +184,7 @@ export module NoUI {
                         || selectedElement.nextAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
+                     //   eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
                     }
 
                     selectedElement.insertAfter(selectedElement.nextAll(".key").first());
@@ -198,7 +198,7 @@ export module NoUI {
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
 
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
+                      //  eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
                     }
 
 

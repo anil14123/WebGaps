@@ -72,7 +72,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                                 selectedElement.prevAll(".key").first().css("float") == "left")
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
                     }
                     selectedElement.insertBefore(selectedElement.prevAll(".key").first());
                 }
@@ -82,7 +81,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                             || selectedElement.prevAll(".key").first().css("float") == "none")
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
                     }
                     selectedElement.insertBefore(selectedElement.prevAll(".key").first());
                 }
@@ -92,7 +90,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                             || selectedElement.nextAll(".key").first().css("float") == "none")
                         || selectedElement.nextAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
                     }
                     selectedElement.insertAfter(selectedElement.nextAll(".key").first());
                 }
@@ -110,7 +107,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                                 selectedElement.nextAll(".key").first().css("float") == "left")
                         || selectedElement.nextAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Center] elements.");
                     }
                     selectedElement.insertAfter(selectedElement.nextAll(".key").first());
                 }
@@ -120,7 +116,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                             || selectedElement.nextAll(".key").first().css("float") == "none")
                         || selectedElement.nextAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Left] elements.");
                     }
                     selectedElement.insertAfter(selectedElement.nextAll(".key").first());
                 }
@@ -130,7 +125,6 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
                             || selectedElement.prevAll(".key").first().css("float") == "none")
                         || selectedElement.prevAll(".key").first().length == 0) {
                         var eh = new impError.ErrorHandle.ErrorJQ();
-                        eh.ActionHelp("Help : Current element is dependent on all [Align Right] elements.");
                     }
                     selectedElement.insertBefore(selectedElement.prevAll(".key").first());
                 }
@@ -166,4 +160,4 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
         NoUI.MoveJQ = MoveJQ;
     })(NoUI = exports.NoUI || (exports.NoUI = {}));
 });
-//# sourceMappingURL=NoUi.js.map
+//# sourceMappingURL=NoUI.js.map

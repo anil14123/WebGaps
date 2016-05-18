@@ -14,6 +14,28 @@ controls {
 .page {
 }
 
+.jq-properties-tag {
+    z-index: 999999999999999999999;
+    position: absolute;
+    background-color: antiquewhite;
+    top: 200px;
+    left: 100px;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.tag-control:hover {
+    color:#3498db;
+}
+
+.tag-color-red{
+    color:#e02c2c;
+}
+
+.tag-color-red:hover{
+    color:red;
+}
+
 .selected-display-element-container {
     padding-top: 3px;
     padding-left: 7px;
@@ -413,9 +435,8 @@ controls {
     color: white;
     /*font-family:'Comic Sans MS';*/
     margin: -10px;
-
-    border-radius:5px;
-    cursor:pointer;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .yellow-green-notify-background {
@@ -499,11 +520,10 @@ controls {
 
     #sm tr td {
         padding-bottom: 5px;
-       
         padding-right: 5px;
     }
 
- .smart-menu-collapse {
+.smart-menu-collapse {
     background-size: contain;
     height: 20px;
     width: 20px;
@@ -608,7 +628,7 @@ controls {
     background-color: rgba(76, 174, 76, 1);
     border: 1px dashed green;
 }
- 
+
 .image-library-image {
     max-width: 150px;
     max-height: 150px;
@@ -617,7 +637,7 @@ controls {
 
 .image-lib-container {
     display: inline-block;
-} 
+}
 
 .image-library-select {
     border: 2px dashed blue;
@@ -627,8 +647,7 @@ controls {
     top: 150px;
     left: 200px;
     width: 700px;
-
-    background-color:black;
+    background-color: black;
 }
 
 /************ Border */

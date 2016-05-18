@@ -125,6 +125,7 @@ rootx {
     max-width: 100%;
     padding: 0;
     cursor: auto;
+    
 }
 
 .design-column {
@@ -356,7 +357,7 @@ rootx {
 }
 
 .column.empty:hover::before {
-    content: "Empty Column \a";
+    content: "Empty\a";
     white-space: pre;
 }
 
@@ -377,6 +378,7 @@ rootx {
     font-weight: bold;
     color:black !important;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 
 

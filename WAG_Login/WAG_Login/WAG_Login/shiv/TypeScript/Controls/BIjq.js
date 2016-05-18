@@ -161,4 +161,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
         BI.BIJQ = BIJQ;
     })(BI = exports.BI || (exports.BI = {}));
 });
-//# sourceMappingURL=BIjq.js.map
+//# sourceMappingURL=BiJQ.js.map
