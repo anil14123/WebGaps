@@ -197,7 +197,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 }
                 jQuery(row).prepend("<span title='Row' class=\"design-page-row \"> <span class='design-square-row'>Row</span> <span class='columns-add-text'>Columns <button class='jq-add-column btn btn-xs btn-danger'>+</button></span> </span>");
                 this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
-                if (root.hasClass("empty-container-image") || root.hasClass("empty-container-text")) {
+                if ((root.hasClass("empty-container-image") || root.hasClass("empty-container-text")) && !row.hasClass("row")) {
                     row.wrap("<div class='table-row'></div>");
                     row.before("<div class='table-cell'></div>");
                     row.addClass("table-cell");

@@ -197,6 +197,9 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         if (selectedRowOrColumn.hasClass("row")) {
                             beforeAfter = false;
                         }
+                        if (selectedRowOrColumn.hasClass("image-text-other")) {
+                            beforeAfter = false;
+                        }
                         AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn, beforeAfter);
                         if (AddRowJQ.addedRow != undefined) {
                             AddRowJQ.addedRow.addClass("removable-row");

@@ -295,6 +295,10 @@ export module Page {
                         beforeAfter = false;
                     }
 
+                    if (selectedRowOrColumn.hasClass("image-text-other")) {
+                        beforeAfter = false;
+                    }
+
                     AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn, beforeAfter);
 
                     if (AddRowJQ.addedRow != undefined) {
