@@ -203,8 +203,8 @@ export module NoUI {
 
 
                     selectedElement.insertBefore(selectedElement.prevAll(".key").first());
-                }
-
+                } 
+             
             if (selectedElement.length > 0) {
                 var undo = new impUndoManager.Manager.UndoManager();
 
