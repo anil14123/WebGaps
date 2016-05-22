@@ -396,10 +396,10 @@
                     <span class=" fa fa-eye  black"></span> Live Preview</button>
             </a>
             <button class="btn btn-primary btn-xs  jq-show-plus " style="margin: 5px;">
-                <span class="fa fa-plus-square white"></span> Rows Plus
+                <span class="fa fa-plus-square white"></span> Rows Add
             </button>
             <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
-                 Rows Plus Close</button>
+               <span class="fa fa-plus-square white"></span> Rows Add Close</button>
             <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-cloud-upload black"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
@@ -3701,6 +3701,8 @@
     </div>
 
     <button id="control-common-execute" style="display: none;">
+    </button>
+      <button id="undo-redo-execute" style="display: none;">
     </button>
 
 </body>

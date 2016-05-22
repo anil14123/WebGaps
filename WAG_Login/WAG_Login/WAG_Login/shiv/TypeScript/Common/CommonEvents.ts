@@ -463,6 +463,11 @@ export module Common {
 
             });
 
+            jQuery("#undo-redo-execute").on("click", function () {
+                var undoManager = new impUndoManager.Manager.UndoManager();
+                undoManager.BeforeOperation();
+            });
+
             jQuery(".jq-redo").on("click" ,function () {
                 var undoManager = new impUndoManager.Manager.UndoManager();
                 undoManager.Redo();

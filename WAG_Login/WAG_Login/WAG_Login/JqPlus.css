@@ -145,8 +145,8 @@
 .jq-row-plus {
     position: relative;
     width: 15px;
-    height: 15px;
-    left: -13px;
+    height: 18px;
+    /*left: -13px;*/
 
     cursor:pointer;
    
@@ -160,6 +160,7 @@
     display: inline-block;
     overflow: visible;
     z-index: 99;
+    opacity:0.8;
 }
 
 .control-templates .jq-row-plus-container

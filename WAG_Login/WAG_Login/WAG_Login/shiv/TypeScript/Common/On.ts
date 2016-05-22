@@ -49,22 +49,26 @@ export module On {
             jQuery(".jq-prev-row").unbind("click");
             jQuery(".jq-prev-row").on("click", function () {
 
-                var currentRow = jQuery(this).parentsUntil(".row");
+                var currentRow = jQuery(this).closest(".row");
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
                 anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
+
+                jQuery("#control-common-execute").click();
+               
             });
 
             jQuery(".jq-next-row").unbind("click");
             jQuery(".jq-next-row").on("click", function () {
 
-                var currentRow = jQuery(this).parentsUntil(".row");
+                var currentRow = jQuery(this).closest(".row");
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
                 anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
-
+                jQuery("#control-common-execute").click();
+               
             });
 
 

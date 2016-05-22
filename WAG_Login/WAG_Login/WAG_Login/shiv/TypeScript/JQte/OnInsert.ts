@@ -80,8 +80,9 @@ export module OnInsert {
                 column.attr("xs-column-size", columnSize);
                 column.css("min-height", "100px");
                 column.addClass("column-padding");
+                column.addClass("newly-added-column");
 
-                jQuery(this).closest(".row").append(column);
+                jQuery(this).closest(".row").children(".column").last().after(column);
 
                 jQuery("#control-common-execute").click();
 
@@ -89,6 +90,8 @@ export module OnInsert {
                 var undomanager = new impUndoManager.Manager.UndoManager();
 
                 undomanager.BeforeOperation();
+
+                return false;
 
             });
 

@@ -368,8 +368,13 @@ rootx {
 .column.empty:hover {
     background-color: #e0dada;
     opacity: 0.8;
+   
 }
 
+.newly-added-column{
+    background-color: #e0dada;
+    border-left:1px solid #4699e1;
+}
 
 .empty {
     text-align: center;

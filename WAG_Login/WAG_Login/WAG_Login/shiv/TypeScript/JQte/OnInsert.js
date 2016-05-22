@@ -49,10 +49,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     column.attr("xs-column-size", columnSize);
                     column.css("min-height", "100px");
                     column.addClass("column-padding");
-                    jQuery(this).closest(".row").append(column);
+                    column.addClass("newly-added-column");
+                    jQuery(this).closest(".row").children(".column").last().after(column);
                     jQuery("#control-common-execute").click();
                     var undomanager = new impUndoManager.Manager.UndoManager();
                     undomanager.BeforeOperation();
+                    return false;
                 });
                 jQuery("page a").not(".jq-logout").unbind("click");
                 jQuery("page a").not(".jq-logout").click(function () {

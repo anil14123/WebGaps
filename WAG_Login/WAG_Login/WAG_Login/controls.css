@@ -633,6 +633,7 @@ controls {
     max-width: 150px;
     max-height: 150px;
     border: 2px;
+    background:none;
 }
 
 .image-lib-container {

@@ -60,6 +60,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             };
             MouseJQ.ProcessClick = function (e) {
                 var common = new impCommon.Common.CommonMethodsJQ();
+                jQuery(".column").removeClass("newly-added-column");
                 if (jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block") {
                     return;
                 }

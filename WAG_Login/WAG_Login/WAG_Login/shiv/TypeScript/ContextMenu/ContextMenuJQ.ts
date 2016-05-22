@@ -259,6 +259,10 @@ export module ContextMenu {
                     jQuery(".ctx-menu-height-width").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                 }
 
+                if (selectedElement.hasClass("row")) {
+                    jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
+                }
+
             }
 
         }
