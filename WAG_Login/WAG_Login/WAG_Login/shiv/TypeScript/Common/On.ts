@@ -55,7 +55,7 @@ export module On {
 
                 anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
 
-                jQuery("#control-common-execute").click();
+                jQuery("#control-common-execute").trigger("click");
                
             });
 
@@ -67,7 +67,7 @@ export module On {
                 var anyjq = new impAny.Page.AnyJQ("");
 
                 anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
-                jQuery("#control-common-execute").click();
+                jQuery("#control-common-execute").trigger("click");
                
             });
 

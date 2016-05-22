@@ -51,7 +51,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     column.addClass("column-padding");
                     column.addClass("newly-added-column");
                     jQuery(this).closest(".row").children(".column").last().after(column);
-                    jQuery("#control-common-execute").click();
+                    jQuery("#control-common-execute").trigger("click");
                     var undomanager = new impUndoManager.Manager.UndoManager();
                     undomanager.BeforeOperation();
                     return false;

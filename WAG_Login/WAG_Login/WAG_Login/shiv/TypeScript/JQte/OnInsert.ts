@@ -84,7 +84,7 @@ export module OnInsert {
 
                 jQuery(this).closest(".row").children(".column").last().after(column);
 
-                jQuery("#control-common-execute").click();
+                jQuery("#control-common-execute").trigger("click");
 
 
                 var undomanager = new impUndoManager.Manager.UndoManager();
