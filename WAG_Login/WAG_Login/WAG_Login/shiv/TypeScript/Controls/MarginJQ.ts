@@ -166,7 +166,7 @@ export module Margin {
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
             if (!selectedElement.hasClass("key")) {
-                selectedElement = selectedElement.closest(".key"));
+                selectedElement = selectedElement.closest(".key");
             }
 
             MarginJQ.isSelectProcessing = true;

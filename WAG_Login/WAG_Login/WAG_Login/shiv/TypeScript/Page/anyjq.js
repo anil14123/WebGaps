@@ -17,4 +17,4 @@ define(["require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ"]
         Page.AnyJQ = AnyJQ;
     })(Page = exports.Page || (exports.Page = {}));
 });
-//# sourceMappingURL=AnyJQ.js.map
+//# sourceMappingURL=anyjq.js.map

@@ -99,6 +99,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             };
             MarginJQ.ProcessSelectedValues = function () {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (!selectedElement.hasClass("key")) {
+                    selectedElement = selectedElement.closest(".key");
+                }
                 MarginJQ.isSelectProcessing = true;
                 if (selectedElement != undefined) {
                     var left = selectedElement.css("margin-left");
