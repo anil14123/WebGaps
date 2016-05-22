@@ -265,9 +265,11 @@ export module Page {
 
                 var ctx = new impPageCtx.Page.ContextJQ();
 
-
-
                 var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
+
+                if (impWatch.Watch.MouseJQ.nearestElement.length > 0 && selectedRowOrColumn.hasClass("column")) {
+                    selectedRowOrColumn = impWatch.Watch.MouseJQ.nearestElement;
+                }
 
                 if (selectedRowOrColumn != undefined) {
                     var adjustRow = new impCss.CssClass.AdjustJQ();
@@ -292,7 +294,7 @@ export module Page {
 
                     var beforeAfter = undefined;
                     if (selectedRowOrColumn.hasClass("row")) {
-                        beforeAfter = false;
+                        beforeAfter = true;
                     }
 
                     if (selectedRowOrColumn.hasClass("image-text-other")) {

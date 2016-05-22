@@ -292,10 +292,7 @@ export module Page {
             var nextPlus = "<div class='jq-row-plus-container jq-next-row-container'> <span class='jq-row-plus jq-next-row'> + </span> </div>";
             var prevPlus = "<div class='jq-row-plus-container jq-prev-row-container'> <span class='jq-row-plus jq-prev-row'> + </span> </div>";
 
-            if (row != undefined) {
-                row.prepend(prevPlus);
-                row.append(nextPlus);
-            }
+          
 
             if (adjustRow != undefined) {
                 this.AdjustElement(row, adjustRow);
@@ -306,6 +303,11 @@ export module Page {
             }
 
             jQuery(row).prepend("<span title='Row' class=\"design-page-row \"> <span class='design-square-row'>Row</span> <span class='columns-add-text'>Columns <button class='jq-add-column btn btn-xs btn-danger'>+</button></span> </span>");
+
+            if (row != undefined) {
+                row.prepend(prevPlus);
+                row.append(nextPlus);
+            }
 
             this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
 

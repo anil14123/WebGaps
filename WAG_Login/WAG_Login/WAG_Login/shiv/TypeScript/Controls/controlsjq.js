@@ -180,6 +180,9 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                     //alert(colsClasses);
                     var ctx = new impPageCtx.Page.ContextJQ();
                     var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement; //  jQuery("#rows-columns option:selected").val();
+                    if (impWatch.Watch.MouseJQ.nearestElement.length > 0 && selectedRowOrColumn.hasClass("column")) {
+                        selectedRowOrColumn = impWatch.Watch.MouseJQ.nearestElement;
+                    }
                     if (selectedRowOrColumn != undefined) {
                         var adjustRow = new impCss.CssClass.AdjustJQ();
                         var adjustColumn = new impCss.CssClass.AdjustJQ();
@@ -195,7 +198,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         selectedRowOrColumn.css("padding", "0");
                         var beforeAfter = undefined;
                         if (selectedRowOrColumn.hasClass("row")) {
-                            beforeAfter = false;
+                            beforeAfter = true;
                         }
                         if (selectedRowOrColumn.hasClass("image-text-other")) {
                             beforeAfter = false;
