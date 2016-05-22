@@ -48,6 +48,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                         impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                     }
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                    if (selectedElement.hasClass("empty-container-text")) {
+                        selectedElement = selectedElement.find(".jq-plus-container-text");
+                    }
                     if (selectedElement != undefined) {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         var opacity = jQuery(".control-o-opacity").slider("value");
@@ -62,6 +65,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
             };
             OpacityJQ.ProcessSelectedValues = function () {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
                 OpacityJQ.isSelectProcessing = true;
                 if (selectedElement != undefined) {
                     var opacity = selectedElement.css("opacity");

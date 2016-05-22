@@ -74,6 +74,10 @@ export module Opacity {
                 }
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
+
                 if (selectedElement != undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
@@ -96,6 +100,10 @@ export module Opacity {
         public static ProcessSelectedValues() {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text");
+            }
 
             OpacityJQ.isSelectProcessing = true;
 

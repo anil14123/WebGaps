@@ -36,6 +36,10 @@ export module Color {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
 
                             var comm = new impCommon.Common.CommonMethodsJQ();
@@ -53,6 +57,10 @@ export module Color {
                     jQuery(".remove-border").on("click",function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement != undefined) {
 
@@ -72,6 +80,10 @@ export module Color {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
 
                             var comm = new impCommon.Common.CommonMethodsJQ();
@@ -89,6 +101,10 @@ export module Color {
                     jQuery(".remove-padding").on("click" ,function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement != undefined) {
 
@@ -108,6 +124,11 @@ export module Color {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        //not needed for this... exceptional case
+                        //if (selectedElement.hasClass("empty-container-text")) {
+                        //    selectedElement = selectedElement.find(".jq-plus-container-text");
+                        //}
+
                         if (selectedElement != undefined) {
 
                             var comm = new impCommon.Common.CommonMethodsJQ();
@@ -125,6 +146,10 @@ export module Color {
                     jQuery(".remove-gradient").on("click", function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement.hasClass("empty-container-text")) {
                             selectedElement = selectedElement.find(".jq-plus-container-text");

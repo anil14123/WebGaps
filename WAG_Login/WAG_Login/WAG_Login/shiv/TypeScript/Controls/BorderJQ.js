@@ -159,6 +159,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                     }
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                    if (selectedElement.hasClass("empty-container-text")) {
+                        selectedElement = selectedElement.find(".jq-plus-container-text");
+                    }
                     if (selectedElement != undefined) {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         if (jQuery($this).hasClass("control-border-thickness-all")) {
@@ -258,6 +261,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             BorderJQ.ProcessSelectedValues = function () {
                 BorderJQ.isSelectProcessing = true;
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
                 if (selectedElement != undefined) {
                     selectedElement.removeClass("image-selection");
                     var borderLeft = selectedElement.css("border-left-width");

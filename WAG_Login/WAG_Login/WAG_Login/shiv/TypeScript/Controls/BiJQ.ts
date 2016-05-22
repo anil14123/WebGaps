@@ -44,6 +44,9 @@ export module BI {
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
 
                             if (selectedElement != undefined) {
 
@@ -58,6 +61,9 @@ export module BI {
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
 
                             if (selectedElement != undefined) {
 
@@ -85,6 +91,10 @@ export module BI {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
                             
                             jQuery(".ddn-bi-pixel-type").val("%");
@@ -107,6 +117,10 @@ export module BI {
                     jQuery(".ddn-bi-pixel-type").on("change" , function () {
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement != undefined) {
                             var height = jQuery(".smart-menu-bi-height").spinner("value");
@@ -136,6 +150,10 @@ export module BI {
                     jQuery(".control-bi-controls .bi-selected-image").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         var applyToBody = jQuery(".bi-body").is(':checked'); 
 
                         if (applyToBody == true) {
@@ -159,6 +177,10 @@ export module BI {
                     jQuery(".control-bi-controls .internet-bi-image-url").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
 
                             selectedElement.css("background-image", "url(" + jQuery(this).val() + ")");
@@ -173,6 +195,10 @@ export module BI {
                     jQuery(".control-bi-controls .ddn-bi-repeat").on("change",function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
                             selectedElement.css("background-repeat", jQuery(this).val());
 
@@ -185,6 +211,10 @@ export module BI {
                     jQuery(".control-bi-controls .ddn-bi-attachment").on("change", function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         if (selectedElement != undefined) {
                             selectedElement.css("background-attachment", jQuery(this).val());
 
@@ -196,6 +226,10 @@ export module BI {
 
                     jQuery(".control-bi-controls .ddn-bi-position").on("change",function () {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
 
                         if (selectedElement != undefined) {
                             selectedElement.css("background-position", jQuery(this).val());
@@ -220,6 +254,10 @@ export module BI {
 
             try {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
 
                 if (selectedElement != undefined) {
 

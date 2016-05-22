@@ -17,6 +17,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         //// all remove methods are in color
                         jQuery(".remove-bi").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveSingleStyle(selectedElement, "background-image");
@@ -27,6 +30,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-border").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveStyle(selectedElement, "border");
@@ -37,6 +43,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-opacity").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveStyle(selectedElement, "opacity");
@@ -47,6 +56,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-padding").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveStyle(selectedElement, "padding");
@@ -57,6 +69,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-margin").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            //not needed for this... exceptional case
+                            //if (selectedElement.hasClass("empty-container-text")) {
+                            //    selectedElement = selectedElement.find(".jq-plus-container-text");
+                            //}
                             if (selectedElement != undefined) {
                                 var comm = new impCommon.Common.CommonMethodsJQ();
                                 comm.RemoveStyle(selectedElement, "margin");
@@ -67,6 +83,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".remove-gradient").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement.hasClass("empty-container-text")) {
                                 selectedElement = selectedElement.find(".jq-plus-container-text");
                             }

@@ -20,6 +20,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             },
                             spin: function (event, ui) {
                                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                                if (selectedElement.hasClass("empty-container-text")) {
+                                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                                }
                                 if (selectedElement != undefined) {
                                     var height = jQuery(".smart-menu-bi-height").spinner("value");
                                     var width = jQuery(".smart-menu-bi-width").spinner("value");
@@ -28,6 +31,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             },
                             stop: function (event, ui) {
                                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                                if (selectedElement.hasClass("empty-container-text")) {
+                                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                                }
                                 if (selectedElement != undefined) {
                                     var height = jQuery(".smart-menu-bi-height").spinner("value");
                                     var width = jQuery(".smart-menu-bi-width").spinner("value");
@@ -43,6 +49,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".make-100").on("click", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 jQuery(".ddn-bi-pixel-type").val("%");
                                 var height = 100;
@@ -56,6 +65,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".ddn-bi-pixel-type").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 var height = jQuery(".smart-menu-bi-height").spinner("value");
                                 var width = jQuery(".smart-menu-bi-width").spinner("value");
@@ -72,6 +84,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".control-bi-controls .bi-selected-image").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             var applyToBody = jQuery(".bi-body").is(':checked');
                             if (applyToBody == true) {
                                 jQuery("page").css("background-image", "url('" + jQuery(this).val() + "')");
@@ -86,6 +101,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".control-bi-controls .internet-bi-image-url").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-image", "url(" + jQuery(this).val() + ")");
                                 var undo = new impUnodManager.Manager.UndoManager();
@@ -94,6 +112,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".control-bi-controls .ddn-bi-repeat").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-repeat", jQuery(this).val());
                                 var undo = new impUnodManager.Manager.UndoManager();
@@ -102,6 +123,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".control-bi-controls .ddn-bi-attachment").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-attachment", jQuery(this).val());
                                 var undo = new impUnodManager.Manager.UndoManager();
@@ -110,6 +134,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                         });
                         jQuery(".control-bi-controls .ddn-bi-position").on("change", function () {
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                            if (selectedElement.hasClass("empty-container-text")) {
+                                selectedElement = selectedElement.find(".jq-plus-container-text");
+                            }
                             if (selectedElement != undefined) {
                                 selectedElement.css("background-position", jQuery(this).val());
                                 var undo = new impUnodManager.Manager.UndoManager();
@@ -123,6 +150,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                 BIJQ.isSelectProcessing = true;
                 try {
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                    if (selectedElement.hasClass("empty-container-text")) {
+                        selectedElement = selectedElement.find(".jq-plus-container-text");
+                    }
                     if (selectedElement != undefined) {
                         var bi = selectedElement.css("background-image").replace('url(', '').replace(')', '');
                         jQuery(".bi-selected-image").val(bi);
@@ -161,4 +191,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
         BI.BIJQ = BIJQ;
     })(BI = exports.BI || (exports.BI = {}));
 });
-//# sourceMappingURL=BIjq.js.map
+//# sourceMappingURL=BiJQ.js.map

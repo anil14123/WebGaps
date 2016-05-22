@@ -256,6 +256,10 @@ export module Border {
                 }
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
+
                 if (selectedElement != undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
@@ -403,6 +407,10 @@ export module Border {
 
             BorderJQ.isSelectProcessing = true;
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (selectedElement.hasClass("empty-container-text")) {
+                selectedElement = selectedElement.find(".jq-plus-container-text");
+            }
 
             if (selectedElement != undefined) {
 

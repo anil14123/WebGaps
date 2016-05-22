@@ -150,10 +150,6 @@ export module Watch {
                 MouseJQ.selectedElement = jQuery("#noelement");
             }
 
-            if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
-                MouseJQ.selectedElement = MouseJQ.selectedElement.find(".jq-plus-container-text");
-            }
-            
             ////////// detecting selected object///////
 
             if (MouseJQ.selectedElement.hasClass("column")) {

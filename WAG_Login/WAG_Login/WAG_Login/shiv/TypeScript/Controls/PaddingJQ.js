@@ -52,6 +52,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                     }
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                    if (selectedElement.hasClass("empty-container-text")) {
+                        selectedElement = selectedElement.find(".jq-plus-container-text");
+                    }
                     if (selectedElement != undefined) {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         if (jQuery($this).hasClass("control-padding-all")) {
@@ -91,6 +94,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
             };
             PaddingJQ.ProcessSelectedValues = function () {
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
                 PaddingJQ.isSelectProcessing = true;
                 if (selectedElement != undefined) {
                     var left = selectedElement.css("padding-left");

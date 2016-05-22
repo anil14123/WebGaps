@@ -30,6 +30,11 @@ export module BorderShadow {
                         jQuery(".b-s-color").val("000000").keyup();
 
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            selectedElement = selectedElement.find(".jq-plus-container-text");
+                        }
+
                         cm.RemoveStyle(selectedElement, "box-shadow");
 
                         var undo = new impUndoManager.Manager.UndoManager();
@@ -127,6 +132,10 @@ export module BorderShadow {
             try {
             
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-plus-container-text");
+                }
 
                 if (selectedElement != undefined) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
