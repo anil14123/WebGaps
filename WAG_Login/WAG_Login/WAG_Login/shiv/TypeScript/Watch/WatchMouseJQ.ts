@@ -149,6 +149,10 @@ export module Watch {
             if (MouseJQ.selectedElement.hasClass("key") == false) {
                 MouseJQ.selectedElement = jQuery("#noelement");
             }
+
+            if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                MouseJQ.selectedElement = MouseJQ.selectedElement.find(".jq-plus-container-text");
+            }
             
             ////////// detecting selected object///////
 
@@ -164,7 +168,7 @@ export module Watch {
                     //jQuery(".selected-display-element").css("color", "white");
                 }
                 else
-                    if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                    if (MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
                         jQuery(".selected-display-element").text("Text Block");
                         //jQuery(".selected-display-element").css("background-color", "rgb(29, 154, 29)");
                         //jQuery(".selected-display-element").css("color", "white");
@@ -191,7 +195,7 @@ export module Watch {
             ///////////////////////
 
 
-            if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
+            if (!MouseJQ.selectedElement.hasClass("empty-container-text") && !MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
                 $(".empty-container-text").draggable({ disabled: false });
                 jQuery(".editor").hide();
 
@@ -608,7 +612,7 @@ export module Watch {
                                 case 'z':
 
                                     if (
-                                        !(MouseJQ.selectedElement.hasClass("empty-container-text")
+                                        !( (MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
                                             && MouseJQ.selectedElement.length == 1
                                             && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")
                                     ) {

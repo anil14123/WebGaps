@@ -410,7 +410,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                             jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
                             if (selectedtext == "") {
                                 var selectedElement = jQuery(".image-selection").last();
-                                if (selectedElement.hasClass("empty-container-text")) {
+                                if (selectedElement.hasClass("empty-container-text") || selectedElement.hasClass("jq-plus-container-text")) {
                                     selectedElement = selectedElement.find(".jq-text-block");
                                 }
                                 selectedElement.css("background-color", jQuery(this).css("background-color"));

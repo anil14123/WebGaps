@@ -523,7 +523,7 @@ export module MyJQte {
 
                             var selectedElement = jQuery(".image-selection").last();
 
-                            if (selectedElement.hasClass("empty-container-text")) {
+                            if (selectedElement.hasClass("empty-container-text") || selectedElement.hasClass("jq-plus-container-text")) {
                                 selectedElement = selectedElement.find(".jq-text-block");
                             }
 

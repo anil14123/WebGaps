@@ -98,6 +98,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 if (MouseJQ.selectedElement.hasClass("key") == false) {
                     MouseJQ.selectedElement = jQuery("#noelement");
                 }
+                if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                    MouseJQ.selectedElement = MouseJQ.selectedElement.find(".jq-plus-container-text");
+                }
                 ////////// detecting selected object///////
                 if (MouseJQ.selectedElement.hasClass("column")) {
                     jQuery(".selected-display-element").text("Column");
@@ -105,7 +108,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 else if (MouseJQ.selectedElement.hasClass("row")) {
                     jQuery(".selected-display-element").text("Row");
                 }
-                else if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                else if (MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
                     jQuery(".selected-display-element").text("Text Block");
                 }
                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
@@ -118,7 +121,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".selected-display-element").text("Page");
                 }
                 ///////////////////////
-                if (!MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                if (!MouseJQ.selectedElement.hasClass("empty-container-text") && !MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
                     $(".empty-container-text").draggable({ disabled: false });
                     jQuery(".editor").hide();
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
@@ -458,7 +461,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                         jQuery(".jq-save").click();
                                         return false;
                                     case 'z':
-                                        if (!(MouseJQ.selectedElement.hasClass("empty-container-text")
+                                        if (!((MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
                                             && MouseJQ.selectedElement.length == 1
                                             && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")) {
                                             try {

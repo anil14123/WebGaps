@@ -52,6 +52,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         impWatch.Watch.MouseJQ.RemoveAndResetRemovableRow();
                     }
                     var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+                    if (!selectedElement.hasClass("key")) {
+                        selectedElement = selectedElement.closest(".key");
+                    }
                     if (selectedElement != undefined) {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
                         if (!selectedElement.hasClass("column")) {

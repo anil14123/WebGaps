@@ -89,6 +89,10 @@ export module Margin {
                 }
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
+                if (!selectedElement.hasClass("key")) {
+                    selectedElement = selectedElement.closest(".key");
+                }
+
                 if (selectedElement != undefined ) {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
@@ -160,6 +164,10 @@ export module Margin {
         public static ProcessSelectedValues() {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+            if (!selectedElement.hasClass("key")) {
+                selectedElement = selectedElement.closest(".key"));
+            }
 
             MarginJQ.isSelectProcessing = true;
 
