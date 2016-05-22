@@ -399,7 +399,7 @@
                 <span class="fa fa-plus-square white"></span> Rows Add
             </button>
             <button class="btn btn-danger btn-xs  jq-hide-plus display-none" style="margin: 5px;">
-               <span class="fa fa-plus-square white"></span> Rows Add Close</button>
+               <span class="fa fa-plus-square white"></span> Rows Add Hide</button>
             <span class="btn btn-danger btn-xs  btn-file"><span class="fa fa-cloud-upload black"></span> Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </span>
             <button class="button-download-site btn-xs   btn btn-danger  btn jq-save-margin">
