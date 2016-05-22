@@ -160,4 +160,4 @@ define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouse
         NoUI.MoveJQ = MoveJQ;
     })(NoUI = exports.NoUI || (exports.NoUI = {}));
 });
-//# sourceMappingURL=NoUI.js.map
+//# sourceMappingURL=NoUi.js.map
