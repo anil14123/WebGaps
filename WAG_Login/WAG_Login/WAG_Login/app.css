@@ -327,8 +327,15 @@ rootx {
 .image-selection-drag {
     box-shadow: 0px 0px 10px #C5BFBF;
     box-shadow: 0px 0px 4px #4F79C5;
-    background-color: #e0dada !important;
-    opacity: 0.9;
+    background-color: rgb(51, 122, 183) !important;
+    color: white !important;
+    opacity: 0.9 !important; 
+}
+
+.image-selection-drag-original {
+    background-color: rgb(51, 122, 183) !important;
+    color: white !important;
+    opacity: 0.5 !important; 
 }
 
 .image-selection {

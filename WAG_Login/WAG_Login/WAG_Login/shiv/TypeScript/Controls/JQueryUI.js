@@ -49,7 +49,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "auto");
                         //}
-                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                        jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
                     },
@@ -59,7 +59,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //    left: event.clientX
                         //});
                         var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
-                        element.addClass("image-selection-drag");
+                        element.addClass("image-selection-drag-original");
                     }
                 });
             };
@@ -607,6 +607,18 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             jQuery(".image-selection").removeClass("image-selection");
                             event.stopPropagation();
                             CommonCode.currentTarget = null;
+                            jQuery(".image-text-other").each(function (index, _this) {
+                                var $this = jQuery(_this);
+                                var bottom = $this.offset().top + $this.height();
+                                var top = $this.offset().top;
+                                var left = $this.offset().left;
+                                $this.attr("top", top);
+                                $this.attr("bottom", bottom);
+                                $this.attr("left", left);
+                            });
+                            jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                            jQuery(".empty").removeClass("empty");
+                            jQuery("#control-common-execute").trigger("click");
                             var undomanager = new impUndoManager.Manager.UndoManager();
                             undomanager.BeforeOperation();
                         }
@@ -626,18 +638,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 }
                             }
                         }
-                        jQuery(".image-text-other").each(function (index, _this) {
-                            var $this = jQuery(_this);
-                            var bottom = $this.offset().top + $this.height();
-                            var top = $this.offset().top;
-                            var left = $this.offset().left;
-                            $this.attr("top", top);
-                            $this.attr("bottom", bottom);
-                            $this.attr("left", left);
-                        });
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
-                        jQuery(".empty").removeClass("empty");
-                        jQuery("#control-common-execute").trigger("click");
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
