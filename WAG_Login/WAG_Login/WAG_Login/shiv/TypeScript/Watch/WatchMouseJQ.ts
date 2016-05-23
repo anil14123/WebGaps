@@ -649,7 +649,7 @@ export module Watch {
                     $("page").bind('paste', function () {
 
                         if (MouseJQ.selectedElement.hasClass("column")) {
-                            impCopy.CopyPaste.CopyPasteJQ.Paste();
+                            impCopy.CopyPaste.CopyPasteJQ.Paste(true);
                         }
                         else {
                             var eh = new impError.ErrorHandle.ErrorJQ();

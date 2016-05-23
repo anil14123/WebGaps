@@ -110,7 +110,7 @@ export module CopyPaste {
                         else {
 
                             if (selectedElement.hasClass("column")) {
-                               
+
                                 var columnsCount = selectedElement.closest(".row").children(".column").length;
 
                                 var columnSize = "";
@@ -134,7 +134,7 @@ export module CopyPaste {
 
                                 var lastColumn: JQuery;
 
-                               
+
                                 /// then calculate...
                                 selectedElement.closest(".row").children(".column").each(function () {
 
@@ -257,7 +257,7 @@ export module CopyPaste {
         }
 
 
-        public static Paste() {
+        public static Paste(isFromKeyboard = false) {
 
             var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
             var errorHandler = new impError.ErrorHandle.ErrorJQ();
@@ -272,34 +272,40 @@ export module CopyPaste {
 
                 if (selecedElement.hasClass("column") || selecedElement.hasClass("image-text-other")) {
 
-                    if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
-                        CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
+                    CopiedElement.each(function (index, $this) {
 
-                        if (isCut == true) {
-                            impCommonCode.ControlCommon.Code.DestroyResizable();
-                        }
+                        if (jQuery($this).hasClass("image-text-other")) {
 
-                        impOperaction.Operation.AfterOperationJQ.Execute();
+                            if (!jQuery.contains(jQuery($this)[0], selecedElement[0])) {
+                                jQuery($this).children(".ui-resizable-handle").css("margin", 0 + "px");
 
-                        if (selecedElement.hasClass("column")) {
-                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-                                impWatch.Watch.MouseJQ.nearestElement.after(CopiedElement);
+                                impOperaction.Operation.AfterOperationJQ.Execute();
+
+                                if (selecedElement.hasClass("column")) {
+                                    if (isFromKeyboard == false && impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                        impWatch.Watch.MouseJQ.nearestElement.after(jQuery($this));
+                                    }
+                                    else {
+                                        selecedElement.append(jQuery($this));
+                                    }
+                                }
+                                else {
+                                    selecedElement.after(jQuery($this));
+                                }
+
                             }
                             else {
-                                selecedElement.append(CopiedElement);
+                                errorHandler.ActionFail("You can only cut and paste element in to same element.");
                             }
                         }
-                        else {
-                            selecedElement.after(CopiedElement);
-                        }
 
-                    }
-                    else {
-                        errorHandler.ActionFail("You can only cut and paste element in to same element.");
-                    }
+                    });
 
                     if (isCut == true) {
                         CopiedElement = jQuery("#noelement--x");
+                    }
+                    else {
+                        CopiedElement = CopiedElement.clone();
                     }
 
                     impCommonCode.ControlCommon.Code.DestroyResizable();
@@ -310,6 +316,7 @@ export module CopyPaste {
                     undomanager.BeforeOperation();
 
                     isCut = false;
+
                 }
                 else {
 

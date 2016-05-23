@@ -167,7 +167,8 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     }
                 }
             };
-            CopyPasteJQ.Paste = function () {
+            CopyPasteJQ.Paste = function (isFromKeyboard) {
+                if (isFromKeyboard === void 0) { isFromKeyboard = false; }
                 var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 if (jQuery(CopiedElement).length == 0) {
@@ -176,29 +177,33 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 }
                 if (selecedElement != undefined) {
                     if (selecedElement.hasClass("column") || selecedElement.hasClass("image-text-other")) {
-                        if (!jQuery.contains(CopiedElement[0], selecedElement[0])) {
-                            CopiedElement.children(".ui-resizable-handle").css("margin", 0 + "px");
-                            if (isCut == true) {
-                                impCommonCode.ControlCommon.Code.DestroyResizable();
-                            }
-                            impOperaction.Operation.AfterOperationJQ.Execute();
-                            if (selecedElement.hasClass("column")) {
-                                if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
-                                    impWatch.Watch.MouseJQ.nearestElement.after(CopiedElement);
+                        CopiedElement.each(function (index, $this) {
+                            if (jQuery($this).hasClass("image-text-other")) {
+                                if (!jQuery.contains(jQuery($this)[0], selecedElement[0])) {
+                                    jQuery($this).children(".ui-resizable-handle").css("margin", 0 + "px");
+                                    impOperaction.Operation.AfterOperationJQ.Execute();
+                                    if (selecedElement.hasClass("column")) {
+                                        if (isFromKeyboard == false && impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                            impWatch.Watch.MouseJQ.nearestElement.after(jQuery($this));
+                                        }
+                                        else {
+                                            selecedElement.append(jQuery($this));
+                                        }
+                                    }
+                                    else {
+                                        selecedElement.after(jQuery($this));
+                                    }
                                 }
                                 else {
-                                    selecedElement.append(CopiedElement);
+                                    errorHandler.ActionFail("You can only cut and paste element in to same element.");
                                 }
                             }
-                            else {
-                                selecedElement.after(CopiedElement);
-                            }
-                        }
-                        else {
-                            errorHandler.ActionFail("You can only cut and paste element in to same element.");
-                        }
+                        });
                         if (isCut == true) {
                             CopiedElement = jQuery("#noelement--x");
+                        }
+                        else {
+                            CopiedElement = CopiedElement.clone();
                         }
                         impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();

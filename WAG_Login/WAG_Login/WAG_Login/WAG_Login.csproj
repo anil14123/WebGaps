@@ -302,6 +302,7 @@
     <Content Include="InsertTools.css" />
     <Content Include="Library\globalJSCommon.js" />
     <Content Include="Nestable.css" />
+    <Content Include="priority.css" />
     <Content Include="PropertiesTag.css" />
     <Content Include="Scripts\Colors\Colors.aspx" />
     <Content Include="Scripts\evoluteur.colorpicker\colorpicker-master\css\demo.css" />
