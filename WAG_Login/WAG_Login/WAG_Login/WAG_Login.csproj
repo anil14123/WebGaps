@@ -290,6 +290,8 @@
     <Content Include="Content\Images\updown1.jpg" />
     <Content Include="Content\Images\updown2.png" />
     <Content Include="Content\Images\updown3.jpg" />
+    <Content Include="Content\loading\36-1.gif" />
+    <Content Include="Content\loading\36.gif" />
     <Content Include="Content\pallette.gif" />
     <Content Include="Content\PropertiesTag\delete.png" />
     <Content Include="Content\PropertiesTag\settings.png" />

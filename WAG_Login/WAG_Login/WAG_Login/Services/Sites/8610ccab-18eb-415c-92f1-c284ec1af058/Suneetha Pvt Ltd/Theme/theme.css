@@ -316,8 +316,12 @@ blockquote{
 
 }
 
+.table{
+    display:table !important;
+}
+
 .table-row{
-    display:table-row;
+    display:table-row ;
 }
 
 .table-cell{
@@ -330,9 +334,8 @@ blockquote{
    float:left;
 
    min-width:50px;
-
-
 }
+
 
 .jq-padding-5px {
  padding:5px;

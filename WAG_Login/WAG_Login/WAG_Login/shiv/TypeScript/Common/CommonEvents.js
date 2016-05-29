@@ -158,9 +158,9 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                     else {
                         jQuery(".hide-menu").show();
                         jQuery(".show-menu").hide();
-                        jQuery("rootx").css("top", "56px");
-                        jQuery(".editor").css("top", "56px");
-                        jQuery(".properties-sidebar-container").css("top", "56px");
+                        jQuery("rootx").css("top", "43px");
+                        jQuery(".editor").css("top", "43px");
+                        jQuery(".properties-sidebar-container").css("top", "43px;");
                         jQuery(".top-row-container").show();
                     }
                 });

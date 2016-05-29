@@ -2,7 +2,7 @@
 .designer-top-row {
     width: 100%;
     
-    padding: 12px;
+    /*padding: 12px;*/
     background: -webkit-gradient(linear, left top, left bottom, from(#1b1c1c), to(#4e5152));
     background: -webkit-linear-gradient(top, #1b1c1c, #4e5152);
     background: -moz-linear-gradient(top, #1b1c1c, #4e5152);
@@ -10,7 +10,7 @@
     background: -o-linear-gradient(top, #1b1c1c, #4e5152);
  
     background:none;
-    background: #272727 url("/Content/pallette.gif");
+    background: #666 ;
 
     -moz-box-shadow: 0 0 5px black;
     -webkit-box-shadow: 0 0 5px black;
@@ -23,6 +23,17 @@
    left:0;
    width:100%;
    z-index:1200;
+}
+
+.designer-top-row > .table-cell{
+   padding:5px;
+       background-color: #9B9A9E;
+    color: white;
+    text-align: center;
+    border-left: 1px solid white;
+    vertical-align: middle;
+
+    cursor:pointer;
 }
 
 /*.verticle-designer-controls{
@@ -73,7 +84,7 @@
 }
 
 rootx{
-    top : 56px;
+    top : 43px;
 }
 
 .close-preview, .show-preview, .choose-templates-button, .create-layout-show-button ,.jq-save {
@@ -141,6 +152,16 @@ rootx{
     font-weight: bold;
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     border: 1px solid white;*/
+
+    width:65px;
+}
+
+.jq-save{
+   width: 65px;
+}
+
+.jq-jogoff-css{
+    width:65px;
 }
 
     .jq-undo-buttons:hover {
