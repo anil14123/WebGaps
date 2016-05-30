@@ -81,6 +81,11 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
             ////////////// templating mech ////////////////////////////
             var Auth = new impAuth.Auth.AuthJQ();
             Auth.Call();
+            ///////////////////////////////////////////////////////////
+            //////////// help //////////////////////////////////
+            // window.setTimeout(Help, 5000);
+            ////////////////////////////////////////////////////
+            $("rootX").show();
         }
     });
 });

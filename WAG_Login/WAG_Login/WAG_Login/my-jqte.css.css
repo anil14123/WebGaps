@@ -234,6 +234,7 @@ span {
     position: absolute;
     top: 35px;
     left: 429px;
+    left :309px;
     background-color: black;
     padding: 2px;
     display: none;
@@ -243,6 +244,7 @@ span {
 
 .jqte-color-palette-background {
     left: 470px;
+    left:330px;
 }
 
 .fore-color-icon:before {

@@ -1,12 +1,8 @@
 ﻿.loading {
-    position: absolute;
-    left: 43%;
-    top: 40%;
-
-   padding:0;
-
-
-
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    padding:0;
 }
 
 .loading-img{

@@ -34,7 +34,7 @@ function Help() {
         jQuery(this).hide();
     });
 
-     /////////////////// empty container //////
+    /////////////////// empty container //////
     jQuery(".empty-container").on("click", function () {
 
         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
@@ -77,9 +77,9 @@ jQuery(document).ready(function () {
         jQuery(".jq-loading").show();
 
         ///// page load /////
-        
+
         if (jQuery("inpu-page-name").val() != "" && jQuery("inpu-site-name").val() != "") {
-            impPageLoad.Page.LoadJQ.LoadPage("site","site1","page1");
+            impPageLoad.Page.LoadJQ.LoadPage("site", "site1", "page1");
         }
 
         // attach documment ...
@@ -102,7 +102,7 @@ jQuery(document).ready(function () {
         DesignerPadding();
         ////////////////////////////////////////////////////
 
-      
+
         /////////////////// jqte ///////////////////////////
 
         var jqteObj = new impJqte.MyJQte.jqte("");
@@ -153,7 +153,8 @@ jQuery(document).ready(function () {
         //////////// help //////////////////////////////////
         // window.setTimeout(Help, 5000);
         ////////////////////////////////////////////////////
-    
+
+        $("rootX").show();
 
     }
 });

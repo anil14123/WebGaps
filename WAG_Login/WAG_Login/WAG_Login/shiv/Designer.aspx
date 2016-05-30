@@ -83,6 +83,16 @@
 </head>
 <body>
 
+    
+<style>
+ 
+    rootX{
+        display:none;
+    }
+
+</style>
+
+
     <%--
     <iframe id="loadingIframe" style="z-index:99999999999999999999999999999; position:absolute; top:0; height:100%; width:100%; left:0; bottom:0; right:0" src="loading.aspx"> 
         
@@ -204,11 +214,11 @@
 
 
 
-            <div class=" table-cell close-preview jq-save-margin  "><span class=" fa fa-eye  black"></span>&nbsp;Close Preview</div>
-            <div class=" table-cell  show-preview jq-save-margin "><span class=" fa fa-eye  black"></span>&nbsp;Preview</div>
+            <div class=" table-cell close-preview jq-save-margin  "><span class=" fa fa-eye  white"></span>&nbsp;Close Preview</div>
+            <div class=" table-cell  show-preview jq-save-margin "><span class=" fa fa-eye  white"></span>&nbsp;Preview</div>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview table-cell ">
                 <div class=" " style="margin-left: 6px; display: inline-block;">
-                    <span class=" fa fa-eye  black"></span>&nbsp;Live Preview
+                    <span class=" fa fa-eye  white"></span>&nbsp;Live Preview
                 </div>
             </a>
             <div class="table-cell jq-show-plus " style="margin: 5px;">
@@ -218,10 +228,10 @@
                 <span class="fa fa-plus-square white"></span>&nbsp;Rows Add Hide
             </div>
             <div class="table-cell  btn-file">
-                <span class="fa fa-cloud-upload black"></span>&nbsp;Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
+                <span class="fa fa-cloud-upload white"></span>&nbsp;Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </div>
             <div class=" table-cell button-download-site jq-save-margin">
-                <span class="fa fa-cloud-download black"></span>&nbsp;Download Site
+                <span class="fa fa-cloud-download white"></span>&nbsp;Download Site
             </div>
 
 
@@ -232,7 +242,7 @@
                 </div>
             </div>
 
-             <div class="table-cell">
+            <div class="table-cell">
                 <div class=" white jq-tablet  ">
                     <span class="fa fa-tablet fa-2x"></span>
                 </div>
@@ -245,7 +255,7 @@
             </div>
 
             <!--- undo save redo --->
-          
+
             <div class="table-cell jq-undo-buttons jq-undo ">
                 <span style="color: white;" class="fa fa-undo"></span>
                 &nbsp;Undo
@@ -263,10 +273,10 @@
 
             <div class="table-cell jq-jogoff-css">
                 <div class="jq-jogoff-css">
-                <form name="logout" runat="server">
-                    <asp:LoginStatus runat="server" Style="color: white;" class="jq-logout " LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                </form>
-                    </div>
+                    <form name="logout" runat="server">
+                        <asp:LoginStatus runat="server" Style="color: white;" class="jq-logout " LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                    </form>
+                </div>
             </div>
 
             <div class="table-cell btn-help">Help</div>
@@ -667,8 +677,8 @@
 
         .show-hide-menu-btn {
             display: none;
-            font-size:11px;
-            color:#9BBB59;
+            font-size: 11px;
+            color: #9BBB59 !important;
         }
 
         .white {
@@ -784,6 +794,18 @@
                     <%--<div class="selected-display-element-container">Selected : <span class="selected-display-element"></span></div>--%>
 
                     <%-- CAccordion --%>
+
+                    <table class="table">
+                        <tr>
+                            <td class="table-cell">
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+
 
                       <div id="control-settings" class="hide">
 
