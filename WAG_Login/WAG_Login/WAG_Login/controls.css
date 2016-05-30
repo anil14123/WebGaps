@@ -99,6 +99,7 @@ controls {
     text-align:center;
     font-weight:bold;
     color:white;
+    cursor:pointer;
 }
 
 .borer-for-prop-tab{
@@ -106,7 +107,7 @@ controls {
 }
 
 .jq-prop-tab-selected{
-        background-color: #666;
+        background-color:#ccc;
 }
 
 #properties-accordion {
