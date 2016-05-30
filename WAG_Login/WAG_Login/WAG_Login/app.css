@@ -338,6 +338,10 @@ rootx {
     opacity: 0.5 !important; 
 }
 
+.control-focused{
+    box-shadow:-5px -5px 4px black;
+}
+
 .image-selection {
     /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
     box-shadow: 0px 0px 10px #C5BFBF;

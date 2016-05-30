@@ -29,13 +29,17 @@
    padding:5px;
        background-color: #9B9A9E;
        background-color:#337ab7;
-    color: white;
+   
     text-align: center;
     border-left: 1px solid white;
     vertical-align: middle;
 
     cursor:pointer;
+     color: white;
+    color:#F5F5F5;
+        white-space: nowrap;
 }
+
 
 /*.verticle-designer-controls{
     position:fixed;

@@ -594,8 +594,8 @@
             <button class="right-icon btn btn-default fa fa-align-right jqte-editor-tool" name="right"></button>
             <button class="center-icon btn btn-default fa fa-align-center jqte-editor-tool" name="center"></button>
             <button class="full-icon btn btn-default fa fa-align-justify jqte-editor-tool" name="full"></button>
-            <button class="left-indent-icon btn btn-default fa fa-indent jqte-editor-tool" name="outdent"></button>
-            <button class="right-indent-icon btn btn-default fa fa-outdent jqte-editor-tool" name="indent"></button>
+            <button class="left-indent-icon btn btn-default fa fa-indent jqte-editor-tool" name="indent"></button>
+            <button class="right-indent-icon btn btn-default fa fa-outdent jqte-editor-tool" name="outdent"></button>
             <button class="link-icon btn btn-default fa fa-link jqte-editor-tool" name="link"></button>
             <button class="unlink-icon btn btn-default fa fa-unlink jqte-editor-tool" name="unlink"></button>
             <button class="clear-icon btn btn-default fa fa-eraser jqte-editor-tool" name="clear"></button>
