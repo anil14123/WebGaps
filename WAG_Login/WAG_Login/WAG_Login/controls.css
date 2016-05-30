@@ -91,6 +91,24 @@ controls {
     overflow: scroll;
 }
 
+.jq-properties-tab-tab{
+    background-color:#9B9A9E;
+}
+
+.jq-properties-tab-tab .table-cell{
+    text-align:center;
+    font-weight:bold;
+    color:white;
+}
+
+.borer-for-prop-tab{
+  border-right:1px solid white;
+}
+
+.jq-prop-tab-selected{
+        background-color: #666;
+}
+
 #properties-accordion {
     padding: 5px;
 }

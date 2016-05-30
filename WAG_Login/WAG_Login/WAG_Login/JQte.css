@@ -95,3 +95,9 @@ page .jqte_editor {
     
    
 }
+
+.jqte-editor-tool.active {
+    color: #FFF;
+    background-color: #000000;
+    border-color:black;
+}

@@ -795,13 +795,13 @@
 
                     <%-- CAccordion --%>
 
-                    <table class="table">
+                    <table class="table jq-properties-tab-tab" style="margin:0;">
                         <tr>
-                            <td class="table-cell">
-
+                            <td class="table-cell jq-prop-tab borer-for-prop-tab jq-prop-tab-selected">
+                                Design
                             </td>
-                            <td>
-
+                            <td class="table-cell jq-prop-tab">
+                                Settings
                             </td>
                         </tr>
                     </table>
