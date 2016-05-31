@@ -67,7 +67,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                             //jQuery(".jqte_editor").css("font-family", jQuery(this).find("option:selected").val());
                         });
                         jQuery(FontJQ.ddnId).on("change", function () {
-                            jQuery(FontJQ.ddnId + "-sample").html("<span style='font-family:" + $(FontJQ.ddnId).val() + ";'>" + $(FontJQ.ddnId).val() + "</span>");
+                            jQuery(FontJQ.ddnId + "-sample").html("<span style='font-family:" + jQuery(FontJQ.ddnId).val() + ";'>" + $(FontJQ.ddnId).val() + "</span>");
                             //jQuery(".jqte_editor").css("font-family", jQuery(this).find("option:selected").val());
                             FontJQ.PreviewInsertText();
                         });

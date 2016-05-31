@@ -234,8 +234,8 @@ export module Smart {
                         var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                        var widthVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
-                        var heightVal = $(this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
+                        var widthVal = jQuery(this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
+                        var heightVal = jQuery(this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
 
                         if (selectedElement != undefined) {
                             if (selectedElement.hasClass("column")) {
@@ -279,8 +279,8 @@ export module Smart {
             if (selectedElement != undefined) {
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                var widthVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
-                var heightVal = $($this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
+                var widthVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
+                var heightVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
 
                 if (selectedElement.hasClass("column")) {
 

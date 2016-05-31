@@ -85,7 +85,7 @@ define(["require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ
             //////////// help //////////////////////////////////
             // window.setTimeout(Help, 5000);
             ////////////////////////////////////////////////////
-            $("rootX").show();
+            jQuery("rootX").show();
         }
     });
 });

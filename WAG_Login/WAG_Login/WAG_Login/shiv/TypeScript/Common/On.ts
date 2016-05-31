@@ -99,7 +99,7 @@ export module On {
                 }
 
                 var pageX = e.pageX;
-                if (e.pageX > ($(document).width() - 200)) {
+                if (e.pageX > (jQuery(document).width() - 200)) {
                     pageX = e.pageX - 150;
                 }
                 /////////////////
@@ -134,7 +134,7 @@ export module On {
                 }
 
                 var pageX = e.pageX;
-                if (e.pageX > ($(document).width() - 200)) {
+                if (e.pageX > (jQuery(document).width() - 200)) {
                     pageX = e.pageX - 150;
                 }
                 /////////////////

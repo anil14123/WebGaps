@@ -339,13 +339,13 @@ rootx {
 }
 
 .control-focused{
-    box-shadow:-5px -5px 4px black;
+    box-shadow:0 0 10px black;
 }
 
 .image-selection {
     /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
     box-shadow: 0px 0px 10px #C5BFBF;
-    box-shadow: 0px 0px 4px #4F79C5;
+    box-shadow: 0 0 14px #4F79C5;
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;

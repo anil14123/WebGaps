@@ -154,7 +154,7 @@ jQuery(document).ready(function () {
         // window.setTimeout(Help, 5000);
         ////////////////////////////////////////////////////
 
-        $("rootX").show();
+        jQuery("rootX").show();
 
     }
 });

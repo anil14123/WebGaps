@@ -70,7 +70,7 @@ export module Common {
             }  
 
             // Make Ajax request with the contentType = false, and procesDate = false
-            $.ajax({
+            jQuery.ajax({
                 type: "POST",
                 url: "/Services/PageService.asmx/UploadImages",
                 contentType: false,
@@ -147,30 +147,30 @@ export module Common {
             });
 
 
-            $(".leaf_type_btn").on("click", function () {
-                $(".leaf_type_btn").parent().removeClass("active");
-                $(this).parent().addClass("active");
+            jQuery(".leaf_type_btn").on("click", function () {
+                jQuery(".leaf_type_btn").parent().removeClass("active");
+                jQuery(this).parent().addClass("active");
 
-                $("#leaf_container .leaf_type").removeClass("active");
+                jQuery("#leaf_container .leaf_type").removeClass("active");
 
-                switch ($(this).parent().data("name").toString()) {
+                switch (jQuery(this).parent().data("name").toString()) {
                     case 'webs.bldr.modules.container.popular':
-                        $("#leaf_container .leaf_type:eq(0)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(0)").addClass("active");
                         break;
                     case 'webs.bldr.modules.container.structure':
-                        $("#leaf_container .leaf_type:eq(1)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(1)").addClass("active");
                         break;
                     case 'webs.bldr.modules.container.media':
-                        $("#leaf_container .leaf_type:eq(2)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(2)").addClass("active");
                         break;
                     case 'webs.bldr.modules.container.social':
-                        $("#leaf_container .leaf_type:eq(3)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(3)").addClass("active");
                         break;
                     case 'webs.bldr.modules.container.commerce':
-                        $("#leaf_container .leaf_type:eq(4)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(4)").addClass("active");
                         break;
                     case 'webs.bldr.dock.ads.appfeeds':
-                        $("#leaf_container .leaf_type:eq(5)").addClass("active");
+                        jQuery("#leaf_container .leaf_type:eq(5)").addClass("active");
                         break;
                 }
 
@@ -257,7 +257,7 @@ export module Common {
 
            
             // Add events
-            $('.image-file-upload').on('change', CommonEvents.PrepareUpload);
+            jQuery('.image-file-upload').on('change', CommonEvents.PrepareUpload);
                       
 
             ////////////// Flating or aligning...
@@ -422,15 +422,15 @@ export module Common {
                 jQuery(".add-to-page").each(function () {
 
                     if (jQuery(this).prop("tagName") == "SCRIPT") {
-                        scripts.append($(this).clone());
+                        scripts.append(jQuery(this).clone());
                     }
 
                     if (jQuery(this).prop("tagName") == "LINK") {
-                        styles.append($(this).clone());
+                        styles.append(jQuery(this).clone());
                     }
 
                     if (jQuery(this).prop("tagName") == "PAGE") {
-                        page.append($(this).clone());
+                        page.append(jQuery(this).clone());
                         page.find(".jqte-editor").removeAttr("contentEditable").removeAttr("tabindex").css("cursor", "initial");
                         page.prepend(styleSheetExtra);
                     }

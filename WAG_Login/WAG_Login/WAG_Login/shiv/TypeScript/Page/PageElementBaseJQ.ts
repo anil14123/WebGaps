@@ -477,14 +477,14 @@ export module Page {
             if (useSmartObj == true && window.smartObj != null && window.smartObj.currentObj != null && window.smartObj.command != "") {
 
                 if (window.smartObj.command == "n" || window.smartObj.command == "") {
-                    $(window.smartObj.currentObj).after(element);
+                    jQuery(window.smartObj.currentObj).after(element);
 
                     var undomanager = new impUndoManager.Manager.UndoManager();
 
                     undomanager.BeforeOperation();
                 }
                 else {
-                    $(window.smartObj.currentObj).before(element);
+                    jQuery(window.smartObj.currentObj).before(element);
 
                     var undomanager = new impUndoManager.Manager.UndoManager();
 
@@ -496,7 +496,7 @@ export module Page {
                 if (front == true) {
 
                     if (jQuery("div[src='xa.xml']").length > 2 && impAuth.Auth.AuthJQ.IsAuth == true) {
-                        $(root).prepend(element);
+                        jQuery(root).prepend(element);
                     }
                 }
                 else
@@ -510,14 +510,14 @@ export module Page {
 
                             if (beforeAfter == undefined) // before
                             {
-                                $(root).append(element);
+                                jQuery(root).append(element);
                             }
                             else
                                 if (beforeAfter == true) {
-                                    $(root).before(element);
+                                    jQuery(root).before(element);
                                 }
                                 else {
-                                    $(root).after(element);
+                                    jQuery(root).after(element);
                                 }
 
 

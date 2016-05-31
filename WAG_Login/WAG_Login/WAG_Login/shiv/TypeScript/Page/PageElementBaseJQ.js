@@ -319,12 +319,12 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 //}
                 if (useSmartObj == true && window.smartObj != null && window.smartObj.currentObj != null && window.smartObj.command != "") {
                     if (window.smartObj.command == "n" || window.smartObj.command == "") {
-                        $(window.smartObj.currentObj).after(element);
+                        jQuery(window.smartObj.currentObj).after(element);
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
                     }
                     else {
-                        $(window.smartObj.currentObj).before(element);
+                        jQuery(window.smartObj.currentObj).before(element);
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
                     }
@@ -332,7 +332,7 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 else {
                     if (front == true) {
                         if (jQuery("div[src='xa.xml']").length > 2 && impAuth.Auth.AuthJQ.IsAuth == true) {
-                            $(root).prepend(element);
+                            jQuery(root).prepend(element);
                         }
                     }
                     else {
@@ -342,13 +342,13 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                                 jQuery(root).attr("unique-id", uniqureId);
                             }
                             if (beforeAfter == undefined) {
-                                $(root).append(element);
+                                jQuery(root).append(element);
                             }
                             else if (beforeAfter == true) {
-                                $(root).before(element);
+                                jQuery(root).before(element);
                             }
                             else {
-                                $(root).after(element);
+                                jQuery(root).after(element);
                             }
                             if (!jQuery(element).hasClass("jq-Any")) {
                                 var undomanager = new impUndoManager.Manager.UndoManager();

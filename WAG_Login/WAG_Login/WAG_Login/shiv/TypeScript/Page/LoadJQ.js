@@ -7,7 +7,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
             }
             LoadJQ.LoadPage = function (siteId, siteName, pageName) {
                 var url = "/services/sites/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
-                $.ajax({
+                jQuery.ajax({
                     url: url,
                     type: "GET",
                     cache: false,
@@ -44,7 +44,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                             insert.Process();
                             var undo = new impUndoManager.Manager.UndoManager();
                             undo.BeforeOperation();
-                            $(window).scrollTop();
+                            jQuery(window).scrollTop();
                         }
                         else {
                             jQuery("#control-templates").show();

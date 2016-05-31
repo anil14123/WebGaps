@@ -20,10 +20,10 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                     jQuery(".jqte-editor-tool").on("click", function () {
                         return false;
                     });
-                    $(".jqte-editor-tool-p").off('click');
-                    $(".jqte-editor-tool").off('click');
-                    $(".jqte-editor-tool-c").off('click');
-                    $(".jq-color").off('click');
+                    jQuery(".jqte-editor-tool-p").off('click');
+                    jQuery(".jqte-editor-tool").off('click');
+                    jQuery(".jqte-editor-tool-c").off('click');
+                    jQuery(".jq-color").off('click');
                     this.AttachEvents();
                     jQuery(".font-name-list li").each(function () {
                         jQuery(this).children().css("font-family", jQuery(this).text());
@@ -41,13 +41,13 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
             jqte.detectElement = function (tags) {
                 var resultdetect = false, $node = jqte.getSelectedNode(), parentsTag;
                 if ($node) {
-                    $.each(tags, function (i, val) {
+                    jQuery.each(tags, function (i, val) {
                         parentsTag = $node.prop('tagName').toLowerCase();
                         if (parentsTag == val)
                             resultdetect = true;
                         else {
                             $node.parents().each(function () {
-                                parentsTag = $(this).prop('tagName').toLowerCase();
+                                parentsTag = jQuery(this).prop('tagName').toLowerCase();
                                 if (parentsTag == val)
                                     resultdetect = true;
                             });
@@ -63,12 +63,12 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                 for (var n = 0; n < jqte.buttons.length; n++) {
                     if (jqte.buttons[n].emphasis && jqte.buttons[n].tag != '')
                         if (jqte.detectElement(jqte.buttons[n].tag)) {
-                            $(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").addClass("active");
-                            $(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").addClass("active");
+                            jQuery(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").addClass("active");
+                            jQuery(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").addClass("active");
                         }
                         else {
-                            $(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").removeClass("active");
-                            $(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").removeClass("active");
+                            jQuery(".jqte-editor-tool[name=" + jqte.buttons[n].command + "]").removeClass("active");
+                            jQuery(".jqte-editor-tool-p[name=" + jqte.buttons[n].command + "]").removeClass("active");
                         }
                 }
             };
@@ -85,7 +85,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         range.parentElement ? range.parentElement() : range.item(0);
                 }
                 if (node) {
-                    return (node.nodeName == "#text" ? $(node.parentNode) : $(node));
+                    return (node.nodeName == "#text" ? jQuery(node.parentNode) : jQuery(node));
                 }
                 else
                     return node;
@@ -117,7 +117,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         jQuery(".jqte-editor-tool-list").hide();
                     }
                 });
-                $(".jqte-editor-tool,.jqte-editor-tool-p").on("mouseup", function (e) {
+                jQuery(".jqte-editor-tool,.jqte-editor-tool-p").on("mouseup", function (e) {
                     jQuery(this).removeClass("highlight-tool");
                     if (e.cancelBubble != null)
                         e.cancelBubble = true;
@@ -129,7 +129,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-editor-tool,.jqte-editor-tool-p").on("mousedown", function (e) {
+                jQuery(".jqte-editor-tool,.jqte-editor-tool-p").on("mousedown", function (e) {
                     // jQuery(this).addClass("highlight-tool");
                     jQuery(".jqte-color-palette").css("display", "none");
                     var name = jQuery(this).attr("name");
@@ -290,7 +290,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-font-name").on("change", function (e) {
+                jQuery(".jqte-font-name").on("change", function (e) {
                     if (jQuery(this).val() != 0) {
                         jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
                         jqte.SelectionSet("foreColor", "#afafaf");
@@ -317,7 +317,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-font-size").on("change", function (e) {
+                jQuery(".jqte-font-size").on("change", function (e) {
                     if (jQuery(this).val() != 0) {
                         jqte.SelectionSet("fontSize", 7);
                         jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
@@ -356,7 +356,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jqte-editor-tool-c").on("mousedown", function (e) {
+                jQuery(".jqte-editor-tool-c").on("mousedown", function (e) {
                     debugger;
                     if (jQuery(this).parent().hasClass("font-name")) {
                         jQuery(".current-editor-scope").find("font[color='#afafaf']").removeAttr("color");
@@ -400,7 +400,7 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                         e.returnValue = false; // http://blog.patricktresp.de/2012/02/
                     return false;
                 });
-                $(".jq-color").on("mousedown", function (e) {
+                jQuery(".jq-color").on("mousedown", function (e) {
                     if (jQuery(".current-color-tool").length > 0) {
                         var name = jQuery(".current-color-tool").attr("name");
                         if (name == "back-color") {
@@ -529,9 +529,9 @@ define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoMa
                             range.selectNodeContents(element);
                             selection.removeAllRanges();
                             selection.addRange(range);
-                            if ($(element).is(":empty")) {
-                                $(element).append("&nbsp;");
-                                jqte.SelectText($(element));
+                            if (jQuery(element).is(":empty")) {
+                                jQuery(element).append("&nbsp;");
+                                jqte.SelectText(jQuery(element));
                             }
                         }
                     }

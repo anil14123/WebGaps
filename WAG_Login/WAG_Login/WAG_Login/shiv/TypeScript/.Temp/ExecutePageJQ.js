@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
     /////////////////////////////// Back Up code /////////////////////////////////
     //var ctx = new ContextJQ();
     //ctx.Page.Header.AddRow(undefined, "col-xs-3 col-xs-9", "");

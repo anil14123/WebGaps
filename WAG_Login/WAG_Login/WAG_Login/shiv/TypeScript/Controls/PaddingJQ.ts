@@ -105,10 +105,10 @@ export module Padding {
 
                         var common = new impCommon.Common.CommonMethodsJQ();
 
-                        var left = $(".control-padding-left").spinner("value");
-                        var top = $(".control-padding-top").spinner("value");
-                        var right = $(".control-padding-right").spinner("value");
-                        var bottom = $(".control-padding-bottom").spinner("value");
+                        var left = jQuery(".control-padding-left").spinner("value");
+                        var top = jQuery(".control-padding-top").spinner("value");
+                        var right = jQuery(".control-padding-right").spinner("value");
+                        var bottom = jQuery(".control-padding-bottom").spinner("value");
 
                         if (left != undefined) {
                             selectedElement.css("padding-left", left + "px");

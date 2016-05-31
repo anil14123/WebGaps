@@ -17,7 +17,7 @@ export module Page {
         public static LoadPage(siteId: string, siteName: string, pageName: string) {
 
             var url = "/services/sites/" + jQuery(".input-site-id").val() + "/" + jQuery(".input-site-name").val() + "/" + jQuery(".input-page-name").val();
-            $.ajax
+            jQuery.ajax
                 ({
                     url: url,
                     type: "GET",
@@ -78,7 +78,7 @@ export module Page {
 
                                 undo.BeforeOperation();
 
-                                $(window).scrollTop();
+                                jQuery(window).scrollTop();
 
                             }
                             else {

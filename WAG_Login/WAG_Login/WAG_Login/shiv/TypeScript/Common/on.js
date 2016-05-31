@@ -62,7 +62,7 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], functio
                         pageY = e.pageY - 250;
                     }
                     var pageX = e.pageX;
-                    if (e.pageX > ($(document).width() - 200)) {
+                    if (e.pageX > (jQuery(document).width() - 200)) {
                         pageX = e.pageX - 150;
                     }
                     /////////////////
@@ -88,7 +88,7 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], functio
                         pageY = e.pageY - 180;
                     }
                     var pageX = e.pageX;
-                    if (e.pageX > ($(document).width() - 200)) {
+                    if (e.pageX > (jQuery(document).width() - 200)) {
                         pageX = e.pageX - 150;
                     }
                     /////////////////
@@ -102,4 +102,4 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], functio
         On.Code = Code;
     })(On = exports.On || (exports.On = {}));
 });
-//# sourceMappingURL=On.js.map
+//# sourceMappingURL=on.js.map

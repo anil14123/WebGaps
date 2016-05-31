@@ -99,7 +99,7 @@ export module JQueryUI {
 
             var handleDefault = "e,se,s";
 
-            $(".image-element").resizable({
+            jQuery(".image-element").resizable({
                 handles: handleDefault,
                 autoHide: true,
                 delay: 0,
@@ -126,7 +126,7 @@ export module JQueryUI {
 
                     var uiHelper = new UIHelper();
 
-                    uiHelper.helper = $(this).closest(".column");
+                    uiHelper.helper = jQuery(this).closest(".column");
 
                     CommonCode.commonHeight(100, uiHelper);
 
@@ -218,7 +218,7 @@ export module JQueryUI {
 
             var handleDefault = "e,s";//"e,se,s";
 
-            $(".column").resizable({
+            jQuery(".column").resizable({
                 handles: handleDefault,
                 autoHide: true,
                 distance: 0,
@@ -234,14 +234,14 @@ export module JQueryUI {
 
                     //  jQuery(".dummy-div").height(ui.helper.height() + 2);
 
-                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
                         //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                         //    ) {
 
                         ui.element.height(ui.element.height());
-                        CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
+                        CommonCode.originalHeightBeforeDragStartStr = jQuery(ui.helper).css("min-height");
                         var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                         commonMethods.RemoveStyle(ui.helper, "min-height");
 
@@ -548,13 +548,13 @@ export module JQueryUI {
 
             }
             else
-                if ($(ui.element).data('ui-resizable').axis == "s") {
+                if (jQuery(ui.element).data('ui-resizable').axis == "s") {
 
                     ui.helper.height(ui.helper.height() + 20);
 
                 }
                 else
-                    if ($(ui.element).data('ui-resizable').axis == "s") {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "s") {
 
                     }
         }
@@ -567,7 +567,7 @@ export module JQueryUI {
                 handleDefault = handle;
             }
 
-            $(elementCss).resizable({
+            jQuery(elementCss).resizable({
                 handles: handleDefault,
                 minHeight: 0,
                 minWidth: 0,
@@ -599,7 +599,7 @@ export module JQueryUI {
 
                     var uiHelper = new UIHelper();
 
-                    uiHelper.helper = $(this).closest(".column");
+                    uiHelper.helper = jQuery(this).closest(".column");
 
                     CommonCode.commonHeight(100, uiHelper);
 
@@ -629,13 +629,13 @@ export module JQueryUI {
                 handleDefault = handle;
             }
 
-            $(elementCss).resizable({
+            jQuery(elementCss).resizable({
                 handles: handleDefault,
                 autoHide: true,
                 delay: 0,
                 start: function (event, ui) {
 
-                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
                         //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
@@ -738,7 +738,7 @@ export module JQueryUI {
                 handleDefault = handle;
             }
 
-            $(elementCss).resizable({
+            jQuery(elementCss).resizable({
                 handles: handleDefault,
                 autoHide: true,
                 distance: 0,
@@ -751,11 +751,11 @@ export module JQueryUI {
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
 
-                    $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
+                    jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
 
                     jQuery(".dummy-div").height(ui.helper.height() + 2);
 
-                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                         //    ||
                         //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
@@ -806,7 +806,7 @@ export module JQueryUI {
 
                     var uiHelper = new UIHelper();
 
-                    uiHelper.helper = $(this).closest(".column");
+                    uiHelper.helper = jQuery(this).closest(".column");
 
                     CommonCode.commonHeight(100, uiHelper);
 
@@ -837,7 +837,7 @@ export module JQueryUI {
 
         public static Droppable(elementCss) {
 
-            $(elementCss).droppable({
+            jQuery(elementCss).droppable({
                 greedy: true,
                 tolerance: "pointer",
                 accept: '.bldr-draggable, .image-text-other',
@@ -862,7 +862,7 @@ export module JQueryUI {
                         impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
 
                         var x = event.clientX;
-                        var y = event.clientY + $(document).scrollTop();
+                        var y = event.clientY + jQuery(document).scrollTop();
 
                         jQuery(".nearest-element").removeClass("nearest-element");
 
@@ -880,7 +880,7 @@ export module JQueryUI {
                             if ($elements.length > 0) {
 
                                 $elements.each(function (index, _this) {
-                                    var $this = $(_this);
+                                    var $this = jQuery(_this);
 
                                     var top = parseFloat($this.attr("top"));
                                     var bottom = parseFloat($this.attr("bottom"));
@@ -1046,7 +1046,7 @@ export module JQueryUI {
 
             jQuery(element).each(function (index, _this) {
                 try {
-                    var $this = $(_this);
+                    var $this = jQuery(_this);
                     $this.draggable("destroy");
                 }
                 catch (ex) {
@@ -1059,7 +1059,7 @@ export module JQueryUI {
 
             jQuery(elementCss).each(function (index, _this) {
                 try {
-                    var $this = $(_this);
+                    var $this = jQuery(_this);
                     $this.droppable("destroy");
                     $this.removeClass("ui-droppable");
                 }
@@ -1073,7 +1073,7 @@ export module JQueryUI {
 
             jQuery(elementCss).each(function (index, _this) {
                 try {
-                    var $this = $(_this);
+                    var $this = jQuery(_this);
                     $this.resizable("destroy");
                     jQuery($this).find("div").remove(".ui-resizable-handle");
                 }

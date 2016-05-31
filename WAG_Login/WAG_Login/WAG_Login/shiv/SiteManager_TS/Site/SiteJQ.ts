@@ -175,7 +175,7 @@ export module Site {
 
             }
 
-            $('#nestable3').nestable();
+            jQuery('#nestable3').nestable();
         }
 
         public static OnGetPagesError(request, status, error) {

@@ -77,7 +77,7 @@ export module ContextMenu {
                         impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
 
                         var x = e.clientX;
-                        var y = e.clientY + $(document).scrollTop();
+                        var y = e.clientY + jQuery(document).scrollTop();
 
                         jQuery(".nearest-element").removeClass("nearest-element");
 
@@ -97,7 +97,7 @@ export module ContextMenu {
                             if ($elements.length > 0) {
 
                                 $elements.each(function (index, _this) {
-                                    var $this = $(_this);
+                                    var $this = jQuery(_this);
 
                                     var top = parseFloat($this.attr("top"));
                                     var bottom = parseFloat($this.attr("bottom"));
@@ -999,7 +999,7 @@ export module ContextMenu {
 
                 // adjustment based on window.
                 var left = 147;
-                if (e.pageX > ($(document).width() - 200)) {
+                if (e.pageX > (jQuery(document).width() - 200)) {
                     left = -150;
                 }
 

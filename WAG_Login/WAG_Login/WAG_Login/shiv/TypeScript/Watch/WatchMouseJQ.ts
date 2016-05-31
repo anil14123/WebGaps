@@ -50,7 +50,7 @@ export module Watch {
         public static ProcessMove(e) {
 
             if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
-                 $(".key").removeClass("control-focused");
+                 //$(".key").removeClass("control-focused");
                  return;
             }
 
@@ -60,7 +60,7 @@ export module Watch {
                 $target = $target.closest(".key");
             }
 
-            $(".key").removeClass("control-focused");
+            jQuery(".key").removeClass("control-focused");
             $target.addClass("control-focused");
 
 
@@ -209,7 +209,7 @@ export module Watch {
 
 
             if (!MouseJQ.selectedElement.hasClass("empty-container-text") && !MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
-                $(".empty-container-text").draggable({ disabled: false });
+                jQuery(".empty-container-text").draggable({ disabled: false });
                 jQuery(".editor").hide();
 
                 jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
@@ -658,12 +658,13 @@ export module Watch {
 
                     });
 
-                    $("page").bind('copy', function () {
+                    jQuery("page").bind('copy', function () {
 
 
                         impCopy.CopyPaste.CopyPasteJQ.Copy();
                     });
-                    $("page").bind('paste', function () {
+
+                    jQuery("page").bind('paste', function () {
 
                         if (MouseJQ.selectedElement.hasClass("column")) {
                             impCopy.CopyPaste.CopyPasteJQ.Paste(true);
@@ -680,7 +681,7 @@ export module Watch {
                         impCopy.CopyPaste.CopyPasteJQ.Cut();
                     });
 
-                    $(window).on('beforeunload', function () {
+                    jQuery(window).on('beforeunload', function () {
 
                         jQuery(".control-page").hide();
                         jQuery(".control-page").removeClass("control-active");
@@ -701,9 +702,9 @@ export module Watch {
                             /// for moving
 
                             //Resetting Code Text Editor..
-                            $(".empty-container-text").draggable({ disabled: false });
-                            $(".empty-container-image").draggable({ disabled: false });
-                            $("page .jq-text-block-content").removeAttr("contentEditable");
+                            jQuery(".empty-container-text").draggable({ disabled: false });
+                            jQuery(".empty-container-image").draggable({ disabled: false });
+                            jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                             jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                             ////////////////////
 

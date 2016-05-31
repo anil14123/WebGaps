@@ -19,7 +19,7 @@ define(["require", "exports"], function (require, exports) {
                 }
                 var search = new RegExp(style + '[^;]+;?', 'g');
                 jQuery(element).each(function () {
-                    $(this).attr('style', function (i, style) {
+                    jQuery(this).attr('style', function (i, style) {
                         if (style != undefined) {
                             var result = style.replace(search, '');
                             return result;
@@ -37,7 +37,7 @@ define(["require", "exports"], function (require, exports) {
                 }
                 var search = new RegExp(style + "\s*:.*?;", 'g');
                 jQuery(element).each(function () {
-                    $(this).attr('style', function (i, style) {
+                    jQuery(this).attr('style', function (i, style) {
                         if (style != undefined) {
                             var result = style.replace(search, '');
                             return result;

@@ -109,7 +109,7 @@ define(["require", "exports"], function (require, exports) {
                         jQuery(".jq-page-item[data-id='" + result[i].Extra + "']").children("ol").append(jQuery(".jq-page-item[data-id='" + result[i].Id + "']"));
                     }
                 }
-                $('#nestable3').nestable();
+                jQuery('#nestable3').nestable();
             };
             SiteJQ.OnGetPagesError = function (request, status, error) {
                 // alert(error);
@@ -157,4 +157,4 @@ define(["require", "exports"], function (require, exports) {
         Site.SiteJQ = SiteJQ;
     })(Site = exports.Site || (exports.Site = {}));
 });
-//# sourceMappingURL=SiteJQ.js.map
+//# sourceMappingURL=Sitejq.js.map

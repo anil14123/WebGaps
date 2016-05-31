@@ -101,9 +101,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
                     //Resetting code
-                    $(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".empty-container-text").draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
-                    $("page .jq-text-block-content").removeAttr("contentEditable");
+                    jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                     //////////////////
                     jQuery(".current-editor-scope").removeClass("current-editor-scope");
                     jQuery(this).find(".jq-text-block-content").addClass("current-editor-scope");
@@ -113,7 +113,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     //jQuery(".designer-top-row").css("height", topRowPx);
                     //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
-                    $(this).draggable({ disabled: true });
+                    jQuery(this).draggable({ disabled: true });
                     jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                     jQuery(".current-editor-scope").attr("contentEditable", "true");

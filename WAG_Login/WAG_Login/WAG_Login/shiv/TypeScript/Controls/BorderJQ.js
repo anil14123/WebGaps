@@ -107,32 +107,32 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                             if (selectedElement != undefined) {
                                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                                 var common = new impCommon.Common.CommonMethodsJQ();
-                                var borderLeft = $(this).closest(".control-border-controls").find(".control-border-thickness-left").spinner("value");
-                                var borderTop = $(this).closest(".control-border-controls").find(".control-border-thickness-top").spinner("value");
-                                var borderRight = $(this).closest(".control-border-controls").find(".control-border-thickness-right").spinner("value");
-                                var borderBottom = $(this).closest(".control-border-controls").find(".control-border-thickness-bottom").spinner("value");
-                                var borderRadius = $(this).closest(".control-border-controls").find(".control-border-thickness-radius").spinner("value");
+                                var borderLeft = jQuery(this).closest(".control-border-controls").find(".control-border-thickness-left").spinner("value");
+                                var borderTop = jQuery(this).closest(".control-border-controls").find(".control-border-thickness-top").spinner("value");
+                                var borderRight = jQuery(this).closest(".control-border-controls").find(".control-border-thickness-right").spinner("value");
+                                var borderBottom = jQuery(this).closest(".control-border-controls").find(".control-border-thickness-bottom").spinner("value");
+                                var borderRadius = jQuery(this).closest(".control-border-controls").find(".control-border-thickness-radius").spinner("value");
                                 if (borderRadius != undefined) {
                                     selectedElement.css("border-radius", borderRadius + "px");
                                 }
                                 if (borderLeft != undefined) {
                                     selectedElement.css("border-left-width", borderLeft + "px");
-                                    var color = $(this).closest(".control-border-controls").find(".color-picker-left").val();
+                                    var color = jQuery(this).closest(".control-border-controls").find(".color-picker-left").val();
                                     selectedElement.css("border-left-color", "#" + color);
                                 }
                                 if (borderTop != undefined) {
                                     selectedElement.css("border-top-width", borderTop + "px");
-                                    var color = $(this).closest(".control-border-controls").find(".color-picker-top").val();
+                                    var color = jQuery(this).closest(".control-border-controls").find(".color-picker-top").val();
                                     selectedElement.css("border-top-color", "#" + color);
                                 }
                                 if (borderRight != undefined) {
                                     selectedElement.css("border-right-width", borderRight + "px");
-                                    var color = $(this).closest(".control-border-controls").find(".color-picker-right").val();
+                                    var color = jQuery(this).closest(".control-border-controls").find(".color-picker-right").val();
                                     selectedElement.css("border-right-color", "#" + color);
                                 }
                                 if (borderBottom != undefined) {
                                     selectedElement.css("border-bottom-width", borderBottom + "px");
-                                    var color = $(this).closest(".control-border-controls").find(".color-picker-bottom").val();
+                                    var color = jQuery(this).closest(".control-border-controls").find(".color-picker-bottom").val();
                                     selectedElement.css("border-bottom-color", "#" + color);
                                 }
                                 selectedElement.css("border-style", "solid");
@@ -167,41 +167,41 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         if (jQuery($this).hasClass("control-border-thickness-all")) {
                             jQuery(".control-border-thickness").not(".control-border-thickness-all").not(".control-border-thickness-radius").spinner("value", jQuery($this).val());
                         }
-                        if ($($this).hasClass("color-picker-left")) {
-                            if ($(".control-border-thickness-left").spinner("value") == 0) {
-                                $(".control-border-thickness-left").spinner("value", 1);
+                        if (jQuery($this).hasClass("color-picker-left")) {
+                            if (jQuery(".control-border-thickness-left").spinner("value") == 0) {
+                                jQuery(".control-border-thickness-left").spinner("value", 1);
                             }
                         }
-                        if ($($this).hasClass("color-picker-top")) {
-                            if ($(".control-border-thickness-top").spinner("value") == 0) {
-                                $(".control-border-thickness-top").spinner("value", 1);
+                        if (jQuery($this).hasClass("color-picker-top")) {
+                            if (jQuery(".control-border-thickness-top").spinner("value") == 0) {
+                                jQuery(".control-border-thickness-top").spinner("value", 1);
                             }
                         }
-                        if ($($this).hasClass("color-picker-right")) {
-                            if ($(".control-border-thickness-right").spinner("value") == 0) {
-                                $(".control-border-thickness-right").spinner("value", 1);
+                        if (jQuery($this).hasClass("color-picker-right")) {
+                            if (jQuery(".control-border-thickness-right").spinner("value") == 0) {
+                                jQuery(".control-border-thickness-right").spinner("value", 1);
                             }
                         }
-                        if ($($this).hasClass("color-picker-bottom")) {
-                            if ($(".control-border-thickness-bottom").spinner("value") == 0) {
-                                $(".control-border-thickness-bottom").spinner("value", 1);
+                        if (jQuery($this).hasClass("color-picker-bottom")) {
+                            if (jQuery(".control-border-thickness-bottom").spinner("value") == 0) {
+                                jQuery(".control-border-thickness-bottom").spinner("value", 1);
                             }
                         }
-                        if ($($this).hasClass("color-picker-all")) {
-                            if ($(".control-border-thickness-all").spinner("value") == 0) {
-                                $(".control-border-thickness-left").spinner("value", 1);
-                                $(".control-border-thickness-top").spinner("value", 1);
-                                $(".control-border-thickness-right").spinner("value", 1);
-                                $(".control-border-thickness-bottom").spinner("value", 1);
-                                $(".control-border-thickness-all").spinner("value", 1);
+                        if (jQuery($this).hasClass("color-picker-all")) {
+                            if (jQuery(".control-border-thickness-all").spinner("value") == 0) {
+                                jQuery(".control-border-thickness-left").spinner("value", 1);
+                                jQuery(".control-border-thickness-top").spinner("value", 1);
+                                jQuery(".control-border-thickness-right").spinner("value", 1);
+                                jQuery(".control-border-thickness-bottom").spinner("value", 1);
+                                jQuery(".control-border-thickness-all").spinner("value", 1);
                             }
                         }
                         var common = new impCommon.Common.CommonMethodsJQ();
-                        var borderLeft = $(".control-border-thickness-left").spinner("value");
-                        var borderTop = $(".control-border-thickness-top").spinner("value");
-                        var borderRight = $(".control-border-thickness-right").spinner("value");
-                        var borderBottom = $(".control-border-thickness-bottom").spinner("value");
-                        var borderRadius = $(".control-border-thickness-radius").spinner("value");
+                        var borderLeft = jQuery(".control-border-thickness-left").spinner("value");
+                        var borderTop = jQuery(".control-border-thickness-top").spinner("value");
+                        var borderRight = jQuery(".control-border-thickness-right").spinner("value");
+                        var borderBottom = jQuery(".control-border-thickness-bottom").spinner("value");
+                        var borderRadius = jQuery(".control-border-thickness-radius").spinner("value");
                         if (borderRadius != undefined) {
                             selectedElement.css("border-radius", borderRadius + "px");
                         }
@@ -211,22 +211,22 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../C
                         }
                         if (borderLeft != undefined) {
                             selectedElement.css("border-left-width", borderLeft + "px");
-                            var color = $($this).closest(".control-border-controls").find(".color-picker-left").val();
+                            var color = jQuery($this).closest(".control-border-controls").find(".color-picker-left").val();
                             selectedElement.css("border-left-color", "#" + color);
                         }
                         if (borderTop != undefined) {
                             selectedElement.css("border-top-width", borderTop + "px");
-                            var color = $($this).closest(".control-border-controls").find(".color-picker-top").val();
+                            var color = jQuery($this).closest(".control-border-controls").find(".color-picker-top").val();
                             selectedElement.css("border-top-color", "#" + color);
                         }
                         if (borderRight != undefined) {
                             selectedElement.css("border-right-width", borderRight + "px");
-                            var color = $($this).closest(".control-border-controls").find(".color-picker-right").val();
+                            var color = jQuery($this).closest(".control-border-controls").find(".color-picker-right").val();
                             selectedElement.css("border-right-color", "#" + color);
                         }
                         if (borderBottom != undefined) {
                             selectedElement.css("border-bottom-width", borderBottom + "px");
-                            var color = $($this).closest(".control-border-controls").find(".color-picker-bottom").val();
+                            var color = jQuery($this).closest(".control-border-controls").find(".color-picker-bottom").val();
                             selectedElement.css("border-bottom-color", "#" + color);
                         }
                         if (jQuery(".border-style-selected").find(".border-style").hasClass("border-style-solid")) {

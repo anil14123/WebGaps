@@ -65,7 +65,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             };
             CommonCode.ResizableImage = function () {
                 var handleDefault = "e,se,s";
-                $(".image-element").resizable({
+                jQuery(".image-element").resizable({
                     handles: handleDefault,
                     autoHide: true,
                     delay: 0,
@@ -86,7 +86,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     resize: function (event, ui) {
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
-                        uiHelper.helper = $(this).closest(".column");
+                        uiHelper.helper = jQuery(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
                     }
                 });
@@ -146,7 +146,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             //public static scrollElement: JQuery;
             CommonCode.ResizableColumn = function () {
                 var handleDefault = "e,s"; //"e,se,s";
-                $(".column").resizable({
+                jQuery(".column").resizable({
                     handles: handleDefault,
                     autoHide: true,
                     distance: 0,
@@ -156,13 +156,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                         // $(ui.helper).append("<div class='height-dummy-column dummy-div'></div>")
                         //  jQuery(".dummy-div").height(ui.helper.height() + 2);
-                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
                             //    ) {
                             ui.element.height(ui.element.height());
-                            CommonCode.originalHeightBeforeDragStartStr = $(ui.helper).css("min-height");
+                            CommonCode.originalHeightBeforeDragStartStr = jQuery(ui.helper).css("min-height");
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                             commonMethods.RemoveStyle(ui.helper, "min-height");
                         }
@@ -336,10 +336,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.OnResize = function (event, ui) {
                 if (jQuery(ui.element).data('ui-resizable').axis == "se") {
                 }
-                else if ($(ui.element).data('ui-resizable').axis == "s") {
+                else if (jQuery(ui.element).data('ui-resizable').axis == "s") {
                     ui.helper.height(ui.helper.height() + 20);
                 }
-                else if ($(ui.element).data('ui-resizable').axis == "s") {
+                else if (jQuery(ui.element).data('ui-resizable').axis == "s") {
                 }
             };
             CommonCode.JustResizable = function (elementCss, handle) {
@@ -347,7 +347,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 if (handle != undefined && handle != "") {
                     handleDefault = handle;
                 }
-                $(elementCss).resizable({
+                jQuery(elementCss).resizable({
                     handles: handleDefault,
                     minHeight: 0,
                     minWidth: 0,
@@ -364,7 +364,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         var width = ui.size.width;
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
-                        uiHelper.helper = $(this).closest(".column");
+                        uiHelper.helper = jQuery(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
                         var undomanager = new impUndoManager.Manager.UndoManager();
                         undomanager.BeforeOperation();
@@ -378,12 +378,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 if (handle != undefined && handle != "") {
                     handleDefault = handle;
                 }
-                $(elementCss).resizable({
+                jQuery(elementCss).resizable({
                     handles: handleDefault,
                     autoHide: true,
                     delay: 0,
                     start: function (event, ui) {
-                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
@@ -454,7 +454,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 if (handle != undefined && handle != "") {
                     handleDefault = handle;
                 }
-                $(elementCss).resizable({
+                jQuery(elementCss).resizable({
                     handles: handleDefault,
                     autoHide: true,
                     distance: 0,
@@ -462,9 +462,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
-                        $(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
+                        jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
                         jQuery(".dummy-div").height(ui.helper.height() + 2);
-                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || $(ui.element).data('ui-resizable').axis == "s") {
+                        if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
                             //    jQuery(event.target).children(".ui-resizable-s").hasClass("selected-resizable")
@@ -502,7 +502,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //alert(height + " x " + width);
                         JQueryUI.CommonCode.ResizeCommon(ui.element);
                         var uiHelper = new UIHelper();
-                        uiHelper.helper = $(this).closest(".column");
+                        uiHelper.helper = jQuery(this).closest(".column");
                         CommonCode.commonHeight(100, uiHelper);
                         jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
                         var undomanager = new impUndoManager.Manager.UndoManager();
@@ -518,7 +518,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 });
             };
             CommonCode.Droppable = function (elementCss) {
-                $(elementCss).droppable({
+                jQuery(elementCss).droppable({
                     greedy: true,
                     tolerance: "pointer",
                     accept: '.bldr-draggable, .image-text-other',
@@ -533,7 +533,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             window.smartObj.command = "";
                             impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
                             var x = event.clientX;
-                            var y = event.clientY + $(document).scrollTop();
+                            var y = event.clientY + jQuery(document).scrollTop();
                             jQuery(".nearest-element").removeClass("nearest-element");
                             if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
                                 impWatch.Watch.MouseJQ.selectedElement = impWatch.Watch.MouseJQ.selectedElement.closest(".column");
@@ -544,7 +544,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 var nearestTopArray = [];
                                 if ($elements.length > 0) {
                                     $elements.each(function (index, _this) {
-                                        var $this = $(_this);
+                                        var $this = jQuery(_this);
                                         var top = parseFloat($this.attr("top"));
                                         var bottom = parseFloat($this.attr("bottom"));
                                         var left = parseFloat($this.attr("left"));
@@ -664,7 +664,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.DraggableDestroy = function (element) {
                 jQuery(element).each(function (index, _this) {
                     try {
-                        var $this = $(_this);
+                        var $this = jQuery(_this);
                         $this.draggable("destroy");
                     }
                     catch (ex) {
@@ -674,7 +674,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.DroppableDestroy = function (elementCss) {
                 jQuery(elementCss).each(function (index, _this) {
                     try {
-                        var $this = $(_this);
+                        var $this = jQuery(_this);
                         $this.droppable("destroy");
                         $this.removeClass("ui-droppable");
                     }
@@ -685,7 +685,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.ResizableDestroy = function (elementCss) {
                 jQuery(elementCss).each(function (index, _this) {
                     try {
-                        var $this = $(_this);
+                        var $this = jQuery(_this);
                         $this.resizable("destroy");
                         jQuery($this).find("div").remove(".ui-resizable-handle");
                     }

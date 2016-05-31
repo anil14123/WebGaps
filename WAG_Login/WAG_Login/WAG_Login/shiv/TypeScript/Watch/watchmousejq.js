@@ -21,14 +21,14 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             };
             MouseJQ.ProcessMove = function (e) {
                 if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
-                    $(".key").removeClass("control-focused");
+                    //$(".key").removeClass("control-focused");
                     return;
                 }
                 var $target = jQuery(event.target);
                 if (!$target.hasClass("key")) {
                     $target = $target.closest(".key");
                 }
-                $(".key").removeClass("control-focused");
+                jQuery(".key").removeClass("control-focused");
                 $target.addClass("control-focused");
                 //////// do not remove//////////////
                 //if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
@@ -131,7 +131,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 ///////////////////////
                 if (!MouseJQ.selectedElement.hasClass("empty-container-text") && !MouseJQ.selectedElement.hasClass("jq-plus-container-text")) {
-                    $(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".empty-container-text").draggable({ disabled: false });
                     jQuery(".editor").hide();
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                 }
@@ -495,10 +495,10 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 }
                             }
                         });
-                        $("page").bind('copy', function () {
+                        jQuery("page").bind('copy', function () {
                             impCopy.CopyPaste.CopyPasteJQ.Copy();
                         });
-                        $("page").bind('paste', function () {
+                        jQuery("page").bind('paste', function () {
                             if (MouseJQ.selectedElement.hasClass("column")) {
                                 impCopy.CopyPaste.CopyPasteJQ.Paste(true);
                             }
@@ -510,7 +510,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery("page").bind('cut', function () {
                             impCopy.CopyPaste.CopyPasteJQ.Cut();
                         });
-                        $(window).on('beforeunload', function () {
+                        jQuery(window).on('beforeunload', function () {
                             jQuery(".control-page").hide();
                             jQuery(".control-page").removeClass("control-active");
                             jQuery("#control-save").addClass("control-active");
@@ -523,9 +523,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             if (e.which === ESC) {
                                 /// for moving
                                 //Resetting Code Text Editor..
-                                $(".empty-container-text").draggable({ disabled: false });
-                                $(".empty-container-image").draggable({ disabled: false });
-                                $("page .jq-text-block-content").removeAttr("contentEditable");
+                                jQuery(".empty-container-text").draggable({ disabled: false });
+                                jQuery(".empty-container-image").draggable({ disabled: false });
+                                jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                                 jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                                 ////////////////////
                                 //var topRowPx = "180px";

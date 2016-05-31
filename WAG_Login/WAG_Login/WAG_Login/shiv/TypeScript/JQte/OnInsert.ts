@@ -171,9 +171,9 @@ export module OnInsert {
                 function () {
 
                     //Resetting code
-                    $(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".empty-container-text").draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
-                    $("page .jq-text-block-content").removeAttr("contentEditable");
+                    jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                     //////////////////
 
                     jQuery(".current-editor-scope").removeClass("current-editor-scope");
@@ -189,7 +189,7 @@ export module OnInsert {
                     //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
 
-                    $(this).draggable({ disabled: true });
+                    jQuery(this).draggable({ disabled: true });
                     jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                     jQuery(".current-editor-scope").attr("contentEditable", "true");

@@ -10,7 +10,7 @@ define(["require", "exports"], function (require, exports) {
                 jQuery(".menu").find(".li").mouseenter(function (e) {
                     // adjustment based on window.
                     var left = 147;
-                    if (e.pageX > ($(document).width() - 200)) {
+                    if (e.pageX > (jQuery(document).width() - 200)) {
                         left = -150;
                     }
                     jQuery(this).parent().find("ul").first().css("left", left + "px");

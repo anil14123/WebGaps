@@ -11,9 +11,9 @@ export module Template {
 
         public static ProcessImmediate() {
             jQuery(".jq-template").each(function () {
-                var templateId = $(this).attr("template-id");
+                var templateId = jQuery(this).attr("template-id");
 
-                $(this).append(jQuery(jQuery("#" + templateId).html()).clone());
+                jQuery(this).append(jQuery(jQuery("#" + templateId).html()).clone());
             });
         }
 

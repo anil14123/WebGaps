@@ -11,8 +11,8 @@ define(["require", "exports"], function (require, exports) {
             };
             TemplateJQ.ProcessImmediate = function () {
                 jQuery(".jq-template").each(function () {
-                    var templateId = $(this).attr("template-id");
-                    $(this).append(jQuery(jQuery("#" + templateId).html()).clone());
+                    var templateId = jQuery(this).attr("template-id");
+                    jQuery(this).append(jQuery(jQuery("#" + templateId).html()).clone());
                 });
             };
             TemplateJQ.prototype.Process = function () {

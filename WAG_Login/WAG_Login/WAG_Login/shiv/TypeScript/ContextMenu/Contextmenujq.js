@@ -26,7 +26,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         try {
                             impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
                             var x = e.clientX;
-                            var y = e.clientY + $(document).scrollTop();
+                            var y = e.clientY + jQuery(document).scrollTop();
                             jQuery(".nearest-element").removeClass("nearest-element");
                             var column = impWatch.Watch.MouseJQ.selectedElement;
                             if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
@@ -38,7 +38,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                                 var nearestTopArray = [];
                                 if ($elements.length > 0) {
                                     $elements.each(function (index, _this) {
-                                        var $this = $(_this);
+                                        var $this = jQuery(_this);
                                         var top = parseFloat($this.attr("top"));
                                         var bottom = parseFloat($this.attr("bottom"));
                                         var left = parseFloat($this.attr("left"));
@@ -576,7 +576,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 jQuery("#contextMenuitems").find(".li").on("mouseenter", function (e) {
                     // adjustment based on window.
                     var left = 147;
-                    if (e.pageX > ($(document).width() - 200)) {
+                    if (e.pageX > (jQuery(document).width() - 200)) {
                         left = -150;
                     }
                     jQuery(this).parent().find(".innerListContainer").first().css("left", left + "px");
@@ -637,4 +637,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });
-//# sourceMappingURL=Contextmenujq.js.map
+//# sourceMappingURL=ContextMenuJQ.js.map

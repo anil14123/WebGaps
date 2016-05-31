@@ -151,7 +151,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 }
                                 if (selectedElement != undefined) {
                                     if (jQuery(this).hasClass("control-color-foreground-color")) {
-                                        var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
+                                        var colorForeground = jQuery(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
                                         colorForeground = colorForeground.replace("#", "");
                                         selectedElement.css("color", "#" + colorForeground);
                                         if (colorForeground != "") {
@@ -182,7 +182,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                         }
                                     }
                                     else if (jQuery(this).hasClass("control-color-background-color")) {
-                                        var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+                                        var colorBackground = jQuery(this).closest(".control-color-controls").find(".control-color-background-color").val();
                                         if (selectedElement.hasClass("empty-container-text")) {
                                         }
                                         colorBackground = colorBackground.replace("#", "");
@@ -205,8 +205,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 selectedElement = selectedElement.find(".jq-plus-container-image");
                             }
                             if (selectedElement != undefined) {
-                                var colorOne = $(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
-                                var colorTwo = $(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
+                                var colorOne = jQuery(this).closest(".control-color-controls").find(".control-color-gradient-color-1").val();
+                                var colorTwo = jQuery(this).closest(".control-color-controls").find(".control-color-gradient-color-2").val();
                                 colorOne = colorOne.replace("#", "");
                                 colorTwo = colorTwo.replace("#", "");
                                 var browserSpecificGradient = ["-webkit-linear-gradient", "-o-linear-gradient", "-moz-linear-gradient", "linear-gradient"];
@@ -228,9 +228,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 selectedElement = selectedElement.find(".jq-plus-container-image");
                             }
                             if (selectedElement != undefined) {
-                                var colorForeground = $(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
+                                var colorForeground = jQuery(this).closest(".control-color-controls").find(".control-color-foreground-color").val();
                                 selectedElement.css("color", "#" + colorForeground);
-                                var colorBackground = $(this).closest(".control-color-controls").find(".control-color-background-color").val();
+                                var colorBackground = jQuery(this).closest(".control-color-controls").find(".control-color-background-color").val();
                                 selectedElement.css("background-color", "#" + colorBackground);
                                 var undo = new impUndoManager.Manager.UndoManager();
                                 undo.BeforeOperation();
