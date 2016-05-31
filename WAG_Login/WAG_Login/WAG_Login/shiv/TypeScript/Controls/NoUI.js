@@ -1,4 +1,4 @@
-define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouseJQ", "../Error/ErrorJQ"], function (require, exports, impUndoManager, impWatch, impError) {
+define(["require", "exports", "../UndoManager/UndoManager", "../Watch/WatchMouseJQ", "../Error/ErrorJQ", "jquery"], function (require, exports, impUndoManager, impWatch, impError, jQuery) {
     "use strict";
     var NoUI;
     (function (NoUI) {

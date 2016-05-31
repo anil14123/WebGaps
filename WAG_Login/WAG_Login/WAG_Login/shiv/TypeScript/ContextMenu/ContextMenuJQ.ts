@@ -1,6 +1,4 @@
 ﻿
-/// <reference path="../../../library/jquery.d.ts" />
-
 /////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: impCommonSmart.Common.SmartObj; }
 
@@ -30,6 +28,8 @@ import impPadding = require("../Controls/PaddingJQ");
 import impFrontBack = require("../Controls/FrontBackJQ");
 import impOpacity = require("../Controls/OpacityJQ");
 import impBorderShadow = require("../Controls/BorderShadow");
+
+import * as jQuery from "jquery";
 
 var G_isAttachedContextMenu = false;
 

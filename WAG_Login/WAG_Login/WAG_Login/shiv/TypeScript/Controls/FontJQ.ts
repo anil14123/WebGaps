@@ -1,6 +1,6 @@
 ﻿import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
-
+import * as jQuery from "jquery";
 var isFontReady = false;
 
 export module Font {

@@ -12,7 +12,7 @@ import impPreview = require("../Preview/Preview");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impmal = require("../MalFormed/MalFormedJQ");
 import impOnInsert = require("../jqte/OnInsert");
-
+import * as jQuery from "jquery";
 export module Manager {
 
     export class UndoManager {

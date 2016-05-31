@@ -1,5 +1,5 @@
 ﻿import impError = require("../../typescript/error/errorjq");
-
+import * as jQuery from "jquery";
 export module Site {
 
     export class SiteJQ {

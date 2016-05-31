@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../cssManager/cssManagerJQ", "../Menu/MenuTemplateJQ"], function (require, exports, impError, impPageCtx, impWatch, impCommonCode, impCssManager, impMenuTemplate) {
+define(["require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../cssManager/cssManagerJQ", "../Menu/MenuTemplateJQ", "jquery"], function (require, exports, impError, impPageCtx, impWatch, impCommonCode, impCssManager, impMenuTemplate, jQuery) {
     "use strict";
     var debug = true;
     var globalMenuontainerId = 0;

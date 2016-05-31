@@ -1,5 +1,5 @@
 ﻿/// <reference path="../../../library/jquery.d.ts" />
-
+import * as jQuery from "jquery";
 export module Page.Elements {
 
     export class ElementJQ {

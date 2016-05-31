@@ -1,6 +1,6 @@
 ﻿
 import impCommon = require("../Common/CommonMethodsJQ");
-
+import * as jQuery from "jquery";
 export module Common {
 
     export class UrlJQ {

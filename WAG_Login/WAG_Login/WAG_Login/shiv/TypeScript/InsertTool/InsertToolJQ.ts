@@ -1,6 +1,6 @@
 ﻿
 var isInsertToolReady = false;
-
+import * as jQuery from "jquery";
 export module InsertTool {
 
     export class InsertToolJQ {

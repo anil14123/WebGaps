@@ -1,4 +1,4 @@
-﻿
+﻿import * as jQuery from "jquery";
 var clicking = false;
 var control : JQuery;
 export module Control {

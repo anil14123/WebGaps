@@ -1,4 +1,4 @@
-﻿
+﻿import * as jQuery from "jquery";
 export module Common {
 
     export class CommonMethodsJQ {

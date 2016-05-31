@@ -1,5 +1,6 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../Undomanager/undomanager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../Undomanager/undomanager", "jquery", "jqueryui"], function (require, exports, impError, impWatch, impCommon, impUndoManager, jQuery, jQueryUI) {
     "use strict";
+    jQueryUI;
     var isSmartMenuReady = false;
     var isChangedWidth = false;
     var prevWidthValue = 0;

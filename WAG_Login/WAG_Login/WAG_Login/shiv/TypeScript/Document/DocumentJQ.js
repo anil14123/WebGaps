@@ -1,5 +1,5 @@
 /// <reference path="iwindow.ts" />
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "jquery"], function (require, exports, jQuery) {
     "use strict";
     var isDocumentReady = false;
     var Document;

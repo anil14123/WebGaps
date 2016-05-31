@@ -2,6 +2,8 @@
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
 
+import * as jQuery from "jquery";
+
 export module Operation {
 
     export class AfterOperationJQ {

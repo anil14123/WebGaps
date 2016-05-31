@@ -8,7 +8,7 @@ import impPreview = require("../Preview/Preview");
 import impStatic = require("../Constants/ConstantsJQ");
 import impInsertTool = require("../InsertTool/InsertToolJQ");
 import impOnInsert = require("../jqte/OnInsert");
-
+import * as jQuery from "jquery";
 
 export module Page {
 

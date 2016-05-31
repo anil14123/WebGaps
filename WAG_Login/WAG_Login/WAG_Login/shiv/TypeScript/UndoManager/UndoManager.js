@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ", "../jqte/OnInsert"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal, impOnInsert) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../Preview/Preview", "../Watch/WatchMouseJQ", "../MalFormed/MalFormedJQ", "../jqte/OnInsert", "jquery"], function (require, exports, impControlsCommon, impPreview, impWatch, impmal, impOnInsert, jQuery) {
     "use strict";
     window.undoActivityIndex = 999999;
     var Manager;

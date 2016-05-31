@@ -1,6 +1,6 @@
 ﻿
 var isTemplateReady = false;
-
+import * as jQuery from "jquery";
 export module Template {
 
     export class TemplateJQ {

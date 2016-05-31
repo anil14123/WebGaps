@@ -1,4 +1,6 @@
 ﻿
+import * as jQuery from "jquery";
+
 export module Menu {
 
     export class AllMenuJQ {

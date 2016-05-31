@@ -21,7 +21,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impCommonSmart = require("../Common/CommonEvents");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impmal = require("../MalFormed/MalFormedJQ");
-
+import * as jQuery from "jquery";
 var uniqureId = 5;
 
 export module Page {

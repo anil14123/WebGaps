@@ -1,4 +1,4 @@
-define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert"], function (require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert", "jquery"], function (require, exports, impJQueryUI, impOn, impJqteOnInsert, jQuery) {
     "use strict";
     var ControlCommon;
     (function (ControlCommon) {

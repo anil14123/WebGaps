@@ -3,7 +3,7 @@
 import impCopy = require("../Watch/CopyPasteJQ");
 
 var isDocumentReady = false;
-
+import * as jQuery from "jquery";
 export module Document {
 
     export class DocumentJQ {

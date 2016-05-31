@@ -8,6 +8,8 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impText = require("../Controls/TextJQ");
+import * as jQueryUI from "jqueryui";
+jQueryUI;
 
 export module JQueryUI {
 

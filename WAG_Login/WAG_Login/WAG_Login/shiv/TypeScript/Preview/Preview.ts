@@ -1,6 +1,6 @@
 ﻿
 var isPreviewReady = false;
-
+import * as jQuery from "jquery";
 export module Preview {
 
     export class PreviewJQ {

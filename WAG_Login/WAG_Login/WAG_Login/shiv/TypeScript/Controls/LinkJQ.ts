@@ -8,6 +8,8 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impOperaction = require("../Common/OperationJQ");
 import impStatic = require("../Constants/ConstantsJQ");
 
+import * as jQuery from "jquery";
+
 var initOnceFlag = false;
 
 export module Link {

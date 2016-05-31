@@ -1,4 +1,4 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impWatch, impUndoManager) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "jquery"], function (require, exports, impWatch, impUndoManager, jQuery) {
     "use strict";
     var isFontReady = false;
     var Font;

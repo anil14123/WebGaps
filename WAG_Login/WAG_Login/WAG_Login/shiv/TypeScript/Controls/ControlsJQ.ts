@@ -13,6 +13,8 @@ import impJqueryUI = require("./JqueryUI");
 
 import impOperaction = require("../Common/OperationJQ");
 
+import * as jQuery from "jquery";
+
 export module Page {
 
 

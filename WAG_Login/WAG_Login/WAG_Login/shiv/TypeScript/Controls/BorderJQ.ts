@@ -6,6 +6,14 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommon = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 
+
+import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+jQueryUI;
+import * as ColorPicker from 'ColorPicker';
+ColorPicker;
+
+
 var isBorderReady = false;
 var borderFirstTime = 0;
 export module Border {

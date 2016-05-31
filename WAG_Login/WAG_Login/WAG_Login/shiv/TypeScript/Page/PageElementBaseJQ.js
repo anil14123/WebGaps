@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../UndoManager/UndoManager", "../MalFormed/MalFormedJQ"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impUndoManager, impmal) {
+define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "../Common/CommonMethodsJQ", "../_Classes/UrlJQ", "../_Classes/Auth", "../Constants/ConstantsJQ", "../UndoManager/UndoManager", "../MalFormed/MalFormedJQ", "jquery"], function (require, exports, impElements, impError, impCommon, impUrl, impAuth, impConstants, impUndoManager, impmal, jQuery) {
     "use strict";
     var uniqureId = 5;
     var Page;

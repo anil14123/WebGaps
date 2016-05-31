@@ -1,4 +1,4 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Page/Context/ContextJQ"], function (require, exports, impWatch, impPageCtx) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Page/Context/ContextJQ", "jquery"], function (require, exports, impWatch, impPageCtx, jQuery) {
     "use strict";
     var Spacer;
     (function (Spacer) {

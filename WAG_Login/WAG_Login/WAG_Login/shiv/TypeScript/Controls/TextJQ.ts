@@ -17,7 +17,7 @@ import impCommonCode = require("./ControlCommonJQ");
 
 import impOperaction = require("../Common/OperationJQ");
 //import impOnInsert = require("../jqte/OnInsert");
-
+import * as jQuery from "jquery";
 var debug = true;
 var globalTextBlockId = 0;
 var globalTextBoxContainerId = 0;

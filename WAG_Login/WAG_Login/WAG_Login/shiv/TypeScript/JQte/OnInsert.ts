@@ -6,7 +6,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impJQte = require("../jqte/MyJQte");
 import impAddrow = require("../Controls/ControlsJQ");
 import impElements = require("../PageElements/ElementJQ");
-
+import * as jQuery from "jquery";
 var changed = false;
 export module OnInsert {
 

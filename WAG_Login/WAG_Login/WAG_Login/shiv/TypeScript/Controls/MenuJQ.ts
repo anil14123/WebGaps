@@ -10,7 +10,7 @@ import impCssManager = require("../cssManager/cssManagerJQ");
 import impMenuTemplate = require("../Menu/MenuTemplateJQ");
 
 import impCommon = require("../Common/CommonEvents");
-
+import * as jQuery from "jquery";
 var debug = true;
 
 var globalMenuontainerId = 0;

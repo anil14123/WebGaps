@@ -5,6 +5,12 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommon = require("../common/commonmethodsjq");
 
+import * as jQuery from "jquery";
+import * as ColorPicker from 'ColorPicker';
+ColorPicker;
+
+
+
 var isColorReady = false;
 
 export module Color {

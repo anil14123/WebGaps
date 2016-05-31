@@ -20,7 +20,7 @@ import impPreview = require("../../Preview/Preview");
 import impCtxMenu = require("../../ContextMenu/ContextMenuJQ");
 
 import impControlCommon = require("../../controls/controlcommonjq");
-
+import * as jQuery from "jquery";
 
 var colorToChange = 0;
 

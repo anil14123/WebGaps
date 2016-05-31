@@ -1,6 +1,6 @@
 ﻿//console.debug("line:", /\(file:[\w\d/.-]+:([\d]+)/.exec(new Error().stack)[1]);
 
-
+import * as jQuery from "jquery";
 export module ErrorHandle {
 
     export class ErrorJQ {

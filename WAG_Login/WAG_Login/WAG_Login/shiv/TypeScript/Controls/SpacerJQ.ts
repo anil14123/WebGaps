@@ -9,7 +9,7 @@ declare var window: MyWindow;
 import impWatch = require("../Watch/WatchMouseJQ");
 import impCommon = require("../Common/CommonEvents");
 import impPageCtx = require("../Page/Context/ContextJQ");
-
+import * as jQuery from "jquery";
 export module Spacer {
 
     export class SpacerJQ {

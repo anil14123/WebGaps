@@ -4,5 +4,12 @@
     "inputFiles": [
       "controls.css"
     ]
+  },
+  {
+    "outputFileName": "shiv/grunt/output.js",
+    "inputFiles": [
+      "shiv/grunt/javascript.js"
+    ]
+
   }
 ]

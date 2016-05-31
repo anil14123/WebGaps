@@ -1,6 +1,7 @@
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "jquery", "jqueryui"], function (require, exports, impError, impWatch, impCommon, impUndoManager, jQuery, jQueryUI) {
     "use strict";
+    jQueryUI;
     var isBorderReady = false;
     var borderFirstTime = 0;
     var Padding;

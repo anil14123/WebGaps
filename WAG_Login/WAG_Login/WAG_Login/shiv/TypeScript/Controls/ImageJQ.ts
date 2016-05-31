@@ -15,7 +15,7 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommonCode = require("./ControlCommonJQ");
 import impOperaction = require("../Common/OperationJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
-
+import * as jQuery from "jquery";
 var debug = true;
 var globalImageBlockId = 0;
 var globalImageBlockContainerId = 0;

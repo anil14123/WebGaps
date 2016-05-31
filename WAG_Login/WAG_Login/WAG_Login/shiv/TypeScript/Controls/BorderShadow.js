@@ -1,6 +1,7 @@
 /// <reference path="spinner.ts" />
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "jquery", 'ColorPicker'], function (require, exports, impError, impWatch, impCommon, impUndoManager, jQuery, ColorPicker) {
     "use strict";
+    ColorPicker;
     var isBorderReady = false;
     var BorderShadow;
     (function (BorderShadow) {

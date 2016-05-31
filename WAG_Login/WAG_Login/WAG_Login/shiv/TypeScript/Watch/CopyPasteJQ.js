@@ -1,4 +1,4 @@
-define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ", "../Common/OperationJQ"], function (require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction) {
+define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ", "../Common/OperationJQ", "jquery"], function (require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction, jQuery) {
     "use strict";
     var CopiedElement;
     var isCut = false;

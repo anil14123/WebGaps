@@ -4,6 +4,12 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommon = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../Undomanager/undomanager");
 
+
+import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+jQueryUI;
+
+
 var isSmartMenuReady = false;
 var isChangedWidth = false;
 var prevWidthValue = 0;

@@ -1,7 +1,9 @@
 /// <reference path="../../../scripts/evoluteur.colorpicker/colorpicker-master/js/colorpicker.d.ts" />
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impCommon, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "jquery", "jqueryui", 'ColorPicker'], function (require, exports, impError, impWatch, impCommon, impUndoManager, jQuery, jQueryUI, ColorPicker) {
     "use strict";
+    jQueryUI;
+    ColorPicker;
     var isBorderReady = false;
     var borderFirstTime = 0;
     var Border;

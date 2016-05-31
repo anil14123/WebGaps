@@ -1,6 +1,7 @@
 /// <reference path="../../../library/jqueryui.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "../Controls/TextJQ"], function (require, exports, impWatch, impCommonMethods, impUndoManager, impText) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "../Controls/TextJQ", "jqueryui"], function (require, exports, impWatch, impCommonMethods, impUndoManager, impText, jQueryUI) {
     "use strict";
+    jQueryUI;
     var JQueryUI;
     (function (JQueryUI) {
         var SmartObj = (function () {

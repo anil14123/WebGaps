@@ -5,7 +5,7 @@ import impContent = require("./ContentJQ")
 import impFooter = require("./FooterJQ")
 import impAny = require("./AnyJQ")
 import impMenuTemplate = require("../Menu/MenuTemplateJQ");
-
+import * as jQuery from "jquery";
 export module Page {
 
     export class PageJQ {

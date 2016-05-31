@@ -1,5 +1,5 @@
 /// <reference path="document.d.ts" />
-define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoManager"], function (require, exports, impStatic, impUndoManager) {
+define(["require", "exports", "../Constants/ConstantsJQ", "../UndoManager/UndoManager", "jquery"], function (require, exports, impStatic, impUndoManager, jQuery) {
     "use strict";
     var initOnce = false;
     var MyJQte;

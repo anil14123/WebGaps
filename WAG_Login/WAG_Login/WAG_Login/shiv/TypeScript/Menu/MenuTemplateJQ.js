@@ -1,4 +1,4 @@
-define(["require", "exports", "../_Classes/UrlJQ", "../Menu/MenuLinksJQ"], function (require, exports, impCommonUrl, impMenuLinks) {
+define(["require", "exports", "../_Classes/UrlJQ", "../Menu/MenuLinksJQ", "jquery"], function (require, exports, impCommonUrl, impMenuLinks, jQuery) {
     "use strict";
     var firstElementActive = false;
     var Page;

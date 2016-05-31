@@ -18,6 +18,8 @@ import impCommonControls = require("./Controls/controlcommonjq");
 import impDocument = require("./Document/DocumentJQ");
 import impPageLoad = require("./Page/LoadJQ");
 
+import * as jQuery from "jquery";
+
 var ctx = new impPageCtx.Page.ContextJQ();
 
 var isMainReady = false;

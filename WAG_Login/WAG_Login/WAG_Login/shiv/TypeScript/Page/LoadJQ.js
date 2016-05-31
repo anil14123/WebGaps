@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ", "../InsertTool/InsertToolJQ", "../jqte/OnInsert"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic, impInsertTool, impOnInsert) {
+define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "../Error/ErrorJQ", "../_Classes/Auth", "../Preview/Preview", "../Constants/ConstantsJQ", "../InsertTool/InsertToolJQ", "../jqte/OnInsert", "jquery"], function (require, exports, impCommonCode, impUndoManager, impError, impAuth, impPreview, impStatic, impInsertTool, impOnInsert, jQuery) {
     "use strict";
     var Page;
     (function (Page) {

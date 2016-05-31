@@ -1,5 +1,6 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager"], function (require, exports, impError, impWatch, impUndoManager) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "jquery", "jqueryui"], function (require, exports, impError, impWatch, impUndoManager, jQuery, jQueryUI) {
     "use strict";
+    jQueryUI;
     var isOpacityReady = false;
     var borderFirstTime = 0;
     var Opacity;

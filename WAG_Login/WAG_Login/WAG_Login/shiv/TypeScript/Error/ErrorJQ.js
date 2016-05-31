@@ -1,5 +1,5 @@
 //console.debug("line:", /\(file:[\w\d/.-]+:([\d]+)/.exec(new Error().stack)[1]);
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "jquery"], function (require, exports, jQuery) {
     "use strict";
     var ErrorHandle;
     (function (ErrorHandle) {

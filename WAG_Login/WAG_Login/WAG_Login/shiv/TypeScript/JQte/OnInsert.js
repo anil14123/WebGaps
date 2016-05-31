@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../jqte/MyJQte", "../PageElements/ElementJQ"], function (require, exports, impError, impWatch, impUndoManager, impCommonCode, impJQte, impElements) {
+define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../jqte/MyJQte", "../PageElements/ElementJQ", "jquery"], function (require, exports, impError, impWatch, impUndoManager, impCommonCode, impJQte, impElements, jQuery) {
     "use strict";
     var changed = false;
     var OnInsert;

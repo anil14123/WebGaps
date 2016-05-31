@@ -3,7 +3,7 @@ import impError = require("../../typescript/error/errorjq");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impCommonCode = require("../Controls/ControlCommonJQ");
-
+import * as jQuery from "jquery";
 var initOnceFlag = false;
 
 export module Html {

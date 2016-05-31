@@ -1,4 +1,4 @@
-define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ"], function (require, exports, impAny, impWatch) {
+define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "jquery"], function (require, exports, impAny, impWatch, jQuery) {
     "use strict";
     var On;
     (function (On) {

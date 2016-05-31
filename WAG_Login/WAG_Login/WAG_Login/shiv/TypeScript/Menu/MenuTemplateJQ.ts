@@ -1,7 +1,7 @@
-﻿/// <reference path="../../../library/jquery.d.ts" />
+﻿
 import impCommonUrl = require("../_Classes/UrlJQ");
 import impMenuLinks = require("../Menu/MenuLinksJQ");
-
+import * as jQuery from "jquery";
 var firstElementActive = false;
 export module Page.Menu {
 

@@ -8,6 +8,9 @@ declare var window: MyWindow;
 import impAny = require("../page/anyjq");
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
+
+import * as jQuery from "jquery";
+
 export module On {
 
     export class SmartObj {

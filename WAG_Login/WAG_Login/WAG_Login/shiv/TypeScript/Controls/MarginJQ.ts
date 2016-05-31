@@ -5,6 +5,12 @@ import impWatch = require("../Watch/WatchMouseJQ");
 import impCommon = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 
+
+import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+jQueryUI;
+
+
 var isBorderReady = false;
 var borderFirstTime = 0;
 export module Margin {

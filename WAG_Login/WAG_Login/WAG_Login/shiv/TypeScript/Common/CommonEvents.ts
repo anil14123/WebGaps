@@ -1,4 +1,5 @@
-﻿/////////////////////////// window adding property /////////////////////
+﻿
+/////////////////////////// window adding property /////////////////////
 interface MyWindow extends Window { smartObj: Common.SmartObj; }
 
 declare var window: MyWindow;
@@ -16,6 +17,8 @@ import impSaveClass = require("../_Classes/SaveJq");
 import impmal = require("../MalFormed/MalFormedJQ");
 import impNoUi = require("../Controls/NoUi");
 import impImage = require("../Controls/ImageJQ");
+
+import * as jQuery from "jquery";
 
 var themeHandle;
 var downloadInterval;

@@ -2,7 +2,7 @@
 
 import impError = require("../../typescript/error/errorjq");
 import impSite = require("./site/Sitejq");
-
+import * as jQuery from "jquery";
 var isMainReady = false;
 
 jQuery(document).ready(function () {

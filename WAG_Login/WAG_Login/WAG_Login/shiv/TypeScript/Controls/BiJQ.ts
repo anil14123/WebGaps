@@ -9,6 +9,10 @@ import impImage = require("../controls/imagejq");
 import impCommon = require("../Common/CommonEvents");
 import impCommonMethods = require("../common/commonmethodsjq");
 
+import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+jQueryUI;
+
 var debug = true;
 
 

@@ -1,6 +1,6 @@
 ﻿
 import impError = require("../Error/ErrorJQ");
-
+import * as jQuery from "jquery";
 export module Auth {
 
     export class AuthJQ {

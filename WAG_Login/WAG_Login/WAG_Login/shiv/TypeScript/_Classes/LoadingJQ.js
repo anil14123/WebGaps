@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "jquery"], function (require, exports, jQuery) {
     "use strict";
     var Loading;
     (function (Loading) {

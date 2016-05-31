@@ -1,5 +1,5 @@
 /// <reference path="../../sitemanager_ts/site/sitejq.ts" />
-define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ", "../Constants/ConstantsJQ"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction, impStatic) {
+define(["require", "exports", "../../SiteManager_TS/Site/SiteJQ", "../error/errorjq", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "../Common/OperationJQ", "../Constants/ConstantsJQ", "jquery"], function (require, exports, impPage, impError, impWatch, impUndoManager, impCommonCode, impOperaction, impStatic, jQuery) {
     "use strict";
     var initOnceFlag = false;
     var Link;

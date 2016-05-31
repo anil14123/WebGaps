@@ -3,7 +3,7 @@ import impCommonMethods = require("../Common/CommonMethodsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impWatch = require("../Watch/WatchMouseJQ");
 import impError = require("../Error/ErrorJQ");
-
+import * as jQuery from "jquery";
 export module NoUI {
 
     export class AlignJQ {

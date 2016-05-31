@@ -4,6 +4,9 @@ import impStatic = require("../Constants/ConstantsJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impOnInsert = require("../JQte/OnInsert");
 import impCommonCode = require("../Controls/ControlCommonJQ");
+
+import * as jQuery from "jquery";
+
 var initOnce = false;
 
 export module MyJQte {

@@ -4,7 +4,7 @@ import impCommonCode = require("../Controls/ControlCommonJQ");
 import impUndoManager = require("../UndoManager/UndoManager");
 import impClipboard = require("./ClipBoardJQ");
 import impOperaction = require("../Common/OperationJQ");
-
+import * as jQuery from "jquery";
 var CopiedElement: JQuery;
 var isCut = false;
 

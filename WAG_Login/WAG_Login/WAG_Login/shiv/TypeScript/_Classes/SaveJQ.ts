@@ -1,5 +1,5 @@
 ﻿import impError = require("../Error/ErrorJQ");
-
+import * as jQuery from "jquery";
 export module Save {
 
     export class SaveJQ {

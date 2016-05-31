@@ -1,4 +1,4 @@
-﻿
+﻿import * as jQuery from "jquery";
 export module PageControlNamesJQ.Page {
 
     export module AddRow {

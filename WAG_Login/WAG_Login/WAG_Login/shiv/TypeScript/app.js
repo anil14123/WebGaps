@@ -5,31 +5,35 @@
 // directory.
 requirejs.config({
     baseUrl: "../../shiv/TypeScript",
-    urlArgs: "bust=" + (new Date()).getTime(),
+    //urlArgs: "bust=" + (new Date()).getTime(),
     wrapShim: true,
     paths: {
         'jquery': '../../Library/jquery-1.11.2.min',
-        'jqueryUi': '../../Library/jquery-ui',
-        'colPicker': '../../Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker',
+        'jqueryui': '../../Library/jquery-ui',
+        'ColorPicker': '../../Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker',
         'mainJQ': './MainJQ'
     },
     shim: {
-        jqueryUi: {
+        'jquery': {
+            exports: 'jQuery'
+        },
+        jqueryui: {
             deps: [
                  'jquery'
             ],
-            exports: '$'
-        },
-        colPicker: {
+            exports: 'jQuery'
+        }
+        ,
+        ColorPicker: {
             deps: [
-                'jquery', 'jqueryUi'
+                'jquery','jqueryui'
             ],
             exports: 'jQuery'
         },
         mainJQ: {
-            deps: [
-               'jquery', 'jqueryUi', 'colPicker'
-            ],
+            //deps: [
+            //   'jquery', 'jqueryui', 'ColorPicker'
+            //],
             exports: 'MainJQ'
         }
     }

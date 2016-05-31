@@ -1,4 +1,5 @@
-﻿interface JQuery {
+﻿
+interface JQuery {
     spinner(xyz);
     slider(xyz);
 

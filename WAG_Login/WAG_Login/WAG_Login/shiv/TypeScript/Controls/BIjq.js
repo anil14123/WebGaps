@@ -1,5 +1,6 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../controls/imagejq"], function (require, exports, impWatch, impUnodManager, impImage) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../controls/imagejq", "jquery", "jqueryui"], function (require, exports, impWatch, impUnodManager, impImage, jQuery, jQueryUI) {
     "use strict";
+    jQueryUI;
     var debug = true;
     var isBIJQReady = false;
     var nextId = 0;

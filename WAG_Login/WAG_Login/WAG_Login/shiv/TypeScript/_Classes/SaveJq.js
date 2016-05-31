@@ -1,4 +1,4 @@
-define(["require", "exports", "../Error/ErrorJQ"], function (require, exports, impError) {
+define(["require", "exports", "../Error/ErrorJQ", "jquery"], function (require, exports, impError, jQuery) {
     "use strict";
     var Save;
     (function (Save) {

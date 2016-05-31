@@ -301,6 +301,7 @@
     <Content Include="controls.min.css">
       <DependentUpon>controls.css</DependentUpon>
     </Content>
+    <Content Include="gruntfile.js" />
     <Content Include="InsertTools.css" />
     <Content Include="Library\globalJSCommon.js" />
     <Content Include="Nestable.css" />
@@ -363,6 +364,7 @@
     <Content Include="shiv\Content\loading\colorsd.gif" />
     <Content Include="shiv\Content\loading\colorst.gif" />
     <Content Include="shiv\Content\loading\Orange.gif" />
+    <Content Include="shiv\Grunt\gruntfile.js" />
     <Content Include="shiv\iimages\1.jpg" />
     <Content Include="shiv\iimages\12.png" />
     <Content Include="shiv\iimages\2.jpg" />
@@ -1170,6 +1172,7 @@
     <Folder Include="Service References\" />
     <Folder Include="Services\Sites\" />
     <Folder Include="shiv\TypeScript\appdirectory-build\" />
+    <Folder Include="shiv\TypeScript\Lib\" />
     <Folder Include="shiv\TypeScript\Themes\All\" />
     <Folder Include="Snippet\" />
     <Folder Include="TypeScript_ProcessTemplate\" />
@@ -1188,6 +1191,7 @@
     <TypeScriptCompile Include="shiv\SiteManager_TS\Site\SiteJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\.Temp\ExecutePageJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\AllMenus\AllMenuJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Common\JQuery.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\OperationJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\CommonEvents.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Common\CommonMethodsJQ.ts" />

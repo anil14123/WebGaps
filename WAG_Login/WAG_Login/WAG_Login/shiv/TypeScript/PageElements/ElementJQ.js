@@ -1,5 +1,4 @@
-/// <reference path="../../../library/jquery.d.ts" />
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "jquery"], function (require, exports, jQuery) {
     "use strict";
     var Page;
     (function (Page) {

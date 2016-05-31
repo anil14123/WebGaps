@@ -1,4 +1,6 @@
-﻿/// <reference path="../../../library/jquery.d.ts" />
+﻿
+/// <reference path="../../../library/jquery.d.ts" />
+/// <reference path="../../../library/jqueryui.d.ts" />
 
 import impCommon = require("../Common/CommonMethodsJQ");
 import impAddRow = require("../Controls/ControlsJQ");
@@ -20,8 +22,11 @@ import impFrontBack = require("../Controls/FrontBackJQ");
 import impCopy = require("../Watch/CopyPasteJQ");
 import impOpacity = require("../Controls/OpacityJQ");
 
-var G_isAttachedWatch = false;
+import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+//jQueryUI;
 
+var G_isAttachedWatch = false;
 var isWatchReady = false;
 
 export module Watch {
@@ -32,6 +37,8 @@ export module Watch {
         static nearestElement: JQuery;
 
         public static RemoveAndResetRemovableRow() {
+
+           
 
             if (jQuery(".removable-row").length > 0) {
                 jQuery(".removable-row").removeClass("removable-row");

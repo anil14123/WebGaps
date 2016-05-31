@@ -1,4 +1,4 @@
-﻿
+﻿import * as jQuery from "jquery";
 
 class LocationJQ {
 

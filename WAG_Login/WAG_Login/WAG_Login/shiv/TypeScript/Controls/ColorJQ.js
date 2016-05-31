@@ -1,6 +1,7 @@
 /// <reference path="../../../third-party/colpick-jquery-color-picker-master/js/colpick-jquery.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../common/commonmethodsjq"], function (require, exports, impWatch, impUndoManager, impCommon) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../common/commonmethodsjq", "jquery", 'ColorPicker'], function (require, exports, impWatch, impUndoManager, impCommon, jQuery, ColorPicker) {
     "use strict";
+    ColorPicker;
     var isColorReady = false;
     var Color;
     (function (Color) {

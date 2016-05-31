@@ -4,7 +4,7 @@ import impAny = require("../page/anyjq");
 import impOn = require("../common/on");
 //import impJqte = require("../Jqte/JqteJQ");
 import impJqteOnInsert = require("../JQte/OnInsert");
-
+import * as jQuery from "jquery";
 export module ControlCommon {
 
     export class Code {

@@ -1,4 +1,4 @@
-define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ"], function (require, exports, impWatch, impUndoManager, impCommonCode) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManager", "../Controls/ControlCommonJQ", "jquery"], function (require, exports, impWatch, impUndoManager, impCommonCode, jQuery) {
     "use strict";
     var initOnceFlag = false;
     var Html;

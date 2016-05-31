@@ -1,4 +1,4 @@
-/// <reference path="jquery.d.ts" />
+
 // Type definitions for jQueryUI 1.9
 // Project: http://jqueryui.com/
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>, John Reilly <https://github.com/johnnyreilly>
@@ -1790,4 +1790,9 @@ interface JQueryStatic {
     datepicker: JQueryUI.Datepicker;
     widget: JQueryUI.Widget;
     Widget: JQueryUI.Widget;
+}
+
+
+declare module "jqueryui" {
+    export = jQuery;
 }
