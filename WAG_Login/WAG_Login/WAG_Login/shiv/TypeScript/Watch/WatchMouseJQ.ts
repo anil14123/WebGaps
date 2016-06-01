@@ -505,6 +505,9 @@ export module Watch {
                         var minHeight = Math.min.apply(null, heights);
                         
                         if (maxHeight != minHeight) {
+                            if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                                return false;
+                            }
                             jQuery(_this).children(".column").css("min-height", maxHeight + "px");
                         }
                     }
@@ -523,7 +526,7 @@ export module Watch {
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
 
-                    //window.setInterval(MouseJQ.WatchHeight, 3000);
+                    window.setInterval(MouseJQ.WatchHeight, 2000);
 
                     jQuery(".prop-sb").click(function () {
 

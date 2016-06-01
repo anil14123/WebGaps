@@ -371,6 +371,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             var maxHeight = Math.max.apply(null, heights);
                             var minHeight = Math.min.apply(null, heights);
                             if (maxHeight != minHeight) {
+                                if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                                    return false;
+                                }
                                 jQuery(_this).children(".column").css("min-height", maxHeight + "px");
                             }
                         }
@@ -383,7 +386,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 jQuery(document).ready(function () {
                     if (G_isAttachedWatch == false) {
                         G_isAttachedWatch = true;
-                        //window.setInterval(MouseJQ.WatchHeight, 3000);
+                        window.setInterval(MouseJQ.WatchHeight, 2000);
                         jQuery(".prop-sb").click(function () {
                             impAddRow.Page.AddRowJQ.ProcessSelectNotify();
                             var activeSBControl = MouseJQ.GetActiveSidebarControl();

@@ -190,7 +190,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         if (height != originalHeight) {
                             var result = CommonCode.commonHeight(height, ui);
                             commonMethods.RemoveSingleStyle(ui.helper, "height");
-                            jQuery(ui.helper).css("min-height", height);
+                            // jQuery(ui.helper).css("min-height", height);
+                            jQuery(ui.helper).closest(".row").children(".column").css("min-height", height);
                         }
                         commonMethods.RemoveStyle(ui.helper, "min-width");
                         commonMethods.RemoveStyle(ui.helper, "width");

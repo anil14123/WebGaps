@@ -297,7 +297,9 @@ export module JQueryUI {
                         var result = CommonCode.commonHeight(height, ui);
 
                         commonMethods.RemoveSingleStyle(ui.helper, "height");
-                        jQuery(ui.helper).css("min-height", height);
+                       // jQuery(ui.helper).css("min-height", height);
+
+                        jQuery(ui.helper).closest(".row").children(".column").css("min-height", height);
 
                         //var clientscrolly = 0;
                         //if (height > originalHeight) {
