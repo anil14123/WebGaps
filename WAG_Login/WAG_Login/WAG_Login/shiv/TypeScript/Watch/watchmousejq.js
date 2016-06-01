@@ -383,7 +383,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 jQuery(document).ready(function () {
                     if (G_isAttachedWatch == false) {
                         G_isAttachedWatch = true;
-                        window.setInterval(MouseJQ.WatchHeight, 3000);
+                        //window.setInterval(MouseJQ.WatchHeight, 3000);
                         jQuery(".prop-sb").click(function () {
                             impAddRow.Page.AddRowJQ.ProcessSelectNotify();
                             var activeSBControl = MouseJQ.GetActiveSidebarControl();

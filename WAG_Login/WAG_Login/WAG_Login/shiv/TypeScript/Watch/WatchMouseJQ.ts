@@ -523,7 +523,7 @@ export module Watch {
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
 
-                    window.setInterval(MouseJQ.WatchHeight, 3000);
+                    //window.setInterval(MouseJQ.WatchHeight, 3000);
 
                     jQuery(".prop-sb").click(function () {
 
