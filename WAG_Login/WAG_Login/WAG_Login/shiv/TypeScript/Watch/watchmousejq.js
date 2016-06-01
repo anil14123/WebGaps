@@ -361,10 +361,29 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 // console.log(activeControl);
                 return activeControl;
             };
+            MouseJQ.WatchHeight = function () {
+                try {
+                    $(".row").each(function (index, _this) {
+                        var heights = jQuery(_this).children(".column").map(function () {
+                            return $(this).height();
+                        }).get();
+                        if (heights.length > 0) {
+                            var maxHeight = Math.max.apply(null, heights);
+                            var minHeight = Math.min.apply(null, heights);
+                            if (maxHeight != minHeight) {
+                                jQuery(_this).children(".column").css("min-height", maxHeight + "px");
+                            }
+                        }
+                    });
+                }
+                catch (Ex) {
+                }
+            };
             MouseJQ.prototype.WatchPage = function () {
                 jQuery(document).ready(function () {
                     if (G_isAttachedWatch == false) {
                         G_isAttachedWatch = true;
+                        window.setInterval(MouseJQ.WatchHeight, 3000);
                         jQuery(".prop-sb").click(function () {
                             impAddRow.Page.AddRowJQ.ProcessSelectNotify();
                             var activeSBControl = MouseJQ.GetActiveSidebarControl();

@@ -38,7 +38,7 @@ export module Watch {
 
         public static RemoveAndResetRemovableRow() {
 
-           
+
 
             if (jQuery(".removable-row").length > 0) {
                 jQuery(".removable-row").removeClass("removable-row");
@@ -57,8 +57,8 @@ export module Watch {
         public static ProcessMove(e) {
 
             if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
-                 //$(".key").removeClass("control-focused");
-                 return;
+                //$(".key").removeClass("control-focused");
+                return;
             }
 
             var $target = jQuery(event.target);
@@ -127,7 +127,7 @@ export module Watch {
                 return;
             }
 
-            
+
             if (impmal.MalFormed.MalFormedJQ.IsMalFormed == true) {
                 return;
             }
@@ -165,7 +165,7 @@ export module Watch {
             if (e.ctrlKey == false) {
                 jQuery(".image-selection").removeClass("image-selection");
             }
-            
+
             MouseJQ.selectedElement = jQuery(e.target);
 
             MouseJQ.selectedElement = MouseJQ.selectedElement.closest(".key");
@@ -493,6 +493,28 @@ export module Watch {
             return activeControl;
         }
 
+        public static WatchHeight() {
+            try {
+                $(".row").each(function (index, _this) {
+                    var heights = jQuery(_this).children(".column").map(function () {
+                        return $(this).height();
+                    }).get();
+
+                    if (heights.length > 0) {
+                        var maxHeight = Math.max.apply(null, heights);
+                        var minHeight = Math.min.apply(null, heights);
+                        
+                        if (maxHeight != minHeight) {
+                            jQuery(_this).children(".column").css("min-height", maxHeight + "px");
+                        }
+                    }
+
+                });
+            }
+            catch (Ex) {
+            }
+        }
+
         public WatchPage() {
 
 
@@ -500,6 +522,8 @@ export module Watch {
 
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
+
+                    window.setInterval(MouseJQ.WatchHeight, 3000);
 
                     jQuery(".prop-sb").click(function () {
 
@@ -557,7 +581,7 @@ export module Watch {
                         MouseJQ.ProcessMove(e);
                     })
 
-                    jQuery("page").on("click" ,function (e: JQueryMouseEventObject) {
+                    jQuery("page").on("click", function (e: JQueryMouseEventObject) {
 
                         MouseJQ.ProcessClick(e);
 
@@ -574,7 +598,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery("input").on("keydown" ,function (e) {
+                    jQuery("input").on("keydown", function (e) {
                         var BACK = 8;
 
                         if (e.which == BACK) {
@@ -590,7 +614,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery(".jqte-editor").on("keydown" ,function (e) {
+                    jQuery(".jqte-editor").on("keydown", function (e) {
                         var BACK = 8;
 
                         if (e.which == BACK) {
@@ -598,7 +622,7 @@ export module Watch {
                         }
                     });
 
-                    jQuery(document).on("keydown" ,function (e) {
+                    jQuery(document).on("keydown", function (e) {
 
                         var BACK = 8;
 
@@ -632,7 +656,7 @@ export module Watch {
                                 case 'z':
 
                                     if (
-                                        !( (MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
+                                        !((MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
                                             && MouseJQ.selectedElement.length == 1
                                             && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")
                                     ) {
@@ -723,7 +747,7 @@ export module Watch {
                             jQuery(".editor").hide();
                             //jQuery("#notify").css("top", topNotifyPx);
 
-                            
+
                             ////////////////////
 
                             impCtxMenu.ContextMenu.ContextMenuJQ.ControlPageHide()
