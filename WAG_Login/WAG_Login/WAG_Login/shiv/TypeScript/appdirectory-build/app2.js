@@ -13337,7 +13337,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Controls/TextJQ", [ "require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ" ], function(require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction) {
+define("Controls/TextJQ", [ "require", "exports", "bfb540/c0c10d", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "bfb540/addb5b", "../Common/OperationJQ" ], function(require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction) {
     "use strict";
     var Text, debug = !0, globalTextBlockId = 0, globalTextBoxContainerId = 0, isTextJQReady = !1, isTextInit = !1;
     !function(Text) {
@@ -14545,7 +14545,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Controls/ControlsJQ", [ "require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass", "../Constants/ConstantsJQ", "../ControlNames/PageControlNamesJQ", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "./FontJQ", "./TextJQ", "../SmartMenu/SmartMenuJQ", "../Common/OperationJQ" ], function(require, exports, impPageCtx, impCss, impConsts, impPageControlNames, impError, impWatch, impFontList, impText, impSmartMenu, impOperaction) {
+define("Controls/ControlsJQ", [ "require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass", "../Constants/ConstantsJQ", "../ControlNames/PageControlNamesJQ", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "bfb540/c0c10d", "bfb540/d37cc3", "../SmartMenu/SmartMenuJQ", "../Common/OperationJQ" ], function(require, exports, impPageCtx, impCss, impConsts, impPageControlNames, impError, impWatch, impFontList, impText, impSmartMenu, impOperaction) {
     "use strict";
     var Page;
     !function(Page) {
@@ -14746,7 +14746,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Controls/ImageJQ", [ "require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ", "../UndoManager/UndoManager" ], function(require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
+define("Controls/ImageJQ", [ "require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "bfb540/addb5b", "../Common/OperationJQ", "../UndoManager/UndoManager" ], function(require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
     "use strict";
     var Image, debug = !0, globalImageBlockId = 0, globalImageBlockContainerId = 0;
     !function(Image) {
@@ -15461,7 +15461,7 @@ define("Watch/ClipBoardJQ", [ "require", "exports", "../Controls/ImageJQ" ], fun
     }(ClipBoard = exports.ClipBoard || (exports.ClipBoard = {}));
 });
 
-define("Watch/CopyPasteJQ", [ "require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "./ClipBoardJQ", "../Common/OperationJQ" ], function(require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction) {
+define("Watch/CopyPasteJQ", [ "require", "exports", "bfb540/bb3ee1", "../Error/ErrorJQ", "../Controls/ControlCommonJQ", "../UndoManager/UndoManager", "bfb540/df71f5", "../Common/OperationJQ" ], function(require, exports, impWatch, impError, impCommonCode, impUndoManager, impClipboard, impOperaction) {
     "use strict";
     var CopiedElement, CopyPaste, isCut = !1, ClipBorad = function() {
         function ClipBorad() {}
@@ -15871,7 +15871,7 @@ define("Menu/MenuTemplateJQ", [ "require", "exports", "../_Classes/UrlJQ", "../M
     }(Page = exports.Page || (exports.Page = {}));
 });
 
-define("Controls/Menujq", [ "require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../cssManager/cssManagerJQ", "../Menu/MenuTemplateJQ" ], function(require, exports, impError, impPageCtx, impWatch, impCommonCode, impCssManager, impMenuTemplate) {
+define("Controls/Menujq", [ "require", "exports", "../Error/ErrorJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "bfb540/addb5b", "../cssManager/cssManagerJQ", "../Menu/MenuTemplateJQ" ], function(require, exports, impError, impPageCtx, impWatch, impCommonCode, impCssManager, impMenuTemplate) {
     "use strict";
     var Menu, globalMenuontainerId = 0, isMenuJQReady = !1, isTextInit = !1, nextId = 0;
     !function(Menu) {
@@ -16713,7 +16713,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("page/anyjq", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("page/anyjq", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -16938,7 +16938,7 @@ define("JQte/OnInsert", [ "require", "exports", "../Error/ErrorJQ", "../Watch/Wa
     }(OnInsert = exports.OnInsert || (exports.OnInsert = {}));
 });
 
-define("controls/ControlCommonJQ", [ "require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+define("controls/ControlCommonJQ", [ "require", "exports", "bfb540/d37ac6", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
     "use strict";
     var ControlCommon;
     !function(ControlCommon) {
@@ -17001,7 +17001,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("controls/imagejq", [ "require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ", "../UndoManager/UndoManager" ], function(require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
+define("controls/imagejq", [ "require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "bfb540/addb5b", "../Common/OperationJQ", "../UndoManager/UndoManager" ], function(require, exports, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, impUndoManager) {
     "use strict";
     var Image, debug = !0, globalImageBlockId = 0, globalImageBlockContainerId = 0;
     !function(Image) {
@@ -19741,7 +19741,7 @@ define("Controls/JQueryUI", [ "require", "exports", "../Watch/WatchMouseJQ", "..
     }(JQueryUI = exports.JQueryUI || (exports.JQueryUI = {}));
 });
 
-define("Controls/ControlCommonJQ", [ "require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+define("Controls/ControlCommonJQ", [ "require", "exports", "bfb540/d37ac6", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
     "use strict";
     var ControlCommon;
     !function(ControlCommon) {
@@ -20175,7 +20175,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Page/HeaderJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("Page/HeaderJQ", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20199,7 +20199,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Page/MenuBarJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("Page/MenuBarJQ", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20223,7 +20223,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Page/ContentJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("Page/ContentJQ", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20247,7 +20247,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Page/FooterJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("Page/FooterJQ", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20271,7 +20271,7 @@ var __extends = this && this.__extends || function(d, b) {
     d.prototype = null === b ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 
-define("Page/AnyJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
+define("Page/AnyJQ", [ "require", "exports", "bfb540/d3650a", "../Constants/ConstantsJQ" ], function(require, exports, impPage, impConsts) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20286,7 +20286,7 @@ define("Page/AnyJQ", [ "require", "exports", "./PageElementBaseJQ", "../Constant
     }(Page = exports.Page || (exports.Page = {}));
 });
 
-define("Page/PageJQ", [ "require", "exports", "./HeaderJQ", "./MenuBarJQ", "./ContentJQ", "./FooterJQ", "./AnyJQ", "../Menu/MenuTemplateJQ" ], function(require, exports, impHeader, impMenuBar, impContent, impFooter, impAny, impMenuTemplate) {
+define("Page/PageJQ", [ "require", "exports", "bfb540/a5ba4a", "bfb540/cddd25", "bfb540/b69ef6", "bfb540/d1d884", "bfb540/fdd949", "../Menu/MenuTemplateJQ" ], function(require, exports, impHeader, impMenuBar, impContent, impFooter, impAny, impMenuTemplate) {
     "use strict";
     var Page;
     !function(Page) {
@@ -20868,7 +20868,7 @@ define("_Classes/LoadingJQ", [ "require", "exports" ], function(require, exports
     }(Loading = exports.Loading || (exports.Loading = {}));
 });
 
-define("controls/controlcommonjq", [ "require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+define("controls/controlcommonjq", [ "require", "exports", "bfb540/d37ac6", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
     "use strict";
     var ControlCommon;
     !function(ControlCommon) {
@@ -21819,7 +21819,7 @@ define("Template/TemplateJQ", [ "require", "exports" ], function(require, export
     }(Template = exports.Template || (exports.Template = {}));
 });
 
-define("Controls/controlcommonjq", [ "require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
+define("Controls/controlcommonjq", [ "require", "exports", "bfb540/d37ac6", "../common/on", "../JQte/OnInsert" ], function(require, exports, impJQueryUI, impOn, impJqteOnInsert) {
     "use strict";
     var ControlCommon;
     !function(ControlCommon) {
@@ -21976,7 +21976,7 @@ define("Page/LoadJQ", [ "require", "exports", "../Controls/ControlCommonJQ", "..
     }(Page = exports.Page || (exports.Page = {}));
 });
 
-define("mainJQ", [ "require", "exports", "./Page/Context/ContextJQ", "./Controls/ControlsJQ", "./ContextMenu/ContextMenuJQ", "./Watch/WatchMouseJQ", "./_Classes/Auth", "./Common/CommonEvents", "./Preview/Preview", "./jqte/MyJQte", "./Controls/ControlMoveJQ", "./Template/TemplateJQ", "./Controls/controlcommonjq", "./Document/DocumentJQ", "./Page/LoadJQ" ], function(require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
+define("mainJQ", [ "require", "exports", "bfb540/aa8f61/c21362/b5bce5", "bfb540/cc34e1/d7f451", "bfb540/d74b09/cbdd27", "bfb540/b00260/bb3ee1", "bfb540/c4b706/b4e232", "bfb540/bc913a/a1b301", "bfb540/c572cb/c572cb", "bfb540/b1e1bd/b70377", "bfb540/cc34e1/cce18f", "bfb540/d27fe0/e2d2ad", "bfb540/cc34e1/fbd904", "bfb540/ec43e9/e259e2", "bfb540/aa8f61/f1bb71" ], function(require, exports, impPageCtx, impControls, impCtxMenu, impWatch, impAuth, impCommon, impPreview, impJqte, impControlMove, impTemplate, impCommonControls, impDocument, impPageLoad) {
     "use strict";
     function DesignerPadding() {
         jQuery(".jq-text-block-container").addClass("jq-text-block-container-padding");
@@ -22029,7 +22029,7 @@ requirejs.config({
         jquery: "../../Library/jquery-1.11.2.min",
         jqueryUi: "../../Library/jquery-ui",
         colPicker: "../../Scripts/evoluteur.colorpicker/colorpicker-master/js/evol.colorpicker",
-        mainJQ: "./MainJQ"
+        mainJQ: "bfb540/fe166a"
     },
     shim: {
         jqueryUi: {

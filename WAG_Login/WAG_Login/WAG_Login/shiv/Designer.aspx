@@ -28,8 +28,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
-    <script src="Content/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
-
+  
     <link rel="stylesheet" href="/app.css" type="text/css" />
     <link rel="stylesheet" href="/InsertTools.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
@@ -52,7 +51,8 @@
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-    <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
+   <%-- <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>--%>
+     <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
 

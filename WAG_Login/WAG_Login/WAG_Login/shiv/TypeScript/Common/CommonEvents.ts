@@ -19,6 +19,8 @@ import impNoUi = require("../Controls/NoUi");
 import impImage = require("../Controls/ImageJQ");
 
 import * as jQuery from "jquery";
+import * as jQueryUI from "jqueryui";
+jQueryUI;
 
 var themeHandle;
 var downloadInterval;

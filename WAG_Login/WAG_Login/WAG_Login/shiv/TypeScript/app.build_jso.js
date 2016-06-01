@@ -1,0 +1,5 @@
+//////////////////////////////////////////////
+// Obfuscated by Javascript Obfuscator 4.3  //
+// http://javascript-source.com             //
+//////////////////////////////////////////////
+eval((function(x){var d="";var p=0;while(p<x.length){if(x.charAt(p)!="`")d+=x.charAt(p++);else{var l=x.charCodeAt(p+3)-28;if(l>4)d+=d.substr(d.length-x.charCodeAt(p+1)*96-x.charCodeAt(p+2)+3104-l,l);else d+="`";p+=4}}return d})("({wrapShim:true, baseUrl:\"../../shiv/TypeScript\", optimize:\"uglify\", closure:{CompilerOptions:{}, ` .\"ationLevel:\"SIMPLE_OPTIMIZATIONS\", logging` >#WARNING\"}, `!\"\"2:{output:{beautify`!n!}, compress:{sequences:false, global_defs:{DEBUG` 4\"}}, warnings`\"S#mangle` 8#`!.$:{topl`!N!` @\"ascii_onl`!8\", `!@), max_line_length:1000, define`!:%[\"name\", \"true\"]}, no_`!:#`\".#name:\"app\", insertRequire:[` 1!], out:\"./app2.js\"});"))

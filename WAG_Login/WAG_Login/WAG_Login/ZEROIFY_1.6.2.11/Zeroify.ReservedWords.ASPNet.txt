@@ -1,0 +1,6 @@
+confirmpassword
+errormessage
+password
+question
+rememberme
+username

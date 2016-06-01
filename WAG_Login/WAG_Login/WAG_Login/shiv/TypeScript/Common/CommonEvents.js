@@ -1,5 +1,6 @@
-define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ", "jquery"], function (require, exports, impJQueryUI, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage, jQuery) {
+define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ", "jquery", "jqueryui"], function (require, exports, impJQueryUI, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage, jQuery, jQueryUI) {
     "use strict";
+    jQueryUI;
     var themeHandle;
     var downloadInterval;
     var imageFiles;

@@ -545,7 +545,13 @@
     <Content Include="shiv\Loading.aspx" />
     <Content Include="shiv\loading.gif" />
     <Content Include="shiv\TypeScript\app.build.js" />
+    <Content Include="shiv\TypeScript\app2.js" />
+    <Content Include="shiv\TypeScript\app2222.js" />
     <Content Include="shiv\TypeScript\compiler.jar" />
+    <Content Include="shiv\TypeScript\ColorPicker.js" />
+    <Content Include="shiv\TypeScript\jquery-extern.js" />
+    <Content Include="shiv\TypeScript\jqueryui.js" />
+    <Content Include="shiv\TypeScript\jquery.js" />
     <Content Include="shiv\TypeScript\MainJQ.js" />
     <Content Include="shiv\TypeScript\SiteManager_TS\app.js" />
     <Content Include="WebForm2.aspx" />
@@ -1178,6 +1184,7 @@
     <Folder Include="TypeScript_ProcessTemplate\" />
     <Folder Include="Very Very Important\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="ZEROIFY_1.6.2.11\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />

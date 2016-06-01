@@ -1,5 +1,5 @@
 /// <reference path="../../../library/jqueryui.d.ts" />
-define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "../Controls/TextJQ", "jqueryui"], function (require, exports, impWatch, impCommonMethods, impUndoManager, impText, jQueryUI) {
+define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJQ", "../UndoManager/UndoManager", "../Controls/TextJQ", "jquery", "jqueryui"], function (require, exports, impWatch, impCommonMethods, impUndoManager, impText, jQuery, jQueryUI) {
     "use strict";
     jQueryUI;
     var JQueryUI;

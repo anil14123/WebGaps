@@ -1,16 +1,16 @@
 ({
-wrapShim: true,
- baseUrl: "../../shiv/TypeScript",
-  
- optimize: "uglify",
+    wrapShim: true,
+    baseUrl: "../../shiv/TypeScript",
 
- closure: {
-     CompilerOptions: {},
-     CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
-     loggingLevel: 'WARNING'
- },
+    optimize: "uglify",
 
-uglify2: {
+    closure: {
+        CompilerOptions: {},
+        CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
+        loggingLevel: 'WARNING'
+    },
+
+    uglify2: {
         //Example of a specialized config. If you are fine
         //with the default options, no need to specify
         //any of these properties.
@@ -27,7 +27,7 @@ uglify2: {
         mangle: false
     },
 
- uglify: {
+    uglify: {
         toplevel: true,
         ascii_only: true,
         beautify: true,
@@ -44,7 +44,7 @@ uglify2: {
         //Skip the processor.ast_mangle() part of the uglify call (r.js 2.0.5+)
         no_mangle: true
     },
-  name: "app",
+    name: "app",
     insertRequire: ['app'],
     out: "./app2.js",
 
