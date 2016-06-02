@@ -497,7 +497,7 @@ export module Watch {
             try {
                 $(".row").each(function (index, _this) {
                     var heights = jQuery(_this).children(".column").map(function () {
-                        return $(this).height();
+                        return $(this).outerHeight(true);
                     }).get();
 
                     if (heights.length > 0) {
