@@ -112,8 +112,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     else {
                         selectedElement.hide();
                     }
-                    var undomanager = new impUndoManager.Manager.UndoManager();
-                    undomanager.BeforeOperation();
+                    $("#control-common-execute").trigger("click");
                 }
             };
             CopyPasteJQ.Cut = function () {

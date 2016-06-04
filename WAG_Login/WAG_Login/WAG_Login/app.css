@@ -1,6 +1,12 @@
 ﻿body {
 }
 
+.jq-self-logo{
+    background-color: #43C343 !important;
+    font-weight:bold !important;
+    color:#F9F9FB !important;
+}
+
 .hide {
     display: none;
 }
@@ -36,14 +42,21 @@
 
 .design-page-row {
     display: none;
+    position: relative;
+    z-index: 9999;
 }
 
+.rc-back-white{
+    background-color:rgba(230,230,230,0.4);
+}
 
 page .design-page-row {
     display: block;
     padding: 4px;
+    width:200px;
    
     font-size: small;
+    white-space:nowrap;
 }
 
 .columns-add-text {
@@ -58,6 +71,8 @@ page .design-square-row {
     margin-bottom: 2px;
     padding: 4px;
     border-radius:10%;
+
+    cursor:pointer;
    
 }
 

@@ -213,7 +213,7 @@
             </style>
 
 
-
+             <div class=" table-cell jq-self-logo ">ink Q</div>
             <div class=" table-cell close-preview jq-save-margin  "><span class=" fa fa-eye  white"></span>&nbsp;Close Preview</div>
             <div class=" table-cell  show-preview jq-save-margin "><span class=" fa fa-eye  white"></span>&nbsp;Preview</div>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview table-cell ">

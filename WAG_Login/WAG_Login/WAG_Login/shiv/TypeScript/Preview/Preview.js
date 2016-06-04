@@ -11,7 +11,6 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                     if (isPreviewReady == false) {
                         isPreviewReady = true;
                         jQuery(".close-preview").on("click", function () {
-                            jQuery(".editor").css("display", "block");
                             PreviewJQ.ClosePreview();
                         });
                         jQuery(".show-preview").on("click", function () {
@@ -85,7 +84,7 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                 // jQuery(".root-elements").addClass("padding-root-elements");
                 // jQuery(".root-elements").css("padding-bottom", "10");
                 jQuery("page").find(".column").addClass("column-padding");
-                jQuery("page").find(".ui-resizable-handle").show();
+                //jQuery("page").find(".ui-resizable-handle").show();
                 jQuery("page").find(".debug-text-block-container-css").hide();
                 jQuery("page").find(".debug-image-block-container-css").hide();
                 //jQuery(".debug-row-css").show();

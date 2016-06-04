@@ -567,7 +567,7 @@ export module ContextMenu {
         public static DeleteElement() {
 
             //var copyObj = new impCopy.CopyPaste.SelfJQ();
-
+              
             impCopy.CopyPaste.CopyPasteJQ.Delete();
         }
 

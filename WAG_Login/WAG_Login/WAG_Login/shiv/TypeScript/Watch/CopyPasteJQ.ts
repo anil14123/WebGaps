@@ -172,9 +172,8 @@ export module CopyPaste {
                     //errorHandler.ActionFail("Cannot delete Header or MenuBar or Body or Footer.");
                 }
 
-                var undomanager = new impUndoManager.Manager.UndoManager();
+                $("#control-common-execute").trigger("click");
 
-                undomanager.BeforeOperation();
             }
         }
 
