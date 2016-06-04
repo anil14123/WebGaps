@@ -26,8 +26,13 @@
     font-family: monospace;
     float: left;
     padding: 4px;
+    border-radius:10%;
+    margin:4px;
 }
 
+.jq-row-plus-container{
+    display:none !important;
+}
 
 .design-page-row {
     display: none;
@@ -52,7 +57,25 @@ page .design-square-row {
     margin-top: 2px;
     margin-bottom: 2px;
     padding: 4px;
+    border-radius:10%;
    
+}
+
+.rows-add{
+        display: inline-block;
+
+}
+
+.up-down-icons{
+     
+}
+
+.up{
+      color: #383636;
+}
+
+.down{
+    color:#F9FBFB;
 }
 
 
@@ -373,7 +396,7 @@ rootx {
 }
 
 .column.empty:hover::after {
-    content: "\A[Drag @ Drop Here]";
+    content: "\A[Drop Here]";
 }
 
 .column.empty:hover {

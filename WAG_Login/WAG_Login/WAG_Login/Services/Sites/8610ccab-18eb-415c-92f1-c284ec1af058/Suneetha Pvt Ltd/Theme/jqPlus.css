@@ -181,3 +181,9 @@
 .display-none{
     display:none;
 }
+
+.jqte-editor
+{
+    font-family:"Times New Roman", Times, serif;
+    font-size:16px;
+}

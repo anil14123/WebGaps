@@ -9,6 +9,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert", 
                 jQuery("#control-common-execute").on("click", function () {
                     Code.DestroyResizable();
                     Code.Execute();
+                    return false;
                 });
             };
             Code.Execute = function () {

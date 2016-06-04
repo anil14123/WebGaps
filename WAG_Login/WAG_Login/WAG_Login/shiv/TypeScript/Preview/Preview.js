@@ -62,7 +62,7 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                 //jQuery(".row").css("padding", "0px");
                 //jQuery("rootx").css("padding", "0px");
                 jQuery("page").find(".page-static-element").hide();
-                jQuery("page").find(".design-square-row").hide();
+                jQuery("page").find(".design-page-row").hide();
                 jQuery("page").find(".design-root-elements-static").removeClass("page-static-element-circle");
                 //jQuery(".root-elements").removeClass("padding-root-elements");
                 jQuery("page").find(".root-elements").removeClass("design-root-elements");
@@ -107,7 +107,7 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                 //jQuery(".row").css("padding", "15px");
                 //jQuery("rootx").css("padding", "10px");
                 jQuery("page").find(".page-static-element").show();
-                jQuery("page").find(".design-square-row").show();
+                jQuery("page").find(".design-page-row").hide();
                 jQuery("page").find(".design-root-elements-static").addClass("page-static-element-circle");
                 // jQuery(".root-elements").addClass("padding-root-elements");
                 jQuery("page").find(".root-elements").addClass("design-root-elements");

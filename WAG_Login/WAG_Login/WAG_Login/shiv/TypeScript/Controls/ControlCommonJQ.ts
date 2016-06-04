@@ -17,6 +17,8 @@ export module ControlCommon {
 
                 Code.DestroyResizable();
                 Code.Execute();
+
+                return false;
             });
         }
 

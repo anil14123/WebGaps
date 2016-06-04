@@ -302,7 +302,7 @@ export module Page {
                 root = this.Get();
             }
 
-            jQuery(row).prepend("<span title='Row' class=\"design-page-row \"> <span class='design-square-row'>Row</span> <span class='columns-add-text'>Columns <button class='jq-add-column btn btn-xs btn-danger'>+</button></span> </span>");
+            jQuery(row).prepend("<span class=\"design-page-row \"> <span class='design-square-row'>Row</span> <span class='columns-add-text'> <button title='Add row up' class='jq-prev-row btn btn-xs btn-danger'> <span class='up fa fa-caret-square-o-up up-down-icons'></span> +</button> <button title='Add row down' class='jq-next-row btn btn-xs btn-danger'> <span class='down fa fa-caret-square-o-down'></span> +</button>  Columns <button title='Add column' class='jq-add-column btn btn-xs btn-danger'>+</button></span> </span>");
 
             if (row != undefined) {
                 row.prepend(prevPlus);

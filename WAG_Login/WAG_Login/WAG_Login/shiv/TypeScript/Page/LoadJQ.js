@@ -32,7 +32,7 @@ define(["require", "exports", "../Controls/ControlCommonJQ", "../UndoManager/Und
                             jQuery("page .jqte-editor").attr("tabindex", "1");
                             impStatic.Constants.StaticJQ.normalLinkId = jQuery("page .jq-normal-link").length + 10;
                             impStatic.Constants.StaticJQ.editorLinkId = jQuery("page .jq-editor-link").length + 10;
-                            //jQuery("page .design-page-row").hide();
+                            jQuery("page .design-page-row").hide();
                             jQuery(".page").show();
                             impPreview.Preview.PreviewJQ.ClosePreview();
                             jQuery("#control-templates").hide();

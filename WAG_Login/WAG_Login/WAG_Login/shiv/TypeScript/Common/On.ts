@@ -56,9 +56,16 @@ export module On {
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
-                anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
+               var addedRow =  anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
+
+                if (addedRow != undefined && addedRow.length > 0) {
+                    addedRow.find(".column").addClass("newly-added-column");
+                }
+
 
                 jQuery("#control-common-execute").trigger("click");
+
+                return false;
                
             });
 
@@ -69,8 +76,15 @@ export module On {
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
-                anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
+                var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
+
+                if (addedRow != undefined && addedRow.length > 0) {
+                    addedRow.find(".column").addClass("newly-added-column");
+                }
+
                 jQuery("#control-common-execute").trigger("click");
+
+                return false;
                
             });
 

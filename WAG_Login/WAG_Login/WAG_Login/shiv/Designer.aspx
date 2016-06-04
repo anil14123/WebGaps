@@ -221,12 +221,12 @@
                     <span class=" fa fa-eye  white"></span>&nbsp;Live Preview
                 </div>
             </a>
-            <div class="table-cell jq-show-plus " style="margin: 5px;">
+            <%--<div class="table-cell jq-show-plus " style="margin: 5px;">
                 <span class="fa fa-plus-square white"></span>&nbsp;Rows Add
             </div>
             <div class="table-cell jq-hide-plus display-none" style="margin: 5px;">
                 <span class="fa fa-plus-square white"></span>&nbsp;Rows Add Hide
-            </div>
+            </div>--%>
             <div class="table-cell  btn-file">
                 <span class="fa fa-cloud-upload white"></span>&nbsp;Image Upload<input type="file" multiple="multiple" class="image-file-upload" />
             </div>
@@ -2920,10 +2920,7 @@
 
     <div id="site-help">
         <ol>
-            <li>You can only insert elements in a column blocks.</li>
             <li>If you are unable to drag a element, then press [Esc] or Escape.</li>
-            <li>You can only paste copied element in a column block.</li>
-
         </ol>
     </div>
 
