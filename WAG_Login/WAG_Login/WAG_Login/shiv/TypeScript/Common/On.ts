@@ -88,6 +88,15 @@ export module On {
                
             });
 
+            jQuery(".jq-select-column").unbind("click");
+            jQuery(".jq-select-column").on("click", function () {
+
+                jQuery(".image-selection").first().parent().trigger("click");
+
+                return false;
+
+            });
+
 
             //// plus for image-text-other
             

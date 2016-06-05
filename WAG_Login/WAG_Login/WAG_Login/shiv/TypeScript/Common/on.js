@@ -51,6 +51,11 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "jquery"
                     jQuery("#control-common-execute").trigger("click");
                     return false;
                 });
+                jQuery(".jq-select-column").unbind("click");
+                jQuery(".jq-select-column").on("click", function () {
+                    jQuery(".image-selection").first().parent().trigger("click");
+                    return false;
+                });
                 //// plus for image-text-other
                 jQuery(".jq-plus-prev").unbind("click");
                 jQuery(".jq-plus-prev").on("click", function (e) {

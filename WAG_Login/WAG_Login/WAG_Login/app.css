@@ -76,6 +76,24 @@ page .design-square-row {
    
 }
 
+page .design-square-column {
+    width: 38px;
+    color: white;
+    background-color: #182129;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 4px;
+    border-radius:10%;
+
+    cursor:pointer;
+   
+}
+
+.image-text-other-controls {
+  display:none;
+  font-size:xx-small;
+}
+
 .rows-add{
         display: inline-block;
 

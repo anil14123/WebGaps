@@ -143,7 +143,10 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".design-page-row").hide();
                     var pageRowControl = MouseJQ.selectedElement.parent().children(".design-page-row");
                     pageRowControl.show();
+                    pageRowControl.find(".row-controls").show();
+                    pageRowControl.find(".image-text-other-controls").hide();
                     pageRowControl.css("left", "0");
+                    pageRowControl.css("top", "0");
                     //var pageLeft = jQuery("page").offset().left;
                     var pageWidth = jQuery("page").outerWidth(true);
                     pageRowControl.removeClass("rc-back-white");
@@ -167,7 +170,10 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".design-page-row").hide();
                     var pageRowControl = MouseJQ.selectedElement.children(".design-page-row");
                     pageRowControl.show();
+                    pageRowControl.find(".row-controls").show();
+                    pageRowControl.find(".image-text-other-controls").hide();
                     pageRowControl.css("left", "0");
+                    pageRowControl.css("top", "0");
                     //var pageLeft = jQuery("page").offset().left;
                     var pageWidth = jQuery("page").outerWidth(true);
                     pageRowControl.removeClass("rc-back-white");
@@ -192,7 +198,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery(".design-page-row").hide();
                         var pageRowControl = MouseJQ.selectedElement.parent().parent().children(".design-page-row");
                         pageRowControl.show();
+                        pageRowControl.find(".row-controls").hide();
+                        pageRowControl.find(".image-text-other-controls").show();
                         pageRowControl.css("left", "0");
+                        var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
+                        var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                        pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
                         pageRowControl.removeClass("rc-back-white");
                         //var pageLeft = jQuery("page").offset().left;
                         var pageWidth = jQuery("page").outerWidth(true);
