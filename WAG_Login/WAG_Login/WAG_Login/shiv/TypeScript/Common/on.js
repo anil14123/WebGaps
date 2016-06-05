@@ -1,4 +1,4 @@
-define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "jquery"], function (require, exports, impAny, impWatch, jQuery) {
+define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "../Controls/NoUi", "jquery"], function (require, exports, impAny, impWatch, impNoUi, jQuery) {
     "use strict";
     var On;
     (function (On) {
@@ -54,6 +54,18 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "jquery"
                 jQuery(".jq-select-column").unbind("click");
                 jQuery(".jq-select-column").on("click", function () {
                     jQuery(".image-selection").first().parent().trigger("click");
+                    return false;
+                });
+                jQuery(".button-move-left").unbind("click");
+                jQuery(".button-move-left").on("click", function () {
+                    impNoUi.NoUI.MoveJQ.Left();
+                    jQuery("#refresh-image-text-controls-position").trigger("click");
+                    return false;
+                });
+                jQuery(".button-move-right").unbind("click");
+                jQuery(".button-move-right").on("click", function () {
+                    impNoUi.NoUI.MoveJQ.Right();
+                    jQuery("#refresh-image-text-controls-position").trigger("click");
                     return false;
                 });
                 //// plus for image-text-other

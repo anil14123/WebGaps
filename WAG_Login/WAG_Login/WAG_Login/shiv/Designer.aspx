@@ -3253,6 +3253,10 @@
     </button>
     <button id="undo-redo-execute" style="display: none;">
     </button>
+    <button id="refresh-image-text-controls-position" style="display: none;">
+    </button>
+
+    
 
 </body>
 </html>

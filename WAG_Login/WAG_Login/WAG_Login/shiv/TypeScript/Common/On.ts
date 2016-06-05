@@ -8,6 +8,7 @@ declare var window: MyWindow;
 import impAny = require("../page/anyjq");
 import impError = require("../Error/ErrorJQ");
 import impWatch = require("../Watch/WatchMouseJQ");
+import impNoUi = require("../Controls/NoUi");
 
 import * as jQuery from "jquery";
 
@@ -56,7 +57,7 @@ export module On {
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
-               var addedRow =  anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
+                var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
 
                 if (addedRow != undefined && addedRow.length > 0) {
                     addedRow.find(".column").addClass("newly-added-column");
@@ -66,7 +67,7 @@ export module On {
                 jQuery("#control-common-execute").trigger("click");
 
                 return false;
-               
+
             });
 
             jQuery(".jq-next-row").unbind("click");
@@ -85,7 +86,7 @@ export module On {
                 jQuery("#control-common-execute").trigger("click");
 
                 return false;
-               
+
             });
 
             jQuery(".jq-select-column").unbind("click");
@@ -97,9 +98,24 @@ export module On {
 
             });
 
+            jQuery(".button-move-left").unbind("click");
+            jQuery(".button-move-left").on("click", function () {
+                impNoUi.NoUI.MoveJQ.Left();
+
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+                return false;
+            });
+
+            jQuery(".button-move-right").unbind("click");
+            jQuery(".button-move-right").on("click", function () {
+                impNoUi.NoUI.MoveJQ.Right();
+
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+                return false;
+            });
 
             //// plus for image-text-other
-            
+
             jQuery(".jq-plus-prev").unbind("click");
             jQuery(".jq-plus-prev").on("click", function (e) {
                 window.smartObj = new SmartObj();

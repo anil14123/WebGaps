@@ -245,7 +245,7 @@ export module Watch {
                 var pageWidth = jQuery("page").outerWidth(true);
 
                 pageRowControl.removeClass("rc-back-white");
-               
+
                 var pageRowControlLeft = pageRowControl.offset().left;
 
                 var columni = 0;
@@ -272,7 +272,7 @@ export module Watch {
                 }
 
 
-               
+
             }
             else
                 if (MouseJQ.selectedElement.hasClass("row") == true) {
@@ -319,7 +319,7 @@ export module Watch {
                         }
                     }
 
-                    
+
                 }
                 else {
                     if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
@@ -367,7 +367,7 @@ export module Watch {
                         }
 
 
-                      
+
                     }
                     else {
                         jQuery(".design-page-row").hide();
@@ -634,7 +634,7 @@ export module Watch {
                     if (heights.length > 0) {
                         var maxHeight = Math.max.apply(null, heights);
                         var minHeight = Math.min.apply(null, heights);
-                        
+
                         if (maxHeight != minHeight) {
                             if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
                                 return false;
@@ -841,6 +841,58 @@ export module Watch {
                         }
 
                     });
+
+                    jQuery("#refresh-image-text-controls-position").on("click", function () {
+
+                        var rowControlWidth = 200;
+                        var rowControliMax = 100;
+
+                        if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+                            jQuery(".design-page-row").hide();
+
+                            var pageRowControl = MouseJQ.selectedElement.parent().parent().children(".design-page-row");
+                            pageRowControl.show();
+
+                            pageRowControl.find(".row-controls").hide();
+                            pageRowControl.find(".image-text-other-controls").show();
+
+                            pageRowControl.css("left", "0");
+                            var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
+                            var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                            pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
+
+                            pageRowControl.removeClass("rc-back-white");
+
+                            //var pageLeft = jQuery("page").offset().left;
+                            var pageWidth = jQuery("page").outerWidth(true);
+
+                            var pageRowControlLeft = pageRowControl.offset().left;
+
+                            var imageTextOtheri = 0;
+
+                            if (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                pageRowControl.addClass("rc-back-white");
+                            }
+
+                            while (pageRowControlLeft + rowControlWidth > pageWidth) {
+
+                                imageTextOtheri++;
+
+                                if (imageTextOtheri > rowControliMax) {
+                                    break;
+                                }
+
+                                pageRowControl.css("left", (pageRowControl.position().left - 10) + "px");
+                                pageRowControlLeft = pageRowControl.offset().left;
+
+
+                                if (pageRowControlLeft + rowControlWidth > pageWidth) {
+
+                                }
+                            }
+                        }
+                    });
+
 
                     jQuery("page").bind('cut', function () {
                         impCopy.CopyPaste.CopyPasteJQ.Cut();

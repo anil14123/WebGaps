@@ -280,18 +280,20 @@ export module Common {
                 impNoUi.NoUI.AlignJQ.Center();
             });
 
-            ///////////// Moving Object....
+          
+            /////////////// Moving Object....
 
-            jQuery(".button-move-left").on("click", function () {
-                impNoUi.NoUI.MoveJQ.Left();
-                return false;
-            });
+            //jQuery(".button-move-left").on("click", function () {
+            //    impNoUi.NoUI.MoveJQ.Left();
+            
+            //    return false;
+            //});
 
-            jQuery(".button-move-right").on("click", function () {
-                impNoUi.NoUI.MoveJQ.Right();
+            //jQuery(".button-move-right").on("click", function () {
+            //    impNoUi.NoUI.MoveJQ.Right();
 
-                return false;
-            });
+            //    return false;
+            //});
 
             jQuery(".button-move-up").on("click", function () {
                 impNoUi.NoUI.MoveJQ.Up();
