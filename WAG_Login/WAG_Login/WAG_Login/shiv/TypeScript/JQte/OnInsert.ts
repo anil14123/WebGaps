@@ -18,10 +18,10 @@ export module OnInsert {
 
         public Init() {
 
-            jQuery("page .jq-add-column").unbind("click");
-            jQuery("page .jq-add-column").on("click", function () {
+            jQuery(".jq-add-column").unbind("click");
+            jQuery(".jq-add-column").on("click", function () {
 
-                var columnsCount = jQuery(this).closest(".row").children(".column").length;
+                var columnsCount = jQuery(".image-selection:first").closest(".row").children(".column").length;
 
                 if (columnsCount >= 4) {
 
@@ -53,7 +53,7 @@ export module OnInsert {
 
                 var lastColumn: JQuery;
 
-                jQuery(this).closest(".row").children(".column").each(function () {
+                jQuery(".image-selection:first").closest(".row").children(".column").each(function () {
 
                     lastColumn = jQuery(this);
 
@@ -82,7 +82,7 @@ export module OnInsert {
                 column.addClass("column-padding");
                 column.addClass("newly-added-column");
 
-                jQuery(this).closest(".row").children(".column").last().after(column);
+                jQuery(".image-selection:first").closest(".row").children(".column").last().after(column);
 
                 jQuery("#control-common-execute").trigger("click");
 
@@ -90,6 +90,10 @@ export module OnInsert {
                 var undomanager = new impUndoManager.Manager.UndoManager();
 
                 undomanager.BeforeOperation();
+
+
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+
 
                 return false;
 

@@ -7,9 +7,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
             function Code() {
             }
             Code.prototype.Init = function () {
-                jQuery("page .jq-add-column").unbind("click");
-                jQuery("page .jq-add-column").on("click", function () {
-                    var columnsCount = jQuery(this).closest(".row").children(".column").length;
+                jQuery(".jq-add-column").unbind("click");
+                jQuery(".jq-add-column").on("click", function () {
+                    var columnsCount = jQuery(".image-selection:first").closest(".row").children(".column").length;
                     if (columnsCount >= 4) {
                         var error = new impError.ErrorHandle.ErrorJQ();
                         error.ActionHelp("Cannot add more than 4 columns");
@@ -30,7 +30,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                         columnSize = "12";
                     }
                     var lastColumn;
-                    jQuery(this).closest(".row").children(".column").each(function () {
+                    jQuery(".image-selection:first").closest(".row").children(".column").each(function () {
                         lastColumn = jQuery(this);
                         var prevSize = jQuery(this).attr("xs-column-size");
                         var cssClass = "col-xs-" + prevSize;
@@ -50,10 +50,11 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     column.css("min-height", "100px");
                     column.addClass("column-padding");
                     column.addClass("newly-added-column");
-                    jQuery(this).closest(".row").children(".column").last().after(column);
+                    jQuery(".image-selection:first").closest(".row").children(".column").last().after(column);
                     jQuery("#control-common-execute").trigger("click");
                     var undomanager = new impUndoManager.Manager.UndoManager();
                     undomanager.BeforeOperation();
+                    jQuery("#refresh-image-text-controls-position").trigger("click");
                     return false;
                 });
                 jQuery("page a").not(".jq-logout").unbind("click");

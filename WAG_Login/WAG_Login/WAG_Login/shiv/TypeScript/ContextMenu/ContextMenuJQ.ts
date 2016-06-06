@@ -276,7 +276,7 @@ export module ContextMenu {
                 }
 
                 ContextMenuJQ.DeleteElement();
-
+                jQuery("#design-page-row").hide();
             })
         }
 

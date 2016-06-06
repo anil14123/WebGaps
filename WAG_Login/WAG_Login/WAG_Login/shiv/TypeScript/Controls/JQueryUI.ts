@@ -1020,6 +1020,8 @@ export module JQueryUI {
                         }
                     }
 
+
+                    jQuery("#design-page-row").hide();
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
                 },

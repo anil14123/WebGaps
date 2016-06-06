@@ -41,7 +41,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 //    $target = $target.closest(".key");
                 //}
                 //if ($target.hasClass("key")) {
-                //    jQuery(".design-page-row").hide();
+                //    jQuery("#design-page-row").hide();
                 //}
                 //else {
                 //    return;
@@ -54,21 +54,21 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 //}
                 //////////// donot remove//////
                 //if ($target.hasClass("column") == true) {
-                //    jQuery(".design-page-row").hide();
+                //    jQuery("#design-page-row").hide();
                 //    $target.closest(".row").children(".design-page-row").show();
                 //}
                 //else
                 //    if ($target.hasClass("row") == true) {
-                //        jQuery(".design-page-row").hide();
+                //        jQuery("#design-page-row").hide();
                 //        $target.children(".design-page-row").show();
                 //    }
                 //    else {
                 //        if ($target.hasClass("image-text-other") == true) {
-                //            jQuery(".design-page-row").hide();
+                //            jQuery("#design-page-row").hide();
                 //            $target.parent().parent().children(".design-page-row").show();
                 //        }
                 //        else {
-                //            jQuery(".design-page-row").hide();
+                //            jQuery("#design-page-row").hide();
                 //        }
                 //    }
             };
@@ -137,16 +137,20 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     jQuery(".editor").hide();
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                 }
-                var rowControlWidth = 200;
-                var rowControliMax = 100;
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
-                    jQuery(".design-page-row").hide();
-                    var pageRowControl = MouseJQ.selectedElement.parent().children(".design-page-row");
-                    pageRowControl.show();
-                    pageRowControl.find(".row-controls").show();
+                    jQuery("#design-page-row").hide();
+                    var rowControlWidth = 350;
+                    var rowControliMax = 100;
+                    var pageRowControl = jQuery("#design-page-row");
+                    pageRowControl.find(".row-controls").hide();
+                    pageRowControl.find(".column-controls").show();
                     pageRowControl.find(".image-text-other-controls").hide();
+                    pageRowControl.show();
+                    pageRowControl.find(".selected-object").text("Column Selected");
                     pageRowControl.css("left", "0");
                     pageRowControl.css("top", "0");
+                    var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                    pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
                     //var pageLeft = jQuery("page").offset().left;
                     var pageWidth = jQuery("page").outerWidth(true);
                     pageRowControl.removeClass("rc-back-white");
@@ -167,13 +171,19 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     }
                 }
                 else if (MouseJQ.selectedElement.hasClass("row") == true) {
-                    jQuery(".design-page-row").hide();
-                    var pageRowControl = MouseJQ.selectedElement.children(".design-page-row");
-                    pageRowControl.show();
+                    jQuery("#design-page-row").hide();
+                    var rowControlWidth = 300;
+                    var rowControliMax = 100;
+                    var pageRowControl = jQuery("#design-page-row");
                     pageRowControl.find(".row-controls").show();
+                    pageRowControl.find(".column-controls").hide();
                     pageRowControl.find(".image-text-other-controls").hide();
+                    pageRowControl.show();
                     pageRowControl.css("left", "0");
                     pageRowControl.css("top", "0");
+                    pageRowControl.find(".selected-object").text("Row Selected");
+                    var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                    pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
                     //var pageLeft = jQuery("page").offset().left;
                     var pageWidth = jQuery("page").outerWidth(true);
                     pageRowControl.removeClass("rc-back-white");
@@ -195,11 +205,20 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 else {
                     if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
-                        jQuery(".design-page-row").hide();
-                        var pageRowControl = MouseJQ.selectedElement.parent().parent().children(".design-page-row");
-                        pageRowControl.show();
+                        jQuery("#design-page-row").hide();
+                        var rowControlWidth = 260;
+                        var rowControliMax = 100;
+                        var pageRowControl = jQuery("#design-page-row");
                         pageRowControl.find(".row-controls").hide();
+                        pageRowControl.find(".column-controls").hide();
                         pageRowControl.find(".image-text-other-controls").show();
+                        pageRowControl.show();
+                        if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+                            pageRowControl.find(".selected-object").text("Text Block Selected");
+                        }
+                        else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
+                            pageRowControl.find(".selected-object").text("[Image] Selected");
+                        }
                         pageRowControl.css("left", "0");
                         var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                         var imgTextLeft = MouseJQ.selectedElement.offset().left;
@@ -224,7 +243,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         }
                     }
                     else {
-                        jQuery(".design-page-row").hide();
+                        jQuery("#design-page-row").hide();
                     }
                 }
                 MouseJQ.selectedElement.addClass("design-select-element-just-mark");
@@ -605,14 +624,47 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                         });
                         jQuery("#refresh-image-text-controls-position").on("click", function () {
-                            var rowControlWidth = 200;
-                            var rowControliMax = 100;
-                            if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
-                                jQuery(".design-page-row").hide();
-                                var pageRowControl = MouseJQ.selectedElement.parent().parent().children(".design-page-row");
-                                pageRowControl.show();
+                            if (MouseJQ.selectedElement.hasClass("column") == true) {
+                                jQuery("#design-page-row").hide();
+                                var rowControlWidth = 350;
+                                var rowControliMax = 100;
+                                var pageRowControl = jQuery("#design-page-row");
                                 pageRowControl.find(".row-controls").hide();
+                                pageRowControl.find(".column-controls").show();
+                                pageRowControl.find(".image-text-other-controls").hide();
+                                pageRowControl.show();
+                                pageRowControl.css("left", "0");
+                                pageRowControl.css("top", "0");
+                                var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                                pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+                                //var pageLeft = jQuery("page").offset().left;
+                                var pageWidth = jQuery("page").outerWidth(true);
+                                pageRowControl.removeClass("rc-back-white");
+                                var pageRowControlLeft = pageRowControl.offset().left;
+                                var columni = 0;
+                                if (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    pageRowControl.addClass("rc-back-white");
+                                }
+                                while (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    columni++;
+                                    if (columni > rowControliMax) {
+                                        break;
+                                    }
+                                    pageRowControl.css("left", (pageRowControl.position().left - 10) + "px");
+                                    pageRowControlLeft = pageRowControl.offset().left;
+                                    if (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    }
+                                }
+                            }
+                            else if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
+                                jQuery("#design-page-row").hide();
+                                var rowControlWidth = 260;
+                                var rowControliMax = 100;
+                                var pageRowControl = jQuery("#design-page-row");
+                                pageRowControl.find(".row-controls").hide();
+                                pageRowControl.find(".column-controls").hide();
                                 pageRowControl.find(".image-text-other-controls").show();
+                                pageRowControl.show();
                                 pageRowControl.css("left", "0");
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
@@ -628,6 +680,38 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 while (pageRowControlLeft + rowControlWidth > pageWidth) {
                                     imageTextOtheri++;
                                     if (imageTextOtheri > rowControliMax) {
+                                        break;
+                                    }
+                                    pageRowControl.css("left", (pageRowControl.position().left - 10) + "px");
+                                    pageRowControlLeft = pageRowControl.offset().left;
+                                    if (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    }
+                                }
+                            }
+                            else if (MouseJQ.selectedElement.hasClass("row") == true) {
+                                jQuery("#design-page-row").hide();
+                                var rowControlWidth = 300;
+                                var rowControliMax = 100;
+                                var pageRowControl = jQuery("#design-page-row");
+                                pageRowControl.find(".row-controls").show();
+                                pageRowControl.find(".column-controls").hide();
+                                pageRowControl.find(".image-text-other-controls").hide();
+                                pageRowControl.show();
+                                pageRowControl.css("left", "0");
+                                pageRowControl.css("top", "0");
+                                var imgTextLeft = MouseJQ.selectedElement.offset().left;
+                                pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+                                //var pageLeft = jQuery("page").offset().left;
+                                var pageWidth = jQuery("page").outerWidth(true);
+                                pageRowControl.removeClass("rc-back-white");
+                                var pageRowControlLeft = pageRowControl.offset().left;
+                                var rowi = 0;
+                                if (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    pageRowControl.addClass("rc-back-white");
+                                }
+                                while (pageRowControlLeft + rowControlWidth > pageWidth) {
+                                    rowi++;
+                                    if (rowi > rowControliMax) {
                                         break;
                                     }
                                     pageRowControl.css("left", (pageRowControl.position().left - 10) + "px");

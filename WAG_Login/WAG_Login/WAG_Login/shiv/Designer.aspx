@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <%--<link class="add-to-page" href="/Content/bootstrap-3.3.5-dist/css/bootstrap.customized.24.min.css" rel="stylesheet" />--%>
-  
+
     <link rel="stylesheet" href="/app.css" type="text/css" />
     <link rel="stylesheet" href="/InsertTools.css" type="text/css" />
     <link rel="stylesheet" href="/controls.css" type="text/css" />
@@ -51,8 +51,8 @@
     <!--javascript text editor-->
 
     <%--<script data-main="/TypeScript/app.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"></script>--%>
-   <%-- <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>--%>
-     <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
+    <%-- <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>--%>
+    <script data-main="TypeScript/app.js?v=2" src="/Library/require.js"></script>
 
     <%--<script src="/Third-Party/colpick-jQuery-Color-Picker-master/js/colpick.js"></script>--%>
 
@@ -83,14 +83,12 @@
 </head>
 <body>
 
-    
-<style>
- 
-    rootX{
-        display:none;
-    }
 
-</style>
+    <style>
+        rootX {
+            display: none;
+        }
+    </style>
 
 
     <%--
@@ -213,7 +211,7 @@
             </style>
 
 
-             <div class=" table-cell jq-self-logo ">ink Q</div>
+            <div class=" table-cell jq-self-logo ">ink Q</div>
             <div class=" table-cell close-preview jq-save-margin  "><span class=" fa fa-eye  white"></span>&nbsp;Close Preview</div>
             <div class=" table-cell  show-preview jq-save-margin "><span class=" fa fa-eye  white"></span>&nbsp;Preview</div>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview table-cell ">
@@ -3256,7 +3254,46 @@
     <button id="refresh-image-text-controls-position" style="display: none;">
     </button>
 
-    
+    <span id="design-page-row" class="design-page-row" style="display: none">
+
+        <span class="row-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
+            <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span> +</button>
+            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span> +</button>
+            &nbsp;
+             <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
+            &nbsp;
+            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
+        </span><span class="image-text-other-controls" style="display: none;">
+            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
+            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
+            &nbsp;            
+             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+
+        </span>
+        <span class="column-controls" style="display: none;">
+            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
+            <span title="Move Column Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Column Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+            &nbsp;
+            <span style="color: darkblue; font-weight: bold;">Rows :
+             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span> +</button>
+                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span> +</button>
+            </span>
+            &nbsp;
+
+             <span style="color: darkblue; font-weight: bold;">Columns :
+            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger"> +</button>
+             </span>
+        </span>
+         
+          <span class="selected-object"></span>
+
+          <span style="font-size:xx-small; color:red; border:1px solid red; padding:2px; cursor:pointer; margin:0;" class="li ctx-menu-delete-element fa fa-times"></span> 
+
+    </span>
+
 
 </body>
 </html>

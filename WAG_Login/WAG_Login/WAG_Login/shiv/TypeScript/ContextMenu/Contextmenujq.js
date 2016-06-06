@@ -161,6 +161,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         return;
                     }
                     ContextMenuJQ.DeleteElement();
+                    jQuery("#design-page-row").hide();
                 });
             };
             ContextMenuJQ.AttachInsertLinkContainer = function () {

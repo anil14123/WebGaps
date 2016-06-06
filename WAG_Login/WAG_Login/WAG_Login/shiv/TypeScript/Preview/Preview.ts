@@ -123,7 +123,7 @@ export module Preview {
 
             jQuery("page").find(".column").addClass("column-padding");
 
-            //jQuery("page").find(".ui-resizable-handle").show();
+            jQuery("page").find(".ui-resizable-handle").show();
 
             jQuery("page").find(".debug-text-block-container-css").hide();
             jQuery("page").find(".debug-image-block-container-css").hide();

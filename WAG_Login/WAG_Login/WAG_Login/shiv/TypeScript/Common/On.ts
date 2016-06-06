@@ -50,10 +50,15 @@ export module On {
 
             //// plus for row /////////
 
+            jQuery(".selected-object").unbind("click");
+            jQuery(".selected-object").on("click", function () {
+                return false;
+            });
+
             jQuery(".jq-prev-row").unbind("click");
             jQuery(".jq-prev-row").on("click", function () {
 
-                var currentRow = jQuery(this).closest(".row");
+                var currentRow = jQuery(".image-selection:first").closest(".row");
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
@@ -66,6 +71,8 @@ export module On {
 
                 jQuery("#control-common-execute").trigger("click");
 
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+
                 return false;
 
             });
@@ -73,7 +80,7 @@ export module On {
             jQuery(".jq-next-row").unbind("click");
             jQuery(".jq-next-row").on("click", function () {
 
-                var currentRow = jQuery(this).closest(".row");
+                var currentRow = jQuery(".image-selection:first").closest(".row");
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
@@ -85,6 +92,8 @@ export module On {
 
                 jQuery("#control-common-execute").trigger("click");
 
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+
                 return false;
 
             });
@@ -92,7 +101,17 @@ export module On {
             jQuery(".jq-select-column").unbind("click");
             jQuery(".jq-select-column").on("click", function () {
 
-                jQuery(".image-selection").first().parent().trigger("click");
+                jQuery(".image-selection:first").closest(".column").trigger("click");
+
+                return false;
+
+            });
+
+
+            jQuery(".jq-select-row").unbind("click");
+            jQuery(".jq-select-row").on("click", function () {
+
+                jQuery(".image-selection:first").closest(".row").trigger("click");
 
                 return false;
 
