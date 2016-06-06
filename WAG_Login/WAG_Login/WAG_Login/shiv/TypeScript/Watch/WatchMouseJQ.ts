@@ -228,7 +228,7 @@ export module Watch {
             if (MouseJQ.selectedElement.hasClass("column") == true) {
                 jQuery("#design-page-row").hide();
 
-                var rowControlWidth = 350;
+                var rowControlWidth = 370;
                 var rowControliMax = 100;
 
                 var pageRowControl = jQuery("#design-page-row");
@@ -284,7 +284,7 @@ export module Watch {
                 if (MouseJQ.selectedElement.hasClass("row") == true) {
                     jQuery("#design-page-row").hide();
 
-                    var rowControlWidth = 300;
+                    var rowControlWidth = 320;
                     var rowControliMax = 100;
 
 
@@ -342,7 +342,7 @@ export module Watch {
                     if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                         jQuery("#design-page-row").hide();
 
-                        var rowControlWidth = 260;
+                        var rowControlWidth = 280;
                         var rowControliMax = 100;
 
 
@@ -885,7 +885,7 @@ export module Watch {
                         if (MouseJQ.selectedElement.hasClass("column") == true) {
                             jQuery("#design-page-row").hide();
 
-                            var rowControlWidth = 350;
+                            var rowControlWidth = 370;
                             var rowControliMax = 100;
 
                             var pageRowControl = jQuery("#design-page-row");
@@ -937,7 +937,7 @@ export module Watch {
                             if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                                 jQuery("#design-page-row").hide();
 
-                                var rowControlWidth = 260;
+                                var rowControlWidth = 280;
                                 var rowControliMax = 100;
 
                                 var pageRowControl = jQuery("#design-page-row");
@@ -987,7 +987,7 @@ export module Watch {
                                 if (MouseJQ.selectedElement.hasClass("row") == true) {
                                     jQuery("#design-page-row").hide();
 
-                                    var rowControlWidth = 300;
+                                    var rowControlWidth = 320;
                                     var rowControliMax = 100;
 
                                     var pageRowControl = jQuery("#design-page-row");
