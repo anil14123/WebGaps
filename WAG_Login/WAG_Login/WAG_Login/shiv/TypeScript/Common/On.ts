@@ -65,7 +65,7 @@ export module On {
                 var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
 
                 if (addedRow != undefined && addedRow.length > 0) {
-                    addedRow.find(".column").addClass("newly-added-column");
+                    addedRow.find(".column").addClass("newly-added-column newly-add-column-for-row-color");
                 }
 
 
@@ -87,7 +87,7 @@ export module On {
                 var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
 
                 if (addedRow != undefined && addedRow.length > 0) {
-                    addedRow.find(".column").addClass("newly-added-column");
+                    addedRow.find(".column").addClass("newly-added-column newly-add-column-for-row-color");
                 }
 
                 jQuery("#control-common-execute").trigger("click");

@@ -471,9 +471,15 @@ rootx {
 }
 
 .newly-added-column{
-    background-color: #e0dada;
-    border-left:1px solid #4699e1;
+    background-color: #83b1ea;
+    border-left:1px solid black;
 }
+
+.newly-added-column.newly-add-column-for-row-color{
+    background-color: #ed9a9a;
+    border-left:0;
+}
+
 
 .empty {
     text-align: center;
