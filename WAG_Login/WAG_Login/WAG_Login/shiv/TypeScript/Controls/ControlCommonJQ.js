@@ -18,6 +18,7 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert", 
                     new impJqteOnInsert.OnInsert.Code().Init();
                     impJQueryUI.JQueryUI.CommonCode.ResizableColumn();
                     impJQueryUI.JQueryUI.CommonCode.Resizable(".jq-normal-link, .jq-plus-container-text, .jq-plus-container-image");
+                    //impJQueryUI.JQueryUI.CommonCode.ResizableText(".empty-container-text");
                     impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other", "s");
                     impJQueryUI.JQueryUI.CommonCode.JustResizable(".adjust-image-text-other-left", "e");
                     impJQueryUI.JQueryUI.CommonCode.Draggable(".jq-normal-link .empty-container, .empty-container-menu, .empty-container-text, .empty-container-image, .empty-container-spacer", "");
@@ -48,6 +49,8 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert", 
                     jQuery(".ui-resizable-e").html("<div class='jq-square jq-square-e'></div>");
                     jQuery(".ui-resizable-se").html("<div class='jq-square jq-square-se'></div>");
                     jQuery(".ui-resizable-s").html("<div class='jq-square jq-square-s'></div>");
+                    //jQuery(".ui-resizable-w").html("<div class='jq-square jq-square-e'></div>");
+                    //jQuery(".ui-resizable-n").html("<div class='jq-square jq-square-s'></div>");
                 }, 10);
             };
             Code.DestroyResizable = function () {

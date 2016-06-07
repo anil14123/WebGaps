@@ -304,6 +304,7 @@ blockquote{
     height:100px;
 }
 
+/*old working great*/
 .empty-container-text {
     display: inline-block;
     display:inline-table;
@@ -315,6 +316,7 @@ blockquote{
    /*min-width:50px;*/
 
 }
+
 
 .table{
     display:table !important;

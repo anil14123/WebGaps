@@ -51,7 +51,7 @@ export module JQueryUI {
 
                     jQuery("page").addClass("dragging");
 
-                  
+
                     CommonCode.DroppableEventCount = 0;
                     CommonCode.droppableCount++;
 
@@ -297,7 +297,7 @@ export module JQueryUI {
                         var result = CommonCode.commonHeight(height, ui);
 
                         commonMethods.RemoveSingleStyle(ui.helper, "height");
-                       // jQuery(ui.helper).css("min-height", height);
+                        // jQuery(ui.helper).css("min-height", height);
 
                         jQuery(ui.helper).closest(".row").children(".column").css("min-height", height);
 
@@ -596,7 +596,7 @@ export module JQueryUI {
 
                     jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
 
-                  
+
                     var height = ui.size.height;
 
                     var width = ui.size.width;
@@ -736,6 +736,131 @@ export module JQueryUI {
 
             }
         }
+
+        public static ResizableText(elementCss, handle?) {
+
+            var handleDefault = "e,se,s,w,n";
+
+            if (handle != undefined && handle != "") {
+                handleDefault = handle;
+            }
+
+            var passedLeft = 0;
+
+            jQuery(elementCss).resizable({
+                handles: handleDefault,
+                autoHide: true,
+                distance: 0,
+                containment: "parent",
+                start: function (event, ui) {
+
+                    passedLeft = jQuery(ui.element).position().left;
+                    jQuery("page").addClass("resizing");
+
+                    var axis = jQuery(ui.element).data('ui-resizable').axis;
+
+                    jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
+
+                    jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
+
+                    jQuery(".dummy-div").height(ui.helper.height() + 2);
+
+                    if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
+
+                        ui.helper.css("height", ui.helper.css("min-height"));
+
+                        var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
+                        commonMethods.RemoveStyle(ui.helper, "min-height");
+
+                    }
+                },
+                stop: function (event, ui) {
+
+                    if (jQuery(ui.element).data('ui-resizable').axis == "w" || jQuery(ui.element).data('ui-resizable').axis == "n") {
+
+
+                        jQuery(ui.element).height(ui.originalSize.height);
+                        jQuery(ui.element).width(ui.originalSize.width);
+
+
+                        var maxLeft = jQuery(ui.element).closest(".column").outerWidth(true);
+
+                        if ((jQuery(ui.element).position().left + jQuery(ui.element).outerWidth(true)) <= maxLeft
+
+                        ) {
+                            passedLeft = jQuery(ui.element).position().left;
+                        }
+                        else {
+                            jQuery(ui.element).css("left", passedLeft + "px");
+                        }
+
+                        return;
+                    }
+
+
+                    jQuery("page").removeClass("resizing");
+
+                    jQuery(".dummy-div").remove();
+
+                    var height = ui.size.height;
+
+                    var width = ui.size.width;
+
+                    var common = new impCommonMethods.Common.CommonMethodsJQ();
+
+                    common.RemoveSingleStyle(jQuery(this), "height");
+
+                    jQuery(this).css("min-height", height);
+
+                    JQueryUI.CommonCode.ResizeCommon(ui.element);
+
+                    var uiHelper = new UIHelper();
+
+                    uiHelper.helper = jQuery(this).closest(".column");
+
+                    CommonCode.commonHeight(100, uiHelper);
+
+                    jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
+
+                    var undomanager = new impUndoManager.Manager.UndoManager();
+
+                    undomanager.BeforeOperation();
+                }
+                ,
+
+                resize: function (event, ui) {
+
+                    if (jQuery(ui.element).data('ui-resizable').axis == "w" || jQuery(ui.element).data('ui-resizable').axis == "n") {
+
+
+                        jQuery(ui.element).height(ui.originalSize.height);
+                        jQuery(ui.element).width(ui.originalSize.width);
+
+
+                        var maxLeft = jQuery(ui.element).closest(".column").outerWidth(true);
+
+                        if ((jQuery(ui.element).position().left + jQuery(ui.element).outerWidth(true)) <= maxLeft) {
+                            passedLeft = jQuery(ui.element).position().left;
+                        }
+                        else {
+                            jQuery(ui.element).css("left", passedLeft + "px");
+                        }
+
+                        return;
+                    }
+
+                    window.setTimeout(function () {
+                        if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                            jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                        }
+                    }, 10);
+
+                }
+
+            });
+
+        }
+
 
         public static Resizable(elementCss, handle?) {
 
@@ -924,7 +1049,7 @@ export module JQueryUI {
                     catch (ex) {
 
                     }
-                    
+
                     impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
 
                     if (
