@@ -1,4 +1,5 @@
 ﻿
+
 /// <reference path="../../../library/jquery.d.ts" />
 /// <reference path="../../../library/jqueryui.d.ts" />
 
@@ -223,7 +224,7 @@ export module Watch {
             }
 
 
-           
+
 
             if (MouseJQ.selectedElement.hasClass("column") == true) {
                 jQuery("#design-page-row").hide();
@@ -245,7 +246,9 @@ export module Watch {
                 pageRowControl.css("top", "0");
 
                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+
+                pageRowControl.css("left", imgTextLeft + "px");
+                pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
 
                 //var pageLeft = jQuery("page").offset().left;
                 var pageWidth = jQuery("page").outerWidth(true);
@@ -302,7 +305,9 @@ export module Watch {
                     pageRowControl.find(".selected-object").text("Row Selected");
 
                     var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                    pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+                    pageRowControl.css("left", imgTextLeft + "px");
+                    pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
+
 
                     //var pageLeft = jQuery("page").offset().left;
                     var pageWidth = jQuery("page").outerWidth(true);
@@ -357,7 +362,7 @@ export module Watch {
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
 
                             pageRowControl.find(".selected-object").text("Text Block Selected");
-                        
+
                         }
                         else
                             if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
@@ -365,12 +370,14 @@ export module Watch {
                                 pageRowControl.find(".selected-object").text("Image Selected");
 
                             }
-                            
+
 
                         pageRowControl.css("left", "0");
                         var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                         var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                        pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
+                        pageRowControl.css("left", imgTextLeft + "px");
+                        pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
+
 
                         pageRowControl.removeClass("rc-back-white");
 
@@ -693,6 +700,10 @@ export module Watch {
                 if (G_isAttachedWatch == false) {
                     G_isAttachedWatch = true;
 
+                    $("#watch-height").on("click", function () {
+                        MouseJQ.WatchHeight();
+                    });
+
                     window.setInterval(MouseJQ.WatchHeight, 3000);
 
                     jQuery(".prop-sb").click(function () {
@@ -880,7 +891,7 @@ export module Watch {
 
                     jQuery("#refresh-image-text-controls-position").on("click", function () {
 
-                    
+
 
                         if (MouseJQ.selectedElement.hasClass("column") == true) {
                             jQuery("#design-page-row").hide();
@@ -902,7 +913,9 @@ export module Watch {
                             pageRowControl.find(".selected-object").text("Column Selected");
 
                             var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                            pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+                            pageRowControl.css("left", imgTextLeft + "px");
+                            pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
+
 
                             //var pageLeft = jQuery("page").offset().left;
                             var pageWidth = jQuery("page").outerWidth(true);
@@ -956,7 +969,9 @@ export module Watch {
 
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                                pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
+                                pageRowControl.css("left", imgTextLeft + "px");
+                                pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
+
 
                                 pageRowControl.removeClass("rc-back-white");
 
@@ -1009,7 +1024,9 @@ export module Watch {
                                     pageRowControl.find(".selected-object").text("Row Selected");
 
                                     var imgTextLeft = MouseJQ.selectedElement.offset().left;
-                                    pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
+                                    pageRowControl.css("left", imgTextLeft + "px");
+                                    pageRowControl.css("top", (MouseJQ.selectedElement.offset().top - 25) + "px");
+
 
                                     //var pageLeft = jQuery("page").offset().left;
                                     var pageWidth = jQuery("page").outerWidth(true);

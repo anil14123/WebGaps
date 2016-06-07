@@ -55,6 +55,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     var undomanager = new impUndoManager.Manager.UndoManager();
                     undomanager.BeforeOperation();
                     jQuery("#refresh-image-text-controls-position").trigger("click");
+                    $("#watch-height").trigger("click");
                     return false;
                 });
                 jQuery("page a").not(".jq-logout").unbind("click");

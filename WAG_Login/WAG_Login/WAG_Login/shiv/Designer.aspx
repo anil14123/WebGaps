@@ -97,7 +97,45 @@
     </iframe>
     --%>
 
+    <span id="design-page-row" class="design-page-row" style="display: none">
 
+        <span class="row-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
+            <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span>+</button>
+            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span>+</button>
+            &nbsp;
+             <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
+            &nbsp;
+            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
+        </span><span class="image-text-other-controls" style="display: none;">
+            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
+            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
+            &nbsp;            
+             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+
+        </span>
+        <span class="column-controls" style="display: none;">
+            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
+            <span title="Move Column Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Column Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+            &nbsp;
+            <span style="color: darkblue; font-weight: bold;">Rows :
+             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span>+</button>
+                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span>+</button>
+            </span>
+            &nbsp;
+
+             <span style="color: darkblue; font-weight: bold;">Columns :
+            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">+</button>
+             </span>
+        </span>
+
+        <span class="selected-object"></span>
+
+        <span title="Delete" style="font-size: xx-small; border: 1px solid red; padding: 2px; cursor: pointer; margin: 0; background-color: red; color: white;" class="li ctx-menu-delete-element fa fa-trash-o "></span>
+
+    </span>
     <div class="loading hide clonable" style="padding: 0;">
         <img class="loading-img" src="/Content/loading/colors.gif" alt="Loading..." />
     </div>
@@ -1554,6 +1592,7 @@
 
             </PinnedControls>
         </div>
+
     </rootx>
 
     <controls>
@@ -3253,46 +3292,9 @@
     </button>
     <button id="refresh-image-text-controls-position" style="display: none;">
     </button>
+    <button id="watch-height" style="display: none;">
+    </button>
 
-    <span id="design-page-row" class="design-page-row" style="display: none">
-
-        <span class="row-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
-            <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span> +</button>
-            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span> +</button>
-            &nbsp;
-             <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
-            &nbsp;
-            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
-        </span><span class="image-text-other-controls" style="display: none;">
-            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
-            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
-            &nbsp;            
-             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
-
-        </span>
-        <span class="column-controls" style="display: none;">
-            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
-            <span title="Move Column Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Move Column Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
-            &nbsp;
-            <span style="color: darkblue; font-weight: bold;">Rows :
-             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span> +</button>
-                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span> +</button>
-            </span>
-            &nbsp;
-
-             <span style="color: darkblue; font-weight: bold;">Columns :
-            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger"> +</button>
-             </span>
-        </span>
-         
-          <span class="selected-object"></span>
-
-          <span title="Delete" style="font-size:xx-small; border:1px solid red; padding:2px; cursor:pointer; margin:0; background-color: red; color: white;" class="li ctx-menu-delete-element fa fa-trash-o "></span> 
-
-    </span>
 
 
 </body>
