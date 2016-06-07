@@ -3290,7 +3290,7 @@
          
           <span class="selected-object"></span>
 
-          <span style="font-size:xx-small; color:red; border:1px solid red; padding:2px; cursor:pointer; margin:0;" class="li ctx-menu-delete-element fa fa-times"></span> 
+          <span title="Delete" style="font-size:xx-small; border:1px solid red; padding:2px; cursor:pointer; margin:0; background-color: red; color: white;" class="li ctx-menu-delete-element fa fa-trash-o "></span> 
 
     </span>
 

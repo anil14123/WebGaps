@@ -219,7 +219,8 @@ rootx {
     /*outline: 1px dashed #282424;
     outline: 1px solid #DCD8D8;
      outline :1px solid #f5f5f5;*/
-    border: 1px dashed #f2e6ae;
+    /*border: 1px dashed #f2e6ae;*/
+     box-shadow:0 0 1px #f3e5a1;
 }
 
 .design-row {
@@ -229,9 +230,10 @@ rootx {
     outline: 1px solid #D0CDCD;
     
     outline :1px solid #f5f5f5;*/
-    border: 1px dashed #f2e6ae;
+    /*border: 1px dashed #f2e6ae;*/
     border-bottom: none;
-    padding: 1px;
+
+    box-shadow:0 0 1px #f2e6ae;
 }
 
 .design-empty-css {

@@ -61,7 +61,7 @@ export module Preview {
             //jQuery(".root-elements").removeClass("padding-root-elements");
             // jQuery(".root-elements").css("padding-bottom", "0");
 
-            jQuery("page").find(".column").removeClass("column-padding");
+            //jQuery("page").find(".column").removeClass("column-padding");
 
             jQuery("page").find(".ui-resizable-handle").hide();
             //jQuery(".debug-row-css").hide();
@@ -121,7 +121,7 @@ export module Preview {
            // jQuery(".root-elements").addClass("padding-root-elements");
             // jQuery(".root-elements").css("padding-bottom", "10");
 
-            jQuery("page").find(".column").addClass("column-padding");
+            //jQuery("page").find(".column").addClass("column-padding");
 
             jQuery("page").find(".ui-resizable-handle").show();
 

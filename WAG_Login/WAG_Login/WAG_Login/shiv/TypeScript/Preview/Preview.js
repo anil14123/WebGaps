@@ -40,7 +40,7 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                 jQuery("page").find(".debug-css").hide();
                 //jQuery(".root-elements").removeClass("padding-root-elements");
                 // jQuery(".root-elements").css("padding-bottom", "0");
-                jQuery("page").find(".column").removeClass("column-padding");
+                //jQuery("page").find(".column").removeClass("column-padding");
                 jQuery("page").find(".ui-resizable-handle").hide();
                 //jQuery(".debug-row-css").hide();
                 //jQuery(".debug-column-css").hide();
@@ -83,7 +83,7 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                 jQuery("page").find(".debug-css").show();
                 // jQuery(".root-elements").addClass("padding-root-elements");
                 // jQuery(".root-elements").css("padding-bottom", "10");
-                jQuery("page").find(".column").addClass("column-padding");
+                //jQuery("page").find(".column").addClass("column-padding");
                 jQuery("page").find(".ui-resizable-handle").show();
                 jQuery("page").find(".debug-text-block-container-css").hide();
                 jQuery("page").find(".debug-image-block-container-css").hide();

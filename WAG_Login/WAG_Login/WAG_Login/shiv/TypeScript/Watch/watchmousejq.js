@@ -217,7 +217,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                         }
                         else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
-                            pageRowControl.find(".selected-object").text("[Image] Selected");
+                            pageRowControl.find(".selected-object").text("Image Selected");
                         }
                         pageRowControl.css("left", "0");
                         var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
@@ -635,6 +635,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 pageRowControl.show();
                                 pageRowControl.css("left", "0");
                                 pageRowControl.css("top", "0");
+                                pageRowControl.find(".selected-object").text("Column Selected");
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
                                 pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
                                 //var pageLeft = jQuery("page").offset().left;
@@ -666,6 +667,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 pageRowControl.find(".image-text-other-controls").show();
                                 pageRowControl.show();
                                 pageRowControl.css("left", "0");
+                                pageRowControl.find(".selected-object").text("Object Selected");
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
                                 pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
@@ -699,6 +701,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 pageRowControl.show();
                                 pageRowControl.css("left", "0");
                                 pageRowControl.css("top", "0");
+                                pageRowControl.find(".selected-object").text("Row Selected");
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
                                 pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
                                 //var pageLeft = jQuery("page").offset().left;

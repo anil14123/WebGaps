@@ -362,7 +362,7 @@ export module Watch {
                         else
                             if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
 
-                                pageRowControl.find(".selected-object").text("[Image] Selected");
+                                pageRowControl.find(".selected-object").text("Image Selected");
 
                             }
                             
@@ -899,6 +899,8 @@ export module Watch {
                             pageRowControl.css("left", "0");
                             pageRowControl.css("top", "0");
 
+                            pageRowControl.find(".selected-object").text("Column Selected");
+
                             var imgTextLeft = MouseJQ.selectedElement.offset().left;
                             pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });
 
@@ -949,6 +951,9 @@ export module Watch {
                                 pageRowControl.show();
 
                                 pageRowControl.css("left", "0");
+
+                                pageRowControl.find(".selected-object").text("Object Selected");
+
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
                                 pageRowControl.offset({ top: imgTextTop, left: imgTextLeft });
@@ -1000,6 +1005,8 @@ export module Watch {
 
                                     pageRowControl.css("left", "0");
                                     pageRowControl.css("top", "0");
+
+                                    pageRowControl.find(".selected-object").text("Row Selected");
 
                                     var imgTextLeft = MouseJQ.selectedElement.offset().left;
                                     pageRowControl.offset({ top: MouseJQ.selectedElement.offset().top - 25, left: imgTextLeft });

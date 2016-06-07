@@ -112,8 +112,10 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                     else {
                         selectedElement.hide();
                     }
-                    $("#control-common-execute").trigger("click");
+                    var undo = new impUndoManager.Manager.UndoManager();
+                    undo.BeforeOperation();
                 }
+                $("#control-common-execute").trigger("click");
             };
             CopyPasteJQ.Cut = function () {
                 isCut = true;
