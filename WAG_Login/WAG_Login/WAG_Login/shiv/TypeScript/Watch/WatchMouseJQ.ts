@@ -62,7 +62,7 @@ export module Watch {
                 return;
             }
 
-            var $target = jQuery(event.target);
+            var $target = jQuery(e.target);
 
             if (!$target.hasClass("key")) {
                 $target = $target.closest(".key");

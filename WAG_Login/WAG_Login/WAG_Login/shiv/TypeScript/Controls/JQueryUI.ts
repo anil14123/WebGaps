@@ -51,7 +51,6 @@ export module JQueryUI {
 
                     jQuery("page").addClass("dragging");
 
-
                     CommonCode.DroppableEventCount = 0;
                     CommonCode.droppableCount++;
 
@@ -89,6 +88,9 @@ export module JQueryUI {
                     //    top: event.clientY,
                     //    left: event.clientX
                     //});
+
+                    ui.helper.hide(1);
+                    ui.helper.show(1);
 
                     var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
 
@@ -968,21 +970,43 @@ export module JQueryUI {
         }
 
         public static Droppable(elementCss) {
-
+            
             jQuery(elementCss).droppable({
                 greedy: true,
+                
                 tolerance: "pointer",
                 accept: '.bldr-draggable, .image-text-other',
                 drop: function (event: JQueryMouseEventObject, ui) {
-
+                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
                     if (CommonCode.DroppableEventCount == 1) {
 
                         return;
                     }
 
+                    ui.helper.remove();
+
                     CommonCode.DroppableEventCount = 1;
 
+                    CommonCode.currentTarget = jQuery(document.elementFromPoint(event.clientX, event.clientY)).hasClass("key")
+                        ? jQuery(document.elementFromPoint(event.clientX, event.clientY)) 
+                        : jQuery(document.elementFromPoint(event.clientX, event.clientY)).closest(".key");
 
+                    impWatch.Watch.MouseJQ.selectedElement = CommonCode.currentTarget;
+
+                    console.log(CommonCode.currentTarget.attr("class"));
+
+                    //if (jQuery(event.target).hasClass("key")) {
+                    //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                    //        jQuery(event.target).addClass("image-selection-drag");
+                    //        impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
+                    //    }
+                    //}
+                    //else {
+                    //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                    //        jQuery(event.target).closest(".key").addClass("image-selection-drag");
+                    //        impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
+                    //    }
+                    //}
 
                     try {
 
@@ -1050,7 +1074,7 @@ export module JQueryUI {
 
                     }
 
-                    impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag");
+                    impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag:first");
 
                     if (
                         CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
@@ -1153,28 +1177,58 @@ export module JQueryUI {
                 out: function (event, ui) {
                     CommonCode.droppableCount++;
                 },
-                over: function (event, ui) {
-                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                over: function (event: JQueryMouseEventObject, ui) {
 
-                    CommonCode.currentTarget = jQuery(event.target);
+                    //jQuery(".image-selection-drag").removeClass("image-selection-drag");
 
-                    if (jQuery(event.target).hasClass("key")) {
-                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(event.target).addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
-                        }
-                    }
-                    else {
-                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(event.target).closest(".key").addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
-                        }
-                    }
+                    //CommonCode.currentTarget = jQuery(event.target);
+
+                    //if (jQuery(event.target).hasClass("key")) {
+                    //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                    //        jQuery(event.target).addClass("image-selection-drag");
+                    //        impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target);
+                    //    }
+                    //}
+                    //else {
+                    //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                    //        jQuery(event.target).closest(".key").addClass("image-selection-drag");
+                    //        impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
+                    //    }
+                    //}
 
                 }
             });
 
+
+            jQuery(".column, .image-text-other").unbind("mouseover");
+            jQuery(".column, .image-text-other").on("mouseover", function () {
+
+                if (jQuery("page").hasClass("dragging")) {
+                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
+
+                    CommonCode.currentTarget = jQuery(this);
+
+                    if (jQuery(this).hasClass("key")) {
+                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                            jQuery(this).addClass("image-selection-drag");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
+                        }
+                    }
+                    else {
+                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
+                            jQuery(this).closest(".key").addClass("image-selection-drag");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
+                        }
+                    }
+                }
+
+                return false;
+
+            });
+
         }
+
+
 
         public static DraggableDestroy(element) {
 

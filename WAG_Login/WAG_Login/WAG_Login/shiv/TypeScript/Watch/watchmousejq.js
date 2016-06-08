@@ -26,7 +26,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     //$(".key").removeClass("control-focused");
                     return;
                 }
-                var $target = jQuery(event.target);
+                var $target = jQuery(e.target);
                 if (!$target.hasClass("key")) {
                     $target = $target.closest(".key");
                 }
