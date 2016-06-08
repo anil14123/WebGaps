@@ -247,7 +247,7 @@ rootx {
 }
 
 .design-empty-text-css {
-    border: 1px dotted #4699e1;
+    box-shadow: 0 0 1px #4699e1;
     max-width: 100%;
 }
 
@@ -314,7 +314,7 @@ rootx {
 
 .debug-row-css {
     /*padding: 2px;*/
-    margin-left: 4px;
+   
     font-size: 4px;
     width: 10px;
     height: 10px;
@@ -327,7 +327,7 @@ rootx {
 }
 
 .debug-column-css {
-    padding: 2px;
+   
     font-size: 4px;
     width: 10px;
     height: 10px;
@@ -342,7 +342,7 @@ rootx {
 }
 
 .debug-text-block-css {
-    padding: 1px;
+   
     display: block;
     text-align: left;
     color: transparent;
@@ -352,7 +352,7 @@ rootx {
 }
 
 .debug-text-block-container-css {
-    padding: 5px;
+    
     text-align: right;
     color: white;
     background-color: #1f364b;
@@ -364,7 +364,7 @@ rootx {
 
 
 .debug-image-block-css {
-    padding: 1px;
+  
     display: block;
     text-align: left;
     color: transparent;
@@ -374,7 +374,7 @@ rootx {
 }
 
 .debug-image-block-container-css {
-    padding: 5px;
+   
     text-align: right;
     color: white;
     background-color: #1f364b;

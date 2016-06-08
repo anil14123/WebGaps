@@ -3295,8 +3295,8 @@
     <button id="watch-height" style="display: none;">
     </button>
 
-      
-    <div id="empty-container-text-copy" class="key image-text-other design-css design-empty-text-css hide " style="font-size: 14px; z-index: 0;opacity: 1; position: relative;">
+
+    <div id="empty-container-text-copy" class="key image-text-other design-css design-empty-text-css hide " style="font-size: 14px; z-index: 0; opacity: 1; position: relative;">
         <div class="adjust-image-text-other design-css design-adjust-image-text-other ">
         </div>
         <div class="adjust-image-text-other-left design-css design-adjust-image-text-other">
@@ -3309,10 +3309,9 @@
                 </div>
             </div>
             <div class="jq-plus-content jq-plus-element-content">
-                <div class="jq-text-block-container design-text-block normal-element jq-container" >
-                    <div class="jq-text-block design-text-block normal-element" style="font-family: Arial, Arial, Helvetica, sans-serif;">
+                <div class="jq-text-block-container design-text-block normal-element jq-container">
+                    <div class="jq-text-block design-text-block normal-element">
                         <div class="jq-text-block-content jqte-editor" tabindex="1">
-                            
                         </div>
                     </div>
                 </div>
@@ -3325,6 +3324,39 @@
 
     </div>
 
+
+    <div id="empty-container-image-copy" class=" empty-container-image image-text-other  key design-css design-empty-text-css hide " style="z-index: 0;">
+        <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
+           
+        </div>
+        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
+          
+        </div>
+        <div class="jq-plus-container-image design-css design-empty-text-css " style="height: 200px; width: 200px;">
+
+            <div class="row" style="display: none;">
+                <div class="jq-plus-element">
+                    <span class="jq-plus-prev jq-plus"> +
+                    </span>
+                </div>
+            </div>
+
+            <div class="jq-plus-content jq-plus-element-content jq-plus-element-content-image">
+                <div class="jq-image-block-container design-image-block normal-element jq-container">
+                    <div class="jq-image-block design-image-block normal-element">
+                        <div class="jq-image-block-image-wrapper">
+                            <img class="jq-image-block-image normal-element image-element" src="iimages/temp.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="jq-plus-element">
+
+                <span class="jq-plus-next jq-plus">+
+                </span>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

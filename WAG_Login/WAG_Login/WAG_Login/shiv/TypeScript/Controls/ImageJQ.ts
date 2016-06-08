@@ -168,7 +168,7 @@ export module Image {
             var ctx = new impPageCtx.Page.ContextJQ();
 
             var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement;  //  jQuery("#rows-columns option:selected").val();
-            
+        
             if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
                 window.smartObj = new SmartObj();
                 window.smartObj.currentObj = selectedRowOrColumn;
@@ -179,20 +179,12 @@ export module Image {
                 selectedRowOrColumn = jQuery("#nnnoelement");
             }
 
-            if (selectedRowOrColumn != undefined ) {
-                var tbImageContainer = document.createElement("div");
-                var tbImage = document.createElement("div");
-                var tbImageWrapper = document.createElement("div");
+            if (selectedRowOrColumn != undefined) {
 
-                var tbImg = document.createElement("img");
+                var clonedImageBlock = $("#empty-container-image-copy").clone();
 
-
-
-                jQuery(tbImg).addClass("jq-image-block-image ");
-
-                jQuery(tbImg).addClass("normal-element image-element");
-
-                jQuery(tbImageWrapper).addClass("jq-image-block-image-wrapper ");
+                clonedImageBlock.removeClass("hide");
+                clonedImageBlock.attr("id", "");
 
                 var imgSrc;
 
@@ -203,61 +195,27 @@ export module Image {
                     imgSrc = url;
                 }
 
-                jQuery(tbImg).attr("src", imgSrc);
-
-                jQuery(tbImageWrapper).append(tbImg);
-
-                jQuery(tbImage).append(tbImageWrapper);
-
-                jQuery(tbImage).addClass(SelfJQ.CSSCLASS);
+                clonedImageBlock.find(".jq-image-block-image").attr("src", imgSrc);
 
                 ///////////////column scope id for debugging and designer //////
                 var tbScopeId = imageObj.GenerateTextBlockScopeId();
 
-                if (debug == true && tbImage != undefined) {
-                    jQuery(tbImage).prepend("<span class='debug-image-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
+                if (debug == true) {
+                    clonedImageBlock.prepend("<span class='debug-image-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
                 }
 
-                jQuery(tbImage).attr("scopeId", tbScopeId);
-
-                jQuery(tbImageContainer).append(tbImage);
+                clonedImageBlock.find(".jq-image-block-image").attr("scopeId", tbScopeId);
 
                 /////////////// row scope id for debugging and designer //////
                 var tbcScopeId = imageObj.GenerateContainerScopeId();
 
                 if (debug == true) {
-                    jQuery(tbImageContainer).append(" <span class='debug-image-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
+                    clonedImageBlock.append(" <span class='debug-image-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
                 }
-
-                jQuery(tbImageContainer).addClass(SelfJQ.CONTAINER_CSS_CLASS);
-
-                jQuery(tbImageContainer).attr("scopeId", tbcScopeId);
-
-                //var smartMenu = "<div class='smart-menu-icon'></div>" +
-                //    "<div class='smart-menu'> " +
-                //    "<div class='smart-menu-controls  smart-menu-height-width' > " +
-                //    "<table style='smart-menu-controls-table'>" +
-                //    " <tr> <td>Height </td> <td> : </td> <td><input maxlength='3' type='text' class='smart-menu-height'> </input> px </td> </tr> " +
-                //    "<tr> <td>Width </td> <td> : </td> <td> <input maxlength='3' type='text' class='smart-menu-width'> px </input> </td> " +
-                //    "</table" +
-                //    "</div>" +
-                //    "</div>";
-
-                //jQuery(tbContainer).append(smartMenu);
-
+                
 
                 if (selectedRowOrColumn.hasClass("column") == true
-                    //|| selectedRowOrColumn.hasClass("empty-container-text")
-                    //|| selectedRowOrColumn.hasClass("empty-container-image")
-                    //|| selectedRowOrColumn.hasClass("empty-container")
                     || window.smartObj != null) {
-
-
-                    //var emptyc = document.createElement("span");
-                    //jQuery(emptyc).addClass("empty-container key design-css design-empty-css");
-
-                    
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);
 
                     var plusContainer = jQuery(".jq-plus-container.jq-plus-container-not-used").clone();
                     plusContainer.removeClass("jq-plus-container-not-used");
@@ -271,71 +229,28 @@ export module Image {
 
                     plusContainer.find(".adjust-image-text-other").remove();
 
-                    plusContainer.css("height", "200px");
-
-                    plusContainer.css("width", "200px");
-
-                    var jEc = jQuery(emptycontainer);
-
-                    jEc.prepend("<div class='adjust-image-text-other-left design-css design-adjust-image-text-other'></div>");
-                    jEc.prepend("<div class='adjust-image-text-other design-css design-adjust-image-text-other'></div>");
-
-                    jEc.addClass("empty-container-image image-text-other key design-css design-empty-text-css");
-                    //padding-10 
-                    jEc.append(plusContainer);
-
-                    //jQuery(tbImg).load(function () {
-
-                       
-
-                    //});
-
-                    plusContainer.find(".jq-plus-content").append(tbImageContainer);
+                    clonedImageBlock.find(".jq-plus-container").css("height", "200px");
+                    clonedImageBlock.find(".jq-plus-container").css("width", "200px");
 
                     impOperaction.Operation.AfterOperationJQ.Execute(); 
 
                     if (window.smartObj == null || window.smartObj.command == "") {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, undefined, undefined);
+                        ctx.Page.Any.Add(selectedRowOrColumn, clonedImageBlock, '', undefined, undefined, undefined, undefined);
                     }
                     else {
-                        ctx.Page.Any.Add(selectedRowOrColumn, jEc, '', undefined, undefined, true, undefined);
+                        ctx.Page.Any.Add(selectedRowOrColumn, clonedImageBlock, '', undefined, undefined, true, undefined);
                     }
-                    //var empty = document.createElement("span");
-                    //jQuery(empty).addClass("empty-container key design-css design-empty-css");
-
-                    //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(empty), '', undefined, undefined);
-
-
-                    //// rearrange debug css ....
-
-                    if (selectedRowOrColumn.hasClass("jq-image-block-container")) {
-
-                        var tbOrTbcWithScopeId = selectedRowOrColumn.attr("scopeId");
-
-                        selectedRowOrColumn.find(".debug-image-block-container-css[scopeId=" + tbOrTbcWithScopeId + "]").remove();
-
-                        if (tbOrTbcWithScopeId != undefined) {
-                            selectedRowOrColumn.append('<span class="debug-image-block-container-css debug-css" scopeId="' + tbOrTbcWithScopeId + '" > ' + tbOrTbcWithScopeId + '</span>');
-                        }
-                    }
-                    ///// rearrange debug css completed...
-
-                    jQuery(tbImageContainer).find(".debug-css").remove();
-
-                    errorHandler.ActionSuccess("");
+                   
+                    //errorHandler.ActionSuccess("");
 
                     jQuery(SelfJQ.controlId).hide();
-
-                   
 
                     impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
 
-                   
-
                 }
                 else {
-                    errorHandler.ActionFail("You can only insert in a column block.");
+                   // errorHandler.ActionFail("You can only insert in a column block.");
                 }
             }
 

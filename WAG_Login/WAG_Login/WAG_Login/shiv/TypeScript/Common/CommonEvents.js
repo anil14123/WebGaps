@@ -281,9 +281,9 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                         " @media (max-width: 980px) { .page-margin { width: auto !important; } .empty-container-text {display:inline-block; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:inline-block; height:auto !important; } }  " +
                         " .jq-plus-element { display:none !important; } " +
                         " .jq-row-plus-container { display:none !important; } " +
-                        " .row { margin:0; padding:2px; clear:both; } .root-elements{ padding:0;} " +
+                        " .row { margin:0; padding:0; clear:both; } .root-elements{ padding:0;} " +
                         " .column { margin:0; padding:0; } " +
-                        ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:1px;}" +
+                        ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;}" +
                         " .image-text-other .adjust-image-text-other-left{ float: left; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
                         "</style>";
                     jQuery(".image-selection").removeClass("image-selection");
