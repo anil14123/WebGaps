@@ -59,7 +59,7 @@ export module JQueryUI {
                     //}
 
                     ui.helper.css("z-index", "9999999999");
-                    ui.helper.css("opacity", "0.8");
+                    ui.helper.css("opacity", "0.2");
 
                 },
                 stop: function (event, ui) {
@@ -970,10 +970,10 @@ export module JQueryUI {
         }
 
         public static Droppable(elementCss) {
-            
+
             jQuery(elementCss).droppable({
                 greedy: true,
-                
+
                 tolerance: "pointer",
                 accept: '.bldr-draggable, .image-text-other',
                 drop: function (event: JQueryMouseEventObject, ui) {
@@ -988,7 +988,7 @@ export module JQueryUI {
                     CommonCode.DroppableEventCount = 1;
 
                     CommonCode.currentTarget = jQuery(document.elementFromPoint(event.clientX, event.clientY)).hasClass("key")
-                        ? jQuery(document.elementFromPoint(event.clientX, event.clientY)) 
+                        ? jQuery(document.elementFromPoint(event.clientX, event.clientY))
                         : jQuery(document.elementFromPoint(event.clientX, event.clientY)).closest(".key");
 
                     impWatch.Watch.MouseJQ.selectedElement = CommonCode.currentTarget;
@@ -1073,8 +1073,6 @@ export module JQueryUI {
                     catch (ex) {
 
                     }
-
-                    impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag:first");
 
                     if (
                         CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
@@ -1220,9 +1218,11 @@ export module JQueryUI {
                             impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
                         }
                     }
+
+                    return false;
                 }
 
-                return false;
+              
 
             });
 

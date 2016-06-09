@@ -39,7 +39,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //    ui.helper.css("width", "250px");
                         //}
                         ui.helper.css("z-index", "9999999999");
-                        ui.helper.css("opacity", "0.8");
+                        ui.helper.css("opacity", "0.2");
                     },
                     stop: function (event, ui) {
                         CommonCode.DragStopped = true;
@@ -668,7 +668,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                         catch (ex) {
                         }
-                        impWatch.Watch.MouseJQ.selectedElement = jQuery(".image-selection-drag:first");
                         if (CommonCode.droppableCount >= 2 && CommonCode.currentTarget != undefined && !ui.draggable.hasClass("control-drag-anywhere")
                             && !ui.draggable.hasClass("bldr-draggable")) {
                             CommonCode.droppableCount++;
@@ -774,8 +773,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
                             }
                         }
+                        return false;
                     }
-                    return false;
                 });
             };
             CommonCode.DraggableDestroy = function (element) {
