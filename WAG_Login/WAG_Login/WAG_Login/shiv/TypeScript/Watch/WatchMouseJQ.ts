@@ -234,9 +234,9 @@ export module Watch {
 
                 var pageRowControl = jQuery("#design-page-row");
 
-                pageRowControl.find(".row-controls").hide();
+                pageRowControl.find(".inline-controls").hide();
                 pageRowControl.find(".column-controls").show();
-                pageRowControl.find(".image-text-other-controls").hide();
+
 
                 pageRowControl.show();
 
@@ -293,9 +293,9 @@ export module Watch {
 
                     var pageRowControl = jQuery("#design-page-row");
 
+                    pageRowControl.find(".inline-controls").hide();
                     pageRowControl.find(".row-controls").show();
-                    pageRowControl.find(".column-controls").hide();
-                    pageRowControl.find(".image-text-other-controls").hide();
+                 
 
                     pageRowControl.show();
 
@@ -353,22 +353,23 @@ export module Watch {
 
                         var pageRowControl = jQuery("#design-page-row");
 
-                        pageRowControl.find(".row-controls").hide();
-                        pageRowControl.find(".column-controls").hide();
-                        pageRowControl.find(".image-text-other-controls").show();
-
+                        pageRowControl.find(".inline-controls").hide();
+                       
                         pageRowControl.show();
 
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
 
                             pageRowControl.find(".selected-object").text("Text Block Selected");
+                            pageRowControl.find(".text-controls").show();
+                            rowControlWidth = 280;
 
                         }
                         else
                             if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
 
                                 pageRowControl.find(".selected-object").text("Image Selected");
-
+                                pageRowControl.find(".image-controls").show();
+                                rowControlWidth = 370;
                             }
 
 
@@ -901,10 +902,9 @@ export module Watch {
 
                             var pageRowControl = jQuery("#design-page-row");
 
-                            pageRowControl.find(".row-controls").hide();
+                            pageRowControl.find(".inline-controls").hide();
                             pageRowControl.find(".column-controls").show();
-                            pageRowControl.find(".image-text-other-controls").hide();
-
+                          
                             pageRowControl.show();
 
                             pageRowControl.css("left", "0");
@@ -957,15 +957,29 @@ export module Watch {
 
                                 var pageRowControl = jQuery("#design-page-row");
 
-                                pageRowControl.find(".row-controls").hide();
-                                pageRowControl.find(".column-controls").hide();
-                                pageRowControl.find(".image-text-other-controls").show();
+                                pageRowControl.find(".selected-object").text("Object Selected");
 
+                                pageRowControl.find(".inline-controls").hide();
+                              
                                 pageRowControl.show();
+
+                                if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
+
+                                    pageRowControl.find(".selected-object").text("Text Block Selected");
+                                    pageRowControl.find(".text-controls").show();
+                                    rowControlWidth = 280;
+                                }
+                                else
+                                    if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
+
+                                        pageRowControl.find(".selected-object").text("Image Selected");
+                                        pageRowControl.find(".image-controls").show();
+                                        rowControlWidth = 370;
+                                    }
 
                                 pageRowControl.css("left", "0");
 
-                                pageRowControl.find(".selected-object").text("Object Selected");
+                               
 
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
@@ -1012,10 +1026,9 @@ export module Watch {
 
                                     var pageRowControl = jQuery("#design-page-row");
 
+                                    pageRowControl.find(".inline-controls").hide();
                                     pageRowControl.find(".row-controls").show();
-                                    pageRowControl.find(".column-controls").hide();
-                                    pageRowControl.find(".image-text-other-controls").hide();
-
+                                 
                                     pageRowControl.show();
 
                                     pageRowControl.css("left", "0");

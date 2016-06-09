@@ -129,8 +129,11 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                     }
                 });
                 ///////////////////////////////////////////////////
+                jQuery(".jq-remove-height-width").on("click", function () {
+                    jQuery(".image-selection:first").find(".jpc").css("height", "auto").css("width", "auto");
+                });
                 ///////////// change image ////////////////
-                jQuery(".button-change-image").on("click", function () {
+                jQuery(".jq-change-image").on("click", function () {
                     impImage.Image.SelfJQ.ChangeImage();
                 });
                 if (!jQuery(".bldr-draggable").hasClass("event-added")) {

@@ -140,7 +140,7 @@ export module Image {
 
                   var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                  errorHandler.ActionFail("please select a image change.");
+                  errorHandler.ActionFail("Please select a image to change.");
               }
 
 

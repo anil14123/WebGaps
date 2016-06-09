@@ -89,7 +89,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                     }
                     else {
                         var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        errorHandler.ActionFail("please select a image change.");
+                        errorHandler.ActionFail("Please select a image to change.");
                     }
                     jQuery("#control-image-library").hide();
                 });

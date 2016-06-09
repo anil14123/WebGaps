@@ -99,7 +99,7 @@
 
     <span id="design-page-row" class="design-page-row" style="display: none">
 
-        <span class="row-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
+        <span class="row-controls inline-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-square-o-up up-down-icons"></span>+</button>
             <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-square-o-down"></span>+</button>
             &nbsp;
@@ -107,15 +107,28 @@
             <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
             &nbsp;
             <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
-        </span><span class="image-text-other-controls" style="display: none;">
+        </span>
+        <span class="text-controls inline-controls" style="display: none;">
+            <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
+            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span> 
+              <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
+            <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+        </span>
+        <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
-            &nbsp;            
+              
+                <span title="Change Image" class="btn btn-xs btn-danger jq-change-image">Change Image</span>
+            
+             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
+                
+
              <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
-
         </span>
-        <span class="column-controls" style="display: none;">
+
+        <span class="column-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
             <span title="Move Column Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Column Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
@@ -3301,7 +3314,7 @@
         </div>
         <div class="adjust-image-text-other-left design-css design-adjust-image-text-other">
         </div>
-        <div class="jq-plus-container-text design-css design-empty-text-css">
+        <div class="jq-plus-container-text jpc design-css design-empty-text-css">
             <div class="row" style="display: none;">
                 <div class="jq-plus-element">
                     <span class="jq-plus-prev jq-plus">+
@@ -3332,7 +3345,7 @@
         <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
           
         </div>
-        <div class="jq-plus-container-image design-css design-empty-text-css " style="height: 200px; width: 200px;">
+        <div class="jq-plus-container-image jpc design-css design-empty-text-css " style="height: 200px; width: 200px;">
 
             <div class="row" style="display: none;">
                 <div class="jq-plus-element">
