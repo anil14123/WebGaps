@@ -255,6 +255,8 @@ export module Common {
                     jQuery("#property-sidebar-page-column").show();
                 }
 
+                jQuery("#refresh-image-text-controls-position").trigger("click");
+
             });
 
 

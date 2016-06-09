@@ -180,6 +180,7 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                         jQuery("#main-page-column").addClass("col-xs-36").removeClass("col-xs-48");
                         jQuery("#property-sidebar-page-column").show();
                     }
+                    jQuery("#refresh-image-text-controls-position").trigger("click");
                 });
                 //////////// images upload ////////////////
                 // Add events

@@ -727,7 +727,14 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                             impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
                                             break;
                                         case 'bldr-drgb-title':
-                                            impText.Text.TextJQ.InsertTextBlock("<h2>Title Here.</h2>");
+                                            impText.Text.TextJQ.InsertTextBlock("<h2>Title Here</h2>");
+                                            break;
+                                        case 'bldr-drgb-image':
+                                            jQuery("#control-image-library").addClass("control-active");
+                                            jQuery("#control-image-library").show();
+                                            jQuery(".action-button-insert-image").show();
+                                            jQuery(".action-button-change-image").hide();
+                                            jQuery("#control-image-library").trigger('custom_loaded');
                                             break;
                                     }
                                 }
