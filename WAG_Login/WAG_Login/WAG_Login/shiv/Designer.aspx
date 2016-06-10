@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
 
-    <title>Web Gaps</title>
+    <title>Kick</title>
 
     <%--  <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
 
@@ -96,6 +96,122 @@
         
     </iframe>
     --%>
+
+      <div id="contextMenu">
+        <ul id="contextMenuitems">
+
+            <li>
+                <div class="li ctx-menu-add-row">Add Row</div>
+            </li>
+            <li>
+                <div class="li ctx-menu-insert">
+                    Insert
+                    <div class="jq-menu-arrow"></div>
+                </div>
+                <div class="innerListContainer">
+                    <ul>
+                        <li>
+                            <div class="li ctx-menu-insert-link">Link</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-text">Text</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-image">Image</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-empty-space">Spacer</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-object">Other</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-html">Html/Css/Script</div>
+                        </li>
+                        <%-- <li>
+                            <div class="li ctx-menu-insert-menu">Menu</div>
+                        </li>--%>
+                        <%-- <li>
+                            <div class="li ctx-menu-insert-youtube">Youtube</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-html">Html</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-insert-css">Css</div>
+                        </li> --%>
+                    </ul>
+                </div>
+            </li>
+
+            <%--Properties Menu--%>
+            <%-- <li>
+                <div class="li ctx-menu-properties">
+                    Properties
+                    <div class="jq-menu-arrow"></div>
+                </div>
+                <div class="innerListContainer">
+                    <ul>
+
+                        <li>
+                            <div class="li ctx-menu-height-width">Height & Width</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-color">Color</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-border">Border</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-margin">Margin</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-padding">Padding</div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <li>
+                <div class="li ctx-menu-more-properties">
+                    More Properties
+                    <div class="jq-menu-arrow"></div>
+                </div>
+                <div class="innerListContainer">
+                    <ul>
+                        <li>
+                            <div class="li ctx-menu-background-image">Background Image</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-border-shadow">Border Glow / Shadow</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-opacity">Opacity</div>
+                        </li>
+                        <li>
+                            <div class="li ctx-menu-z-index">Front/Back Position</div>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>--%>
+            <%--Properties Menu End--%>
+            <li>
+                <div class="li ctx-menu-cut">Cut</div>
+            </li>
+            <li>
+                <div class="li ctx-menu-copy">Copy</div>
+            </li>
+            <li>
+                <div class="li ctx-menu-paste">Paste</div>
+            </li>
+            <li>
+                <div class="li ctx-menu-delete-element">Delete</div>
+            </li>
+        </ul>
+    </div>
+
 
     <span id="design-page-row" class="design-page-row" style="display: none">
 
@@ -262,7 +378,7 @@
             </style>
 
 
-            <div class=" table-cell jq-self-logo ">ink Q</div>
+            <div class=" table-cell jq-self-logo ">Kick</div>
             <div class=" table-cell close-preview jq-save-margin  "><span class=" fa fa-eye  white"></span>&nbsp;Close Preview</div>
             <div class=" table-cell  show-preview jq-save-margin "><span class=" fa fa-eye  white"></span>&nbsp;Preview</div>
             <a href='#' href="#" target="_blank" class="anchor-show-live-preview table-cell ">
@@ -1677,7 +1793,7 @@
                             <div class="control-columns col-xs-16" id="column2" data-number="12" data-set="0"></div>
                            <%-- <div class="control-columns col-xs-4" id="column2" data-number="16" data-set="0"></div>
                             <div class="control-columns col-xs-4" id="column2" data-number="20" data-set="0"></div>--%>
-                            <div class="control-columns col-xs-16" id="column2" data-number="24" data-set="0"></div>
+                            <div class="control-columns default-size col-xs-16" id="column2" data-number="24" data-set="0"></div>
                             <%--<div class="control-columns col-xs-4" id="column2" data-number="28" data-set="0"></div>
                             <div class="control-columns col-xs-4" id="column2" data-number="32" data-set="0"></div>--%>
                             <div class="control-columns col-xs-16" id="column2" data-number="36" data-set="0"></div>
@@ -2780,121 +2896,7 @@
         </ul>
     </div>
 
-    <div id="contextMenu">
-        <ul id="contextMenuitems">
-
-            <li>
-                <div class="li ctx-menu-add-row">Add Row</div>
-            </li>
-            <li>
-                <div class="li ctx-menu-insert">
-                    Insert
-                    <div class="jq-menu-arrow"></div>
-                </div>
-                <div class="innerListContainer">
-                    <ul>
-                        <li>
-                            <div class="li ctx-menu-insert-link">Link</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-text">Text</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-image">Image</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-empty-space">Spacer</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-object">Other</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-html">Html/Css/Script</div>
-                        </li>
-                        <%-- <li>
-                            <div class="li ctx-menu-insert-menu">Menu</div>
-                        </li>--%>
-                        <%-- <li>
-                            <div class="li ctx-menu-insert-youtube">Youtube</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-html">Html</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-insert-css">Css</div>
-                        </li> --%>
-                    </ul>
-                </div>
-            </li>
-
-            <%--Properties Menu--%>
-            <%-- <li>
-                <div class="li ctx-menu-properties">
-                    Properties
-                    <div class="jq-menu-arrow"></div>
-                </div>
-                <div class="innerListContainer">
-                    <ul>
-
-                        <li>
-                            <div class="li ctx-menu-height-width">Height & Width</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-color">Color</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-border">Border</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-margin">Margin</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-padding">Padding</div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-
-            <li>
-                <div class="li ctx-menu-more-properties">
-                    More Properties
-                    <div class="jq-menu-arrow"></div>
-                </div>
-                <div class="innerListContainer">
-                    <ul>
-                        <li>
-                            <div class="li ctx-menu-background-image">Background Image</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-border-shadow">Border Glow / Shadow</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-opacity">Opacity</div>
-                        </li>
-                        <li>
-                            <div class="li ctx-menu-z-index">Front/Back Position</div>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>--%>
-            <%--Properties Menu End--%>
-            <li>
-                <div class="li ctx-menu-cut">Cut</div>
-            </li>
-            <li>
-                <div class="li ctx-menu-copy">Copy</div>
-            </li>
-            <li>
-                <div class="li ctx-menu-paste">Paste</div>
-            </li>
-            <li>
-                <div class="li ctx-menu-delete-element">Delete</div>
-            </li>
-        </ul>
-    </div>
-
+  
     <input type="text" id="viewstate" class="viewstate hide" value="<%=CookieValue%>" />
 
 

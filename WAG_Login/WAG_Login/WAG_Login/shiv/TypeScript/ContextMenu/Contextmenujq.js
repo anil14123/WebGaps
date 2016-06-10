@@ -299,12 +299,13 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 jQuery("#control-insert-text").trigger("cust_loaded");
             };
             ContextMenuJQ.ShowControlAddRow = function () {
-                ContextMenuJQ.ControlPageHide();
-                var controlId = impAddRowControl.Page.AddRowJQ.pageId;
-                jQuery(".control-page").removeClass("control-active");
-                jQuery(controlId).addClass("control-active");
-                jQuery(controlId).show();
-                jQuery(controlId).trigger('cust_loaded');
+                // ContextMenuJQ.ControlPageHide();
+                //var controlId = impAddRowControl.Page.AddRowJQ.pageId;
+                impAddRowControl.Page.AddRowJQ.AddRowImmedietely();
+                //jQuery(".control-page").removeClass("control-active");
+                //jQuery(controlId).addClass("control-active");
+                //jQuery(controlId).show();
+                //jQuery(controlId).trigger('cust_loaded');
             };
             ContextMenuJQ.ShowMenu = function () {
                 new impMenuControl.Menu.MenuJQ().Init();
@@ -405,8 +406,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                         return;
                     }
-                    ContextMenuJQ.ShowControlAddRow();
                     impAddRowControl.Page.AddRowJQ.ProcessSelectNotify();
+                    ContextMenuJQ.ShowControlAddRow();
                 });
             };
             ContextMenuJQ.AttachHeightWidth = function () {

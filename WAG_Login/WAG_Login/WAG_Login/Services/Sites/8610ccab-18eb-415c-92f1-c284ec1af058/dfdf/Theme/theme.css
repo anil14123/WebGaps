@@ -1,6 +1,12 @@
 ﻿body {
 }
 
+.column{
+    padding-left:4px;
+    padding-right:4px;
+    padding-bottom:4px;
+}
+
 page{
     display:block;
 }

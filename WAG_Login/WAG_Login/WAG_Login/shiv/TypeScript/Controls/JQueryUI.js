@@ -610,6 +610,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             ? jQuery(document.elementFromPoint(event.clientX, event.clientY))
                             : jQuery(document.elementFromPoint(event.clientX, event.clientY)).closest(".key");
                         impWatch.Watch.MouseJQ.selectedElement = CommonCode.currentTarget;
+                        //remove .empty class for column
+                        CommonCode.currentTarget.hasClass("column")
+                            ? CommonCode.currentTarget.removeClass("empty")
+                            : CommonCode.currentTarget.closest(".column").removeClass("empty");
                         console.log(CommonCode.currentTarget.attr("class"));
                         //if (jQuery(event.target).hasClass("key")) {
                         //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {

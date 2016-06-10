@@ -201,7 +201,12 @@ export module Page {
 
         }
 
-  
+        public static AddRowImmedietely() {
+
+            jQuery("#control-add-row").find(".default-size").attr("data-set", "0");
+
+            jQuery("#control-add-row").find(".default-size").trigger("click");
+        }
 
         AddRow(callBackLoadRowAndColumnNames) {
 
@@ -285,6 +290,10 @@ export module Page {
                         adjustColumn.height = adjustRow.height;
                     }
 
+                    if (selectedRowOrColumn.hasClass("empty-drop-element")) {
+                        adjustColumn.height = selectedRowOrColumn.first().height();
+                    }
+
                     var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
 
                     jQuery(".removable-row").remove();
@@ -304,6 +313,7 @@ export module Page {
                     }
 
                     AddRowJQ.addedRow = ctx.Page.Any.AddRow(selectedRowOrColumn, colsClasses, '', adjustRow, adjustColumn, beforeAfter);
+
 
                     if (AddRowJQ.addedRow != undefined) {
                         AddRowJQ.addedRow.addClass("removable-row");
@@ -330,7 +340,10 @@ export module Page {
 
                     jQuery("#control-common-execute").trigger("click");
 
+
                 }
+
+                return false;
             });
 
 

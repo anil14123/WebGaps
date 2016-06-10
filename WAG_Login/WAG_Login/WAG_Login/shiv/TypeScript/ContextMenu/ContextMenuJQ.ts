@@ -511,16 +511,18 @@ export module ContextMenu {
 
         public static ShowControlAddRow() {
 
-            ContextMenuJQ.ControlPageHide();
+           // ContextMenuJQ.ControlPageHide();
 
-            var controlId = impAddRowControl.Page.AddRowJQ.pageId;
+            //var controlId = impAddRowControl.Page.AddRowJQ.pageId;
 
-            jQuery(".control-page").removeClass("control-active");
-            jQuery(controlId).addClass("control-active");
+            impAddRowControl.Page.AddRowJQ.AddRowImmedietely();
+
+            //jQuery(".control-page").removeClass("control-active");
+            //jQuery(controlId).addClass("control-active");
 
 
-            jQuery(controlId).show();
-            jQuery(controlId).trigger('cust_loaded');
+            //jQuery(controlId).show();
+            //jQuery(controlId).trigger('cust_loaded');
         }
 
         public static ShowMenu() {
@@ -704,9 +706,9 @@ export module ContextMenu {
                     return;
                 }
 
-                ContextMenuJQ.ShowControlAddRow();
-
                 impAddRowControl.Page.AddRowJQ.ProcessSelectNotify();
+
+                ContextMenuJQ.ShowControlAddRow();
 
             });
         }

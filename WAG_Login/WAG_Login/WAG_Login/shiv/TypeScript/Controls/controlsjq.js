@@ -137,6 +137,10 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                     }
                 }
             };
+            AddRowJQ.AddRowImmedietely = function () {
+                jQuery("#control-add-row").find(".default-size").attr("data-set", "0");
+                jQuery("#control-add-row").find(".default-size").trigger("click");
+            };
             AddRowJQ.prototype.AddRow = function (callBackLoadRowAndColumnNames) {
                 jQuery(".control-columns").on("click", function () {
                     var columnSet = jQuery(this).attr("data-set");
@@ -191,6 +195,9 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         if (selectedRowOrColumn.hasClass("empty-container")) {
                             adjustColumn.height = adjustRow.height;
                         }
+                        if (selectedRowOrColumn.hasClass("empty-drop-element")) {
+                            adjustColumn.height = selectedRowOrColumn.first().height();
+                        }
                         var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
                         jQuery(".removable-row").remove();
                         impOperaction.Operation.AfterOperationJQ.Execute();
@@ -222,6 +229,7 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                         }
                         jQuery("#control-common-execute").trigger("click");
                     }
+                    return false;
                 });
                 jQuery(AddRowJQ.pageId).find(AddRowJQ.BTN_ADD_ROW).on("click", function (e, s) {
                     jQuery(".removable-row").removeClass("removable-row");

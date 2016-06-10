@@ -274,54 +274,59 @@ export module Smart {
 
             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-            if (selectedElement.hasClass("empty-container-text")) {
-                selectedElement = selectedElement.find(".jq-text-block-container").first();
-            }
-            else
-                if (selectedElement.hasClass("empty-container-image")) {
-                    selectedElement = selectedElement.find(".jq-plus-container-image").first();
+            selectedElement.each(function (index, _selectedElement) {
+
+                var selectedElement = $(_selectedElement);
+
+                if (selectedElement.hasClass("empty-container-text")) {
+                    selectedElement = selectedElement.find(".jq-text-block-container").first();
                 }
-
-            if (selectedElement != undefined) {
-                var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                var widthVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
-                var heightVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
-
-                if (selectedElement.hasClass("column")) {
-
-                    if (whclass == "width") {
-                        SmartMenuJQ.ProcessColumnWidth(widthVal);
+                else
+                    if (selectedElement.hasClass("empty-container-image")) {
+                        selectedElement = selectedElement.find(".jq-plus-container-image").first();
                     }
 
+                if (selectedElement != undefined) {
+                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
-                    if (whclass == "height") {
-                        selectedElement.css("min-height", heightVal + "px");
+                    var widthVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-width").spinner("value");
+                    var heightVal = jQuery($this).closest(".smart-menu-controls-table").find(".smart-menu-height").spinner("value")
+
+                    if (selectedElement.hasClass("column")) {
+
+                        if (whclass == "width") {
+                            SmartMenuJQ.ProcessColumnWidth(widthVal);
+                        }
+
+
+                        if (whclass == "height") {
+                            selectedElement.css("min-height", heightVal + "px");
+                        }
+                    }
+
+                    else {
+
+                        if (whclass == "width") {
+                            if (!selectedElement.hasClass("root-elements") && !selectedElement.hasClass("row")) {
+                                selectedElement.css("width", widthVal + "px");
+                            }
+                        }
+
+                        if (whclass == "height") {
+                            if (selectedElement.hasClass("row") || selectedElement.hasClass("column") || selectedElement.hasClass("root-elements")) {
+                                selectedElement.css("min-height", heightVal + "px");
+                            }
+                            else {
+                                selectedElement.css("min-height", heightVal + "px");
+                                selectedElement.css("height", heightVal + "px");
+                            }
+                        }
                     }
                 }
-
                 else {
 
-                    if (whclass == "width") {
-                        if (!selectedElement.hasClass("root-elements") && !selectedElement.hasClass("row")) {
-                            selectedElement.css("width", widthVal + "px");
-                        }
-                    }
-
-                    if (whclass == "height") {
-                        if (selectedElement.hasClass("row") || selectedElement.hasClass("column") || selectedElement.hasClass("root-elements")) {
-                            selectedElement.css("min-height", heightVal + "px");
-                        }
-                        else {
-                            selectedElement.css("min-height", heightVal + "px");
-                            selectedElement.css("height", heightVal + "px");
-                        }
-                    }
                 }
-            }
-            else {
-              
-            }
+            });
         }
 
         public static ProcessColumnWidth(width) {

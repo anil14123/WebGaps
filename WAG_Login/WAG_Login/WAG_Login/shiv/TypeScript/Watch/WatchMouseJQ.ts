@@ -369,7 +369,7 @@ export module Watch {
 
                                 pageRowControl.find(".selected-object").text("Image Selected");
                                 pageRowControl.find(".image-controls").show();
-                                rowControlWidth = 370;
+                                rowControlWidth = 410;
                             }
 
 
@@ -897,7 +897,7 @@ export module Watch {
                         if (MouseJQ.selectedElement.hasClass("column") == true) {
                             jQuery("#design-page-row").hide();
 
-                            var rowControlWidth = 370;
+                            var rowControlWidth = 300;
                             var rowControliMax = 100;
 
                             var pageRowControl = jQuery("#design-page-row");
@@ -974,7 +974,7 @@ export module Watch {
 
                                         pageRowControl.find(".selected-object").text("Image Selected");
                                         pageRowControl.find(".image-controls").show();
-                                        rowControlWidth = 370;
+                                        rowControlWidth = 410;
                                     }
 
                                 pageRowControl.css("left", "0");

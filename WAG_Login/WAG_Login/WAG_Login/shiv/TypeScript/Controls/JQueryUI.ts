@@ -978,6 +978,7 @@ export module JQueryUI {
                 tolerance: "pointer",
                 accept: '.bldr-draggable, .image-text-other',
                 drop: function (event: JQueryMouseEventObject, ui) {
+
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
                     if (CommonCode.DroppableEventCount == 1) {
 
@@ -993,6 +994,12 @@ export module JQueryUI {
                         : jQuery(document.elementFromPoint(event.clientX, event.clientY)).closest(".key");
 
                     impWatch.Watch.MouseJQ.selectedElement = CommonCode.currentTarget;
+
+                    //remove .empty class for column
+                    CommonCode.currentTarget.hasClass("column")
+                        ? CommonCode.currentTarget.removeClass("empty")
+                        : CommonCode.currentTarget.closest(".column").removeClass("empty");
+
 
                     console.log(CommonCode.currentTarget.attr("class"));
 

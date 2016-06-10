@@ -219,7 +219,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                             pageRowControl.find(".selected-object").text("Image Selected");
                             pageRowControl.find(".image-controls").show();
-                            rowControlWidth = 370;
+                            rowControlWidth = 410;
                         }
                         pageRowControl.css("left", "0");
                         var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
@@ -632,7 +632,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery("#refresh-image-text-controls-position").on("click", function () {
                             if (MouseJQ.selectedElement.hasClass("column") == true) {
                                 jQuery("#design-page-row").hide();
-                                var rowControlWidth = 370;
+                                var rowControlWidth = 300;
                                 var rowControliMax = 100;
                                 var pageRowControl = jQuery("#design-page-row");
                                 pageRowControl.find(".inline-controls").hide();
@@ -679,7 +679,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                                     pageRowControl.find(".selected-object").text("Image Selected");
                                     pageRowControl.find(".image-controls").show();
-                                    rowControlWidth = 370;
+                                    rowControlWidth = 410;
                                 }
                                 pageRowControl.css("left", "0");
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
