@@ -3384,13 +3384,13 @@
             return $(this);
         };
 
-        jQuery("html").mousemove(function (e) {
+       jQuery("html").mousemove(function (e) {
             var box = $(".obj");
             var boxCenter = [box.offset().left + box.width() / 2, box.offset().top + box.height() / 2];
             //my code 
            
-            var angle = Math.atan2(e.pageX - boxCenter[0], -(e.pageY - boxCenter[1])) * (180 / Math.PI);
-            box.rotate(angle);
+            var angle = Math.atan2(e.pageX  - boxCenter[0], -(e.pageY  - boxCenter[1])) * (180 / Math.PI);
+            box.rotate(angle +50);
         });
 
     </script>
