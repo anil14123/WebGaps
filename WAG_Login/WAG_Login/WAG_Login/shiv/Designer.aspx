@@ -97,7 +97,7 @@
     </iframe>
     --%>
 
-      <div id="contextMenu">
+    <div id="contextMenu">
         <ul id="contextMenuitems">
 
             <li>
@@ -226,21 +226,21 @@
         </span>
         <span class="text-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
-            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span> 
-              <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
+            <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
+            <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
-              
-                <span title="Change Image" class="btn btn-xs btn-danger jq-change-image">Change Image</span>
-            
-             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
-                
 
-             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Change Image" class="btn btn-xs btn-danger jq-change-image">Change Image</span>
+
+            <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
+
+
+            <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
         </span>
 
@@ -2896,7 +2896,7 @@
         </ul>
     </div>
 
-  
+
     <input type="text" id="viewstate" class="viewstate hide" value="<%=CookieValue%>" />
 
 
@@ -3342,16 +3342,14 @@
 
     <div id="empty-container-image-copy" class=" empty-container-image image-text-other  key design-css design-empty-text-css hide " style="z-index: 0;">
         <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
-           
         </div>
         <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
-          
         </div>
         <div class="jq-plus-container-image jpc design-css design-empty-text-css " style="height: 200px; width: 200px;">
 
             <div class="row" style="display: none;">
                 <div class="jq-plus-element">
-                    <span class="jq-plus-prev jq-plus"> +
+                    <span class="jq-plus-prev jq-plus">+
                     </span>
                 </div>
             </div>
@@ -3360,7 +3358,7 @@
                 <div class="jq-image-block-container design-image-block normal-element jq-container">
                     <div class="jq-image-block design-image-block normal-element">
                         <div class="jq-image-block-image-wrapper">
-                            <img class="jq-image-block-image normal-element image-element" src="iimages/temp.jpg"/>
+                            <img class="jq-image-block-image normal-element image-element" src="iimages/temp.jpg" />
                         </div>
                     </div>
                 </div>
@@ -3373,5 +3371,36 @@
         </div>
     </div>
 
+
+    <%-- <script>
+        // rotate code working        
+        jQuery.fn.rotate = function (degrees) {
+            $(this).css({
+                '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                '-moz-transform': 'rotate(' + degrees + 'deg)',
+                '-ms-transform': 'rotate(' + degrees + 'deg)',
+                'transform': 'rotate(' + degrees + 'deg)'
+            });
+            return $(this);
+        };
+
+        jQuery("html").mousemove(function (e) {
+            var box = $(".obj");
+            var boxCenter = [box.offset().left + box.width() / 2, box.offset().top + box.height() / 2];
+            //my code 
+           
+            var angle = Math.atan2(e.pageX - boxCenter[0], -(e.pageY - boxCenter[1])) * (180 / Math.PI);
+            box.rotate(angle);
+        });
+
+    </script>
+    <br /><br /><br /><br /><br />
+    <div class="obj" style="display:inline-block">
+        <div class="rotate">Rotate</div>
+
+        Hello world
+
+    </div>
+        --%>
 </body>
 </html>
