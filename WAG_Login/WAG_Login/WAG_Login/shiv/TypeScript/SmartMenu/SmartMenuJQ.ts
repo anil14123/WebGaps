@@ -301,6 +301,19 @@ export module Smart {
 
                         if (whclass == "height") {
                             selectedElement.css("min-height", heightVal + "px");
+
+
+                            if (selectedElement.hasClass("column")) {
+                                selectedElement.closest(".row").children(".column").css("min-height", heightVal + "px");
+                                selectedElement.closest(".row").children(".column").addClass("height-added");
+                                selectedElement.closest(".row").find(".column").not(".height-added").each(function () {
+                                    if ($(this).height() >= heightVal - 10) {
+                                        $(this).css("min-height", heightVal + "px");
+                                    }
+                                });
+                                selectedElement.closest(".row").find(".column").removeClass("height-added");
+                            }
+
                         }
                     }
 
@@ -315,6 +328,17 @@ export module Smart {
                         if (whclass == "height") {
                             if (selectedElement.hasClass("row") || selectedElement.hasClass("column") || selectedElement.hasClass("root-elements")) {
                                 selectedElement.css("min-height", heightVal + "px");
+    
+                                if (selectedElement.hasClass("root-elements")) {
+                                    selectedElement.find(".column").css("min-height", heightVal + "px");
+                                    selectedElement.find(".column").addClass("height-added");
+                                    selectedElement.find(".column").not(".height-added").each(function () {
+                                        if ($(this).height() >= heightVal - 10) {
+                                            $(this).css("min-height", heightVal + "px");
+                                        }
+                                    });
+                                    selectedElement.find(".column").removeClass("height-added");
+                                }
                             }
                             else {
                                 selectedElement.css("min-height", heightVal + "px");

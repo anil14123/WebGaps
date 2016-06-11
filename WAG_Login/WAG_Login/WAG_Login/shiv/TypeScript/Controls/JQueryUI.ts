@@ -302,7 +302,14 @@ export module JQueryUI {
                         commonMethods.RemoveSingleStyle(ui.helper, "height");
                         // jQuery(ui.helper).css("min-height", height);
 
-                        jQuery(ui.helper).closest(".row").children(".column").css("min-height", height);
+                        jQuery(ui.helper).closest(".row").children(".column").css("min-height", height +"px");
+                        jQuery(ui.helper).closest(".row").children(".column").addClass("height-added");
+                        jQuery(ui.helper).closest(".row").find(".column").not(".height-added").each(function () {
+                            if ($(this).height() >= height - 10) {
+                                $(this).css("min-height", height + "px");
+                            }
+                        });
+                        jQuery(ui.helper).closest(".row").find(".column").removeClass("height-added");
 
                         //var clientscrolly = 0;
                         //if (height > originalHeight) {

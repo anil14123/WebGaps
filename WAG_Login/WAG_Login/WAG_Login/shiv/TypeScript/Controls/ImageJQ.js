@@ -160,7 +160,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                             if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-drop-element")) {
                                 if (selectedRowOrColumn.height() <= 200) {
                                     clonedImageBlock.find(".jq-plus-container-image").css("height", selectedRowOrColumn.height() + "px");
-                                    clonedImageBlock.find(".jq-plus-container-image").css("width", (window.smartObj.currentObj.width() > 200 ? 200 : window.smartObj.currentObj.width()) + "px");
+                                    clonedImageBlock.find(".jq-plus-container-image").css("width", (selectedRowOrColumn.width() > 200 ? 200 : selectedRowOrColumn.width()) + "px");
                                 }
                             }
                         }
