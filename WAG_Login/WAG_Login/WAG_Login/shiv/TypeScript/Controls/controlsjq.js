@@ -196,7 +196,12 @@ define(["require", "exports", "../Page/Context/ContextJQ", "../_Classes/CssClass
                             adjustColumn.height = adjustRow.height;
                         }
                         if (selectedRowOrColumn.hasClass("empty-drop-element")) {
-                            adjustColumn.height = selectedRowOrColumn.first().height();
+                            if (selectedRowOrColumn.height() <= 100) {
+                                adjustColumn.height = selectedRowOrColumn.first().height();
+                            }
+                            else {
+                                adjustColumn.height = 100;
+                            }
                         }
                         var rowOrColumnWithScopeId = selectedRowOrColumn.attr("scopeId");
                         jQuery(".removable-row").remove();

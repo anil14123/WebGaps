@@ -131,6 +131,7 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                 ///////////////////////////////////////////////////
                 jQuery(".jq-remove-height-width").on("click", function () {
                     jQuery(".image-selection:first").find(".jpc").css("height", "auto").css("width", "auto").css("min-height", "auto");
+                    return false;
                 });
                 ///////////// change image ////////////////
                 jQuery(".jq-change-image").on("click", function () {

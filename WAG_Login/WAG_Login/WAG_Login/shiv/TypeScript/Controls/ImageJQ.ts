@@ -229,8 +229,25 @@ export module Image {
 
                     plusContainer.find(".adjust-image-text-other").remove();
 
-                    clonedImageBlock.find(".jq-plus-container").css("height", "200px");
-                    clonedImageBlock.find(".jq-plus-container").css("width", "200px");
+                    clonedImageBlock.find(".jq-plus-container-image").css("height", "200px");
+                    clonedImageBlock.find(".jq-plus-container-image").css("width", "200px");
+
+                    if (window.smartObj.currentObj != null && (window.smartObj.currentObj.hasClass("column") || window.smartObj.currentObj.hasClass("empty-drop-element"))) {
+                        if (window.smartObj.currentObj.height() <= 200) {
+                            clonedImageBlock.find(".jq-plus-container-image").css("height", window.smartObj.currentObj.height() + "px");
+                            clonedImageBlock.find(".jq-plus-container-image").css("width", (window.smartObj.currentObj.width() > 200 ? 200 : window.smartObj.currentObj.width()  ) + "px");
+                        }
+                      
+                    }
+                    else {
+                        if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-drop-element")) {
+                            if (selectedRowOrColumn.height() <= 200) {
+                                clonedImageBlock.find(".jq-plus-container-image").css("height", selectedRowOrColumn.height() + "px");
+                                clonedImageBlock.find(".jq-plus-container-image").css("width", (window.smartObj.currentObj.width() > 200 ? 200 : window.smartObj.currentObj.width())  + "px");
+                            }
+                        }
+                    }
+                   
 
                     impOperaction.Operation.AfterOperationJQ.Execute(); 
 

@@ -47,7 +47,17 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     column = elements2.CreateDiv('', columnCss);
                     column.attr("column-number", columnsCount + 1);
                     column.attr("xs-column-size", columnSize);
-                    column.css("min-height", "100px");
+                    if ($(this).hasClass("column")) {
+                        if ($(this).height() >= 100) {
+                            column.css("min-height", "100px");
+                        }
+                        else {
+                            column.css("min-height", $(this).height() + "px");
+                        }
+                    }
+                    else {
+                        column.css("min-height", "50px");
+                    }
                     column.addClass("column-padding");
                     column.addClass("newly-added-column");
                     jQuery(".image-selection:first").closest(".row").children(".column").last().after(column);

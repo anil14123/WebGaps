@@ -427,7 +427,7 @@ rootx {
 }
 
 .control-focused{
-    box-shadow:0 0 10px #23A221;
+    /*box-shadow:0 0 10px #23A221;*/
 }
 
 .image-selection {

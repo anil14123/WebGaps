@@ -1793,13 +1793,13 @@
                             <div class="control-columns col-xs-16" id="column2" data-number="12" data-set="0"></div>
                            <%-- <div class="control-columns col-xs-4" id="column2" data-number="16" data-set="0"></div>
                             <div class="control-columns col-xs-4" id="column2" data-number="20" data-set="0"></div>--%>
-                            <div class="control-columns default-size col-xs-16" id="column2" data-number="24" data-set="0"></div>
+                            <div class="control-columns col-xs-16" id="column2" data-number="24" data-set="0"></div>
                             <%--<div class="control-columns col-xs-4" id="column2" data-number="28" data-set="0"></div>
                             <div class="control-columns col-xs-4" id="column2" data-number="32" data-set="0"></div>--%>
                             <div class="control-columns col-xs-16" id="column2" data-number="36" data-set="0"></div>
                            <%-- <div class="control-columns col-xs-4" id="column2" data-number="40" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="44" data-set="0"></div>
-                            <div class="control-columns col-xs-4" id="column2" data-number="48" data-set="0"></div>--%>
+                            <div class="control-columns col-xs-4" id="column2" data-number="44" data-set="0"></div>--%>
+                            <div class="control-columns default-size  col-xs-4" id="column2" data-number="48" data-set="0"></div>
                         </div>
                 </div>
 
