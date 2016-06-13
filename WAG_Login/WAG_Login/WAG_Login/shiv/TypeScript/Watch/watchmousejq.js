@@ -214,7 +214,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 280;
+                            rowControlWidth = 350;
                         }
                         else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                             pageRowControl.find(".selected-object").text("Image Selected");
@@ -674,7 +674,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 280;
+                                    rowControlWidth = 350;
                                 }
                                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                                     pageRowControl.find(".selected-object").text("Image Selected");

@@ -126,9 +126,13 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
                     jQuery(this).draggable({ disabled: true });
-                    jQuery(".current-editor-scope").focus();
+                    // jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                     jQuery(".current-editor-scope").attr("contentEditable", "true");
+                    var x = this;
+                    window.setTimeout(function () {
+                        jQuery(x).find(".jqte-editor").get(0).focus();
+                    }, 10);
                 });
                 jQuery("page .jqte-editor").unbind("mouseup");
                 jQuery("page .jqte-editor").on("mouseup", function (e) {

@@ -361,7 +361,7 @@ export module Watch {
 
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 280;
+                            rowControlWidth = 350;
 
                         }
                         else
@@ -967,7 +967,7 @@ export module Watch {
 
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 280;
+                                    rowControlWidth = 350;
                                 }
                                 else
                                     if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
