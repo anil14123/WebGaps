@@ -157,4 +157,4 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
         Site.SiteJQ = SiteJQ;
     })(Site = exports.Site || (exports.Site = {}));
 });
-//# sourceMappingURL=SiteJQ.js.map
+//# sourceMappingURL=Sitejq.js.map
