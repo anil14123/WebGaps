@@ -621,7 +621,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         CommonCode.currentTarget.hasClass("column")
                             ? CommonCode.currentTarget.removeClass("empty")
                             : CommonCode.currentTarget.closest(".column").removeClass("empty");
-                        console.log(CommonCode.currentTarget.attr("class"));
+                        // console.log(CommonCode.currentTarget.attr("class"));
                         //if (jQuery(event.target).hasClass("key")) {
                         //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
                         //        jQuery(event.target).addClass("image-selection-drag");

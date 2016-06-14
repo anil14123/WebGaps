@@ -151,3 +151,12 @@
       /*background-image:url(/Content/resize/resize-ver-icon.png);
     background-size:100% 100%;*/
 }
+
+.preview .adjust-image-text-other .ui-resizable-handle {
+    display:none !important;
+}
+
+.preview .adjust-image-text-other-left .ui-resizable-handle {
+    display:none !important;
+}
+

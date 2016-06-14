@@ -1008,7 +1008,7 @@ export module JQueryUI {
                         : CommonCode.currentTarget.closest(".column").removeClass("empty");
 
 
-                    console.log(CommonCode.currentTarget.attr("class"));
+                   // console.log(CommonCode.currentTarget.attr("class"));
 
                     //if (jQuery(event.target).hasClass("key")) {
                     //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {

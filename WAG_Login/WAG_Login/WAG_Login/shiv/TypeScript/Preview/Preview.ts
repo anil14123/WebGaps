@@ -15,12 +15,16 @@ export module Preview {
 
                     jQuery(".close-preview").on("click" ,function () {
 
-                       
+                        jQuery("page").removeClass("preview");
+                        jQuery("page").addClass("no-preview");
+
                         PreviewJQ.ClosePreview();
                     });
 
                     jQuery(".show-preview").on("click" ,function () {
-                        
+
+                        jQuery("page").removeClass("no-preview");
+                        jQuery("page").addClass("preview");
                         if (jQuery(".control-templates").css("display") =="none") {
 
                             jQuery(".editor").attr("style", " display: none !important;");
@@ -63,7 +67,7 @@ export module Preview {
 
             //jQuery("page").find(".column").removeClass("column-padding");
 
-            jQuery("page").find(".ui-resizable-handle").hide();
+            //jQuery("page").find(".ui-resizable-handle").hide();
             //jQuery(".debug-row-css").hide();
             //jQuery(".debug-column-css").hide();
             //jQuery(".debug-text-block-css").hide();
@@ -123,7 +127,7 @@ export module Preview {
 
             //jQuery("page").find(".column").addClass("column-padding");
 
-            jQuery("page").find(".ui-resizable-handle").show();
+            //jQuery("page").find(".ui-resizable-handle").show();
 
             jQuery("page").find(".debug-text-block-container-css").hide();
             jQuery("page").find(".debug-image-block-container-css").hide();
