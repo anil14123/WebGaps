@@ -36,6 +36,8 @@ export module JQueryUI {
         public static DroppableEventCount = 0;
         public static DragStopped = true;
 
+        public static draggableInterval= 0;
+
         public static Draggable(element, cancelableCss) {
             jQuery(element).draggable({
                 cancel: cancelableCss,
@@ -43,7 +45,20 @@ export module JQueryUI {
                 helper: 'clone',
                 appendTo: 'body',
                 distance: 5,
-                start: function (event, ui) {
+                cursorAt: {
+                    top: -5, left: 0
+                },
+                start: function (event: JQueryMouseEventObject, ui) {
+
+                    //CommonCode.draggableInterval = window.setInterval(function () {
+                    //    if (ui.helper.css("display") == "none") {
+                    //        ui.helper.show();
+                    //    }
+                    //    else {
+                    //        ui.helper.hide();
+                    //    }
+
+                    //}, 10);
 
                     CommonCode.DragStopped = false;
 
@@ -55,16 +70,17 @@ export module JQueryUI {
                     CommonCode.DroppableEventCount = 0;
                     CommonCode.droppableCount++;
 
-                    //if (ui.helper.hasClass("empty-container-text")) {
-                    //    ui.helper.css("width", "250px");
-                    //}
-
-                    ui.helper.clearQueue();
                     ui.helper.css("z-index", "9999999999");
                     ui.helper.css("opacity", "0.2");
 
                 },
                 stop: function (event, ui) {
+
+                    //try {
+                    //    window.clearInterval(CommonCode.draggableInterval);
+                    //}
+                    //catch (Ex) {
+                    //}
 
                     CommonCode.DragStopped = true;
 
@@ -75,26 +91,19 @@ export module JQueryUI {
 
                     CommonCode.droppableCount = 2; //old 0
 
+                  
                     //if (ui.helper.hasClass("empty-container-text")) {
                     //    ui.helper.css("width", "auto");
                     //}
 
                     jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
-
-                    ui.helper.clearQueue();
+                   
                     ui.helper.css("opacity", "1");
                     ui.helper.css("z-index", "0");
+                  
                 },
                 drag: function (event: JQueryMouseEventObject, ui) {
-
-                    //ui.helper.offset({
-                    //    top: event.clientY,
-                    //    left: event.clientX
-                    //});
-                                       
-                    ui.helper.hide(30);
-                    ui.helper.show(1);
-
+                    
                     jQuery("page").addClass("dragging");
 
                     var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);

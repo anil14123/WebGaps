@@ -28,21 +28,33 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     helper: 'clone',
                     appendTo: 'body',
                     distance: 5,
+                    cursorAt: {
+                        top: -5, left: 0
+                    },
                     start: function (event, ui) {
+                        //CommonCode.draggableInterval = window.setInterval(function () {
+                        //    if (ui.helper.css("display") == "none") {
+                        //        ui.helper.show();
+                        //    }
+                        //    else {
+                        //        ui.helper.hide();
+                        //    }
+                        //}, 10);
                         CommonCode.DragStopped = false;
                         jQuery("#interface_bottom").hide();
                         jQuery(ui.helper).addClass("jq-dragging");
                         jQuery("page").addClass("dragging");
                         CommonCode.DroppableEventCount = 0;
                         CommonCode.droppableCount++;
-                        //if (ui.helper.hasClass("empty-container-text")) {
-                        //    ui.helper.css("width", "250px");
-                        //}
-                        ui.helper.clearQueue();
                         ui.helper.css("z-index", "9999999999");
                         ui.helper.css("opacity", "0.2");
                     },
                     stop: function (event, ui) {
+                        //try {
+                        //    window.clearInterval(CommonCode.draggableInterval);
+                        //}
+                        //catch (Ex) {
+                        //}
                         CommonCode.DragStopped = true;
                         jQuery("#interface_bottom").show();
                         jQuery(ui.helper).removeClass("jq-dragging");
@@ -52,17 +64,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //    ui.helper.css("width", "auto");
                         //}
                         jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
-                        ui.helper.clearQueue();
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
                     },
                     drag: function (event, ui) {
-                        //ui.helper.offset({
-                        //    top: event.clientY,
-                        //    left: event.clientX
-                        //});
-                        ui.helper.hide(30);
-                        ui.helper.show(1);
                         jQuery("page").addClass("dragging");
                         var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
                         element.addClass("image-selection-drag-original");
@@ -831,6 +836,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.droppableCount = 2; //old 0
             CommonCode.DroppableEventCount = 0;
             CommonCode.DragStopped = true;
+            CommonCode.draggableInterval = 0;
             CommonCode.originalHeightBeforeDragStartStr = "";
             return CommonCode;
         }());
