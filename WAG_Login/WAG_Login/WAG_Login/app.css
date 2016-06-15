@@ -219,6 +219,21 @@ rootx {
     border: 1px dashed #f2e6ae;
 }
 
+
+.design-row {
+    /*outline: 2px dotted lightblue; /* for debugging  outline: 2px dotted lightblue;*/
+    /*outline: 1px dashed #151313;*/
+    /*outline: 1px dashed #ABA3A3;
+    outline: 1px solid #D0CDCD;
+    
+    outline :1px solid #f5f5f5;*/
+    /*border: 1px dashed #f2e6ae;
+    border-bottom: none;*/
+
+    /*box-shadow:0 0 0 1px #f2e6ae;*/
+}
+
+
 .design-column {
     /*outline: 1px dotted blue; /* for debugging  outline: 2px dotted blue;*/
     /*outline: 1px dashed #282424;
@@ -227,6 +242,8 @@ rootx {
     
     border: 1px dashed #f2e6ae;
      /*box-shadow:0 0 0 1px  #f2e6ae;*/
+
+     
 }
 
 .no-preview2 .row .row .row {
@@ -265,21 +282,10 @@ rootx {
        border-left: 4px solid  #f5ff09;
 }
 
-
-
-
-.design-row {
-    /*outline: 2px dotted lightblue; /* for debugging  outline: 2px dotted lightblue;*/
-    /*outline: 1px dashed #151313;*/
-    /*outline: 1px dashed #ABA3A3;
-    outline: 1px solid #D0CDCD;
-    
-    outline :1px solid #f5f5f5;*/
-    /*border: 1px dashed #f2e6ae;
-    border-bottom: none;*/
-
-    /*box-shadow:0 0 0 1px #f2e6ae;*/
+.preview *{
+    cursor:initial !important;
 }
+
 
 .design-empty-css {
     margin-left: 10px;

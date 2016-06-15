@@ -425,7 +425,7 @@ export module Common {
                     " .row { margin:0; padding:0; clear:both; } .root-elements{ padding:0;} " +
                     " .column { margin:0; padding:0; } " +
                     ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;}" +
-                    " .image-text-other .adjust-image-text-other-left{ float: left; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
+                    " .image-text-other .adjust-image-text-other-left{ float: left; } body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
                     "</style>";
 
                 jQuery(".image-selection").removeClass("image-selection");
