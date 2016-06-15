@@ -38,6 +38,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //if (ui.helper.hasClass("empty-container-text")) {
                         //    ui.helper.css("width", "250px");
                         //}
+                        ui.helper.clearQueue();
                         ui.helper.css("z-index", "9999999999");
                         ui.helper.css("opacity", "0.2");
                     },
@@ -51,6 +52,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //    ui.helper.css("width", "auto");
                         //}
                         jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
+                        ui.helper.clearQueue();
                         ui.helper.css("opacity", "1");
                         ui.helper.css("z-index", "0");
                     },
@@ -59,8 +61,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //    top: event.clientY,
                         //    left: event.clientX
                         //});
-                        ui.helper.hide(1);
+                        ui.helper.hide(30);
                         ui.helper.show(1);
+                        jQuery("page").addClass("dragging");
                         var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
                         element.addClass("image-selection-drag-original");
                     }
@@ -607,6 +610,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     tolerance: "pointer",
                     accept: '.bldr-draggable, .image-text-other',
                     drop: function (event, ui) {
+                        jQuery("page").removeClass("dragging");
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         if (CommonCode.DroppableEventCount == 1) {
                             return;
@@ -780,16 +784,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         CommonCode.currentTarget = jQuery(this);
                         if (jQuery(this).hasClass("key")) {
-                            if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                                jQuery(this).addClass("image-selection-drag");
-                                impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
-                            }
+                            jQuery(this).addClass("image-selection-drag");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
                         }
                         else {
-                            if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                                jQuery(this).closest(".key").addClass("image-selection-drag");
-                                impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
-                            }
+                            jQuery(this).closest(".key").addClass("image-selection-drag");
+                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
                         }
                         return false;
                     }

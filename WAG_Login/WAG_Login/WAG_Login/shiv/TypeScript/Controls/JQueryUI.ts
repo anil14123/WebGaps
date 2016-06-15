@@ -59,6 +59,7 @@ export module JQueryUI {
                     //    ui.helper.css("width", "250px");
                     //}
 
+                    ui.helper.clearQueue();
                     ui.helper.css("z-index", "9999999999");
                     ui.helper.css("opacity", "0.2");
 
@@ -80,6 +81,7 @@ export module JQueryUI {
 
                     jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
 
+                    ui.helper.clearQueue();
                     ui.helper.css("opacity", "1");
                     ui.helper.css("z-index", "0");
                 },
@@ -89,9 +91,11 @@ export module JQueryUI {
                     //    top: event.clientY,
                     //    left: event.clientX
                     //});
-
-                    ui.helper.hide(1);
+                                       
+                    ui.helper.hide(30);
                     ui.helper.show(1);
+
+                    jQuery("page").addClass("dragging");
 
                     var element = !jQuery(event.target).hasClass("key") ? jQuery(event.target).closest(".key") : jQuery(event.target);
 
@@ -302,7 +306,7 @@ export module JQueryUI {
                         commonMethods.RemoveSingleStyle(ui.helper, "height");
                         // jQuery(ui.helper).css("min-height", height);
 
-                        jQuery(ui.helper).closest(".row").children(".column").css("min-height", height +"px");
+                        jQuery(ui.helper).closest(".row").children(".column").css("min-height", height + "px");
                         jQuery(ui.helper).closest(".row").children(".column").addClass("height-added");
                         jQuery(ui.helper).closest(".row").find(".column").not(".height-added").each(function () {
                             if ($(this).height() >= height - 10) {
@@ -986,6 +990,8 @@ export module JQueryUI {
                 accept: '.bldr-draggable, .image-text-other',
                 drop: function (event: JQueryMouseEventObject, ui) {
 
+                    jQuery("page").removeClass("dragging");
+
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
                     if (CommonCode.DroppableEventCount == 1) {
 
@@ -1008,7 +1014,7 @@ export module JQueryUI {
                         : CommonCode.currentTarget.closest(".column").removeClass("empty");
 
 
-                   // console.log(CommonCode.currentTarget.attr("class"));
+                    // console.log(CommonCode.currentTarget.attr("class"));
 
                     //if (jQuery(event.target).hasClass("key")) {
                     //    if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
@@ -1228,22 +1234,22 @@ export module JQueryUI {
                     CommonCode.currentTarget = jQuery(this);
 
                     if (jQuery(this).hasClass("key")) {
-                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(this).addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
-                        }
+
+                        jQuery(this).addClass("image-selection-drag");
+                        impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
+
                     }
                     else {
-                        if (!(jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block")) {
-                            jQuery(this).closest(".key").addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
-                        }
+
+                        jQuery(this).closest(".key").addClass("image-selection-drag");
+                        impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
+
                     }
 
                     return false;
                 }
 
-              
+
 
             });
 
