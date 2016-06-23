@@ -212,14 +212,14 @@
         </ul>
     </div>
 
-    <div class="drag-placeholder-clonable hide inline-block" style="vertical-align:top;
-   
-    background-color: rgba(56, 102, 229, 0.59);
+    <div class="drag-placeholder-clonable hide" style="vertical-align:top;
+    position:relative;
+    background-color:#6aabd1; max-width:100%;
     border-radius: 5px;
     height: 100px;
-    width: 200px;
-    border: 2px solid white; height:100px; width:200px">
-
+    /*width: 200px;*/
+    border: 2px solid white; height:100px; text-align:center; ">
+         <span style="color:white; vertical-align:middle; position:absolute; top:40%; left:40%; font-weight:bold; display:inline-block;"> Insert Here</span>
     </div>
 
     <style>
