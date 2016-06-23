@@ -616,6 +616,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     accept: '.bldr-draggable, .image-text-other',
                     drop: function (event, ui) {
                         jQuery("page").removeClass("dragging");
+                        jQuery(".drag-placeholder").remove();
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         if (CommonCode.DroppableEventCount == 1) {
                             return;
@@ -732,6 +733,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 $this.attr("left", left);
                             });
                             jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                            jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
                             jQuery(".empty").removeClass("empty");
                             jQuery("#control-common-execute").trigger("click");
                             var undomanager = new impUndoManager.Manager.UndoManager();
@@ -781,6 +783,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         //        impWatch.Watch.MouseJQ.selectedElement = jQuery(event.target).closest(".key");
                         //    }
                         //}
+                    },
+                    deactivate: function (event, ui) {
+                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                        jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
                     }
                 });
                 jQuery(".column, .image-text-other").unbind("mouseover");
@@ -795,6 +801,16 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         else {
                             jQuery(this).closest(".key").addClass("image-selection-drag");
                             impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
+                        }
+                        jQuery(".drag-placeholder").remove();
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("key")) {
+                            var cloned = $(".drag-placeholder-clonable").clone().removeClass("drag-placeholder-clonable").addClass("drag-placeholder").removeClass("hide");
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                                impWatch.Watch.MouseJQ.selectedElement.after(cloned);
+                            }
+                            else if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                                impWatch.Watch.MouseJQ.selectedElement.append(cloned);
+                            }
                         }
                         return false;
                     }

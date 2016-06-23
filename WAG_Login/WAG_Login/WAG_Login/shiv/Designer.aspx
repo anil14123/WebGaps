@@ -212,6 +212,21 @@
         </ul>
     </div>
 
+    <div class="drag-placeholder-clonable hide inline-block" style="vertical-align:top;
+   
+    background-color: rgba(56, 102, 229, 0.59);
+    border-radius: 5px;
+    height: 100px;
+    width: 200px;
+    border: 2px solid white; height:100px; width:200px">
+
+    </div>
+
+    <style>
+        .inline-block{
+            display:inline-block;
+        }
+    </style>
 
     <span id="design-page-row" class="design-page-row" style="display: none">
 

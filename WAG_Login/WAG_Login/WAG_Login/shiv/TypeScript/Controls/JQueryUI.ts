@@ -1001,6 +1001,9 @@ export module JQueryUI {
 
                     jQuery("page").removeClass("dragging");
 
+                    jQuery(".drag-placeholder").remove();
+
+
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
                     if (CommonCode.DroppableEventCount == 1) {
 
@@ -1164,6 +1167,7 @@ export module JQueryUI {
                         });
 
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                        jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
 
                         jQuery(".empty").removeClass("empty");
 
@@ -1230,6 +1234,10 @@ export module JQueryUI {
                     //    }
                     //}
 
+                },
+                deactivate: function (event, ui) {
+                    jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                    jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
                 }
             });
 
@@ -1247,11 +1255,30 @@ export module JQueryUI {
                         jQuery(this).addClass("image-selection-drag");
                         impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
 
+                        
                     }
                     else {
 
                         jQuery(this).closest(".key").addClass("image-selection-drag");
                         impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
+
+                    }
+
+                    jQuery(".drag-placeholder").remove();
+
+                    if (impWatch.Watch.MouseJQ.selectedElement.hasClass("key")) {
+
+                        var cloned = $(".drag-placeholder-clonable").clone().removeClass("drag-placeholder-clonable").addClass("drag-placeholder").removeClass("hide");
+
+                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
+                            impWatch.Watch.MouseJQ.selectedElement.after(cloned);
+                          
+                        }
+                        else if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                            impWatch.Watch.MouseJQ.selectedElement.append(cloned);
+                            
+                        }
+
 
                     }
 
