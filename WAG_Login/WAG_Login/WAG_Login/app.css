@@ -466,14 +466,17 @@ rootx {
 .image-selection-drag {
   
     /*box-shadow: 0 0 0 2px #4F79C5;
-    background-color: rgb(51, 122, 183) !important;
+    background-color: #478bf6 !important;
     color: white !important;*/
     opacity: 0.9 !important; 
+
+     /*box-shadow: 10px 0 5px -2px pink;*/
+
 }
 
 .image-selection-drag-original {
-    /*background-color: rgb(51, 122, 183) !important;
-    color: white !important;*/
+    /*background-color: rgb(51, 122, 183) !important;*/
+    /*color: white !important;*/
     opacity: 0.5 !important; 
 }
 

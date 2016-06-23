@@ -638,4 +638,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });
-//# sourceMappingURL=ContextMenuJQ.js.map
+//# sourceMappingURL=Contextmenujq.js.map

@@ -47,7 +47,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         CommonCode.DroppableEventCount = 0;
                         CommonCode.droppableCount++;
                         ui.helper.css("z-index", "9999999999");
-                        ui.helper.css("opacity", "0.2");
+                        ui.helper.css("opacity", "0.4");
+                        //ui.helper.css("background-color", "pink");
                     },
                     stop: function (event, ui) {
                         //try {
@@ -616,7 +617,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     accept: '.bldr-draggable, .image-text-other',
                     drop: function (event, ui) {
                         jQuery("page").removeClass("dragging");
-                        jQuery(".drag-placeholder").remove();
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         if (CommonCode.DroppableEventCount == 1) {
                             return;
@@ -764,6 +764,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                         jQuery("#design-page-row").hide();
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                        jQuery(".drag-placeholder").remove();
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;
@@ -789,30 +790,82 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
                     }
                 });
-                jQuery(".column, .image-text-other").unbind("mouseover");
-                jQuery(".column, .image-text-other").on("mouseover", function () {
+                //jQuery(".column, .image-text-other").unbind("mouseover");
+                //jQuery(".column, .image-text-other").on("mouseover", function (event: JQueryMouseEventObject) {
+                jQuery("page").unbind("mousemove");
+                jQuery("page").on("mousemove", function (event) {
+                    jQuery(".nearest-element").removeClass("nearest-element");
+                    var x = event.clientX;
+                    var y = event.clientY + jQuery(document).scrollTop();
+                    impWatch.Watch.MouseJQ.nearestElement = jQuery("#nononononelement");
                     if (jQuery("page").hasClass("dragging")) {
-                        jQuery(".image-selection-drag").removeClass("image-selection-drag");
-                        CommonCode.currentTarget = jQuery(this);
-                        if (jQuery(this).hasClass("key")) {
-                            jQuery(this).addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this);
-                        }
-                        else {
-                            jQuery(this).closest(".key").addClass("image-selection-drag");
-                            impWatch.Watch.MouseJQ.selectedElement = jQuery(this).closest(".key");
-                        }
-                        jQuery(".drag-placeholder").remove();
-                        if (impWatch.Watch.MouseJQ.selectedElement.hasClass("key")) {
-                            var cloned = $(".drag-placeholder-clonable").clone().removeClass("drag-placeholder-clonable").addClass("drag-placeholder").removeClass("hide");
+                        var _this = event.target;
+                        if (!jQuery(_this).hasClass("drag-placeholder") && !jQuery(_this).hasClass("drag-span-placeholder")) {
+                            jQuery(".image-selection-drag").removeClass("image-selection-drag");
+                            jQuery(".drag-placeholder").remove();
+                            var cloned = jQuery(".drag-placeholder-clonable").clone().removeClass("drag-placeholder-clonable").addClass("drag-placeholder").removeClass("hide");
+                            if (jQuery(_this).hasClass("key")) {
+                                //jQuery(this).addClass("image-selection-drag");
+                                impWatch.Watch.MouseJQ.selectedElement = jQuery(_this);
+                            }
+                            else {
+                                //jQuery(this).closest(".key").addClass("image-selection-drag");
+                                impWatch.Watch.MouseJQ.selectedElement = jQuery(_this).closest(".key");
+                            }
                             if (impWatch.Watch.MouseJQ.selectedElement.hasClass("image-text-other")) {
-                                impWatch.Watch.MouseJQ.selectedElement.after(cloned);
+                                impWatch.Watch.MouseJQ.selectedElement.closest(".column");
                             }
-                            else if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
-                                impWatch.Watch.MouseJQ.selectedElement.append(cloned);
+                            if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                                var $elements = impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other");
+                                var nearestLeftArray = [];
+                                var nearestTopArray = [];
+                                if ($elements.length > 0) {
+                                    $elements.each(function (index, _this) {
+                                        var $this = jQuery(_this);
+                                        var top = parseFloat($this.attr("top"));
+                                        var bottom = parseFloat($this.attr("bottom"));
+                                        var left = parseFloat($this.attr("left"));
+                                        if (y >= top && y <= bottom && x >= left) {
+                                            nearestLeftArray.push(left);
+                                            nearestTopArray.push(top);
+                                        }
+                                    });
+                                    var nearestLeft = 0;
+                                    var nearestTop = 0;
+                                    if (nearestLeftArray.length > 0) {
+                                        nearestLeft = Math.max.apply(Math, nearestLeftArray);
+                                    }
+                                    if (nearestTopArray.length > 0) {
+                                        nearestTop = Math.max.apply(Math, nearestTopArray);
+                                    }
+                                    impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
+                                    console.log(nearestLeft + ' ' + nearestTop);
+                                    impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
+                                    if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                    }
+                                }
+                            }
+                            if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
+                                impWatch.Watch.MouseJQ.nearestElement.addClass("image-selection-drag");
+                                if (impWatch.Watch.MouseJQ.nearestElement.hasClass("column")) {
+                                    impWatch.Watch.MouseJQ.nearestElement.append(cloned);
+                                }
+                                else {
+                                    impWatch.Watch.MouseJQ.nearestElement.after(cloned);
+                                }
+                                console.log("nearest");
+                            }
+                            else {
+                                console.log("slected element");
+                                impWatch.Watch.MouseJQ.selectedElement.addClass("image-selection-drag");
+                                if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {
+                                    impWatch.Watch.MouseJQ.selectedElement.append(cloned);
+                                }
+                                else {
+                                    impWatch.Watch.MouseJQ.selectedElement.after(cloned);
+                                }
                             }
                         }
-                        return false;
                     }
                 });
             };

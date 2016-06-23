@@ -219,7 +219,7 @@
     height: 100px;
     /*width: 200px;*/
     border: 2px solid white; height:100px; text-align:center; ">
-         <span style="color:white; vertical-align:middle; position:absolute; top:40%; left:40%; font-weight:bold; display:inline-block;"> Insert Here</span>
+         <span class="drag-span-placeholder"  style="color:white; vertical-align:middle; position:absolute; top:40%; left:40%; font-weight:bold; display:inline-block;"> Insert Here</span>
     </div>
 
     <style>
