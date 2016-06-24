@@ -103,6 +103,9 @@
             <li>
                 <div class="li ctx-menu-add-row">Add Row</div>
             </li>
+            <li>
+                <div class="li ctx-menu-edit-text">Edit Text</div>
+            </li>
            <%-- <li>
                 <div class="li ctx-menu-insert">
                     Insert

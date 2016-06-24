@@ -185,7 +185,12 @@ export module OnInsert {
             jQuery(".empty-container-text").unbind("dblclick");
             jQuery(".empty-container-text").on("dblclick",
                 function () {
+                    try {
+                        document.selection.empty();
+                    }
+                    catch (ex) {
 
+                    }
                     //Resetting code
                     jQuery(".empty-container-text").draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");

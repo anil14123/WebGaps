@@ -109,6 +109,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                 var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
                 if (selectedElement != undefined) {
                     jQuery(".ctx-menu-add-row").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                    jQuery(".ctx-menu-edit-text").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-cut").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-copy").parent().addClass(CTX_MENU_DISABLED_CLASS);
                     jQuery(".ctx-menu-paste").parent().addClass(CTX_MENU_DISABLED_CLASS);
@@ -145,6 +146,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         jQuery(".ctx-menu-insert").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-insert-image").parent().removeClass(CTX_MENU_DISABLED_CLASS);
                         jQuery(".ctx-menu-delete-element").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        if (selectedElement.hasClass("empty-container-text")) {
+                            jQuery(".ctx-menu-edit-text").parent().removeClass(CTX_MENU_DISABLED_CLASS);
+                        }
                     }
                     if (selectedElement.hasClass("page")) {
                         jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
@@ -154,6 +158,39 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         jQuery(".ctx-menu-add-row").parent().addClass(CTX_MENU_DISABLED_CLASS); /// exceptional case..
                     }
                 }
+            };
+            ContextMenuJQ.AttachEditText = function () {
+                jQuery(".li.ctx-menu-edit-text").on("click", function () {
+                    if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
+                        return;
+                    }
+                    try {
+                        document.selection.empty();
+                    }
+                    catch (ex) {
+                    }
+                    //Resetting code
+                    jQuery(".empty-container-text").draggable({ disabled: false });
+                    jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
+                    jQuery("page .jq-text-block-content").removeAttr("contentEditable");
+                    //////////////////
+                    jQuery(".current-editor-scope").removeClass("current-editor-scope");
+                    impWatch.Watch.MouseJQ.selectedElement.find(".jq-text-block-content").addClass("current-editor-scope");
+                    //var topRowPx = "180px";
+                    //var topNotifyPx = "105px";
+                    //jQuery("rootx").css("top", topRowPx);
+                    //jQuery(".designer-top-row").css("height", topRowPx);
+                    //jQuery("#notify").css("top", topNotifyPx);
+                    jQuery(".editor").show();
+                    impWatch.Watch.MouseJQ.selectedElement.draggable({ disabled: true });
+                    // jQuery(".current-editor-scope").focus();
+                    jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
+                    jQuery(".current-editor-scope").attr("contentEditable", "true");
+                    var x = impWatch.Watch.MouseJQ.selectedElement;
+                    window.setTimeout(function () {
+                        jQuery(x).find(".jqte-editor").get(0).focus();
+                    }, 10);
+                });
             };
             ContextMenuJQ.AttachDeleteElement = function () {
                 jQuery(".li.ctx-menu-delete-element").on("click", function () {
@@ -628,6 +665,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                             ContextMenuJQ.AttachColor();
                             ContextMenuJQ.AttachInsertMenu();
                             ContextMenuJQ.AttachBackgroundImage();
+                            ContextMenuJQ.AttachEditText();
                             ContextMenuJQ.AttachControlPageClose();
                         }
                     }
@@ -638,4 +676,4 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
         ContextMenu.ContextMenuJQ = ContextMenuJQ;
     })(ContextMenu = exports.ContextMenu || (exports.ContextMenu = {}));
 });
-//# sourceMappingURL=ContextMenuJQ.js.map
+//# sourceMappingURL=Contextmenujq.js.map
