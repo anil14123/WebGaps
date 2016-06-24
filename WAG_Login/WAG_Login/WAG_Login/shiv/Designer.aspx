@@ -103,7 +103,7 @@
             <li>
                 <div class="li ctx-menu-add-row">Add Row</div>
             </li>
-            <li>
+           <%-- <li>
                 <div class="li ctx-menu-insert">
                     Insert
                     <div class="jq-menu-arrow"></div>
@@ -128,10 +128,10 @@
                         <li>
                             <div class="li ctx-menu-insert-html">Html/Css/Script</div>
                         </li>
-                        <%-- <li>
+                        <li>
                             <div class="li ctx-menu-insert-menu">Menu</div>
-                        </li>--%>
-                        <%-- <li>
+                        </li>
+                        <li>
                             <div class="li ctx-menu-insert-youtube">Youtube</div>
                         </li>
                         <li>
@@ -139,10 +139,10 @@
                         </li>
                         <li>
                             <div class="li ctx-menu-insert-css">Css</div>
-                        </li> --%>
+                        </li> 
                     </ul>
                 </div>
-            </li>
+            </li>-
 
             <%--Properties Menu--%>
             <%-- <li>

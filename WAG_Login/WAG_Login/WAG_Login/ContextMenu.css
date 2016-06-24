@@ -4,12 +4,14 @@
     padding: 0px;
     margin: 0px;
     font-size: 12px;
+    font-size:10px;
     color: #333;
     font-family: 'lucida sans unicode',sans-serif;
 
     background-color:rgb(144, 146, 204);
     background-color:#ede7e7;
 
+    
     background-color: #3f464e;
     color: #FFFFFF;
     box-shadow: inset 0px 1px 0px 0px #363f46;
@@ -20,6 +22,7 @@
     position:fixed;
    
     width: 150px;
+    width:100px;
     box-shadow: 2px 2px 1px grey;
     background-color: white;
     border-radius: 5px;
