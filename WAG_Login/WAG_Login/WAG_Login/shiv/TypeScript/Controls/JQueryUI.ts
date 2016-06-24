@@ -1187,10 +1187,15 @@ export module JQueryUI {
 
                                 switch (id) {
                                     case 'bldr-drgb-text':
-                                        impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+                                        impText.Text.TextJQ.InsertTextBlock("Lorem Ipsum is simply dummy text of the printing and typesetting industry.");
                                         break;
                                     case 'bldr-drgb-title':
-                                        impText.Text.TextJQ.InsertTextBlock("<h2>Title Here</h2>");
+                                        var insertedTB = impText.Text.TextJQ.InsertTextBlock("<h2>Title Here</h2>");
+
+                                        window.setTimeout(function () {
+                                            insertedTB.dblclick();
+                                        },10);
+
                                         break;
                                     case 'bldr-drgb-image':
                                         jQuery("#control-image-library").addClass("control-active");
@@ -1312,7 +1317,7 @@ export module JQueryUI {
                                 }
 
                                 impWatch.Watch.MouseJQ.selectedElement.find(".image-text-other[left='" + nearestLeft + "'][top='" + nearestTop + "']").addClass("nearest-element");
-                                console.log(nearestLeft + ' ' + nearestTop);
+                                //console.log(nearestLeft + ' ' + nearestTop);
                                 impWatch.Watch.MouseJQ.nearestElement = jQuery(".nearest-element").first();
 
                                 if (impWatch.Watch.MouseJQ.nearestElement.length > 0) {
@@ -1334,10 +1339,10 @@ export module JQueryUI {
                                 impWatch.Watch.MouseJQ.nearestElement.after(cloned);
                             }
 
-                            console.log("nearest");
+                            //console.log("nearest");
                         }
                         else {
-                            console.log("slected element");
+                            //console.log("slected element");
                             impWatch.Watch.MouseJQ.selectedElement.addClass("image-selection-drag");
 
                             if (impWatch.Watch.MouseJQ.selectedElement.hasClass("column")) {

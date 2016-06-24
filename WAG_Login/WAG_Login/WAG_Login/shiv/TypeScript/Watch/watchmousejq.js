@@ -588,7 +588,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                         }
                                         catch (ex) {
                                         }
-                                        event.preventDefault();
+                                        e.preventDefault();
                                         jQuery(".jq-save").click();
                                         return false;
                                     case 'z':
@@ -600,7 +600,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                             }
                                             catch (ex) {
                                             }
-                                            event.preventDefault();
+                                            e.preventDefault();
                                             jQuery(".jq-undo").click();
                                             return false;
                                         }
@@ -611,7 +611,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                         }
                                         catch (ex) {
                                         }
-                                        event.preventDefault();
+                                        e.preventDefault();
                                         jQuery(".jq-redo").click();
                                         return false;
                                 }

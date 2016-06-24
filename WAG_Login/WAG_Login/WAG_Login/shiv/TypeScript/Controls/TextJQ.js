@@ -134,6 +134,7 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                         jQuery(TextJQ.pageId).find(TextJQ.JTEEditorClass).html("");
                         impCommonCode.ControlCommon.Code.DestroyResizable();
                         impCommonCode.ControlCommon.Code.Execute();
+                        return jQuery(clonedTextBlock);
                     }
                     else {
                         errorHandler.ActionFail("You can only insert in a column block.");

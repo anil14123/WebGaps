@@ -218,6 +218,8 @@ export module Text {
                     
                     impCommonCode.ControlCommon.Code.DestroyResizable();
                     impCommonCode.ControlCommon.Code.Execute();
+
+                    return jQuery(clonedTextBlock);
                 }
                 else {
                     errorHandler.ActionFail("You can only insert in a column block.");

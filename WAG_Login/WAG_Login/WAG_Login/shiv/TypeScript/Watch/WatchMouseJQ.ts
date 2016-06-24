@@ -831,7 +831,7 @@ export module Watch {
                                     catch (ex) {
 
                                     }
-                                    event.preventDefault();
+                                    e.preventDefault();
                                     jQuery(".jq-save").click();
 
                                     return false;
@@ -848,7 +848,7 @@ export module Watch {
                                         catch (ex) {
 
                                         }
-                                        event.preventDefault();
+                                        e.preventDefault();
                                         jQuery(".jq-undo").click();
                                         return false;
                                     }
@@ -863,7 +863,7 @@ export module Watch {
                                     catch (ex) {
 
                                     }
-                                    event.preventDefault();
+                                    e.preventDefault();
                                     jQuery(".jq-redo").click();
                                     return false;
                             }

@@ -219,10 +219,10 @@
     position:relative;
     background-color:#6aabd1; max-width:100%;
     border-radius: 5px;
-    height: 110px;
-    width: 35px;
-    border: 5px solid #FFEB3B; padding:5px; padding-top:10px; padding-bottom:10px; font-size:x-small; ">
-         <span class="drag-span-placeholder"  style="color:white; vertical-align:middle;font-weight:bold; display:inline-block;"> I<br />n<br>s<br />e<br />r<br />t<br /></span>
+    height: 65px;
+    width: 85px;text-transform: uppercase; text-align:center;
+    border: 5px solid #FFEB3B; padding:15px; font-size:x-small; ">
+         <span class="drag-span-placeholder"  style="color:white; vertical-align:middle;font-weight:bold; display:inline-block;">Insert <br /> Here</span>
     </div>
 
     <style>
