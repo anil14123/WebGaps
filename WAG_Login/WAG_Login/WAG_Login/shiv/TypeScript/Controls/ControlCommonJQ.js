@@ -52,6 +52,8 @@ define(["require", "exports", "./JQueryUI", "../common/on", "../JQte/OnInsert", 
                     //jQuery(".ui-resizable-w").html("<div class='jq-square jq-square-e'></div>");
                     //jQuery(".ui-resizable-n").html("<div class='jq-square jq-square-s'></div>");
                 }, 10);
+                $("#watch-height").trigger("click");
+                $("#watch-height").trigger("click");
             };
             Code.DestroyResizable = function () {
                 impJQueryUI.JQueryUI.CommonCode.DroppableDestroy(".column, .empty-container, .image-text-other");

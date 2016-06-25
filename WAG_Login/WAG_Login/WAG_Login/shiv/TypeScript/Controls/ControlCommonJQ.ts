@@ -24,6 +24,8 @@ export module ControlCommon {
 
         public static Execute() {
 
+            
+
             window.setTimeout(function () {
                 impOn.On.Code.Execute();
                 new impJqteOnInsert.OnInsert.Code().Init();
@@ -78,6 +80,9 @@ export module ControlCommon {
                 //jQuery(".ui-resizable-n").html("<div class='jq-square jq-square-s'></div>");
 
             }, 10);
+
+            $("#watch-height").trigger("click");
+            $("#watch-height").trigger("click");
 
         }
 

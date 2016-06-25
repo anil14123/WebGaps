@@ -968,6 +968,10 @@ export module JQueryUI {
 
                     CommonCode.commonHeight(100, uiHelper);
 
+                    $("#watch-height").trigger("click");
+                    $("#watch-height").trigger("click");
+
+
                     jQuery(ui.element).find(".ui-resizable-handle").removeClass("ui-resizable-handle-hover");
 
                     var undomanager = new impUndoManager.Manager.UndoManager();
@@ -1223,8 +1227,11 @@ export module JQueryUI {
 
                     jQuery("#design-page-row").hide();
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
-
+                    
                     jQuery(".drag-placeholder").remove();
+
+                    $("#watch-height").trigger("click");
+                    $("#watch-height").trigger("click");
 
                 },
                 out: function (event, ui) {

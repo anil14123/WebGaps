@@ -97,6 +97,9 @@ export module OnInsert {
 
                 jQuery("#control-common-execute").trigger("click");
 
+                $("#watch-height").trigger("click");
+                $("#watch-height").trigger("click");
+
 
                 var undomanager = new impUndoManager.Manager.UndoManager();
 
@@ -105,8 +108,7 @@ export module OnInsert {
 
                 jQuery("#refresh-image-text-controls-position").trigger("click");
 
-                $("#watch-height").trigger("click");
-
+              
                 return false;
 
             });
