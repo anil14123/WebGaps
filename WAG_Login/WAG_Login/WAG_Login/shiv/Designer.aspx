@@ -533,7 +533,7 @@
             </select>
 
             <div class="btn btn-default jqte-close" style="display: inline-block; margin-left: 2px; cursor: pointer;"
-                onclick="jQuery('.editor').hide(); $('page .jq-text-block-content').removeAttr('contentEditable'); jQuery('page .empty-container-text').find('.jq-text-block-container').find('*').not('.ui-resizable-handle').css('cursor', 'move'); $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
+                onclick="jQuery('.editor').hide(); jQuery('#document-clear-selection').trigger('click'); $('page .jq-text-block-content').removeAttr('contentEditable'); jQuery('page .empty-container-text').find('.jq-text-block-container').find('*').not('.ui-resizable-handle').css('cursor', 'move'); $('.empty-container-text').draggable({ disabled: false }); $('.empty-container-image').draggable({ disabled: false });jQuery('page .jqte-editor').css('cursor', 'move'); ">
                 Close
             </div>
 
@@ -3326,6 +3326,8 @@
     <button id="refresh-image-text-controls-position" style="display: none;">
     </button>
     <button id="watch-height" style="display: none;">
+    </button>
+    <button id="document-clear-selection" style="display: none;">
     </button>
 
 

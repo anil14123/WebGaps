@@ -188,6 +188,25 @@ export module Common {
                 return false;
             });
 
+
+            ///////////////////////////////////////////////////
+
+            jQuery("#document-clear-selection").on("click", function () {
+                try {
+                    var sel = window.getSelection ? window.getSelection() : document.selection;
+                    if (sel) {
+                        if (sel.removeAllRanges) {
+                            sel.removeAllRanges();
+                        } else if (sel.empty) {
+                            sel.empty();
+                        }
+                    }
+                }
+                catch (ex) {
+
+                }                
+            });            
+
             ///////////// change image ////////////////
 
             jQuery(".jq-change-image").on("click" , function () {

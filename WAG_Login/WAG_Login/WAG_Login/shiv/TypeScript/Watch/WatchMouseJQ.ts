@@ -706,7 +706,7 @@ export module Watch {
                            return $(this).css("min-height", layoutHeight).outerHeight(true);
                         }
                         else {
-                            return $(this).css("min-height", "100px").outerHeight(true);
+                            return $(this).css("min-height", "10px").outerHeight(true);
                         }
                     }).get();
 
@@ -1137,6 +1137,8 @@ export module Watch {
                         if (e.which === ESC) {
 
                             /// for moving
+
+                            jQuery("#document-clear-selection").trigger("click");
 
                             //Resetting Code Text Editor..
                             jQuery(".empty-container-text").draggable({ disabled: false });

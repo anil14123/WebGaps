@@ -133,6 +133,22 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                     jQuery(".image-selection:first").find(".jpc").css("height", "auto").css("width", "auto").css("min-height", "auto");
                     return false;
                 });
+                ///////////////////////////////////////////////////
+                jQuery("#document-clear-selection").on("click", function () {
+                    try {
+                        var sel = window.getSelection ? window.getSelection() : document.selection;
+                        if (sel) {
+                            if (sel.removeAllRanges) {
+                                sel.removeAllRanges();
+                            }
+                            else if (sel.empty) {
+                                sel.empty();
+                            }
+                        }
+                    }
+                    catch (ex) {
+                    }
+                });
                 ///////////// change image ////////////////
                 jQuery(".jq-change-image").on("click", function () {
                     impImage.Image.SelfJQ.ChangeImage();

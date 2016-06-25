@@ -164,11 +164,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                     if (jQuery(this).parent().hasClass(CTX_MENU_DISABLED_CLASS)) {
                         return;
                     }
-                    try {
-                        document.selection.empty();
-                    }
-                    catch (ex) {
-                    }
+                    jQuery("#document-clear-selection").trigger("click");
                     //Resetting code
                     jQuery(".empty-container-text").draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");

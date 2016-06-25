@@ -281,12 +281,7 @@ export module ContextMenu {
                     return;
                 }
 
-                try {
-                    document.selection.empty();
-                }
-                catch (ex) {
-
-                }
+                jQuery("#document-clear-selection").trigger("click");
 
                 //Resetting code
                 jQuery(".empty-container-text").draggable({ disabled: false });

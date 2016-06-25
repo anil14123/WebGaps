@@ -486,7 +486,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }
                             else {
-                                return $(this).css("min-height", "100px").outerHeight(true);
+                                return $(this).css("min-height", "10px").outerHeight(true);
                             }
                         }).get();
                         if (heights.length > 0) {
@@ -781,6 +781,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             var ENTER = 13;
                             if (e.which === ESC) {
                                 /// for moving
+                                jQuery("#document-clear-selection").trigger("click");
                                 //Resetting Code Text Editor..
                                 jQuery(".empty-container-text").draggable({ disabled: false });
                                 jQuery(".empty-container-image").draggable({ disabled: false });
