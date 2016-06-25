@@ -456,11 +456,38 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 // console.log(activeControl);
                 return activeControl;
             };
+            //public static WatchHeight() { //working great
+            //    try {
+            //        $(".row").each(function (index, _this) {
+            //            var heights = jQuery(_this).children(".column").map(function () {
+            //                return $(this).outerHeight(true);
+            //            }).get();
+            //            if (heights.length > 0) {
+            //                var maxHeight = Math.max.apply(null, heights);
+            //                var minHeight = Math.min.apply(null, heights);
+            //                if (maxHeight != minHeight) {
+            //                    if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+            //                        return false;
+            //                    }
+            //                    jQuery(_this).children(".column").css("min-height", maxHeight + "px");
+            //                }
+            //            }
+            //        });
+            //    }
+            //    catch (Ex) {
+            //    }
+            //}
             MouseJQ.WatchHeight = function () {
                 try {
-                    $(".row").each(function (index, _this) {
+                    $("page .row").each(function (index, _this) {
                         var heights = jQuery(_this).children(".column").map(function () {
-                            return $(this).outerHeight(true);
+                            if ($(this).hasClass("layout-column")) {
+                                var layoutHeight = $(this).closest(".row").attr("layout-height");
+                                return $(this).css("min-height", layoutHeight).outerHeight(true);
+                            }
+                            else {
+                                return $(this).css("min-height", "100px").outerHeight(true);
+                            }
                         }).get();
                         if (heights.length > 0) {
                             var maxHeight = Math.max.apply(null, heights);

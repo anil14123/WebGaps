@@ -238,7 +238,7 @@ export module JQueryUI {
 
         public static ResizableColumn() {
 
-            var handleDefault = "e,s";//"e,se,s";
+            var handleDefault = "e"; //"e,s";//"e,se,s";
 
             jQuery(".column").resizable({
                 handles: handleDefault,
@@ -907,9 +907,11 @@ export module JQueryUI {
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
 
-                    jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
 
-                    jQuery(".dummy-div").height(ui.helper.height() + 2);
+                    //important code
+                    //jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
+
+                    //jQuery(".dummy-div").height(ui.helper.height() + 2);
 
                     if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                         //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
@@ -977,9 +979,11 @@ export module JQueryUI {
                 resize: function (event, ui) {
 
                     window.setTimeout(function () {
-                        if (jQuery(".dummy-div").height() < ui.helper.height()) {
-                            jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
-                        }
+
+                        //important code
+                        //if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                        //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                        //}
                     }, 10);
 
 

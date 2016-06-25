@@ -157,7 +157,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             };
             //public static scrollElement: JQuery;
             CommonCode.ResizableColumn = function () {
-                var handleDefault = "e,s"; //"e,se,s";
+                var handleDefault = "e"; //"e,s";//"e,se,s";
                 jQuery(".column").resizable({
                     handles: handleDefault,
                     autoHide: true,
@@ -555,8 +555,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
-                        jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>");
-                        jQuery(".dummy-div").height(ui.helper.height() + 2);
+                        //important code
+                        //jQuery(ui.helper).closest(".key").after("<div class='height float-right dummy-div'></div>")
+                        //jQuery(".dummy-div").height(ui.helper.height() + 2);
                         if (jQuery(ui.element).data('ui-resizable').axis == "se" || jQuery(ui.element).data('ui-resizable').axis == "s") {
                             //if (jQuery(event.target).children(".ui-resizable-se").hasClass("selected-resizable")
                             //    ||
@@ -603,9 +604,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     },
                     resize: function (event, ui) {
                         window.setTimeout(function () {
-                            if (jQuery(".dummy-div").height() < ui.helper.height()) {
-                                jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
-                            }
+                            //important code
+                            //if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                            //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                            //}
                         }, 10);
                     }
                 });

@@ -158,26 +158,37 @@ export module Themes.Empty {
 
                     jQuery("page .root-elements").html("");
 
-                    anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "layout-column", undefined, undefined);
+                    var adjustColumnHeightHeader = new impCss.CssClass.AdjustJQ();
+                    adjustColumnHeightHeader.height = 50;
+
+                    var addedRow = anyJQ.AddRow(jQuery(".jq-Header"), layout.header.cols, "layout-column", undefined, adjustColumnHeightHeader);
                     var newStaticElementWithTitle = staticElement.replace("title", "title='Header'");
                     jQuery(".jq-Header").prepend(newStaticElementWithTitle);
+
+                    addedRow.attr("layout-height", "50px");
 
                     var adjustColumnHeightMB = new impCss.CssClass.AdjustJQ();
                     adjustColumnHeightMB.height = 50;
 
-                    anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "layout-column", undefined, adjustColumnHeightMB);
+                    addedRow =  anyJQ.AddRow(jQuery(".jq-MenuBar"), layout.menuBar.cols, "layout-column", undefined, adjustColumnHeightMB);
                     newStaticElementWithTitle = staticElement.replace("title", "title='Menu Bar'");
                     jQuery(".jq-MenuBar").prepend(newStaticElementWithTitle);
 
+                    addedRow.attr("layout-height", "50px");
+
                     var adjustColumnHeight = new impCss.CssClass.AdjustJQ();
                     adjustColumnHeight.height = 500;
-                    anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "layout-column", undefined, adjustColumnHeight);
+                    addedRow =  anyJQ.AddRow(jQuery(".jq-Content"), layout.body.cols, "layout-column", undefined, adjustColumnHeight);
                     newStaticElementWithTitle = staticElement.replace("title", "title='Body'");
                     jQuery(".jq-Content").prepend(newStaticElementWithTitle);
 
-                    anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "layout-column", undefined, undefined);
+                    addedRow.attr("layout-height", "500px");
+
+                    addedRow =  anyJQ.AddRow(jQuery(".jq-Footer"), layout.footer.cols, "layout-column", undefined, undefined);
                     newStaticElementWithTitle = staticElement.replace("title", "title='Footer'");
                     jQuery(".jq-Footer").prepend(newStaticElementWithTitle);
+
+                    addedRow.attr("layout-height", "100px");
 
                     // escape key issue
                     //if (colorToChange % 2 == 0) {
