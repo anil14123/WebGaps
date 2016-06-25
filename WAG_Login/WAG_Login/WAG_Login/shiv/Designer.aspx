@@ -953,7 +953,7 @@
 
                 </Page>
 
-                <div style="float:right; position:relative;">
+                <div style="float:right; position:relative;z-index: 999;">
                       <div class="align-center show-hide-menu absolute" style="top: 300px; ">
         <div class="fa fa-play  show-hide-menu-btn hide-left-menu hide-show-left-menu fa-1x black pointer "></div>
         <div class="fa fa-play fa-flip-horizontal border show-hide-menu-btn show-left-menu hide-show-left-menu fa-1x black pointer"></div>

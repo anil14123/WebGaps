@@ -771,10 +771,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                 }
                             }
                         }
-                        $("#watch-height").trigger("click");
                         jQuery("#design-page-row").hide();
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         jQuery(".drag-placeholder").remove();
+                        $("#watch-height").trigger("click");
                     },
                     out: function (event, ui) {
                         CommonCode.droppableCount++;

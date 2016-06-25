@@ -712,7 +712,7 @@ export module Watch {
                             return $(this).css("min-height", layoutHeight).outerHeight(true);
                         }
                         else {
-                            return $(this).css("min-height", "10px").outerHeight(true);
+                            return $(this).css("min-height", "50px").outerHeight(true);
                         }
                     }).get();
 

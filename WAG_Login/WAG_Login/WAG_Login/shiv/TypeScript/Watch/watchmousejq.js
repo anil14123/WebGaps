@@ -489,7 +489,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }
                             else {
-                                return $(this).css("min-height", "10px").outerHeight(true);
+                                return $(this).css("min-height", "50px").outerHeight(true);
                             }
                         }).get();
                         if (heights.length > 0) {

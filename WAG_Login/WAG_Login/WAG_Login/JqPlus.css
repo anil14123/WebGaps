@@ -9,8 +9,8 @@
 }
 
 .jq-plus-container-image {
-    float: left;
-    float:none;
+    
+   
     display:table-cell;
     position: relative;
     max-width: 100%;
