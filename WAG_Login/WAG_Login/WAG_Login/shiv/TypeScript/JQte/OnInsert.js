@@ -63,7 +63,6 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     jQuery(".image-selection:first").closest(".row").children(".column").last().after(column);
                     jQuery("#control-common-execute").trigger("click");
                     $("#watch-height").trigger("click");
-                    $("#watch-height").trigger("click");
                     var undomanager = new impUndoManager.Manager.UndoManager();
                     undomanager.BeforeOperation();
                     jQuery("#refresh-image-text-controls-position").trigger("click");

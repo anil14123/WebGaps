@@ -479,6 +479,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
             //}
             MouseJQ.WatchHeight = function () {
                 try {
+                    if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                        return;
+                    }
                     $("page .row").each(function (index, _this) {
                         var heights = jQuery(_this).children(".column").map(function () {
                             if ($(this).hasClass("layout-column")) {
@@ -511,7 +514,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         $("#watch-height").on("click", function () {
                             MouseJQ.WatchHeight();
                         });
-                        window.setInterval(MouseJQ.WatchHeight, 3000);
+                        window.setInterval(MouseJQ.WatchHeight, 2000);
                         jQuery(".prop-sb").click(function () {
                             impAddRow.Page.AddRowJQ.ProcessSelectNotify();
                             var activeSBControl = MouseJQ.GetActiveSidebarControl();

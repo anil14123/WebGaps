@@ -295,7 +295,7 @@ export module Watch {
 
                     pageRowControl.find(".inline-controls").hide();
                     pageRowControl.find(".row-controls").show();
-                 
+
 
                     pageRowControl.show();
 
@@ -354,7 +354,7 @@ export module Watch {
                         var pageRowControl = jQuery("#design-page-row");
 
                         pageRowControl.find(".inline-controls").hide();
-                       
+
                         pageRowControl.show();
 
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
@@ -695,15 +695,21 @@ export module Watch {
 
         public static WatchHeight() {
             try {
+
+                if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
+                    return;
+                }
+
+
                 $("page .row").each(function (index, _this) {
 
                     var heights = jQuery(_this).children(".column").map(function () {
 
                         if ($(this).hasClass("layout-column")) {
 
-                           var layoutHeight = $(this).closest(".row").attr("layout-height");
+                            var layoutHeight = $(this).closest(".row").attr("layout-height");
 
-                           return $(this).css("min-height", layoutHeight).outerHeight(true);
+                            return $(this).css("min-height", layoutHeight).outerHeight(true);
                         }
                         else {
                             return $(this).css("min-height", "10px").outerHeight(true);
@@ -718,11 +724,14 @@ export module Watch {
                             if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {
                                 return false;
                             }
+
                             jQuery(_this).children(".column").css("min-height", maxHeight + "px");
+
                         }
                     }
-
                 });
+
+
             }
             catch (Ex) {
             }
@@ -741,7 +750,7 @@ export module Watch {
                         MouseJQ.WatchHeight();
                     });
 
-                    window.setInterval(MouseJQ.WatchHeight, 3000);
+                    window.setInterval(MouseJQ.WatchHeight, 2000);
 
                     jQuery(".prop-sb").click(function () {
 
@@ -940,7 +949,7 @@ export module Watch {
 
                             pageRowControl.find(".inline-controls").hide();
                             pageRowControl.find(".column-controls").show();
-                          
+
                             pageRowControl.show();
 
                             pageRowControl.css("left", "0");
@@ -996,7 +1005,7 @@ export module Watch {
                                 pageRowControl.find(".selected-object").text("Object Selected");
 
                                 pageRowControl.find(".inline-controls").hide();
-                              
+
                                 pageRowControl.show();
 
                                 if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
@@ -1015,7 +1024,7 @@ export module Watch {
 
                                 pageRowControl.css("left", "0");
 
-                               
+
 
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
                                 var imgTextLeft = MouseJQ.selectedElement.offset().left;
@@ -1064,7 +1073,7 @@ export module Watch {
 
                                     pageRowControl.find(".inline-controls").hide();
                                     pageRowControl.find(".row-controls").show();
-                                 
+
                                     pageRowControl.show();
 
                                     pageRowControl.css("left", "0");

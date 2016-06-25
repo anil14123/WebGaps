@@ -98,8 +98,7 @@ export module OnInsert {
                 jQuery("#control-common-execute").trigger("click");
 
                 $("#watch-height").trigger("click");
-                $("#watch-height").trigger("click");
-
+               
 
                 var undomanager = new impUndoManager.Manager.UndoManager();
 

@@ -82,8 +82,7 @@ export module ControlCommon {
             }, 10);
 
             $("#watch-height").trigger("click");
-            $("#watch-height").trigger("click");
-
+          
         }
 
         public static DestroyResizable() {
