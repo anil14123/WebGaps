@@ -246,6 +246,8 @@
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
+
+             <span style="color: darkblue; font-size:xx-small; font-weight: bold;">Styles :</span>
             <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
         </span>
@@ -257,9 +259,9 @@
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-
-            <span title="Move Object Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
+             <span style="color: darkblue; font-size:xx-small; font-weight: bold;">Styles :</span>
+            <span title="Move Object Left" class="button-move-left btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Move Object Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-primary fa fa-chevron-right "></span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">

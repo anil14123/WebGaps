@@ -566,6 +566,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             ui.helper.css("height", ui.helper.css("min-height"));
                             var commonMethods = new impCommonMethods.Common.CommonMethodsJQ();
                             commonMethods.RemoveStyle(ui.helper, "min-height");
+                            if (ui.helper.hasClass("jq-plus-container-image")) {
+                                commonMethods.RemoveStyle(ui.helper.find("img"), "max-height");
+                            }
                         }
                     },
                     stop: function (event, ui) {
@@ -583,9 +586,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             //var common = new impCommonMethods.Common.CommonMethodsJQ();
                             //common.RemoveStyle(jQuery(this), "min-height");
                             //common.RemoveStyle(jQuery(this), "height");
-                            if (jQuery(this).hasClass("jq-plus-container-image") || jQuery(this).hasClass("empty-container-spacer")) {
+                            if (jQuery(this).hasClass("jq-plus-container-image")) {
                                 jQuery(this).css("height", height);
                                 jQuery(this).css("min-height", height);
+                                jQuery(this).find("img").css("max-height", height);
                             }
                             else {
                                 jQuery(this).css("height", height);
@@ -610,6 +614,11 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
                             //}
                         }, 10);
+                        if (jQuery(this).hasClass("jq-plus-container-image")) {
+                            var height = ui.size.height;
+                            var width = ui.size.width;
+                            jQuery(this).find("img").css("max-height", height);
+                        }
                     }
                 });
             };
