@@ -113,4 +113,4 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
         ErrorHandle.ErrorJQ = ErrorJQ;
     })(ErrorHandle = exports.ErrorHandle || (exports.ErrorHandle = {}));
 });
-//# sourceMappingURL=ErrorJQ.js.map
+//# sourceMappingURL=errorjq.js.map
