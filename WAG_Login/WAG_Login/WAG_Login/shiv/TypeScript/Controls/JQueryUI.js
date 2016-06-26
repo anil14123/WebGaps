@@ -608,17 +608,20 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
+                        //window.setTimeout(function () {
+                        //    //important code
+                        //    //if (jQuery(".dummy-div").height() < ui.helper.height()) {
+                        //    //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
+                        //    //}
+                        //}, 10);
+                        var _this = this;
+                        var _ui = ui;
                         window.setTimeout(function () {
-                            //important code
-                            //if (jQuery(".dummy-div").height() < ui.helper.height()) {
-                            //    jQuery(".dummy-div").height(jQuery(".dummy-div").height() + 2);
-                            //}
-                        }, 10);
-                        if (jQuery(this).hasClass("jq-plus-container-image")) {
-                            var height = ui.size.height;
-                            var width = ui.size.width;
-                            jQuery(this).find("img").css("max-height", height);
-                        }
+                            if (jQuery(_this).hasClass("jq-plus-container-image")) {
+                                var height = _ui.size.height;
+                                jQuery(_this).find("img").css("max-height", height + "px");
+                            }
+                        }, 1);
                     }
                 });
             };
@@ -807,13 +810,18 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     deactivate: function (event, ui) {
                         jQuery(".image-selection-drag").removeClass("image-selection-drag");
                         jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
-                        jQuery(".drag-placeholder").remove();
+                        var target = jQuery(document.elementFromPoint(event.clientX, event.clientY)).hasClass("key")
+                            ? jQuery(document.elementFromPoint(event.clientX, event.clientY))
+                            : jQuery(document.elementFromPoint(event.clientX, event.clientY)).closest(".key");
+                        if (target.length == 0) {
+                            jQuery(".drag-placeholder").remove();
+                        }
                     }
                 });
                 //jQuery(".column, .image-text-other").unbind("mouseover");
                 //jQuery(".column, .image-text-other").on("mouseover", function (event: JQueryMouseEventObject) {
-                jQuery("page").unbind("mousemove");
-                jQuery("page").on("mousemove", function (event) {
+                jQuery("page").unbind("mouseover");
+                jQuery("page").on("mouseover", function (event) {
                     jQuery(".nearest-element").removeClass("nearest-element");
                     var x = event.clientX;
                     var y = event.clientY + jQuery(document).scrollTop();
@@ -884,6 +892,15 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                     impWatch.Watch.MouseJQ.selectedElement.after(cloned);
                                 }
                             }
+                            jQuery(cloned).each(function (index, _this) {
+                                var $this = jQuery(_this);
+                                var bottom = $this.offset().top + $this.height();
+                                var top = $this.offset().top;
+                                var left = $this.offset().left;
+                                $this.attr("top", top);
+                                $this.attr("bottom", bottom);
+                                $this.attr("left", left);
+                            });
                         }
                     }
                 });

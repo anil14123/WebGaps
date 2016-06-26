@@ -184,7 +184,7 @@ export module Common {
             ///////////////////////////////////////////////////
             
             jQuery(".jq-remove-height-width").on("click", function () {
-                jQuery(".image-selection:first").find(".jpc").css("height", "auto").css("width", "auto").css("min-height", "auto");
+                jQuery(".image-selection:first").find(".jpc").css("height", "auto").css("width", "auto").css("min-height", "auto").find("img").css("max-height", "initial");
                 return false;
             });
 

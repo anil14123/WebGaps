@@ -215,7 +215,7 @@
         </ul>
     </div>
 
-    <div class="drag-placeholder-clonable hide" style="vertical-align:top;
+    <div class="drag-placeholder-clonable hide image-text-other" style="vertical-align:top;
     position:relative;
     background-color:#6aabd1; max-width:100%;
     border-radius: 5px;
