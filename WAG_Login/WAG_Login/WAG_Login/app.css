@@ -234,7 +234,7 @@ rootx {
 }
 
 
-.design-column {
+page .design-column {
     /*outline: 1px dotted blue; /* for debugging  outline: 2px dotted blue;*/
     /*outline: 1px dashed #282424;
     outline: 1px solid #DCD8D8;
@@ -244,6 +244,10 @@ rootx {
      /*box-shadow:0 0 0 1px  #f2e6ae;*/
 
      
+}
+
+.empty-layout-templates *{
+    padding:0;
 }
 
 .no-preview2 .row .row .row {

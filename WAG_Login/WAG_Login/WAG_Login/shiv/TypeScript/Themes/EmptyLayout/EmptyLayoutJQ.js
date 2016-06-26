@@ -27,7 +27,7 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         this.Layout(LayoutJQ.layout8);
                         jQuery(".empty-layout-templates").find(".ui-resizable-handle").hide();
                         jQuery(".empty-layout-templates .row").removeClass("design-row");
-                        jQuery(".empty-layout-templates .column").css("outline", "1px solid #282424");
+                        jQuery(".empty-layout-templates .column").addClass("empty-template-column-design");
                         jQuery(".empty-layout-templates .root-elements").css("padding", "0");
                         this.Attach();
                     }
@@ -229,11 +229,11 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                 LayoutJQ.layout = {
                     templateNumber: 0,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-48"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -241,18 +241,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-48"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout1 = {
                     templateNumber: 1,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-48"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -260,18 +260,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-36"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout2 = {
                     templateNumber: 2,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-48"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -279,18 +279,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-24 col-xs-12"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout3 = {
                     templateNumber: 3,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-36"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -298,18 +298,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-48"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout4 = {
                     templateNumber: 4,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-36"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -317,18 +317,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-36"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout5 = {
                     templateNumber: 5,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-36"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -336,18 +336,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-24 col-xs-12"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout6 = {
                     templateNumber: 6,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-20 col-xs-16"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -355,18 +355,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-48"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout7 = {
                     templateNumber: 7,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-20 col-xs-16"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -374,18 +374,18 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-36"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };
                 LayoutJQ.layout8 = {
                     templateNumber: 8,
                     header: {
-                        height: 41,
+                        height: 31,
                         cols: "col-xs-12 col-xs-20 col-xs-16"
                     },
                     menuBar: {
-                        height: 5,
+                        height: 15,
                         cols: "col-xs-48"
                     },
                     body: {
@@ -393,7 +393,7 @@ define(["require", "exports", "../../Page/HeaderJQ", "../../Page/MenuBarJQ", "..
                         cols: "col-xs-12 col-xs-24 col-xs-12"
                     },
                     footer: {
-                        height: 5,
+                        height: 25,
                         cols: "col-xs-48"
                     }
                 };

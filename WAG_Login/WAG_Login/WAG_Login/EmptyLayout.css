@@ -1,31 +1,32 @@
 ﻿.empty-layout {
     width: 160px;
-   height: 180px;
+    height: 141px;
 }
 
 .empty-template-wrapper {
     padding: 5px;
     box-shadow: #4b5abd -8px -8px;
-    box-shadow:#86bfd1 -8px -8px;
+    box-shadow: #dcdcdc -8px -8px;
     border: 1px solid #000000;
     margin: 8px;
+    float: left;
+}
 
-    float:left;
+.empty-template-column-design {
+    background-color: rgb(234, 226, 226);
+    outline:3px solid #b9c8d4;
 }
 
 .empty-layout-select {
-    border: 6px solid #B77444;
+    border:6px solid #5976ca;
     border-radius: 5px;
-    padding:0;
+    padding: 0;
 }
 
-.column-layout-border-yellow
-{
-    border:2px solid green;
+.column-layout-border-yellow {
+    border: 2px solid green;
 }
 
-.column-layout-border-brown
-{
-    
-    border:2px solid lightgreen
+.column-layout-border-brown {
+    border: 2px solid lightgreen;
 }

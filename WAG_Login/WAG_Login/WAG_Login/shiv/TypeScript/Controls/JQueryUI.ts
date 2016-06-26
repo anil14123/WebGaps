@@ -1257,6 +1257,8 @@ export module JQueryUI {
                 deactivate: function (event, ui) {
                     jQuery(".image-selection-drag").removeClass("image-selection-drag");
                     jQuery(".image-selection-drag-original").removeClass("image-selection-drag-original");
+
+                    jQuery(".drag-placeholder").remove();
                 }
             });
 

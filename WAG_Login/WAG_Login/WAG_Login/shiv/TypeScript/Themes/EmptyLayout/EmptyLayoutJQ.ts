@@ -62,7 +62,9 @@ export module Themes.Empty {
 
                 jQuery(".empty-layout-templates").find(".ui-resizable-handle").hide();
                 jQuery(".empty-layout-templates .row").removeClass("design-row");
-                jQuery(".empty-layout-templates .column").css("outline", "1px solid #282424");
+                
+                jQuery(".empty-layout-templates .column").addClass("empty-template-column-design");
+
                 jQuery(".empty-layout-templates .root-elements").css("padding", "0");
 
                 this.Attach();
@@ -236,13 +238,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-48"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -254,7 +256,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -266,13 +268,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-48"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -284,7 +286,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -296,13 +298,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-48"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -314,7 +316,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -328,13 +330,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -346,7 +348,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -358,13 +360,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -376,7 +378,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -388,13 +390,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-36"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -406,7 +408,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -418,13 +420,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -436,7 +438,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -449,13 +451,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -467,7 +469,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
@@ -479,13 +481,13 @@ export module Themes.Empty {
 
             header: {
 
-                height: 41,
+                height: 31,
                 cols: "col-xs-12 col-xs-20 col-xs-16"
             },
 
             menuBar: {
 
-                height: 5,
+                height: 15,
                 cols: "col-xs-48"
             },
 
@@ -497,7 +499,7 @@ export module Themes.Empty {
 
             footer: {
 
-                height: 5,
+               height:25,
                 cols: "col-xs-48"
             }
 
