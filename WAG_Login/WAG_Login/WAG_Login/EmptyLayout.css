@@ -5,16 +5,16 @@
 
 .empty-template-wrapper {
     padding: 5px;
-    box-shadow: #4b5abd -8px -8px;
-    box-shadow: #dcdcdc -8px -8px;
-    border: 1px solid #000000;
+    /*box-shadow: #4b5abd -8px -8px;
+    box-shadow: #dcdcdc -8px -8px;*/
+    /*border: 1px solid #000000;*/
     margin: 8px;
     float: left;
 }
 
 .empty-template-column-design {
-    background-color: rgb(234, 226, 226);
-    outline:3px solid #b9c8d4;
+    background-color:rgb(51, 122, 183);
+    outline:2px solid #b9c8d4;
 }
 
 .empty-layout-select {

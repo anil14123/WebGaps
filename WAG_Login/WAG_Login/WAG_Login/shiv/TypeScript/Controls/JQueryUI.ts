@@ -1194,7 +1194,7 @@ export module JQueryUI {
 
                                 switch (id) {
                                     case 'bldr-drgb-text':
-                                        var insertedTB =   impText.Text.TextJQ.InsertTextBlock("This is simply dummy text of the printing and typesetting industry.");
+                                        var insertedTB =   impText.Text.TextJQ.InsertTextBlock("This Sample Text");
 
                                         window.setTimeout(function () {
                                             insertedTB.dblclick();

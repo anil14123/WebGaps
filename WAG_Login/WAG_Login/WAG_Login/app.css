@@ -534,7 +534,7 @@ page .design-column {
 }
 
 .newly-added-column.newly-add-column-for-row-color{
-    background-color: #ed9a9a;
+    background-color: #ed9a9a !important;
     border-left:0;
 }
 

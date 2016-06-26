@@ -327,6 +327,11 @@ export module Page {
                         AddRowJQ.addedRow.children(".column").addClass("columns-pending");
                     }
 
+                    if (AddRowJQ.addedRow != undefined && AddRowJQ.addedRow.length > 0) {
+                        AddRowJQ.addedRow.find(".column").addClass("newly-added-column newly-add-column-for-row-color");
+                    }
+
+
                     // debug-row-ss
                     //selectedRowOrColumn.find(".debug-row-css[scopeId=" + rowOrColumnWithScopeId + "]").remove();
                                

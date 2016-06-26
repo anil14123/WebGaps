@@ -749,7 +749,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                     var id = ui.draggable.attr("id");
                                     switch (id) {
                                         case 'bldr-drgb-text':
-                                            var insertedTB = impText.Text.TextJQ.InsertTextBlock("This is simply dummy text of the printing and typesetting industry.");
+                                            var insertedTB = impText.Text.TextJQ.InsertTextBlock("This Sample Text");
                                             window.setTimeout(function () {
                                                 insertedTB.dblclick();
                                             }, 10);
