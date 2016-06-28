@@ -231,6 +231,16 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                     impNoUi.NoUI.MoveJQ.Down();
                 });
                 ///////////////////////////////////////////////////////////////
+                jQuery(".jq-prev-style-text").on("click", function () {
+                });
+                jQuery(".jq-next-style-text").on("click", function () {
+                });
+                ///////////////////////////////////////////////////////////////
+                jQuery(".jq-prev-style-image").on("click", function () {
+                });
+                jQuery(".jq-next-style-image").on("click", function () {
+                });
+                ///////////////////////////////////////////////////////////////
                 jQuery("#control-align").draggable({ revert: false });
                 jQuery("#control-object-move").draggable({ revert: false });
                 var liveUrl = jQuery(".input-current-location").val() + "/"

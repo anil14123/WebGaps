@@ -100,12 +100,16 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 jQuery("#control-image-library").show();
                 jQuery("#control-image-library").trigger('custom_loaded');
             };
-            SelfJQ.InsertImage = function (url) {
+            SelfJQ.InsertImage = function (url, selectedObject) {
+                if (selectedObject === void 0) { selectedObject = undefined; }
                 var imageObj = new SelfJQ();
                 var errorHandler = new impError.ErrorHandle.ErrorJQ();
                 errorHandler.SetErrorClassName("page-insert-image");
                 var ctx = new impPageCtx.Page.ContextJQ();
                 var selectedRowOrColumn = impWatch.Watch.MouseJQ.selectedElement; //  jQuery("#rows-columns option:selected").val();
+                if (selectedObject != undefined) {
+                    selectedRowOrColumn = selectedObject;
+                }
                 if (!selectedRowOrColumn.hasClass("column") && (window.smartObj == null || window.smartObj.currentObj == null)) {
                     window.smartObj = new SmartObj();
                     window.smartObj.currentObj = selectedRowOrColumn;
@@ -150,16 +154,18 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         plusContainer.find(".adjust-image-text-other").remove();
                         clonedImageBlock.find(".jq-plus-container-image").css("height", "200px");
                         clonedImageBlock.find(".jq-plus-container-image").css("width", "200px");
-                        if (window.smartObj.currentObj != null && (window.smartObj.currentObj.hasClass("column") || window.smartObj.currentObj.hasClass("empty-drop-element"))) {
+                        if (window.smartObj != null && window.smartObj.currentObj != null && (window.smartObj.currentObj.hasClass("column") || window.smartObj.currentObj.hasClass("empty-drop-element"))) {
                             if (window.smartObj.currentObj.height() <= 200) {
-                                clonedImageBlock.find(".jq-plus-container-image").css("height", window.smartObj.currentObj.height() + "px");
+                                //window.smartObj.currentObj.height()
+                                clonedImageBlock.find(".jq-plus-container-image").css("height", 100 + "px");
                                 clonedImageBlock.find(".jq-plus-container-image").css("width", (window.smartObj.currentObj.width() > 200 ? 200 : window.smartObj.currentObj.width()) + "px");
                             }
                         }
                         else {
                             if (selectedRowOrColumn.hasClass("column") == true || selectedRowOrColumn.hasClass("empty-drop-element")) {
                                 if (selectedRowOrColumn.height() <= 200) {
-                                    clonedImageBlock.find(".jq-plus-container-image").css("height", selectedRowOrColumn.height() + "px");
+                                    //window.smartObj.currentObj.height()
+                                    clonedImageBlock.find(".jq-plus-container-image").css("height", 100 + "px");
                                     clonedImageBlock.find(".jq-plus-container-image").css("width", (selectedRowOrColumn.width() > 200 ? 200 : selectedRowOrColumn.width()) + "px");
                                 }
                             }

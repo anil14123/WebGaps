@@ -328,6 +328,27 @@ export module Common {
 
             ///////////////////////////////////////////////////////////////
 
+            jQuery(".jq-prev-style-text").on("click", function () {
+              
+            });
+
+            jQuery(".jq-next-style-text").on("click", function () {
+               
+            });
+
+            ///////////////////////////////////////////////////////////////
+
+            jQuery(".jq-prev-style-image").on("click", function () {
+                
+            });
+
+            jQuery(".jq-next-style-image").on("click", function () {
+               
+            });
+
+            
+            ///////////////////////////////////////////////////////////////
+
             jQuery("#control-align").draggable({ revert: false });
             jQuery("#control-object-move").draggable({ revert: false });
            

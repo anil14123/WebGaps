@@ -1215,6 +1215,7 @@
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlMoveJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\ControlsJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\FontJQ.ts" />
+    <TypeScriptCompile Include="shiv\TypeScript\Controls\StyleInsertJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\JQueryAxis.d.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\OpacityJQ.ts" />
     <TypeScriptCompile Include="shiv\TypeScript\Controls\FrontBackJQ.ts" />

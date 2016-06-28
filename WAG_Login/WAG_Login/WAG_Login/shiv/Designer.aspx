@@ -106,7 +106,7 @@
             <li>
                 <div class="li ctx-menu-edit-text">Edit Text</div>
             </li>
-           <%-- <li>
+            <%-- <li>
                 <div class="li ctx-menu-insert">
                     Insert
                     <div class="jq-menu-arrow"></div>
@@ -215,19 +215,15 @@
         </ul>
     </div>
 
-    <div class="drag-placeholder-clonable hide image-text-other" style="vertical-align:top;
-    position:relative;
-    background-color:#6aabd1; max-width:100%;
-    border-radius: 5px;
-    height: 65px;
-    text-transform: uppercase; text-align:center;
-    border: 5px solid #FFEB3B; padding:15px; font-size:x-small; ">
-         <span class="drag-span-placeholder"  style="color:white; vertical-align:middle;font-weight:bold; display:inline-block;">Insert <br /> Here</span>
+    <div class="drag-placeholder-clonable hide image-text-other" style="vertical-align: top; position: relative; background-color: #6aabd1; max-width: 100%; border-radius: 5px; height: 65px; text-transform: uppercase; text-align: center; border: 5px solid #FFEB3B; padding: 15px; font-size: x-small;">
+        <span class="drag-span-placeholder" style="color: white; vertical-align: middle; font-weight: bold; display: inline-block;">Insert
+            <br />
+            Here</span>
     </div>
 
     <style>
-        .inline-block{
-            display:inline-block;
+        .inline-block {
+            display: inline-block;
         }
     </style>
 
@@ -247,9 +243,9 @@
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-             <span style="color: darkblue; font-size:xx-small; font-weight: bold;">Styles :</span>
-            <span title="Previous Style" class="button-move-left btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-primary fa fa-chevron-right "></span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Styles :</span>
+            <span title="Previous Style" class="jq-prev-style-text btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="jq-next-style-text btn btn-xs btn-primary fa fa-chevron-right "></span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
@@ -259,9 +255,9 @@
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-             <span style="color: darkblue; font-size:xx-small; font-weight: bold;">Styles :</span>
-            <span title="Previous Style" class="button-move-left btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-primary fa fa-chevron-right "></span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Styles :</span>
+            <span title="Previous Style" class="jq-prev-style btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
+            <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="jq-next-style btn btn-xs btn-primary fa fa-chevron-right "></span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">
@@ -3358,9 +3354,20 @@
                 </span>
             </div>
         </div>
-
     </div>
 
+    <div id="style-template-left-right">
+        <div class="row key jqRootRow design-row style-object">
+            <div class="column design-column key col-xs-18 style-left-object" xs-column-size="18"></div>
+            <div class="column design-column key col-xs-30 style-right-object" xs-column-size="30"></div>
+        </div>
+    </div>
+
+     <div id="style-template-top-bottom">
+        <div class="row key jqRootRow design-row style-object">
+            <div class="column design-column key col-xs-48 style-top-bottom-object" xs-column-size="48"></div>
+        </div>
+    </div>
 
     <div id="empty-container-image-copy" class=" empty-container-image image-text-other  key design-css design-empty-text-css hide " style="z-index: 0;">
         <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
@@ -3423,6 +3430,6 @@
         Hello world
 
     </div>
-        --%>
+    --%>
 </body>
 </html>

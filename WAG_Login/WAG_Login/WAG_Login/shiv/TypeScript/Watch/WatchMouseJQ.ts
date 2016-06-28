@@ -122,6 +122,10 @@ export module Watch {
         public static ProcessClick(e: JQueryMouseEventObject) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
+            jQuery(".working-on-style").removeClass("working-on-style");
+
+            jQuery(".style-version-added").attr("style-version", "");
+
             jQuery(".column").removeClass("newly-added-column");
 
             if (jQuery(".close-preview").css("display") == "inline-block" || jQuery(".close-preview").css("display") == "block") {
