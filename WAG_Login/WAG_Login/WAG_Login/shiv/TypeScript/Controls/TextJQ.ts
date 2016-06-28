@@ -122,44 +122,21 @@ export module Text {
 
                         });
 
-                        jQuery(".jq-next-style-text").on("click", function () {
+                        jQuery(".jq-left-column, .jq-right-column").on("click", function () {
+
+                            var left = true;
+                            if ($(this).hasClass("jq-right-column")) {
+                                left = false;
+                            }
 
                             var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
 
-                            var originalSelected = selectedElement;
+                            TextJQ.ChangeStyle(selectedElement, left);
 
-                            var style = selectedElement.attr("style-version");
+                            jQuery("#refresh-image-text-controls-position").trigger("click");
 
-                            selectedElement.addClass("style-version-added");
-
-                            var i = 0;
-                            if (style == "" || style == undefined || style == "undefined") {
-
-                            }
-                            else {
-                                i = parseInt(style);
-                                i = i + 1;
-                                if (i >= TextJQ.Styles.length) {
-                                    i = 0;
-                                }
-                            }
-
-                            if (jQuery(".working-on-style").length == 0) {
-                                TextJQ.ChangeStyle(selectedElement, i);
-                            }
-                            else {
-
-                                if ($(".style-object.working-on-style").length > 0) {
-                                    var styled = selectedElement.closest(".style-object.working-on-style");
-                                    selectedElement.insertBefore(styled);
-                                    styled.remove();
-                                }
-
-                                TextJQ.ChangeStyle(selectedElement, i);
-                            }
-
-
-                            selectedElement.attr("style-version", i);
+                            impCommonCode.ControlCommon.Code.DestroyResizable();
+                            impCommonCode.ControlCommon.Code.Execute();
 
                         });
 
@@ -169,61 +146,136 @@ export module Text {
 
         }
 
-        public static ChangeStyle(selectedElement, i) {
-            if (TextJQ.Styles[i].object == "image") {
+        public static ChangeStyle(selectedElement, left) {
 
-                var rowTemplate
+            var rowTemplate;
 
-                if (TextJQ.Styles[i].position == "bottom" || TextJQ.Styles[i].position == "top") {
+            rowTemplate = jQuery("#style-template-left-right").clone();
 
-                    rowTemplate = jQuery("#style-template-top-bottom").clone();
-                }
-                else {
-                    rowTemplate = jQuery("#style-template-left-right").clone();
-                }
+            var rowTemplateChild = rowTemplate.children().clone().first();
 
-                selectedElement.addClass("original-object");
-
-
-
-                var rowTemplateChild = rowTemplate.children().clone().first();
-
-
-                switch (TextJQ.Styles[i].position) {
-
-
-                    case 'right':
-                        selectedElement.after(rowTemplateChild);
-                        selectedElement.appendTo(rowTemplateChild.find(".style-left-object"));
-                        impInsert.StyleInsert.InsertJQ.InsertImage(rowTemplateChild.find(".style-right-object"))
-
-
-                        break;
-                    case 'bottom':
-                        selectedElement.after(rowTemplateChild);
-                        selectedElement.appendTo(rowTemplateChild.find(".style-top-bottom-object"));
-                        impInsert.StyleInsert.InsertJQ.InsertImage(rowTemplateChild.find(".style-top-bottom-object"));
-                        break;
-                    case 'left':
-                        selectedElement.after(rowTemplateChild);
-                        selectedElement.appendTo(rowTemplateChild.find(".style-right-object"));
-                        impInsert.StyleInsert.InsertJQ.InsertImage(rowTemplateChild.find(".style-left-object"))
-                        break;
-                    case 'top':
-                        selectedElement.after(rowTemplateChild);
-
-                        impInsert.StyleInsert.InsertJQ.InsertImage(rowTemplateChild.find(".style-top-bottom-object"))
-                        selectedElement.appendTo(rowTemplateChild.find(".style-top-bottom-object"));
-                        break;
-                }
-
-                selectedElement.closest(".style-object").addClass("working-on-style");
+            if (left != true) {
+                selectedElement.after(rowTemplateChild);
+                selectedElement.appendTo(rowTemplateChild.find(".style-left-object"));
+                rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color");
             }
-            else
-                if (TextJQ.Styles[i].object == "text") {
+            else {
+                selectedElement.after(rowTemplateChild);
+                selectedElement.appendTo(rowTemplateChild.find(".style-right-object"));
+                rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color");
+            }
 
-                }
         }
+
+
+
+        //jQuery(document).ready(function () {
+        //    if (isTextJQReady == false) {
+        //        isTextJQReady = true;
+
+        //        jQuery(".jq-prev-style-text").on("click", function () {
+
+
+        //        });
+
+        //        jQuery(".jq-next-style-text).on("click", function () {
+
+        //            var selectedElement = impWatch.Watch.MouseJQ.selectedElement;
+
+        //            var originalSelected = selectedElement;
+
+        //            var style = selectedElement.attr("style-version");
+
+        //            selectedElement.addClass("style-version-added");
+
+        //            var i = 0;
+        //            if (style == "" || style == undefined || style == "undefined") {
+
+        //            }
+        //            else {
+        //                i = parseInt(style);
+        //                i = i + 1;
+        //                if (i >= TextJQ.Styles.length) {
+        //                    i = 0;
+        //                }
+        //            }
+
+        //            if (jQuery(".working-on-style").length == 0) {
+        //                TextJQ.ChangeStyle(selectedElement, i);
+        //            }
+        //            else {
+
+        //                if ($(".style-object.working-on-style").length > 0) {
+        //                    var styled = selectedElement.closest(".style-object.working-on-style");
+        //                    selectedElement.insertBefore(styled);
+        //                    styled.remove();
+        //                }
+
+        //                TextJQ.ChangeStyle(selectedElement, i);
+        //            }
+
+
+        //            selectedElement.attr("style-version", i);
+
+        //        });
+
+        //    }
+        //});
+
+        //public static ChangeStyle(selectedElement, i) {
+        //    if (TextJQ.Styles[i].object == "image") {
+
+        //        var rowTemplate
+
+        //        if (TextJQ.Styles[i].position == "bottom" || TextJQ.Styles[i].position == "top") {
+
+        //            rowTemplate = jQuery("#style-template-top-bottom").clone();
+        //        }
+        //        else {
+        //            rowTemplate = jQuery("#style-template-left-right").clone();
+        //        }
+
+        //        selectedElement.addClass("original-object");
+
+
+
+        //        var rowTemplateChild = rowTemplate.children().clone().first();
+
+
+        //        switch (TextJQ.Styles[i].position) {
+
+
+        //            case 'right':
+        //                selectedElement.after(rowTemplateChild);
+        //                selectedElement.appendTo(rowTemplateChild.find(".style-left-object"));
+        //                rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color");
+
+        //                break;
+        //            case 'bottom':
+        //                selectedElement.after(rowTemplateChild);
+        //                selectedElement.appendTo(rowTemplateChild.find(".style-top-bottom-object"));
+        //                rowTemplateChild.find(".style-top-bottom-object").addClass("newly-added-column newly-add-column-for-row-color");
+        //                break;
+        //            case 'left':
+        //                selectedElement.after(rowTemplateChild);
+        //                selectedElement.appendTo(rowTemplateChild.find(".style-right-object"));
+        //                rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color");
+        //                break;
+        //            case 'top':
+        //                selectedElement.after(rowTemplateChild);
+
+        //                impInsert.StyleInsert.InsertJQ.InsertImage(rowTemplateChild.find(".style-top-bottom-object"))
+        //                rowTemplateChild.find(".style-top-bottom-object").addClass("newly-added-column newly-add-column-for-row-color");
+        //                break;
+        //        }
+
+        //        selectedElement.closest(".style-object").addClass("working-on-style");
+        //    }
+        //    else
+        //        if (TextJQ.Styles[i].object == "text") {
+
+        //        }
+        //}
 
         public static AttachClose() {
             jQuery(TextJQ.pageId).find(".close-button").on("click", function () {
