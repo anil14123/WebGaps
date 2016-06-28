@@ -243,7 +243,7 @@
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Styles :</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Layout :</span>
             <span title="Previous Style" class="jq-prev-style-text btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="jq-next-style-text btn btn-xs btn-primary fa fa-chevron-right "></span>
         </span>
@@ -255,7 +255,7 @@
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Styles :</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Layout :</span>
             <span title="Previous Style" class="jq-prev-style btn btn-xs btn-primary fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Next Style" style="font-size: xx-small; padding: 3px;" class="jq-next-style btn btn-xs btn-primary fa fa-chevron-right "></span>
         </span>
