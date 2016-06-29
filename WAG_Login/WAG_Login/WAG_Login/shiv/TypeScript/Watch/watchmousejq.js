@@ -485,6 +485,17 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         return;
                     }
                     $("page .row").each(function (index, _this) {
+                        jQuery(_this).children(".column").each(function () {
+                            if ($(this).hasClass("layout-column")) {
+                                var layoutHeight = $(this).closest(".row").attr("layout-height");
+                                return $(this).css("min-height", layoutHeight).outerHeight(true);
+                            }
+                            else {
+                                return $(this).css("min-height", "50px").outerHeight(true);
+                            }
+                        });
+                    });
+                    $("page .row").each(function (index, _this) {
                         var heights = jQuery(_this).children(".column").map(function () {
                             if ($(this).hasClass("layout-column")) {
                                 var layoutHeight = $(this).closest(".row").attr("layout-height");

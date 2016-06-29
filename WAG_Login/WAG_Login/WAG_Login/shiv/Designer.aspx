@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 
 <!DOCTYPE html>
 <html lang="en">

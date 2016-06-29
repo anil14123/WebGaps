@@ -156,13 +156,13 @@ export module Text {
 
             if (left != true) {
                 selectedElement.after(rowTemplateChild);
-                selectedElement.appendTo(rowTemplateChild.find(".style-left-object"));
-                rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color");
+                selectedElement.appendTo(rowTemplateChild.find(".style-left-object").addClass("design-column"));
+                rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color design-column");
             }
             else {
                 selectedElement.after(rowTemplateChild);
-                selectedElement.appendTo(rowTemplateChild.find(".style-right-object"));
-                rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color");
+                selectedElement.appendTo(rowTemplateChild.find(".style-right-object").addClass("design-column"));
+                rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color  design-column");
             }
 
         }

@@ -704,6 +704,21 @@ export module Watch {
                     return;
                 }
 
+                $("page .row").each(function (index, _this) {
+
+                    jQuery(_this).children(".column").each(function () {
+
+                        if ($(this).hasClass("layout-column")) {
+
+                            var layoutHeight = $(this).closest(".row").attr("layout-height");
+
+                            return $(this).css("min-height", layoutHeight).outerHeight(true);
+                        }
+                        else {
+                            return $(this).css("min-height", "50px").outerHeight(true);
+                        }
+                    });
+                });
 
                 $("page .row").each(function (index, _this) {
 
