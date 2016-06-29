@@ -216,12 +216,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 420;
+                            rowControlWidth = 460;
                         }
                         else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                             pageRowControl.find(".selected-object").text("Image Selected");
                             pageRowControl.find(".image-controls").show();
-                            rowControlWidth = 410;
+                            rowControlWidth = 510;
                         }
                         pageRowControl.css("left", "0");
                         var imgTextTop = MouseJQ.selectedElement.offset().top - 25;
@@ -723,12 +723,12 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 420;
+                                    rowControlWidth = 460;
                                 }
                                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                                     pageRowControl.find(".selected-object").text("Image Selected");
                                     pageRowControl.find(".image-controls").show();
-                                    rowControlWidth = 410;
+                                    rowControlWidth = 510;
                                 }
                                 pageRowControl.css("left", "0");
                                 var imgTextTop = MouseJQ.selectedElement.offset().top - 25;

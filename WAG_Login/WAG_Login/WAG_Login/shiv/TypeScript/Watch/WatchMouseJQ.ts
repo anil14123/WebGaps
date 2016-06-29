@@ -365,7 +365,7 @@ export module Watch {
 
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 420;
+                            rowControlWidth = 460;
 
                         }
                         else
@@ -373,7 +373,7 @@ export module Watch {
 
                                 pageRowControl.find(".selected-object").text("Image Selected");
                                 pageRowControl.find(".image-controls").show();
-                                rowControlWidth = 410;
+                                rowControlWidth = 510;
                             }
 
 
@@ -1038,14 +1038,14 @@ export module Watch {
 
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 420;
+                                    rowControlWidth = 460;
                                 }
                                 else
                                     if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
 
                                         pageRowControl.find(".selected-object").text("Image Selected");
                                         pageRowControl.find(".image-controls").show();
-                                        rowControlWidth = 410;
+                                        rowControlWidth = 510;
                                     }
 
                                 pageRowControl.css("left", "0");
