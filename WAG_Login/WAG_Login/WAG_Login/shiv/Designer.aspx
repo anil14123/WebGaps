@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="WebAppGoTypeScript_X_Modulerization.Default" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -230,7 +229,6 @@
         .fa-chevron-right-my:after {
             content: "\f054";
         }
-
     </style>
 
     <span id="design-page-row" class="design-page-row" style="display: none">
@@ -239,12 +237,12 @@
             <span title="Select Parent Container" class="design-square-column  jq-select-parent">Select Parent</span>
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Row :</span>
             <%--<span class="design-square-row">Row</span>--%>
-             <span class="columns-add-text">
-            <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size:10px;color:white;"></span> +</button>
-            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px;color:white;"></span> +</button>
-            &nbsp;
+            <span class="columns-add-text">
+                <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size: 10px; color: white;"></span>+</button>
+                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size: 10px; color: white;"></span>+</button>
+                &nbsp;
              <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
-            <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
+                <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
             &nbsp;
             <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
         </span>
@@ -278,8 +276,8 @@
             <span title="Move Column Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span>
             &nbsp;
             <span style="color: darkblue; font-weight: bold;">Rows :
-             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size:10px;color:white;"></span> +</button>
-                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px; color:white;"></span> +</button>
+             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size: 10px; color: white;"></span>+</button>
+                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size: 10px; color: white;"></span>+</button>
             </span>
             &nbsp;
 
@@ -3371,6 +3369,12 @@
     <div id="style-template-left-right">
         <div class="row key jqRootRow design-row style-object">
             <div class="column design-column key col-xs-24 style-left-object" xs-column-size="24"></div>
+            <div class="column design-column key col-xs-24 style-right-object" xs-column-size="24"></div>
+        </div>
+    </div>
+
+    <div id="style-template-column">
+        <div class="row key jqRootRow design-row style-object">
             <div class="column design-column key col-xs-24 style-right-object" xs-column-size="24"></div>
         </div>
     </div>

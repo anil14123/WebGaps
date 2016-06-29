@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../Common/OperationJQ", "jquery"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impOperaction, jQuery) {
+define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/PageControlNamesJQ", "../Page/Context/ContextJQ", "../Watch/WatchMouseJQ", "./ControlCommonJQ", "../PageElements/ElementJQ", "../Common/OperationJQ", "jquery"], function (require, exports, impText, impError, impPageControlNames, impPageCtx, impWatch, impCommonCode, impElements, impOperaction, jQuery) {
     "use strict";
     var debug = true;
     var globalTextBlockId = 0;
@@ -61,20 +61,92 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     });
                 }
             };
+            TextJQ.AddColumn = function (selectedElement, left) {
+                var templateObj = selectedElement.closest(".style-object");
+                var columnsCount = templateObj.children(".column").length;
+                if (columnsCount >= 4) {
+                    var error = new impError.ErrorHandle.ErrorJQ();
+                    error.ActionHelp("Cannot add more than 4 columns");
+                    return;
+                }
+                var columnObj = jQuery("#style-template-column").find(".column").clone();
+                var columnSize = "";
+                var columnClass = "";
+                if (columnsCount == 1) {
+                    columnClass = "col-xs-24";
+                    columnSize = "24";
+                }
+                if (columnsCount == 2) {
+                    columnClass = "col-xs-16";
+                    columnSize = "16";
+                }
+                if (columnsCount == 3) {
+                    columnClass = "col-xs-12";
+                    columnSize = "12";
+                }
+                var lastColumn;
+                templateObj.children(".column").each(function () {
+                    lastColumn = jQuery(this);
+                    var prevSize = jQuery(this).attr("xs-column-size");
+                    var cssClass = "col-xs-" + prevSize;
+                    if (cssClass == columnClass) {
+                        return;
+                    }
+                    jQuery(this).addClass(columnClass);
+                    jQuery(this).attr("xs-column-size", columnSize);
+                    jQuery(this).removeClass(cssClass);
+                });
+                var column;
+                var elements2 = new impElements.Page.Elements.ElementJQ();
+                var columnCss = columnClass + " " + " from-column-add-click " + "column key design-column column-number-" + (columnsCount + 1);
+                column = elements2.CreateDiv('', columnCss);
+                column.attr("column-number", columnsCount + 1);
+                column.attr("xs-column-size", columnSize);
+                if ($(this).hasClass("column")) {
+                    if ($(this).height() >= 100) {
+                        column.css("min-height", "100px");
+                    }
+                    else {
+                        column.css("min-height", $(this).height() + "px");
+                    }
+                }
+                else {
+                    column.css("min-height", "50px");
+                }
+                column.addClass("column-padding");
+                column.addClass("newly-added-column");
+                if (!left) {
+                    templateObj.children(".column").last().after(column);
+                }
+                else {
+                    templateObj.children(".column").first().before(column);
+                }
+            };
             TextJQ.ChangeStyle = function (selectedElement, left) {
                 var rowTemplate;
                 rowTemplate = jQuery("#style-template-left-right").clone();
                 var rowTemplateChild = rowTemplate.children().clone().first();
                 if (left != true) {
-                    selectedElement.after(rowTemplateChild);
-                    selectedElement.appendTo(rowTemplateChild.find(".style-left-object").addClass("design-column"));
-                    rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color design-column");
+                    if (!selectedElement.hasClass("working-on-column-add-for-object")) {
+                        selectedElement.after(rowTemplateChild);
+                        selectedElement.appendTo(rowTemplateChild.find(".style-left-object").addClass("design-column"));
+                        rowTemplateChild.find(".style-right-object").addClass("newly-added-column newly-add-column-for-row-color design-column");
+                    }
+                    else {
+                        TextJQ.AddColumn(selectedElement, left);
+                    }
                 }
                 else {
-                    selectedElement.after(rowTemplateChild);
-                    selectedElement.appendTo(rowTemplateChild.find(".style-right-object").addClass("design-column"));
-                    rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color  design-column");
+                    if (!selectedElement.hasClass("working-on-column-add-for-object")) {
+                        selectedElement.after(rowTemplateChild);
+                        selectedElement.appendTo(rowTemplateChild.find(".style-right-object").addClass("design-column"));
+                        rowTemplateChild.find(".style-left-object").addClass("newly-added-column newly-add-column-for-row-color  design-column");
+                    }
+                    else {
+                        TextJQ.AddColumn(selectedElement, left);
+                    }
                 }
+                selectedElement.addClass("working-on-column-add-for-object");
             };
             //jQuery(document).ready(function () {
             //    if (isTextJQReady == false) {

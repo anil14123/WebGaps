@@ -122,7 +122,7 @@ export module Watch {
         public static ProcessClick(e: JQueryMouseEventObject) {
             var common = new impCommon.Common.CommonMethodsJQ();
 
-            jQuery(".working-on-style").removeClass("working-on-style");
+            jQuery(".working-on-column-add-for-object").removeClass("working-on-column-add-for-object");
 
             jQuery(".style-version-added").attr("style-version", "");
 
