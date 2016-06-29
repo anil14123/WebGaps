@@ -60,7 +60,7 @@
     position:absolute;
     color:black;
     background-color:rgba(193, 183, 183, 0.5);
-    background-color:rgba(255, 255, 255, 0.8);
+    background-color:rgba(255, 255, 255, 0.9);
 }
 
  .design-page-row .btn{
@@ -492,7 +492,8 @@ page .design-column {
 .image-selection {
     /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
    
-    box-shadow: 0 0 7px 1px #4F79C5;
+    /*box-shadow: 0 0 7px 1px #4F79C5;*/
+    box-shadow: 0 0 0 10px rgba(79, 121, 197, 0.71);
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;
