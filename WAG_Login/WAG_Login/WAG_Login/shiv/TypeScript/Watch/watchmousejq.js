@@ -100,13 +100,13 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 //        jQuery(".cursor-right").css("top", e.pageY -10 + "px");
                 //    }
                 //});
-                if (MouseJQ.selectedElement != undefined && e.ctrlKey == false) {
+                if (MouseJQ.selectedElement != undefined && (e.ctrlKey == false || e.ctrlKey == undefined)) {
                     // this is the previous element...
                     MouseJQ.selectedElement.removeClass("image-selection");
                     MouseJQ.selectedElement.removeClass("design-select-element-just-mark");
                 }
                 // safety
-                if (e.ctrlKey == false) {
+                if (e.ctrlKey == false || e.ctrlKey == undefined) {
                     jQuery(".image-selection").removeClass("image-selection");
                 }
                 MouseJQ.selectedElement = jQuery(e.target);
@@ -141,7 +141,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 if (MouseJQ.selectedElement.hasClass("column") == true) {
                     jQuery("#design-page-row").hide();
-                    var rowControlWidth = 370;
+                    var rowControlWidth = 350;
                     var rowControliMax = 100;
                     var pageRowControl = jQuery("#design-page-row");
                     pageRowControl.find(".inline-controls").hide();
@@ -174,7 +174,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 }
                 else if (MouseJQ.selectedElement.hasClass("row") == true) {
                     jQuery("#design-page-row").hide();
-                    var rowControlWidth = 320;
+                    var rowControlWidth = 370;
                     var rowControliMax = 100;
                     var pageRowControl = jQuery("#design-page-row");
                     pageRowControl.find(".inline-controls").hide();
@@ -208,7 +208,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                 else {
                     if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                         jQuery("#design-page-row").hide();
-                        var rowControlWidth = 280;
+                        var rowControlWidth = 420;
                         var rowControliMax = 100;
                         var pageRowControl = jQuery("#design-page-row");
                         pageRowControl.find(".inline-controls").hide();
@@ -216,7 +216,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 350;
+                            rowControlWidth = 420;
                         }
                         else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                             pageRowControl.find(".selected-object").text("Image Selected");
@@ -488,6 +488,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery(_this).children(".column").each(function () {
                             if ($(this).hasClass("layout-column")) {
                                 var layoutHeight = $(this).closest(".row").attr("layout-height");
+                                if (layoutHeight == undefined) {
+                                    layoutHeight = "100px";
+                                }
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }
                             else {
@@ -499,6 +502,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         var heights = jQuery(_this).children(".column").map(function () {
                             if ($(this).hasClass("layout-column")) {
                                 var layoutHeight = $(this).closest(".row").attr("layout-height");
+                                if (layoutHeight == undefined) {
+                                    layoutHeight = "100px";
+                                }
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }
                             else {
@@ -675,7 +681,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                         jQuery("#refresh-image-text-controls-position").on("click", function () {
                             if (MouseJQ.selectedElement.hasClass("column") == true) {
                                 jQuery("#design-page-row").hide();
-                                var rowControlWidth = 300;
+                                var rowControlWidth = 350;
                                 var rowControliMax = 100;
                                 var pageRowControl = jQuery("#design-page-row");
                                 pageRowControl.find(".inline-controls").hide();
@@ -708,7 +714,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                             else if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                                 jQuery("#design-page-row").hide();
-                                var rowControlWidth = 280;
+                                var rowControlWidth = 420;
                                 var rowControliMax = 100;
                                 var pageRowControl = jQuery("#design-page-row");
                                 pageRowControl.find(".selected-object").text("Object Selected");
@@ -717,7 +723,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                 if (MouseJQ.selectedElement.hasClass("empty-container-text")) {
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 350;
+                                    rowControlWidth = 420;
                                 }
                                 else if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
                                     pageRowControl.find(".selected-object").text("Image Selected");
@@ -750,7 +756,7 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             }
                             else if (MouseJQ.selectedElement.hasClass("row") == true) {
                                 jQuery("#design-page-row").hide();
-                                var rowControlWidth = 320;
+                                var rowControlWidth = 370;
                                 var rowControliMax = 100;
                                 var pageRowControl = jQuery("#design-page-row");
                                 pageRowControl.find(".inline-controls").hide();

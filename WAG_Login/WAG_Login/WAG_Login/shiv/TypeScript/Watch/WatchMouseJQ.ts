@@ -158,7 +158,7 @@ export module Watch {
             //    }
             //});
 
-            if (MouseJQ.selectedElement != undefined && e.ctrlKey == false) {
+            if (MouseJQ.selectedElement != undefined && (e.ctrlKey == false || e.ctrlKey == undefined)) {
 
                 // this is the previous element...
 
@@ -167,7 +167,7 @@ export module Watch {
                 //common.RemoveStyle(MouseJQ.selectedElement, "outline");
             }
             // safety
-            if (e.ctrlKey == false) {
+            if (e.ctrlKey == false || e.ctrlKey == undefined) {
                 jQuery(".image-selection").removeClass("image-selection");
             }
 
@@ -233,7 +233,7 @@ export module Watch {
             if (MouseJQ.selectedElement.hasClass("column") == true) {
                 jQuery("#design-page-row").hide();
 
-                var rowControlWidth = 370;
+                var rowControlWidth = 350;
                 var rowControliMax = 100;
 
                 var pageRowControl = jQuery("#design-page-row");
@@ -291,7 +291,7 @@ export module Watch {
                 if (MouseJQ.selectedElement.hasClass("row") == true) {
                     jQuery("#design-page-row").hide();
 
-                    var rowControlWidth = 320;
+                    var rowControlWidth = 370;
                     var rowControliMax = 100;
 
 
@@ -351,7 +351,7 @@ export module Watch {
                     if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                         jQuery("#design-page-row").hide();
 
-                        var rowControlWidth = 280;
+                        var rowControlWidth = 420;
                         var rowControliMax = 100;
 
 
@@ -365,7 +365,7 @@ export module Watch {
 
                             pageRowControl.find(".selected-object").text("Text Block Selected");
                             pageRowControl.find(".text-controls").show();
-                            rowControlWidth = 350;
+                            rowControlWidth = 420;
 
                         }
                         else
@@ -712,6 +712,9 @@ export module Watch {
 
                             var layoutHeight = $(this).closest(".row").attr("layout-height");
 
+                            if (layoutHeight == undefined) {
+                                layoutHeight = "100px";
+                            }
                             return $(this).css("min-height", layoutHeight).outerHeight(true);
                         }
                         else {
@@ -727,6 +730,10 @@ export module Watch {
                         if ($(this).hasClass("layout-column")) {
 
                             var layoutHeight = $(this).closest(".row").attr("layout-height");
+
+                            if (layoutHeight == undefined) {
+                                layoutHeight = "100px";
+                            }
 
                             return $(this).css("min-height", layoutHeight).outerHeight(true);
                         }
@@ -961,7 +968,7 @@ export module Watch {
                         if (MouseJQ.selectedElement.hasClass("column") == true) {
                             jQuery("#design-page-row").hide();
 
-                            var rowControlWidth = 300;
+                            var rowControlWidth = 350;
                             var rowControliMax = 100;
 
                             var pageRowControl = jQuery("#design-page-row");
@@ -1016,7 +1023,7 @@ export module Watch {
                             if (MouseJQ.selectedElement.hasClass("image-text-other") == true) {
                                 jQuery("#design-page-row").hide();
 
-                                var rowControlWidth = 280;
+                                var rowControlWidth = 420;
                                 var rowControliMax = 100;
 
                                 var pageRowControl = jQuery("#design-page-row");
@@ -1031,7 +1038,7 @@ export module Watch {
 
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 350;
+                                    rowControlWidth = 420;
                                 }
                                 else
                                     if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
@@ -1085,7 +1092,7 @@ export module Watch {
                                 if (MouseJQ.selectedElement.hasClass("row") == true) {
                                     jQuery("#design-page-row").hide();
 
-                                    var rowControlWidth = 320;
+                                    var rowControlWidth = 370;
                                     var rowControliMax = 100;
 
                                     var pageRowControl = jQuery("#design-page-row");
