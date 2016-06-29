@@ -112,9 +112,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                 });
                 jQuery(".empty-container-text").unbind("dblclick");
                 jQuery(".empty-container-text").on("dblclick", function () {
-                    jQuery("#document-clear-selection").trigger("click");
+                    var isDisabled = jQuery(this).draggable("option", "disabled");
                     //Resetting code
-                    jQuery(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".empty-container-text").not(jQuery(this)).draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                     jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                     //////////////////
@@ -126,14 +126,19 @@ define(["require", "exports", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../U
                     //jQuery(".designer-top-row").css("height", topRowPx);
                     //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
-                    jQuery(this).draggable({ disabled: true });
+                    if (isDisabled == false) {
+                        jQuery(this).draggable({ disabled: true });
+                        jQuery("#document-clear-selection").trigger("click");
+                    }
                     // jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                     jQuery(".current-editor-scope").attr("contentEditable", "true");
                     var x = this;
-                    window.setTimeout(function () {
-                        jQuery(x).find(".jqte-editor").get(0).focus();
-                    }, 10);
+                    if (isDisabled == false) {
+                        window.setTimeout(function () {
+                            jQuery(x).find(".jqte-editor").get(0).focus();
+                        }, 10);
+                    }
                 });
                 jQuery("page .jqte-editor").unbind("mouseup");
                 jQuery("page .jqte-editor").on("mouseup", function (e) {

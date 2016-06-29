@@ -235,9 +235,12 @@
 
     <span id="design-page-row" class="design-page-row" style="display: none">
 
-        <span class="row-controls inline-controls" style="display: inline;"><span class="design-square-row">Row</span> <span class="columns-add-text">
+        <span class="row-controls inline-controls" style="display: inline;">
+            <span title="Select Parent Container" class="design-square-column  jq-select-parent">Select Parent</span>
+           <%-- <span class="design-square-row">Row</span>--%>
+             <span class="columns-add-text">
             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size:10px;color:white;"></span> +</button>
-            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px;color:white;"></span>+</button>
+            <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px;color:white;"></span> +</button>
             &nbsp;
              <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
             <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
@@ -250,8 +253,8 @@
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns :</span>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-primary fa fa-chevron-left ">+</span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-primary fa fa-chevron-right-my ">+</span>
+            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa fa-chevron-left ">+</span>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa fa-chevron-right-my ">+</span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
@@ -262,8 +265,8 @@
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns :</span>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-primary fa fa-chevron-left ">+</span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-primary fa fa-chevron-right-my ">+</span>
+            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger  fa fa-chevron-left ">+</span>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger  fa fa-chevron-right-my ">+</span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">
@@ -273,7 +276,7 @@
             &nbsp;
             <span style="color: darkblue; font-weight: bold;">Rows :
              <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size:10px;color:white;"></span> +</button>
-                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px; color:white;"></span>+</button>
+                <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px; color:white;"></span> +</button>
             </span>
             &nbsp;
 

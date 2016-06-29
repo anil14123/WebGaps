@@ -25,9 +25,9 @@ export module OnInsert {
 
                 if (columnsCount >= 4) {
 
-                   var error = new impError.ErrorHandle.ErrorJQ();
+                    var error = new impError.ErrorHandle.ErrorJQ();
 
-                   error.ActionHelp("Cannot add more than 4 columns");
+                    error.ActionHelp("Cannot add more than 4 columns");
 
                     return;
                 }
@@ -73,7 +73,7 @@ export module OnInsert {
 
                 var column: JQuery;
                 var elements2 = new impElements.Page.Elements.ElementJQ();
-                var columnCss = columnClass + " " + " from-column-add-click " + "column key design-column column-number-" + (columnsCount +1);
+                var columnCss = columnClass + " " + " from-column-add-click " + "column key design-column column-number-" + (columnsCount + 1);
                 column = elements2.CreateDiv('', columnCss);
 
                 column.attr("column-number", columnsCount + 1);
@@ -98,7 +98,7 @@ export module OnInsert {
                 jQuery("#control-common-execute").trigger("click");
 
                 $("#watch-height").trigger("click");
-               
+
 
                 var undomanager = new impUndoManager.Manager.UndoManager();
 
@@ -107,7 +107,7 @@ export module OnInsert {
 
                 jQuery("#refresh-image-text-controls-position").trigger("click");
 
-              
+
                 return false;
 
             });
@@ -187,13 +187,18 @@ export module OnInsert {
             jQuery(".empty-container-text").on("dblclick",
                 function () {
 
-                    jQuery("#document-clear-selection").trigger("click");
+                    var isDisabled = jQuery(this).draggable("option", "disabled");
+
+
+                    
 
                     //Resetting code
-                    jQuery(".empty-container-text").draggable({ disabled: false });
+                    jQuery(".empty-container-text").not(jQuery(this)).draggable({ disabled: false });
                     jQuery("page .empty-container-text").find(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "move");
                     jQuery("page .jq-text-block-content").removeAttr("contentEditable");
                     //////////////////
+
+
 
                     jQuery(".current-editor-scope").removeClass("current-editor-scope");
 
@@ -208,17 +213,23 @@ export module OnInsert {
                     //jQuery("#notify").css("top", topNotifyPx);
                     jQuery(".editor").show();
 
-                    jQuery(this).draggable({ disabled: true });
-                   // jQuery(".current-editor-scope").focus();
+                  
+                    if (isDisabled == false) {
+                        jQuery(this).draggable({ disabled: true });
+                        jQuery("#document-clear-selection").trigger("click");
+                    }
+                    // jQuery(".current-editor-scope").focus();
                     jQuery(".current-editor-scope").closest(".jq-text-block-container").find("*").not(".ui-resizable-handle").css("cursor", "text");
                     jQuery(".current-editor-scope").attr("contentEditable", "true");
 
                     var x = this;
 
-                    window.setTimeout(function () {
-                        jQuery(x).find(".jqte-editor").get(0).focus();
-                        
-                    },10);
+                    if (isDisabled == false) {
+                        window.setTimeout(function () {
+                            jQuery(x).find(".jqte-editor").get(0).focus();
+
+                        }, 10);
+                    }
 
                 });
 

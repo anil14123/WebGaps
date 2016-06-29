@@ -1,4 +1,4 @@
-define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "../Controls/NoUi", "jquery"], function (require, exports, impAny, impWatch, impNoUi, jQuery) {
+define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/WatchMouseJQ", "../Controls/NoUi", "jquery"], function (require, exports, impAny, impError, impWatch, impNoUi, jQuery) {
     "use strict";
     var On;
     (function (On) {
@@ -65,6 +65,17 @@ define(["require", "exports", "../page/anyjq", "../Watch/WatchMouseJQ", "../Cont
                 jQuery(".jq-select-row").unbind("click");
                 jQuery(".jq-select-row").on("click", function () {
                     jQuery(".image-selection:first").closest(".row").trigger("click");
+                    return false;
+                });
+                jQuery(".jq-select-parent").unbind("click");
+                jQuery(".jq-select-parent").on("click", function () {
+                    if (!jQuery(".image-selection:first").hasClass("root-elements")) {
+                        jQuery(".image-selection:first").parent().trigger("click");
+                    }
+                    else {
+                        var errorObj = new impError.ErrorHandle.ErrorJQ();
+                        errorObj.ActionSuccess("<span style='font-size:x-small;'>No More Parent Objects</span>");
+                    }
                     return false;
                 });
                 jQuery(".button-move-left").unbind("click");

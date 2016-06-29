@@ -166,9 +166,7 @@ export module Text {
             }
 
         }
-
-
-
+        
         //jQuery(document).ready(function () {
         //    if (isTextJQReady == false) {
         //        isTextJQReady = true;
