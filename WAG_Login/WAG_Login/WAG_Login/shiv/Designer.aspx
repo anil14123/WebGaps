@@ -237,7 +237,8 @@
 
         <span class="row-controls inline-controls" style="display: inline;">
             <span title="Select Parent Container" class="design-square-column  jq-select-parent">Select Parent</span>
-           <%-- <span class="design-square-row">Row</span>--%>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Row :</span>
+            <%--<span class="design-square-row">Row</span>--%>
              <span class="columns-add-text">
             <button title="Add Row Up" class="jq-prev-row btn btn-xs btn-danger"><span class="up fa fa-caret-up  up-down-icons" style="font-size:10px;color:white;"></span> +</button>
             <button title="Add Row Down" class="jq-next-row btn btn-xs btn-danger"><span class="down fa fa-caret-down up-down-icons" style="font-size:10px;color:white;"></span> +</button>
@@ -252,9 +253,11 @@
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns :</span>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa fa-chevron-left ">+</span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa fa-chevron-right-my ">+</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Column:</span>
+            <%--fa-chevron-left--%>
+            <%--fa-chevron-right-my--%>
+            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa ">+ Left</span>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa  ">Right +</span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
@@ -264,9 +267,9 @@
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns :</span>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger  fa fa-chevron-left ">+</span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger  fa fa-chevron-right-my ">+</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Column:</span>
+            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger   ">+ Left </span>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger   ">Right +</span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">
