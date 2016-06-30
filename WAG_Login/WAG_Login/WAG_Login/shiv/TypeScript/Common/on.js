@@ -69,12 +69,12 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/Wat
                 });
                 jQuery(".jq-select-parent").unbind("click");
                 jQuery(".jq-select-parent").on("click", function () {
-                    if (!jQuery(".image-selection:first").hasClass("root-elements")) {
+                    if (!jQuery(".image-selection:first").hasClass("root-elements") && !jQuery(".image-selection:first").parent().hasClass("page-margin")) {
                         jQuery(".image-selection:first").parent().trigger("click");
                     }
                     else {
                         var errorObj = new impError.ErrorHandle.ErrorJQ();
-                        errorObj.ActionSuccess("<span style='font-size:x-small;'>No More Parent Objects</span>");
+                        errorObj.ActionSuccess("<span style='font-size:x-small;'>No more parent objects</span>");
                     }
                     return false;
                 });
@@ -149,4 +149,4 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/Wat
         On.Code = Code;
     })(On = exports.On || (exports.On = {}));
 });
-//# sourceMappingURL=on.js.map
+//# sourceMappingURL=On.js.map
