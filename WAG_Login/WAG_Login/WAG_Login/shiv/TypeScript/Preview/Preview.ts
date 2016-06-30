@@ -17,7 +17,7 @@ export module Preview {
 
                         jQuery("page").removeClass("preview");
                         jQuery("page").addClass("no-preview");
-
+                       
                         PreviewJQ.ClosePreview();
                     });
 
@@ -25,6 +25,8 @@ export module Preview {
 
                         jQuery("page").removeClass("no-preview");
                         jQuery("page").addClass("preview");
+                       
+
                         if (jQuery(".control-templates").css("display") =="none") {
 
                             jQuery(".editor").attr("style", " display: none !important;");

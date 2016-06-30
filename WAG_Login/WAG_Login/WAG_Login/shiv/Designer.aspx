@@ -251,11 +251,11 @@
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Column:</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns:</span>
             <%--fa-chevron-left--%>
             <%--fa-chevron-right-my--%>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa ">+ Left</span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa  ">Right +</span>
+           <%-- <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa ">+ Left</span>--%>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa  ">&nbsp;+&nbsp;</span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
@@ -265,9 +265,9 @@
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
 
-            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Add Column:</span>
-            <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger   ">+ Left </span>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger   ">Right +</span>
+            <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns:</span>
+           <%-- <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger   ">+ Left </span>--%>
+            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger">&nbsp;+&nbsp;</span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">

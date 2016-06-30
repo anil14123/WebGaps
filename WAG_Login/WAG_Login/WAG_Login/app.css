@@ -15,6 +15,10 @@
     font-weight: bold;
 }
 
+.dragging * {
+    cursor:pointer !important;
+}
+
 .page-static-element-circle {
     display: inline-block;
     width: 10px;
@@ -290,6 +294,15 @@ page .design-column {
 .preview *{
     cursor:initial !important;
 }
+
+.preview .design-page-row{
+    display:none !important;
+}
+
+.preview .image-selection{
+    box-shadow :none !important;
+}
+
 
 
 .design-empty-css {

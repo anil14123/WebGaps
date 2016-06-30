@@ -267,6 +267,8 @@ export module Watch {
                     pageRowControl.addClass("rc-back-white");
                 }
 
+                rowControlWidth = jQuery("#design-page-row").outerWidth(true) -7;
+
                 while (pageRowControlLeft + rowControlWidth > pageWidth) {
 
                     columni++;
@@ -327,6 +329,8 @@ export module Watch {
                     if (pageRowControlLeft + rowControlWidth > pageWidth) {
                         pageRowControl.addClass("rc-back-white");
                     }
+
+                    rowControlWidth = jQuery("#design-page-row").outerWidth(true) - 7;
 
                     while (pageRowControlLeft + rowControlWidth > pageWidth) {
 
@@ -396,6 +400,8 @@ export module Watch {
                         if (pageRowControlLeft + rowControlWidth > pageWidth) {
                             pageRowControl.addClass("rc-back-white");
                         }
+
+                        rowControlWidth = jQuery("#design-page-row").outerWidth(true) - 7;
 
                         while (pageRowControlLeft + rowControlWidth > pageWidth) {
 
@@ -1001,6 +1007,8 @@ export module Watch {
                                 pageRowControl.addClass("rc-back-white");
                             }
 
+                            rowControlWidth = jQuery("#design-page-row").outerWidth(true);
+
                             while (pageRowControlLeft + rowControlWidth > pageWidth) {
 
                                 columni++;
@@ -1038,14 +1046,14 @@ export module Watch {
 
                                     pageRowControl.find(".selected-object").text("Text Block Selected");
                                     pageRowControl.find(".text-controls").show();
-                                    rowControlWidth = 460;
+                                   // rowControlWidth = jQuery("#design-page-row").outerWidth(true);
                                 }
                                 else
                                     if (MouseJQ.selectedElement.hasClass("empty-container-image")) {
 
                                         pageRowControl.find(".selected-object").text("Image Selected");
                                         pageRowControl.find(".image-controls").show();
-                                        rowControlWidth = 510;
+                                      //  rowControlWidth = jQuery("#design-page-row").outerWidth(true);
                                     }
 
                                 pageRowControl.css("left", "0");
@@ -1070,6 +1078,8 @@ export module Watch {
                                 if (pageRowControlLeft + rowControlWidth > pageWidth) {
                                     pageRowControl.addClass("rc-back-white");
                                 }
+
+                                rowControlWidth = jQuery("#design-page-row").outerWidth(true);
 
                                 while (pageRowControlLeft + rowControlWidth > pageWidth) {
 
@@ -1122,6 +1132,8 @@ export module Watch {
                                     var pageRowControlLeft = pageRowControl.offset().left;
 
                                     var rowi = 0;
+
+                                    rowControlWidth = jQuery("#design-page-row").outerWidth(true);
 
                                     if (pageRowControlLeft + rowControlWidth > pageWidth) {
                                         pageRowControl.addClass("rc-back-white");

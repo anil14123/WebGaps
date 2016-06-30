@@ -89,7 +89,7 @@ export module JQueryUI {
                     jQuery(ui.helper).removeClass("jq-dragging");
 
                     jQuery("page").removeClass("dragging");
-
+                    
                     CommonCode.droppableCount = 2; //old 0
 
 
