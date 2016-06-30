@@ -17,7 +17,8 @@ export module Preview {
 
                         jQuery("page").removeClass("preview");
                         jQuery("page").addClass("no-preview");
-                       
+                        jQuery(".design-page-row").removeClass("hide");
+
                         PreviewJQ.ClosePreview();
                     });
 
@@ -25,7 +26,7 @@ export module Preview {
 
                         jQuery("page").removeClass("no-preview");
                         jQuery("page").addClass("preview");
-                       
+                        jQuery(".design-page-row").addClass("hide");
 
                         if (jQuery(".control-templates").css("display") =="none") {
 

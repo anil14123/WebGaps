@@ -13,11 +13,13 @@ define(["require", "exports", "jquery"], function (require, exports, jQuery) {
                         jQuery(".close-preview").on("click", function () {
                             jQuery("page").removeClass("preview");
                             jQuery("page").addClass("no-preview");
+                            jQuery(".design-page-row").removeClass("hide");
                             PreviewJQ.ClosePreview();
                         });
                         jQuery(".show-preview").on("click", function () {
                             jQuery("page").removeClass("no-preview");
                             jQuery("page").addClass("preview");
+                            jQuery(".design-page-row").addClass("hide");
                             if (jQuery(".control-templates").css("display") == "none") {
                                 jQuery(".editor").attr("style", " display: none !important;");
                                 jQuery(".circle-deg").remove(); // remove selected object 4 corner circles.
