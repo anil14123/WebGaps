@@ -303,7 +303,9 @@ page .design-column {
     box-shadow :none !important;
 }
 
-
+.circle-deg{
+    display:none !important;
+}
 
 .design-empty-css {
     margin-left: 10px;
