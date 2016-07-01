@@ -1,4 +1,4 @@
-define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ", "jquery", "jqueryui"], function (require, exports, impJQueryUI, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage, jQuery, jQueryUI) {
+define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManager", "../Themes/EmptyLayout/EmptyLayoutJQ", "../_Classes/Auth", "../Error/ErrorJQ", "../Common/on", "../_Classes/SaveJq", "../MalFormed/MalFormedJQ", "../Controls/NoUi", "../Controls/ImageJQ", "../Watch/CopyPasteJQ", "jquery", "jqueryui"], function (require, exports, impJQueryUI, impUndoManager, impLayout, impAuth, impError, impOn, impSaveClass, impmal, impNoUi, impImage, impCopy, jQuery, jQueryUI) {
     "use strict";
     jQueryUI;
     var themeHandle;
@@ -148,6 +148,16 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                     }
                     catch (ex) {
                     }
+                });
+                ///////////////////////////////////////////
+                jQuery(".jq-copy").on("click", function () {
+                    impCopy.CopyPaste.CopyPasteJQ.Copy();
+                    return false;
+                });
+                jQuery(".jq-copy-column").on("click", function () {
+                    var errorObj = new impError.ErrorHandle.ErrorJQ();
+                    errorObj.ActionHelp("You cannot copy column !<br>You can copy row.");
+                    return false;
                 });
                 ///////////// change image ////////////////
                 jQuery(".jq-change-image").on("click", function () {

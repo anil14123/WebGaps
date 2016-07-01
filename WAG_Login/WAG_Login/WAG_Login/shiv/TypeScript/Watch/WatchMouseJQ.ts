@@ -943,26 +943,40 @@ export module Watch {
                                     e.preventDefault();
                                     jQuery(".jq-redo").click();
                                     return false;
+                                   
+
+                                case 'c':
+
+                                    try {
+                                        console.log("ctrl + c pressed");
+                                    }
+                                    catch (ex) {
+
+                                    }
+
+                                    impCopy.CopyPaste.CopyPasteJQ.Copy();
+
+                                    e.preventDefault();
+                                    return false;
+                                case 'v':
+                                    try {
+                                    }
+                                    catch (Ex) {
+                                    }
+
+                                    if (MouseJQ.selectedElement.hasClass("column")) {
+                                        impCopy.CopyPaste.CopyPasteJQ.Paste(true);
+                                    }
+                                    else {
+                                        var eh = new impError.ErrorHandle.ErrorJQ();
+
+                                        eh.ActionHelp("Please select a [Column] to paste.");
+                                    }
+
+                                    e.preventDefault();
+                                    return false;
+                                    
                             }
-                        }
-
-                    });
-
-                    jQuery("page").bind('copy', function () {
-
-
-                        impCopy.CopyPaste.CopyPasteJQ.Copy();
-                    });
-
-                    jQuery("page").bind('paste', function () {
-
-                        if (MouseJQ.selectedElement.hasClass("column")) {
-                            impCopy.CopyPaste.CopyPasteJQ.Paste(true);
-                        }
-                        else {
-                            var eh = new impError.ErrorHandle.ErrorJQ();
-
-                            eh.ActionHelp("Please select a [Column] to paste.");
                         }
 
                     });

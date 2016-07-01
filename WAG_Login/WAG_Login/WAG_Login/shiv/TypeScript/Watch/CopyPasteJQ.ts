@@ -223,38 +223,16 @@ export module CopyPaste {
 
             if (selecedElement != undefined) {
 
-                if (!selecedElement.hasClass("root-elements")) {
+                ////compulsary.. retain previous height
+                //selecedElement.removeClass("image-selection");
 
-                    //compulsary.. retain previous height
-                    selecedElement.removeClass("image-selection");
+                impCommonCode.ControlCommon.Code.DestroyResizable();
+                
+                CopiedElement = selecedElement.clone();;
 
-                    impCommonCode.ControlCommon.Code.DestroyResizable();
+                impCommonCode.ControlCommon.Code.DestroyResizable();
+                impCommonCode.ControlCommon.Code.Execute();
 
-                    if (selecedElement.hasClass("jq-image-block-image")) {
-                        CopiedElement = selecedElement.closest(".jq-plus-container").clone();
-                    }
-                    else
-                        if (selecedElement.hasClass("jqte")) {
-                            CopiedElement = selecedElement.closest(".jq-plus-container").clone();
-                        }
-                        else {
-                            CopiedElement = selecedElement.clone();;
-                        }
-
-                    impCommonCode.ControlCommon.Code.DestroyResizable();
-                    impCommonCode.ControlCommon.Code.Execute();
-
-
-
-                }
-                else {
-                    CopiedElement = jQuery("#noelement--x");
-
-                    var errorHandler = new impError.ErrorHandle.ErrorJQ();
-
-                    errorHandler.ActionSuccess("You can only copy Text , Image.");
-
-                }
             }
         }
 
@@ -276,7 +254,7 @@ export module CopyPaste {
 
                     CopiedElement.each(function (index, $this) {
 
-                        if (jQuery($this).hasClass("image-text-other")) {
+                        if (jQuery($this).hasClass("image-text-other") || jQuery($this).hasClass("row")) {
 
                             if (!jQuery.contains(jQuery($this)[0], selecedElement[0])) {
                                 jQuery($this).children(".ui-resizable-handle").css("margin", 0 + "px");

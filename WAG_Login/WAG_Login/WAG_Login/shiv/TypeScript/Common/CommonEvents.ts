@@ -18,6 +18,8 @@ import impmal = require("../MalFormed/MalFormedJQ");
 import impNoUi = require("../Controls/NoUi");
 import impImage = require("../Controls/ImageJQ");
 
+import impCopy = require("../Watch/CopyPasteJQ");
+
 import * as jQuery from "jquery";
 import * as jQueryUI from "jqueryui";
 jQueryUI;
@@ -205,7 +207,26 @@ export module Common {
                 catch (ex) {
 
                 }                
-            });            
+            });  
+
+            ///////////////////////////////////////////
+
+            jQuery(".jq-copy").on("click", function () {
+
+                impCopy.CopyPaste.CopyPasteJQ.Copy();
+
+                return false;
+            });
+
+
+            jQuery(".jq-copy-column").on("click", function () {
+
+                var errorObj = new impError.ErrorHandle.ErrorJQ();
+
+                errorObj.ActionHelp("You cannot copy column !<br>You can copy row.");
+
+                return false;
+            });
 
             ///////////// change image ////////////////
 

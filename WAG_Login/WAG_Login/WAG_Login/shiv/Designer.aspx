@@ -11,7 +11,7 @@
     <meta http-equiv="Pragma" content="no-cache">
 
     <title>Kick</title>
-
+     
     <%--  <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
 
     <script src="/Library/jquery-ui.js"></script>--%>
@@ -244,18 +244,23 @@
              <span title="Move Row Left" class="button-move-left btn btn-xs btn-danger fa fa-chevron-left " style="font-size: xx-small; padding: 3px;"></span>
                 <span title="Move Row Right" style="font-size: xx-small; padding: 3px;" class="button-move-right btn btn-xs btn-danger fa fa-chevron-right "></span></span>
             &nbsp;
-            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">Add Column</button>
+
+              <span style="color: darkblue; font-weight: bold;">Columns :</span>
+            <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">+</button>
+
+            <span title="Copy" class="btn btn-xs btn-danger jq-copy">Copy</span>
         </span>
         <span class="text-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
             <span title="Select Column Container" class="design-square-column jq-select-column">Select Column</span>
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
-
+           
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns:</span>
             <%--fa-chevron-left--%>
             <%--fa-chevron-right-my--%>
            <%-- <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs btn-danger fa ">+ Left</span>--%>
             <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs btn-danger fa  ">&nbsp;+&nbsp;</span>
+             <span title="Copy" class="btn btn-xs btn-danger jq-copy">Copy</span>
         </span>
         <span class="image-controls inline-controls" style="display: none;">
             <span title="Select Row Container" class="design-square-row  jq-select-row">Select Row</span>
@@ -264,10 +269,12 @@
             <span title="Change Image" class="btn btn-xs btn-danger jq-change-image">Change Image</span>
 
             <span title="Remove Height & Width" class="btn btn-xs btn-danger jq-remove-height-width">Remove H X W</span>
-
+          
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns:</span>
            <%-- <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger   ">+ Left </span>--%>
             <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger">&nbsp;+&nbsp;</span>
+
+              <span title="Copy" class="btn btn-xs btn-danger jq-copy">Copy</span>
         </span>
 
         <span class="column-controls inline-controls" style="display: none;">
@@ -283,7 +290,11 @@
 
              <span style="color: darkblue; font-weight: bold;">Columns :
             <button title="Add Column" class="jq-add-column btn btn-xs btn-danger">+</button>
+
+                
              </span>
+
+             <span title="Copy" style="background-color: #a2a1a1; color: white;" class="btn btn-xs btn-default jq-copy-column">Copy</span>
         </span>
 
         <span class="selected-object"></span>

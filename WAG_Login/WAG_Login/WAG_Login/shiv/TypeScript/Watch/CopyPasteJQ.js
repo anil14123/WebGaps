@@ -144,28 +144,13 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 isCut = false;
                 var selecedElement = impWatch.Watch.MouseJQ.selectedElement;
                 if (selecedElement != undefined) {
-                    if (!selecedElement.hasClass("root-elements")) {
-                        //compulsary.. retain previous height
-                        selecedElement.removeClass("image-selection");
-                        impCommonCode.ControlCommon.Code.DestroyResizable();
-                        if (selecedElement.hasClass("jq-image-block-image")) {
-                            CopiedElement = selecedElement.closest(".jq-plus-container").clone();
-                        }
-                        else if (selecedElement.hasClass("jqte")) {
-                            CopiedElement = selecedElement.closest(".jq-plus-container").clone();
-                        }
-                        else {
-                            CopiedElement = selecedElement.clone();
-                            ;
-                        }
-                        impCommonCode.ControlCommon.Code.DestroyResizable();
-                        impCommonCode.ControlCommon.Code.Execute();
-                    }
-                    else {
-                        CopiedElement = jQuery("#noelement--x");
-                        var errorHandler = new impError.ErrorHandle.ErrorJQ();
-                        errorHandler.ActionSuccess("You can only copy Text , Image.");
-                    }
+                    ////compulsary.. retain previous height
+                    //selecedElement.removeClass("image-selection");
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
+                    CopiedElement = selecedElement.clone();
+                    ;
+                    impCommonCode.ControlCommon.Code.DestroyResizable();
+                    impCommonCode.ControlCommon.Code.Execute();
                 }
             };
             CopyPasteJQ.Paste = function (isFromKeyboard) {
@@ -179,7 +164,7 @@ define(["require", "exports", "./WatchMouseJQ", "../Error/ErrorJQ", "../Controls
                 if (selecedElement != undefined) {
                     if (selecedElement.hasClass("column") || selecedElement.hasClass("image-text-other")) {
                         CopiedElement.each(function (index, $this) {
-                            if (jQuery($this).hasClass("image-text-other")) {
+                            if (jQuery($this).hasClass("image-text-other") || jQuery($this).hasClass("row")) {
                                 if (!jQuery.contains(jQuery($this)[0], selecedElement[0])) {
                                     jQuery($this).children(".ui-resizable-handle").css("margin", 0 + "px");
                                     impOperaction.Operation.AfterOperationJQ.Execute();
