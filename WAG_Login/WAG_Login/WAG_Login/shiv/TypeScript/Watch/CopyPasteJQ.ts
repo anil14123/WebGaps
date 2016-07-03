@@ -254,13 +254,17 @@ export module CopyPaste {
 
                     CopiedElement.each(function (index, $this) {
 
-                        if (jQuery($this).hasClass("image-text-other") || jQuery($this).hasClass("row")) {
+                        if (jQuery($this).hasClass("image-text-other") || jQuery($this).hasClass("row") || jQuery($this).hasClass("column")) {
 
                             if (!jQuery.contains(jQuery($this)[0], selecedElement[0])) {
                                 jQuery($this).children(".ui-resizable-handle").css("margin", 0 + "px");
 
                                 impOperaction.Operation.AfterOperationJQ.Execute();
 
+                                if (jQuery($this).hasClass("column")) {
+
+                                }
+                                else
                                 if (selecedElement.hasClass("column")) {
                                     if (isFromKeyboard == false && impWatch.Watch.MouseJQ.nearestElement != undefined && impWatch.Watch.MouseJQ.nearestElement.length > 0) {
                                         impWatch.Watch.MouseJQ.nearestElement.after(jQuery($this));

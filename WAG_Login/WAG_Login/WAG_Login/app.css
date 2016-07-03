@@ -508,7 +508,21 @@ page .design-column {
     /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
    
     /*box-shadow: 0 0 7px 1px #4F79C5;*/
-    box-shadow: 0 0 0 10px rgba(79, 121, 197, 0.71);
+    box-shadow: 0 0 0 10px rgba(79, 121, 197, 0.71) !important;
+    /*-o-border-image: url('Content/border-image.png') 30 round;
+    -moz-border-image: url('Content/border-image.png') 30 round;
+    -webkit-border-image: url('Content/border-image.png') 30 round;
+    border-image: url('Content/border-image.png') 30 round;*/
+    /*border-style:ridge;
+     border-color:white;
+     border-width:1px;*/
+}
+
+.row-selection {
+    /*border: 4px dashed rgba(0, 0, 0, 0.45);*/
+   
+    /*box-shadow: 0 0 7px 1px #4F79C5;*/
+    box-shadow: 0 0 0 2px #337ab7;
     /*-o-border-image: url('Content/border-image.png') 30 round;
     -moz-border-image: url('Content/border-image.png') 30 round;
     -webkit-border-image: url('Content/border-image.png') 30 round;

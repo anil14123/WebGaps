@@ -179,6 +179,11 @@ export module Watch {
                 MouseJQ.selectedElement = jQuery("#noelement");
             }
 
+            jQuery(".row-selection").removeClass("row-selection");
+
+            
+            MouseJQ.selectedElement.closest(".row").addClass("row-selection");
+
             ////////// detecting selected object///////
 
             if (MouseJQ.selectedElement.hasClass("column")) {
@@ -982,8 +987,6 @@ export module Watch {
                     });
 
                     jQuery("#refresh-image-text-controls-position").on("click", function () {
-
-
 
                         if (MouseJQ.selectedElement.hasClass("column") == true) {
                             jQuery("#design-page-row").hide();
