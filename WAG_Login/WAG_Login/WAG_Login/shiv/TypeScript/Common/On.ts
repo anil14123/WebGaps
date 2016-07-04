@@ -44,8 +44,7 @@ export module On {
                 }
             });
         }
-
-
+        
         public static BindPlus() {
 
             //// plus for row /////////
@@ -58,7 +57,17 @@ export module On {
             jQuery(".jq-prev-row").unbind("click");
             jQuery(".jq-prev-row").on("click", function () {
 
-                var currentRow = jQuery(".image-selection:first").closest(".row");
+                var selectedElement = jQuery(".image-selection:first");
+                var currentRow;
+
+                if (selectedElement.hasClass("column")) {
+                    currentRow = selectedElement.closest(".row");
+                }
+                else
+                    if (selectedElement.hasClass("row") || selectedElement.hasClass("image-text-other")) {
+                        currentRow = selectedElement;
+                    }
+                   
 
                 var anyjq = new impAny.Page.AnyJQ("");
 
@@ -80,7 +89,16 @@ export module On {
             jQuery(".jq-next-row").unbind("click");
             jQuery(".jq-next-row").on("click", function () {
 
-                var currentRow = jQuery(".image-selection:first").closest(".row");
+                var selectedElement = jQuery(".image-selection:first");
+                var currentRow;
+
+                if (selectedElement.hasClass("column")) {
+                    currentRow = selectedElement.closest(".row");
+                }
+                else
+                    if (selectedElement.hasClass("row") || selectedElement.hasClass("image-text-other")) {
+                        currentRow = selectedElement;
+                    }
 
                 var anyjq = new impAny.Page.AnyJQ("");
 

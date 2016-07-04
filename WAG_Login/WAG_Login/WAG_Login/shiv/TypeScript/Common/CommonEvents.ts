@@ -91,6 +91,13 @@ export module Common {
                     var errorHandler = new impError.ErrorHandle.ErrorJQ();
 
                     errorHandler.ActionSuccess("Images Uploaded Sucessfully.");
+
+                    //// open gallery....
+                    //jQuery("#control-image-library").addClass("control-active");
+                    //jQuery("#control-image-library").show();
+                    //jQuery(".action-button-insert-image").show();
+                    //jQuery(".action-button-change-image").hide();
+                    //jQuery("#control-image-library").trigger('custom_loaded');
                   
                 },
                 error: function (request, status, error) {
@@ -488,9 +495,7 @@ export module Common {
                     ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;}" +
                     " .image-text-other .adjust-image-text-other-left{ float: left; } body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
                     "</style>";
-
-                jQuery(".image-selection").removeClass("image-selection");
-
+                               
                 jQuery(".add-to-page").each(function () {
 
                     if (jQuery(this).prop("tagName") == "SCRIPT") {

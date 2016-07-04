@@ -35,7 +35,14 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/Wat
                 });
                 jQuery(".jq-prev-row").unbind("click");
                 jQuery(".jq-prev-row").on("click", function () {
-                    var currentRow = jQuery(".image-selection:first").closest(".row");
+                    var selectedElement = jQuery(".image-selection:first");
+                    var currentRow;
+                    if (selectedElement.hasClass("column")) {
+                        currentRow = selectedElement.closest(".row");
+                    }
+                    else if (selectedElement.hasClass("row") || selectedElement.hasClass("image-text-other")) {
+                        currentRow = selectedElement;
+                    }
                     var anyjq = new impAny.Page.AnyJQ("");
                     var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, true);
                     if (addedRow != undefined && addedRow.length > 0) {
@@ -47,7 +54,14 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/Wat
                 });
                 jQuery(".jq-next-row").unbind("click");
                 jQuery(".jq-next-row").on("click", function () {
-                    var currentRow = jQuery(".image-selection:first").closest(".row");
+                    var selectedElement = jQuery(".image-selection:first");
+                    var currentRow;
+                    if (selectedElement.hasClass("column")) {
+                        currentRow = selectedElement.closest(".row");
+                    }
+                    else if (selectedElement.hasClass("row") || selectedElement.hasClass("image-text-other")) {
+                        currentRow = selectedElement;
+                    }
                     var anyjq = new impAny.Page.AnyJQ("");
                     var addedRow = anyjq.AddRow(currentRow, "col-xs-48", "", undefined, undefined, false);
                     if (addedRow != undefined && addedRow.length > 0) {
@@ -149,4 +163,4 @@ define(["require", "exports", "../page/anyjq", "../Error/ErrorJQ", "../Watch/Wat
         On.Code = Code;
     })(On = exports.On || (exports.On = {}));
 });
-//# sourceMappingURL=on.js.map
+//# sourceMappingURL=On.js.map
