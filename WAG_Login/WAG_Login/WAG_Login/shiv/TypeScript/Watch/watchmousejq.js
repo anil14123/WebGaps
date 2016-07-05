@@ -646,28 +646,26 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                         jQuery(".jq-save").click();
                                         return false;
                                     case 'z':
-                                        if (!((MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
-                                            && MouseJQ.selectedElement.length == 1
-                                            && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")) {
-                                            try {
-                                                console.log("ctrl + z pressed");
-                                            }
-                                            catch (ex) {
-                                            }
-                                            e.preventDefault();
-                                            jQuery(".jq-undo").click();
-                                            return false;
-                                        }
-                                        break;
+                                    //if (
+                                    //    !((MouseJQ.selectedElement.hasClass("empty-container-text") || MouseJQ.selectedElement.hasClass("jq-plus-container-text"))
+                                    //        && MouseJQ.selectedElement.length == 1
+                                    //        && MouseJQ.selectedElement.find(".jq-text-block-content").css("cursor") == "text")
+                                    //) {
+                                    //    try {
+                                    //        console.log("ctrl + z pressed");
+                                    //    }
+                                    //    catch (ex) {
+                                    //    }
+                                    //    jQuery(".jq-undo").click();
+                                    //}
+                                    //break;
                                     case 'y':
-                                        try {
-                                            console.log("ctrl + y pressed");
-                                        }
-                                        catch (ex) {
-                                        }
-                                        e.preventDefault();
-                                        jQuery(".jq-redo").click();
-                                        return false;
+                                    //try {
+                                    //    console.log("ctrl + y pressed");
+                                    //}
+                                    //catch (ex) {
+                                    //}
+                                    //jQuery(".jq-redo").click();
                                     case 'c':
                                         try {
                                             console.log("ctrl + c pressed");
@@ -675,22 +673,21 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                                         catch (ex) {
                                         }
                                         impCopy.CopyPaste.CopyPasteJQ.Copy();
-                                        e.preventDefault();
-                                        return false;
+                                        return true;
                                     case 'v':
-                                        try {
-                                        }
-                                        catch (Ex) {
-                                        }
-                                        if (MouseJQ.selectedElement.hasClass("column")) {
-                                            impCopy.CopyPaste.CopyPasteJQ.Paste(true);
-                                        }
-                                        else {
-                                            var eh = new impError.ErrorHandle.ErrorJQ();
-                                            eh.ActionHelp("Please select a [Column] to paste.");
-                                        }
-                                        e.preventDefault();
-                                        return false;
+                                        //try {
+                                        //}
+                                        //catch (Ex) {
+                                        //}
+                                        //if (MouseJQ.selectedElement.hasClass("column")) {
+                                        //    impCopy.CopyPaste.CopyPasteJQ.Paste(true);
+                                        //}
+                                        //else {
+                                        //    var eh = new impError.ErrorHandle.ErrorJQ();
+                                        //    eh.ActionHelp("Please select a [Column] to paste.");
+                                        //}
+                                        //e.preventDefault();
+                                        return true;
                                 }
                             }
                         });

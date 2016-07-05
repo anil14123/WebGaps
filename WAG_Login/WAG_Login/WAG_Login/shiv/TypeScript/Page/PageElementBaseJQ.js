@@ -183,8 +183,8 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 //}
                 row.attr("scopeId", rowScopeId);
                 //////////////////////////////////////////////////////////////
-                var nextPlus = "<div class='jq-row-plus-container jq-next-row-container'> <span class='jq-row-plus jq-next-row'> + </span> </div>";
-                var prevPlus = "<div class='jq-row-plus-container jq-prev-row-container'> <span class='jq-row-plus jq-prev-row'> + </span> </div>";
+                //var nextPlus = "<div class='jq-row-plus-container jq-next-row-container'> <span class='jq-row-plus jq-next-row'> + </span> </div>";
+                //var prevPlus = "<div class='jq-row-plus-container jq-prev-row-container'> <span class='jq-row-plus jq-prev-row'> + </span> </div>";
                 if (adjustRow != undefined) {
                     this.AdjustElement(row, adjustRow);
                 }
@@ -198,8 +198,6 @@ define(["require", "exports", "../PageElements/ElementJQ", "../Error/ErrorJQ", "
                 //    + "<span class='selected-object'></span>"
                 //    + "</span>");
                 if (row != undefined) {
-                    row.prepend(prevPlus);
-                    row.append(nextPlus);
                 }
                 this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
                 if (!root.hasClass("key")) {

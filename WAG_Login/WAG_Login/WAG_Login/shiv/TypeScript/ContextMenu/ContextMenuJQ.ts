@@ -132,7 +132,9 @@ export module ContextMenu {
                 }, 5);
 
 
-                e.preventDefault();
+                //if (!(impWatch.Watch.MouseJQ.selectedElement.draggable("option", "disabled") == true)) {
+                    e.preventDefault();
+                //}              
 
                 //var x = e.clientX;
                 //var y = e.clientY;
@@ -190,11 +192,14 @@ export module ContextMenu {
                 }
                 /////////////////
 
-                jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
-                jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
-                jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
+              
+                    jQuery(contextMenu.controlId).css("left", pageX + "px");   // For updating the menu position.
+                    jQuery(contextMenu.controlId).css("top", pageY + "px");    // 
+                    jQuery(contextMenu.controlId).fadeIn(500); //  For bringing the context menu in picture.
+              
                 // To prevent the default context menu.
 
+                
                 e.cancelBubble = false;
             });
         }

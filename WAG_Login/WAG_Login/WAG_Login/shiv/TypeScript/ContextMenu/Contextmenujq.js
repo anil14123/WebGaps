@@ -62,7 +62,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Controls/ControlsJQ",
                         catch (ex) {
                         }
                     }, 5);
+                    //if (!(impWatch.Watch.MouseJQ.selectedElement.draggable("option", "disabled") == true)) {
                     e.preventDefault();
+                    //}              
                     //var x = e.clientX;
                     //var y = e.clientY;
                     //jQuery(".nearest-element").removeClass(".nearest-element");

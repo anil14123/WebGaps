@@ -289,8 +289,8 @@ export module Page {
             row.attr("scopeId", rowScopeId);
             //////////////////////////////////////////////////////////////
 
-            var nextPlus = "<div class='jq-row-plus-container jq-next-row-container'> <span class='jq-row-plus jq-next-row'> + </span> </div>";
-            var prevPlus = "<div class='jq-row-plus-container jq-prev-row-container'> <span class='jq-row-plus jq-prev-row'> + </span> </div>";
+            //var nextPlus = "<div class='jq-row-plus-container jq-next-row-container'> <span class='jq-row-plus jq-next-row'> + </span> </div>";
+            //var prevPlus = "<div class='jq-row-plus-container jq-prev-row-container'> <span class='jq-row-plus jq-prev-row'> + </span> </div>";
 
           
 
@@ -310,8 +310,9 @@ export module Page {
             //    + "</span>");
 
             if (row != undefined) {
-                row.prepend(prevPlus);
-                row.append(nextPlus);
+                //plus element
+                //row.prepend(prevPlus);
+                //row.append(nextPlus);
             }
 
             this.Add(root, row, undefined, undefined, undefined, undefined, beforeAfter);
