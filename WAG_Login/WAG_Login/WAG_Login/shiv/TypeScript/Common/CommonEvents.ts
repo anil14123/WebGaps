@@ -487,14 +487,87 @@ export module Common {
                     "<link class=\"add-to-page\" type= \"text/css\" href= \"theme/theme.css\" rel= \"stylesheet\" type= \"text/css\" />" +
                     "<link class=\"add-to-page\"  href= \"theme/jqplus.css\" rel= \"stylesheet\" />" +
                     " <style> " +
-                    " @media (max-width: 980px) { .page-margin { width: auto !important; } img { height:auto !important; } .empty-container-text {display:table; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:table-cell; height:auto !important; } }  " + 
+                    " @media (max-width: 980px) { .page-margin { width: auto !important; } img { height:auto !important; } .jq-plus-container-image{ height: auto !important; } .empty-container-text {display:table; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:table-cell; height:auto !important; } }  " +
                     " .jq-plus-element { display:none !important; } " +
                     " .jq-row-plus-container { display:none !important; } " +
                     " .row { margin:0; padding:0; clear:both; } .root-elements{ padding:0;} " +
                     " .column { margin:0; padding:0; } " +
                     ".page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;}" +
                     " .image-text-other .adjust-image-text-other-left{ float: left; } body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
-                    "</style>";
+                    "</style>" +
+' <script type="text/javascript"> \
+  \
+function WatchHeight() {  \
+try {  \
+\
+if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { \
+return; \
+} \
+\
+$("page .row").each(function (index, _this) { \
+\
+jQuery(_this).children(".column").each(function () { \
+\
+if ($(this).hasClass("layout-column")) { \
+\
+var layoutHeight = $(this).closest(".row").attr("layout-height");\
+\
+if (layoutHeight == undefined) { \
+layoutHeight = "100px"; \
+} \
+return $(this).css("min-height", layoutHeight).outerHeight(true); \
+} \
+else { \
+return $(this).css("min-height", "50px").outerHeight(true); \
+} \
+}); \
+}); \
+\
+$("page .row").each(function (index, _this) { \
+\
+var heights = jQuery(_this).children(".column").map(function () {  \
+\
+if ($(this).hasClass("layout-column")) { \
+\
+var layoutHeight = $(this).closest(".row").attr("layout-height"); \
+\
+if (layoutHeight == undefined) { \
+layoutHeight = "100px"; \
+} \
+\
+return $(this).css("min-height", layoutHeight).outerHeight(true); \
+} \
+else { \
+return $(this).css("min-height", "50px").outerHeight(true); \
+} \
+}).get(); \
+\
+if (heights.length > 0) { \
+var maxHeight = Math.max.apply(null, heights); \
+var minHeight = Math.min.apply(null, heights); \
+\
+if (maxHeight != minHeight) { \
+if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { \
+return false; \
+} \
+\
+jQuery(_this).children(".column").css("min-height", maxHeight + "px"); \
+\
+}\
+}\
+});\
+\
+\
+}\
+catch (Ex) {\
+}\
+}\
+\
+jQuery(document).ready(function() { WatchHeight(); jQuery(".empty").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } ); \                    \
+</script>';
+                
+                    
+                    ;
                                
                 jQuery(".add-to-page").each(function () {
 

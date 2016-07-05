@@ -11,6 +11,16 @@ page{
     display:block;
 }
 
+@media (max-width: 980px) {
+    img {
+        height: auto !important;
+    }
+
+    .jq-plus-container-image{
+        height: auto !important;
+    }
+}
+
 .page-margin{
     margin:0 auto;
     /*width:980px;*/
