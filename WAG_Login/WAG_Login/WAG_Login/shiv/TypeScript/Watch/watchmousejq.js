@@ -539,6 +539,9 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                             MouseJQ.WatchHeight();
                         });
                         window.setInterval(MouseJQ.WatchHeight, 2000);
+                        jQuery(window).resize(function () {
+                            MouseJQ.WatchHeight();
+                        });
                         jQuery(".prop-sb").click(function () {
                             impAddRow.Page.AddRowJQ.ProcessSelectNotify();
                             var activeSBControl = MouseJQ.GetActiveSidebarControl();

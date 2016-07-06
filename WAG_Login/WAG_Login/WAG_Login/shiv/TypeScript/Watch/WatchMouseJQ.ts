@@ -789,6 +789,10 @@ export module Watch {
 
                     window.setInterval(MouseJQ.WatchHeight, 2000);
 
+                    jQuery(window).resize(function () {
+                        MouseJQ.WatchHeight();
+                    });
+
                     jQuery(".prop-sb").click(function () {
 
                         impAddRow.Page.AddRowJQ.ProcessSelectNotify();
