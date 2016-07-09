@@ -959,6 +959,9 @@
                  <span style="margin-top:3px; position:relative; " class="btn btn-xs btn-danger jq-mobile float-right jq-save-margin">Mobile</span>--%>
 
                 <Page class="add-to-page key page no-preview"  unique-id="0" class="page" >
+
+                    <span id="all-count"></span>
+
            <div class="page-marker design-css">Page</div> 
                     <div class="page-margin design-css design-page-margin">
            

@@ -685,7 +685,17 @@ export module JQueryUI {
 
                     undomanager.BeforeOperation();
 
+                    if (ui.helper.outerWidth(true) > JQueryUI.CommonCode.maxWidthForJustResizable) {
+                        (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
+                    }
 
+                    var parentWidth = ui.helper.closest(".image-text-other").outerWidth(true);
+
+                    var elementWidth = ui.helper.outerWidth(true);
+
+                    var caluclatedWidthPecentage = (elementWidth / parentWidth) * 100;
+
+                    ui.helper.css("width", caluclatedWidthPecentage + "%");
 
                 },
                 resize: function (event, ui) {
@@ -694,6 +704,8 @@ export module JQueryUI {
                     if (ui.helper.outerWidth(true) > JQueryUI.CommonCode.maxWidthForJustResizable) {
                         (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
                     }
+
+
 
                 }
 

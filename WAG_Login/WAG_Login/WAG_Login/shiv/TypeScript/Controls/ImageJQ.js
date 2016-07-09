@@ -29,11 +29,25 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                 this.AttachInsertImage();
             };
             // generate scope id
-            SelfJQ.prototype.GenerateTextBlockScopeId = function () {
-                return "Image_Block_" + ++globalImageBlockId;
+            SelfJQ.prototype.GenerateImageBlockScopeId = function () {
+                if (jQuery("#all-count").attr("image-count") == undefined || jQuery("#all-count").attr("image-count") == "undefined" || jQuery("#all-count").attr("image-count") == "") {
+                    jQuery("#all-count").attr("image-count", "0");
+                }
+                try {
+                    globalImageBlockId = parseInt(jQuery("#all-count").attr("image-count"));
+                    globalImageBlockId++;
+                    jQuery("#all-count").attr("image-count", globalImageBlockId + "");
+                }
+                catch (ex) {
+                }
+                return "Image_Block_" + globalImageBlockId;
             };
             SelfJQ.prototype.GenerateContainerScopeId = function () {
-                return "Image_Block_Container_" + ++globalImageBlockContainerId;
+                return "Image_Block_Container_" + globalImageBlockId;
+            };
+            SelfJQ.prototype.GenerateContainerImageCellScopeId = function () {
+                //First execute GenerateTextBlockScopeId because it will be incrementing this value.
+                return "Image_Block_Cell_" + globalImageBlockId;
             };
             SelfJQ.prototype.AttachSelectImage = function () {
                 jQuery("#control-image-bi-library").on("click", ".image-library-image", function () {
@@ -119,6 +133,7 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                     selectedRowOrColumn = jQuery("#nnnoelement");
                 }
                 if (selectedRowOrColumn != undefined) {
+                    var imageObj = new SelfJQ();
                     var clonedImageBlock = $("#empty-container-image-copy").clone();
                     clonedImageBlock.removeClass("hide");
                     clonedImageBlock.attr("id", "");
@@ -130,16 +145,9 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         imgSrc = url;
                     }
                     clonedImageBlock.find(".jq-image-block-image").attr("src", imgSrc);
-                    ///////////////column scope id for debugging and designer //////
-                    var tbScopeId = imageObj.GenerateTextBlockScopeId();
                     if (debug == true) {
-                        clonedImageBlock.prepend("<span class='debug-image-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
                     }
-                    clonedImageBlock.find(".jq-image-block-image").attr("scopeId", tbScopeId);
-                    /////////////// row scope id for debugging and designer //////
-                    var tbcScopeId = imageObj.GenerateContainerScopeId();
                     if (debug == true) {
-                        clonedImageBlock.append(" <span class='debug-image-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
                     }
                     if (selectedRowOrColumn.hasClass("column") == true
                         || window.smartObj != null) {
@@ -154,6 +162,12 @@ define(["require", "exports", "../Error/ErrorJQ", "../ControlNames/PageControlNa
                         plusContainer.find(".adjust-image-text-other").remove();
                         clonedImageBlock.find(".jq-plus-container-image").css("height", "200px");
                         clonedImageBlock.find(".jq-plus-container-image").css("width", "200px");
+                        var imgScopeId = imageObj.GenerateImageBlockScopeId();
+                        clonedImageBlock.find(".jq-image-block-image").attr("id", imgScopeId).attr("scopeId", imgScopeId);
+                        var imgContainerScopeId = imageObj.GenerateContainerScopeId();
+                        clonedImageBlock.find(".jq-image-block-container").attr("id", imgContainerScopeId).attr("scopeId", imgContainerScopeId);
+                        var imgCellScopeId = imageObj.GenerateContainerImageCellScopeId();
+                        clonedImageBlock.find(".jq-plus-container-image").attr("id", imgCellScopeId).attr("scopeId", imgCellScopeId);
                         if (window.smartObj != null && window.smartObj.currentObj != null && (window.smartObj.currentObj.hasClass("column") || window.smartObj.currentObj.hasClass("empty-drop-element"))) {
                             if (window.smartObj.currentObj.height() <= 200) {
                                 //window.smartObj.currentObj.height()

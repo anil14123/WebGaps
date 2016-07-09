@@ -96,12 +96,36 @@ export module Text {
 
         // generate scope id
         GenerateTextBlockScopeId() {
+
+
+            if (jQuery("#all-count").attr("text-block-count") == undefined || jQuery("#all-count").attr("text-block-count") == "undefined" || jQuery("#all-count").attr("text-block-count") == "") {
+                jQuery("#all-count").attr("text-block-count", "0");
+            }
+
+            try {
+                globalTextBlockId = parseInt(jQuery("#all-count").attr("text-block-count"));
+                globalTextBlockId++;
+                jQuery("#all-count").attr("text-block-count", globalTextBlockId + "");
+            }
+            catch (ex) {
+
+            }
+            
             return "Text_Block_" + ++globalTextBlockId;
         }
 
         GenerateContainerScopeId() {
-            return "Text_Block_Container_" + ++globalTextBoxContainerId;
+
+            //First execute GenerateTextBlockScopeId because it will be incrementing this value.
+            return "Text_Block_Container_" + globalTextBlockId;
         }
+
+        GenerateContainerTextBlockCellScopeId() {
+
+            //First execute GenerateTextBlockScopeId because it will be incrementing this value.
+            return "Text_Block_Cell_" + globalTextBlockId;
+        }
+
 
         public Init() {
 
@@ -122,6 +146,14 @@ export module Text {
 
 
                         });
+
+                        try {
+                            globalTextBlockId = parseInt(jQuery("page").attr("text-block-count"));
+                        }
+                        catch (ex) {
+
+                        }
+                        globalTextBlockId++;
 
                         jQuery(".jq-left-column, .jq-right-column").on("click", function () {
 
@@ -452,26 +484,31 @@ export module Text {
 
                 clonedTextBlock.addClass("empty-container-text");
 
+              
+
                 clonedTextBlock.find(".jq-text-block-content").attr("tabindex", "1").append(sampleText);
-
-                ///////////////column scope id for debugging and designer //////
-                var tbScopeId = textObj.GenerateTextBlockScopeId();
-
+                
                 if (debug == true) {
                     clonedTextBlock.find(".jq-text-block").prepend("<span class='debug-text-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
                 }
 
-                clonedTextBlock.find(".jq-text-block").attr("scopeId", tbScopeId);
 
-                /////////////// row scope id for debugging and designer //////
-                var tbcScopeId = textObj.GenerateContainerScopeId();
+                var tbScopeId = textObj.GenerateTextBlockScopeId();
 
+                clonedTextBlock.find(".jq-text-block").attr("id", tbScopeId).attr("scopeId", tbScopeId);
+                
                 if (debug == true) {
                     clonedTextBlock.append(" <span class='debug-text-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
                 }
 
-                clonedTextBlock.find(".jq-text-block-container").attr("scopeId", tbcScopeId);
+                var tbcScopeId = textObj.GenerateContainerScopeId();
 
+                clonedTextBlock.find(".jq-text-block-container").attr("id", tbcScopeId).attr("scopeId", tbcScopeId);
+
+                var tbccellScopeId = textObj.GenerateContainerTextBlockCellScopeId();
+
+                clonedTextBlock.find(".jq-plus-container-text").attr("id", tbccellScopeId).attr("scopeId", tbccellScopeId);
+                
                 if (selectedRowOrColumn.hasClass("column") == true
                     //|| selectedRowOrColumn.hasClass("empty-container-text")
                     //|| selectedRowOrColumn.hasClass("empty-container-image")

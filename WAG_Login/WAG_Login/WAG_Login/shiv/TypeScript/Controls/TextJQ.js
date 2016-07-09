@@ -29,10 +29,25 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
             };
             // generate scope id
             TextJQ.prototype.GenerateTextBlockScopeId = function () {
+                if (jQuery("#all-count").attr("text-block-count") == undefined || jQuery("#all-count").attr("text-block-count") == "undefined" || jQuery("#all-count").attr("text-block-count") == "") {
+                    jQuery("#all-count").attr("text-block-count", "0");
+                }
+                try {
+                    globalTextBlockId = parseInt(jQuery("#all-count").attr("text-block-count"));
+                    globalTextBlockId++;
+                    jQuery("#all-count").attr("text-block-count", globalTextBlockId + "");
+                }
+                catch (ex) {
+                }
                 return "Text_Block_" + ++globalTextBlockId;
             };
             TextJQ.prototype.GenerateContainerScopeId = function () {
-                return "Text_Block_Container_" + ++globalTextBoxContainerId;
+                //First execute GenerateTextBlockScopeId because it will be incrementing this value.
+                return "Text_Block_Container_" + globalTextBlockId;
+            };
+            TextJQ.prototype.GenerateContainerTextBlockCellScopeId = function () {
+                //First execute GenerateTextBlockScopeId because it will be incrementing this value.
+                return "Text_Block_Cell_" + globalTextBlockId;
             };
             TextJQ.prototype.Init = function () {
                 if (isTextInit == false) {
@@ -46,6 +61,12 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                             isTextJQReady = true;
                             jQuery(".jq-prev-style-text").on("click", function () {
                             });
+                            try {
+                                globalTextBlockId = parseInt(jQuery("page").attr("text-block-count"));
+                            }
+                            catch (ex) {
+                            }
+                            globalTextBlockId++;
                             jQuery(".jq-left-column, .jq-right-column").on("click", function () {
                                 var left = true;
                                 if ($(this).hasClass("jq-right-column")) {
@@ -274,18 +295,18 @@ define(["require", "exports", "./FontJQ", "../Error/ErrorJQ", "../ControlNames/P
                     clonedTextBlock.find(".jq-text-block-content").html("");
                     clonedTextBlock.addClass("empty-container-text");
                     clonedTextBlock.find(".jq-text-block-content").attr("tabindex", "1").append(sampleText);
-                    ///////////////column scope id for debugging and designer //////
-                    var tbScopeId = textObj.GenerateTextBlockScopeId();
                     if (debug == true) {
                         clonedTextBlock.find(".jq-text-block").prepend("<span class='debug-text-block-css debug-css' scopeId='" + tbScopeId + "'> " + tbScopeId + " </span> ");
                     }
-                    clonedTextBlock.find(".jq-text-block").attr("scopeId", tbScopeId);
-                    /////////////// row scope id for debugging and designer //////
-                    var tbcScopeId = textObj.GenerateContainerScopeId();
+                    var tbScopeId = textObj.GenerateTextBlockScopeId();
+                    clonedTextBlock.find(".jq-text-block").attr("id", tbScopeId).attr("scopeId", tbScopeId);
                     if (debug == true) {
                         clonedTextBlock.append(" <span class='debug-text-block-container-css debug-css' scopeId='" + tbcScopeId + "'> " + tbcScopeId + " </span> ");
                     }
-                    clonedTextBlock.find(".jq-text-block-container").attr("scopeId", tbcScopeId);
+                    var tbcScopeId = textObj.GenerateContainerScopeId();
+                    clonedTextBlock.find(".jq-text-block-container").attr("id", tbcScopeId).attr("scopeId", tbcScopeId);
+                    var tbccellScopeId = textObj.GenerateContainerTextBlockCellScopeId();
+                    clonedTextBlock.find(".jq-plus-container-text").attr("id", tbccellScopeId).attr("scopeId", tbccellScopeId);
                     if (selectedRowOrColumn.hasClass("column") == true
                         || (window.smartObj != null && window.smartObj.currentObj != null)) {
                         //ctx.Page.Any.Add(selectedRowOrColumn, jQuery(emptyc), '', undefined, undefined);

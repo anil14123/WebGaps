@@ -63,21 +63,26 @@
 
 .ui-resizable-handle:hover{
     background-color:#0094ff;
+        background-color:rgba(247, 247, 247, 0.77);
 }
 
 .ui-resizable-handle-hover{
      background-color:#0094ff;
+       background-color:rgba(247, 247, 247, 0.77);
 }
 
 .ui-resizable-e {
+    cursor:col-resize;
 }
 
 
 .ui-resizable-se {
+    cursor:nwse-resize;
 }
 
 
 .ui-resizable-s {
+     cursor:row-resize;
 }
 
 .jq-square {
@@ -108,6 +113,10 @@
 
 .adjust-image-text-other-left .jq-square-e{
     left:2px;
+}
+
+.column > .ui-resizable-handle > .jq-square-e {
+    left:0px;
 }
 
 .jq-square-e {
