@@ -366,6 +366,29 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 else if (jQuery(ui.element).data('ui-resizable').axis == "s") {
                 }
             };
+            CommonCode.GetMaxWidth = function (element) {
+                var column = element.closest(".column");
+                var columnWidth = column.outerWidth(true);
+                var imageWidth = element.next().outerWidth(true);
+                var calculateMaxWidth = columnWidth - (imageWidth);
+                var marginR = element.closest(".image-text-other").css("margin-right");
+                var marginL = element.closest(".image-text-other").css("margin-left");
+                var marginRight = 0;
+                var marginLeft = 0;
+                try {
+                    marginRight = parseInt(marginR.replace("px", ""));
+                }
+                catch (ex) {
+                }
+                try {
+                    marginLeft = parseInt(marginL.replace("px", ""));
+                }
+                catch (ex) {
+                }
+                var maxMargin = (marginLeft + marginRight);
+                calculateMaxWidth = calculateMaxWidth - maxMargin;
+                return calculateMaxWidth;
+            };
             CommonCode.JustResizable = function (elementCss, handle) {
                 var handleDefault = "e,se,s";
                 if (handle != undefined && handle != "") {
@@ -379,6 +402,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     start: function (event, ui) {
                         jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
+                        JQueryUI.CommonCode.maxWidthForJustResizable = JQueryUI.CommonCode.GetMaxWidth(ui.element);
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
                     },
                     stop: function (event, ui) {
@@ -394,6 +418,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         undomanager.BeforeOperation();
                     },
                     resize: function (event, ui) {
+                        if (ui.helper.outerWidth(true) > JQueryUI.CommonCode.maxWidthForJustResizable) {
+                            (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
+                        }
                     }
                 });
             };
@@ -947,6 +974,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             CommonCode.DragStopped = true;
             CommonCode.draggableInterval = 0;
             CommonCode.originalHeightBeforeDragStartStr = "";
+            CommonCode.maxWidthForJustResizable = 100;
             return CommonCode;
         }());
         JQueryUI.CommonCode = CommonCode;

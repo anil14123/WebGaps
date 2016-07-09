@@ -595,6 +595,43 @@ export module JQueryUI {
                     }
         }
 
+        public static maxWidthForJustResizable = 100;
+
+        public static GetMaxWidth(element: JQuery) {
+
+            var column = element.closest(".column");
+
+            var columnWidth = column.outerWidth(true);
+
+            var imageWidth = element.next().outerWidth(true);
+
+            var calculateMaxWidth = columnWidth - (imageWidth);
+
+            var marginR = element.closest(".image-text-other").css("margin-right");
+            var marginL = element.closest(".image-text-other").css("margin-left");
+
+            var marginRight = 0;
+            var marginLeft = 0;
+            
+            try {
+                marginRight = parseInt(marginR.replace("px", ""));
+            }
+            catch (ex) {
+            }
+
+            try {
+                marginLeft = parseInt(marginL.replace("px", "")) ;
+            }
+            catch (ex) {
+            }
+
+            var maxMargin = (marginLeft + marginRight);
+
+            calculateMaxWidth = calculateMaxWidth - maxMargin;
+
+            return calculateMaxWidth;
+        }
+
         public static JustResizable(elementCss, handle?) {
 
             var handleDefault = "e,se,s";
@@ -614,6 +651,10 @@ export module JQueryUI {
                     jQuery("page").addClass("resizing");
 
                     var axis = jQuery(ui.element).data('ui-resizable').axis;
+
+
+                    JQueryUI.CommonCode.maxWidthForJustResizable = JQueryUI.CommonCode.GetMaxWidth(ui.element);
+
 
                     jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
 
@@ -650,6 +691,9 @@ export module JQueryUI {
                 resize: function (event, ui) {
 
 
+                    if (ui.helper.outerWidth(true) > JQueryUI.CommonCode.maxWidthForJustResizable) {
+                        (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
+                    }
 
                 }
 

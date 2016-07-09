@@ -293,7 +293,7 @@
             </span>
             <span style="color: darkblue; font-size: xx-small; font-weight: bold;">Columns:</span>
            <%-- <span title="Add Column Left" style="font-size: xx-small; padding: 3px;" class="jq-left-column btn btn-xs  btn-danger   ">+ Left </span>--%>
-            <span title="Add Column Right" style="font-size: xx-small; padding: 3px;" class="jq-right-column btn btn-xs  btn-danger">&nbsp;+&nbsp;</span>
+            <span title="Add Column Right" style="font-size: xx-small; " class="jq-right-column btn btn-xs  btn-danger">+</span>
 
               <span title="Copy" class="btn btn-xs btn-danger jq-copy">Copy</span>
         </span>
