@@ -563,7 +563,7 @@ catch (Ex) {\
 }\
 }\
 \
-jQuery(document).ready(function() { WatchHeight(); jQuery(".empty").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } ); \                    \
+jQuery(document).ready(function() { WatchHeight(); jQuery(".empty.right-column").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } ); \                    \
 </script>';
                 
                     

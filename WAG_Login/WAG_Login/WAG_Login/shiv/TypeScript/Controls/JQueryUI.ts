@@ -240,6 +240,9 @@ export module JQueryUI {
 
             var handleDefault = "e"; //"e,s";//"e,se,s";
 
+            jQuery(".row .column").removeClass("right-column");
+            jQuery(".row .column:last-child").addClass("right-column");
+
             jQuery(".row .column:not(.column:last-child)").each(function () {
 
                 if (jQuery(this).next(".column").length > 0) {
@@ -574,7 +577,13 @@ export module JQueryUI {
 
                     });
                 }
+                else {
+                    jQuery(this).addClass("right-column");
+                }
+               
             });
+
+           
 
         }
 
@@ -689,7 +698,7 @@ export module JQueryUI {
                         (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
                     }
 
-                    var parentWidth = ui.helper.closest(".image-text-other").outerWidth(true);
+                    var parentWidth = ui.helper.closest(".image-text-other").width();
 
                     var elementWidth = ui.helper.outerWidth(true);
 
@@ -961,7 +970,8 @@ export module JQueryUI {
                 distance: 0,
                 start: function (event, ui) {
 
-
+                    jQuery(this).prev().css("width", jQuery(this).prev().width() + "px");
+                   
                     jQuery("page").addClass("resizing");
 
                     var axis = jQuery(ui.element).data('ui-resizable').axis;
@@ -991,6 +1001,18 @@ export module JQueryUI {
                     }
                 },
                 stop: function (event, ui) {
+
+                    ///////////////// adjustment left....
+                    var parentWidth = jQuery(this).prev().closest(".image-text-other").width();
+
+                    var elementWidth = jQuery(this).prev().outerWidth(true);
+
+                    var caluclatedWidthPecentage = (elementWidth / parentWidth) * 100;
+
+                    jQuery(this).prev().css("width", caluclatedWidthPecentage + "%");
+                    ///////////////////////////////////////////////
+
+
 
                     jQuery("page").removeClass("resizing");
 

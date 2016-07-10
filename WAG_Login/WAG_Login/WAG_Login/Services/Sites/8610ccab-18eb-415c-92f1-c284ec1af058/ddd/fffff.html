@@ -1,80 +1,26 @@
-<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> </head><body><script type=" text/javascript" class="add-to-page jquery" src="jquery/jquery-1.11.2.min.js"> </script><link rel="stylesheet" type="text/css" class="add-to-page" href="bootstrap/bootstrap-customzed-48.min.css"><link class="add-to-page" type="text/css" href="theme/theme.css" rel="stylesheet"><link class="add-to-page" href="theme/jqplus.css" rel="stylesheet"> <style>  @media (max-width: 980px) { .page-margin { width: auto !important; } img { height:auto !important; } .jq-plus-container-image{ height: auto !important; } .empty-container-text {display:table; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:table-cell; height:auto !important; } }   .jq-plus-element { display:none !important; }  .jq-row-plus-container { display:none !important; }  .row { margin:0; padding:0; clear:both; } .root-elements{ padding:0;}  .column { margin:0; padding:0; } .page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;} body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}</style> <script type="text/javascript">   function WatchHeight() {  try {  if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { return; } $("page .row").each(function (index, _this) { jQuery(_this).children(".column").each(function () { if ($(this).hasClass("layout-column")) { var layoutHeight = $(this).closest(".row").attr("layout-height");if (layoutHeight == undefined) { layoutHeight = "100px"; } return $(this).css("min-height", layoutHeight).outerHeight(true); } else { return $(this).css("min-height", "50px").outerHeight(true); } }); }); $("page .row").each(function (index, _this) { var heights = jQuery(_this).children(".column").map(function () {  if ($(this).hasClass("layout-column")) { var layoutHeight = $(this).closest(".row").attr("layout-height"); if (layoutHeight == undefined) { layoutHeight = "100px"; } return $(this).css("min-height", layoutHeight).outerHeight(true); } else { return $(this).css("min-height", "50px").outerHeight(true); } }).get(); if (heights.length > 0) { var maxHeight = Math.max.apply(null, heights); var minHeight = Math.min.apply(null, heights); if (maxHeight != minHeight) { if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { return false; } jQuery(_this).children(".column").css("min-height", maxHeight + "px"); }}});}catch (Ex) {}}jQuery(document).ready(function() { WatchHeight(); jQuery(".empty").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } );                     </script><page class="add-to-page key page no-preview" unique-id="0" style="display: block; ">
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> </head><body><script type=" text/javascript" class="add-to-page jquery" src="jquery/jquery-1.11.2.min.js"> </script><link rel="stylesheet" type="text/css" class="add-to-page" href="bootstrap/bootstrap-customzed-48.min.css"><link class="add-to-page" type="text/css" href="theme/theme.css" rel="stylesheet"><link class="add-to-page" href="theme/jqplus.css" rel="stylesheet"> <style>  @media (max-width: 980px) { .page-margin { width: auto !important; } img { height:auto !important; } .jq-plus-container-image{ height: auto !important; } .empty-container-text {display:table; } .jq-text-block-container{max-width:100%;} .jq-text-block-container {height:auto !important;} .jq-plus-container-text{display:table-cell; height:auto !important; } }   .jq-plus-element { display:none !important; }  .jq-row-plus-container { display:none !important; }  .row { margin:0; padding:0; clear:both; } .root-elements{ padding:0;}  .column { margin:0; padding:0; } .page-static-element { display:none !important;} .page-static-element-circle{display:none !important;} .design-adjust-image-text-other{margin:0px;} body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}</style> <script type="text/javascript">   function WatchHeight() {  try {  if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { return; } $("page .row").each(function (index, _this) { jQuery(_this).children(".column").each(function () { if ($(this).hasClass("layout-column")) { var layoutHeight = $(this).closest(".row").attr("layout-height");if (layoutHeight == undefined) { layoutHeight = "100px"; } return $(this).css("min-height", layoutHeight).outerHeight(true); } else { return $(this).css("min-height", "50px").outerHeight(true); } }); }); $("page .row").each(function (index, _this) { var heights = jQuery(_this).children(".column").map(function () {  if ($(this).hasClass("layout-column")) { var layoutHeight = $(this).closest(".row").attr("layout-height"); if (layoutHeight == undefined) { layoutHeight = "100px"; } return $(this).css("min-height", layoutHeight).outerHeight(true); } else { return $(this).css("min-height", "50px").outerHeight(true); } }).get(); if (heights.length > 0) { var maxHeight = Math.max.apply(null, heights); var minHeight = Math.min.apply(null, heights); if (maxHeight != minHeight) { if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { return false; } jQuery(_this).children(".column").css("min-height", maxHeight + "px"); }}});}catch (Ex) {}}jQuery(document).ready(function() { WatchHeight(); jQuery(".empty.right-column").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } );                     </script><page class="add-to-page key page no-preview" unique-id="0" style="display: block; ">
 
                     <span id="all-count" image-count="4" text-block-count="7"></span>
 
            <div class="page-marker design-css" style="display: block;">Page</div> 
                     <div class="page-margin design-css design-page-margin">
            
-                    <div key-css="jq-Header" unique-id="1" style="" scopeid="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header row page-element jqMargin-0 design-row design-root-elements"><span title="Header" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Header row" scopeid="Row_1" layout-height="50px"><div class="layout-column column key column-number-0 column-padding col-xs-48 ui-droppable design-column" style="min-height: 50px;" scopeid="Column_1" column-number="0" xs-column-size="48" key-css="jq-Header column"><span class="debug-column-css debug-css" scopeid="Column_1" style="display: inline;"></span> <div class="row key jqRootRow style-object design-row">
-            <div class="column key style-left-object column-padding col-xs-48 ui-droppable design-column" xs-column-size="48" style="min-height: 50px;  " unique-id="51"><div class="row key jqRootRow style-object design-row row-selection">
-            <div class="column key style-left-object column-padding ui-resizable ui-droppable design-column col-xs-15 ui-resizable-autohide" xs-column-size="15" style="min-height: 113px;"><div class="empty-container-image image-text-other  key design-css ui-draggable ui-draggable-handle ui-droppable design-empty-text-css" style="z-index: 0;  " top="86" bottom="188" left="4">
+                    <div key-css="jq-Header" unique-id="1" style="" scopeid="root-1" class="jq-Header key root-elements  jq-back-Header jq-additional-Header row page-element jqMargin-0 design-row design-root-elements"><span title="Header" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Header row" scopeid="Row_1" layout-height="50px"><div class="layout-column column key column-number-0 column-padding col-xs-48 design-column ui-droppable right-column" style="min-height: 50px;" scopeid="Column_1" column-number="0" xs-column-size="48" key-css="jq-Header column"><span class="debug-column-css debug-css" scopeid="Column_1" style="display: inline;"></span> <div class="row key jqRootRow style-object design-row">
+            <div class="column key style-left-object column-padding col-xs-48 design-column ui-droppable right-column" xs-column-size="48" style="min-height: 50px;  " unique-id="51"><div class="row key jqRootRow style-object design-row">
+            <div class="column key style-left-object column-padding design-column col-xs-48 ui-resizable-autohide ui-droppable right-column" xs-column-size="48" style="min-height: 50px;"><div class="row key jqRootRow style-object design-row row-selection">
+            <div class="column key style-left-object column-padding design-column col-xs-11 ui-resizable ui-droppable ui-resizable-autohide" xs-column-size="11" style="min-height: 172px;"><div class="row key jqRootRow style-object design-row">
+            <div class="column key style-left-object column-padding design-column col-xs-48 ui-resizable-autohide empty ui-droppable right-column" xs-column-size="48" style="min-height: 50px;"><div class="image-text-other empty-drop-element ui-droppable" top="86" bottom="125" left="4"></div></div>
+            
+        </div><div class="row key jqRootRow style-object design-row">
+            <div class="column key style-left-object column-padding design-column col-xs-48 ui-resizable-autohide empty ui-droppable right-column" xs-column-size="48" style="min-height: 50px;"><div class="image-text-other empty-drop-element ui-droppable" top="136" bottom="175" left="4"></div></div>
+            
+        </div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div></div>
+            <div class="column key style-right-object column-padding newly-add-column-for-row-color design-column col-xs-37 ui-droppable right-column" xs-column-size="37" style="min-height: 172px; display: block;"><div class="empty-container-image image-text-other  key design-css ui-draggable ui-draggable-handle design-empty-text-css ui-droppable design-select-element-just-mark control-focused" style="z-index: 0; opacity: 1; position: relative;" top="86" bottom="247" left="312.90625">
         <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
         <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"><div class="jq-square jq-square-s"></div></div></div>
-        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable" style="width: 63.4473%;">
+        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable" style="width: 69.2532%;" percentage="179px">
         <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"><div class="jq-square jq-square-e"></div></div></div>
-        <div class="jq-plus-container-image jpc design-css  ui-resizable design-empty-text-css ui-resizable-autohide" style="height: 102px; width: 238px; min-height: 102px;" id="Image_Block_Cell_1" scopeid="Image_Block_Cell_1">
-
-            <div class="row design-row" style="display: none;">
-                <div class="jq-plus-element">
-                    <span class="jq-plus-prev jq-plus" style="display: block;">+
-                    </span>
-                </div>
-            </div>
-
-            <div class="jq-plus-content jq-plus-element-content jq-plus-element-content-image">
-                <div class="jq-image-block-container design-image-block normal-element jq-container" id="Image_Block_Container_1" scopeid="Image_Block_Container_1">
-                    <div class="jq-image-block design-image-block normal-element">
-                        <div class="jq-image-block-image-wrapper">
-                            <img class="jq-image-block-image normal-element image-element" src="iimages/jguugbampakistan_640.png" id="Image_Block_1" scopeid="Image_Block_1" style="max-height: 102px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="jq-plus-element">
-
-                <span class="jq-plus-next jq-plus" style="display: block;">+
-                </span>
-            </div>
-        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"><div class="jq-square jq-square-se"></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: none;"><div class="jq-square jq-square-s"></div></div></div>
-    </div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div></div>
-            <div class="from-column-add-click column key column-number-3 column-padding empty ui-droppable ui-resizable-autohide design-column col-xs-33 design-select-element-just-mark image-selection control-focused" style="min-height: 113px; display: block;" column-number="3" xs-column-size="33"><div class="image-text-other empty-drop-element ui-droppable" top="86" bottom="188" left="509.375"></div></div>
-        </div><div class="row key jqRootRow style-object design-row">
-            
-            <div class="column key style-right-object column-padding newly-add-column-for-row-color col-xs-48 ui-droppable design-column" xs-column-size="48" style="min-height: 50px; display: block;"><div class="key image-text-other design-css empty-container-text ui-draggable ui-draggable-handle ui-droppable design-empty-text-css" style="font-size: 14px; z-index: 0; opacity: 1; position: relative; margin: 1px 0px 4px 1px;" top="194" bottom="229" left="1">
-        <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
-        <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><div class="jq-square jq-square-s"></div></div></div>
-        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable" style="width: 16.4557%;">
-        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><div class="jq-square jq-square-e"></div></div></div>
-        <div class="jq-plus-container-text jpc design-css ui-resizable-autohide ui-resizable design-empty-text-css" id="Text_Block_Cell_4" scopeid="Text_Block_Cell_4" style="height: 33px; width: 65px; border-radius: 0px; border-width: 7px 0px 0px; color: rgb(149, 55, 52); padding: 1px; min-height: 33px;">
-            <div class="row design-row" style="display: none;">
-                <div class="jq-plus-element">
-                    <span class="jq-plus-prev jq-plus" style="display: block;">+
-                    </span>
-                </div>
-            </div>
-            <div class="jq-plus-content jq-plus-element-content">
-                <div class="jq-text-block-container normal-element jq-container jq-text-block-container-padding design-text-block" id="Text_Block_Container_4" scopeid="Text_Block_Container_4">
-                    <div class="jq-text-block normal-element design-text-block" id="Text_Block_4" scopeid="Text_Block_4" style="cursor: move;"><span class="debug-text-block-css debug-css" scopeid="undefined" style="cursor: move; display: block;"></span> 
-                        <div class="jq-text-block-content jqte-editor current-editor-scope design-jqte_editor" style="cursor: initial;"><h2 style="cursor: move;">logo</h2></div>
-                    </div>
-                </div>
-            </div>
-            <div class="jq-plus-element">
-                <span class="jq-plus-next jq-plus" style="display: block;">+
-                </span>
-            </div>
-        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"><div class="jq-square jq-square-se"></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: none;"><div class="jq-square jq-square-s"></div></div></div>
-     <span class="debug-text-block-container-css debug-css" scopeid="undefined" style="display: none;"></span> </div></div>
-        </div></div>
-            
-        </div></div></div></div>
-
-                    <div key-css="jq-MenuBar" style="" unique-id="2" scopeid="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar  row page-element  jqMargin-0 design-row design-root-elements"><span title="Menu Bar" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-MenuBar row" scopeid="Row_2" layout-height="50px"><div class="col-xs-48 layout-column column key column-number-0 column-padding ui-droppable design-column" style="min-height: 50px;" scopeid="Column_3" column-number="0" xs-column-size="48" key-css="jq-MenuBar column"><span class="debug-column-css debug-css" scopeid="Column_3" style="display: inline;"></span> <div id="" class="empty-container-image image-text-other  key design-css ui-draggable ui-draggable-handle ui-droppable design-empty-text-css" style="z-index: 0;" top="252" bottom="591" left="4">
-        <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
-        <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><div class="jq-square jq-square-s"></div></div></div>
-        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
-        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><div class="jq-square jq-square-e"></div></div></div>
-        <div class="jq-plus-container-image jpc design-css  ui-resizable ui-resizable-autohide design-empty-text-css" style="height: 339px; width: 1369px; min-height: 339px;" id="Image_Block_Cell_4" scopeid="Image_Block_Cell_4">
+        <div class="jq-plus-container-image jpc design-css  design-empty-text-css ui-resizable ui-resizable-autohide" style="height: 161px; width: 317px; min-height: 161px;" id="Image_Block_Cell_4" scopeid="Image_Block_Cell_4">
 
             <div class="row design-row" style="display: none;">
                 <div class="jq-plus-element">
@@ -87,7 +33,7 @@
                 <div class="jq-image-block-container design-image-block normal-element jq-container" id="Image_Block_Container_4" scopeid="Image_Block_Container_4">
                     <div class="jq-image-block design-image-block normal-element">
                         <div class="jq-image-block-image-wrapper">
-                            <img class="jq-image-block-image normal-element image-element" src="iimages/ue3ava8gbanner_desktop_global.jpg" id="Image_Block_4" scopeid="Image_Block_4" style="max-height: 339px;">
+                            <img class="jq-image-block-image normal-element image-element" src="iimages/jguugbampakistan_640.png" id="Image_Block_4" scopeid="Image_Block_4" style="max-height: 161px;">
                         </div>
                     </div>
                 </div>
@@ -98,15 +44,25 @@
                 </span>
             </div>
         <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"><div class="jq-square jq-square-se"></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: none;"><div class="jq-square jq-square-s"></div></div></div>
-    </div></div></div></div>
+    </div></div>
+        </div></div>
+            
+        </div><div class="row key jqRootRow style-object design-row">
+            
+            <div class="column key style-right-object column-padding newly-add-column-for-row-color col-xs-48 design-column empty ui-droppable right-column" xs-column-size="48" style="min-height: 50px; display: block;"><div class="image-text-other empty-drop-element ui-droppable" top="259" bottom="298" left="4"></div></div>
+        </div></div>
+            
+        </div></div></div></div>
+
+                    <div key-css="jq-MenuBar" style="" unique-id="2" scopeid="root-2" class="jq-MenuBar key root-elements jq-back-MenuBar jq-additional-MenuBar  row page-element  jqMargin-0 design-row design-root-elements"><span title="Menu Bar" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-MenuBar row" scopeid="Row_2" layout-height="50px"><div class="col-xs-48 layout-column column key column-number-0 column-padding design-column empty ui-droppable right-column" style="min-height: 50px;" scopeid="Column_3" column-number="0" xs-column-size="48" key-css="jq-MenuBar column"><span class="debug-column-css debug-css" scopeid="Column_3" style="display: inline;"></span> <div class="image-text-other empty-drop-element ui-droppable" top="312" bottom="350" left="4"></div></div></div></div>
 
 
-                    <div key-css="jq-Content" style="" unique-id="3" scopeid="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content  row page-element  jqMargin-0 design-row design-root-elements"><span title="Body" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Content row" scopeid="Row_3" layout-height="500px"><div class="col-xs-48 layout-column column key column-number-0 jq-SideBarLeft jq-back-SideBarLeft jq-additional-SideBarLeft column-padding ui-droppable design-column" style="min-height: 500px; border-radius: 0px; border-width: 1px 0px; border-color: rgb(51, 122, 183) rgb(0, 0, 0); border-style: solid;" scopeid="Column_4" column-number="0" xs-column-size="48" key-css=".jq-jq-SideBarLeft jq-back-SideBarLeft jq-additional-SideBarLeft"><span class="debug-column-css debug-css" scopeid="Column_4" style="display: inline;"></span> <div class="key image-text-other design-css empty-container-text ui-draggable ui-draggable-handle design-select-element-just-mark ui-droppable design-empty-text-css" style="font-size: 14px; z-index: 0; opacity: 1; position: relative;" top="603" bottom="1098" left="4">
+                    <div key-css="jq-Content" style="" unique-id="3" scopeid="root-3" class="clear key root-elements  jq-Content jq-back-Content jq-additional-Content  row page-element  jqMargin-0 design-row design-root-elements"><span title="Body" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Content row" scopeid="Row_3" layout-height="500px"><div class="col-xs-48 layout-column column key column-number-0 jq-SideBarLeft jq-back-SideBarLeft jq-additional-SideBarLeft column-padding design-column ui-droppable right-column" style="min-height: 500px; border-radius: 0px; border-width: 1px 0px; border-color: rgb(51, 122, 183) rgb(0, 0, 0); border-style: solid;" scopeid="Column_4" column-number="0" xs-column-size="48" key-css=".jq-jq-SideBarLeft jq-back-SideBarLeft jq-additional-SideBarLeft"><span class="debug-column-css debug-css" scopeid="Column_4" style="display: inline;"></span> <div class="key image-text-other design-css empty-container-text ui-draggable ui-draggable-handle design-empty-text-css ui-droppable" style="font-size: 14px; z-index: 0; opacity: 1; position: relative;" top="362" bottom="857" left="4">
         <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
         <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><div class="jq-square jq-square-s"></div></div></div>
         <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
         <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><div class="jq-square jq-square-e"></div></div></div>
-        <div class="jq-plus-container-text jpc design-css ui-resizable ui-resizable-autohide design-empty-text-css" id="Text_Block_Cell_5" scopeid="Text_Block_Cell_5" style="width: 985px; height: 495px; min-height: 495px;">
+        <div class="jq-plus-container-text jpc design-css design-empty-text-css ui-resizable ui-resizable-autohide" id="Text_Block_Cell_5" scopeid="Text_Block_Cell_5" style="width: 985px; height: 495px; min-height: 495px;">
             <div class="row design-row" style="display: none;">
                 <div class="jq-plus-element">
                     <span class="jq-plus-prev jq-plus" style="display: block;">+
@@ -128,12 +84,13 @@
      <span class="debug-text-block-container-css debug-css" scopeid="undefined" style="display: none;"></span> </div></div></div></div>
 
 
-                    <div key-css="jq-Footer" style="" unique-id="4" scopeid="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer  row page-element  jqMargin-0 design-row design-root-elements"><span title="Footer" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Footer row" scopeid="Row_4" layout-height="100px"><div class="col-xs-48 layout-column column key column-number-0 column-padding ui-droppable design-column" style="min-height: 100px;" scopeid="Column_5" column-number="0" xs-column-size="48" key-css="jq-Footer column"><span class="debug-column-css debug-css" scopeid="Column_5" style="display: inline;"></span> <div class="key image-text-other design-css empty-container-text ui-draggable ui-draggable-handle ui-droppable design-empty-text-css" style="font-size: 14px; z-index: 0; opacity: 1; position: relative; margin: 6px 4px 4px 200px;" top="1110" bottom="1144" left="200">
-        <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable">
-        <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"><div class="jq-square jq-square-s"></div></div></div>
-        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable">
-        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"><div class="jq-square jq-square-e"></div></div></div>
-        <div class="jq-plus-container-text jpc design-css ui-resizable-autohide ui-resizable design-empty-text-css" id="Text_Block_Cell_8" scopeid="Text_Block_Cell_8">
+                    <div key-css="jq-Footer" style="" unique-id="4" scopeid="root-4" class="jq-Footer key root-elements jq-back-Footer jq-additional-Footer  row page-element  jqMargin-0 design-row design-root-elements"><span title="Footer" class="design-root-elements-static page-static-element-circle"> </span><div class="row key jqRootRow design-row" style="" key-css="jq-Footer row" scopeid="Row_4" layout-height="100px"><div class="col-xs-48 layout-column column key column-number-0 column-padding design-column ui-droppable right-column" style="min-height: 100px;" scopeid="Column_5" column-number="0" xs-column-size="48" key-css="jq-Footer column"><span class="debug-column-css debug-css" scopeid="Column_5" style="display: inline;"></span> <div class="row key jqRootRow style-object design-row">
+            <div class="column key style-left-object column-padding design-column col-xs-16 ui-resizable-autohide ui-resizable ui-droppable" xs-column-size="16" style="min-height: 51px;"><div class="key image-text-other design-css empty-container-text ui-draggable ui-draggable-handle design-empty-text-css ui-droppable" style="font-size: 14px; z-index: 0; opacity: 1; position: relative; margin: 6px 4px 4px 0px;" top="869" bottom="909" left="0">
+        <div class="adjust-image-text-other design-css design-adjust-image-text-other ui-resizable" style="height: 6px; width: 100%;">
+        <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"><div class="jq-square jq-square-s"></div></div></div>
+        <div class="adjust-image-text-other-left design-css design-adjust-image-text-other ui-resizable" style="width: 26.25%;">
+        <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"><div class="jq-square jq-square-e"></div></div></div>
+        <div class="jq-plus-container-text jpc design-css design-empty-text-css ui-resizable-autohide ui-resizable" id="Text_Block_Cell_8" scopeid="Text_Block_Cell_8">
             <div class="row design-row" style="display: none;">
                 <div class="jq-plus-element">
                     <span class="jq-plus-prev jq-plus" style="display: block;">+
@@ -143,7 +100,7 @@
             <div class="jq-plus-content jq-plus-element-content">
                 <div class="jq-text-block-container normal-element jq-container jq-text-block-container-padding design-text-block" id="Text_Block_Container_8" scopeid="Text_Block_Container_8">
                     <div class="jq-text-block normal-element design-text-block" id="Text_Block_8" scopeid="Text_Block_8" style="cursor: move;"><span class="debug-text-block-css debug-css" scopeid="undefined" style="cursor: move; display: block;"></span> 
-                        <div class="jq-text-block-content jqte-editor design-jqte_editor" style="cursor: initial;"><div style="text-align: center; cursor: move;"><b style="font-size: x-large; font-family: Arial, Helvetica, sans-serif; line-height: 1.42857; cursor: move; background-color: transparent;">h<i style="cursor: move;">ome &nbsp; &nbsp; &nbsp;about &nbsp; &nbsp; &nbsp;conta</i>ct</b></div></div>
+                        <div class="jq-text-block-content jqte-editor design-jqte_editor current-editor-scope" style="cursor: initial;"><div style="text-align: center; cursor: move;"><b style="font-size: x-large; font-family: Arial, Helvetica, sans-serif; line-height: 1.42857; cursor: move; background-color: transparent;">h<i style="cursor: move;">ome &nbsp; &nbsp; &nbsp;about &nbsp; &nbsp; &nbsp;conta</i>ct</b></div></div>
                     </div>
                 </div>
             </div>
@@ -152,7 +109,9 @@
                 </span>
             </div>
         <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"><div class="jq-square jq-square-se"></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: none;"><div class="jq-square jq-square-s"></div></div></div>
-     <span class="debug-text-block-container-css debug-css" scopeid="undefined" style="display: none;"></span> </div></div></div></div>
+     <span class="debug-text-block-container-css debug-css" scopeid="undefined" style="display: none;"></span> </div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div></div><div class="from-column-add-click column key design-column column-number-2 column-padding col-xs-16 ui-resizable-autohide ui-resizable empty ui-droppable" style="min-height: 51px;" column-number="2" xs-column-size="16"><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><div class="jq-square jq-square-e"></div></div><div class="image-text-other empty-drop-element ui-droppable" top="869" bottom="909" left="453.328125"></div></div><div class="col-xs-16 from-column-add-click column key design-column column-number-3 column-padding empty ui-droppable right-column" style="min-height: 51px;" column-number="3" xs-column-size="16"><div class="image-text-other empty-drop-element ui-droppable" top="869" bottom="909" left="902.65625"></div></div>
+            
+        </div></div></div></div>
 
 
                         </div> 

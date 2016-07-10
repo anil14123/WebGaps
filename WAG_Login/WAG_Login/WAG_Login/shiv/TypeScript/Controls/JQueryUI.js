@@ -158,6 +158,8 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
             //public static scrollElement: JQuery;
             CommonCode.ResizableColumn = function () {
                 var handleDefault = "e"; //"e,s";//"e,se,s";
+                jQuery(".row .column").removeClass("right-column");
+                jQuery(".row .column:last-child").addClass("right-column");
                 jQuery(".row .column:not(.column:last-child)").each(function () {
                     if (jQuery(this).next(".column").length > 0) {
                         $(this).resizable({
@@ -355,6 +357,9 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             }
                         });
                     }
+                    else {
+                        jQuery(this).addClass("right-column");
+                    }
                 });
             };
             CommonCode.OnResize = function (event, ui) {
@@ -419,7 +424,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         if (ui.helper.outerWidth(true) > JQueryUI.CommonCode.maxWidthForJustResizable) {
                             (ui.helper).width(JQueryUI.CommonCode.maxWidthForJustResizable);
                         }
-                        var parentWidth = ui.helper.closest(".image-text-other").outerWidth(true);
+                        var parentWidth = ui.helper.closest(".image-text-other").width();
                         var elementWidth = ui.helper.outerWidth(true);
                         var caluclatedWidthPecentage = (elementWidth / parentWidth) * 100;
                         ui.helper.css("width", caluclatedWidthPecentage + "%");
@@ -590,6 +595,7 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                     autoHide: true,
                     distance: 0,
                     start: function (event, ui) {
+                        jQuery(this).prev().css("width", jQuery(this).prev().width() + "px");
                         jQuery("page").addClass("resizing");
                         var axis = jQuery(ui.element).data('ui-resizable').axis;
                         jQuery(ui.element).children(".ui-resizable-handle").find(".jq-square-" + axis).parent().addClass("ui-resizable-handle-hover");
@@ -610,6 +616,12 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                         }
                     },
                     stop: function (event, ui) {
+                        ///////////////// adjustment left....
+                        var parentWidth = jQuery(this).prev().closest(".image-text-other").width();
+                        var elementWidth = jQuery(this).prev().outerWidth(true);
+                        var caluclatedWidthPecentage = (elementWidth / parentWidth) * 100;
+                        jQuery(this).prev().css("width", caluclatedWidthPecentage + "%");
+                        ///////////////////////////////////////////////
                         jQuery("page").removeClass("resizing");
                         jQuery(".dummy-div").remove();
                         var height = ui.size.height;
