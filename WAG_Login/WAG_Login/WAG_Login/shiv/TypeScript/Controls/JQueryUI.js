@@ -160,9 +160,29 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                 var handleDefault = "e"; //"e,s";//"e,se,s";
                 jQuery(".row .column").removeClass("right-column");
                 jQuery(".row .column:last-child").addClass("right-column");
-                jQuery(".row .column:not(.column:last-child)").each(function () {
-                    if (jQuery(this).next(".column").length > 0) {
-                        $(this).resizable({
+                //jQuery(".row .column:not(.column:last-child)").each(function () {
+                jQuery(".row .column").each(function () {
+                    var qualified = false;
+                    if (!jQuery(this).is(":last-child")) {
+                        handleDefault = "e";
+                        if (jQuery(this).hasClass("bi-image-added")) {
+                            handleDefault = "e,s";
+                            qualified = true;
+                        }
+                        qualified = true;
+                    }
+                    else {
+                        if (jQuery(this).hasClass("bi-image-added")) {
+                            handleDefault = "s";
+                            qualified = true;
+                        }
+                        else {
+                            qualified = false;
+                        }
+                        jQuery(this).addClass("right-column");
+                    }
+                    if (qualified == true)
+                        jQuery(this).resizable({
                             handles: handleDefault,
                             autoHide: true,
                             distance: 0,
@@ -206,6 +226,10 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                                     var result = CommonCode.commonHeight(height, ui);
                                     commonMethods.RemoveSingleStyle(ui.helper, "height");
                                     // jQuery(ui.helper).css("min-height", height);
+                                    if (ui.helper.hasClass("bi-image-added")) {
+                                        ui.helper.attr("layout-height", height + "px");
+                                        ui.helper.addClass("layout-column-for-background");
+                                    }
                                     jQuery(ui.helper).closest(".row").children(".column").css("min-height", height + "px");
                                     jQuery(ui.helper).closest(".row").children(".column").addClass("height-added");
                                     jQuery(ui.helper).closest(".row").find(".column").not(".height-added").each(function () {
@@ -356,10 +380,6 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../Common/CommonMethodsJ
                             resize: function (event, ui) {
                             }
                         });
-                    }
-                    else {
-                        jQuery(this).addClass("right-column");
-                    }
                 });
             };
             CommonCode.OnResize = function (event, ui) {

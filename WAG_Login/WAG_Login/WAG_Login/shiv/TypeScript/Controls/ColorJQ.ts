@@ -46,6 +46,10 @@ export module Color {
                             selectedElement = selectedElement.find(".jq-plus-container-text");
                         }
 
+                        selectedElement.removeAttr("layout-height");
+                        selectedElement.removeClass("bi-image-added");
+                        selectedElement.removeClass("layout-column-for-background");
+
                         if (selectedElement != undefined) {
 
                             var comm = new impCommon.Common.CommonMethodsJQ();

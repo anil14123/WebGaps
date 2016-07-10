@@ -93,11 +93,16 @@ define(["require", "exports", "../Watch/WatchMouseJQ", "../UndoManager/UndoManag
                                 jQuery("page").css("background-image", "url('" + jQuery(this).val() + "')");
                                 var undo = new impUnodManager.Manager.UndoManager();
                                 undo.BeforeOperation();
+                                jQuery("#control-common-execute").trigger("click");
                             }
                             else if (selectedElement != undefined) {
                                 selectedElement.css("background-image", "url('" + jQuery(this).val() + "')");
+                                if (selectedElement.hasClass("column")) {
+                                    selectedElement.addClass("bi-image-added");
+                                }
                                 var undo = new impUnodManager.Manager.UndoManager();
                                 undo.BeforeOperation();
+                                jQuery("#control-common-execute").trigger("click");
                             }
                         });
                         jQuery(".control-bi-controls .internet-bi-image-url").on("change", function () {

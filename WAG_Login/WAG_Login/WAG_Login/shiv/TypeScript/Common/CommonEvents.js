@@ -334,72 +334,90 @@ define(["require", "exports", "../Controls/JQueryUI", "../UndoManager/UndoManage
                         " body * { cursor:initial !important; } .page-marker{display:none !important;} .design-page-row{display:none !important;}" +
                         "</style>" +
                         ' <script type="text/javascript"> \
-  \
-function WatchHeight() {  \
-try {  \
+                \
+                 public static WatchHeight() {\
+                    try {\
+                \
+                        if(jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {\
+                            return;\
+                        }\
+                \
+                $("page .row").each(function (index, _this) {\
+                \
+                    jQuery(_this).children(".column").each(function () {\
+                \
+                        if ($(this).hasClass("layout-column") || $(this).hasClass("layout-column-for-background")) {\
+                \
+                            var layoutHeight = $(this).closest(".row").attr("layout-height");\
+                \
+                            if (layoutHeight == undefined) {\
+                                layoutHeight = "100px";\
+                            }\
+                \
+                            if ($(this).hasClass("layout-column-for-background")) {\
+                                var layoutHeight = $(this).attr("layout-height");\
+                \
+                                if (layoutHeight == undefined) {\
+                                    layoutHeight = "100px";\
+                                }\
+                            }\
+                \
+                            return $(this).css("min-height", layoutHeight).outerHeight(true);\
+                        }\
+                        else {\
+                            return $(this).css("min-height", "50px").outerHeight(true);\
+                        }\
+                    });\
+                });\
+                \
+            $("page .row").each(function (index, _this) {\
+                \
+                var heights = jQuery(_this).children(".column").map(function () {\
+                \
+                    if ($(this).hasClass("layout-column") || $(this).hasClass("layout-column-for-background")) {\
+                \
+                        var layoutHeight = $(this).closest(".row").attr("layout-height");\
+                \
+                        if (layoutHeight == undefined) {\
+                            layoutHeight = "100px";\
+                        }\
+                \
+                        if ($(this).hasClass("layout-column-for-background")) {\
+                            var layoutHeight = $(this).attr("layout-height");\
+                \
+                            if (layoutHeight == undefined) {\
+                                layoutHeight = "100px";\
+                            }\
+                        }\
+                \
+                        return $(this).css("min-height", layoutHeight).outerHeight(true);\
+                    }\
+                    else {\
+                        return $(this).css("min-height", "50px").outerHeight(true);\
+                    }\
+                }).get();\
+                \
+                if (heights.length > 0) {\
+                    var maxHeight = Math.max.apply(null, heights);\
+                    var minHeight = Math.min.apply(null, heights);\
+                \
+                    if (maxHeight != minHeight) {\
+                        if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) {\
+                            return false;\
+                        }\
+                \
+                        jQuery(_this).children(".column").css("min-height", maxHeight + "px");\
+                \
+                    }\
+                }\
+            });\
+                \
+                \
+        }\
+        catch(Ex) {\
+        }\
+    } \
 \
-if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { \
-return; \
-} \
-\
-$("page .row").each(function (index, _this) { \
-\
-jQuery(_this).children(".column").each(function () { \
-\
-if ($(this).hasClass("layout-column")) { \
-\
-var layoutHeight = $(this).closest(".row").attr("layout-height");\
-\
-if (layoutHeight == undefined) { \
-layoutHeight = "100px"; \
-} \
-return $(this).css("min-height", layoutHeight).outerHeight(true); \
-} \
-else { \
-return $(this).css("min-height", "50px").outerHeight(true); \
-} \
-}); \
-}); \
-\
-$("page .row").each(function (index, _this) { \
-\
-var heights = jQuery(_this).children(".column").map(function () {  \
-\
-if ($(this).hasClass("layout-column")) { \
-\
-var layoutHeight = $(this).closest(".row").attr("layout-height"); \
-\
-if (layoutHeight == undefined) { \
-layoutHeight = "100px"; \
-} \
-\
-return $(this).css("min-height", layoutHeight).outerHeight(true); \
-} \
-else { \
-return $(this).css("min-height", "50px").outerHeight(true); \
-} \
-}).get(); \
-\
-if (heights.length > 0) { \
-var maxHeight = Math.max.apply(null, heights); \
-var minHeight = Math.min.apply(null, heights); \
-\
-if (maxHeight != minHeight) { \
-if (jQuery("page").hasClass("dragging") || jQuery("page").hasClass("resizing")) { \
-return false; \
-} \
-\
-jQuery(_this).children(".column").css("min-height", maxHeight + "px"); \
-\
-}\
-}\
-});\
-\
-\
-}\
-catch (Ex) {\
-}\
-}\
 \
 jQuery(document).ready(function() { WatchHeight(); jQuery(".empty.right-column").addClass("hidden-sm hidden-xs"); window.setInterval(WatchHeight, 2000); jQuery(window).resize( function () { WatchHeight(); } ) } ); \                    \
 </script>';

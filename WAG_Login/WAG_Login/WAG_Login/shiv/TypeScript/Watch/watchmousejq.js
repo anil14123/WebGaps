@@ -491,10 +491,16 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     }
                     $("page .row").each(function (index, _this) {
                         jQuery(_this).children(".column").each(function () {
-                            if ($(this).hasClass("layout-column")) {
+                            if ($(this).hasClass("layout-column") || $(this).hasClass("layout-column-for-background")) {
                                 var layoutHeight = $(this).closest(".row").attr("layout-height");
                                 if (layoutHeight == undefined) {
                                     layoutHeight = "100px";
+                                }
+                                if ($(this).hasClass("layout-column-for-background")) {
+                                    var layoutHeight = $(this).attr("layout-height");
+                                    if (layoutHeight == undefined) {
+                                        layoutHeight = "100px";
+                                    }
                                 }
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }
@@ -505,10 +511,16 @@ define(["require", "exports", "../Common/CommonMethodsJQ", "../Controls/Controls
                     });
                     $("page .row").each(function (index, _this) {
                         var heights = jQuery(_this).children(".column").map(function () {
-                            if ($(this).hasClass("layout-column")) {
+                            if ($(this).hasClass("layout-column") || $(this).hasClass("layout-column-for-background")) {
                                 var layoutHeight = $(this).closest(".row").attr("layout-height");
                                 if (layoutHeight == undefined) {
                                     layoutHeight = "100px";
+                                }
+                                if ($(this).hasClass("layout-column-for-background")) {
+                                    var layoutHeight = $(this).attr("layout-height");
+                                    if (layoutHeight == undefined) {
+                                        layoutHeight = "100px";
+                                    }
                                 }
                                 return $(this).css("min-height", layoutHeight).outerHeight(true);
                             }

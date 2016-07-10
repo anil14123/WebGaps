@@ -92,7 +92,7 @@
     background-color:rgb(182, 255, 0);
     background-color:rgb(238, 238, 238);
     background-color:rgba(255, 255, 255, 0.83);
-    background-color:#5454ee;
+    background-color:#ff6a00;
     opacity:0.5;
 
     /*background-color:white;*/
@@ -119,12 +119,16 @@
     left:0px;
 }
 
+.column > .ui-resizable-handle > .jq-square-s {
+    top:0;
+}
+
 .jq-square-e {
     left: -2px;
     top: 45%;
    
-    left: -5px;
-    left:-5px;
+    left: -3px;
+    left:-3px;
 
    
 
@@ -156,8 +160,8 @@
     top: -1px;
     left: 50%;
 
-    top:-5px;
-    top:-5px;
+    top:-3px;
+    top:-3px;
 
       /*background-image:url(/Content/resize/resize-ver-icon.png);
     background-size:100% 100%;*/
