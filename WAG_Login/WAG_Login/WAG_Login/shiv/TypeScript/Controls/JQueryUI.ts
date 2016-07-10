@@ -619,8 +619,22 @@ export module JQueryUI {
             var marginR = element.closest(".image-text-other").css("margin-right");
             var marginL = element.closest(".image-text-other").css("margin-left");
 
+            var borderR = element.closest(".image-text-other").css("border-right-width");
+            var borderL = element.closest(".image-text-other").css("border-left-width");
+
+
+            var paddingR = element.closest(".image-text-other").css("padding-right");
+            var paddingL = element.closest(".image-text-other").css("padding-left");
+
+
             var marginRight = 0;
             var marginLeft = 0;
+
+            var borderRight = 0;
+            var borderLeft = 0;
+
+            var paddingRight = 0;
+            var paddingLeft = 0;
             
             try {
                 marginRight = parseInt(marginR.replace("px", ""));
@@ -634,7 +648,33 @@ export module JQueryUI {
             catch (ex) {
             }
 
-            var maxMargin = (marginLeft + marginRight);
+            try {
+                borderRight = parseInt(borderR.replace("px", ""));
+            }
+            catch (ex) {
+            }
+
+            try {
+                borderLeft = parseInt(borderL.replace("px", ""));
+            }
+            catch (ex) {
+            }
+
+
+            try {
+                paddingRight = parseInt(paddingR.replace("px", ""));
+            }
+            catch (ex) {
+            }
+
+            try {
+                paddingLeft = parseInt(paddingL.replace("px", ""));
+            }
+            catch (ex) {
+            }
+
+
+            var maxMargin = (marginLeft + marginRight) + (borderLeft + borderRight) + (paddingLeft + paddingRight);
 
             calculateMaxWidth = calculateMaxWidth - maxMargin;
 
