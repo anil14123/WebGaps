@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
-    <meta id="viewPort" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kick</title>
      
     <%--  <script class=" jquery" src="/Library/jquery-1.11.2.min.js"></script>
